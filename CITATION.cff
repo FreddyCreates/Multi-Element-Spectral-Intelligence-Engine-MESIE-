@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "MESIE: Multi-Element Spectral Intelligence Engine"
+message: "If you use MESIE in your research, please cite this software."
+type: software
+authors:
+  - family-names: Medina
+    given-names: Alfredo
+    affiliation: ITSNOTAILabs
+version: 0.1.0
+license: Apache-2.0
+repository-code: "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+abstract: "MESIE is an open-source Python framework for multi-component spectral matching, PSD/FAS-compatible generation, RotDnn-style spectral handling, resonance-aware embeddings, and AI-native spectral representation."
+keywords:
+  - spectral matching
+  - signal processing
+  - PSD
+  - FAS
+  - RotDnn
+  - spectral embeddings
+  - artificial intelligence
+  - cognitive architectures

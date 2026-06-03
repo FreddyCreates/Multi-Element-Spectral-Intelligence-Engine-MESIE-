@@ -1,0 +1,39 @@
+{
+  "title": "MESIE: Multi-Element Spectral Intelligence Engine",
+  "upload_type": "software",
+  "description": "MESIE is an open-source Python framework for multi-component spectral matching, PSD/FAS-compatible generation, RotDnn-style spectral handling, resonance-aware embeddings, and AI-native spectral representation for scientific, engineering, digital twin, and cognitive architecture research.",
+  "creators": [
+    {
+      "name": "Medina, Alfredo",
+      "affiliation": "ITSNOTAILabs"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "ITSNOTAILabs",
+      "type": "ResearchGroup"
+    }
+  ],
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "version": "0.1.0",
+  "language": "eng",
+  "keywords": [
+    "spectral matching",
+    "signal processing",
+    "power spectral density",
+    "Fourier amplitude spectrum",
+    "RotDnn",
+    "spectral embeddings",
+    "artificial intelligence",
+    "cognitive architectures",
+    "digital twins",
+    "resonance analysis",
+    "multi-component records",
+    "scientific Python",
+    "earthquake engineering",
+    "structural monitoring",
+    "time series analysis"
+  ],
+  "notes": "Initial public research release. This version focuses on spectral matching, signal generation, validation, and embedding-ready architecture. Private/internal architecture extensions are not included in this public release."
+}
