@@ -3,8 +3,9 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org)
+[![Version](https://img.shields.io/badge/version-0.2.0-green.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-)
 
-MESIE is an open-source Python framework for multi-component spectral matching, signal generation, resonance-aware embeddings, and AI-native spectral representation.
+MESIE is an open-source Python framework for multi-component spectral matching, signal generation, resonance-aware embeddings, transformer-based intelligence protocols, and AI-native spectral representation.
 
 It supports:
 
@@ -18,6 +19,11 @@ It supports:
 - Frequency-domain matching
 - Resonance/coherence scoring
 - Embedding generation for AI and cognitive systems
+- **Intelligence protocols with autonomous reasoning** *(new in v0.2.0)*
+- **Transformer-based spectral pipelines** *(new in v0.2.0)*
+- **Helix vector encoding and retrieval** *(new in v0.2.0)*
+- **Spectral data protocols and streaming** *(new in v0.2.0)*
+- **AI system integration and pipeline orchestration** *(new in v0.2.0)*
 
 ## Why MESIE?
 
@@ -45,10 +51,16 @@ A spectral record can become more than a plotted curve. It can become a reusable
 pip install mesie
 ```
 
-For full functionality (scipy, pandas, scikit-learn, networkx):
+For full functionality (scipy, pandas, scikit-learn, networkx, transformers, torch):
 
 ```bash
 pip install mesie[full]
+```
+
+For AI/intelligence protocols only:
+
+```bash
+pip install mesie[intelligence]
 ```
 
 For development:
@@ -90,6 +102,123 @@ from mesie.embeddings import SpectralVectorizer
 
 vectorizer = SpectralVectorizer()
 embedding = vectorizer.fit_transform(record)
+```
+
+## Intelligence Protocols — Autonomous Spectral Reasoning
+
+MESIE v0.2.0 introduces **Intelligence Protocols** — an orchestration layer for autonomous spectral reasoning with configurable intelligence levels:
+
+```python
+from mesie import IntelligenceProtocol, IntelligenceConfig, IntelligenceLevel, ReasoningStrategy
+import numpy as np
+
+# Configure intelligence behavior
+config = IntelligenceConfig(
+    level=IntelligenceLevel.ADAPTIVE,
+    memory_capacity=500,
+    attention_heads=8,
+)
+
+# Create protocol instance
+protocol = IntelligenceProtocol(config)
+
+# Autonomous reasoning over spectral data
+spectrum = np.random.randn(256)
+result = protocol.reason(spectrum, strategy=ReasoningStrategy.ENSEMBLE)
+print(f"Conclusion: {result.conclusion}")
+print(f"Confidence: {result.confidence:.3f}")
+print(f"Evidence: {result.evidence}")
+print(f"Recommended actions: {result.recommended_actions}")
+```
+
+### Intelligence Levels
+
+| Level | Behavior |
+|-------|----------|
+| Passive | Observe and record only |
+| Reactive | Respond to detected anomalies |
+| Adaptive | Learn from patterns and adjust |
+| Predictive | Anticipate future spectral states |
+| Autonomous | Full self-directed reasoning |
+
+## Spectral Transformer Pipeline
+
+End-to-end transformer encoder architecture optimized for spectral sequences:
+
+```python
+from mesie import SpectralTransformerPipeline, TransformerConfig, SpectralTokenizer
+import numpy as np
+
+# Configure and build pipeline
+config = TransformerConfig(d_model=128, n_heads=8, n_layers=6, pooling="mean")
+pipeline = SpectralTransformerPipeline(config)
+
+# Process spectral data
+spectrum = np.random.randn(512)
+output = pipeline.forward(spectrum)
+print(f"Embedding shape: {output.embedding.shape}")
+print(f"Attention maps: {len(output.attention_maps)} layers")
+
+# Tokenization strategies
+tokenizer = SpectralTokenizer(method="frequency_bins", n_tokens=64)
+tokens = tokenizer.tokenize(spectrum)
+```
+
+## Helix Vector Encoding
+
+Hierarchical spectral encoding using helical geometry for efficient retrieval:
+
+```python
+from mesie import VectorHelix, HelixConfig, HelixEncoder, HelixRetriever
+import numpy as np
+
+# Encode spectra into helix space
+config = HelixConfig(dimensions=64, turns=8)
+helix = VectorHelix(config)
+encoded = helix.encode(np.random.randn(256))
+
+# Retrieval over helix-encoded vectors
+retriever = HelixRetriever()
+results = retriever.search(query=encoded, top_k=10)
+```
+
+## Protocols and Streaming
+
+Standardized spectral data protocols for interoperability and real-time streaming:
+
+```python
+from mesie import SpectralDataProtocol, StreamingProtocol, SpectralSerializer, SerializationFormat
+
+# Define and send protocol messages
+protocol = SpectralDataProtocol()
+message = protocol.create_message(record, metadata={"source": "sensor_array_1"})
+
+# Stream spectral data in real-time
+stream = StreamingProtocol(buffer_size=1024)
+stream.push(spectrum_chunk)
+
+# Serialize in multiple formats
+serializer = SpectralSerializer(format=SerializationFormat.MSGPACK)
+payload = serializer.encode(record)
+```
+
+## AI System Integration
+
+Connect MESIE to external AI systems and orchestrate complex pipelines:
+
+```python
+from mesie import AISystemConnector, ConnectorConfig, PipelineOrchestrator, OrchestratorConfig
+
+# Connect to AI systems
+connector = AISystemConnector(ConnectorConfig(endpoint="local", batch_size=32))
+predictions = connector.predict(embeddings)
+
+# Orchestrate multi-stage pipelines
+orchestrator = PipelineOrchestrator(OrchestratorConfig(
+    stages=["validate", "extract", "embed", "reason"],
+    parallel=True,
+))
+result = orchestrator.run(records)
 ```
 
 ## Cognitive Architecture Integration
@@ -188,6 +317,13 @@ flowchart TD
     I --> J[Single / RotDnn / PSD / FAS Outputs]
     D --> K[Spectral Embedding Encoder]
     K --> L[AI Retrieval + Cognitive Memory]
+    D --> M[Transformer Pipeline]
+    M --> N[Intelligence Protocols]
+    N --> O[Autonomous Reasoning + Actions]
+    K --> P[Helix Vector Encoding]
+    P --> Q[Helix Retrieval]
+    L --> R[Protocol Streaming + Serialization]
+    O --> R
 ```
 
 ## Project Structure
@@ -203,7 +339,10 @@ mesie/
 ├── topology/      — Node mapping and lineage tracking
 ├── embeddings/    — Spectral vectorization and retrieval
 ├── cognitive/     — TAURUS memory, NeuroCores, attention, agent-state adapters
-├── ai/            — Transformer pipeline, intelligence protocols, training
+├── ai/            — Transformer pipeline, intelligence protocols, training, inference, transfer
+├── protocols/     — Spectral data protocols, streaming, serialization
+├── integration/   — AI system connectors, library bridges, pipeline orchestration
+├── helix/         — Helix vector encoding, projection, and retrieval
 ├── validation/    — Multi-level validation
 └── visualization/ — Plotting and diagrams
 ```
@@ -222,7 +361,7 @@ If you use MESIE in your research, please cite:
 @software{medina2024mesie,
   author = {Medina, Alfredo},
   title = {MESIE: Multi-Element Spectral Intelligence Engine},
-  version = {0.1.0},
+  version = {0.2.0},
   year = {2024},
   url = {https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-}
 }
