@@ -9,7 +9,7 @@ This module implements a production-ready foundation for MESIE architecture with
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple, Union
 import json
@@ -19,17 +19,20 @@ import pandas as pd
 
 try:
     from scipy.signal import savgol_filter
-except Exception:  # pragma: no cover - optional fallback when scipy is unavailable
+    HAS_SCIPY = True
+except ImportError:  # pragma: no cover - optional fallback when scipy is unavailable
     savgol_filter = None
+    HAS_SCIPY = False
 
 try:
     import networkx as nx
-except Exception:  # pragma: no cover - optional dependency
+except ImportError:  # pragma: no cover - optional dependency
     nx = None
 
 
 ArrayLike = Union[np.ndarray, Sequence[float]]
 RecordInput = Union["MultiElementRecord", np.ndarray, pd.DataFrame, Mapping[str, Any], str, Path]
+_FALLBACK_COMPONENT_NAME = "__mesie_fallback_component__"
 
 
 @dataclass
@@ -269,13 +272,13 @@ def smooth_component(component: SpectralComponent, window_length: int = 9, polyo
     amp = component.amplitude.astype(float)
     if len(amp) < 3:
         return component
-    wl = max(3, int(window_length) | 1)
+    wl = max(3, (int(window_length) // 2) * 2 + 1)
     if wl > len(amp):
         wl = len(amp) if len(amp) % 2 == 1 else len(amp) - 1
     if wl < 3:
         return component
 
-    if savgol_filter is not None and wl > polyorder:
+    if HAS_SCIPY and savgol_filter is not None and wl > polyorder:
         smoothed = savgol_filter(amp, window_length=wl, polyorder=min(polyorder, wl - 1))
     else:
         kernel = np.ones(wl, dtype=float) / wl
@@ -528,8 +531,12 @@ class SpectralMatcher:
 
     def fit(self, reference_records: Sequence[RecordInput]) -> "SpectralMatcher":
         """Fit matcher with reference records used for matching and ranking."""
-
-        self.references = [load_record(r) for r in reference_records]
+        self.references = []
+        for idx, record in enumerate(reference_records):
+            try:
+                self.references.append(load_record(record))
+            except Exception as exc:
+                raise ValueError(f"Failed to load reference record at index {idx}: {exc}") from exc
         return self
 
     def _common_grid(self, reference: MultiElementRecord, candidate: MultiElementRecord) -> np.ndarray:
@@ -555,7 +562,9 @@ class SpectralMatcher:
         cand_map = self._component_map(cand)
         common = sorted(set(ref_map) & set(cand_map))
         if not common:
-            common = [next(iter(ref_map)), next(iter(cand_map))]
+            ref_map[_FALLBACK_COMPONENT_NAME] = next(iter(ref_map.values()))
+            cand_map[_FALLBACK_COMPONENT_NAME] = next(iter(cand_map.values()))
+            common = [_FALLBACK_COMPONENT_NAME]
 
         ch_weights = _normalize_weights(self.channel_weights, common)
 
@@ -690,6 +699,7 @@ class SpectralGenerator:
 
         blend = config.multi_element_blending or {"component_0": 1.0}
         blend = _normalize_weights(blend, blend.keys())
+        output_units = {"psd": "psd", "fas": "fas"}
 
         components: List[SpectralComponent] = []
         for name, w in blend.items():
@@ -697,7 +707,7 @@ class SpectralGenerator:
             node_weight = float(config.ancient_node_influence.get(name, 1.0))
             amp = amp * max(node_weight, 0.0)
             amp = np.clip(amp, config.physical_min_amplitude, config.physical_max_amplitude)
-            units = "psd" if config.output_format.lower() == "psd" else ("fas" if config.output_format.lower() == "fas" else "linear")
+            units = output_units.get(config.output_format.lower(), "linear")
             components.append(
                 SpectralComponent(
                     name=name,
@@ -716,7 +726,7 @@ class SpectralGenerator:
             record_id="generated_record",
             components=components,
             representation=representation,
-            lineage=["generated", "signal_truth"],
+            lineage=["generated", "synthetic"],
         )
 
 
@@ -739,7 +749,7 @@ def validate_record(record: RecordInput) -> ValidationReport:
     base_freq = None
     for idx, c in enumerate(rec.components):
         if len(c.frequency) != len(c.amplitude):
-            errors.append(f"Component '{c.name}' has incompatible component dimensions.")
+            errors.append(f"Component '{c.name}' has mismatched frequency and amplitude array lengths.")
             continue
 
         if len(c.frequency) == 0:
@@ -750,7 +760,7 @@ def validate_record(record: RecordInput) -> ValidationReport:
             errors.append(f"Component '{c.name}' contains NaN/Inf values.")
 
         if np.any(np.diff(c.frequency) <= 0):
-            errors.append(f"Component '{c.name}' has non-monotonic grids.")
+            errors.append(f"Component '{c.name}' has non-monotonically increasing frequency values.")
 
         if np.any(c.amplitude < 0):
             errors.append(f"Component '{c.name}' contains negative amplitudes.")
@@ -771,15 +781,15 @@ def validate_record(record: RecordInput) -> ValidationReport:
     if rep == "psd":
         for c in rec.components:
             if c.units.lower() not in _ValidationRules.PSD_UNITS:
-                warnings.append(f"PSD/FAS unit compatibility warning: '{c.name}' uses '{c.units}' for PSD representation.")
+                warnings.append(f"PSD unit compatibility warning: '{c.name}' uses '{c.units}' for PSD representation.")
     if rep == "fas":
         for c in rec.components:
             if c.units.lower() not in _ValidationRules.FAS_UNITS:
-                warnings.append(f"PSD/FAS unit compatibility warning: '{c.name}' uses '{c.units}' for FAS representation.")
+                warnings.append(f"FAS unit compatibility warning: '{c.name}' uses '{c.units}' for FAS representation.")
 
     if rep == "rotdnn":
         names = {c.name.lower() for c in rec.components}
-        if not any("rot" in n for n in names):
+        if not any(("rot" in n or "rotd" in n) for n in names):
             warnings.append("RotDnn component consistency checks: expected RotDnn-like component names.")
         if len(rec.components) < 2:
             warnings.append("RotDnn component consistency checks: expected multiple rotational components.")
@@ -801,21 +811,21 @@ def match_records(
 def generate_psd(config: GenerationConfig, base_record: Optional[RecordInput] = None) -> MultiElementRecord:
     """Generate a PSD-compatible spectral record."""
 
-    cfg = GenerationConfig(**{**config.__dict__, "output_format": "psd"})
+    cfg = replace(config, output_format="psd")
     return SpectralGenerator().generate(cfg, base_record=base_record)
 
 
 def generate_fas(config: GenerationConfig, base_record: Optional[RecordInput] = None) -> MultiElementRecord:
     """Generate an FAS-compatible spectral record."""
 
-    cfg = GenerationConfig(**{**config.__dict__, "output_format": "fas"})
+    cfg = replace(config, output_format="fas")
     return SpectralGenerator().generate(cfg, base_record=base_record)
 
 
 def generate_rotdnn(config: GenerationConfig, base_record: Optional[RecordInput] = None) -> MultiElementRecord:
     """Generate a RotDnn-compatible spectral record."""
 
-    cfg = GenerationConfig(**{**config.__dict__, "output_format": "rotdnn"})
+    cfg = replace(config, output_format="rotdnn")
     if not cfg.multi_element_blending:
         cfg.multi_element_blending = {"RotD50": 0.5, "RotD100": 0.5}
     return SpectralGenerator().generate(cfg, base_record=base_record)

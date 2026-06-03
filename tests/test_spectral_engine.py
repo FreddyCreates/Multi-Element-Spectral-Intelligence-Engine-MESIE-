@@ -10,7 +10,7 @@ from spectral_engine import (
 )
 
 
-class SpectralEngineTests(unittest.TestCase):
+class TestSpectralEngine(unittest.TestCase):
     def test_load_record_dict(self):
         payload = {
             "record_id": "r1",
@@ -39,7 +39,7 @@ class SpectralEngineTests(unittest.TestCase):
         }
         report = validate_record(payload)
         self.assertFalse(report.is_valid)
-        self.assertTrue(any("non-monotonic" in e for e in report.errors))
+        self.assertTrue(any("non-monotonically increasing frequency values" in e for e in report.errors))
 
     def test_match_identical_records_high_score(self):
         freq = np.array([1.0, 2.0, 3.0, 4.0])
@@ -57,6 +57,7 @@ class SpectralEngineTests(unittest.TestCase):
     def test_generate_psd_positive(self):
         rec = generate_psd(GenerationConfig(seed=3))
         self.assertEqual(rec.representation, "psd")
+        self.assertEqual(rec.components[0].units, "psd")
         self.assertTrue(np.all(rec.components[0].amplitude >= 0.0))
 
 
