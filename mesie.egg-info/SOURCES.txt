@@ -11,6 +11,10 @@ mesie/cognitive/__init__.py
 mesie/cognitive/agent_state_adapter.py
 mesie/cognitive/attention_adapter.py
 mesie/cognitive/memory_adapter.py
+mesie/connectome/__init__.py
+mesie/connectome/brain_regions.py
+mesie/connectome/connectome_graph.py
+mesie/connectome/environment.py
 mesie/core/__init__.py
 mesie/core/components.py
 mesie/core/config.py
@@ -61,6 +65,7 @@ mesie/validation/validators.py
 mesie/visualization/__init__.py
 mesie/visualization/diagrams.py
 mesie/visualization/plots.py
+tests/test_connectome.py
 tests/test_embeddings.py
 tests/test_foundation_objectives.py
 tests/test_generation_fas.py
