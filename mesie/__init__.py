@@ -16,16 +16,38 @@ from mesie.generation.psd import generate_psd
 from mesie.generation.fas import generate_fas
 from mesie.generation.rotdnn import generate_rotdnn
 from mesie.embeddings.vectorizers import SpectralVectorizer
+from mesie.ai.models import SpectralAutoencoder, SpectralClassifier, SpectralTransformer
+from mesie.ai.training import TrainingPipeline, TrainingConfig
+from mesie.ai.inference import InferenceEngine, PredictionResult
+from mesie.ai.transfer import TransferAdapter, DomainAdaptation
+from mesie.protocols.spectral_protocol import SpectralDataProtocol, ProtocolMessage
+from mesie.protocols.streaming import StreamingProtocol, StreamBuffer
+from mesie.protocols.serialization import SpectralSerializer, SerializationFormat
 
 __all__ = [
     "__version__",
+    "DomainAdaptation",
     "GenerationConfig",
+    "InferenceEngine",
     "MatchResult",
     "MultiElementRecord",
+    "PredictionResult",
+    "ProtocolMessage",
+    "SerializationFormat",
+    "SpectralAutoencoder",
+    "SpectralClassifier",
     "SpectralComponent",
+    "SpectralDataProtocol",
     "SpectralMatcher",
     "SpectralMetadata",
+    "SpectralSerializer",
+    "SpectralTransformer",
     "SpectralVectorizer",
+    "StreamBuffer",
+    "StreamingProtocol",
+    "TrainingConfig",
+    "TrainingPipeline",
+    "TransferAdapter",
     "ValidationReport",
     "generate_fas",
     "generate_psd",
