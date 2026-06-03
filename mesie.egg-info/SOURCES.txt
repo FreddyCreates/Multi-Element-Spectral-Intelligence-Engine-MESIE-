@@ -54,6 +54,12 @@ mesie/processing/interpolate.py
 mesie/processing/normalize.py
 mesie/processing/smooth.py
 mesie/processing/transforms.py
+mesie/sdk/__init__.py
+mesie/sdk/biological_systems.py
+mesie/sdk/chemical_elements.py
+mesie/sdk/constants.py
+mesie/sdk/neuroaix_engine.py
+mesie/sdk/physical_laws.py
 mesie/topology/__init__.py
 mesie/topology/graph_weights.py
 mesie/topology/lineage.py
