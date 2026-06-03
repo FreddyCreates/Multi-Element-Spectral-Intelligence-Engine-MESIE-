@@ -148,6 +148,76 @@ memory_object = adapter.to_memory_object(record)
 # Returns: {semantic_id, spectral_embedding, resonance_signature, coherence_signature, ...}
 ```
 
+## TAURUS Memory System
+
+TAURUS (Temporal Adaptive Retrieval and Unified Storage) provides persistent, attention-weighted spectral memory for cognitive architectures:
+
+```python
+from mesie.cognitive import TaurusMemoryStore, TaurusWorkingMemory
+import numpy as np
+
+# Long-term memory with temporal decay and attention-weighted retrieval
+store = TaurusMemoryStore(capacity=1000)
+store.store(embedding=np.random.randn(128), context={"source": "sensor_A"}, importance=0.9)
+
+# Retrieve by similarity with attention weighting
+results = store.retrieve(query=np.random.randn(128), top_k=5)
+
+# Working memory with automatic promotion to long-term storage
+working = TaurusWorkingMemory(capacity=7, long_term_store=store)
+working.hold(embedding=np.random.randn(128), semantic_tag="transient")
+```
+
+## NeuroCores — Spectral Neural Processing
+
+NeuroCores are self-contained neural processing units combining attention, memory (TAURUS), and multi-scale analysis:
+
+```python
+from mesie.cognitive import SpectralNeuroCore, NeuroCoreCluster, NeuroCoreConfig
+import numpy as np
+
+# Single core with full pipeline
+core = SpectralNeuroCore(NeuroCoreConfig(d_model=128, n_attention_heads=8))
+result = core.process(np.random.randn(256))
+
+# Access attention analysis for interpretability
+analysis = core.get_attention_analysis()
+# Returns: {mean_entropy, mean_max_attention, mean_sparsity, memory_analysis, ...}
+
+# Multi-core cluster for ensemble processing
+cluster = NeuroCoreCluster(n_cores=4)
+ensemble_embedding = cluster.get_ensemble_embedding(np.random.randn(256))
+```
+
+## Attention Analysis
+
+The pipeline provides interpretability through `get_attention_analysis()`:
+
+- **Attention entropy**: How distributed vs. focused the attention is
+- **Maximum attention**: Strength of the strongest attended-to token
+- **Attention sparsity**: Fraction of near-zero attention weights
+
+This enables understanding of what the model focuses on — critical for scientific applications where interpretability is required.
+
+```python
+from mesie import SpectralTransformerPipeline, TransformerConfig
+import numpy as np
+
+pipeline = SpectralTransformerPipeline(TransformerConfig(d_model=64, n_heads=4))
+analysis = pipeline.get_attention_analysis(np.random.randn(128))
+# {'n_layers': 4, 'layer_analyses': [{layer, attention_entropy, max_attention, attention_sparsity}, ...]}
+```
+
+### What This Enables for AI Systems
+
+1. **Spectral understanding**: Models that truly "understand" spectral structure, not just memorize patterns
+2. **Long-range dependency capture**: Detection of harmonics, resonances, and cross-band relationships
+3. **Multi-scale analysis**: Simultaneous processing at multiple frequency resolutions
+4. **Transfer learning ready**: Pre-trained spectral transformers that transfer across domains
+5. **Interpretable attention**: Visualization of model focus for scientific validation
+6. **Efficient inference**: Fixed-size embeddings from variable-length spectra
+7. **Foundation model potential**: Architecture suitable for large-scale pre-training on diverse spectral data
+
 ## Architecture
 
 ```mermaid
@@ -178,7 +248,8 @@ mesie/
 ├── features/      — Electro-spectral features, resonance, coherence
 ├── topology/      — Node mapping and lineage tracking
 ├── embeddings/    — Spectral vectorization and retrieval
-├── cognitive/     — Memory, attention, anomaly, agent-state adapters
+├── cognitive/     — TAURUS memory, NeuroCores, attention, agent-state adapters
+├── ai/            — Transformer pipeline, intelligence protocols, training
 ├── validation/    — Multi-level validation
 └── visualization/ — Plotting and diagrams
 ```

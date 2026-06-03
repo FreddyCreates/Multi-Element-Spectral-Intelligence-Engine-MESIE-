@@ -44,6 +44,17 @@ from mesie.integration.pipeline_orchestrator import PipelineOrchestrator, Orches
 from mesie.helix.vector_helix import VectorHelix, HelixConfig, HelixNode, HelixTraversalResult
 from mesie.helix.helix_encoder import HelixEncoder, HelixProjection
 from mesie.helix.helix_retrieval import HelixRetriever, HelixSearchResult
+from mesie.cognitive.taurus_memory import (
+    TaurusMemoryStore,
+    TaurusWorkingMemory,
+    MemoryTrace,
+)
+from mesie.cognitive.neurocores import (
+    SpectralNeuroCore,
+    NeuroCoreCluster,
+    NeuroCoreConfig,
+    CoreProcessingResult,
+)
 
 __all__ = [
     "__version__",
@@ -51,6 +62,7 @@ __all__ = [
     "AttentionFocusModule",
     "BridgeState",
     "ConnectorConfig",
+    "CoreProcessingResult",
     "DomainAdaptation",
     "GenerationConfig",
     "HelixConfig",
@@ -66,7 +78,10 @@ __all__ = [
     "IntelligenceProtocol",
     "LibraryBridge",
     "MatchResult",
+    "MemoryTrace",
     "MultiElementRecord",
+    "NeuroCoreCluster",
+    "NeuroCoreConfig",
     "OrchestratorConfig",
     "PipelineOrchestrator",
     "PredictionResult",
@@ -81,6 +96,7 @@ __all__ = [
     "SpectralMatcher",
     "SpectralMemoryBuffer",
     "SpectralMetadata",
+    "SpectralNeuroCore",
     "SpectralSerializer",
     "SpectralTokenizer",
     "SpectralTransformer",
@@ -88,6 +104,8 @@ __all__ = [
     "SpectralVectorizer",
     "StreamBuffer",
     "StreamingProtocol",
+    "TaurusMemoryStore",
+    "TaurusWorkingMemory",
     "TrainingConfig",
     "TrainingPipeline",
     "TransferAdapter",

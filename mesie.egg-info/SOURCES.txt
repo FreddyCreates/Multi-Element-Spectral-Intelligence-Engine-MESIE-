@@ -24,6 +24,8 @@ mesie/cognitive/__init__.py
 mesie/cognitive/agent_state_adapter.py
 mesie/cognitive/attention_adapter.py
 mesie/cognitive/memory_adapter.py
+mesie/cognitive/neurocores.py
+mesie/cognitive/taurus_memory.py
 mesie/core/__init__.py
 mesie/core/components.py
 mesie/core/config.py
@@ -90,5 +92,6 @@ tests/test_matching.py
 tests/test_protocols.py
 tests/test_records.py
 tests/test_spectral_engine.py
+tests/test_taurus_neurocores.py
 tests/test_transformer_pipeline.py
 tests/test_validation.py
