@@ -43,6 +43,14 @@ mesie/generation/fas.py
 mesie/generation/psd.py
 mesie/generation/rotdnn.py
 mesie/generation/single_component.py
+mesie/helix/__init__.py
+mesie/helix/helix_encoder.py
+mesie/helix/helix_retrieval.py
+mesie/helix/vector_helix.py
+mesie/integration/__init__.py
+mesie/integration/ai_connector.py
+mesie/integration/library_bridge.py
+mesie/integration/pipeline_orchestrator.py
 mesie/io/__init__.py
 mesie/io/exporters.py
 mesie/io/loaders.py
@@ -75,6 +83,8 @@ tests/test_ai.py
 tests/test_embeddings.py
 tests/test_generation_fas.py
 tests/test_generation_psd.py
+tests/test_helix.py
+tests/test_integration.py
 tests/test_intelligence_protocols.py
 tests/test_matching.py
 tests/test_protocols.py

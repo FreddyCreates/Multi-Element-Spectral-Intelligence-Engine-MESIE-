@@ -38,18 +38,37 @@ from mesie.ai.transformer_pipeline import (
 from mesie.protocols.spectral_protocol import SpectralDataProtocol, ProtocolMessage
 from mesie.protocols.streaming import StreamingProtocol, StreamBuffer
 from mesie.protocols.serialization import SpectralSerializer, SerializationFormat
+from mesie.integration.ai_connector import AISystemConnector, ConnectorConfig
+from mesie.integration.library_bridge import LibraryBridge, BridgeState
+from mesie.integration.pipeline_orchestrator import PipelineOrchestrator, OrchestratorConfig
+from mesie.helix.vector_helix import VectorHelix, HelixConfig, HelixNode, HelixTraversalResult
+from mesie.helix.helix_encoder import HelixEncoder, HelixProjection
+from mesie.helix.helix_retrieval import HelixRetriever, HelixSearchResult
 
 __all__ = [
     "__version__",
+    "AISystemConnector",
     "AttentionFocusModule",
+    "BridgeState",
+    "ConnectorConfig",
     "DomainAdaptation",
     "GenerationConfig",
+    "HelixConfig",
+    "HelixEncoder",
+    "HelixNode",
+    "HelixProjection",
+    "HelixRetriever",
+    "HelixSearchResult",
+    "HelixTraversalResult",
     "InferenceEngine",
     "IntelligenceConfig",
     "IntelligenceLevel",
     "IntelligenceProtocol",
+    "LibraryBridge",
     "MatchResult",
     "MultiElementRecord",
+    "OrchestratorConfig",
+    "PipelineOrchestrator",
     "PredictionResult",
     "ProtocolMessage",
     "ReasoningResult",
@@ -75,6 +94,7 @@ __all__ = [
     "TransformerConfig",
     "TransformerOutput",
     "ValidationReport",
+    "VectorHelix",
     "generate_fas",
     "generate_psd",
     "generate_rotdnn",
