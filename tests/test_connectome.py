@@ -24,7 +24,7 @@ from mesie.connectome import (
 class TestBrainRegions:
     def test_default_regions_not_empty(self):
         regions = get_default_regions()
-        assert len(regions) > 30  # We defined 42 regions
+        assert len(regions) > 30  # We defined 44 regions
 
     def test_all_regions_have_3d_positions(self):
         for region in get_default_regions():

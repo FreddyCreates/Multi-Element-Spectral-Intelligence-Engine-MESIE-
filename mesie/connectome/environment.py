@@ -398,7 +398,7 @@ class ConnectomeEnvironment3D:
         distance = float(
             np.linalg.norm(src_pos.position_array - tgt_pos.position_array)
         )
-        # ~6 m/s conduction velocity → distance_mm / 6.0 ms
+        # ~6 mm/ms conduction velocity → delay = distance_mm / 6.0
         return max(distance / 6.0, self.dt_ms)
 
     def _capture_state(self) -> ActivationState:
