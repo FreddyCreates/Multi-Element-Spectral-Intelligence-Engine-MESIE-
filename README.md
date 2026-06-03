@@ -4,20 +4,19 @@
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org)
 
-MESIE is an open-source Python framework for multi-component spectral matching, signal generation, resonance-aware embeddings, and AI-native spectral representation.
+MESIE is an open-source Python framework for multi-component spectral matching, signal generation, resonance-aware embeddings, foundation pretraining, and AI-native spectral intelligence.
 
 It supports:
 
-- Single-component spectral records
-- Multi-component records
-- RotDnn-style workflows
-- PSD-compatible generation
-- FAS-compatible generation
-- Spectral validation (6 levels)
-- Spectral feature extraction
-- Frequency-domain matching
-- Resonance/coherence scoring
-- Embedding generation for AI and cognitive systems
+- Single-component and multi-component spectral records
+- RotDnn-style workflows, PSD and FAS generation
+- Spectral validation (6 levels), feature extraction, and matching
+- Resonance/coherence scoring and embedding generation
+- **Foundation pretraining** — Masked Spectral Modeling, InfoNCE Contrastive Learning, and Temporal Prediction (the spectral equivalent of GPT/BERT/SimCLR)
+- **Observation encoder** — raw world → spectra → MESIE embedding → agent observation vector
+- **Digital twin environments** — physics-based simulation with RL reward signals
+- **Lineage-aware spectral memory** — k-NN retrieval, event/time filtering, importance-weighted consolidation
+- **3D connectome brain environment** — 44 real brain regions, 68 biologically-inspired connections, neural simulation engine with conduction delays
 
 ## Why MESIE?
 
@@ -38,6 +37,8 @@ This makes MESIE useful for:
 ## Core Idea
 
 A spectral record can become more than a plotted curve. It can become a reusable memory object, a search vector, a state signature, or a reasoning primitive inside an intelligent system.
+
+MESIE is built on the principle that **the connectome IS the brain, IS the backend, IS the AI, IS the intelligence**. Spectral data flows through a biologically-inspired topology of real brain regions, enabling neural-topology-aware spectral reasoning.
 
 ## Installation
 
@@ -102,6 +103,80 @@ memory_object = adapter.to_memory_object(record)
 # Returns: {semantic_id, spectral_embedding, resonance_signature, coherence_signature, ...}
 ```
 
+## Foundation Pretraining (Spectral GPT)
+
+MESIE includes a full self-supervised pretraining suite — the spectral equivalent of GPT, BERT, and SimCLR combined:
+
+```python
+from mesie.pretraining.foundation_objectives import (
+    MaskedSpectralModeling,
+    InfoNCEContrastive,
+    TemporalPrediction,
+    FoundationObjectiveSuite,
+)
+
+# Combine all objectives into a unified training loop
+suite = FoundationObjectiveSuite(
+    masked_weight=1.0,
+    contrastive_weight=0.5,
+    temporal_weight=0.3,
+)
+losses = suite.compute_losses(batch)
+```
+
+**Objectives:**
+- **Masked Spectral Modeling** — Masks random, contiguous, or band-structured frequency regions (spectral BERT)
+- **InfoNCE Contrastive Learning** — Augmentation pipelines (noise, frequency masking, amplitude scaling, circular shifts) for positive pair generation (spectral SimCLR)
+- **Temporal Prediction** — Predicts future spectral embeddings from past context windows with configurable aggregation strategies
+
+## Observation Encoder (Sensory Cortex)
+
+```python
+from mesie.pretraining.observation_encoder import ObservationEncoder
+
+encoder = ObservationEncoder()
+observation = encoder.encode(raw_spectral_data, state_vector, semantic_context)
+# Output: unified agent observation vector for RL/IL/planning
+```
+
+## Digital Twin Environments
+
+```python
+from mesie.pretraining.digital_twin import DigitalTwinEnvironment
+
+env = DigitalTwinEnvironment(entity_type="rotating_machinery")
+obs = env.reset()
+obs, reward, done, info = env.step(action)
+# Rewards tied to: resonance avoidance, drift minimization,
+#                  coherence maintenance, anomaly detection
+```
+
+## Spectral Memory Store
+
+```python
+from mesie.pretraining.spectral_memory import SpectralMemoryStore
+
+memory = SpectralMemoryStore(capacity=10000)
+memory.store(embedding, event_type="resonance", metadata={"severity": 0.8})
+results = memory.query(query_embedding, k=5, event_filter="anomaly")
+# Supports: k-NN retrieval, lineage reconstruction, importance-weighted consolidation
+```
+
+## 3D Connectome Brain Environment
+
+```python
+from mesie.connectome import ConnectomeEnvironment3D, BrainSystem
+
+env = ConnectomeEnvironment3D()  # 44 real brain regions, 68 connections
+env.inject_stimulus("V1", amplitude=0.9)      # Visual cortex input
+env.inject_stimulus("WER", amplitude=0.8)     # Wernicke's area (language)
+env.inject_stimulus("DLPFC_L", amplitude=0.7) # Executive control
+
+states = env.run(duration_ms=50.0)            # Simulate neural dynamics
+state_3d = env.get_3d_state()                 # Full 3D state for visualization
+# Signal propagation uses ~6 mm/ms conduction velocity
+```
+
 ## Architecture
 
 ```mermaid
@@ -117,7 +192,17 @@ flowchart TD
     D --> I[Spectral Generator]
     I --> J[Single / RotDnn / PSD / FAS Outputs]
     D --> K[Spectral Embedding Encoder]
-    K --> L[AI Retrieval + Cognitive Memory]
+    K --> L[Foundation Pretraining]
+    L --> M[Masked Spectral Modeling]
+    L --> N[InfoNCE Contrastive]
+    L --> O[Temporal Prediction]
+    K --> P[Observation Encoder]
+    P --> Q[Agent Policy / Controller]
+    K --> R[Spectral Memory Store]
+    R --> S[k-NN Retrieval + Consolidation]
+    K --> T[3D Connectome Brain]
+    T --> U[44 Brain Regions × 68 Connections]
+    U --> V[Neural Dynamics Simulation]
 ```
 
 ## Project Structure
@@ -133,6 +218,8 @@ mesie/
 ├── topology/      — Node mapping and lineage tracking
 ├── embeddings/    — Spectral vectorization and retrieval
 ├── cognitive/     — Memory, attention, anomaly, agent-state adapters
+├── pretraining/   — Foundation objectives, observation encoder, digital twin, spectral memory
+├── connectome/    — 3D brain regions, connectome graph, neural environment simulation
 ├── validation/    — Multi-level validation
 └── visualization/ — Plotting and diagrams
 ```
