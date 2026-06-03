@@ -20,6 +20,11 @@ mesie/embeddings/__init__.py
 mesie/embeddings/encoders.py
 mesie/embeddings/retrieval.py
 mesie/embeddings/vectorizers.py
+mesie/esuriens/__init__.py
+mesie/esuriens/memory_temple.py
+mesie/esuriens/sovereign_artifact.py
+mesie/esuriens/task_horizon.py
+mesie/esuriens/task_storage.py
 mesie/features/__init__.py
 mesie/features/band_energy.py
 mesie/features/coherence.py
@@ -55,6 +60,7 @@ mesie/visualization/__init__.py
 mesie/visualization/diagrams.py
 mesie/visualization/plots.py
 tests/test_embeddings.py
+tests/test_esuriens_alpha.py
 tests/test_generation_fas.py
 tests/test_generation_psd.py
 tests/test_matching.py
