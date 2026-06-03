@@ -614,7 +614,7 @@ class OctaveBandPooling:
             elif self.pooling_method == "attention":
                 # Attention-weighted pooling
                 attn_w = self.attention_weights[i][:band_size]
-                attn_scores = np.einsum("...n,n1->...1", band, attn_w)
+                attn_scores = np.einsum("...n,na->...a", band, attn_w)
                 attn_scores = np.exp(attn_scores - np.max(attn_scores, axis=-1, keepdims=True))
                 attn_probs = attn_scores / (np.sum(attn_scores, axis=-1, keepdims=True) + 1e-10)
 

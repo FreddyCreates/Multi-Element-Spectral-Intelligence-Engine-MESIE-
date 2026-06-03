@@ -70,8 +70,8 @@ class TestTokenizerConfig:
 
     def test_default_creation(self):
         config = TokenizerConfig()
-        assert config.vocab_size > 0
-        assert config.codebook_dim > 0
+        assert config.vqvae.codebook_size > 0
+        assert config.vqvae.codebook_dim > 0
 
 
 class TestDataConfig:
@@ -88,7 +88,7 @@ class TestTrainingConfig:
 
     def test_default_creation(self):
         config = TrainingConfig()
-        assert config.total_steps > 0
+        assert config.max_epochs > 0
         assert config.learning_rate > 0
         assert config.warmup_steps >= 0
 
