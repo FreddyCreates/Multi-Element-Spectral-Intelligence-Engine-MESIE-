@@ -26,6 +26,9 @@ Requires-Dist: scipy>=1.9; extra == "full"
 Requires-Dist: pandas>=1.5; extra == "full"
 Requires-Dist: scikit-learn>=1.2; extra == "full"
 Requires-Dist: networkx>=3.0; extra == "full"
+Provides-Extra: ai
+Requires-Dist: scipy>=1.9; extra == "ai"
+Requires-Dist: scikit-learn>=1.2; extra == "ai"
 Provides-Extra: dev
 Requires-Dist: pytest>=7.0; extra == "dev"
 Requires-Dist: pytest-cov>=4.0; extra == "dev"
