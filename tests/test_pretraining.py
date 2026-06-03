@@ -411,8 +411,7 @@ class TestDigitalTwinEnvironment:
 
         obs, rewards, done, info = env.step()
         assert len(obs) == 2
-        assert not done
-        assert rewards.total != 0 or True  # Rewards may be 0
+        assert not done  # Should not be done after one step
 
     def test_episode_terminates(self):
         env = DigitalTwinEnvironment.create_factory_environment(n_machines=1)
