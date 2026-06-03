@@ -16,6 +16,9 @@ mesie/core/components.py
 mesie/core/config.py
 mesie/core/metadata.py
 mesie/core/records.py
+mesie/corpora/__init__.py
+mesie/corpora/base.py
+mesie/corpora/domains.py
 mesie/embeddings/__init__.py
 mesie/embeddings/encoders.py
 mesie/embeddings/retrieval.py
@@ -47,6 +50,9 @@ mesie/topology/__init__.py
 mesie/topology/graph_weights.py
 mesie/topology/lineage.py
 mesie/topology/node_mapping.py
+mesie/transfer/__init__.py
+mesie/transfer/alignment.py
+mesie/transfer/cross_domain.py
 mesie/validation/__init__.py
 mesie/validation/exceptions.py
 mesie/validation/reports.py
@@ -60,4 +66,5 @@ tests/test_generation_psd.py
 tests/test_matching.py
 tests/test_records.py
 tests/test_spectral_engine.py
+tests/test_transfer.py
 tests/test_validation.py
