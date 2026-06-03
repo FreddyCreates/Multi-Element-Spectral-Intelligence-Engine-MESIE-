@@ -9,8 +9,15 @@ that force the model to learn spectral reasoning skills:
 - Spectral drift detection and quantification
 - Temporal lineage inference from current spectra
 
-Additionally provides:
-- Digital twin simulation environments for agent-level pretraining
+Foundation pretraining objectives:
+- Masked Spectral Modeling: reconstruct masked frequency bands
+- InfoNCE Contrastive Learning: learn invariant spectral representations
+- Temporal Prediction: predict future spectral embeddings from past
+
+Agent-level integration:
+- Observation encoder with multi-modal concatenation
+- Lineage-conditioned encoding for temporal reasoning
+- Digital twin simulation environments for agent pretraining
 - Spectral memory store with lineage-aware retrieval
 - Multi-stage training recipe orchestration
 """
@@ -39,22 +46,48 @@ from mesie.pretraining.training_recipe import (
     EnvironmentStage,
     FineTuningStage,
 )
+from mesie.pretraining.foundation_objectives import (
+    MaskedSpectralModeling,
+    MaskConfig,
+    InfoNCEContrastiveLoss,
+    AugmentationConfig,
+    TemporalPrediction,
+    TemporalPredictionConfig,
+    FoundationObjectiveSuite,
+)
+from mesie.pretraining.observation_encoder import (
+    ObservationEncoder,
+    LineageConditionedEncoder,
+    SpectralTransform,
+    ModalityConfig,
+)
 
 __all__ = [
+    "AugmentationConfig",
     "CoherenceHead",
     "DigitalTwinEnvironment",
     "EnvironmentStage",
     "FineTuningStage",
+    "FoundationObjectiveSuite",
     "HarmonicStructureHead",
+    "InfoNCEContrastiveLoss",
+    "LineageConditionedEncoder",
     "LineageQuery",
+    "MaskConfig",
+    "MaskedSpectralModeling",
     "MemoryEntry",
+    "ModalityConfig",
+    "ObservationEncoder",
     "PretrainingStage",
     "ResonanceHead",
     "SpectralDriftHead",
     "SpectralEntity",
     "SpectralMemoryStore",
     "SpectralStream",
+    "SpectralTransform",
     "TemporalLineageHead",
+    "TemporalPrediction",
+    "TemporalPredictionConfig",
     "TrainingRecipe",
     "WorldTaskSuite",
 ]

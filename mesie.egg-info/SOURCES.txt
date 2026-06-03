@@ -40,6 +40,8 @@ mesie/matching/metrics.py
 mesie/matching/ranking.py
 mesie/pretraining/__init__.py
 mesie/pretraining/digital_twin.py
+mesie/pretraining/foundation_objectives.py
+mesie/pretraining/observation_encoder.py
 mesie/pretraining/spectral_memory.py
 mesie/pretraining/training_recipe.py
 mesie/pretraining/world_tasks.py
@@ -60,6 +62,7 @@ mesie/visualization/__init__.py
 mesie/visualization/diagrams.py
 mesie/visualization/plots.py
 tests/test_embeddings.py
+tests/test_foundation_objectives.py
 tests/test_generation_fas.py
 tests/test_generation_psd.py
 tests/test_matching.py
