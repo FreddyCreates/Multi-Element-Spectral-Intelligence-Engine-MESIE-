@@ -1,13 +1,13 @@
 Metadata-Version: 2.4
 Name: mesie
-Version: 0.1.0
-Summary: Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, and cognitive integration
+Version: 0.2.0
+Summary: Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, transformer-based intelligence protocols, and cognitive integration
 Author-email: Alfredo Medina <alfredo@itsnotailabs.com>
 License-Expression: Apache-2.0
 Project-URL: Homepage, https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-
 Project-URL: Repository, https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-
 Project-URL: Documentation, https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/tree/main/docs
-Keywords: spectral matching,signal processing,PSD,FAS,RotDnn,embeddings,AI
+Keywords: spectral matching,signal processing,PSD,FAS,RotDnn,embeddings,AI,transformers,intelligence protocols
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Science/Research
 Classifier: Programming Language :: Python :: 3
@@ -26,9 +26,19 @@ Requires-Dist: scipy>=1.9; extra == "full"
 Requires-Dist: pandas>=1.5; extra == "full"
 Requires-Dist: scikit-learn>=1.2; extra == "full"
 Requires-Dist: networkx>=3.0; extra == "full"
+Requires-Dist: transformers>=4.30; extra == "full"
+Requires-Dist: torch>=2.0; extra == "full"
 Provides-Extra: ai
 Requires-Dist: scipy>=1.9; extra == "ai"
 Requires-Dist: scikit-learn>=1.2; extra == "ai"
+Requires-Dist: transformers>=4.30; extra == "ai"
+Requires-Dist: torch>=2.0; extra == "ai"
+Provides-Extra: intelligence
+Requires-Dist: scipy>=1.9; extra == "intelligence"
+Requires-Dist: scikit-learn>=1.2; extra == "intelligence"
+Requires-Dist: transformers>=4.30; extra == "intelligence"
+Requires-Dist: torch>=2.0; extra == "intelligence"
+Requires-Dist: networkx>=3.0; extra == "intelligence"
 Provides-Extra: dev
 Requires-Dist: pytest>=7.0; extra == "dev"
 Requires-Dist: pytest-cov>=4.0; extra == "dev"

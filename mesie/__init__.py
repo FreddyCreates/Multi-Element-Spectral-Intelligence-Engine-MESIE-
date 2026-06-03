@@ -4,7 +4,7 @@ A modular Python framework for spectral matching, signal generation,
 resonance-aware embeddings, and AI-native spectral representation.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 from mesie.core.records import MultiElementRecord, SpectralComponent, SpectralMetadata
 from mesie.core.config import GenerationConfig
@@ -20,34 +20,60 @@ from mesie.ai.models import SpectralAutoencoder, SpectralClassifier, SpectralTra
 from mesie.ai.training import TrainingPipeline, TrainingConfig
 from mesie.ai.inference import InferenceEngine, PredictionResult
 from mesie.ai.transfer import TransferAdapter, DomainAdaptation
+from mesie.ai.intelligence_protocols import (
+    IntelligenceProtocol,
+    IntelligenceConfig,
+    IntelligenceLevel,
+    ReasoningResult,
+    ReasoningStrategy,
+    SpectralMemoryBuffer,
+    AttentionFocusModule,
+)
+from mesie.ai.transformer_pipeline import (
+    SpectralTransformerPipeline,
+    TransformerConfig,
+    TransformerOutput,
+    SpectralTokenizer,
+)
 from mesie.protocols.spectral_protocol import SpectralDataProtocol, ProtocolMessage
 from mesie.protocols.streaming import StreamingProtocol, StreamBuffer
 from mesie.protocols.serialization import SpectralSerializer, SerializationFormat
 
 __all__ = [
     "__version__",
+    "AttentionFocusModule",
     "DomainAdaptation",
     "GenerationConfig",
     "InferenceEngine",
+    "IntelligenceConfig",
+    "IntelligenceLevel",
+    "IntelligenceProtocol",
     "MatchResult",
     "MultiElementRecord",
     "PredictionResult",
     "ProtocolMessage",
+    "ReasoningResult",
+    "ReasoningStrategy",
     "SerializationFormat",
     "SpectralAutoencoder",
     "SpectralClassifier",
     "SpectralComponent",
     "SpectralDataProtocol",
     "SpectralMatcher",
+    "SpectralMemoryBuffer",
     "SpectralMetadata",
     "SpectralSerializer",
+    "SpectralTokenizer",
     "SpectralTransformer",
+    "SpectralTransformerPipeline",
     "SpectralVectorizer",
     "StreamBuffer",
     "StreamingProtocol",
     "TrainingConfig",
     "TrainingPipeline",
     "TransferAdapter",
+    "TransformerConfig",
+    "TransformerOutput",
     "ValidationReport",
     "generate_fas",
     "generate_psd",
