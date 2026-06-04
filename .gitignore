@@ -32,4 +32,4 @@ library/*.json
 .idea/
 .vscode/
 .DS_Store
-Thumbs.db
+Thumbs.dbmesie.egg-info/
