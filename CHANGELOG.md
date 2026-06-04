@@ -2,6 +2,37 @@
 
 All notable changes to MESIE will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- **Foundation Pretraining Suite** (`mesie/pretraining/foundation_objectives.py`)
+  - Masked Spectral Modeling with three masking strategies (random, contiguous, band)
+  - InfoNCE Contrastive Learning with full augmentation pipeline (Gaussian noise, frequency masking, amplitude scaling, circular shifts)
+  - Temporal Prediction with configurable context aggregation (weighted, mean, last, concatenated)
+  - Unified `FoundationObjectiveSuite` orchestrating all losses with configurable weights
+- **Observation Encoder** (`mesie/pretraining/observation_encoder.py`)
+  - Encodes raw world → spectra → MESIE embedding → agent observation vector
+  - Multi-modality support (spectral, state, semantic) with configurable normalization and weighting
+- **Digital Twin Simulation** (`mesie/pretraining/digital_twin.py`)
+  - Physics-based environments (rotating machinery, structural elements, power systems, robotic joints, fluid systems)
+  - RL reward signals tied to resonance avoidance, drift minimization, coherence maintenance, anomaly detection
+- **Spectral Memory Store** (`mesie/pretraining/spectral_memory.py`)
+  - k-NN retrieval over spectral embeddings
+  - Event/time filtering and lineage reconstruction
+  - Importance-weighted memory consolidation
+- **3D Connectome Brain Environment** (`mesie/connectome/`)
+  - 44 real brain regions with MNI 3D coordinates across 10 functional systems
+  - 68 biologically-inspired white-matter tract connections
+  - 3D neural simulation engine with signal propagation using ~6 mm/ms conduction velocity
+  - Global coherence metrics and system-level activation tracking
+  - Full 3D state export for visualization
+- **Miniverse Nesting** (`mesie/cognitive/miniverse.py`)
+  - Recursive containment: outer memory objects contain inner MESIE engines that re-activate on query
+  - Scale-bridging protocol: MatchResult → MemoryEntry promotion with resonance-based importance
+  - Downward attention: outer layer selects which inner micro-patterns to amplify via SpectralAttentionAdapter
+- Example script: `examples/08_3d_connectome_brain.py`
+- Test suites: `tests/test_foundation_objectives.py`, `tests/test_pretraining.py`, `tests/test_connectome.py`, `tests/test_miniverse.py`
+
 ## [0.2.0] - 2026-06-03
 
 ### Added
