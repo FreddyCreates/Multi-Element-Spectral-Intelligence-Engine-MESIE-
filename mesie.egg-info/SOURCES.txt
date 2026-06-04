@@ -2,9 +2,12 @@ LICENSE
 README.md
 pyproject.toml
 mesie/__init__.py
+mesie/cli.py
+mesie/sdk.py
 mesie.egg-info/PKG-INFO
 mesie.egg-info/SOURCES.txt
 mesie.egg-info/dependency_links.txt
+mesie.egg-info/entry_points.txt
 mesie.egg-info/requires.txt
 mesie.egg-info/top_level.txt
 mesie/cognitive/__init__.py
@@ -40,6 +43,7 @@ mesie/generation/psd.py
 mesie/generation/rotdnn.py
 mesie/generation/single_component.py
 mesie/io/__init__.py
+mesie/io/corpus.py
 mesie/io/exporters.py
 mesie/io/loaders.py
 mesie/io/schemas.py

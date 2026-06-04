@@ -40,6 +40,9 @@ dev = [
     "pytest-cov>=4.0",
 ]
 
+[project.scripts]
+mesie = "mesie.cli:main"
+
 [project.urls]
 Homepage = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-"
 Repository = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-"

@@ -1,0 +1,2 @@
+[console_scripts]
+mesie = mesie.cli:main

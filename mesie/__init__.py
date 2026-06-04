@@ -19,6 +19,8 @@ from mesie.embeddings.vectorizers import SpectralVectorizer
 from mesie.cosmology.layers import CosmicSpectralDecomposer, CosmicLayer, LayerDomain
 from mesie.cosmology.token_governor import CalendricalTokenGovernor, TokenBudget
 from mesie.cosmology.teotl_flow import TeotlEnergyFlow
+from mesie.io.corpus import SpectralCorpus
+from mesie.sdk import SpectralIntelligenceSDK
 
 __all__ = [
     "__version__",
@@ -30,6 +32,8 @@ __all__ = [
     "MatchResult",
     "MultiElementRecord",
     "SpectralComponent",
+    "SpectralCorpus",
+    "SpectralIntelligenceSDK",
     "SpectralMatcher",
     "SpectralMetadata",
     "SpectralVectorizer",
