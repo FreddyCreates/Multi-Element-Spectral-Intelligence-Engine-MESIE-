@@ -16,6 +16,10 @@ mesie/core/components.py
 mesie/core/config.py
 mesie/core/metadata.py
 mesie/core/records.py
+mesie/cosmology/__init__.py
+mesie/cosmology/layers.py
+mesie/cosmology/teotl_flow.py
+mesie/cosmology/token_governor.py
 mesie/embeddings/__init__.py
 mesie/embeddings/encoders.py
 mesie/embeddings/retrieval.py
@@ -59,6 +63,7 @@ mesie/validation/validators.py
 mesie/visualization/__init__.py
 mesie/visualization/diagrams.py
 mesie/visualization/plots.py
+tests/test_cosmology.py
 tests/test_embeddings.py
 tests/test_esuriens_alpha.py
 tests/test_generation_fas.py

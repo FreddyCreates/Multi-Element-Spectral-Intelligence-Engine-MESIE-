@@ -16,16 +16,25 @@ from mesie.generation.psd import generate_psd
 from mesie.generation.fas import generate_fas
 from mesie.generation.rotdnn import generate_rotdnn
 from mesie.embeddings.vectorizers import SpectralVectorizer
+from mesie.cosmology.layers import CosmicSpectralDecomposer, CosmicLayer, LayerDomain
+from mesie.cosmology.token_governor import CalendricalTokenGovernor, TokenBudget
+from mesie.cosmology.teotl_flow import TeotlEnergyFlow
 
 __all__ = [
     "__version__",
+    "CalendricalTokenGovernor",
+    "CosmicLayer",
+    "CosmicSpectralDecomposer",
     "GenerationConfig",
+    "LayerDomain",
     "MatchResult",
     "MultiElementRecord",
     "SpectralComponent",
     "SpectralMatcher",
     "SpectralMetadata",
     "SpectralVectorizer",
+    "TeotlEnergyFlow",
+    "TokenBudget",
     "ValidationReport",
     "generate_fas",
     "generate_psd",
