@@ -13,7 +13,7 @@ class TestDomainRegistry:
     """Tests for spectral domain definitions."""
 
     def test_all_domains_registered(self):
-        expected = {"seismic", "vibration", "eeg", "ecg", "audio", "rf", "financial"}
+        expected = {"seismic", "vibration", "eeg", "ecg", "audio", "rf", "financial", "satellite_edge", "eco_hz"}
         assert expected == set(DOMAIN_REGISTRY.keys())
 
     def test_domain_has_required_fields(self):

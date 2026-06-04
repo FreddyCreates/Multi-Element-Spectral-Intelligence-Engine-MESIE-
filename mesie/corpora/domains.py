@@ -85,4 +85,20 @@ DOMAIN_REGISTRY: Dict[str, SpectralDomain] = {
         amplitude_units="normalized",
         description="Fourier-transformed price/volume series and cyclical signatures.",
     ),
+    "satellite_edge": SpectralDomain(
+        name="Satellite Edge Communication",
+        key="satellite_edge",
+        frequency_range=(3.0, 3e14),
+        typical_sampling_rate=1e9,
+        amplitude_units="dBW",
+        description="Hz-ladder satellite edge spectra spanning ELF to optical ISL.",
+    ),
+    "eco_hz": SpectralDomain(
+        name="Eco-Hz / Earth Resonance",
+        key="eco_hz",
+        frequency_range=(1e-8, 50.0),
+        typical_sampling_rate=100.0,
+        amplitude_units="pT",
+        description="Schumann resonances and geophysical oscillations for eco-aware timing.",
+    ),
 }

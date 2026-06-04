@@ -13,6 +13,11 @@ mesie/../data/reference/earthquake_psd_reference.json
 mesie/../data/reference/rotdnn_reference.json
 mesie/../data/reference/structural_fas_reference.json
 mesie/../data/reference/vibration_monitoring_reference.json
+mesie/../data/spectral_library/atmospheric_absorption.json
+mesie/../data/spectral_library/electromagnetic_bands.json
+mesie/../data/spectral_library/hydrogen_spectrum.json
+mesie/../data/spectral_library/satellite_frequencies.json
+mesie/../data/spectral_library/schumann_resonances.json
 mesie/ai/__init__.py
 mesie/ai/bayesian.py
 mesie/ai/explainability.py
@@ -55,6 +60,10 @@ mesie/core/records.py
 mesie/corpora/__init__.py
 mesie/corpora/base.py
 mesie/corpora/domains.py
+mesie/edge/__init__.py
+mesie/edge/edge_protocol.py
+mesie/edge/hz_ladder.py
+mesie/edge/satellite_nodes.py
 mesie/embeddings/__init__.py
 mesie/embeddings/encoders.py
 mesie/embeddings/retrieval.py
@@ -155,6 +164,7 @@ tests/test_ai_expanded_part2.py
 tests/test_cross_domain_experiment.py
 tests/test_deep_modules.py
 tests/test_domain_adaptation.py
+tests/test_edge.py
 tests/test_embeddings.py
 tests/test_generation_fas.py
 tests/test_generation_psd.py
