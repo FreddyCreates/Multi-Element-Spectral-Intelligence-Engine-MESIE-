@@ -39,6 +39,25 @@ def get_reference_path(name: str) -> Path:
     raise FileNotFoundError(f"Data file not found: {name}")
 
 
+def get_library_path(name: str) -> Path:
+    """Get the full path to a spectral library data file.
+
+    Args:
+        name: Filename (with or without .json extension).
+
+    Returns:
+        Full path to the spectral library file.
+    """
+    if not name.endswith(".json"):
+        name = f"{name}.json"
+
+    lib_path = DATA_DIR / "spectral_library" / name
+    if lib_path.exists():
+        return lib_path
+
+    raise FileNotFoundError(f"Spectral library file not found: {name}")
+
+
 def load_reference(name: str) -> dict[str, Any]:
     """Load a reference dataset by name.
 
@@ -85,3 +104,29 @@ def list_benchmarks() -> list[str]:
     if not bench_dir.exists():
         return []
     return [f.stem for f in bench_dir.glob("*.json")]
+
+
+def load_library(name: str) -> dict[str, Any]:
+    """Load a spectral library dataset by name.
+
+    The spectral library contains real-world spectral reference data
+    (e.g., hydrogen emission lines, electromagnetic bands, Schumann
+    resonances, satellite frequencies, atmospheric absorption).
+
+    Args:
+        name: Library name (e.g., 'hydrogen_spectrum', 'schumann_resonances').
+
+    Returns:
+        Parsed JSON data as a dictionary.
+    """
+    path = get_library_path(name)
+    with open(path) as f:
+        return json.load(f)
+
+
+def list_library() -> list[str]:
+    """List all available spectral library datasets."""
+    lib_dir = DATA_DIR / "spectral_library"
+    if not lib_dir.exists():
+        return []
+    return [f.stem for f in lib_dir.glob("*.json")]
