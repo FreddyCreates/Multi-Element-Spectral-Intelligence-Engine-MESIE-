@@ -71,6 +71,7 @@ mesie/edge/hz_ladder.py
 mesie/edge/satellite_nodes.py
 mesie/embeddings/__init__.py
 mesie/embeddings/encoders.py
+mesie/embeddings/neural.py
 mesie/embeddings/retrieval.py
 mesie/embeddings/vectorizers.py
 mesie/features/__init__.py
@@ -136,6 +137,7 @@ mesie/io/exporters.py
 mesie/io/loaders.py
 mesie/io/schemas.py
 mesie/matching/__init__.py
+mesie/matching/approximate.py
 mesie/matching/matcher.py
 mesie/matching/metrics.py
 mesie/matching/ranking.py
@@ -193,6 +195,7 @@ tests/test_integration.py
 tests/test_intelligence_protocols.py
 tests/test_matching.py
 tests/test_miniverse.py
+tests/test_neural_and_approximate.py
 tests/test_pretraining.py
 tests/test_protocols.py
 tests/test_reasoning_engine.py
