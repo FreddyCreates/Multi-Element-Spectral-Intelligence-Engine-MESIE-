@@ -64,7 +64,7 @@ from mesie.edge.satellite_nodes import (
 )
 from mesie.edge.edge_protocol import EdgeSpectralProtocol, EdgeMessage, EdgeRoute
 from mesie.io.corpus import SpectralCorpus
-from mesie.sdk import SpectralIntelligenceSDK
+from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
 
 __all__ = [
     "__version__",

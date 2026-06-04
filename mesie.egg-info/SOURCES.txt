@@ -2,9 +2,12 @@ LICENSE
 README.md
 pyproject.toml
 mesie/__init__.py
+mesie/cli.py
+mesie/sdk.py
 mesie.egg-info/PKG-INFO
 mesie.egg-info/SOURCES.txt
 mesie.egg-info/dependency_links.txt
+mesie.egg-info/entry_points.txt
 mesie.egg-info/requires.txt
 mesie.egg-info/top_level.txt
 mesie/../data/benchmarks/embedding_training_data.json
@@ -65,6 +68,10 @@ mesie/core/records.py
 mesie/corpora/__init__.py
 mesie/corpora/base.py
 mesie/corpora/domains.py
+mesie/cosmology/__init__.py
+mesie/cosmology/layers.py
+mesie/cosmology/teotl_flow.py
+mesie/cosmology/token_governor.py
 mesie/edge/__init__.py
 mesie/edge/edge_protocol.py
 mesie/edge/hz_ladder.py
@@ -73,6 +80,11 @@ mesie/embeddings/__init__.py
 mesie/embeddings/encoders.py
 mesie/embeddings/retrieval.py
 mesie/embeddings/vectorizers.py
+mesie/esuriens/__init__.py
+mesie/esuriens/memory_temple.py
+mesie/esuriens/sovereign_artifact.py
+mesie/esuriens/task_horizon.py
+mesie/esuriens/task_storage.py
 mesie/features/__init__.py
 mesie/features/band_energy.py
 mesie/features/coherence.py
@@ -132,6 +144,7 @@ mesie/integration/ai_connector.py
 mesie/integration/library_bridge.py
 mesie/integration/pipeline_orchestrator.py
 mesie/io/__init__.py
+mesie/io/corpus.py
 mesie/io/exporters.py
 mesie/io/loaders.py
 mesie/io/schemas.py
@@ -180,11 +193,13 @@ tests/test_ai.py
 tests/test_ai_expanded_part1.py
 tests/test_ai_expanded_part2.py
 tests/test_connectome.py
+tests/test_cosmology.py
 tests/test_cross_domain_experiment.py
 tests/test_deep_modules.py
 tests/test_domain_adaptation.py
 tests/test_edge.py
 tests/test_embeddings.py
+tests/test_esuriens_alpha.py
 tests/test_foundation_objectives.py
 tests/test_generation_fas.py
 tests/test_generation_psd.py
@@ -197,6 +212,7 @@ tests/test_pretraining.py
 tests/test_protocols.py
 tests/test_reasoning_engine.py
 tests/test_records.py
+tests/test_sdk_and_corpus.py
 tests/test_spectral_engine.py
 tests/test_taurus_neurocores.py
 tests/test_transfer.py
