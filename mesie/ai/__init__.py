@@ -1,4 +1,4 @@
-"""MESIE AI — Neural spectral models, training, inference, and transfer learning."""
+"""MESIE AI — Neural spectral models, training, inference, transfer learning, and advanced AI."""
 
 from mesie.ai.models import (
     SpectralAutoencoder,
@@ -18,8 +18,63 @@ from mesie.ai.foundation_model import (
     ContrastiveSpectralLearning,
     SpectralTransferHead,
 )
+from mesie.ai.meta_learning import (
+    PrototypicalNetwork,
+    MAMLAdapter,
+    TaskDistribution,
+    MetaLearningConfig,
+    MetaTask,
+    MetaResult,
+    MetaStrategy,
+)
+from mesie.ai.bayesian import (
+    BayesianSpectralNetwork,
+    CalibrationModule,
+    EnsemblePredictor,
+    BayesianConfig,
+    UncertaintyEstimate,
+    UncertaintyType,
+)
+from mesie.ai.generative import (
+    SpectralVAE,
+    SpectralDiffusion,
+    SpectralGAN,
+    VAEConfig,
+    DiffusionConfig,
+    GenerationResult,
+    GenerativeModelType,
+)
+from mesie.ai.explainability import (
+    PerturbationExplainer,
+    GradientExplainer,
+    CounterfactualExplainer,
+    SpectralAttentionVisualizer,
+    Explanation,
+    ExplanationType,
+    SpectralFeatureImportance,
+)
+from mesie.ai.time_series import (
+    AutoregressiveForecaster,
+    SpectralDecompositionForecaster,
+    NeuralForecaster,
+    EnsembleForecaster,
+    ForecastConfig,
+    ForecastResult,
+    ForecastMethod,
+)
+from mesie.ai.reinforcement import (
+    QLearningAgent,
+    PolicyGradientAgent,
+    MultiArmedBandit,
+    SpectralEnvironment,
+    RLConfig,
+    Experience,
+    AgentMetrics,
+    AgentType,
+)
 
 __all__ = [
+    # Core models
     "ContrastiveSpectralLearning",
     "DomainAdaptation",
     "GatedMultiHeadAttention",
@@ -37,4 +92,52 @@ __all__ = [
     "TrainingConfig",
     "TrainingPipeline",
     "TransferAdapter",
+    # Meta-learning
+    "PrototypicalNetwork",
+    "MAMLAdapter",
+    "TaskDistribution",
+    "MetaLearningConfig",
+    "MetaTask",
+    "MetaResult",
+    "MetaStrategy",
+    # Bayesian
+    "BayesianSpectralNetwork",
+    "CalibrationModule",
+    "EnsemblePredictor",
+    "BayesianConfig",
+    "UncertaintyEstimate",
+    "UncertaintyType",
+    # Generative
+    "SpectralVAE",
+    "SpectralDiffusion",
+    "SpectralGAN",
+    "VAEConfig",
+    "DiffusionConfig",
+    "GenerationResult",
+    "GenerativeModelType",
+    # Explainability
+    "PerturbationExplainer",
+    "GradientExplainer",
+    "CounterfactualExplainer",
+    "SpectralAttentionVisualizer",
+    "Explanation",
+    "ExplanationType",
+    "SpectralFeatureImportance",
+    # Time series
+    "AutoregressiveForecaster",
+    "SpectralDecompositionForecaster",
+    "NeuralForecaster",
+    "EnsembleForecaster",
+    "ForecastConfig",
+    "ForecastResult",
+    "ForecastMethod",
+    # Reinforcement learning
+    "QLearningAgent",
+    "PolicyGradientAgent",
+    "MultiArmedBandit",
+    "SpectralEnvironment",
+    "RLConfig",
+    "Experience",
+    "AgentMetrics",
+    "AgentType",
 ]
