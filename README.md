@@ -24,6 +24,9 @@ It supports:
 - **Helix vector encoding and retrieval** *(new in v0.2.0)*
 - **Spectral data protocols and streaming** *(new in v0.2.0)*
 - **AI system integration and pipeline orchestration** *(new in v0.2.0)*
+- **Foundation pretraining** — Masked Spectral Modeling, InfoNCE Contrastive Learning, Temporal Prediction
+- **3D connectome brain environment** — 44 brain regions, 68 biologically-inspired connections, neural simulation
+- **Miniverse nesting** — recursive containment, scale-bridging, and downward attention for cognitive architectures
 
 ## Why MESIE?
 

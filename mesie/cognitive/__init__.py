@@ -3,6 +3,13 @@
 from mesie.cognitive.memory_adapter import SpectralMemoryAdapter
 from mesie.cognitive.attention_adapter import SpectralAttentionAdapter
 from mesie.cognitive.agent_state_adapter import AgentStateSpectralAdapter, SpectralAnomalyAdapter
+from mesie.cognitive.miniverse import (
+    ContainedEngine,
+    DownwardAttention,
+    RecursiveMemoryContainer,
+    ScaleBridge,
+    ScaleBridgeConfig,
+)
 from mesie.cognitive.taurus_memory import (
     TaurusMemoryStore,
     TaurusWorkingMemory,
@@ -118,6 +125,11 @@ from mesie.cognitive.cross_domain_transfer import (
 __all__ = [
     # Core adapters
     "AgentStateSpectralAdapter",
+    "ContainedEngine",
+    "DownwardAttention",
+    "RecursiveMemoryContainer",
+    "ScaleBridge",
+    "ScaleBridgeConfig",
     "SpectralAnomalyAdapter",
     "SpectralAttentionAdapter",
     "SpectralMemoryAdapter",
