@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.1] - 2026-06-04
+
+### Added
+- Internal API bus (`mesie/internal_api`) for cross-engine communication
+- Nine processing engines: embedding, matching, generation, validation, intelligence, control, movement, workflow, logic
+- Octopus engineering controller with eight arms (sense, embed, match, move, control, workflow, logic, memory)
+- User spectral library loader wired to EMBED arm (`mesie/library/user_corpus.py`)
+- Cloudflare Worker API (`workers/mesie-api`), bundled data package, laptop/octopus docs and scripts
+
+### Changed
+- `embed_my_library.py` saves index and optional `--octopus` demo cycle
+- Reference datasets clipped/validated for level-6 compliance
+
 All notable changes to MESIE will be documented in this file.
 
 ## [Unreleased]
@@ -63,6 +76,18 @@ All notable changes to MESIE will be documented in this file.
 - Updated `CITATION.cff` with new version and expanded keywords
 - Updated `pyproject.toml` description and keywords to reflect transformer and intelligence capabilities
 - Extended `[full]` and `[ai]` optional dependency groups to include transformers and torch
+
+## [0.2.1] - 2026-06-04
+
+### Fixed
+- Bundled reference PSD/FAS JSON: clip negative amplitudes; set component units; all references reach validation level 6
+- `data` package included correctly in PyPI wheel (`data/__init__.py` + JSON)
+
+### Added
+- `scripts/orbital_edge_50d_analysis.py` — 50d backward + 50d forward orbital-edge matching demo
+- `scripts/determinism_benchmark.py` — timing and seed reproducibility proof
+- `tests/test_bundled_data.py`, `tests/test_bundled_training_smoke.py`
+- Cloudflare Worker scaffold `workers/mesie-api/`
 
 ## [0.1.0] - 2024-01-01
 
