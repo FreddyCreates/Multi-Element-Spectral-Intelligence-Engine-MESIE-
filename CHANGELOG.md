@@ -2,6 +2,68 @@
 
 All notable changes to MESIE will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- **Foundation Pretraining Suite** (`mesie/pretraining/foundation_objectives.py`)
+  - Masked Spectral Modeling with three masking strategies (random, contiguous, band)
+  - InfoNCE Contrastive Learning with full augmentation pipeline (Gaussian noise, frequency masking, amplitude scaling, circular shifts)
+  - Temporal Prediction with configurable context aggregation (weighted, mean, last, concatenated)
+  - Unified `FoundationObjectiveSuite` orchestrating all losses with configurable weights
+- **Observation Encoder** (`mesie/pretraining/observation_encoder.py`)
+  - Encodes raw world → spectra → MESIE embedding → agent observation vector
+  - Multi-modality support (spectral, state, semantic) with configurable normalization and weighting
+- **Digital Twin Simulation** (`mesie/pretraining/digital_twin.py`)
+  - Physics-based environments (rotating machinery, structural elements, power systems, robotic joints, fluid systems)
+  - RL reward signals tied to resonance avoidance, drift minimization, coherence maintenance, anomaly detection
+- **Spectral Memory Store** (`mesie/pretraining/spectral_memory.py`)
+  - k-NN retrieval over spectral embeddings
+  - Event/time filtering and lineage reconstruction
+  - Importance-weighted memory consolidation
+- **3D Connectome Brain Environment** (`mesie/connectome/`)
+  - 44 real brain regions with MNI 3D coordinates across 10 functional systems
+  - 68 biologically-inspired white-matter tract connections
+  - 3D neural simulation engine with signal propagation using ~6 mm/ms conduction velocity
+  - Global coherence metrics and system-level activation tracking
+  - Full 3D state export for visualization
+- **Miniverse Nesting** (`mesie/cognitive/miniverse.py`)
+  - Recursive containment: outer memory objects contain inner MESIE engines that re-activate on query
+  - Scale-bridging protocol: MatchResult → MemoryEntry promotion with resonance-based importance
+  - Downward attention: outer layer selects which inner micro-patterns to amplify via SpectralAttentionAdapter
+- Example script: `examples/08_3d_connectome_brain.py`
+- Test suites: `tests/test_foundation_objectives.py`, `tests/test_pretraining.py`, `tests/test_connectome.py`, `tests/test_miniverse.py`
+
+## [0.2.0] - 2026-06-03
+
+### Added
+- **Intelligence AI Protocols** (`mesie.ai.intelligence_protocols`)
+  - `IntelligenceProtocol` — orchestrator for autonomous spectral reasoning with configurable intelligence levels (passive, reactive, adaptive, predictive, autonomous)
+  - `IntelligenceConfig` — configuration for reasoning behavior, memory, and attention settings
+  - `ReasoningResult` — structured output with conclusions, confidence, evidence, and recommended actions
+  - `SpectralMemoryBuffer` — episodic memory with importance-weighted retention and similarity-based retrieval
+  - `AttentionFocusModule` — multi-head attention mechanism that learns informative frequency regions
+  - `ReasoningStrategy` enum — statistical, pattern matching, anomaly detection, causal inference, ensemble
+
+- **Spectral Transformer Pipeline** (`mesie.ai.transformer_pipeline`)
+  - `SpectralTransformerPipeline` — end-to-end transformer encoder for spectral sequences
+  - `TransformerConfig` — configurable architecture (d_model, n_heads, n_layers, feedforward dim, pooling)
+  - `SpectralTokenizer` — converts continuous spectra to discrete tokens (frequency bins, wavelets, patches)
+  - `PositionalEncoder` — sinusoidal and learnable positional encodings for spectral sequences
+  - `MultiHeadSpectralAttention` — scaled dot-product multi-head attention optimized for frequency data
+  - `TransformerEncoderLayer` — full encoder block with attention, feed-forward, residual connections, and layer norm
+  - `TransformerOutput` — structured output with embeddings, pooled vectors, and attention maps
+
+- New install extras: `[intelligence]` for full AI protocol + transformer stack
+- Added `transformers>=4.30` and `torch>=2.0` as optional dependencies
+- Tests for intelligence protocols and transformer pipeline
+
+### Changed
+- Bumped version from 0.1.0 to 0.2.0
+- Updated `.zenodo.json` with full Zenodo release metadata including references, subjects, and related identifiers
+- Updated `CITATION.cff` with new version and expanded keywords
+- Updated `pyproject.toml` description and keywords to reflect transformer and intelligence capabilities
+- Extended `[full]` and `[ai]` optional dependency groups to include transformers and torch
+
 ## [0.1.0] - 2024-01-01
 
 ### Added

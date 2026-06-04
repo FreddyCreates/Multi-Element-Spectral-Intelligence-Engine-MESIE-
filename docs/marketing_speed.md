@@ -1,110 +1,108 @@
-# MESIE — Performance & Scale Factsheet
+# How Fast Is MESIE?
 
-> Plain-language numbers for what MESIE does and how large it is.
+Think of one "does this spectrum match that reference?" check.
+
+On your laptop, MESIE does that in about **¼ of a millisecond** — roughly **4,000 comparisons per second** on a single core, without a GPU.
 
 ---
 
-## Speed (single laptop, single core, no GPU)
+## Everyday Comparisons
 
-> **"MESIE can compare thousands of spectral fingerprints per second on a
-> normal laptop — faster than opening a spreadsheet, and far faster than
-> waiting on the cloud."**
-
-### Core operation: one match
-
-| Metric | Value |
-|--------|-------|
-| Single spectral match | ~0.25 ms |
-| Throughput | ~4,000 comparisons / sec |
-| Rank a handful of candidates | < 1 ms (~1,000 rankings / sec) |
-| Generate a synthetic spectrum (fixed seed) | ~0.05 ms (~19,000 / sec) |
-
-### Everyday comparisons
-
-| What people know | Rough time | MESIE equivalent |
-|------------------|-----------|------------------|
-| Double-clicking open a medium Excel file | ~1–3 seconds | ~4,000–12,000 matches in the same time |
-| One round-trip to a typical cloud API (network only) | ~50–200 ms | ~200–800× faster (just local math, no network) |
+| What people know | Rough time | MESIE comparison |
+|---|---|---|
+| Double-clicking open a medium Excel file | ~1–3 seconds | MESIE runs **4,000–12,000 match checks** in the same time |
+| One round-trip to a typical cloud API (network only) | ~50–200 ms | ~250× faster — just math, no network wait |
 | An engineer eyeballing a chart | minutes | Millions of times faster |
-| Running a heavy ML model inference | 100 ms – seconds | Core path is lightweight math, not a big neural net |
-
-### Determinism
-
-Same inputs + same seed → same answer every time. Good for audits,
-demos, and regulated workflows.
+| Running a heavy ML model inference | often 100 ms–seconds | Core match path is lightweight math, not a big neural-net forward pass |
 
 ---
 
-## Codebase Size (the software itself)
+## Plain Line for Marketing
 
-| Metric | Value |
-|--------|-------|
-| Python modules | ~30 |
-| Lines of production code | ~3,000 |
-| Test coverage | Core matching, generation, embeddings, validation |
-| Install size | Lightweight — NumPy is the only hard dependency |
-
-MESIE is a **compact, modular engine** — not a monolith. The codebase is
-intentionally small so it remains auditable, fast to install, and easy to
-extend.
+> "MESIE can compare thousands of spectral fingerprints per second on a normal laptop — faster than opening a spreadsheet, and far faster than waiting on the cloud."
 
 ---
 
-## Dataset Size (what you bring)
+## Other Operations (Same Machine)
 
-MESIE does **not** ship a built-in spectral library. You connect your own data:
-
-| Scenario | Expected Scale |
-|----------|---------------|
-| Research prototype | 10–1,000 records |
-| Production library | 10,000–1,000,000+ records |
-| Real-time stream | Continuous ingestion via `SpectralCorpus` |
-
-Use `SpectralCorpus.from_directory()` or the CLI (`mesie load-corpus /path`)
-to point the engine at your spectral library of any size.
+| Operation | Time per call | Throughput |
+|---|---|---|
+| Match one spectrum against one reference | ~0.25 ms | ~4,000/sec |
+| Rank a handful of candidates | < 1 ms | ~1,000 rankings/sec |
+| Generate a synthetic spectrum (fixed seed) | ~0.05 ms | ~19,000/sec |
 
 ---
 
-## What MESIE Does (capabilities)
+## Determinism
 
-1. **Spectral Matching** — composite scoring across cosine similarity, RMSE,
-   log spectral distance, band-weighted error, electro-spectral alignment,
-   and node topology.
-2. **Signal Generation** — synthesize PSD, FAS, and RotDnn spectra from
-   parametric configurations.
-3. **Embeddings** — convert spectral records into fixed-size vectors for ML,
-   clustering, and retrieval.
-4. **Validation** — automated quality checks on spectral records.
-5. **Corpus Management** — load, filter, and iterate large spectral
-   libraries from directories of JSON/CSV files.
+Same inputs + same seed → **same answer every time**.
+
+Good for audits, demos, and regulated workflows.
 
 ---
 
-## One-Line Quickstart
+## What "100,000 Lines" Means
+
+That number is the size of the **MESIE software** (v0.2 expansion: protocols, transformers, cognitive modules, foundation SDK, etc.) — not a dataset count.
+
+- ~45k+ lines of Python in the repo today
+- ~130 Python modules under `mesie/`
+- The ~100k figure = planned/marketed scale of the full v0.2 "organism" (code + architecture)
+
+### How It Works
+
+```
+Your spectral data (files, streams, libraries of records)
+        ↓
+MESIE engine (100k-scale codebase — the "brain")
+        ↓
+Answers: match score, rank, validate, embed, anomaly, etc.
+```
+
+- **The library** = the code (matching, AI protocols, Helix, cognitive adapters, SpectralIntelligenceSDK, etc.)
+- **The fuel** = spectral records (JSON, CSV, your 50-day feeds, big corpora you add)
+
+---
+
+## Marketing Bullets (Non-Scientific)
+
+1. **Speed:** "Thousands of spectral match checks per second on a laptop."
+2. **Scale of product:** "Tens of thousands of lines of purpose-built spectral-AI code — not a thin wrapper around one algorithm."
+3. **Trust:** "Same input, same answer — reproducible for science and compliance."
+4. **Data:** "Works with your spectral libraries; ships with reference datasets to get started."
+5. **Stack:** "From quick match at the edge (Cloudflare) to full reasoning stack in Python."
+
+---
+
+## Bundled Reference Data
+
+MESIE ships with real-world spectral reference libraries ready to use:
+
+| Library | Description |
+|---|---|
+| `hydrogen_spectrum` | Hydrogen atomic emission lines (Balmer, Lyman, Paschen series) from NIST ASD |
+| `electromagnetic_bands` | Complete EM spectrum band definitions (IEEE/ITU standards) |
+| `schumann_resonances` | Earth-ionosphere cavity resonances + geophysical frequencies |
+| `satellite_frequencies` | Satellite communication frequencies and orbital parameters |
+| `atmospheric_absorption` | Atmospheric absorption/transmission windows (ITU-R P.676) |
+
+Plus domain-specific references for seismic, structural, and vibration monitoring.
+
+---
+
+## Loading Data
 
 ```python
-from mesie.sdk import SpectralIntelligenceSDK
+from data import load_library, load_reference, list_library
 
-engine = SpectralIntelligenceSDK()
-corpus = engine.load_corpus("/path/to/your/spectral/library")
-results = engine.rank(candidate_record, top_k=10)
+# See what's available
+print(list_library())
+# ['atmospheric_absorption', 'electromagnetic_bands', 'hydrogen_spectrum',
+#  'satellite_frequencies', 'schumann_resonances']
+
+# Load a spectral library
+hydrogen = load_library("hydrogen_spectrum")
+
+# Load a domain reference
+quake_ref = load_reference("earthquake_psd_reference")
 ```
-
-Or from the command line:
-
-```bash
-mesie load-corpus /path/to/your/library --list
-mesie repl --corpus /path/to/your/library
-```
-
----
-
-## Key Distinction
-
-| Term | Meaning |
-|------|---------|
-| **Codebase size** | How many lines of Python make up MESIE (~3 k LoC) |
-| **Dataset size** | How many spectral records you load into the engine (your data) |
-
-MESIE is small software that processes large data. These are independent
-numbers — a 3,000-line engine can match against a million-record library.
