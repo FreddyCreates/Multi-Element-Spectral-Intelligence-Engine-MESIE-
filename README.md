@@ -3,20 +3,30 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org)
+[![Version](https://img.shields.io/badge/version-0.2.0-green.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-)
 
-MESIE is an open-source Python framework for multi-component spectral matching, signal generation, resonance-aware embeddings, foundation pretraining, and AI-native spectral intelligence.
+MESIE is an open-source Python framework for multi-component spectral matching, signal generation, resonance-aware embeddings, transformer-based intelligence protocols, and AI-native spectral representation.
 
 It supports:
 
-- Single-component and multi-component spectral records
-- RotDnn-style workflows, PSD and FAS generation
-- Spectral validation (6 levels), feature extraction, and matching
-- Resonance/coherence scoring and embedding generation
-- **Foundation pretraining** — Masked Spectral Modeling, InfoNCE Contrastive Learning, and Temporal Prediction (the spectral equivalent of GPT/BERT/SimCLR)
-- **Observation encoder** — raw world → spectra → MESIE embedding → agent observation vector
-- **Digital twin environments** — physics-based simulation with RL reward signals
-- **Lineage-aware spectral memory** — k-NN retrieval, event/time filtering, importance-weighted consolidation
-- **3D connectome brain environment** — 44 real brain regions, 68 biologically-inspired connections, neural simulation engine with conduction delays
+- Single-component spectral records
+- Multi-component records
+- RotDnn-style workflows
+- PSD-compatible generation
+- FAS-compatible generation
+- Spectral validation (6 levels)
+- Spectral feature extraction
+- Frequency-domain matching
+- Resonance/coherence scoring
+- Embedding generation for AI and cognitive systems
+- **Intelligence protocols with autonomous reasoning** *(new in v0.2.0)*
+- **Transformer-based spectral pipelines** *(new in v0.2.0)*
+- **Helix vector encoding and retrieval** *(new in v0.2.0)*
+- **Spectral data protocols and streaming** *(new in v0.2.0)*
+- **AI system integration and pipeline orchestration** *(new in v0.2.0)*
+- **Foundation pretraining** — Masked Spectral Modeling, InfoNCE Contrastive Learning, Temporal Prediction
+- **3D connectome brain environment** — 44 brain regions, 68 biologically-inspired connections, neural simulation
+- **Miniverse nesting** — recursive containment, scale-bridging, and downward attention for cognitive architectures
 
 ## Why MESIE?
 
@@ -38,18 +48,22 @@ This makes MESIE useful for:
 
 A spectral record can become more than a plotted curve. It can become a reusable memory object, a search vector, a state signature, or a reasoning primitive inside an intelligent system.
 
-MESIE is built on the principle that **the connectome IS the brain, IS the backend, IS the AI, IS the intelligence**. Spectral data flows through a biologically-inspired topology of real brain regions, enabling neural-topology-aware spectral reasoning.
-
 ## Installation
 
 ```bash
 pip install mesie
 ```
 
-For full functionality (scipy, pandas, scikit-learn, networkx):
+For full functionality (scipy, pandas, scikit-learn, networkx, transformers, torch):
 
 ```bash
 pip install mesie[full]
+```
+
+For AI/intelligence protocols only:
+
+```bash
+pip install mesie[intelligence]
 ```
 
 For development:
@@ -93,6 +107,123 @@ vectorizer = SpectralVectorizer()
 embedding = vectorizer.fit_transform(record)
 ```
 
+## Intelligence Protocols — Autonomous Spectral Reasoning
+
+MESIE v0.2.0 introduces **Intelligence Protocols** — an orchestration layer for autonomous spectral reasoning with configurable intelligence levels:
+
+```python
+from mesie import IntelligenceProtocol, IntelligenceConfig, IntelligenceLevel, ReasoningStrategy
+import numpy as np
+
+# Configure intelligence behavior
+config = IntelligenceConfig(
+    level=IntelligenceLevel.ADAPTIVE,
+    memory_capacity=500,
+    attention_heads=8,
+)
+
+# Create protocol instance
+protocol = IntelligenceProtocol(config)
+
+# Autonomous reasoning over spectral data
+spectrum = np.random.randn(256)
+result = protocol.reason(spectrum, strategy=ReasoningStrategy.ENSEMBLE)
+print(f"Conclusion: {result.conclusion}")
+print(f"Confidence: {result.confidence:.3f}")
+print(f"Evidence: {result.evidence}")
+print(f"Recommended actions: {result.recommended_actions}")
+```
+
+### Intelligence Levels
+
+| Level | Behavior |
+|-------|----------|
+| Passive | Observe and record only |
+| Reactive | Respond to detected anomalies |
+| Adaptive | Learn from patterns and adjust |
+| Predictive | Anticipate future spectral states |
+| Autonomous | Full self-directed reasoning |
+
+## Spectral Transformer Pipeline
+
+End-to-end transformer encoder architecture optimized for spectral sequences:
+
+```python
+from mesie import SpectralTransformerPipeline, TransformerConfig, SpectralTokenizer
+import numpy as np
+
+# Configure and build pipeline
+config = TransformerConfig(d_model=128, n_heads=8, n_layers=6, pooling="mean")
+pipeline = SpectralTransformerPipeline(config)
+
+# Process spectral data
+spectrum = np.random.randn(512)
+output = pipeline.forward(spectrum)
+print(f"Embedding shape: {output.embedding.shape}")
+print(f"Attention maps: {len(output.attention_maps)} layers")
+
+# Tokenization strategies
+tokenizer = SpectralTokenizer(method="frequency_bins", n_tokens=64)
+tokens = tokenizer.tokenize(spectrum)
+```
+
+## Helix Vector Encoding
+
+Hierarchical spectral encoding using helical geometry for efficient retrieval:
+
+```python
+from mesie import VectorHelix, HelixConfig, HelixEncoder, HelixRetriever
+import numpy as np
+
+# Encode spectra into helix space
+config = HelixConfig(dimensions=64, turns=8)
+helix = VectorHelix(config)
+encoded = helix.encode(np.random.randn(256))
+
+# Retrieval over helix-encoded vectors
+retriever = HelixRetriever()
+results = retriever.search(query=encoded, top_k=10)
+```
+
+## Protocols and Streaming
+
+Standardized spectral data protocols for interoperability and real-time streaming:
+
+```python
+from mesie import SpectralDataProtocol, StreamingProtocol, SpectralSerializer, SerializationFormat
+
+# Define and send protocol messages
+protocol = SpectralDataProtocol()
+message = protocol.create_message(record, metadata={"source": "sensor_array_1"})
+
+# Stream spectral data in real-time
+stream = StreamingProtocol(buffer_size=1024)
+stream.push(spectrum_chunk)
+
+# Serialize in multiple formats
+serializer = SpectralSerializer(format=SerializationFormat.MSGPACK)
+payload = serializer.encode(record)
+```
+
+## AI System Integration
+
+Connect MESIE to external AI systems and orchestrate complex pipelines:
+
+```python
+from mesie import AISystemConnector, ConnectorConfig, PipelineOrchestrator, OrchestratorConfig
+
+# Connect to AI systems
+connector = AISystemConnector(ConnectorConfig(endpoint="local", batch_size=32))
+predictions = connector.predict(embeddings)
+
+# Orchestrate multi-stage pipelines
+orchestrator = PipelineOrchestrator(OrchestratorConfig(
+    stages=["validate", "extract", "embed", "reason"],
+    parallel=True,
+))
+result = orchestrator.run(records)
+```
+
 ## Cognitive Architecture Integration
 
 ```python
@@ -103,79 +234,75 @@ memory_object = adapter.to_memory_object(record)
 # Returns: {semantic_id, spectral_embedding, resonance_signature, coherence_signature, ...}
 ```
 
-## Foundation Pretraining (Spectral GPT)
+## TAURUS Memory System
 
-MESIE includes a full self-supervised pretraining suite — the spectral equivalent of GPT, BERT, and SimCLR combined:
-
-```python
-from mesie.pretraining.foundation_objectives import (
-    MaskedSpectralModeling,
-    InfoNCEContrastive,
-    TemporalPrediction,
-    FoundationObjectiveSuite,
-)
-
-# Combine all objectives into a unified training loop
-suite = FoundationObjectiveSuite(
-    masked_weight=1.0,
-    contrastive_weight=0.5,
-    temporal_weight=0.3,
-)
-losses = suite.compute_losses(batch)
-```
-
-**Objectives:**
-- **Masked Spectral Modeling** — Masks random, contiguous, or band-structured frequency regions (spectral BERT)
-- **InfoNCE Contrastive Learning** — Augmentation pipelines (noise, frequency masking, amplitude scaling, circular shifts) for positive pair generation (spectral SimCLR)
-- **Temporal Prediction** — Predicts future spectral embeddings from past context windows with configurable aggregation strategies
-
-## Observation Encoder (Sensory Cortex)
+TAURUS (Temporal Adaptive Retrieval and Unified Storage) provides persistent, attention-weighted spectral memory for cognitive architectures:
 
 ```python
-from mesie.pretraining.observation_encoder import ObservationEncoder
+from mesie.cognitive import TaurusMemoryStore, TaurusWorkingMemory
+import numpy as np
 
-encoder = ObservationEncoder()
-observation = encoder.encode(raw_spectral_data, state_vector, semantic_context)
-# Output: unified agent observation vector for RL/IL/planning
+# Long-term memory with temporal decay and attention-weighted retrieval
+store = TaurusMemoryStore(capacity=1000)
+store.store(embedding=np.random.randn(128), context={"source": "sensor_A"}, importance=0.9)
+
+# Retrieve by similarity with attention weighting
+results = store.retrieve(query=np.random.randn(128), top_k=5)
+
+# Working memory with automatic promotion to long-term storage
+working = TaurusWorkingMemory(capacity=7, long_term_store=store)
+working.hold(embedding=np.random.randn(128), semantic_tag="transient")
 ```
 
-## Digital Twin Environments
+## NeuroCores — Spectral Neural Processing
+
+NeuroCores are self-contained neural processing units combining attention, memory (TAURUS), and multi-scale analysis:
 
 ```python
-from mesie.pretraining.digital_twin import DigitalTwinEnvironment
+from mesie.cognitive import SpectralNeuroCore, NeuroCoreCluster, NeuroCoreConfig
+import numpy as np
 
-env = DigitalTwinEnvironment(entity_type="rotating_machinery")
-obs = env.reset()
-obs, reward, done, info = env.step(action)
-# Rewards tied to: resonance avoidance, drift minimization,
-#                  coherence maintenance, anomaly detection
+# Single core with full pipeline
+core = SpectralNeuroCore(NeuroCoreConfig(d_model=128, n_attention_heads=8))
+result = core.process(np.random.randn(256))
+
+# Access attention analysis for interpretability
+analysis = core.get_attention_analysis()
+# Returns: {mean_entropy, mean_max_attention, mean_sparsity, memory_analysis, ...}
+
+# Multi-core cluster for ensemble processing
+cluster = NeuroCoreCluster(n_cores=4)
+ensemble_embedding = cluster.get_ensemble_embedding(np.random.randn(256))
 ```
 
-## Spectral Memory Store
+## Attention Analysis
+
+The pipeline provides interpretability through `get_attention_analysis()`:
+
+- **Attention entropy**: How distributed vs. focused the attention is
+- **Maximum attention**: Strength of the strongest attended-to token
+- **Attention sparsity**: Fraction of near-zero attention weights
+
+This enables understanding of what the model focuses on — critical for scientific applications where interpretability is required.
 
 ```python
-from mesie.pretraining.spectral_memory import SpectralMemoryStore
+from mesie import SpectralTransformerPipeline, TransformerConfig
+import numpy as np
 
-memory = SpectralMemoryStore(capacity=10000)
-memory.store(embedding, event_type="resonance", metadata={"severity": 0.8})
-results = memory.query(query_embedding, k=5, event_filter="anomaly")
-# Supports: k-NN retrieval, lineage reconstruction, importance-weighted consolidation
+pipeline = SpectralTransformerPipeline(TransformerConfig(d_model=64, n_heads=4))
+analysis = pipeline.get_attention_analysis(np.random.randn(128))
+# {'n_layers': 4, 'layer_analyses': [{layer, attention_entropy, max_attention, attention_sparsity}, ...]}
 ```
 
-## 3D Connectome Brain Environment
+### What This Enables for AI Systems
 
-```python
-from mesie.connectome import ConnectomeEnvironment3D, BrainSystem
-
-env = ConnectomeEnvironment3D()  # 44 real brain regions, 68 connections
-env.inject_stimulus("V1", amplitude=0.9)      # Visual cortex input
-env.inject_stimulus("WER", amplitude=0.8)     # Wernicke's area (language)
-env.inject_stimulus("DLPFC_L", amplitude=0.7) # Executive control
-
-states = env.run(duration_ms=50.0)            # Simulate neural dynamics
-state_3d = env.get_3d_state()                 # Full 3D state for visualization
-# Signal propagation uses ~6 mm/ms conduction velocity
-```
+1. **Spectral understanding**: Models that truly "understand" spectral structure, not just memorize patterns
+2. **Long-range dependency capture**: Detection of harmonics, resonances, and cross-band relationships
+3. **Multi-scale analysis**: Simultaneous processing at multiple frequency resolutions
+4. **Transfer learning ready**: Pre-trained spectral transformers that transfer across domains
+5. **Interpretable attention**: Visualization of model focus for scientific validation
+6. **Efficient inference**: Fixed-size embeddings from variable-length spectra
+7. **Foundation model potential**: Architecture suitable for large-scale pre-training on diverse spectral data
 
 ## Architecture
 
@@ -192,17 +319,14 @@ flowchart TD
     D --> I[Spectral Generator]
     I --> J[Single / RotDnn / PSD / FAS Outputs]
     D --> K[Spectral Embedding Encoder]
-    K --> L[Foundation Pretraining]
-    L --> M[Masked Spectral Modeling]
-    L --> N[InfoNCE Contrastive]
-    L --> O[Temporal Prediction]
-    K --> P[Observation Encoder]
-    P --> Q[Agent Policy / Controller]
-    K --> R[Spectral Memory Store]
-    R --> S[k-NN Retrieval + Consolidation]
-    K --> T[3D Connectome Brain]
-    T --> U[44 Brain Regions × 68 Connections]
-    U --> V[Neural Dynamics Simulation]
+    K --> L[AI Retrieval + Cognitive Memory]
+    D --> M[Transformer Pipeline]
+    M --> N[Intelligence Protocols]
+    N --> O[Autonomous Reasoning + Actions]
+    K --> P[Helix Vector Encoding]
+    P --> Q[Helix Retrieval]
+    L --> R[Protocol Streaming + Serialization]
+    O --> R
 ```
 
 ## Project Structure
@@ -217,9 +341,11 @@ mesie/
 ├── features/      — Electro-spectral features, resonance, coherence
 ├── topology/      — Node mapping and lineage tracking
 ├── embeddings/    — Spectral vectorization and retrieval
-├── cognitive/     — Memory, attention, anomaly, agent-state adapters
-├── pretraining/   — Foundation objectives, observation encoder, digital twin, spectral memory
-├── connectome/    — 3D brain regions, connectome graph, neural environment simulation
+├── cognitive/     — TAURUS memory, NeuroCores, attention, agent-state adapters
+├── ai/            — Transformer pipeline, intelligence protocols, training, inference, transfer
+├── protocols/     — Spectral data protocols, streaming, serialization
+├── integration/   — AI system connectors, library bridges, pipeline orchestration
+├── helix/         — Helix vector encoding, projection, and retrieval
 ├── validation/    — Multi-level validation
 └── visualization/ — Plotting and diagrams
 ```
@@ -238,10 +364,114 @@ If you use MESIE in your research, please cite:
 @software{medina2024mesie,
   author = {Medina, Alfredo},
   title = {MESIE: Multi-Element Spectral Intelligence Engine},
-  version = {0.1.0},
+  version = {0.2.0},
   year = {2024},
   url = {https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-}
 }
+```
+
+## Cross-Domain Spectral Transfer
+
+MESIE implements a **cross-domain spectral brain** — a foundation-model-style system that generalizes across wildly different spectral domains.
+
+### Multi-Domain Spectral Corpora
+
+Because MESIE uses:
+- **CORAL** (CORrelation ALignment) — aligns second-order statistics between domains
+- **MMD** (Maximum Mean Discrepancy) — minimizes distribution distance in kernel space
+- **Domain-invariant normalization** — whitening transforms that factor out domain-specific characteristics
+
+...it can learn shared structure across wildly different spectral domains.
+
+This is the spectral equivalent of:
+- text → code transfer
+- image → video transfer
+- audio → language transfer
+
+### Supported Transfer Paths
+
+| Source Domain | Target Domain | Transfer Type |
+|--------------|---------------|---------------|
+| Earthquake Harmonics | Bridge Vibration Anomalies | Seismic → Structural |
+| EEG Oscillations | Audio Resonance Detection | Neural → Acoustic |
+| Electromagnetic/RF | Optical Spectroscopy | EM → Optical |
+| Climate Atmospheric | Financial Time Series | Cyclic → Market |
+
+### Usage
+
+```python
+from mesie.cognitive import (
+    SpectralDomainGenerator,
+    TransferLearningPipeline,
+    SpectralDomain,
+    CORALTransfer,
+    MMDTransfer,
+    CrossDomainTransferEngine,
+)
+
+# Initialize with multi-domain synthetic corpora
+pipeline = TransferLearningPipeline(shared_dim=64)
+pipeline.initialize_with_synthetic(n_samples=1000, n_features=256)
+
+# Transfer: earthquake harmonics → bridge vibration anomalies
+result = pipeline.evaluate_transfer(
+    SpectralDomain.SEISMIC,
+    SpectralDomain.STRUCTURAL_VIBRATION,
+    method="coral"
+)
+print(f"Transfer efficiency: {result['transfer_efficiency']:.3f}")
+print(f"MMD reduction: {result['mmd_before']:.4f} → {result['mmd_after']:.4f}")
+
+# Transfer: EEG oscillations → audio resonance detection
+result = pipeline.evaluate_transfer(
+    SpectralDomain.EEG_NEURAL,
+    SpectralDomain.AUDIO_ACOUSTIC,
+    method="combined"  # CORAL + MMD refinement
+)
+
+# Find optimal transfer strategy automatically
+strategy = pipeline.find_optimal_transfer_strategy(
+    SpectralDomain.ELECTROMAGNETIC,
+    SpectralDomain.AUDIO_ACOUSTIC
+)
+print(f"Best method: {strategy['best_method']}")
+```
+
+### What Makes This a Foundation Model
+
+1. **Generalization across domains** — a model trained on earthquake harmonics transfers to bridge vibration anomalies
+2. **Shared spectral representations** — domain-invariant encoding learns universal spectral structure
+3. **Multi-hop transfer** — distant domains connected through intermediate spectral spaces
+4. **Automatic domain discovery** — the system identifies compatible domains via similarity graphs
+
+## Experiment Management
+
+MESIE provides comprehensive experiment tracking and hyperparameter optimization:
+
+```python
+from mesie.cognitive import (
+    ExperimentPipeline,
+    ExperimentConfig,
+    SpectralBenchmark,
+    DataAugmentation,
+    CrossValidationEngine,
+    StatisticalTestSuite,
+)
+
+# Run optimized experiments with cross-validation
+pipeline = ExperimentPipeline(
+    name="spectral_classification",
+    search_space={
+        "lr": {"type": "float", "range": [0.001, 0.1], "log": True},
+        "layers": {"type": "int", "range": [1, 8]},
+    }
+)
+result = pipeline.optimize(data, labels, n_trials=50)
+
+# Benchmark with statistical rigor
+stats = StatisticalTestSuite()
+ci = stats.bootstrap_ci(scores, n_bootstrap=1000)
+comparison = stats.paired_t_test(method_a_scores, method_b_scores)
 ```
 
 ## License

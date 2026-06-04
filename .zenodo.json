@@ -1,11 +1,13 @@
 {
-  "title": "MESIE: Multi-Element Spectral Intelligence Engine",
+  "title": "MESIE: Multi-Element Spectral Intelligence Engine v0.2.0 — Intelligence AI Protocols & Transformer Integration",
   "upload_type": "software",
-  "description": "MESIE is an open-source Python framework for multi-component spectral matching, PSD/FAS-compatible generation, RotDnn-style spectral handling, resonance-aware embeddings, and AI-native spectral representation for scientific, engineering, digital twin, and cognitive architecture research.",
+  "publication_date": "2026-06-03",
+  "description": "<p><strong>MESIE v0.2.0</strong> introduces transformer-based spectral intelligence and embedded AI reasoning protocols into the Multi-Element Spectral Intelligence Engine.</p><p>This release represents a major capability upgrade, embedding intelligence AI protocols directly into the spectral processing pipeline. The system now supports autonomous spectral reasoning, attention-based frequency focus, episodic spectral memory, and full transformer encoder architectures for spectral sequence modeling.</p><h3>What's New in v0.2.0</h3><ul><li><strong>Intelligence AI Protocols</strong>: A new protocol layer (<code>IntelligenceProtocol</code>) that enables multi-level autonomous reasoning over spectral data streams — from passive observation to fully autonomous decision-making.</li><li><strong>Spectral Transformer Pipeline</strong>: End-to-end transformer architecture (<code>SpectralTransformerPipeline</code>) with configurable tokenization (frequency bins, wavelets, patches), multi-head spectral attention, sinusoidal positional encoding, and flexible output pooling.</li><li><strong>Attention Focus Module</strong>: Adaptive multi-head attention mechanism that learns to focus on informative spectral regions over time.</li><li><strong>Episodic Spectral Memory</strong>: Buffer-based memory system for storing and retrieving past spectral observations via similarity search, enabling pattern recognition across time.</li><li><strong>Spectral Tokenizer</strong>: Converts continuous spectral data into discrete token sequences using multiple strategies (frequency bins, wavelets, overlapping patches).</li><li><strong>Multi-Head Spectral Attention</strong>: Scaled dot-product attention optimized for frequency-domain sequences with attention map extraction for interpretability.</li><li><strong>Reasoning Engine</strong>: Statistical and pattern-based reasoning with confidence estimation, evidence gathering, and recommended action generation.</li></ul><h3>Existing Capabilities (from v0.1.0)</h3><ul><li>Core spectral record data model (MultiElementRecord, SpectralComponent, SpectralMetadata)</li><li>Spectral validation with multi-level checks</li><li>Normalization, interpolation, and smoothing</li><li>Spectral matching engine with composite scoring</li><li>PSD, FAS, and RotDnn generation</li><li>Electro-spectral feature extraction</li><li>Node topology mapping and lineage</li><li>Spectral embedding vectorizers</li><li>Neural autoencoder and classifier models</li><li>Transfer learning and domain adaptation</li><li>Spectral data exchange protocols</li><li>Cognitive architecture adapters</li></ul><h3>Use Cases</h3><p>MESIE v0.2.0 is suitable for:</p><ul><li>Autonomous structural health monitoring</li><li>Intelligent seismic signal classification</li><li>Real-time spectral anomaly detection and reasoning</li><li>Digital twin spectral state tracking</li><li>AI-native scientific instrumentation</li><li>Cognitive architecture integration with spectral perception</li><li>Transformer-based spectral embedding generation</li></ul>",
   "creators": [
     {
       "name": "Medina, Alfredo",
-      "affiliation": "ITSNOTAILabs"
+      "affiliation": "ITSNOTAILabs",
+      "orcid": ""
     }
   ],
   "contributors": [
@@ -16,7 +18,7 @@
   ],
   "access_right": "open",
   "license": "Apache-2.0",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "language": "eng",
   "keywords": [
     "spectral matching",
@@ -26,6 +28,12 @@
     "RotDnn",
     "spectral embeddings",
     "artificial intelligence",
+    "transformer models",
+    "intelligence protocols",
+    "attention mechanisms",
+    "spectral tokenization",
+    "autonomous reasoning",
+    "anomaly detection",
     "cognitive architectures",
     "digital twins",
     "resonance analysis",
@@ -33,7 +41,37 @@
     "scientific Python",
     "earthquake engineering",
     "structural monitoring",
-    "time series analysis"
+    "time series analysis",
+    "deep learning",
+    "neural networks",
+    "episodic memory",
+    "multi-head attention"
   ],
-  "notes": "Initial public research release. This version focuses on spectral matching, signal generation, validation, and embedding-ready architecture. Private/internal architecture extensions are not included in this public release."
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "references": [
+    "Vaswani, A., et al. (2017). Attention Is All You Need. NeurIPS.",
+    "Devlin, J., et al. (2019). BERT: Pre-training of Deep Bidirectional Transformers. NAACL.",
+    "Sun, B., Saenko, K. (2016). Deep CORAL: Correlation Alignment for Deep Domain Adaptation. ECCV Workshops."
+  ],
+  "notes": "Version 0.2.0 release. Major update introducing intelligence AI protocols and transformer-based spectral processing. This version embeds adaptive reasoning, attention-based focus, episodic memory, and full transformer encoder pipelines into the MESIE framework. All transformer and intelligence components are implemented in pure NumPy for portability, with optional PyTorch/HuggingFace Transformers integration available via the [intelligence] or [full] install extras.",
+  "subjects": [
+    {
+      "term": "Artificial Intelligence",
+      "identifier": "https://id.loc.gov/authorities/subjects/sh85008180"
+    },
+    {
+      "term": "Signal Processing",
+      "identifier": "https://id.loc.gov/authorities/subjects/sh85122397"
+    },
+    {
+      "term": "Spectral Theory",
+      "identifier": "https://id.loc.gov/authorities/subjects/sh85126471"
+    }
+  ]
 }

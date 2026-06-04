@@ -4,15 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mesie"
-version = "0.1.0"
-description = "Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, and cognitive integration"
+version = "0.2.0"
+description = "Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, transformer-based intelligence protocols, and cognitive integration"
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.9"
 authors = [
     {name = "Alfredo Medina", email = "alfredo@itsnotailabs.com"}
 ]
-keywords = ["spectral matching", "signal processing", "PSD", "FAS", "RotDnn", "embeddings", "AI"]
+keywords = ["spectral matching", "signal processing", "PSD", "FAS", "RotDnn", "embeddings", "AI", "transformers", "intelligence protocols"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
@@ -34,6 +34,21 @@ full = [
     "pandas>=1.5",
     "scikit-learn>=1.2",
     "networkx>=3.0",
+    "transformers>=4.30",
+    "torch>=2.0",
+]
+ai = [
+    "scipy>=1.9",
+    "scikit-learn>=1.2",
+    "transformers>=4.30",
+    "torch>=2.0",
+]
+intelligence = [
+    "scipy>=1.9",
+    "scikit-learn>=1.2",
+    "transformers>=4.30",
+    "torch>=2.0",
+    "networkx>=3.0",
 ]
 dev = [
     "pytest>=7.0",
@@ -47,6 +62,9 @@ Documentation = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelli
 
 [tool.setuptools.packages.find]
 include = ["mesie*"]
+
+[tool.setuptools.package-data]
+mesie = ["../data/**/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
