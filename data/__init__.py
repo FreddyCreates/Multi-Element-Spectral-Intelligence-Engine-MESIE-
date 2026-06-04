@@ -6,32 +6,21 @@ Provides convenience functions for loading bundled reference datasets.
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path
 from typing import Any
-
 
 DATA_DIR = Path(__file__).parent
 
 
 def get_reference_path(name: str) -> Path:
-    """Get the full path to a reference data file.
-
-    Args:
-        name: Filename (with or without .json extension).
-
-    Returns:
-        Full path to the data file.
-    """
+    """Get the full path to a reference data file."""
     if not name.endswith(".json"):
         name = f"{name}.json"
 
-    # Check reference directory
     ref_path = DATA_DIR / "reference" / name
     if ref_path.exists():
         return ref_path
 
-    # Check benchmarks directory
     bench_path = DATA_DIR / "benchmarks" / name
     if bench_path.exists():
         return bench_path
@@ -40,14 +29,7 @@ def get_reference_path(name: str) -> Path:
 
 
 def get_library_path(name: str) -> Path:
-    """Get the full path to a spectral library data file.
-
-    Args:
-        name: Filename (with or without .json extension).
-
-    Returns:
-        Full path to the spectral library file.
-    """
+    """Get the full path to a spectral library data file."""
     if not name.endswith(".json"):
         name = f"{name}.json"
 
@@ -58,35 +40,73 @@ def get_library_path(name: str) -> Path:
     raise FileNotFoundError(f"Spectral library file not found: {name}")
 
 
+def _normalize_component(comp: dict[str, Any]) -> dict[str, Any]:
+    """Map bundled reference JSON keys to mesie.io loader keys."""
+    out = dict(comp)
+    if "frequency" not in out and "frequencies" in out:
+        out["frequency"] = out["frequencies"]
+    if "amplitude" not in out and "amplitudes" in out:
+        out["amplitude"] = out["amplitudes"]
+    if "name" not in out:
+        out["name"] = out.get("component_id", out.get("direction", "component"))
+    units = out.get("units")
+    if not units and "metadata" in out:
+        units = out["metadata"].get("units", {}).get("amplitude")
+    if isinstance(units, str):
+        out["units"] = units
+    elif isinstance(comp.get("metadata"), dict) and "units" in comp["metadata"]:
+        out["units"] = comp["metadata"]["units"]
+    return out
+
+
+def _normalize_reference_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Normalize bundled reference/benchmark JSON to load_record schema."""
+    out = dict(payload)
+    record_type = str(out.get("record_type", "")).lower()
+    if record_type == "psd":
+        out["representation"] = out.get("representation", "psd")
+    elif record_type == "fas":
+        out["representation"] = out.get("representation", "fas")
+    elif record_type.startswith("rotd"):
+        out["representation"] = out.get("representation", "rotdnn")
+
+    meta = out.get("metadata") or {}
+    units = meta.get("units", {})
+    if isinstance(units, dict):
+        out.setdefault("units", units.get("amplitude", "linear"))
+
+    if "components" in out:
+        comps = [_normalize_component(c) for c in out["components"]]
+        default_unit = out.get("units", "linear")
+        for c in comps:
+            if "units" not in c:
+                c["units"] = default_unit
+        out["components"] = comps
+    return out
+
+
 def load_reference(name: str) -> dict[str, Any]:
-    """Load a reference dataset by name.
-
-    Args:
-        name: Dataset name (e.g., 'earthquake_psd_reference').
-
-    Returns:
-        Parsed JSON data as a dictionary.
-    """
+    """Load a reference dataset by name (raw JSON)."""
     path = get_reference_path(name)
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
+def load_reference_record(name: str):
+    """Load a reference dataset as a MultiElementRecord."""
+    from mesie.io.loaders import load_record
+
+    return load_record(_normalize_reference_payload(load_reference(name)))
+
+
 def load_benchmark(name: str) -> dict[str, Any]:
-    """Load a benchmark dataset by name.
-
-    Args:
-        name: Benchmark name (e.g., 'spectral_classification_benchmark').
-
-    Returns:
-        Parsed JSON data as a dictionary.
-    """
+    """Load a benchmark dataset by name."""
     if not name.endswith(".json"):
         name = f"{name}.json"
     path = DATA_DIR / "benchmarks" / name
     if not path.exists():
         raise FileNotFoundError(f"Benchmark file not found: {name}")
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -107,20 +127,9 @@ def list_benchmarks() -> list[str]:
 
 
 def load_library(name: str) -> dict[str, Any]:
-    """Load a spectral library dataset by name.
-
-    The spectral library contains real-world spectral reference data
-    (e.g., hydrogen emission lines, electromagnetic bands, Schumann
-    resonances, satellite frequencies, atmospheric absorption).
-
-    Args:
-        name: Library name (e.g., 'hydrogen_spectrum', 'schumann_resonances').
-
-    Returns:
-        Parsed JSON data as a dictionary.
-    """
+    """Load a spectral library dataset by name."""
     path = get_library_path(name)
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 

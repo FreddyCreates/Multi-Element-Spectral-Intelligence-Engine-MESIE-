@@ -54,13 +54,19 @@ A spectral record can become more than a plotted curve. It can become a reusable
 pip install mesie
 ```
 
-For full functionality (scipy, pandas, scikit-learn, networkx, transformers, torch):
+For full scientific stack (scipy, pandas, scikit-learn, networkx):
 
 ```bash
 pip install mesie[full]
 ```
 
-For AI/intelligence protocols only:
+For ML extras (transformers; torch on x64/Linux/macOS — skipped on Windows ARM64):
+
+```bash
+pip install mesie[ml]
+```
+
+For AI/intelligence protocols:
 
 ```bash
 pip install mesie[intelligence]
@@ -70,6 +76,14 @@ For development:
 
 ```bash
 pip install -e ".[dev,full]"
+```
+
+## Cloudflare Worker API
+
+Edge validate/match API: [workers/mesie-api](workers/mesie-api/README.md). Deploy with `npx wrangler deploy` (local `wrangler dev` needs x64 — use WSL or deploy from CI on Windows ARM).
+
+```bash
+cd workers/mesie-api && npm install && npx wrangler login && npm run deploy
 ```
 
 ## Basic Usage

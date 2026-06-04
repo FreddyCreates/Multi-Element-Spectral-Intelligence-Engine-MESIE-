@@ -13,6 +13,11 @@
     "units": {
       "frequency": "Hz",
       "amplitude": "g"
+    },
+    "data_fix": {
+      "version": "0.2.1",
+      "negative_amplitudes_clipped": 0,
+      "note": "Tiny negative PSD values clipped to physical floor for MESIE validation."
     }
   },
   "components": [
@@ -222,7 +227,8 @@
         0.05649680047114366,
         0.055397734033042545,
         0.05446794984255461
-      ]
+      ],
+      "units": "g"
     },
     {
       "component_id": "RotD100",
@@ -430,7 +436,8 @@
         0.07627068063604395,
         0.07478694094460744,
         0.07353173228744873
-      ]
+      ],
+      "units": "g"
     }
   ],
   "features": {
@@ -438,5 +445,6 @@
     "pgv_cm_s": 38.0,
     "spectral_acceleration_1s": 0.52,
     "rotd100_rotd50_ratio": 1.35
-  }
+  },
+  "representation": "rotdnn"
 }
