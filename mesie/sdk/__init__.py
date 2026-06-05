@@ -8,6 +8,14 @@ connectome intelligence backend. Every physical constant, chemical element,
 and biological system is represented as a first-class spectral citizen within
 the MESIE cognitive architecture.
 
+Sovereign, Private On-Device AI
+-------------------------------
+MAESI supports fully local "portable brain" operation — ideal for air-gapped,
+secure, or low-connectivity environments (defense, remote ops, critical
+infrastructure). On-device operation eliminates cloud dependency, costs,
+latency, and privacy risks. Live streaming pipelines enable continuous
+learning and real-time updating of spectral fingerprint libraries on-device.
+
 Architecture
 ------------
     Physical Universe (Laws · Elements · Organisms)
@@ -17,6 +25,8 @@ Architecture
     NeuroAIX Connectome (44 regions · 68 tracts · 3D propagation)
             ↓  cognitive integration
     Agent Policy / Memory / World-State
+            ↓  sovereign inference (optional cloud-free path)
+    On-Device Portable Brain (air-gapped, zero-cloud)
 
 Branding
 --------
@@ -63,6 +73,16 @@ from mesie.sdk.neuroaix_engine import (
     MAESIObservationEncoder,
     CognitiveIntegrationLoop,
 )
+from mesie.sdk.sovereign_ondevice import (
+    SovereignOnDeviceEngine,
+    SovereignConfig,
+    DeviceProfile,
+    PrivacyLevel,
+    OnDeviceFingerprintLibrary,
+    OnDeviceStreamingPipeline,
+    SpectralFingerprint,
+    StreamingSample,
+)
 
 __all__ = [
     # Brand
@@ -96,4 +116,13 @@ __all__ = [
     "NeuroAIXEngine",
     "MAESIObservationEncoder",
     "CognitiveIntegrationLoop",
+    # Sovereign On-Device AI
+    "SovereignOnDeviceEngine",
+    "SovereignConfig",
+    "DeviceProfile",
+    "PrivacyLevel",
+    "OnDeviceFingerprintLibrary",
+    "OnDeviceStreamingPipeline",
+    "SpectralFingerprint",
+    "StreamingSample",
 ]

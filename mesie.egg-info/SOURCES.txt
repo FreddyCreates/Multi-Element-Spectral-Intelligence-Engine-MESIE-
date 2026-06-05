@@ -163,6 +163,7 @@ mesie/sdk/chemical_elements.py
 mesie/sdk/constants.py
 mesie/sdk/neuroaix_engine.py
 mesie/sdk/physical_laws.py
+mesie/sdk/sovereign_ondevice.py
 mesie/topology/__init__.py
 mesie/topology/graph_weights.py
 mesie/topology/lineage.py
