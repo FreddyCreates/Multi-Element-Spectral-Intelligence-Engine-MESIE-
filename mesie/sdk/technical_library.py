@@ -1,10 +1,4 @@
-"""Technical concept library for the MAESI SDK.
-
-Encodes 20 core technical concepts as spectral-aware knowledge entries
-covering STFT, salient time-frequency, LSH/ANN, robotics, vibration,
-power systems, Schumann resonances, orbital mechanics, seismic FAS/PSD,
-and internal API architecture.
-"""
+"""Technical engineering library — signal, robotics, power, orbital, seismic."""
 
 from __future__ import annotations
 
@@ -15,229 +9,69 @@ from typing import Dict, List, Optional
 import numpy as np
 
 
-class TechnicalDomain(Enum):
-    """Technical domain classification."""
-
+class TechnicalDomain(str, Enum):
     SIGNAL_PROCESSING = "signal_processing"
-    MACHINE_LEARNING = "machine_learning"
     ROBOTICS = "robotics"
-    VIBRATION = "vibration"
     POWER_SYSTEMS = "power_systems"
-    GEOPHYSICS = "geophysics"
-    ORBITAL_MECHANICS = "orbital_mechanics"
-    SEISMOLOGY = "seismology"
-    NETWORKING = "networking"
-    SPECTRAL_ANALYSIS = "spectral_analysis"
+    ORBITAL = "orbital_mechanics"
+    SEISMIC = "seismic"
+    STRUCTURAL = "structural"
+    SPECTRAL_ML = "spectral_ml"
+    TIME_FREQUENCY = "time_frequency"
+    ANN_RETRIEVAL = "ann_retrieval"
 
 
 @dataclass
 class TechnicalConcept:
-    """A technical concept encoded with spectral metadata.
-
-    Attributes
-    ----------
-    concept_id : str
-        Unique identifier.
-    title : str
-        Human-readable title.
-    domain : TechnicalDomain
-        Primary domain classification.
-    description : str
-        Brief description of the concept.
-    spectral_relevance : float
-        Relevance to spectral intelligence (0-1).
-    keywords : List[str]
-        Search keywords.
-    frequency_range_hz : tuple
-        Characteristic frequency range (low, high).
-    embedding : np.ndarray
-        128-dim spectral embedding for similarity search.
-    """
-
-    concept_id: str
-    title: str
+    name: str
     domain: TechnicalDomain
     description: str
-    spectral_relevance: float = 0.8
-    keywords: List[str] = field(default_factory=list)
-    frequency_range_hz: tuple = (0.0, 1000.0)
-    embedding: np.ndarray = field(default_factory=lambda: np.zeros(128))
-
-    def __post_init__(self):
-        if np.all(self.embedding == 0):
-            rng = np.random.default_rng(hash(self.concept_id) % (2**32))
-            self.embedding = rng.standard_normal(128)
-            self.embedding /= np.linalg.norm(self.embedding)
+    key_metrics: List[str]
+    mesie_module: str
+    typical_freq_hz: tuple[float, float] = (0.01, 1e12)
+    tags: List[str] = field(default_factory=list)
 
     def to_embedding(self) -> np.ndarray:
-        """Return the 128-dim embedding vector."""
-        return self.embedding.copy()
+        rng = np.random.default_rng(abs(hash(self.name)) % (2**31))
+        base = rng.standard_normal(32)
+        dom = list(TechnicalDomain).index(self.domain) / max(len(TechnicalDomain), 1)
+        base[0] = dom
+        base[1] = np.log10(max(self.typical_freq_hz[0], 1e-12))
+        base[2] = np.log10(self.typical_freq_hz[1])
+        return base.astype(np.float64)
 
 
-def _build_library() -> List[TechnicalConcept]:
-    """Build the 20 technical concepts."""
-    concepts = [
-        TechnicalConcept(
-            "tc_stft", "Short-Time Fourier Transform (STFT)",
-            TechnicalDomain.SIGNAL_PROCESSING,
-            "Windowed DFT for time-frequency representation of non-stationary signals.",
-            0.95, ["STFT", "windowing", "spectrogram", "DFT", "time-frequency"],
-            (0.01, 20000.0),
-        ),
-        TechnicalConcept(
-            "tc_salient_tf", "Salient Time-Frequency Features",
-            TechnicalDomain.SIGNAL_PROCESSING,
-            "Extraction of perceptually or energetically significant TF regions.",
-            0.92, ["salient", "time-frequency", "feature extraction", "energy peaks"],
-            (0.1, 10000.0),
-        ),
-        TechnicalConcept(
-            "tc_lsh", "Locality-Sensitive Hashing (LSH)",
-            TechnicalDomain.MACHINE_LEARNING,
-            "Probabilistic dimensionality reduction for approximate nearest neighbor search.",
-            0.85, ["LSH", "hashing", "ANN", "approximate", "nearest neighbor"],
-            (0.0, 0.0),
-        ),
-        TechnicalConcept(
-            "tc_ann", "Approximate Nearest Neighbor (ANN)",
-            TechnicalDomain.MACHINE_LEARNING,
-            "Sublinear-time search over high-dimensional embedding spaces.",
-            0.88, ["ANN", "HNSW", "search", "embeddings", "vector database"],
-            (0.0, 0.0),
-        ),
-        TechnicalConcept(
-            "tc_robot_vibration", "Robotic Joint Vibration Monitoring",
-            TechnicalDomain.ROBOTICS,
-            "Real-time spectral monitoring of robotic actuators for predictive maintenance.",
-            0.90, ["robotics", "vibration", "actuator", "joint", "predictive maintenance"],
-            (10.0, 5000.0),
-        ),
-        TechnicalConcept(
-            "tc_structural_vibration", "Structural Health Monitoring (SHM)",
-            TechnicalDomain.VIBRATION,
-            "Modal analysis and damage detection via spectral decomposition of structural response.",
-            0.94, ["SHM", "modal", "structural", "damage detection", "natural frequency"],
-            (0.1, 200.0),
-        ),
-        TechnicalConcept(
-            "tc_rotating_machinery", "Rotating Machinery Diagnostics",
-            TechnicalDomain.VIBRATION,
-            "Spectral signature analysis of bearings, gearboxes, and turbines.",
-            0.93, ["bearing", "gearbox", "turbine", "fault diagnosis", "envelope spectrum"],
-            (1.0, 20000.0),
-        ),
-        TechnicalConcept(
-            "tc_power_spectral", "Power System Spectral Analysis",
-            TechnicalDomain.POWER_SYSTEMS,
-            "Harmonic analysis and power quality assessment in electrical grids.",
-            0.89, ["harmonics", "THD", "power quality", "grid", "50Hz", "60Hz"],
-            (50.0, 3000.0),
-        ),
-        TechnicalConcept(
-            "tc_schumann", "Schumann Resonances",
-            TechnicalDomain.GEOPHYSICS,
-            "Extremely low frequency resonances in the Earth-ionosphere cavity.",
-            0.91, ["Schumann", "ELF", "resonance", "ionosphere", "7.83Hz"],
-            (7.83, 45.0),
-        ),
-        TechnicalConcept(
-            "tc_orbital_link", "Orbital Link Budget Analysis",
-            TechnicalDomain.ORBITAL_MECHANICS,
-            "Signal propagation and spectral attenuation in satellite-ground links.",
-            0.82, ["satellite", "link budget", "orbital", "propagation", "attenuation"],
-            (1e9, 40e9),
-        ),
-        TechnicalConcept(
-            "tc_seismic_fas", "Fourier Amplitude Spectrum (FAS)",
-            TechnicalDomain.SEISMOLOGY,
-            "Frequency-domain representation of earthquake ground motion acceleration.",
-            0.96, ["FAS", "seismic", "earthquake", "acceleration", "ground motion"],
-            (0.01, 50.0),
-        ),
-        TechnicalConcept(
-            "tc_seismic_psd", "Power Spectral Density (PSD) for Seismic Data",
-            TechnicalDomain.SEISMOLOGY,
-            "Energy distribution across frequency bands for seismic ground motion.",
-            0.96, ["PSD", "seismic", "energy", "spectral density", "ground motion"],
-            (0.01, 50.0),
-        ),
-        TechnicalConcept(
-            "tc_octopus_arch", "Octopus Distributed Architecture",
-            TechnicalDomain.NETWORKING,
-            "Multi-arm parallel processing architecture inspired by octopus neural distribution.",
-            0.78, ["octopus", "distributed", "parallel", "multi-arm", "architecture"],
-            (0.0, 0.0),
-        ),
-        TechnicalConcept(
-            "tc_internal_api", "Internal API Bus Architecture",
-            TechnicalDomain.NETWORKING,
-            "Cross-engine communication bus for MESIE module inter-operation.",
-            0.80, ["API", "bus", "internal", "cross-engine", "communication"],
-            (0.0, 0.0),
-        ),
-        TechnicalConcept(
-            "tc_edge_spectral", "Edge Spectral Processing",
-            TechnicalDomain.SIGNAL_PROCESSING,
-            "On-device spectral computation for low-latency embedded systems.",
-            0.87, ["edge", "embedded", "on-device", "low-latency", "FPGA"],
-            (0.1, 48000.0),
-        ),
-        TechnicalConcept(
-            "tc_fingerprint", "Spectral Fingerprinting",
-            TechnicalDomain.SPECTRAL_ANALYSIS,
-            "Compact signature extraction for spectral identity and retrieval.",
-            0.94, ["fingerprint", "signature", "identity", "hash", "retrieval"],
-            (0.01, 20000.0),
-        ),
-        TechnicalConcept(
-            "tc_transfer_learn", "Spectral Transfer Learning",
-            TechnicalDomain.MACHINE_LEARNING,
-            "Domain adaptation of spectral models across application domains.",
-            0.86, ["transfer learning", "domain adaptation", "fine-tuning", "pre-training"],
-            (0.0, 0.0),
-        ),
-        TechnicalConcept(
-            "tc_coherence", "Spectral Coherence Analysis",
-            TechnicalDomain.SIGNAL_PROCESSING,
-            "Cross-spectral coherence for multi-channel signal alignment.",
-            0.91, ["coherence", "cross-spectrum", "multi-channel", "alignment", "phase"],
-            (0.01, 20000.0),
-        ),
-        TechnicalConcept(
-            "tc_wavelet", "Wavelet Spectral Decomposition",
-            TechnicalDomain.SIGNAL_PROCESSING,
-            "Multi-resolution time-frequency analysis via wavelet transforms.",
-            0.93, ["wavelet", "CWT", "DWT", "multi-resolution", "time-frequency"],
-            (0.01, 20000.0),
-        ),
-        TechnicalConcept(
-            "tc_resonance_track", "Resonance Tracking and Avoidance",
-            TechnicalDomain.VIBRATION,
-            "Real-time tracking of resonant frequencies for structural safety.",
-            0.95, ["resonance", "tracking", "avoidance", "natural frequency", "safety"],
-            (0.1, 500.0),
-        ),
-    ]
-    return concepts
-
-
-_LIBRARY: Optional[List[TechnicalConcept]] = None
+_TECHNICAL: List[TechnicalConcept] = [
+    TechnicalConcept("STFT Spectrogram", TechnicalDomain.TIME_FREQUENCY, "Short-time Fourier transform for non-stationary signals.", ["frame_ms", "hop", "n_fft"], "mesie.signal.time_frequency", (0.1, 1e5), ["tf", "laptop"]),
+    TechnicalConcept("Salient TF Peaks", TechnicalDomain.SIGNAL_PROCESSING, "Landmark maxima in time-frequency maps for fingerprinting.", ["n_peaks", "threshold_pct"], "mesie.signal.salient", (0.01, 1e4), ["fingerprint"]),
+    TechnicalConcept("LSH Spectral Hash", TechnicalDomain.ANN_RETRIEVAL, "Locality-sensitive hashing for compact bucket lookup.", ["n_planes", "bucket"], "mesie.embeddings.lsh", tags=["fast"]),
+    TechnicalConcept("ANN Cosine Rerank", TechnicalDomain.ANN_RETRIEVAL, "Approximate NN with LSH pre-filter and exact rerank.", ["top_k", "metric"], "mesie.embeddings.ann", tags=["fast"]),
+    TechnicalConcept("Pump Vibration Baseline", TechnicalDomain.ROBOTICS, "Healthy rotating machinery PSD/FAS reference.", ["rpm", "bearing"], "data.reference.vibration_monitoring", (1, 1e4), ["plc", "edge"]),
+    TechnicalConcept("Anomaly vs Baseline", TechnicalDomain.ROBOTICS, "Spectral deviation scoring for fault alerts.", ["threshold"], "mesie.cognitive.agent_state_adapter", tags=["control"]),
+    TechnicalConcept("Schumann Eco-Hz", TechnicalDomain.POWER_SYSTEMS, "Earth-ionosphere cavity resonances for timing.", ["7.83_Hz", "modes"], "data.spectral_library.schumann", (7, 50), ["power"]),
+    TechnicalConcept("EM Band Ladder", TechnicalDomain.POWER_SYSTEMS, "ELF through SHF band definitions (ITU/IEEE).", ["tier", "center_Hz"], "mesie.edge.hz_ladder", (3, 300e9)),
+    TechnicalConcept("LEO Contact Window", TechnicalDomain.ORBITAL, "Ground pass duration from orbital mechanics.", ["altitude_km", "period_s"], "mesie.edge.satellite_nodes", (1e-5, 1e-2)),
+    TechnicalConcept("Orbital Edge Gate", TechnicalDomain.ORBITAL, "Phase-gated spectral transients at harmonic periods.", ["period_days", "threshold"], "scripts.orbital_edge_50d_analysis", (1e-8, 1.0)),
+    TechnicalConcept("Earthquake PSD Anchor", TechnicalDomain.SEISMIC, "Broadband seismic coupling reference spectrum.", ["magnitude", "distance_km"], "data.reference.earthquake_psd", (0.01, 50)),
+    TechnicalConcept("RotDNN Orientation", TechnicalDomain.SEISMIC, "Orientation-dependent spectral intensity metric.", ["period_s"], "data.reference.rotdnn", (0.1, 10)),
+    TechnicalConcept("Structural FAS", TechnicalDomain.STRUCTURAL, "Frequency-dependent site/building amplification.", ["Vs30", "site_class"], "data.reference.structural_fas", (0.1, 50)),
+    TechnicalConcept("Spectral Vectorizer", TechnicalDomain.SPECTRAL_ML, "Band-energy + statistics embedding.", ["n_bands"], "mesie.embeddings.vectorizers", tags=["core"]),
+    TechnicalConcept("Fingerprint Pipeline", TechnicalDomain.SPECTRAL_ML, "TF → salient → LSH → ANN end-to-end.", ["dim"], "mesie.embeddings.fingerprint", tags=["core", "fast"]),
+    TechnicalConcept("Octopus Multi-Arm Control", TechnicalDomain.ROBOTICS, "Eight-arm orchestration across MESIE engines.", ["arms"], "mesie.octopus.controller", tags=["workflow"]),
+    TechnicalConcept("Internal API Bus", TechnicalDomain.SIGNAL_PROCESSING, "Cross-engine message routing on laptop.", ["topic"], "mesie.internal_api.bus", tags=["architecture"]),
+    TechnicalConcept("Cross-Domain Transfer", TechnicalDomain.SPECTRAL_ML, "Align embeddings across seismic/vibration/audio.", ["CORAL", "MMD"], "mesie.transfer.cross_domain", tags=["research"]),
+    TechnicalConcept("Intelligence Protocol", TechnicalDomain.SPECTRAL_ML, "Reasoning layer over spectral embeddings.", ["conclusion", "confidence"], "mesie.ai.intelligence_protocols"),
+    TechnicalConcept("Hz Virtual Chip", TechnicalDomain.POWER_SYSTEMS, "On-device sub-ms spectral decisions without cloud.", ["compares_per_sec"], "docs.laptop_virtual_chip", tags=["product"]),
+]
 
 
 def get_technical_library() -> List[TechnicalConcept]:
-    """Return the full technical concept library (20 entries)."""
-    global _LIBRARY
-    if _LIBRARY is None:
-        _LIBRARY = _build_library()
-    return _LIBRARY
+    return list(_TECHNICAL)
 
 
 def get_technical_by_domain(domain: TechnicalDomain) -> List[TechnicalConcept]:
-    """Filter technical concepts by domain."""
-    return [c for c in get_technical_library() if c.domain == domain]
+    return [t for t in _TECHNICAL if t.domain == domain]
 
 
 def get_technical_matrix() -> np.ndarray:
-    """Return stacked embedding matrix (N×128) for all concepts."""
-    lib = get_technical_library()
-    return np.stack([c.to_embedding() for c in lib])
+    return np.stack([t.to_embedding() for t in _TECHNICAL])

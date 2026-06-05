@@ -63,10 +63,14 @@ from mesie.edge.satellite_nodes import (
     VirtualNodeNetwork,
 )
 from mesie.edge.edge_protocol import EdgeSpectralProtocol, EdgeMessage, EdgeRoute
+from mesie.internal_api import InternalBus, InternalRouter, MessageEnvelope, MessageTopic, EngineResponse
+from mesie.engines import Engine, EngineRegistry, build_default_registry
+from mesie.octopus import ArmId, OctopusArm, OctopusController, OctopusConfig, OctopusRunReport
 
 __all__ = [
     "__version__",
     "AISystemConnector",
+    "ArmId",
     "AttentionFocusModule",
     "BridgeState",
     "ConnectorConfig",
@@ -76,6 +80,9 @@ __all__ = [
     "EdgeMessage",
     "EdgeRoute",
     "EdgeSpectralProtocol",
+    "Engine",
+    "EngineRegistry",
+    "EngineResponse",
     "FrequencyTier",
     "GenerationConfig",
     "HelixConfig",
@@ -87,16 +94,24 @@ __all__ = [
     "HelixTraversalResult",
     "HzLadder",
     "InferenceEngine",
+    "InternalBus",
+    "InternalRouter",
     "IntelligenceConfig",
     "IntelligenceLevel",
     "IntelligenceProtocol",
     "LadderLink",
     "LibraryBridge",
     "MatchResult",
+    "MessageEnvelope",
+    "MessageTopic",
     "MemoryTrace",
     "MultiElementRecord",
     "NeuroCoreCluster",
     "NeuroCoreConfig",
+    "OctopusArm",
+    "OctopusConfig",
+    "OctopusController",
+    "OctopusRunReport",
     "OrbitalTier",
     "OrchestratorConfig",
     "PipelineOrchestrator",
@@ -131,6 +146,7 @@ __all__ = [
     "ValidationReport",
     "VectorHelix",
     "VirtualNodeNetwork",
+    "build_default_registry",
     "generate_fas",
     "generate_psd",
     "generate_rotdnn",

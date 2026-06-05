@@ -1,74 +1,37 @@
-# MESIE as a Virtual Spectral Chip
+# MESIE as a laptop virtual chip
 
-## What Opens on Your Laptop
+MESIE is not a physical chip. On a laptop it behaves like one: fixed-size spectral fingerprints in, fast decisions out.
 
-When you run MESIE on a standard laptop, you get the equivalent of a dedicated signal-processing chip — entirely in software:
+## Mental model
 
-| Chip Analogy | MESIE Equivalent | What It Does |
-|---|---|---|
-| **Signal RAM** | `spectral_index.json` | Stores spectral fingerprints locally — private, portable, no cloud dependency |
-| **Signal ALU** | Embedding compare/search | Sub-millisecond pattern matching (~0.25 ms per comparison, ~4,000/sec) |
-| **Alert Line** | Anomaly scoring | Separates "this vibration" from "our learned normal" — outputs a confidence-scored verdict |
+| Physical chip | MESIE on laptop |
+|---------------|-----------------|
+| Registers / cache | `spectral_index.json` (embedded library on disk) |
+| ALU | `match_records`, `SpectralRetriever.query` |
+| Interrupt / alert line | `SpectralAnomalyAdapter` |
+| Firmware state | `SpectralMemoryAdapter` + intelligence protocol |
 
-Because an AI agent can fire thousands of "which pattern is closest?" queries per second on-device, the laptop becomes a **local spectral copilot** — the same idea as text embeddings, but for motion/vibration shape.
+## Speed (typical laptop, bundled library)
 
----
+- **Embed** hundreds of spectra in under a second
+- **Compare** two fingerprints at thousands per second
+- **Search** nearest neighbors in the same process — no network
 
-## How the Pieces Fit Together
+That throughput is what makes on-device AI and robotics practical: an agent can brute-force "which of 450 stored patterns is closest?" in one planning step.
 
-```
-┌─────────────────────────────────────────────────────┐
-│  Your Laptop                                        │
-│                                                     │
-│   sensor data ─► SpectralVectorizer ─► embedding    │
-│                                           │         │
-│                     spectral_index.json ◄──┘         │
-│                           │                         │
-│   query ─► SpectralRetriever ─► ranked matches      │
-│                           │                         │
-│            SpectralAnomalyAdapter ─► anomaly score   │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+## Who uses this on a laptop
 
-1. **Embed** — `SpectralVectorizer` turns any spectral record into a fixed-length vector.
-2. **Store** — Vectors live in a local JSON index (no server, no credentials).
-3. **Search** — `SpectralRetriever` finds the closest fingerprints by Euclidean distance.
-4. **Alert** — `SpectralAnomalyAdapter` scores how far a new reading is from the learned baseline.
+1. **Field engineer** — embed today's captures; match against known good/bad references offline.
+2. **Robotics / PLC edge PC** — baseline normal vibration; flag when live spectrum diverges.
+3. **AI copilot** — store spectral memory tokens the model can cite in reports (same role as text embeddings).
+4. **Product demo** — ship `library/spectral_index.json` with the app; instant "Shazam for spectra" without cloud keys.
 
----
-
-## Who Uses This
-
-### Robotics / PLC Edge PC
-Run on the factory-floor PC that already controls the robot. Distinguish "earthquake vibration" from "pump fingerprint" (similarity ~0.57 — different situations) without uploading raw traces to the cloud.
-
-### AI Agents on Laptop
-Each spectral reading becomes a memory object with `spectral_embedding`, `resonance_signature`, and confidence. Agents store and reason over spectra like chat memory — the intelligence layer returns verdicts such as `normal_operation` (0.8 confidence).
-
-### Library Search ("Shazam for Spectra")
-Index your reference spectra; query any new recording. Closest to earthquake ref: itself (distance 0.0), then RotDnn (~11), then vibration monitor (~76) — sensible ranking by spectral shape.
-
----
-
-## Quick Start
+## Commands
 
 ```bash
-# Embed your own spectral JSON folder into an index
-python scripts/embed_my_library.py your_folder/ -o library/my_spectral_index.json
-
-# Use in Python
-from mesie.embeddings import SpectralVectorizer, SpectralRetriever
-retriever = SpectralRetriever()
-retriever.index(records)
-results = retriever.query(new_reading, top_k=5)
+python scripts/embed_spectral_library.py
+python scripts/generate_laptop_research_report.py
+python scripts/embed_my_library.py path/to/your/json/folder
 ```
 
----
-
-## Key Properties
-
-- **Deterministic** — Same input + same seed → identical results every run.
-- **Private** — All data stays on disk; no network calls required.
-- **Portable** — JSON index works on any machine with Python + NumPy.
-- **Fast** — Sub-millisecond per comparison; thousands per second on a single core.
+Deliverable report: `deliverables/MESIE_Laptop_Research_Report.md`

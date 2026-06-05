@@ -1,202 +1,161 @@
-"""MAESI Client — Unified client over MESIE + knowledge libraries + fast compute.
-
-Provides a single entry point for running the full MAESI SDK pipeline:
-knowledge inventory, spectral matching, fingerprinting, benchmarking,
-and NeuroAIX cognitive integration.
-"""
+"""MAESI SDK client — unified fast API over MESIE + knowledge libraries."""
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
-from mesie.core.records import MultiElementRecord
+from mesie.embeddings.fingerprint import SpectralFingerprintPipeline
+from mesie.io.loaders import RecordInput, load_record
 from mesie.sdk.fast_compute import FastSpectralCompute, SpeedBenchmark
-from mesie.sdk.technical_library import get_technical_library
-from mesie.sdk.research_knowledge import get_research_catalog
 from mesie.sdk.physical_laws import get_fundamental_laws
 from mesie.sdk.chemical_elements import get_periodic_table
 from mesie.sdk.biological_systems import get_biological_systems
+from mesie.sdk.technical_library import TechnicalConcept, get_technical_library, get_technical_matrix
+from mesie.sdk.research_knowledge import ResearchEntry, get_research_catalog, search_research, get_research_matrix
 
 
 @dataclass
 class KnowledgeStats:
-    """Knowledge library size statistics."""
-
-    physical_laws: int = 0
-    chemical_elements: int = 0
-    biological_systems: int = 0
-    technical_concepts: int = 0
-    research_entries: int = 0
+    physical_laws: int
+    chemical_elements: int
+    biological_systems: int
+    technical_concepts: int
+    research_entries: int
 
 
 @dataclass
 class MAESIQueryResult:
-    """Result from a single MAESI query."""
-
     record_id: str
-    matches: List[tuple] = field(default_factory=list)
-    fingerprint_hit: bool = False
-    confidence: float = 0.0
+    neighbors: List[Dict[str, Any]]
+    research_hits: List[str]
+    technical_hits: List[str]
+    elapsed_ms: float
 
 
 @dataclass
 class MAESIRunReport:
-    """Full MAESI SDK run report."""
-
-    version: str = "1.1.0"
-    knowledge: KnowledgeStats = field(default_factory=KnowledgeStats)
-    speed: Optional[SpeedBenchmark] = None
-    fingerprint_hits: int = 0
+    version: str
+    knowledge: KnowledgeStats
+    speed: Optional[SpeedBenchmark]
+    fingerprint_hits: List[Dict[str, Any]] = field(default_factory=list)
     neuroaix_available: bool = False
     plain_summary: str = ""
 
 
 class MAESIClient:
-    """Unified MAESI SDK client.
+    """One entry point: knowledge + fast compute + optional fingerprint / NeuroAIX."""
 
-    Integrates:
-    - Knowledge libraries (physical, chemical, biological, technical, research)
-    - Fast vectorized compute (batch embed + matrix cosine)
-    - Fingerprint pipeline (spectral identity hashing)
-    - NeuroAIX cognitive encoder (optional)
-
-    Parameters
-    ----------
-    fast : bool
-        Use FastSpectralCompute for batch operations (default True).
-    use_fingerprint : bool
-        Enable spectral fingerprinting pipeline (default False).
-    """
-
-    def __init__(self, fast: bool = True, use_fingerprint: bool = False):
-        self.fast = fast
-        self.use_fingerprint = use_fingerprint
-        self._compute = FastSpectralCompute() if fast else None
-        self._neuroaix_available = False
-
-        # Check NeuroAIX availability
-        try:
-            from mesie.sdk.neuroaix_engine import MAESIObservationEncoder
-            self._encoder = MAESIObservationEncoder(embedding_dim=64)
-            self._neuroaix_available = True
-        except Exception:
-            self._encoder = None
+    def __init__(self, *, fast: bool = True, use_fingerprint: bool = True) -> None:
+        self.fast_compute = FastSpectralCompute() if fast else None
+        self.fingerprint = SpectralFingerprintPipeline() if use_fingerprint else None
+        self._indexed = False
+        self._law_matrix = np.stack([l.to_embedding() for l in get_fundamental_laws()])
+        self._tech_matrix = get_technical_matrix()
+        self._research_matrix = get_research_matrix()
+        self._technical = get_technical_library()
+        self._research = get_research_catalog()
 
     @property
-    def neuroaix_available(self) -> bool:
-        """Whether NeuroAIX cognitive encoder is available."""
-        return self._neuroaix_available
+    def version(self) -> str:
+        from mesie.sdk import __sdk_version__
 
-    def get_knowledge_stats(self) -> KnowledgeStats:
-        """Get current knowledge library statistics."""
+        return __sdk_version__
+
+    def knowledge_stats(self) -> KnowledgeStats:
         return KnowledgeStats(
             physical_laws=len(get_fundamental_laws()),
             chemical_elements=len(get_periodic_table()),
             biological_systems=len(get_biological_systems()),
-            technical_concepts=len(get_technical_library()),
-            research_entries=len(get_research_catalog()),
+            technical_concepts=len(self._technical),
+            research_entries=len(self._research),
         )
 
-    def query(self, record: MultiElementRecord, top_k: int = 5) -> MAESIQueryResult:
-        """Query the SDK with a single spectral record.
+    def index_corpus(self, records: Sequence[RecordInput]) -> int:
+        if self.fast_compute:
+            n = self.fast_compute.build_index(records)
+        if self.fingerprint:
+            self.fingerprint.index_records(records)
+        self._indexed = True
+        return n if self.fast_compute else len(records)
 
-        Parameters
-        ----------
-        record : MultiElementRecord
-            Input spectral record.
-        top_k : int
-            Number of similar matches to return.
+    def _project_hits(self, embedding: np.ndarray, matrix: np.ndarray, labels: List[str], top_k: int = 3) -> List[str]:
+        d = min(embedding.shape[0], matrix.shape[1])
+        sims = matrix[:, :d] @ embedding[:d]
+        idx = np.argsort(-sims)[:top_k]
+        return [labels[i] for i in idx]
 
-        Returns
-        -------
-        MAESIQueryResult with matches and metadata.
-        """
-        matches = []
-        fingerprint_hit = False
-
-        if self._compute and self._compute.index_size > 0:
-            matches = self._compute.cosine_search(record, top_k=top_k)
-            if matches and matches[0][1] > 0.95:
-                fingerprint_hit = True
-
-        confidence = matches[0][1] if matches else 0.0
-
+    def query(self, record: RecordInput, top_k: int = 5) -> MAESIQueryResult:
+        t0 = time.perf_counter()
+        rec = load_record(record)
+        emb = self.fast_compute.embed_one(rec) if self.fast_compute else np.zeros(17)
+        neighbors = []
+        if self.fast_compute and self.fast_compute._matrix is not None:
+            for rid, sim in self.fast_compute.cosine_search(rec, top_k=top_k):
+                neighbors.append({"record_id": rid, "similarity": round(sim, 4)})
+        tech = self._project_hits(emb, self._tech_matrix, [t.name for t in self._technical])
+        research = search_research(rec.record_id.replace("_", " "), top_k=3)
+        if not research:
+            research = self._project_hits(
+                emb,
+                self._research_matrix,
+                [r.title for r in self._research],
+            )
+            research = [str(x) for x in research]
+        else:
+            research = [r.title for r in research]
         return MAESIQueryResult(
-            record_id=record.record_id,
-            matches=matches,
-            fingerprint_hit=fingerprint_hit,
-            confidence=confidence,
+            record_id=rec.record_id,
+            neighbors=neighbors,
+            research_hits=research,
+            technical_hits=tech,
+            elapsed_ms=(time.perf_counter() - t0) * 1000,
         )
 
     def run_full(
         self,
-        records: Sequence[MultiElementRecord],
-        benchmark: bool = False,
+        records: Sequence[RecordInput],
+        *,
+        benchmark: bool = True,
     ) -> MAESIRunReport:
-        """Run the full MAESI SDK pipeline.
-
-        Parameters
-        ----------
-        records : Sequence[MultiElementRecord]
-            Input spectral records.
-        benchmark : bool
-            Whether to run performance benchmarks.
-
-        Returns
-        -------
-        MAESIRunReport with complete results.
-        """
-        knowledge = self.get_knowledge_stats()
-
-        # Build index
+        stats = self.knowledge_stats()
+        self.index_corpus(records)
         speed = None
-        fingerprint_hits = 0
+        if benchmark and self.fast_compute and len(records) >= 2:
+            speed = FastSpectralCompute.benchmark_match(records, n_repeat=300)
 
-        if self._compute and len(records) > 0:
-            self._compute.build_index(records)
+        fp_hits = []
+        if self.fingerprint and records:
+            hits = self.fingerprint.query(records[0], top_k=3)
+            fp_hits = [{"id": h.item_id, "sim": round(h.similarity, 4)} for h in hits]
 
-            # Query each record for fingerprint matches
-            if self.use_fingerprint:
-                for rec in records:
-                    result = self.query(rec, top_k=1)
-                    if result.fingerprint_hit:
-                        fingerprint_hits += 1
+        neuro = False
+        try:
+            from mesie.sdk.neuroaix_engine import MAESIObservationEncoder
 
-            # Benchmark
-            if benchmark:
-                speed = self._compute.benchmark(records)
+            enc = MAESIObservationEncoder(embedding_dim=64)
+            obs = enc.encode(np.random.randn(32))
+            neuro = obs.spectral_embedding is not None
+        except Exception:
+            neuro = False
 
-        # Summary
-        total_knowledge = (
-            knowledge.physical_laws
-            + knowledge.chemical_elements
-            + knowledge.biological_systems
-            + knowledge.technical_concepts
-            + knowledge.research_entries
+        q = self.query(records[0]) if records else None
+        plain = (
+            f"MAESI SDK v{self.version}: {stats.technical_concepts} technical + "
+            f"{stats.research_entries} research entries loaded. "
         )
-        summary_parts = [
-            f"MAESI SDK v1.1.0 | {total_knowledge} knowledge entries loaded",
-            f"({knowledge.physical_laws} laws, {knowledge.chemical_elements} elements, "
-            f"{knowledge.biological_systems} bio, {knowledge.technical_concepts} technical, "
-            f"{knowledge.research_entries} research)",
-        ]
         if speed:
-            summary_parts.append(
-                f"Speed: {speed.speedup_ratio}x batch vs loop | "
-                f"ANN query {speed.ann_query_ms} ms"
-            )
-        summary_parts.append(
-            f"NeuroAIX: {'available' if self._neuroaix_available else 'not loaded'}"
-        )
-
+            plain += f"Batch match {speed.speedup_ratio}x faster than loop ({speed.batch_match_ms} ms vs {speed.loop_match_ms} ms). "
+        if q:
+            plain += f"Query {q.record_id} in {q.elapsed_ms:.1f} ms; top neighbor {q.neighbors[0] if q.neighbors else 'n/a'}."
         return MAESIRunReport(
-            version="1.1.0",
-            knowledge=knowledge,
+            version=self.version,
+            knowledge=stats,
             speed=speed,
-            fingerprint_hits=fingerprint_hits,
-            neuroaix_available=self._neuroaix_available,
-            plain_summary=" | ".join(summary_parts),
+            fingerprint_hits=fp_hits,
+            neuroaix_available=neuro,
+            plain_summary=plain,
         )

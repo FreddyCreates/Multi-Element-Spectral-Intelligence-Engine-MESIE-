@@ -8,14 +8,27 @@
     "research_entries": 24
   },
   "speed": {
-    "loop_match_ms": 0.486,
-    "batch_match_ms": 0.02339,
-    "speedup_ratio": 20.8,
-    "embed_batch_ms": 0.7039,
-    "ann_query_ms": 0.2388,
-    "n_items": 4
+    "n_items": 4,
+    "loop_match_ms": 0.7367,
+    "batch_match_ms": 0.0008,
+    "speedup_ratio": 886.91,
+    "embed_batch_ms": 1.17,
+    "ann_query_ms": 0.1953
   },
-  "fingerprint_hits": 4,
+  "fingerprint_hits": [
+    {
+      "id": "ref-earthquake-psd-001",
+      "sim": 1.0
+    },
+    {
+      "id": "ref-rotdnn-001",
+      "sim": 0.9799
+    },
+    {
+      "id": "ref-structural-fas-001",
+      "sim": 0.7354
+    }
+  ],
   "neuroaix_available": true,
-  "plain_summary": "MAESI SDK v1.1.0 | 130 knowledge entries loaded | (33 laws, 38 elements, 15 bio, 20 technical, 24 research) | Speed: 20.8x batch vs loop | ANN query 0.2388 ms | NeuroAIX: available"
+  "plain_summary": "MAESI SDK v1.1.0: 20 technical + 24 research entries loaded. Batch match 886.91x faster than loop (0.0008 ms vs 0.7367 ms). Query ref-earthquake-psd-001 in 0.8 ms; top neighbor {'record_id': 'ref-earthquake-psd-001', 'similarity': 1.0}."
 }
