@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: mesie
-Version: 0.2.0
+Version: 0.2.2
 Summary: Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, transformer-based intelligence protocols, and cognitive integration
 Author-email: Alfredo Medina <alfredo@itsnotailabs.com>
 License-Expression: Apache-2.0

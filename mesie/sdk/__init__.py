@@ -8,14 +8,6 @@ connectome intelligence backend. Every physical constant, chemical element,
 and biological system is represented as a first-class spectral citizen within
 the MESIE cognitive architecture.
 
-Sovereign, Private On-Device AI
--------------------------------
-MAESI supports fully local "portable brain" operation — ideal for air-gapped,
-secure, or low-connectivity environments (defense, remote ops, critical
-infrastructure). On-device operation eliminates cloud dependency, costs,
-latency, and privacy risks. Live streaming pipelines enable continuous
-learning and real-time updating of spectral fingerprint libraries on-device.
-
 Architecture
 ------------
     Physical Universe (Laws · Elements · Organisms)
@@ -25,8 +17,6 @@ Architecture
     NeuroAIX Connectome (44 regions · 68 tracts · 3D propagation)
             ↓  cognitive integration
     Agent Policy / Memory / World-State
-            ↓  sovereign inference (optional cloud-free path)
-    On-Device Portable Brain (air-gapped, zero-cloud)
 
 Branding
 --------
@@ -37,7 +27,7 @@ Branding
 Copyright (c) 2024-2026 MESIE Contributors. All rights reserved.
 """
 
-__sdk_version__ = "1.0.0"
+__sdk_version__ = "1.1.0"
 __brand__ = "MAESI Powered by NeuroAIX"
 __engine__ = "MESIE — Multi-Element Spectral Intelligence Engine"
 
@@ -49,6 +39,7 @@ from mesie.sdk.constants import (
     AVOGADRO_SPECTRAL,
     FINE_STRUCTURE_SPECTRAL,
     UniversalSpectralConstant,
+    ALL_CONSTANTS,
 )
 from mesie.sdk.physical_laws import (
     PhysicalLaw,
@@ -68,20 +59,28 @@ from mesie.sdk.biological_systems import (
     get_biological_systems,
     get_organism_profile,
 )
+from mesie.sdk.technical_library import (
+    TechnicalConcept,
+    TechnicalDomain,
+    get_technical_library,
+    get_technical_by_domain,
+    get_technical_matrix,
+)
+from mesie.sdk.research_knowledge import (
+    ResearchEntry,
+    ResearchField,
+    get_research_catalog,
+    get_research_by_field,
+    search_research,
+    get_research_matrix,
+)
+from mesie.sdk.fast_compute import FastSpectralCompute, SpeedBenchmark
+from mesie.sdk.maesi_client import MAESIClient, MAESIQueryResult, MAESIRunReport, KnowledgeStats
 from mesie.sdk.neuroaix_engine import (
     NeuroAIXEngine,
     MAESIObservationEncoder,
     CognitiveIntegrationLoop,
-)
-from mesie.sdk.sovereign_ondevice import (
-    SovereignOnDeviceEngine,
-    SovereignConfig,
-    DeviceProfile,
-    PrivacyLevel,
-    OnDeviceFingerprintLibrary,
-    OnDeviceStreamingPipeline,
-    SpectralFingerprint,
-    StreamingSample,
+    MAESIObservation,
 )
 
 __all__ = [
@@ -90,6 +89,7 @@ __all__ = [
     "__brand__",
     "__engine__",
     # Constants
+    "ALL_CONSTANTS",
     "PLANCK_SPECTRAL",
     "BOLTZMANN_SPECTRAL",
     "SPEED_OF_LIGHT_SPECTRAL",
@@ -112,17 +112,30 @@ __all__ = [
     "OrganismSpectralProfile",
     "get_biological_systems",
     "get_organism_profile",
+    # Technical Library
+    "TechnicalConcept",
+    "TechnicalDomain",
+    "get_technical_library",
+    "get_technical_by_domain",
+    "get_technical_matrix",
+    # Research Knowledge
+    "ResearchEntry",
+    "ResearchField",
+    "get_research_catalog",
+    "get_research_by_field",
+    "search_research",
+    "get_research_matrix",
+    # Fast Compute
+    "FastSpectralCompute",
+    "SpeedBenchmark",
+    # MAESI Client
+    "MAESIClient",
+    "MAESIQueryResult",
+    "MAESIRunReport",
+    "KnowledgeStats",
     # NeuroAIX Engine
     "NeuroAIXEngine",
     "MAESIObservationEncoder",
     "CognitiveIntegrationLoop",
-    # Sovereign On-Device AI
-    "SovereignOnDeviceEngine",
-    "SovereignConfig",
-    "DeviceProfile",
-    "PrivacyLevel",
-    "OnDeviceFingerprintLibrary",
-    "OnDeviceStreamingPipeline",
-    "SpectralFingerprint",
-    "StreamingSample",
+    "MAESIObservation",
 ]

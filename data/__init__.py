@@ -98,6 +98,33 @@ def list_references() -> list[str]:
     return [f.stem for f in ref_dir.glob("*.json")]
 
 
+def load_reference_record(name: str) -> "MultiElementRecord":
+    """Load a reference dataset as a MultiElementRecord.
+
+    Args:
+        name: Dataset name (e.g., 'earthquake_psd_reference').
+
+    Returns:
+        MultiElementRecord instance.
+    """
+    from mesie.core.records import MultiElementRecord, SpectralComponent
+
+    data = load_reference(name)
+    components = []
+    for comp_data in data.get("components", []):
+        import numpy as np
+        components.append(SpectralComponent(
+            name=comp_data.get("component_id", comp_data.get("direction", "default")),
+            frequency=np.array(comp_data.get("frequencies", []), dtype=float),
+            amplitude=np.array(comp_data.get("amplitudes", []), dtype=float),
+        ))
+
+    return MultiElementRecord(
+        record_id=data.get("record_id", name),
+        components=components,
+    )
+
+
 def list_benchmarks() -> list[str]:
     """List all available benchmark datasets."""
     bench_dir = DATA_DIR / "benchmarks"

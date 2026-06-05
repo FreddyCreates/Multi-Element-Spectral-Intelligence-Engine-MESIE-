@@ -161,9 +161,13 @@ mesie/sdk/__init__.py
 mesie/sdk/biological_systems.py
 mesie/sdk/chemical_elements.py
 mesie/sdk/constants.py
+mesie/sdk/fast_compute.py
+mesie/sdk/maesi_client.py
 mesie/sdk/neuroaix_engine.py
 mesie/sdk/physical_laws.py
+mesie/sdk/research_knowledge.py
 mesie/sdk/sovereign_ondevice.py
+mesie/sdk/technical_library.py
 mesie/topology/__init__.py
 mesie/topology/graph_weights.py
 mesie/topology/lineage.py
@@ -194,6 +198,7 @@ tests/test_generation_psd.py
 tests/test_helix.py
 tests/test_integration.py
 tests/test_intelligence_protocols.py
+tests/test_maesi_sdk.py
 tests/test_matching.py
 tests/test_miniverse.py
 tests/test_neural_and_approximate.py

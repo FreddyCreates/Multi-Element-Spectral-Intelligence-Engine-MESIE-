@@ -1,0 +1,21 @@
+{
+  "version": "1.1.0",
+  "knowledge": {
+    "physical_laws": 33,
+    "chemical_elements": 38,
+    "biological_systems": 15,
+    "technical_concepts": 20,
+    "research_entries": 24
+  },
+  "speed": {
+    "loop_match_ms": 0.486,
+    "batch_match_ms": 0.02339,
+    "speedup_ratio": 20.8,
+    "embed_batch_ms": 0.7039,
+    "ann_query_ms": 0.2388,
+    "n_items": 4
+  },
+  "fingerprint_hits": 4,
+  "neuroaix_available": true,
+  "plain_summary": "MAESI SDK v1.1.0 | 130 knowledge entries loaded | (33 laws, 38 elements, 15 bio, 20 technical, 24 research) | Speed: 20.8x batch vs loop | ANN query 0.2388 ms | NeuroAIX: available"
+}
