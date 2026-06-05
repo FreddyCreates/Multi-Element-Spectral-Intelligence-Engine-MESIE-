@@ -8,7 +8,7 @@ description: >
 
 # MESIE / MAESI / NeuroAIX Hub
 
-Unified native suite: **29 tools**, **20 skills** (incl. hub).
+Unified native suite: **30 tools**, **21 skills** (incl. hub).
 
 ```bash
 python -m mesie.tools.cli list
@@ -36,6 +36,7 @@ python -m mesie.tools.cli run <tool-id>
 | `/mesie-neuroaix` | neuroaix, cognitive |
 | `/mesie-octopus` | octopus |
 | `/mesie-orbital` | orbital |
+| `/mesie-polyglot` | ais-polyglot |
 | `/mesie-test` | test, sdk-drive |
 | `/mesie-validate` | validate |
 

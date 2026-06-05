@@ -40,13 +40,14 @@ class TestInternalBus:
 
 
 class TestEngines:
-    def test_registry_has_ten_engines(self):
+    def test_registry_has_eleven_engines(self):
         reg = build_default_registry()
         names = reg.names()
         assert "embedding" in names
         assert "fingerprint" in names
+        assert "polyglot" in names
         assert "workflow" in names
-        assert len(names) >= 10
+        assert len(names) >= 11
 
     def test_control_evaluate(self):
         router = InternalRouter()

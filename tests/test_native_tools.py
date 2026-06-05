@@ -6,7 +6,8 @@ from mesie.tools.registry import TOOLS, tool_by_id
 
 
 def test_registry_size():
-    assert len(TOOLS) >= 28
+    assert len(TOOLS) >= 29
+    assert tool_by_id("ais-polyglot") is not None
     assert tool_by_id("monte-carlo") is not None
     assert tool_by_id("maesi") is not None
     assert tool_by_id("octopus") is not None
