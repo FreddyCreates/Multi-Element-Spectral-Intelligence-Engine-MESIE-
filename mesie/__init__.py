@@ -4,7 +4,7 @@ A modular Python framework for spectral matching, signal generation,
 resonance-aware embeddings, and AI-native spectral representation.
 """
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 from mesie.core.records import MultiElementRecord, SpectralComponent, SpectralMetadata
 from mesie.core.config import GenerationConfig
