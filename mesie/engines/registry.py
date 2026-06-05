@@ -11,6 +11,7 @@ from mesie.engines.logic_engine import LogicEngine
 from mesie.engines.matching_engine import MatchingEngine
 from mesie.engines.movement_engine import MovementEngine
 from mesie.engines.validation_engine import ValidationEngine
+from mesie.engines.fingerprint_engine import FingerprintEngine
 from mesie.engines.workflow_engine import WorkflowEngine
 from mesie.internal_api.bus import InternalBus
 
@@ -29,6 +30,7 @@ def build_default_registry(bus: InternalBus | None = None) -> EngineRegistry:
         ControlEngine(),
         MovementEngine(),
         LogicEngine(),
+        FingerprintEngine(),
     ]
     workflow = WorkflowEngine(bus=bus)
     engines.append(workflow)
