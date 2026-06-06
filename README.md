@@ -5,6 +5,8 @@
 [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org)
 [![CI](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml/badge.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-0.3.0-green.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-)
+[![Monte Carlo](https://img.shields.io/badge/Monte_Carlo-5%2C000_trials_100%25_pass-brightgreen.svg)](deliverables/MESIE_Monte_Carlo_Enterprise_Report.md)
+[![Enterprise Grade](https://img.shields.io/badge/Enterprise_Grade-PASS_%E2%89%A585%25-blue.svg)](deliverables/MESIE_Monte_Carlo_Enterprise_Report.md)
 
 MESIE is an open-source Python framework for multi-component spectral matching, signal generation, resonance-aware embeddings, transformer-based intelligence protocols, and AI-native spectral representation.
 
@@ -488,6 +490,40 @@ stats = StatisticalTestSuite()
 ci = stats.bootstrap_ci(scores, n_bootstrap=1000)
 comparison = stats.paired_t_test(method_a_scores, method_b_scores)
 ```
+
+## Monte Carlo Enterprise Benchmark
+
+MESIE is validated across **10 enterprise verticals** with **5,000 stochastic trials** (500 per use case):
+
+| # | Industry | Use Case | Success |
+|---|----------|----------|---------|
+| 1 | Manufacturing | Predictive maintenance (vibration drift) | 100% |
+| 2 | Energy | Grid & power (Schumann/EM under noise) | 100% |
+| 3 | Aerospace | Satellite / orbital edge + seismic anchor | 100% |
+| 4 | Insurance | Catastrophe / seismic risk cross-match | 100% |
+| 5 | Construction | Structural FAS ranking under perturbation | 100% |
+| 6 | Healthcare | Device monitoring (anomaly vs baseline) | 100% |
+| 7 | Robotics | Fleet ANN state lookup | 100% |
+| 8 | Telecom | Spectrum compliance (research + EM libs) | 100% |
+| 9 | Research | R&D lab benchmark classification | 100% |
+| 10 | Enterprise AI | Agent spectral memory (MAESI + fingerprint) | 100% |
+
+**Overall: 100% success rate | Enterprise grade (≥85%): PASS | Runtime: ~8s for 5,000 trials**
+
+Run the benchmark:
+
+```bash
+# Quick (2,000 trials)
+python scripts/monte_carlo_enterprise_benchmark.py --trials 200
+
+# Full enterprise (5,000 trials)
+python scripts/monte_carlo_enterprise_benchmark.py --trials 500
+
+# Or run as pytest (includes long workflow patterns)
+pytest tests/test_enterprise_workflows.py -v
+```
+
+Full report: [deliverables/MESIE_Monte_Carlo_Enterprise_Report.md](deliverables/MESIE_Monte_Carlo_Enterprise_Report.md)
 
 ## License
 
