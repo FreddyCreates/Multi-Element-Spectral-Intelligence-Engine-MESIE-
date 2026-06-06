@@ -58,6 +58,13 @@ from mesie.sdk.neuroaix_engine import (
     CognitiveIntegrationLoop,
     MAESIObservation,
 )
+from mesie.sdk.solus import (
+    SDKSolusOrganism,
+    SolusLogicProver,
+    SolusPatternForge,
+    SOLUS_BRAND,
+    LOCAL_ENGINE,
+)
 
 __all__ = [
     "__sdk_version__",
@@ -104,7 +111,11 @@ __all__ = [
     "MAESIObservationEncoder",
     "CognitiveIntegrationLoop",
     "MAESIObservation",
+    "SDKSolusOrganism",
+    "SolusLogicProver",
+    "SolusPatternForge",
+    "SOLUS_BRAND",
+    "LOCAL_ENGINE",
 ]
 
-# Spectral Intelligence SDK
 from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK

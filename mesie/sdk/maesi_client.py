@@ -43,16 +43,21 @@ class MAESIRunReport:
     speed: Optional[SpeedBenchmark]
     fingerprint_hits: List[Dict[str, Any]] = field(default_factory=list)
     neuroaix_available: bool = False
+    solus_organism: Optional[Dict[str, Any]] = None
     plain_summary: str = ""
 
 
 class MAESIClient:
     """One entry point: knowledge + fast compute + optional fingerprint / NeuroAIX."""
 
-    def __init__(self, *, fast: bool = True, use_fingerprint: bool = True) -> None:
+    def __init__(self, *, fast: bool = True, use_fingerprint: bool = True, use_solus_caretakers: bool = True) -> None:
         self.fast_compute = FastSpectralCompute() if fast else None
         self.fingerprint = SpectralFingerprintPipeline() if use_fingerprint else None
         self._indexed = False
+        self.organism = None
+        if use_solus_caretakers:
+            from mesie.sdk.solus import SDKSolusOrganism
+            self.organism = SDKSolusOrganism()
         self._law_matrix = np.stack([l.to_embedding() for l in get_fundamental_laws()])
         self._tech_matrix = get_technical_matrix()
         self._research_matrix = get_research_matrix()
@@ -151,11 +156,25 @@ class MAESIClient:
             plain += f"Batch match {speed.speedup_ratio}x faster than loop ({speed.batch_match_ms} ms vs {speed.loop_match_ms} ms). "
         if q:
             plain += f"Query {q.record_id} in {q.elapsed_ms:.1f} ms; top neighbor {q.neighbors[0] if q.neighbors else 'n/a'}."
+
+        solus_report = None
+        if self.organism:
+            solus_stats = {
+                "physical_laws": stats.physical_laws,
+                "chemical_elements": stats.chemical_elements,
+                "technical_concepts": stats.technical_concepts,
+                "research_entries": stats.research_entries,
+                "speedup_ratio": speed.speedup_ratio if speed else 1.0,
+            }
+            solus_report = self.organism.tend_sdk(solus_stats)
+            plain += f" SOLUS caretakers: {solus_report['sdk_health']}."
+
         return MAESIRunReport(
             version=self.version,
             knowledge=stats,
             speed=speed,
             fingerprint_hits=fp_hits,
             neuroaix_available=neuro,
+            solus_organism=solus_report,
             plain_summary=plain,
         )

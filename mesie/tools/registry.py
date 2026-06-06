@@ -83,6 +83,20 @@ TOOLS: List[NativeTool] = [
                ["engines", "engine registry", "nine engines"],
                'python -c "from mesie.engines.registry import build_default_registry; r=build_default_registry(); print(\', \'.join(sorted(r.names())))"'),
     # --- MAESI SDK ---
+    NativeTool("logic-prover", "SOLUS Logic Prover", "mesie-logic-prover", "solus",
+               "Your local math proof caretaker — mini heart + mini brain, zero 3rd party.",
+               ["logic prover", "proof", "theorem", "solus math"], "python scripts/run_solus_math_caretakers.py",
+               "deliverables/SOLUS_Math_Caretakers_Report.json"),
+    NativeTool("pattern-forge", "SOLUS Pattern Forge", "mesie-pattern-forge", "solus",
+               "Your X-ray math caretaker — z-depth, spectral decompose, phi-harmonics, fully local.",
+               ["pattern forge", "xray", "z-depth", "spectral decompose", "solus math"],
+               "python scripts/run_solus_math_caretakers.py",
+               "deliverables/SOLUS_Math_Caretakers_Report.json"),
+    NativeTool("solus-organism", "SOLUS SDK Organism", "mesie-solus-organism", "solus",
+               "Hosts Logic Prover + Pattern Forge as autonomous caretakers inside MAESI SDK.",
+               ["solus", "organism", "caretaker", "mini heart", "mini brain", "sovereign"],
+               "python scripts/run_solus_math_caretakers.py",
+               "deliverables/SOLUS_Math_Caretakers_Report.json"),
     NativeTool("maesi", "MAESI SDK Run", "mesie-maesi", "maesi",
                "Run MAESI v1.1: laws, elements, bio, technical + research knowledge, fast compute.",
                ["maesi", "maesi sdk", "neuroaix sdk"], "python scripts/run_maesi_sdk.py",
@@ -149,6 +163,7 @@ TOOLS: List[NativeTool] = [
 
 
 SKILL_CATEGORIES = {
+    "solus": "SOLUS Local Math AI Caretakers",
     "core": "MESIE Core Spectral Engine",
     "retrieval": "Embedding, Fingerprint & ANN Retrieval",
     "orchestration": "Octopus & Internal API",
