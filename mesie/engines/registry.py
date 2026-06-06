@@ -16,8 +16,16 @@ from mesie.engines.polyglot_engine import PolyglotEngine
 from mesie.engines.workflow_engine import WorkflowEngine
 from mesie.internal_api.bus import InternalBus
 
+try:
+    from mesie.polyglot.suite import AISVectorPolyglotSuite
+except ImportError:
+    AISVectorPolyglotSuite = None  # type: ignore
 
-def build_default_registry(bus: InternalBus | None = None) -> EngineRegistry:
+
+def build_default_registry(
+    bus: InternalBus | None = None,
+    polyglot_suite: "AISVectorPolyglotSuite | None" = None,
+) -> EngineRegistry:
     """Register all built-in engines; attach workflow engine to bus."""
     registry = EngineRegistry()
     bus = bus or InternalBus()
@@ -32,7 +40,7 @@ def build_default_registry(bus: InternalBus | None = None) -> EngineRegistry:
         MovementEngine(),
         LogicEngine(),
         FingerprintEngine(),
-        PolyglotEngine(),
+        PolyglotEngine(suite=polyglot_suite),
     ]
     workflow = WorkflowEngine(bus=bus)
     engines.append(workflow)

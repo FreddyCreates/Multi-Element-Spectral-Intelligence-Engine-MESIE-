@@ -66,8 +66,8 @@ TOOLS: List[NativeTool] = [
                "library/my_spectral_index.json"),
     # --- Octopus / Internal API ---
     NativeTool("octopus", "Octopus Engineering", "mesie-octopus", "orchestration",
-               "Eight-arm controller: sense, embed, match, move, control, workflow, logic, memory.",
-               ["octopus", "eight arms", "internal api", "multi-arm"],
+               "Eight-arm controller; EMBED/MATCH default to AISVectorPolyglot (vector + Rust/Python).",
+               ["octopus", "eight arms", "internal api", "multi-arm", "polyglot arms"],
                "python examples/11_octopus_internal_api.py"),
     NativeTool("ais-polyglot", "AISVectorPolyglot Suite", "mesie-polyglot", "orchestration",
                "Polyglot test/use/integration: Python, Rust, Julia, Motoko, TypeScript + vector + AIS + 3rd-party AI.",

@@ -86,14 +86,22 @@ class TestEngines:
 class TestOctopus:
     def test_controller_lists_engines(self):
         oc = OctopusController()
-        assert "embedding" in oc.list_engines()
+        assert "polyglot" in oc.list_engines()
         assert len(oc._arms) == 8
+
+    def test_embed_match_arms_use_polyglot(self):
+        from mesie.octopus.arms import ARM_ENGINE_MAP, ArmId
+
+        assert ARM_ENGINE_MAP[ArmId.EMBED] == "polyglot"
+        assert ARM_ENGINE_MAP[ArmId.MATCH] == "polyglot"
 
     def test_standard_cycle(self):
         oc = OctopusController(config=OctopusConfig(movement_steps=2))
         report = oc.run_standard_cycle(_record(), candidate=_record("t-002"))
         assert report.validation["ok"]
         assert report.match["ok"]
+        assert report.embedding["ok"]
+        assert report.polyglot["suite"] == "AISVectorPolyglot"
         assert "sense" in report.arms_used
         assert len(report.plain_summary) > 20
 
@@ -127,3 +135,4 @@ class TestOctopus:
         oc = OctopusController(config=OctopusConfig(user_index_path=str(out), movement_steps=1))
         report = oc.run_standard_cycle(_load_spectral_file(ref_files[0]))
         assert report.user_library["status"]["data"]["user_entries"] >= 4
+        assert report.polyglot["vector_indexed"] >= 4

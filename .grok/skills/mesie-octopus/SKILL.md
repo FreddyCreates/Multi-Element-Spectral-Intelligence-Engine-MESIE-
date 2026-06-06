@@ -1,7 +1,7 @@
 ---
 name: mesie-octopus
 description: >
-  Eight-arm controller: sense, embed, match, move, control, workflow, logic, memory. Triggers: eight arms, internal api, multi-arm, octopus. Use for /mesie-octopus or MESIE/MAESI/NeuroAIX tasks.
+  Eight-arm controller; EMBED/MATCH default to AISVectorPolyglot (vector + Rust/Python). Triggers: eight arms, internal api, multi-arm, octopus, polyglot arms. Use for /mesie-octopus or MESIE/MAESI/NeuroAIX tasks.
 ---
 
 # mesie-octopus
@@ -10,7 +10,7 @@ Native MESIE / MAESI / NeuroAIX skill — **Octopus & Internal API**.
 
 ## When to use
 
-- Eight-arm controller: sense, embed, match, move, control, workflow, logic, memory.
+- Eight-arm controller; EMBED/MATCH default to AISVectorPolyglot (vector + Rust/Python).
 
 ## Tools in this skill
 

@@ -25,8 +25,8 @@ class ArmId(str, Enum):
 
 ARM_ENGINE_MAP: Dict[ArmId, str] = {
     ArmId.SENSE: "validation",
-    ArmId.EMBED: "embedding",
-    ArmId.MATCH: "matching",
+    ArmId.EMBED: "polyglot",
+    ArmId.MATCH: "polyglot",
     ArmId.MOVE: "movement",
     ArmId.CONTROL: "control",
     ArmId.WORKFLOW: "workflow",
@@ -37,7 +37,7 @@ ARM_ENGINE_MAP: Dict[ArmId, str] = {
 
 ARM_DEFAULT_ACTIONS: Dict[ArmId, str] = {
     ArmId.SENSE: "validate",
-    ArmId.EMBED: "transform",
+    ArmId.EMBED: "embed",
     ArmId.MATCH: "match",
     ArmId.MOVE: "advance",
     ArmId.CONTROL: "status",
