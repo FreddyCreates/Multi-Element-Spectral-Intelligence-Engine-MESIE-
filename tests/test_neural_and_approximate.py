@@ -72,6 +72,12 @@ class TestNeuralSpectralEncoder:
         encoder = NeuralSpectralEncoder()
         assert encoder.backend in ("torch", "numpy")
 
+    def test_cnn_fit_raises_for_torch_backend(self):
+        encoder = NeuralSpectralEncoder(mode="cnn", embedding_dim=16)
+        if encoder.backend == "torch":
+            with pytest.raises(NotImplementedError, match="mode='autoencoder'"):
+                encoder.fit(SAMPLE_RECORDS, epochs=1)
+
 
 class TestNumpyFallback:
     """Tests for the NumPy autoencoder fallback."""
@@ -100,6 +106,14 @@ class TestNumpyFallback:
         data = np.random.randn(50, 32).astype(np.float32) * 0.1
         losses = ae.fit(data, epochs=30, lr=1e-2)
         assert losses[-1] < losses[0]
+
+    def test_fit_is_seed_deterministic(self):
+        data = np.random.randn(30, 32).astype(np.float32)
+        ae1 = _NumpyAutoencoderFallback(input_dim=32, latent_dim=8, seed=7)
+        ae2 = _NumpyAutoencoderFallback(input_dim=32, latent_dim=8, seed=7)
+        losses1 = ae1.fit(data, epochs=5, lr=1e-3, batch_size=10)
+        losses2 = ae2.fit(data, epochs=5, lr=1e-3, batch_size=10)
+        np.testing.assert_allclose(losses1, losses2, rtol=1e-7, atol=1e-7)
 
 
 class TestRecordToSignal:
@@ -159,6 +173,13 @@ class TestSpectralLSH:
         stats = lsh.table_stats
         assert stats["n_tables"] == 4
         assert stats["n_indexed"] == 5
+
+    def test_candidate_truncation_is_deterministic(self):
+        lsh = SpectralLSH(n_tables=4, n_bits=8, seed=42)
+        lsh.index(SAMPLE_RECORDS)
+        r1 = lsh.query(SAMPLE_RECORDS[0], top_k=3, n_candidates=2)
+        r2 = lsh.query(SAMPLE_RECORDS[0], top_k=3, n_candidates=2)
+        assert r1 == r2
 
 
 # ---------------------------------------------------------------------------

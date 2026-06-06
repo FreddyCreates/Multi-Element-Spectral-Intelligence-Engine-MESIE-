@@ -96,10 +96,9 @@ class SovereignConfig:
     enable_drift_detection : bool
         Whether to monitor fingerprint distribution drift.
     max_memory_mb : int
-        Hard memory ceiling for the engine (in megabytes).
+        Target memory budget for the engine (in megabytes).
     deterministic : bool
-        If True, disables any non-deterministic operations for
-        reproducibility in safety-critical systems.
+        Indicates deterministic operation is preferred where available.
     """
 
     device_profile: DeviceProfile = DeviceProfile.EDGE_STANDARD
@@ -148,12 +147,26 @@ class OnDeviceFingerprintLibrary:
         """Current number of fingerprints stored."""
         return len(self._fingerprints)
 
+    def _validate_embedding(self, embedding: np.ndarray) -> np.ndarray:
+        """Validate/cast embedding to configured dimensionality."""
+        normalized = np.asarray(embedding, dtype=np.float32).reshape(-1)
+        if normalized.shape[0] != self.embedding_dim:
+            raise ValueError(
+                f"embedding must have shape ({self.embedding_dim},), got {normalized.shape}"
+            )
+        return normalized
+
     def add(self, fingerprint: SpectralFingerprint) -> bool:
         """Add or update a fingerprint in the library.
 
         Returns True if the fingerprint was added successfully.
         If at capacity, evicts the oldest fingerprint.
         """
+        if self.capacity <= 0:
+            return False
+
+        fingerprint.embedding = self._validate_embedding(fingerprint.embedding)
+
         if self.size >= self.capacity and fingerprint.fingerprint_id not in self._fingerprints:
             # Evict oldest
             oldest_id = min(
@@ -184,6 +197,7 @@ class OnDeviceFingerprintLibrary:
         if not self._fingerprints:
             return []
 
+        embedding = self._validate_embedding(embedding)
         self._rebuild_index_if_needed()
 
         # Cosine similarity
@@ -224,6 +238,10 @@ class OnDeviceFingerprintLibrary:
         """
         if fingerprint_id not in self._fingerprints:
             return False
+        if not 0.0 <= momentum <= 1.0:
+            raise ValueError(f"momentum must be in [0, 1], got {momentum}")
+
+        new_embedding = self._validate_embedding(new_embedding)
 
         fp = self._fingerprints[fingerprint_id]
         fp.embedding = momentum * fp.embedding + (1 - momentum) * new_embedding
@@ -274,7 +292,7 @@ class OnDeviceStreamingPipeline:
     - Buffered micro-batch processing for efficiency
     - Drift detection to flag distribution shifts
     - Automatic fingerprint creation for novel patterns
-    - Memory-bounded operation (never exceeds configured limits)
+    - Resource-aware operation tuned for constrained devices
     """
 
     def __init__(
@@ -284,6 +302,11 @@ class OnDeviceStreamingPipeline:
         novelty_threshold: float = 0.3,
         drift_window: int = 200,
     ):
+        if not 0.0 <= novelty_threshold <= 1.0:
+            raise ValueError(f"novelty_threshold must be in [0, 1], got {novelty_threshold}")
+        if drift_window < 4:
+            raise ValueError(f"drift_window must be >= 4, got {drift_window}")
+
         self.library = library
         self.config = config
         self.novelty_threshold = novelty_threshold
