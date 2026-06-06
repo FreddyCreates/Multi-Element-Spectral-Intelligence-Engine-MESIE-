@@ -119,3 +119,5 @@ __all__ = [
 ]
 
 from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
+
+__all__.append("SpectralIntelligenceSDK")
