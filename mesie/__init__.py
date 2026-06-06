@@ -39,6 +39,7 @@ from mesie.protocols.spectral_protocol import SpectralDataProtocol, ProtocolMess
 from mesie.protocols.streaming import StreamingProtocol, StreamBuffer
 from mesie.protocols.serialization import SpectralSerializer, SerializationFormat
 from mesie.integration.ai_connector import AISystemConnector, ConnectorConfig
+from mesie.polyglot import AISVectorPolyglotSuite, SUITE_NAME as AIS_POLYGLOT_SUITE_NAME
 from mesie.integration.library_bridge import LibraryBridge, BridgeState
 from mesie.integration.pipeline_orchestrator import PipelineOrchestrator, OrchestratorConfig
 from mesie.helix.vector_helix import VectorHelix, HelixConfig, HelixNode, HelixTraversalResult
@@ -82,6 +83,8 @@ from mesie.agentic import (
 
 __all__ = [
     "__version__",
+    "AIS_POLYGLOT_SUITE_NAME",
+    "AISVectorPolyglotSuite",
     "AISystemConnector",
     "AgentNetwork",
     "AgentSpawner",

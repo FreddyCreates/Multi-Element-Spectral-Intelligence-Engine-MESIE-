@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.2] - 2026-06-05
+
+### Added
+- MAESI SDK v1.1: technical library, research knowledge catalog, `FastSpectralCompute`, `MAESIClient`
+- Fingerprint pipeline (TF, salient, LSH, ANN) and `scripts/run_maesi_sdk.py`
+
 ## [0.2.1] - 2026-06-04
 
 ### Added
@@ -14,6 +20,12 @@
 - Reference datasets clipped/validated for level-6 compliance
 
 All notable changes to MESIE will be documented in this file.
+
+## [0.2.2] - 2026-06-05
+
+### Added
+- MAESI SDK v1.1: technical library, research knowledge catalog, `FastSpectralCompute`, `MAESIClient`
+- Fingerprint pipeline (TF, salient, LSH, ANN) and `scripts/run_maesi_sdk.py`
 
 ## [Unreleased]
 
