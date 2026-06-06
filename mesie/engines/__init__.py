@@ -8,6 +8,12 @@ from mesie.engines.intelligence_engine import IntelligenceEngine
 from mesie.engines.logic_engine import LogicEngine
 from mesie.engines.matching_engine import MatchingEngine
 from mesie.engines.movement_engine import MovementEngine
+from mesie.engines.multimodel_julia_engine import (
+    MultiModelEmbeddingEngine,
+    MultiModelFingerprintEngine,
+    MultiModelMatchingEngine,
+    MultiModelValidationEngine,
+)
 from mesie.engines.registry import build_default_registry
 from mesie.engines.validation_engine import ValidationEngine
 from mesie.engines.workflow_engine import WorkflowEngine
@@ -22,6 +28,10 @@ __all__ = [
     "LogicEngine",
     "MatchingEngine",
     "MovementEngine",
+    "MultiModelEmbeddingEngine",
+    "MultiModelFingerprintEngine",
+    "MultiModelMatchingEngine",
+    "MultiModelValidationEngine",
     "ValidationEngine",
     "WorkflowEngine",
     "build_default_registry",
