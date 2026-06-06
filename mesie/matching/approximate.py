@@ -134,7 +134,7 @@ class SpectralLSH:
 
         # Limit candidates for efficiency
         max_candidates = n_candidates or (10 * top_k)
-        candidates = list(candidate_indices)[:max_candidates]
+        candidates = sorted(candidate_indices)[:max_candidates]
 
         # Re-rank by exact distance
         distances: List[Tuple[str, float]] = []
@@ -363,9 +363,6 @@ class HybridSpectralSearch:
             vectorizer=self.vectorizer,
             seed=seed,
         )
-        self._embeddings: List[np.ndarray] = []
-        self._record_ids: List[str] = []
-
     def index(self, records: Sequence[RecordInput]) -> None:
         """Index records for hybrid search.
 
@@ -373,11 +370,6 @@ class HybridSpectralSearch:
             records: Records to add to the index.
         """
         self._lsh.index(records)
-        for r in records:
-            rec = load_record(r)
-            emb = self.vectorizer.transform(rec)
-            self._embeddings.append(emb)
-            self._record_ids.append(rec.record_id)
 
     def query(
         self,

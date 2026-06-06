@@ -67,13 +67,13 @@ class _NumpyAutoencoderFallback:
     def __init__(self, input_dim: int = 128, latent_dim: int = 32, seed: int = 42) -> None:
         self.input_dim = input_dim
         self.latent_dim = latent_dim
-        rng = np.random.default_rng(seed)
+        self._rng = np.random.default_rng(seed)
         # Xavier initialization
         scale_enc = np.sqrt(2.0 / (input_dim + latent_dim))
         scale_dec = np.sqrt(2.0 / (latent_dim + input_dim))
-        self._W_enc = (rng.standard_normal((input_dim, latent_dim)) * scale_enc).astype(np.float32)
+        self._W_enc = (self._rng.standard_normal((input_dim, latent_dim)) * scale_enc).astype(np.float32)
         self._b_enc = np.zeros(latent_dim, dtype=np.float32)
-        self._W_dec = (rng.standard_normal((latent_dim, input_dim)) * scale_dec).astype(np.float32)
+        self._W_dec = (self._rng.standard_normal((latent_dim, input_dim)) * scale_dec).astype(np.float32)
         self._b_dec = np.zeros(input_dim, dtype=np.float32)
         self._trained = False
 
@@ -116,7 +116,7 @@ class _NumpyAutoencoderFallback:
         losses: List[float] = []
         n = len(data)
         for _ in range(epochs):
-            indices = np.random.permutation(n)
+            indices = self._rng.permutation(n)
             epoch_loss = 0.0
             n_batches = 0
             for start in range(0, n, batch_size):
@@ -318,8 +318,9 @@ class NeuralSpectralEncoder:
     ) -> List[float]:
         """Train the encoder on a collection of spectral records.
 
-        Only meaningful for autoencoder mode. For CNN mode with PyTorch,
-        this trains the autoencoder variant for unsupervised representation learning.
+        With the PyTorch backend, this is only supported for autoencoder mode.
+        With the NumPy fallback backend (including ``mode="cnn"`` fallback),
+        this trains the fallback autoencoder implementation.
 
         Args:
             records: Training records.
@@ -333,16 +334,10 @@ class NeuralSpectralEncoder:
         signals = np.array([self._prepare_signal(r) for r in records], dtype=np.float32)
 
         if self._use_torch:
-            # Use the autoencoder architecture for training
-            if self.mode == "autoencoder":
-                model = self._model
-            else:
-                # Train a temporary autoencoder and use CNN for inference
-                torch.manual_seed(self.seed)
-                model = _SpectralAutoencoderTorch(
-                    input_dim=self.input_length,
-                    latent_dim=self.embedding_dim,
-                )
+            if self.mode != "autoencoder":
+                raise NotImplementedError("fit() is only supported for mode='autoencoder' with torch backend")
+
+            model = self._model
 
             model.train()
             optimizer = torch.optim.Adam(model.parameters(), lr=lr)
