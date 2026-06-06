@@ -26,7 +26,7 @@ def test_add_guard_when_capacity_zero():
 
 def test_add_validates_and_casts_embedding_shape():
     lib = OnDeviceFingerprintLibrary(capacity=2, embedding_dim=4)
-    with pytest.raises(ValueError, match="embedding must have shape"):
+    with pytest.raises(ValueError, match="embedding must have length"):
         lib.add(SpectralFingerprint(fingerprint_id="fp1", embedding=np.ones(3), created_at=1.0))
 
     fp = SpectralFingerprint(fingerprint_id="fp2", embedding=np.ones(4, dtype=np.float64), created_at=2.0)
@@ -41,7 +41,7 @@ def test_incremental_update_validates_inputs():
     with pytest.raises(ValueError, match="momentum must be in \\[0, 1\\]"):
         lib.incremental_update("fp1", np.ones(4), momentum=1.5)
 
-    with pytest.raises(ValueError, match="embedding must have shape"):
+    with pytest.raises(ValueError, match="embedding must have length"):
         lib.incremental_update("fp1", np.ones(3), momentum=0.5)
 
 

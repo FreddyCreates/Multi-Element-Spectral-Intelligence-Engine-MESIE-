@@ -96,9 +96,12 @@ class SovereignConfig:
     enable_drift_detection : bool
         Whether to monitor fingerprint distribution drift.
     max_memory_mb : int
-        Target memory budget for the engine (in megabytes).
+        Best-effort memory budget target for the engine (in megabytes).
+        This module currently does not enforce a hard ceiling.
     deterministic : bool
-        Indicates deterministic operation is preferred where available.
+        Preference flag for deterministic behavior where explicitly
+        supported by the active components. This is not a global
+        determinism guarantee for all operations in this module.
     """
 
     device_profile: DeviceProfile = DeviceProfile.EDGE_STANDARD
@@ -149,12 +152,12 @@ class OnDeviceFingerprintLibrary:
 
     def _validate_embedding(self, embedding: np.ndarray) -> np.ndarray:
         """Validate/cast embedding to configured dimensionality."""
-        normalized = np.asarray(embedding, dtype=np.float32).reshape(-1)
-        if normalized.shape[0] != self.embedding_dim:
+        validated_embedding = np.asarray(embedding, dtype=np.float32).reshape(-1)
+        if validated_embedding.shape[0] != self.embedding_dim:
             raise ValueError(
-                f"embedding must have shape ({self.embedding_dim},), got {normalized.shape}"
+                f"embedding must have length {self.embedding_dim}, got {validated_embedding.shape[0]}"
             )
-        return normalized
+        return validated_embedding
 
     def add(self, fingerprint: SpectralFingerprint) -> bool:
         """Add or update a fingerprint in the library.

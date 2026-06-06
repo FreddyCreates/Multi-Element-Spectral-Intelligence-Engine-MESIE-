@@ -318,7 +318,9 @@ class NeuralSpectralEncoder:
     ) -> List[float]:
         """Train the encoder on a collection of spectral records.
 
-        Only supported for autoencoder mode when using the PyTorch backend.
+        With the PyTorch backend, this is only supported for autoencoder mode.
+        With the NumPy fallback backend (including ``mode="cnn"`` fallback),
+        this trains the fallback autoencoder implementation.
 
         Args:
             records: Training records.

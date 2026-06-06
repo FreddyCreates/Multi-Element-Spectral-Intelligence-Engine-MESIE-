@@ -107,7 +107,7 @@ class TestNumpyFallback:
         losses = ae.fit(data, epochs=30, lr=1e-2)
         assert losses[-1] < losses[0]
 
-    def test_fit_is_seed_deterministic(self):
+    def test_fit_produces_deterministic_results_with_same_seed(self):
         data = np.random.randn(30, 32).astype(np.float32)
         ae1 = _NumpyAutoencoderFallback(input_dim=32, latent_dim=8, seed=7)
         ae2 = _NumpyAutoencoderFallback(input_dim=32, latent_dim=8, seed=7)
@@ -180,6 +180,19 @@ class TestSpectralLSH:
         r1 = lsh.query(SAMPLE_RECORDS[0], top_k=3, n_candidates=2)
         r2 = lsh.query(SAMPLE_RECORDS[0], top_k=3, n_candidates=2)
         assert r1 == r2
+
+        query_emb = lsh.vectorizer.transform(SAMPLE_RECORDS[0])
+        candidate_indices = set()
+        for t in range(lsh.n_tables):
+            key = lsh._hash_vector(query_emb, t)
+            if key in lsh._tables[t]:
+                candidate_indices.update(lsh._tables[t][key])
+        if not candidate_indices:
+            candidate_indices = set(range(lsh.size))
+
+        expected_first_candidate = min(candidate_indices)
+        deterministic_single = lsh.query(SAMPLE_RECORDS[0], top_k=1, n_candidates=1)
+        assert deterministic_single[0][0] == lsh._record_ids[expected_first_candidate]
 
 
 # ---------------------------------------------------------------------------
