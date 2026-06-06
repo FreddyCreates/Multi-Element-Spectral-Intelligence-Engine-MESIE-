@@ -33,3 +33,4 @@ library/*.json
 .vscode/
 .DS_Store
 Thumbs.db
+mesie.egg-info/

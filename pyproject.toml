@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mesie"
-version = "0.2.2"
+version = "0.3.0"
 description = "Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, transformer-based intelligence protocols, and cognitive integration"
 readme = "README.md"
 license = "Apache-2.0"
@@ -21,6 +21,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
@@ -62,6 +63,7 @@ dev = [
 ]
 
 [project.scripts]
+mesie = "mesie.cli:main"
 mesie-tools = "mesie.tools.cli:main"
 
 [project.urls]

@@ -4,7 +4,7 @@ A modular Python framework for spectral matching, signal generation,
 resonance-aware embeddings, and AI-native spectral representation.
 """
 
-__version__ = "0.2.2"
+__version__ = "0.3.0"
 
 from mesie.core.records import MultiElementRecord, SpectralComponent, SpectralMetadata
 from mesie.core.config import GenerationConfig
@@ -64,15 +64,31 @@ from mesie.edge.satellite_nodes import (
     VirtualNodeNetwork,
 )
 from mesie.edge.edge_protocol import EdgeSpectralProtocol, EdgeMessage, EdgeRoute
+from mesie.io.corpus import SpectralCorpus
+from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
 from mesie.internal_api import InternalBus, InternalRouter, MessageEnvelope, MessageTopic, EngineResponse
 from mesie.engines import Engine, EngineRegistry, build_default_registry
 from mesie.octopus import ArmId, OctopusArm, OctopusController, OctopusConfig, OctopusRunReport
+from mesie.agentic import (
+    AgentNetwork,
+    AgentSpawner,
+    AgentState,
+    GhostAgent,
+    GhostConfig,
+    GhostResult,
+    NetworkTopology,
+    SpawnerConfig,
+    TaskSpec,
+)
 
 __all__ = [
     "__version__",
     "AIS_POLYGLOT_SUITE_NAME",
     "AISVectorPolyglotSuite",
     "AISystemConnector",
+    "AgentNetwork",
+    "AgentSpawner",
+    "AgentState",
     "ArmId",
     "AttentionFocusModule",
     "BridgeState",
@@ -88,6 +104,9 @@ __all__ = [
     "EngineResponse",
     "FrequencyTier",
     "GenerationConfig",
+    "GhostAgent",
+    "GhostConfig",
+    "GhostResult",
     "HelixConfig",
     "HelixEncoder",
     "HelixNode",
@@ -109,6 +128,7 @@ __all__ = [
     "MessageTopic",
     "MemoryTrace",
     "MultiElementRecord",
+    "NetworkTopology",
     "NeuroCoreCluster",
     "NeuroCoreConfig",
     "OctopusArm",
@@ -124,10 +144,13 @@ __all__ = [
     "ReasoningStrategy",
     "SatelliteEdgeNode",
     "SerializationFormat",
+    "SpawnerConfig",
     "SpectralAutoencoder",
     "SpectralClassifier",
     "SpectralComponent",
+    "SpectralCorpus",
     "SpectralDataProtocol",
+    "SpectralIntelligenceSDK",
     "SpectralMatcher",
     "SpectralMemoryBuffer",
     "SpectralMetadata",
@@ -139,6 +162,7 @@ __all__ = [
     "SpectralVectorizer",
     "StreamBuffer",
     "StreamingProtocol",
+    "TaskSpec",
     "TaurusMemoryStore",
     "TaurusWorkingMemory",
     "TrainingConfig",

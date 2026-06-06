@@ -105,3 +105,6 @@ __all__ = [
     "CognitiveIntegrationLoop",
     "MAESIObservation",
 ]
+
+# Spectral Intelligence SDK
+from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
