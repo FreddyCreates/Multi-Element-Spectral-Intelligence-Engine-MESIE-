@@ -88,7 +88,7 @@ class JuliaCallBackend(JuliaBackend):
 
     def __init__(self) -> None:
         self._jl: Any = None
-        self._module: Any = None
+        self._dispatch_fn: Any = None
 
     def _ensure_initialized(self) -> None:
         if self._jl is not None:
@@ -101,28 +101,23 @@ class JuliaCallBackend(JuliaBackend):
                 "juliacall not installed. Install with: pip install juliacall"
             )
 
-        # Load the MESIEPolyglot module
-        jl.seval(f'include("{_MODULE_PATH}")')
+        # Load the MESIEPolyglot module and cache the dispatch function
+        module_path = str(_MODULE_PATH).replace("\\", "/")
+        jl.seval(f'include("{module_path}")')
+        jl.seval("using JSON")
         self._jl = jl
-        self._module = jl.MESIEPolyglot
+        # Cache a reference to the dispatch function to avoid repeated seval
+        self._dispatch_fn = jl.seval(
+            "req_json -> JSON.json(MESIEPolyglot.dispatch_action(JSON.parse(req_json)))"
+        )
 
     def call(self, action: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         self._ensure_initialized()
-        jl = self._jl
-        mod = self._module
-
-        # Build the request dict and dispatch via Julia
+        # Serialize request to JSON and pass as a single string argument
+        # to avoid any code injection via string interpolation
         request = {"action": action, **payload}
         request_json = json.dumps(request)
-        result_json = jl.seval(
-            f"""
-            using JSON
-            import .MESIEPolyglot
-            let req = JSON.parse({json.dumps(request_json)})
-                JSON.json(MESIEPolyglot.dispatch_action(req))
-            end
-            """
-        )
+        result_json = self._dispatch_fn(request_json)
         return json.loads(str(result_json))
 
 
