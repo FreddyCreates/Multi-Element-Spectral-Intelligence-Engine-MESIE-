@@ -330,7 +330,7 @@ class TestDiagnosticsAndHealth:
     def test_sdk_version_report(self):
         """SDK reports version correctly."""
         engine = SpectralIntelligenceSDK()
-        assert "0.3" in engine.version
+        assert "0.4" in engine.version
 
     def test_knowledge_stats(self):
         """MAESI reports knowledge base statistics."""
@@ -347,7 +347,7 @@ class TestDiagnosticsAndHealth:
         engine = SpectralIntelligenceSDK()
         r = repr(engine)
         assert "SpectralIntelligenceSDK" in r
-        assert "0.3" in r
+        assert "0.4" in r
 
     def test_validation_report_serializable(self):
         """Validation reports can be serialized to JSON."""

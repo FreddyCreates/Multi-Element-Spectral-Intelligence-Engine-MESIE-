@@ -59,7 +59,7 @@ class TestSDKInstall:
 
     def test_sdk_instantiates(self):
         engine = SpectralIntelligenceSDK()
-        assert "0.3" in engine.version
+        assert "0.4" in engine.version
 
     def test_sdk_generate_psd(self):
         engine = SpectralIntelligenceSDK()
