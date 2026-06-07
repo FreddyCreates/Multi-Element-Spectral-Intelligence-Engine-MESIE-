@@ -550,3 +550,136 @@ class SpectralIntelligenceSDK:
             "workflow_embeddings": self._core.workflow_embedding_count,
             "dataset_embeddings": self._core.dataset_embedding_count,
         }
+
+    # ==================================================================
+    # V0.3.1: MULTI-MODEL PYTHON↔JULIA BRIDGE
+    # ==================================================================
+
+    @property
+    def julia(self) -> "JuliaBridge":
+        """Access the Julia bridge for direct Python↔Julia interop.
+
+        Returns:
+            JuliaBridge instance (lazy-initialized).
+
+        Example:
+            >>> result = engine.julia.validate(record_dict)
+            >>> embedding = engine.julia.embed(record_dict)
+        """
+        if not hasattr(self, "_julia_bridge") or self._julia_bridge is None:
+            from mesie.polyglot.julia_bridge import JuliaBridge
+            self._julia_bridge = JuliaBridge(backend="auto")
+        return self._julia_bridge
+
+    def multimodel_validate(self, record: RecordInput) -> Dict[str, Any]:
+        """Validate a record using both Python and Julia (multi-model consensus).
+
+        Runs validation in both runtimes and returns a consensus result
+        with cross-runtime confidence scoring.
+
+        Args:
+            record: Record to validate.
+
+        Returns:
+            Dict with consensus validation result, per-runtime details.
+
+        Example:
+            >>> result = engine.multimodel_validate(my_record)
+            >>> print(result["confidence"])  # 1.0 if both agree
+        """
+        if self._core is None:
+            raise RuntimeError("Core engine not enabled.")
+        resp = self._core.dispatch(
+            "multimodel_validation", "validate_consensus",
+            {"record": record},
+        )
+        return {"ok": resp.ok, "data": resp.data, "error": resp.error}
+
+    def multimodel_match(
+        self,
+        reference: RecordInput,
+        candidate: RecordInput,
+    ) -> Dict[str, Any]:
+        """Match two records using fused Python+Julia scoring (multi-model).
+
+        Combines Python's flexible metrics with Julia's numerical precision
+        for a weighted fused score.
+
+        Args:
+            reference: Reference record.
+            candidate: Candidate record.
+
+        Returns:
+            Dict with fused score and per-runtime breakdowns.
+
+        Example:
+            >>> result = engine.multimodel_match(ref, cand)
+            >>> print(result["data"]["fused_score"])
+        """
+        if self._core is None:
+            raise RuntimeError("Core engine not enabled.")
+        resp = self._core.dispatch(
+            "multimodel_matching", "match_fused",
+            {"record_a": reference, "record_b": candidate},
+        )
+        return {"ok": resp.ok, "data": resp.data, "error": resp.error}
+
+    def multimodel_embed(
+        self,
+        record: RecordInput,
+        *,
+        fusion_mode: Optional[str] = None,
+    ) -> np.ndarray:
+        """Embed a record using fused Python+Julia embeddings (multi-model).
+
+        Computes embeddings from both runtimes and fuses them via
+        concatenation (richer) or averaging (compact).
+
+        Args:
+            record: Record to embed.
+            fusion_mode: "concatenate" or "average" (default: engine setting).
+
+        Returns:
+            Fused embedding vector as numpy array.
+
+        Example:
+            >>> emb = engine.multimodel_embed(my_record)
+            >>> print(emb.shape)  # larger dim from dual runtimes
+        """
+        if self._core is None:
+            raise RuntimeError("Core engine not enabled.")
+        payload: Dict[str, Any] = {"record": record}
+        if fusion_mode:
+            payload["fusion_mode"] = fusion_mode
+        resp = self._core.dispatch("multimodel_embedding", "embed_fused", payload)
+        if resp.ok and resp.data:
+            return np.array(resp.data.get("embedding", []), dtype=np.float64)
+        return np.array([], dtype=np.float64)
+
+    def multimodel_fingerprint(self, record: RecordInput, resolution: int = 16) -> np.ndarray:
+        """Compute a binary spectral fingerprint using Julia (multi-model).
+
+        Uses Julia's numerical backend for fast binary fingerprint
+        computation suitable for Hamming-distance ANN search.
+
+        Args:
+            record: Record to fingerprint.
+            resolution: Fingerprint bit resolution (default 16).
+
+        Returns:
+            Binary fingerprint as uint8 numpy array.
+
+        Example:
+            >>> fp = engine.multimodel_fingerprint(my_record)
+            >>> print(fp)  # array([1, 0, 1, 1, ...])
+        """
+        if self._core is None:
+            raise RuntimeError("Core engine not enabled.")
+        resp = self._core.dispatch(
+            "multimodel_fingerprint", "fingerprint",
+            {"record": record, "resolution": resolution},
+        )
+        if resp.ok and resp.data:
+            return np.array(resp.data.get("fingerprint", []), dtype=np.uint8)
+        return np.array([], dtype=np.uint8)
+

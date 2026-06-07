@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.4.0] - 2026-06-07
+
+### Changed
+- Bumped package version from 0.3.0 to 0.4.0
+
 ## [0.2.2] - 2026-06-05
 
 ### Added

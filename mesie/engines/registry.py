@@ -12,6 +12,12 @@ from mesie.engines.matching_engine import MatchingEngine
 from mesie.engines.movement_engine import MovementEngine
 from mesie.engines.validation_engine import ValidationEngine
 from mesie.engines.fingerprint_engine import FingerprintEngine
+from mesie.engines.multimodel_julia_engine import (
+    MultiModelEmbeddingEngine,
+    MultiModelFingerprintEngine,
+    MultiModelMatchingEngine,
+    MultiModelValidationEngine,
+)
 from mesie.engines.polyglot_engine import PolyglotEngine
 from mesie.engines.workflow_engine import WorkflowEngine
 from mesie.internal_api.bus import InternalBus
@@ -41,6 +47,11 @@ def build_default_registry(
         LogicEngine(),
         FingerprintEngine(),
         PolyglotEngine(suite=polyglot_suite),
+        # Multi-model Python↔Julia engines
+        MultiModelValidationEngine(),
+        MultiModelMatchingEngine(),
+        MultiModelEmbeddingEngine(),
+        MultiModelFingerprintEngine(),
     ]
     workflow = WorkflowEngine(bus=bus)
     engines.append(workflow)

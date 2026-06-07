@@ -1,5 +1,5 @@
 /**
- * AISVectorPolyglot TypeScript client — call MESIE edge API or embed locally.
+ * MESIE Polyglot TypeScript client — call MESIE edge API or embed locally.
  */
 
 export type AISAction = "validate" | "match" | "embed" | "health";
