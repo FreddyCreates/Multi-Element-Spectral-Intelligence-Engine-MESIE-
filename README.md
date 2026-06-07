@@ -1,7 +1,7 @@
 # MESIE — Multi-Element Spectral Intelligence Engine
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org)
 [![CI](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml/badge.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-0.4.0-green.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-)

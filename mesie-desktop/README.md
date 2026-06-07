@@ -15,7 +15,7 @@ Electron-based desktop application for the MESIE Spectral Intelligence Engine.
 ## Requirements
 
 - Node.js 18+
-- Python 3.9+ with MESIE installed (`pip install -e ".[full]"`)
+- Python 3.10+ with MESIE installed (`pip install -e ".[full]"`)
 - Electron 28+
 
 ## Quick Start
