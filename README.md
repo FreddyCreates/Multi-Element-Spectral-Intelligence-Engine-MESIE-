@@ -81,6 +81,50 @@ For development:
 pip install -e ".[dev,full]"
 ```
 
+## Desktop Application (Electron)
+
+MESIE includes a cross-platform desktop UX with spectral visualization, real-time validation, and Monte Carlo benchmarking:
+
+```bash
+cd mesie-desktop && npm install && npm start
+```
+
+Development mode with DevTools:
+```bash
+npm run dev
+```
+
+Build distributable: `npm run build:win` | `npm run build:mac` | `npm run build:linux`
+
+See [mesie-desktop/README.md](mesie-desktop/README.md) for full documentation.
+
+## PowerShell Module
+
+Cross-platform PowerShell wrapper (Windows PowerShell 5.1+ / PowerShell Core 7+):
+
+```powershell
+# Import the module
+Import-Module ./scripts/MESIE.psm1
+
+# Verify installation
+Test-MESIEInstall
+
+# Validate a record
+Invoke-MESIEValidate -RecordPath "data/reference/vibration_monitoring_reference.json"
+
+# Generate a spectrum
+Invoke-MESIEGenerate -Type psd -Seed 42
+
+# Run Monte Carlo benchmark
+Invoke-MESIEMonteCarlo -Trials 500
+
+# Search research catalog
+Search-MESIEResearch -Query "spectral analysis" -TopK 5
+
+# Launch desktop app
+Start-MESIEDesktop -Dev
+```
+
 ## Cloudflare Worker API
 
 Edge validate/match API: [workers/mesie-api](workers/mesie-api/README.md). Deploy with `npx wrangler deploy` (local `wrangler dev` needs x64 — use WSL or deploy from CI on Windows ARM).
