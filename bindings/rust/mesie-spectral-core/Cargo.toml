@@ -2,7 +2,7 @@
 name = "mesie-spectral-core"
 version = "1.0.0"
 edition = "2021"
-description = "AISVectorPolyglot Rust runtime — validate and match spectral JSON"
+description = "MESIE Rust runtime — validate and match spectral JSON"
 
 [[bin]]
 name = "mesie-spectral-core"
