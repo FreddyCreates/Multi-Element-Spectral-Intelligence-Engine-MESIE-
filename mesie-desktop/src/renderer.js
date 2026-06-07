@@ -6,6 +6,16 @@
  */
 
 // ---------------------------------------------------------------------------
+// Utilities
+// ---------------------------------------------------------------------------
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// ---------------------------------------------------------------------------
 // Navigation
 // ---------------------------------------------------------------------------
 
@@ -61,14 +71,14 @@ document.getElementById('btn-generate').addEventListener('click', async () => {
   resultEl.innerHTML = '<span class="highlight">Generating...</span>';
   try {
     const data = await window.mesie.generate({ type, seed });
-    resultEl.innerHTML = `<span class="success">✓ Generated ${type.toUpperCase()}</span>\n` +
-      `Record ID: ${data.record_id}\n` +
-      `Points: ${data.n_points}\n` +
-      `Freq range: [${data.frequency[0].toFixed(2)}, ${data.frequency[data.frequency.length - 1].toFixed(2)}] Hz`;
+    resultEl.innerHTML = `<span class="success">✓ Generated ${escapeHtml(type.toUpperCase())}</span>\n` +
+      `Record ID: ${escapeHtml(String(data.record_id))}\n` +
+      `Points: ${escapeHtml(String(data.n_points))}\n` +
+      `Freq range: [${escapeHtml(data.frequency[0].toFixed(2))}, ${escapeHtml(data.frequency[data.frequency.length - 1].toFixed(2))}] Hz`;
 
     drawSpectrum(data.frequency, data.amplitude);
   } catch (err) {
-    resultEl.innerHTML = `<span class="error">✗ ${err.message}</span>`;
+    resultEl.innerHTML = `<span class="error">✗ ${escapeHtml(err.message)}</span>`;
   }
 });
 
@@ -147,11 +157,11 @@ document.getElementById('btn-validate').addEventListener('click', async () => {
     const icon = data.is_valid ? '✓' : '✗';
     const cls = data.is_valid ? 'success' : 'error';
     resultEl.innerHTML = `<span class="${cls}">${icon} ${data.is_valid ? 'VALID' : 'INVALID'}</span>\n` +
-      `Level: ${data.level}/6\n` +
-      (data.errors.length ? `Errors: ${data.errors.join(', ')}\n` : '') +
-      (data.warnings.length ? `Warnings: ${data.warnings.join(', ')}` : '');
+      `Level: ${escapeHtml(String(data.level))}/6\n` +
+      (data.errors.length ? `Errors: ${escapeHtml(data.errors.join(', '))}\n` : '') +
+      (data.warnings.length ? `Warnings: ${escapeHtml(data.warnings.join(', '))}` : '');
   } catch (err) {
-    resultEl.innerHTML = `<span class="error">✗ ${err.message}</span>`;
+    resultEl.innerHTML = `<span class="error">✗ ${escapeHtml(err.message)}</span>`;
   }
 });
 
@@ -179,11 +189,11 @@ document.getElementById('btn-match').addEventListener('click', async () => {
   try {
     const data = await window.mesie.match({ refPath, candPath });
     const score = (data.composite_score * 100).toFixed(1);
-    resultEl.innerHTML = `<span class="success">Composite Score: ${score}%</span>\n\n` +
+    resultEl.innerHTML = `<span class="success">Composite Score: ${escapeHtml(score)}%</span>\n\n` +
       'Metric Breakdown:\n' +
-      Object.entries(data.metrics).map(([k, v]) => `  ${k}: ${(v * 100).toFixed(1)}%`).join('\n');
+      Object.entries(data.metrics).map(([k, v]) => `  ${escapeHtml(k)}: ${(v * 100).toFixed(1)}%`).join('\n');
   } catch (err) {
-    resultEl.innerHTML = `<span class="error">✗ ${err.message}</span>`;
+    resultEl.innerHTML = `<span class="error">✗ ${escapeHtml(err.message)}</span>`;
   }
 });
 
@@ -208,7 +218,7 @@ document.getElementById('btn-embed').addEventListener('click', async () => {
       `Dimension: ${data.dimension}\n` +
       `Vector: [${data.embedding.slice(0, 8).map(v => v.toFixed(4)).join(', ')}${data.dimension > 8 ? ', ...' : ''}]`;
   } catch (err) {
-    resultEl.innerHTML = `<span class="error">✗ ${err.message}</span>`;
+    resultEl.innerHTML = `<span class="error">✗ ${escapeHtml(err.message)}</span>`;
   }
 });
 
@@ -228,10 +238,10 @@ document.getElementById('btn-search').addEventListener('click', async () => {
       resultEl.innerHTML = '<span class="error">No results found</span>';
     } else {
       resultEl.innerHTML = `<span class="success">Found ${hits.length} results:</span>\n\n` +
-        hits.map((h, i) => `${i + 1}. [${h.field}] ${h.title}`).join('\n');
+        hits.map((h, i) => `${i + 1}. [${escapeHtml(h.field)}] ${escapeHtml(h.title)}`).join('\n');
     }
   } catch (err) {
-    resultEl.innerHTML = `<span class="error">✗ ${err.message}</span>`;
+    resultEl.innerHTML = `<span class="error">✗ ${escapeHtml(err.message)}</span>`;
   }
 });
 
@@ -258,10 +268,10 @@ document.getElementById('btn-benchmark').addEventListener('click', async () => {
       `Runtime: ${data.elapsed_s}s\n\n` +
       'Use Cases:\n' +
       data.use_cases.map((uc) =>
-        `  [${uc.industry}] ${uc.name}: ${(uc.success_rate * 100).toFixed(1)}%`
+        `  [${escapeHtml(uc.industry)}] ${escapeHtml(uc.name)}: ${(uc.success_rate * 100).toFixed(1)}%`
       ).join('\n');
   } catch (err) {
-    resultEl.innerHTML = `<span class="error">✗ ${err.message}</span>`;
+    resultEl.innerHTML = `<span class="error">✗ ${escapeHtml(err.message)}</span>`;
   } finally {
     btn.disabled = false;
   }
