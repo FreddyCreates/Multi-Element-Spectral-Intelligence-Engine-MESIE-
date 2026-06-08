@@ -1,0 +1,86 @@
+{
+  "company": "NeuroSwarmAI",
+  "product": "MESIE / MAESI SDK",
+  "mesie_version": "0.3.3",
+  "sdk_version": "1.4.0",
+  "primary_deployment": "edge_contested",
+  "not_a_deploy_target": [
+    "public cloud as primary runtime",
+    "hyperscale datacenter dependency",
+    "always-on internet for threat path"
+  ],
+  "operator_profiles": [
+    {
+      "profile_id": "field_operator",
+      "label": "Contested field operator",
+      "deployment_class": "edge_contested",
+      "typical_hardware": [
+        "issued laptop",
+        "rugged tablet",
+        "phone bridge"
+      ],
+      "use_case": "Launch/monitor drone ops from whatever edge device is available",
+      "proof_expectation": "Threat-fast spectral path + swarm route on edge hardware"
+    },
+    {
+      "profile_id": "cluster_edge_team",
+      "label": "Cluster edge team",
+      "deployment_class": "cluster_edge",
+      "typical_hardware": [
+        "2\u201310 LAN nodes",
+        "OTA multicast mesh"
+      ],
+      "use_case": "Multi-box gossip + swarm without datacenter or cloud",
+      "proof_expectation": "Multi-host OTA soak + cluster ms/agent on edge cluster"
+    },
+    {
+      "profile_id": "interior_dc_ops",
+      "label": "Interior DC operator",
+      "deployment_class": "interior_datacenter",
+      "typical_hardware": [
+        "on-prem rack or appliance",
+        "airgapped vault"
+      ],
+      "use_case": "Corpus ingest, reference libraries, evidence vault for the org",
+      "proof_expectation": "Shard catalog + byte counts + sovereign ingest lanes"
+    },
+    {
+      "profile_id": "builder_lab_llc",
+      "label": "Builder lab (LLC)",
+      "deployment_class": "builder_lab",
+      "typical_hardware": [
+        "lab workstation",
+        "edge appliance prototypes"
+      ],
+      "use_case": "Ship production stack; researchers use REPL on same substrate",
+      "proof_expectation": "Measured harness on lab edge class \u2014 same code path as field"
+    },
+    {
+      "profile_id": "gsa_drone_contractor",
+      "label": "GSA / gov drone contractor",
+      "deployment_class": "industry_contractor",
+      "typical_hardware": [
+        "customer-site edge",
+        "program laptop",
+        "interior DC sync"
+      ],
+      "use_case": "Spectral intelligence on government drone / EW programs",
+      "proof_expectation": "Scenario sim + proof substrate + reproducible deliverables for customer"
+    }
+  ],
+  "deployment_classes": {
+    "edge_contested": "Field edge \u2014 issued laptop, phone, or tablet in contested environments",
+    "cluster_edge": "Cluster edge \u2014 2\u201310 sovereign boxes on LAN/OTA, no cloud dependency",
+    "interior_datacenter": "Interior data center \u2014 sovereign corpus vault inside your org (not public cloud)",
+    "builder_lab": "Builder lab \u2014 LLC sovereign R&D floor (AI-assisted engineering is still a real lab)",
+    "industry_contractor": "Industry contractor \u2014 GSA/gov drone & spectral work on customer programs",
+    "benchmark_reference_only": "Cloud/datacenter \u2014 comparison baseline in benchmarks only, not a deploy target"
+  },
+  "evidence_language": {
+    "say_instead_of_dev_laptop": "edge deployment class (issued field hardware)",
+    "say_instead_of_independent_lab": "sovereign builder lab (LLC) or customer program repro \u2014 not a false dichotomy",
+    "measured_local_means": "Measured on edge-class hardware via reproducible harness in your environment",
+    "gap_means": "Not yet demonstrated on named physical asset \u2014 gap is specific, not 'fake'"
+  },
+  "third_way_statement": "Users are already in the industries that require this \u2014 GSA contractors, defense integrators, enterprise spectral teams. They deploy from edge hardware on program sites. MESIE is production substrate for builders and their customers, not a science-fair REPL and not a cloud SaaS upsell."
+}

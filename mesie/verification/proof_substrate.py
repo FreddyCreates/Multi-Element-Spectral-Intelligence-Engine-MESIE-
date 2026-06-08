@@ -35,6 +35,9 @@ CANONICAL_ARTIFACTS = [
     "MESIE_Appliance_Manifest.json",
     "virtual_silicon/MESIE_Virtual_Silicon_Certification.json",
     "neuroswarmai_com/evidence_manifest.json",
+    "MESIE_Interior_DataCenter_Manifest.json",
+    "MESIE_Cluster_Edge_Report.json",
+    "MESIE_Deployment_Doctrine.json",
 ]
 
 REPRODUCE_BY_CLAIM: Dict[str, str] = {

@@ -1,0 +1,316 @@
+{
+  "dc_version": "1.0.0",
+  "deployment_class": "interior_datacenter",
+  "sovereign": true,
+  "airgapped": true,
+  "third_party_cloud": false,
+  "total_bytes": 3601251,
+  "total_shards": 24,
+  "total_records": 94,
+  "shards": [
+    {
+      "shard_id": "ref-biomedical_eeg_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/biomedical_eeg_reference.json",
+      "bytes": 4191,
+      "record_count": 1,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-defense_ew_spectrum_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/defense_ew_spectrum_reference.json",
+      "bytes": 4166,
+      "record_count": 1,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-earthquake_psd_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/earthquake_psd_reference.json",
+      "bytes": 23617,
+      "record_count": 3,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-geomagnetic_storm_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/geomagnetic_storm_reference.json",
+      "bytes": 4240,
+      "record_count": 1,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-power_grid_harmonics_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/power_grid_harmonics_reference.json",
+      "bytes": 4261,
+      "record_count": 1,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-rf_jamming_profile_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/rf_jamming_profile_reference.json",
+      "bytes": 3939,
+      "record_count": 1,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-rotdnn_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/rotdnn_reference.json",
+      "bytes": 12762,
+      "record_count": 2,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-structural_fas_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/structural_fas_reference.json",
+      "bytes": 30865,
+      "record_count": 2,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "ref-vibration_monitoring_reference",
+      "lane": "bundled_references",
+      "path": "data/reference/vibration_monitoring_reference.json",
+      "bytes": 61106,
+      "record_count": 2,
+      "domains": [
+        "reference"
+      ]
+    },
+    {
+      "shard_id": "bench-embedding_training_data",
+      "lane": "bundled_benchmarks",
+      "path": "data/benchmarks/embedding_training_data.json",
+      "bytes": 1495858,
+      "record_count": 1,
+      "domains": [
+        "benchmark"
+      ]
+    },
+    {
+      "shard_id": "bench-enterprise_use_cases_benchmark",
+      "lane": "bundled_benchmarks",
+      "path": "data/benchmarks/enterprise_use_cases_benchmark.json",
+      "bytes": 876750,
+      "record_count": 1,
+      "domains": [
+        "benchmark"
+      ]
+    },
+    {
+      "shard_id": "bench-spectral_classification_benchmark",
+      "lane": "bundled_benchmarks",
+      "path": "data/benchmarks/spectral_classification_benchmark.json",
+      "bytes": 932545,
+      "record_count": 1,
+      "domains": [
+        "benchmark"
+      ]
+    },
+    {
+      "shard_id": "lib-atmospheric_absorption",
+      "lane": "spectral_libraries",
+      "path": "data/spectral_library/atmospheric_absorption.json",
+      "bytes": 3885,
+      "record_count": 1,
+      "domains": [
+        "library",
+        "spectral"
+      ]
+    },
+    {
+      "shard_id": "lib-defense_rf_bands",
+      "lane": "spectral_libraries",
+      "path": "data/spectral_library/defense_rf_bands.json",
+      "bytes": 704,
+      "record_count": 1,
+      "domains": [
+        "library",
+        "libraries"
+      ]
+    },
+    {
+      "shard_id": "lib-electromagnetic_bands",
+      "lane": "spectral_libraries",
+      "path": "data/spectral_library/electromagnetic_bands.json",
+      "bytes": 5920,
+      "record_count": 1,
+      "domains": [
+        "library",
+        "libraries"
+      ]
+    },
+    {
+      "shard_id": "lib-geomagnetic_pulsations",
+      "lane": "spectral_libraries",
+      "path": "data/spectral_library/geomagnetic_pulsations.json",
+      "bytes": 801,
+      "record_count": 1,
+      "domains": [
+        "library",
+        "libraries"
+      ]
+    },
+    {
+      "shard_id": "lib-hydrogen_spectrum",
+      "lane": "spectral_libraries",
+      "path": "data/spectral_library/hydrogen_spectrum.json",
+      "bytes": 3986,
+      "record_count": 1,
+      "domains": [
+        "library",
+        "spectral"
+      ]
+    },
+    {
+      "shard_id": "lib-satellite_frequencies",
+      "lane": "spectral_libraries",
+      "path": "data/spectral_library/satellite_frequencies.json",
+      "bytes": 4382,
+      "record_count": 1,
+      "domains": [
+        "library",
+        "libraries"
+      ]
+    },
+    {
+      "shard_id": "lib-schumann_resonances",
+      "lane": "spectral_libraries",
+      "path": "data/spectral_library/schumann_resonances.json",
+      "bytes": 3962,
+      "record_count": 1,
+      "domains": [
+        "library",
+        "libraries"
+      ]
+    },
+    {
+      "shard_id": "scen-enterprise_civilian_scenarios",
+      "lane": "scenario_packs",
+      "path": "data/scenarios/enterprise_civilian_scenarios.json",
+      "bytes": 2988,
+      "record_count": 6,
+      "domains": [
+        "enterprise"
+      ]
+    },
+    {
+      "shard_id": "scen-military_drone_scenarios",
+      "lane": "scenario_packs",
+      "path": "data/scenarios/military_drone_scenarios.json",
+      "bytes": 3470,
+      "record_count": 6,
+      "domains": [
+        "military"
+      ]
+    },
+    {
+      "shard_id": "world-military_theater_week",
+      "lane": "mission_worlds",
+      "path": "data/worlds/military_theater_week.json",
+      "bytes": 3219,
+      "record_count": 1,
+      "domains": [
+        "theater"
+      ]
+    },
+    {
+      "shard_id": "world-theater_alpha_week_001_state",
+      "lane": "mission_worlds",
+      "path": "library/mission_worlds/theater_alpha_week_001_state.json",
+      "bytes": 35000,
+      "record_count": 56,
+      "domains": [
+        "theater"
+      ]
+    },
+    {
+      "shard_id": "sample-spectral_ingest_sample",
+      "lane": "csv_field_ingest",
+      "path": "data/samples/spectral_ingest_sample.csv",
+      "bytes": 2551,
+      "record_count": 1,
+      "domains": [
+        "field_ingest"
+      ]
+    }
+  ],
+  "ingest_lanes": [
+    "bundled_references",
+    "bundled_benchmarks",
+    "spectral_libraries",
+    "scenario_packs",
+    "mission_worlds",
+    "csv_field_ingest",
+    "udp_rf_frames",
+    "evidence_deliverables",
+    "sdk_knowledge_catalog"
+  ],
+  "knowledge": {
+    "physical_laws": 33,
+    "chemical_elements": 38,
+    "biological_systems": 15,
+    "technical_concepts": 20,
+    "research_entries": 24
+  },
+  "evidence_vault": [
+    {
+      "artifact": "Proof_Substrate.json",
+      "bytes": 11904,
+      "lane": "evidence_deliverables"
+    },
+    {
+      "artifact": "MAESI_SDK_Major_Benchmarks.json",
+      "bytes": 12463,
+      "lane": "evidence_deliverables"
+    },
+    {
+      "artifact": "MESIE_Production_Tiers_Report.json",
+      "bytes": 4018,
+      "lane": "evidence_deliverables"
+    },
+    {
+      "artifact": "MESIE_Scenario_Simulation_Report.json",
+      "bytes": 27842,
+      "lane": "evidence_deliverables"
+    },
+    {
+      "artifact": "NeuroSwarmAI_Audit_Evidence.json",
+      "bytes": 15182,
+      "lane": "evidence_deliverables"
+    },
+    {
+      "artifact": "neuroswarmai_com/evidence_manifest.json",
+      "bytes": 4674,
+      "lane": "evidence_deliverables"
+    }
+  ],
+  "feeds": {
+    "edge_contested_appliance": "tier1_manifest + domain_corpus slice",
+    "cluster_edge": "corpus fingerprint + OTA mesh metadata",
+    "industry_contractor": "scenario_packs + proof_substrate export",
+    "builder_lab": "full shard catalog + REPL examples"
+  },
+  "generated_at": "2026-06-08T09:15:19Z"
+}

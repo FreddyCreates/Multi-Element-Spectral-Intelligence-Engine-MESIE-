@@ -1,0 +1,51 @@
+{
+  "fabric_version": "1.0.0",
+  "deployment_class": "cluster_edge",
+  "n_nodes": 4,
+  "interior_dc_shards": 24,
+  "interior_dc_bytes": 3601251,
+  "ota_mesh_ok": true,
+  "ota_frames_received": 80,
+  "swarm_agents": 500,
+  "cluster_ms_per_agent": 0.040356,
+  "cluster_optimized_win": true,
+  "nodes": [
+    {
+      "node_id": "cluster-edge-00",
+      "role": "leader",
+      "corpus_shards": 6,
+      "ota_frames_received": 20,
+      "ms_per_agent": 0.040356,
+      "jam_failover_ok": true
+    },
+    {
+      "node_id": "cluster-edge-01",
+      "role": "follower",
+      "corpus_shards": 6,
+      "ota_frames_received": 20,
+      "ms_per_agent": 0.040356,
+      "jam_failover_ok": true
+    },
+    {
+      "node_id": "cluster-edge-02",
+      "role": "follower",
+      "corpus_shards": 6,
+      "ota_frames_received": 20,
+      "ms_per_agent": 0.040356,
+      "jam_failover_ok": true
+    },
+    {
+      "node_id": "cluster-edge-03",
+      "role": "follower",
+      "corpus_shards": 6,
+      "ota_frames_received": 20,
+      "ms_per_agent": 0.040356,
+      "jam_failover_ok": true
+    }
+  ],
+  "sovereign": true,
+  "airgapped": true,
+  "cloud_required": false,
+  "ok": true,
+  "generated_at": "2026-06-08T09:15:21Z"
+}

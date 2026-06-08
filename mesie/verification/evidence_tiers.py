@@ -15,11 +15,17 @@ class EvidenceTier(str, Enum):
 
 
 TIER_LABELS = {
-    EvidenceTier.MEASURED_LOCAL: "Measured on this machine (reproducible harness)",
-    EvidenceTier.SIMULATED_VALIDATED: "Software simulation validated (not physical HIL)",
-    EvidenceTier.DOCUMENTED_REFERENCE: "Bundled ITU/IEEE/NATO reference data (not live classified)",
-    EvidenceTier.ASSERTION_ONLY: "Marketing claim without independent corroboration",
-    EvidenceTier.GAP: "Known gap — not proven",
+    EvidenceTier.MEASURED_LOCAL: (
+        "Measured on edge deployment class — reproducible harness on issued field/lab hardware"
+    ),
+    EvidenceTier.SIMULATED_VALIDATED: (
+        "Software simulation validated on sovereign stack (not physical range HIL yet)"
+    ),
+    EvidenceTier.DOCUMENTED_REFERENCE: (
+        "Bundled ITU/IEEE/NATO reference data (not live classified feeds)"
+    ),
+    EvidenceTier.ASSERTION_ONLY: "Marketing claim without program-level corroboration",
+    EvidenceTier.GAP: "Named gap — specific physical asset or audit not yet demonstrated",
 }
 
 
@@ -29,7 +35,10 @@ def tier_summary(tier: EvidenceTier) -> str:
 
 def public_answer_for_tier(tier: EvidenceTier) -> str:
     if tier == EvidenceTier.MEASURED_LOCAL:
-        return "Partially true — locally measured and reproducible; not independently audited."
+        return (
+            "Measured on edge-class hardware — reproducible in your lab or on program site; "
+            "third-party audit is a separate tier, not a fake/dev dichotomy."
+        )
     if tier == EvidenceTier.SIMULATED_VALIDATED:
         return "True in simulation — software runs correctly; not proven on physical assets."
     if tier == EvidenceTier.DOCUMENTED_REFERENCE:

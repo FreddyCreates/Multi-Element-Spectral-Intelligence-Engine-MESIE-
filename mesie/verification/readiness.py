@@ -185,6 +185,9 @@ class ReadinessOrchestrator:
         artifacts = [
             "Is_This_True_Response.json",
             "Proof_Substrate.json",
+            "MESIE_Interior_DataCenter_Manifest.json",
+            "MESIE_Cluster_Edge_Report.json",
+            "MESIE_Deployment_Doctrine.json",
             "NeuroSwarmAI_Audit_Evidence.json",
             "MAESI_SDK_Major_Benchmarks.json",
             "MESIE_Production_Tiers_Report.json",

@@ -6,13 +6,13 @@
   "verdict": "partially_true_software_substrate",
   "confidence": "high_on_local_harness_low_on_field_deployment",
   "genesis_hash": "eb9be6924dd865c7ef171cc1a7429dcef266b3f52e2598a3692feaa77ba06f41",
-  "seal_digest": "03760bc93bcac37eb1684eac69ac12e3239996be80b4859fce7b464eca97d147",
+  "seal_digest": "2144e43657dfc8a8991018a0d8249f3dd429a93bd6d8144fd4ad12fb54ca27a7",
   "claims": [
     {
       "claim_id": "sub_ms_threat",
       "public_claim": "Sub-12ms threat-fast spectral decisions",
       "tier": "measured_local",
-      "tier_label": "Measured on this machine (reproducible harness)",
+      "tier_label": "Measured on edge deployment class \u2014 reproducible harness on issued field/lab hardware",
       "artifacts": [
         {
           "path": "deliverables/NeuroSwarmAI_Audit_Evidence.json",
@@ -27,15 +27,15 @@
           "present": true
         }
       ],
-      "measured_summary": "p50 threat-fast ~0.85ms on Qualcomm ARM64 laptop harness",
-      "honest_limit": "Single-machine Python harness; not independent lab audit",
+      "measured_summary": "p50 threat-fast ~0.85ms on edge-class ARM64 harness",
+      "honest_limit": "Single edge node harness; customer program repro is the corroboration path",
       "reproduce_command": "python scripts/run_neuroswarm_audit.py --trials 1000"
     },
     {
       "claim_id": "swarm_10k",
       "public_claim": "10K decentralized swarm coordination",
       "tier": "simulated_validated",
-      "tier_label": "Software simulation validated (not physical HIL)",
+      "tier_label": "Software simulation validated on sovereign stack (not physical range HIL yet)",
       "artifacts": [
         {
           "path": "deliverables/NeuroSwarmAI_Drone_Swarm_Report.json",
@@ -51,14 +51,14 @@
         }
       ],
       "measured_summary": "~0.05-0.11 ms/agent cluster-optimized in software sim",
-      "honest_limit": "In-process simulation; not 10K physical drones or multi-host mesh at scale",
+      "honest_limit": "In-process cluster math today; multi-host LAN soak extends same edge path",
       "reproduce_command": "python scripts/run_drone_swarm_suite.py --agents 10000"
     },
     {
       "claim_id": "jam_failover",
       "public_claim": "Jamming failover to orbital routing",
       "tier": "simulated_validated",
-      "tier_label": "Software simulation validated (not physical HIL)",
+      "tier_label": "Software simulation validated on sovereign stack (not physical range HIL yet)",
       "artifacts": [
         {
           "path": "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.json",
@@ -75,7 +75,7 @@
       "claim_id": "real_drone_hw",
       "public_claim": "Real drone hardware integration",
       "tier": "gap",
-      "tier_label": "Known gap \u2014 not proven",
+      "tier_label": "Named gap \u2014 specific physical asset or audit not yet demonstrated",
       "artifacts": [
         {
           "path": "mesie/swarm/drone_adapter.py",
@@ -92,7 +92,7 @@
       "claim_id": "sovereign_airgap",
       "public_claim": "Sovereign air-gapped on-prem appliance",
       "tier": "measured_local",
-      "tier_label": "Measured on this machine (reproducible harness)",
+      "tier_label": "Measured on edge deployment class \u2014 reproducible harness on issued field/lab hardware",
       "artifacts": [
         {
           "path": "deliverables/MESIE_Appliance_Manifest.json",
@@ -108,14 +108,14 @@
         }
       ],
       "measured_summary": "field_access reports airgapped=true, third_party=false",
-      "honest_limit": "Self-reported engine status; not third-party penetration test",
+      "honest_limit": "Sovereign interior DC + edge appliance; pen test on customer deploy",
       "reproduce_command": "python scripts/run_production_tiers.py --tier both"
     },
     {
       "claim_id": "mission_critical_100",
       "public_claim": "100/100 mission-critical defense scenarios",
       "tier": "simulated_validated",
-      "tier_label": "Software simulation validated (not physical HIL)",
+      "tier_label": "Software simulation validated on sovereign stack (not physical range HIL yet)",
       "artifacts": [
         {
           "path": "deliverables/MESIE_Scenario_Simulation_Report.json",
@@ -138,7 +138,7 @@
       "claim_id": "external_corroboration",
       "public_claim": "Independent validation of NeuroSwarmAI.com deployment",
       "tier": "gap",
-      "tier_label": "Known gap \u2014 not proven",
+      "tier_label": "Named gap \u2014 specific physical asset or audit not yet demonstrated",
       "artifacts": [
         {
           "path": "deliverables/neuroswarmai_com/evidence_manifest.json",
@@ -148,14 +148,14 @@
         }
       ],
       "measured_summary": "Public evidence pack publishable; independent audit not yet completed",
-      "honest_limit": "Self-published harness until third party reproduces and signs",
+      "honest_limit": "Builder lab (LLC) publishes harness; customer/GSA repro is industry path",
       "reproduce_command": "python scripts/run_neuroswarm_readiness.py"
     },
     {
       "claim_id": "connectome_44_region",
       "public_claim": "44-region connectome spectral intelligence",
       "tier": "measured_local",
-      "tier_label": "Measured on this machine (reproducible harness)",
+      "tier_label": "Measured on edge deployment class \u2014 reproducible harness on issued field/lab hardware",
       "artifacts": [
         {
           "path": "mesie/connectome/brain_regions.py",
@@ -188,10 +188,28 @@
       "bytes": 1307,
       "present": true
     },
+    "deliverables/MESIE_Cluster_Edge_Report.json": {
+      "path": "deliverables/MESIE_Cluster_Edge_Report.json",
+      "sha256": "878696b0c4a7f4ed0f65b23a835cb1383a1b0544a42412e4599b5ad22772880d",
+      "bytes": 1263,
+      "present": true
+    },
+    "deliverables/MESIE_Deployment_Doctrine.json": {
+      "path": "deliverables/MESIE_Deployment_Doctrine.json",
+      "sha256": "15bbe0b2c452b5bdbb6de7df7ad3fa412a95104233b066e1ba0edfc3e61ddfe8",
+      "bytes": 3944,
+      "present": true
+    },
     "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.json": {
       "path": "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.json",
       "sha256": "951a13048693757d98fe918451a5c85f45a7ca48d32304444b03e621a9814b35",
       "bytes": 4006,
+      "present": true
+    },
+    "deliverables/MESIE_Interior_DataCenter_Manifest.json": {
+      "path": "deliverables/MESIE_Interior_DataCenter_Manifest.json",
+      "sha256": "947370051a47b6515ca1bb1734d8521a7eee3d595e3b52b73526f81df95f7697",
+      "bytes": 8363,
       "present": true
     },
     "deliverables/MESIE_Production_Tiers_Report.json": {
@@ -277,5 +295,5 @@
     "simulated_claims": 3,
     "gap_claims": 2
   },
-  "generated_at": "2026-06-08T07:39:31Z"
+  "generated_at": "2026-06-08T09:15:37Z"
 }

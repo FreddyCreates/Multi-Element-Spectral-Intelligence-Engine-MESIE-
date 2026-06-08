@@ -169,9 +169,13 @@ class ProductionAppliance:
             ],
             deployment={
                 "mode": "on_prem_airgapped",
+                "deployment_class": "edge_contested",
                 "network": "none_required",
+                "cloud_required": False,
+                "interior_dc_feed": "MESIE_Interior_DataCenter_Manifest.json",
                 "ingest": ["csv", "udp", "rf_sim", "rf_udp", "virtual_silicon_hil", "ota_multicast"],
                 "platform": platform.platform(),
+                "operator_profiles": ["field_operator", "gsa_drone_contractor", "builder_lab_llc"],
             },
             generated_at=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         )
