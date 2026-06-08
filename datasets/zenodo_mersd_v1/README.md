@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0  
 **License:** Apache-2.0  
-**Generated:** 2026-06-08T23:07:20Z
+**Generated:** 2026-06-08T23:10:01Z
 
 ## Why this dataset exists
 
@@ -49,6 +49,17 @@ Or: `python scripts/load_mersd.py --demo`
 2. Paste fields from `zenodo_metadata.json`
 3. Communities: robotics, opendata
 4. Keywords: robotics, UAV, drone swarm, spectral intelligence, edge robotics, electronic warfare, ...
+
+## Zenodo positioning (download research)
+
+| Niche on Zenodo | Example | Downloads | MERSD angle |
+|-----------------|---------|-----------|-------------|
+| UAV / SLAM | GrapeSLAM | ~11k | `mil_*` swarm episodes — spectral not RGB |
+| Vibration / PdM | AI4EU wrist | ~10k | `ent_factory_vibration_*` economic track |
+| Visual-inertial | VIODE | ~6.6k | fusion embeddings + neuromorphic labels |
+| **Gap (none found)** | EW spectral swarm | — | **first open corpus** |
+
+Lead title keywords: *condition monitoring*, *drone swarm*, *spectral*, *edge robotics*.
 
 ## Citation
 

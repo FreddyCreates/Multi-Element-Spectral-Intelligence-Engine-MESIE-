@@ -344,6 +344,7 @@ def build_mersd(
     _write_readme(out, manifest)
     _write_citation(out)
     _write_loader(out)
+    _copy_license(out)
 
     if zip_archive:
         zip_path = out.parent / f"MERSD_v{MERSD_VERSION}.zip"
@@ -370,8 +371,11 @@ def _write_zenodo_metadata(out: Path, manifest: MERSDManifest) -> None:
         "license": "Apache-2.0",
         "version": manifest.version,
         "notes": (
-            "Upload MERSD_v1.0.0.zip to Zenodo. Target communities: robotics, UAV, "
-            "condition monitoring. Economic impact track: ent_factory_vibration episodes."
+            "Upload MERSD_v1.0.0.zip to Zenodo. Target communities: robotics, opendata. "
+            "Zenodo traction: UAV/SLAM (GrapeSLAM ~11k DL) and vibration condition "
+            "monitoring (AI4EU wrist ~10k DL) are high-download niches; no open "
+            "EW-contested spectral swarm corpus exists. Lead keywords: condition monitoring, "
+            "predictive maintenance, drone swarm, electronic warfare, spectral intelligence."
         ),
         "communities": [{"identifier": "robotics"}, {"identifier": "opendata"}],
         "related_identifiers": [
@@ -434,6 +438,17 @@ Or: `python scripts/load_mersd.py --demo`
 3. Communities: robotics, opendata
 4. Keywords: {', '.join(manifest.keywords[:6])}, ...
 
+## Zenodo positioning (download research)
+
+| Niche on Zenodo | Example | Downloads | MERSD angle |
+|-----------------|---------|-----------|-------------|
+| UAV / SLAM | GrapeSLAM | ~11k | `mil_*` swarm episodes — spectral not RGB |
+| Vibration / PdM | AI4EU wrist | ~10k | `ent_factory_vibration_*` economic track |
+| Visual-inertial | VIODE | ~6.6k | fusion embeddings + neuromorphic labels |
+| **Gap (none found)** | EW spectral swarm | — | **first open corpus** |
+
+Lead title keywords: *condition monitoring*, *drone swarm*, *spectral*, *edge robotics*.
+
 ## Citation
 
 See `CITATION.cff`. DOI assigned after Zenodo deposit.
@@ -465,6 +480,12 @@ keywords:
   - dataset
 """
     (out / "CITATION.cff").write_text(cff, encoding="utf-8")
+
+
+def _copy_license(out: Path) -> None:
+    src = ROOT / "LICENSE"
+    if src.is_file():
+        shutil.copy2(src, out / "LICENSE")
 
 
 def _write_loader(out: Path) -> None:

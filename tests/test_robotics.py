@@ -297,3 +297,41 @@ class TestNeuromorphicRuntime:
         # Weights should have changed if spikes occurred
         if rt._total_spikes > 0:
             assert not np.allclose(rt._weights, initial_weights)
+
+
+class TestMERSDDataset:
+    """Integrity checks for Zenodo-ready MERSD package."""
+
+    def test_manifest_counts(self):
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1] / "datasets" / "zenodo_mersd_v1"
+        manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+        episodes = list((root / "episodes").glob("*.json"))
+        records = list((root / "records").glob("*.json"))
+        embeddings = list((root / "embeddings").glob("*.json"))
+
+        assert manifest["episode_count"] == len(episodes) == 48
+        assert manifest["record_count"] == len(records) == 64
+        assert len(embeddings) == 48
+        assert set(manifest["robot_classes"]) == {"aerial_swarm", "mobile_manipulator"}
+
+    def test_splits_cover_all_episodes(self):
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[1] / "datasets" / "zenodo_mersd_v1"
+        all_ids = {p.stem for p in (root / "episodes").glob("*.json")}
+        split_ids = set()
+        for split in ("train", "val", "test"):
+            ids = json.loads((root / "splits" / f"{split}.json").read_text(encoding="utf-8"))
+            split_ids.update(ids)
+        assert split_ids == all_ids
+
+    def test_zip_archive_exists(self):
+        from pathlib import Path
+
+        zip_path = Path(__file__).resolve().parents[1] / "datasets" / "MERSD_v1.0.0.zip"
+        assert zip_path.is_file()
+        assert zip_path.stat().st_size > 100_000
