@@ -8,6 +8,11 @@ from mesie.engines.intelligence_engine import IntelligenceEngine
 from mesie.engines.logic_engine import LogicEngine
 from mesie.engines.matching_engine import MatchingEngine
 from mesie.engines.movement_engine import MovementEngine
+from mesie.engines.hardware_abstraction_engine import HardwareAbstractionEngine
+from mesie.engines.scalability_engine import ScalabilityEngine
+from mesie.engines.attestation_engine import AttestationEngine
+from mesie.engines.reproducibility_engine import ReproducibilityEngine
+from mesie.engines.auto_validation_agent import AutoValidationAgent, run_auto_validation
 from mesie.engines.multimodel_julia_engine import (
     MultiModelEmbeddingEngine,
     MultiModelFingerprintEngine,
@@ -19,11 +24,14 @@ from mesie.engines.validation_engine import ValidationEngine
 from mesie.engines.workflow_engine import WorkflowEngine
 
 __all__ = [
+    "AttestationEngine",
+    "AutoValidationAgent",
     "ControlEngine",
     "EmbeddingEngine",
     "Engine",
     "EngineRegistry",
     "GenerationEngine",
+    "HardwareAbstractionEngine",
     "IntelligenceEngine",
     "LogicEngine",
     "MatchingEngine",
@@ -32,7 +40,10 @@ __all__ = [
     "MultiModelFingerprintEngine",
     "MultiModelMatchingEngine",
     "MultiModelValidationEngine",
+    "ReproducibilityEngine",
+    "ScalabilityEngine",
     "ValidationEngine",
     "WorkflowEngine",
     "build_default_registry",
+    "run_auto_validation",
 ]

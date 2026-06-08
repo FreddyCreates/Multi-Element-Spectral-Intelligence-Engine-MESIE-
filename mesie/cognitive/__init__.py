@@ -10,6 +10,29 @@ from mesie.cognitive.miniverse import (
     ScaleBridge,
     ScaleBridgeConfig,
 )
+from mesie.cognitive.miniverse_taxonomy import (
+    ClassificationSignals,
+    LayerClassification,
+    MatryoshkaClassifier,
+    NestingType,
+    SafetyControl,
+    SystemTaxonomist,
+    get_safety_profile,
+)
+from mesie.cognitive.miniverse_governance import (
+    ActionDomain,
+    Claim,
+    ClaimClass,
+    ClaimRegistry,
+    DeploymentReadinessGate,
+    EvidenceRung,
+    PolicyDecision,
+    PolicyGate,
+    PolicyRequest,
+    PolicyVerdict,
+    ReadinessLevel,
+    ReadinessRecord,
+)
 from mesie.cognitive.taurus_memory import (
     TaurusMemoryStore,
     TaurusWorkingMemory,
@@ -133,6 +156,27 @@ __all__ = [
     "SpectralAnomalyAdapter",
     "SpectralAttentionAdapter",
     "SpectralMemoryAdapter",
+    # Miniverse Taxonomy V2
+    "ClassificationSignals",
+    "LayerClassification",
+    "MatryoshkaClassifier",
+    "NestingType",
+    "SafetyControl",
+    "SystemTaxonomist",
+    "get_safety_profile",
+    # Miniverse Governance
+    "ActionDomain",
+    "Claim",
+    "ClaimClass",
+    "ClaimRegistry",
+    "DeploymentReadinessGate",
+    "EvidenceRung",
+    "PolicyDecision",
+    "PolicyGate",
+    "PolicyRequest",
+    "PolicyVerdict",
+    "ReadinessLevel",
+    "ReadinessRecord",
     # TAURUS Memory
     "TaurusMemoryStore",
     "TaurusWorkingMemory",
