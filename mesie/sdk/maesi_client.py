@@ -50,14 +50,28 @@ class MAESIRunReport:
 class MAESIClient:
     """One entry point: knowledge + fast compute + optional fingerprint / NeuroAIX."""
 
-    def __init__(self, *, fast: bool = True, use_fingerprint: bool = True, use_solus_caretakers: bool = True) -> None:
+    def __init__(
+        self,
+        *,
+        fast: bool = True,
+        use_fingerprint: bool = True,
+        use_solus_caretakers: bool = True,
+        use_solus_math_layer: bool = True,
+    ) -> None:
         self.fast_compute = FastSpectralCompute() if fast else None
         self.fingerprint = SpectralFingerprintPipeline() if use_fingerprint else None
         self._indexed = False
         self.organism = None
-        if use_solus_caretakers:
-            from mesie.sdk.solus import SDKSolusOrganism
+        self.math_layer = None
+        self._native_ai = None
+        self._field_access = None
+        self._swarm = None
+        if use_solus_caretakers or use_solus_math_layer:
+            from mesie.sdk.solus import SDKSolusOrganism, SolusMathLayer
+
             self.organism = SDKSolusOrganism()
+            if use_solus_math_layer:
+                self.math_layer = SolusMathLayer(organism=self.organism)
         self._law_matrix = np.stack([l.to_embedding() for l in get_fundamental_laws()])
         self._tech_matrix = get_technical_matrix()
         self._research_matrix = get_research_matrix()
@@ -69,6 +83,65 @@ class MAESIClient:
         from mesie.sdk import __sdk_version__
 
         return __sdk_version__
+
+    @property
+    def native_ai(self):
+        """Fused native local AI — stream + generate deliverables inside SDK."""
+        if self._native_ai is None:
+            from mesie.sdk.native_ai import NativeLocalAIEngine
+
+            self._native_ai = NativeLocalAIEngine()
+            if self.organism is not None:
+                self._native_ai.organism = self.organism
+            self._native_ai._maesi = self
+            self._native_ai._indexed = self._indexed
+        return self._native_ai
+
+    def stream_native_ai(self, records: Sequence[RecordInput], **kwargs):
+        """Stream native AI generation events; writes deliverables by default."""
+        return self.native_ai.stream_generate(records, **kwargs)
+
+    def generate_native_deliverable(self, records: Sequence[RecordInput], **kwargs):
+        """Generate full native AI deliverable bundle (JSON + MD + stream log)."""
+        return self.native_ai.generate(records, **kwargs)
+
+    @property
+    def field_access(self):
+        """Airgapped field access — world computer via real frequencies, no WiFi/third-party."""
+        if self._field_access is None:
+            from mesie.sovereign.field_access import get_field_access_engine
+
+            self._field_access = get_field_access_engine()
+        return self._field_access
+
+    def bridge_to_field(self, record: RecordInput):
+        """Align a spectrum with the physical field — sovereign access without internet."""
+        return self.field_access.bridge(record)
+
+    def route_field(self, source: str, destination: str, *, policy: str = "shortest"):
+        """Route through the sovereign field mesh — aliases like ground, world, leo0, geo."""
+        return self.field_access.route(source, destination, policy=policy)
+
+    @property
+    def swarm(self):
+        """Drone swarm intelligence — missions, coordination, formation, mesh."""
+        if self._swarm is None:
+            from mesie.sdk.swarm_client import SwarmSDK
+
+            self._swarm = SwarmSDK()
+        return self._swarm
+
+    def swarm_mission(self, record: RecordInput, *, preset_id: str = "ew", n_agents: int = 1000, jam_ground: bool = False):
+        """Execute full swarm mission preset (strike/isr/ew/swarm_forge)."""
+        return self.swarm.mission_plan(record, preset_id=preset_id, n_agents=n_agents, jam_ground=jam_ground)
+
+    def swarm_coordinate(self, record: RecordInput, *, n_agents: int = 1000, jam_ground: bool = False):
+        """Decentralized swarm coordination at scale."""
+        return self.swarm.coordinate(record, n_agents=n_agents, jam_ground=jam_ground)
+
+    def rf_ingest(self, *, simulated: bool = True):
+        """Live RF adapter — Schumann-band spectral ingest → field bridge."""
+        return self.swarm.rf_ingest(simulated=simulated)
 
     def knowledge_stats(self) -> KnowledgeStats:
         return KnowledgeStats(
@@ -146,6 +219,15 @@ class MAESIClient:
             neuro = obs.spectral_embedding is not None
         except Exception:
             neuro = False
+
+        if self.math_layer and records:
+            first = load_record(records[0])
+            comp = first.components[0]
+            self.math_layer.reason_spectral_cycle(
+                comp.frequency.tolist(),
+                comp.amplitude.tolist(),
+                cycle_context={"record_id": first.record_id, "phase": "maesi_run_full"},
+            )
 
         q = self.query(records[0]) if records else None
         plain = (

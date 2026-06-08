@@ -1,13 +1,13 @@
 {
   "suite": "mission_world_week",
-  "elapsed_s": 245.72,
+  "elapsed_s": 216.82,
   "state": {
     "world_id": "theater_alpha_week_001",
     "theater": "Alpha",
     "campaign": "Operation Spectral Shield",
     "sim_day": 8,
     "sim_hour": 0,
-    "mission_clock_started": "2026-06-08T05:08:51Z",
+    "mission_clock_started": "2026-06-08T06:07:38Z",
     "jam_level": 0.9000000000000001,
     "attrition_cumulative": 0.564,
     "agents_deployed_peak": 10000,
@@ -22,11 +22,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.028521,
+        "ms_per_agent": 0.035784,
         "jam_active": false,
         "attrition_cumulative": 0.003,
         "agents_active": 498,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0000Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0285ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0000Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0358ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -36,11 +36,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.077251,
+        "ms_per_agent": 0.053715,
         "jam_active": false,
         "attrition_cumulative": 0.006,
         "agents_active": 497,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0300Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0773ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0300Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0537ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -50,11 +50,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.071016,
+        "ms_per_agent": 0.042075,
         "jam_active": false,
         "attrition_cumulative": 0.009000000000000001,
         "agents_active": 495,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0600Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0710ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0600Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0421ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -64,11 +64,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.126401,
+        "ms_per_agent": 0.054193,
         "jam_active": false,
         "attrition_cumulative": 0.012,
         "agents_active": 494,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0900Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.1264ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+0900Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0542ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -78,11 +78,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.082222,
+        "ms_per_agent": 0.083931,
         "jam_active": false,
         "attrition_cumulative": 0.015,
         "agents_active": 492,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+1200Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0822ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+1200Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0839ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -92,11 +92,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.074758,
+        "ms_per_agent": 0.047557,
         "jam_active": false,
         "attrition_cumulative": 0.018,
         "agents_active": 491,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+1500Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0748ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+1500Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0476ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -106,11 +106,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.050275,
+        "ms_per_agent": 0.047773,
         "jam_active": false,
         "attrition_cumulative": 0.020999999999999998,
         "agents_active": 489,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+1800Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0503ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+1800Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0478ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -120,11 +120,11 @@
         "operation_id": "op_day1_isr_baseline",
         "phase": "ISR baseline \u2014 GPS L1 + ground Schumann sync",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.058828,
+        "ms_per_agent": 0.091973,
         "jam_active": false,
         "attrition_cumulative": 0.023999999999999997,
         "agents_active": 488,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+2100Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0588ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+1 T+2100Z | ISR baseline \u2014 GPS L1 + ground Schumann sync | doctrine=defense | RF=CLEAR | agents=500 | consensus=engage | coord=0.0920ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -134,11 +134,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.087922,
+        "ms_per_agent": 0.084688,
         "jam_active": true,
         "attrition_cumulative": 0.0315,
         "agents_active": 968,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0000Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0879ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0000Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0847ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -148,11 +148,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.057342,
+        "ms_per_agent": 0.060597,
         "jam_active": true,
         "attrition_cumulative": 0.039,
         "agents_active": 961,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0300Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0573ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0300Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0606ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -162,11 +162,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.072646,
+        "ms_per_agent": 0.081548,
         "jam_active": true,
         "attrition_cumulative": 0.0465,
         "agents_active": 953,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0600Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0726ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0600Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0815ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -176,11 +176,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.055906,
+        "ms_per_agent": 0.075939,
         "jam_active": true,
         "attrition_cumulative": 0.054,
         "agents_active": 946,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0900Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0559ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+0900Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0759ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -190,11 +190,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.117366,
+        "ms_per_agent": 0.10205,
         "jam_active": true,
         "attrition_cumulative": 0.0615,
         "agents_active": 938,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+1200Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.1174ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+1200Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.1021ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -204,11 +204,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.078377,
+        "ms_per_agent": 0.065014,
         "jam_active": true,
         "attrition_cumulative": 0.069,
         "agents_active": 931,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+1500Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0784ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+1500Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0650ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -218,11 +218,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.168466,
+        "ms_per_agent": 0.048154,
         "jam_active": true,
         "attrition_cumulative": 0.07650000000000001,
         "agents_active": 923,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+1800Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.1685ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+1800Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0482ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -232,11 +232,11 @@
         "operation_id": "op_day2_ew_probe",
         "phase": "EW probe \u2014 swept interference detection",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.056281,
+        "ms_per_agent": 0.058814,
         "jam_active": true,
         "attrition_cumulative": 0.08400000000000002,
         "agents_active": 915,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+2100Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0563ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+2 T+2100Z | EW probe \u2014 swept interference detection | doctrine=defense | RF=JAMMED | agents=1000 | consensus=engage | coord=0.0588ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -246,11 +246,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.071845,
+        "ms_per_agent": 0.067969,
         "jam_active": false,
         "attrition_cumulative": 0.09000000000000002,
         "agents_active": 727,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0000Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0718ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0000Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0680ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -260,11 +260,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.157502,
+        "ms_per_agent": 0.060914,
         "jam_active": false,
         "attrition_cumulative": 0.09600000000000003,
         "agents_active": 723,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0300Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.1575ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0300Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0609ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -274,11 +274,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.060696,
+        "ms_per_agent": 0.06228,
         "jam_active": false,
         "attrition_cumulative": 0.10200000000000004,
         "agents_active": 718,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0600Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0607ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0600Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0623ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -288,11 +288,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.063438,
+        "ms_per_agent": 0.065533,
         "jam_active": false,
         "attrition_cumulative": 0.10800000000000004,
         "agents_active": 713,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0900Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0634ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+0900Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0655ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -302,11 +302,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.086484,
+        "ms_per_agent": 0.047305,
         "jam_active": false,
         "attrition_cumulative": 0.11400000000000005,
         "agents_active": 708,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+1200Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0865ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+1200Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0473ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -316,11 +316,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.065543,
+        "ms_per_agent": 0.108653,
         "jam_active": false,
         "attrition_cumulative": 0.12000000000000005,
         "agents_active": 703,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+1500Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0655ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+1500Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.1087ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -330,11 +330,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.161107,
+        "ms_per_agent": 0.101655,
         "jam_active": false,
         "attrition_cumulative": 0.12600000000000006,
         "agents_active": 699,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+1800Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.1611ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+1800Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.1017ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -344,11 +344,11 @@
         "operation_id": "op_day3_strike_window",
         "phase": "Strike window \u2014 Ku downlink intercept",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.10607,
+        "ms_per_agent": 0.074676,
         "jam_active": false,
         "attrition_cumulative": 0.13200000000000006,
         "agents_active": 694,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+2100Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.1061ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+3 T+2100Z | Strike window \u2014 Ku downlink intercept | doctrine=offense | RF=CLEAR | agents=800 | consensus=engage | coord=0.0747ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -358,11 +358,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.096971,
+        "ms_per_agent": 0.088653,
         "jam_active": true,
         "attrition_cumulative": 0.14400000000000007,
         "agents_active": 4279,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0000Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0970ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0000Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0887ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -372,11 +372,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.108551,
+        "ms_per_agent": 0.068206,
         "jam_active": true,
         "attrition_cumulative": 0.15600000000000008,
         "agents_active": 4219,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0300Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.1086ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0300Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0682ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -386,11 +386,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.084493,
+        "ms_per_agent": 0.109602,
         "jam_active": true,
         "attrition_cumulative": 0.1680000000000001,
         "agents_active": 4159,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0600Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0845ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0600Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.1096ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -400,11 +400,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.069474,
+        "ms_per_agent": 0.10896,
         "jam_active": true,
         "attrition_cumulative": 0.1800000000000001,
         "agents_active": 4099,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0900Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0695ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+0900Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.1090ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -414,11 +414,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.090293,
+        "ms_per_agent": 0.093144,
         "jam_active": true,
         "attrition_cumulative": 0.19200000000000012,
         "agents_active": 4039,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+1200Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0903ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+1200Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0931ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -428,11 +428,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.095827,
+        "ms_per_agent": 0.078858,
         "jam_active": true,
         "attrition_cumulative": 0.20400000000000013,
         "agents_active": 3979,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+1500Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0958ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+1500Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0789ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -442,11 +442,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.069525,
+        "ms_per_agent": 0.10666,
         "jam_active": true,
         "attrition_cumulative": 0.21600000000000014,
         "agents_active": 3919,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+1800Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0695ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+1800Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.1067ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -456,11 +456,11 @@
         "operation_id": "op_day4_jam_escalation",
         "phase": "Jam escalation \u2014 ground denied, orbital failover",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.080268,
+        "ms_per_agent": 0.102697,
         "jam_active": true,
         "attrition_cumulative": 0.22800000000000015,
         "agents_active": 3859,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+2100Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.0803ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+4 T+2100Z | Jam escalation \u2014 ground denied, orbital failover | doctrine=defense | RF=JAMMED | agents=5000 | consensus=engage | coord=0.1027ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -470,11 +470,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.066599,
+        "ms_per_agent": 0.060671,
         "jam_active": true,
         "attrition_cumulative": 0.25050000000000017,
         "agents_active": 2248,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0000Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0666ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0000Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0607ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -484,11 +484,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.055558,
+        "ms_per_agent": 0.076097,
         "jam_active": true,
         "attrition_cumulative": 0.2730000000000002,
         "agents_active": 2180,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0300Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0556ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0300Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0761ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -498,11 +498,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.109403,
+        "ms_per_agent": 0.083012,
         "jam_active": true,
         "attrition_cumulative": 0.2955000000000002,
         "agents_active": 2113,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0600Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.1094ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0600Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0830ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -512,11 +512,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.100714,
+        "ms_per_agent": 0.070424,
         "jam_active": true,
         "attrition_cumulative": 0.3180000000000002,
         "agents_active": 2045,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0900Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.1007ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+0900Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0704ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -526,11 +526,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.107399,
+        "ms_per_agent": 0.080178,
         "jam_active": true,
         "attrition_cumulative": 0.34050000000000025,
         "agents_active": 1978,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+1200Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.1074ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+1200Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0802ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -540,11 +540,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.106101,
+        "ms_per_agent": 0.082309,
         "jam_active": true,
         "attrition_cumulative": 0.36300000000000027,
         "agents_active": 1910,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+1500Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.1061ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+1500Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0823ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -554,11 +554,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.060502,
+        "ms_per_agent": 0.072983,
         "jam_active": true,
         "attrition_cumulative": 0.3855000000000003,
         "agents_active": 1843,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+1800Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0605ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+1800Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0730ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -568,11 +568,11 @@
         "operation_id": "op_day5_attrition_reform",
         "phase": "Attrition reform \u2014 LEO cluster self-heal",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.099379,
+        "ms_per_agent": 0.091612,
         "jam_active": true,
         "attrition_cumulative": 0.4080000000000003,
         "agents_active": 1775,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+2100Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0994ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+5 T+2100Z | Attrition reform \u2014 LEO cluster self-heal | doctrine=offense | RF=JAMMED | agents=3000 | consensus=engage | coord=0.0916ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -582,11 +582,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.142193,
+        "ms_per_agent": 0.061451,
         "jam_active": true,
         "attrition_cumulative": 0.4230000000000003,
         "agents_active": 5769,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0000Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1422ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0000Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.0615ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -596,11 +596,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.12069,
+        "ms_per_agent": 0.109172,
         "jam_active": true,
         "attrition_cumulative": 0.43800000000000033,
         "agents_active": 5619,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0300Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1207ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0300Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1092ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -610,11 +610,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.09349,
+        "ms_per_agent": 0.091649,
         "jam_active": true,
         "attrition_cumulative": 0.45300000000000035,
         "agents_active": 5469,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0600Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.0935ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0600Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.0916ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -624,11 +624,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.108168,
+        "ms_per_agent": 0.105727,
         "jam_active": true,
         "attrition_cumulative": 0.46800000000000036,
         "agents_active": 5319,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0900Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1082ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+0900Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1057ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -638,11 +638,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.090621,
+        "ms_per_agent": 0.102126,
         "jam_active": true,
         "attrition_cumulative": 0.4830000000000004,
         "agents_active": 5169,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+1200Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.0906ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+1200Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1021ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -652,11 +652,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.110791,
+        "ms_per_agent": 0.10118,
         "jam_active": true,
         "attrition_cumulative": 0.4980000000000004,
         "agents_active": 5019,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+1500Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1108ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+1500Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1012ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -666,11 +666,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.207156,
+        "ms_per_agent": 0.09269,
         "jam_active": true,
         "attrition_cumulative": 0.5130000000000003,
         "agents_active": 4869,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+1800Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.2072ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+1800Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.0927ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -680,11 +680,11 @@
         "operation_id": "op_day6_10k_surge",
         "phase": "10K surge \u2014 full theater coordination",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.083167,
+        "ms_per_agent": 0.101031,
         "jam_active": true,
         "attrition_cumulative": 0.5280000000000004,
         "agents_active": 4719,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+2100Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.0832ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+6 T+2100Z | 10K surge \u2014 full theater coordination | doctrine=defense | RF=JAMMED | agents=10000 | consensus=engage | coord=0.1010ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -694,11 +694,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.08445,
+        "ms_per_agent": 0.086559,
         "jam_active": false,
         "attrition_cumulative": 0.5325000000000003,
         "agents_active": 934,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0000Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0844ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0000Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0866ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -708,11 +708,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.135374,
+        "ms_per_agent": 0.101821,
         "jam_active": false,
         "attrition_cumulative": 0.5370000000000003,
         "agents_active": 925,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0300Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.1354ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0300Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.1018ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -722,11 +722,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.043514,
+        "ms_per_agent": 0.086579,
         "jam_active": false,
         "attrition_cumulative": 0.5415000000000002,
         "agents_active": 916,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0600Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0435ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0600Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0866ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -736,11 +736,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.053069,
+        "ms_per_agent": 0.087826,
         "jam_active": false,
         "attrition_cumulative": 0.5460000000000002,
         "agents_active": 907,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0900Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0531ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+0900Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0878ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -750,11 +750,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.069649,
+        "ms_per_agent": 0.072504,
         "jam_active": false,
         "attrition_cumulative": 0.5505000000000001,
         "agents_active": 898,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+1200Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0696ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+1200Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0725ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -764,11 +764,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.111217,
+        "ms_per_agent": 0.096342,
         "jam_active": false,
         "attrition_cumulative": 0.555,
         "agents_active": 889,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+1500Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.1112ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+1500Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0963ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -778,11 +778,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.116449,
+        "ms_per_agent": 0.090831,
         "jam_active": false,
         "attrition_cumulative": 0.5595,
         "agents_active": 881,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+1800Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.1164ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+1800Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.0908ms/agent | mission_ok=True",
         "ok": true
       },
       {
@@ -792,11 +792,11 @@
         "operation_id": "op_day7_sustainment",
         "phase": "Sustainment \u2014 enterprise grid + swarm forge recovery",
         "threat_consensus": "engage",
-        "ms_per_agent": 0.106389,
+        "ms_per_agent": 0.142456,
         "jam_active": false,
         "attrition_cumulative": 0.564,
         "agents_active": 872,
-        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+2100Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.1064ms/agent | mission_ok=True",
+        "narrative": "[THEATER Alpha | Operation Spectral Shield] D+7 T+2100Z | Sustainment \u2014 enterprise grid + swarm forge recovery | doctrine=defense | RF=CLEAR | agents=2000 | consensus=engage | coord=0.1425ms/agent | mission_ok=True",
         "ok": true
       }
     ]
@@ -812,7 +812,7 @@
     "findings": [
       "Week sim: 56/56 ticks operational OK",
       "Peak theater agents: 10000",
-      "Day 6 10K surge ms/agent: 0.1422",
+      "Day 6 10K surge ms/agent: 0.0615",
       "Jam escalation peak: 90%",
       "Enterprise parallels run: 1"
     ],
@@ -829,14 +829,14 @@
         ],
         "ok": true,
         "metrics": {
-          "enterprise_fast_ms": 0.8981,
+          "enterprise_fast_ms": 1.6011,
           "enterprise_sla_ok": true,
           "match_score": 0.4749,
           "field_coherence": 0.5699172989444722,
           "cross_match_score": 0.5,
           "anomaly_separation": 0.0,
           "sovereign": true,
-          "threat_fast_p50_ms": 0.4302,
+          "threat_fast_p50_ms": 0.9323,
           "ann_neighbors": [
             [
               "ref-power-grid-001",
@@ -868,8 +868,8 @@
           "field_coherence_min": true,
           "threat_fast_p50_max_ms": true
         },
-        "elapsed_ms": 111.67,
-        "plain_summary": "Energy grid harmonic fault \u2014 substation spectral alert: enterprise_fast=0.90ms, industry=energy, pass=True"
+        "elapsed_ms": 126.66,
+        "plain_summary": "Energy grid harmonic fault \u2014 substation spectral alert: enterprise_fast=1.60ms, industry=energy, pass=True"
       }
     ],
     "ok": true

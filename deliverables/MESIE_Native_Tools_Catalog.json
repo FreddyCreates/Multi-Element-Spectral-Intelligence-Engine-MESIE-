@@ -1,8 +1,12 @@
 {
   "suite": "MESIE / MAESI / NeuroAIX",
-  "tool_count": 29,
-  "skill_count": 20,
+  "mesie_version": "0.3.3",
+  "sdk_version": "1.4.0",
+  "tool_count": 52,
+  "skill_count": 28,
   "categories": {
+    "enterprise_ai": "Enterprise AI \u2014 Agent Memory & Sovereign Copilots",
+    "solus": "SOLUS Local Math AI Caretakers",
     "core": "MESIE Core Spectral Engine",
     "retrieval": "Embedding, Fingerprint & ANN Retrieval",
     "orchestration": "Octopus & Internal API",
@@ -14,6 +18,21 @@
   },
   "skills": {
     "mesie-benchmark": [
+      {
+        "id": "major-benchmarks",
+        "name": "Major Third-Party Benchmarks",
+        "category": "qa",
+        "command": "python scripts/run_sdk_major_benchmarks.py --trials 300 --agents 10000",
+        "deliverable": "deliverables/MAESI_SDK_Major_Benchmarks.json",
+        "triggers": [
+          "major benchmarks",
+          "third party",
+          "mlperf",
+          "faiss",
+          "mqtt",
+          "pinecone"
+        ]
+      },
       {
         "id": "benchmark",
         "name": "Speed Benchmark",
@@ -94,6 +113,49 @@
           "power",
           "seismic suites"
         ]
+      },
+      {
+        "id": "scenario-sim",
+        "name": "Scenario Simulation Suite",
+        "category": "domains",
+        "command": "python scripts/run_scenario_simulation_suite.py",
+        "deliverable": "deliverables/MESIE_Scenario_Simulation_Report.json",
+        "triggers": [
+          "scenario",
+          "simulation",
+          "military data",
+          "enterprise use case",
+          "drone"
+        ]
+      }
+    ],
+    "mesie-drone-swarm": [
+      {
+        "id": "drone-swarm",
+        "name": "Drone Swarm Coordination",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_drone_swarm_suite.py --agents 10000",
+        "deliverable": "deliverables/NeuroSwarmAI_Drone_Swarm_Report.json",
+        "triggers": [
+          "drone swarm",
+          "swarm coordination",
+          "decentralized",
+          "chimeria",
+          "10k nodes"
+        ]
+      },
+      {
+        "id": "mission-world-week",
+        "name": "Mission World Week Sim",
+        "category": "domains",
+        "command": "python scripts/run_mission_world_week.py --days 7",
+        "deliverable": "deliverables/mission_worlds/military_theater_week_001_week_report.json",
+        "triggers": [
+          "mission world",
+          "week simulation",
+          "theater",
+          "campaign"
+        ]
       }
     ],
     "mesie-embed": [
@@ -138,13 +200,100 @@
       {
         "id": "monte-carlo",
         "name": "Monte Carlo Enterprise",
-        "category": "analysis",
-        "command": "python scripts/monte_carlo_enterprise_benchmark.py --trials 200",
+        "category": "enterprise_ai",
+        "command": "python scripts/monte_carlo_enterprise_benchmark.py --trials 200 --benchmark",
         "deliverable": "deliverables/MESIE_Monte_Carlo_Enterprise_Report.md",
         "triggers": [
           "monte carlo",
           "enterprise",
           "sla benchmark"
+        ]
+      },
+      {
+        "id": "multi-enterprise-20",
+        "name": "Multi-Enterprise 20",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_multi_enterprise_20.py --trials 50",
+        "deliverable": "deliverables/MESIE_Multi_Enterprise_20_Report.md",
+        "triggers": [
+          "multi enterprise",
+          "enterprise 20",
+          "enterprise uses"
+        ]
+      }
+    ],
+    "mesie-enterprise-ai": [
+      {
+        "id": "enterprise-ai",
+        "name": "Enterprise AI Copilot",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_enterprise_ai_suite.py",
+        "deliverable": "deliverables/Enterprise_AI_Suite_Report.json",
+        "triggers": [
+          "enterprise ai",
+          "agent memory",
+          "copilot",
+          "sovereign ai",
+          "agentic",
+          "receipt chain",
+          "minted token",
+          "sovereign vault"
+        ]
+      },
+      {
+        "id": "pro-update",
+        "name": "Pro Update Suite",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_pro_update_suite.py --trials 200",
+        "deliverable": "deliverables/MESIE_Pro_Update_Report.json",
+        "triggers": [
+          "pro update",
+          "specialized general",
+          "field ingest",
+          "hive mind",
+          "external benchmark"
+        ]
+      },
+      {
+        "id": "production-tiers",
+        "name": "Production Tier 1+2",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_production_tiers.py --tier both",
+        "deliverable": "deliverables/MESIE_Production_Tiers_Report.json",
+        "triggers": [
+          "production",
+          "tier1",
+          "tier2",
+          "appliance",
+          "mlperf submit",
+          "virtual silicon"
+        ]
+      },
+      {
+        "id": "drone-thesis",
+        "name": "Drone Defense+Offense Thesis",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_enterprise_drone_thesis.py",
+        "deliverable": "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.md",
+        "triggers": [
+          "thesis",
+          "drone defense",
+          "drone offense",
+          "enterprise",
+          "chimeria"
+        ]
+      },
+      {
+        "id": "trust-agents",
+        "name": "Trust Remediation Agents",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_trust_remediation_agents.py",
+        "deliverable": "deliverables/Trust_Remediation_Report.json",
+        "triggers": [
+          "trust agents",
+          "remediation",
+          "commit",
+          "production readiness"
         ]
       }
     ],
@@ -241,6 +390,19 @@
     ],
     "mesie-laptop": [
       {
+        "id": "virtual-silicon",
+        "name": "Virtual Silicon VS1",
+        "category": "analysis",
+        "command": "python scripts/run_virtual_silicon_suite.py",
+        "deliverable": "deliverables/virtual_silicon/MESIE_Virtual_Silicon_Report.json",
+        "triggers": [
+          "virtual silicon",
+          "virtual chip",
+          "rf hil",
+          "ota mesh"
+        ]
+      },
+      {
         "id": "laptop",
         "name": "Laptop Research Report",
         "category": "analysis",
@@ -250,6 +412,21 @@
           "laptop",
           "virtual chip",
           "research report"
+        ]
+      }
+    ],
+    "mesie-logic-prover": [
+      {
+        "id": "logic-prover",
+        "name": "SOLUS Logic Prover",
+        "category": "solus",
+        "command": "python scripts/run_solus_math_caretakers.py",
+        "deliverable": "deliverables/SOLUS_Math_Caretakers_Report.json",
+        "triggers": [
+          "logic prover",
+          "proof",
+          "theorem",
+          "solus math"
         ]
       }
     ],
@@ -307,6 +484,23 @@
         ]
       }
     ],
+    "mesie-native-ai": [
+      {
+        "id": "native-ai",
+        "name": "Native Local AI Deliverables",
+        "category": "maesi",
+        "command": "python scripts/run_native_ai_deliverables.py",
+        "deliverable": "deliverables/native_ai/NativeAI_Manifest.json",
+        "triggers": [
+          "native ai",
+          "stream",
+          "generate",
+          "deliverable",
+          "local ai",
+          "solus sdk"
+        ]
+      }
+    ],
     "mesie-neuroaix": [
       {
         "id": "neuroaix",
@@ -332,6 +526,48 @@
         ]
       }
     ],
+    "mesie-neuroswarm-audit": [
+      {
+        "id": "neuroswarm-audit",
+        "name": "NeuroSwarm Audit Evidence",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_neuroswarm_audit.py --trials 1000",
+        "deliverable": "deliverables/NeuroSwarmAI_Audit_Evidence.json",
+        "triggers": [
+          "neuroswarm",
+          "audit evidence",
+          "claims verifier",
+          "latency harness",
+          "12ms"
+        ]
+      },
+      {
+        "id": "is-this-true",
+        "name": "Is This True?",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_is_this_true.py",
+        "deliverable": "deliverables/Is_This_True_Response.json",
+        "triggers": [
+          "is this true",
+          "verification",
+          "grok critique",
+          "trust"
+        ]
+      },
+      {
+        "id": "neuroswarm-readiness",
+        "name": "NeuroSwarmAI.com Readiness",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_neuroswarm_readiness.py",
+        "deliverable": "deliverables/neuroswarmai_com/evidence_manifest.json",
+        "triggers": [
+          "readiness",
+          "neuroswarmai.com",
+          "gap closure",
+          "production"
+        ]
+      }
+    ],
     "mesie-octopus": [
       {
         "id": "octopus",
@@ -343,7 +579,8 @@
           "octopus",
           "eight arms",
           "internal api",
-          "multi-arm"
+          "multi-arm",
+          "polyglot arms"
         ]
       }
     ],
@@ -358,6 +595,113 @@
           "orbital",
           "satellite edge",
           "50 day"
+        ]
+      }
+    ],
+    "mesie-pattern-forge": [
+      {
+        "id": "pattern-forge",
+        "name": "SOLUS Pattern Forge",
+        "category": "solus",
+        "command": "python scripts/run_solus_math_caretakers.py",
+        "deliverable": "deliverables/SOLUS_Math_Caretakers_Report.json",
+        "triggers": [
+          "pattern forge",
+          "xray",
+          "z-depth",
+          "spectral decompose",
+          "solus math"
+        ]
+      }
+    ],
+    "mesie-polyglot": [
+      {
+        "id": "ais-polyglot",
+        "name": "AISVectorPolyglot Suite",
+        "category": "orchestration",
+        "command": "python scripts/run_ais_polyglot_suite.py",
+        "deliverable": "deliverables/AISVectorPolyglot_Integration_Report.json",
+        "triggers": [
+          "ais",
+          "polyglot",
+          "julia",
+          "rust",
+          "motoko",
+          "typescript",
+          "vector bridge",
+          "third party ai"
+        ]
+      }
+    ],
+    "mesie-solus-organism": [
+      {
+        "id": "solus-organism",
+        "name": "SOLUS SDK Organism",
+        "category": "solus",
+        "command": "python scripts/run_solus_math_caretakers.py",
+        "deliverable": "deliverables/SOLUS_Math_Caretakers_Report.json",
+        "triggers": [
+          "solus",
+          "organism",
+          "caretaker",
+          "formal model",
+          "logic",
+          "reasoning",
+          "emergence",
+          "adaptation",
+          "sovereign"
+        ]
+      },
+      {
+        "id": "sovereign-local-120",
+        "name": "Sovereign Local 120",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_sovereign_local_suite.py",
+        "deliverable": "deliverables/MESIE_Sovereign_Local_120_Report.md",
+        "triggers": [
+          "sovereign local",
+          "sovereign mode",
+          "offline local",
+          "own models only"
+        ]
+      },
+      {
+        "id": "field-access",
+        "name": "Field Access Bridge",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_field_access_suite.py",
+        "deliverable": "deliverables/MESIE_Field_Access_Report.json",
+        "triggers": [
+          "field access",
+          "airgapped",
+          "world computer",
+          "frequency bridge",
+          "schumann",
+          "eco hz"
+        ]
+      },
+      {
+        "id": "field-route",
+        "name": "Field Route",
+        "category": "enterprise_ai",
+        "command": "python scripts/field_route.py list",
+        "deliverable": null,
+        "triggers": [
+          "field route",
+          "route",
+          "world computer route",
+          "ground to world"
+        ]
+      },
+      {
+        "id": "field-route-run",
+        "name": "Field Route Path",
+        "category": "enterprise_ai",
+        "command": "python scripts/field_route.py route ground world",
+        "deliverable": null,
+        "triggers": [
+          "field route path",
+          "route ground world"
         ]
       }
     ],

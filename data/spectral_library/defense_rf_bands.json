@@ -1,0 +1,15 @@
+{
+  "record_id": "spectral-lib-defense-rf-001",
+  "record_type": "defense_rf",
+  "description": "Defense RF band reference — L/S/C/X/Ku operational bands for EW domain library",
+  "source": "ITU + NATO band conventions (reference framing)",
+  "rf_bands": {
+    "modes": [
+      {"name": "L_band", "frequency_Hz": 1500000000, "typical_amplitude_pT": 0.5},
+      {"name": "S_band", "frequency_Hz": 3000000000, "typical_amplitude_pT": 0.4},
+      {"name": "C_band", "frequency_Hz": 6000000000, "typical_amplitude_pT": 0.35},
+      {"name": "X_band", "frequency_Hz": 10000000000, "typical_amplitude_pT": 0.3},
+      {"name": "Ku_band", "frequency_Hz": 14000000000, "typical_amplitude_pT": 0.25}
+    ]
+  }
+}

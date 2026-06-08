@@ -6,7 +6,8 @@ import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Sequence
 
-from mesie.sdk.solus.constants import HEARTBEAT_MS, LOCAL_ENGINE, SOLUS_BRAND
+from mesie.sdk.solus.constants import FORMAL_COMPOSITION, HEARTBEAT_MS, LOCAL_ENGINE, OWN_MODELS_ONLY, SOLUS_BRAND
+from mesie.sdk.solus.formal_stack import SolusFormalStack
 from mesie.sdk.solus.logic_prover import SolusLogicProver
 from mesie.sdk.solus.pattern_forge import SolusPatternForge
 
@@ -37,12 +38,32 @@ class SDKSolusOrganism:
 
     logic: SolusLogicProver = field(default_factory=SolusLogicProver)
     pattern: SolusPatternForge = field(default_factory=SolusPatternForge)
+    formal_stack: SolusFormalStack = field(default_factory=SolusFormalStack)
     _start: float = field(default_factory=time.perf_counter)
     _heartbeats: int = 0
 
     @property
+    def formula(self) -> str:
+        return FORMAL_COMPOSITION
+
+    @property
     def caretaker_names(self) -> List[str]:
-        return [self.logic.caretaker_id, self.pattern.caretaker_id]
+        return [
+            self.logic.caretaker_id,
+            self.pattern.caretaker_id,
+            self.formal_stack.reasoning.model_id,
+            self.formal_stack.emergence.model_id,
+            self.formal_stack.adaptation.model_id,
+        ]
+
+    @property
+    def formal_model_ids(self) -> List[str]:
+        return [
+            "solus-logic-model",
+            self.formal_stack.reasoning.model_id,
+            self.formal_stack.emergence.model_id,
+            self.formal_stack.adaptation.model_id,
+        ]
 
     def pulse(self) -> OrganismVitals:
         self._heartbeats += 1
@@ -100,4 +121,64 @@ class SDKSolusOrganism:
             "complexity": complexity.data,
             "caretakers": self.caretaker_names,
             "engine": LOCAL_ENGINE,
+        }
+
+    def reason_spectral_cycle(
+        self,
+        frequencies: Sequence[float],
+        amplitudes: Sequence[float],
+        *,
+        cycle_context: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """Reason over every spectral cycle — four own formal models, zero third-party."""
+        vitals = self.pulse()
+        composed = self.formal_stack.compose_cycle(
+            frequencies,
+            amplitudes,
+            cycle_context=cycle_context or {},
+        )
+        return {
+            **composed,
+            "organism": vitals.organism,
+            "sdk_health": vitals.sdk_health,
+            "caretakers": self.caretaker_names,
+            "formal_model_ids": self.formal_model_ids,
+            "own_models_only": OWN_MODELS_ONLY,
+            "third_party": False,
+        }
+
+    def tend_agent_session(self, session: Dict[str, Any]) -> Dict[str, Any]:
+        """Enterprise AI: caretakers watch copilot agent memory sessions (on-prem, sovereign)."""
+        vitals = self.pulse()
+        session_id = str(session.get("session_id", "enterprise"))
+        turns = int(session.get("turns", 0))
+        neighbors = int(session.get("neighbors", 0))
+        theorem = (
+            f"enterprise_agent_session {session_id}: {turns} turns, "
+            f"{neighbors} memory neighbors — sovereign recall holds"
+        )
+        logic = self.logic.caretaker_run("prove", theorem=theorem)
+        pattern = self.pattern.caretaker_run(
+            "xray",
+            values=[
+                float(turns),
+                float(neighbors),
+                float(session.get("latency_ms", 0)),
+                float(session.get("sla_ok", 1)),
+            ],
+        )
+        return {
+            "organism": vitals.organism,
+            "session_id": session_id,
+            "sdk_health": vitals.sdk_health,
+            "sovereign": True,
+            "brand": SOLUS_BRAND,
+            "enterprise_ai": True,
+            "logic_caretaker": {"ok": logic.ok, "brain": logic.brain, "heart": logic.heart},
+            "pattern_caretaker": {
+                "ok": pattern.ok,
+                "brain": pattern.brain,
+                "heart": pattern.heart,
+                "signal_ratio": pattern.data.get("signal_ratio"),
+            },
         }

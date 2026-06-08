@@ -1,0 +1,92 @@
+{
+  "version": "1.1.0",
+  "domain": "enterprise_civilian",
+  "company": "NeuroSwarmAI",
+  "data_provenance": "Bundled reference spectra + enterprise_use_cases_benchmark v2 per-industry slices",
+  "scenarios": [
+    {
+      "id": "ent_factory_vibration",
+      "label": "Factory predictive maintenance — vibration anomaly",
+      "industry": "manufacturing",
+      "enterprise_use_case": "mfg_predictive",
+      "primary_data": "vibration_monitoring_reference",
+      "secondary_data": "earthquake_psd_reference",
+      "n_agents": 64,
+      "criteria": {
+        "enterprise_fast_sla_ms": 500.0,
+        "cross_match_score_range": [0.0, 0.75],
+        "match_ok": true
+      }
+    },
+    {
+      "id": "ent_power_grid_harmonic",
+      "label": "Energy grid harmonic fault — substation spectral alert",
+      "industry": "energy",
+      "enterprise_use_case": "energy_grid",
+      "primary_data": "power_grid_harmonics_reference",
+      "library_refs": ["electromagnetic_bands"],
+      "n_agents": 32,
+      "criteria": {
+        "enterprise_fast_sla_ms": 500.0,
+        "field_coherence_min": 0.3,
+        "threat_fast_p50_max_ms": 12.0
+      }
+    },
+    {
+      "id": "ent_structural_seismic",
+      "label": "Civil structural monitoring — seismic vs machinery separation",
+      "industry": "civil",
+      "enterprise_use_case": "structural_civil",
+      "primary_data": "earthquake_psd_reference",
+      "secondary_data": "structural_fas_reference",
+      "n_agents": 48,
+      "criteria": {
+        "cross_match_score_range": [0.0, 0.85],
+        "enterprise_fast_sla_ms": 500.0
+      }
+    },
+    {
+      "id": "ent_hospital_eeg",
+      "label": "Clinical EEG device monitor — biomedical spectral watch",
+      "industry": "healthcare",
+      "enterprise_use_case": "health_device",
+      "primary_data": "biomedical_eeg_reference",
+      "n_agents": 16,
+      "criteria": {
+        "enterprise_fast_sla_ms": 500.0,
+        "match_ok": true,
+        "sovereign": true
+      }
+    },
+    {
+      "id": "ent_robotics_fleet",
+      "label": "Robotics fleet coordination — vibration + swarm allocation",
+      "industry": "robotics",
+      "enterprise_use_case": "robotics_fleet",
+      "primary_data": "vibration_monitoring_reference",
+      "preset": "isr",
+      "n_agents": 256,
+      "jam_ground": false,
+      "attrition_rate": 0.05,
+      "criteria": {
+        "mission_or_coord_ok": true,
+        "task_coverage_min": 0.5,
+        "enterprise_fast_sla_ms": 500.0
+      }
+    },
+    {
+      "id": "ent_telecom_compliance",
+      "label": "Telecom spectral compliance — IEEE/ITU band occupancy",
+      "industry": "telecom",
+      "enterprise_use_case": "telecom_compliance",
+      "primary_data": "defense_ew_spectrum_reference",
+      "library_refs": ["electromagnetic_bands", "satellite_frequencies"],
+      "n_agents": 32,
+      "criteria": {
+        "library_loaded": true,
+        "enterprise_fast_sla_ms": 500.0,
+        "ann_top_k_ok": true
+      }
+    }
+  ]
+}

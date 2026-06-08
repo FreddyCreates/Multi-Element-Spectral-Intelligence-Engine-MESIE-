@@ -3,8 +3,8 @@
   "method": "monte_carlo",
   "trials_per_use_case": 200,
   "total_trials": 2000,
-  "generated_at": "2026-06-05T22:54:03Z",
-  "elapsed_s": 1.18,
+  "generated_at": "2026-06-07T03:23:02Z",
+  "elapsed_s": 1.83,
   "overall_success_rate": 1.0,
   "enterprise_grade": true,
   "use_cases": [
@@ -17,12 +17,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.139,
-        "std_latency_ms": 0.559,
-        "p95_latency_ms": 0.135,
-        "mean_score": 0.9779,
-        "std_score": 0.0484,
-        "p5_score": 0.8993,
+        "mean_latency_ms": 0.769,
+        "std_latency_ms": 1.107,
+        "p95_latency_ms": 0.906,
+        "mean_score": 0.6042,
+        "std_score": 0.0274,
+        "p5_score": 0.5545,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -36,12 +36,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.139,
-        "std_latency_ms": 0.164,
-        "p95_latency_ms": 0.162,
-        "mean_score": 6.0,
-        "std_score": 0.0,
-        "p5_score": 6.0,
+        "mean_latency_ms": 0.821,
+        "std_latency_ms": 1.341,
+        "p95_latency_ms": 1.089,
+        "mean_score": 0.7078,
+        "std_score": 0.0094,
+        "p5_score": 0.6875,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -55,12 +55,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.178,
-        "std_latency_ms": 0.116,
-        "p95_latency_ms": 0.19,
-        "mean_score": 0.8589,
-        "std_score": 0.0226,
-        "p5_score": 0.795,
+        "mean_latency_ms": 0.725,
+        "std_latency_ms": 0.377,
+        "p95_latency_ms": 1.167,
+        "mean_score": 0.7619,
+        "std_score": 0.0172,
+        "p5_score": 0.731,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -74,12 +74,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.164,
-        "std_latency_ms": 0.018,
-        "p95_latency_ms": 0.189,
-        "mean_score": 0.6352,
-        "std_score": 0.0019,
-        "p5_score": 0.6318,
+        "mean_latency_ms": 1.211,
+        "std_latency_ms": 2.725,
+        "p95_latency_ms": 1.384,
+        "mean_score": 0.7669,
+        "std_score": 0.0153,
+        "p5_score": 0.7293,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -93,12 +93,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.67,
-        "std_latency_ms": 0.159,
-        "p95_latency_ms": 0.799,
-        "mean_score": 0.8459,
-        "std_score": 0.0023,
-        "p5_score": 0.8419,
+        "mean_latency_ms": 0.862,
+        "std_latency_ms": 1.972,
+        "p95_latency_ms": 0.881,
+        "mean_score": 0.6898,
+        "std_score": 0.0128,
+        "p5_score": 0.6664,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -112,12 +112,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.264,
-        "std_latency_ms": 0.064,
-        "p95_latency_ms": 0.338,
-        "mean_score": 74.6074,
-        "std_score": 6.1115,
-        "p5_score": 51.7212,
+        "mean_latency_ms": 0.728,
+        "std_latency_ms": 0.547,
+        "p95_latency_ms": 0.884,
+        "mean_score": 0.7098,
+        "std_score": 0.0079,
+        "p5_score": 0.699,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -131,12 +131,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.099,
-        "std_latency_ms": 0.079,
-        "p95_latency_ms": 0.1,
-        "mean_score": 0.9578,
-        "std_score": 0.0694,
-        "p5_score": 0.8287,
+        "mean_latency_ms": 1.407,
+        "std_latency_ms": 4.283,
+        "p95_latency_ms": 1.211,
+        "mean_score": 0.601,
+        "std_score": 0.0319,
+        "p5_score": 0.5365,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -150,12 +150,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.021,
-        "std_latency_ms": 0.087,
-        "p95_latency_ms": 0.017,
-        "mean_score": 2.0,
-        "std_score": 0.0,
-        "p5_score": 2.0,
+        "mean_latency_ms": 0.909,
+        "std_latency_ms": 2.464,
+        "p95_latency_ms": 1.008,
+        "mean_score": 0.7485,
+        "std_score": 0.0024,
+        "p5_score": 0.7458,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -169,12 +169,12 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 0.664,
-        "std_latency_ms": 0.133,
-        "p95_latency_ms": 0.789,
-        "mean_score": 0.7388,
-        "std_score": 0.0406,
-        "p5_score": 0.676,
+        "mean_latency_ms": 0.806,
+        "std_latency_ms": 1.29,
+        "p95_latency_ms": 0.907,
+        "mean_score": 0.7687,
+        "std_score": 0.013,
+        "p5_score": 0.7354,
         "failures": 0,
         "sample_failure_details": []
       }
@@ -188,15 +188,16 @@
       "monte_carlo": {
         "n_trials": 200,
         "success_rate": 1.0,
-        "mean_latency_ms": 3.557,
-        "std_latency_ms": 1.88,
-        "p95_latency_ms": 4.352,
-        "mean_score": 1.0,
-        "std_score": 0.0,
-        "p5_score": 1.0,
+        "mean_latency_ms": 0.868,
+        "std_latency_ms": 1.735,
+        "p95_latency_ms": 0.73,
+        "mean_score": 0.7628,
+        "std_score": 0.0161,
+        "p5_score": 0.731,
         "failures": 0,
         "sample_failure_details": []
       }
     }
-  ]
+  ],
+  "benchmark": "mesie-enterprise-benchmark-v2"
 }

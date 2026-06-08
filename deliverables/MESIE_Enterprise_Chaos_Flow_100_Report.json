@@ -1,0 +1,923 @@
+{
+  "suite": "enterprise_chaos_flow_100",
+  "focus": "field_access + sovereign enterprise + chaos + E2E flow",
+  "n_tests": 100,
+  "passed": 100,
+  "failed": 0,
+  "success_rate": 1.0,
+  "enterprise": {
+    "passed": 35,
+    "total": 35
+  },
+  "chaos": {
+    "passed": 30,
+    "total": 30
+  },
+  "flow": {
+    "passed": 35,
+    "total": 35
+  },
+  "total_runtime_ms": 23251.0,
+  "outcomes": [
+    {
+      "id": "E01",
+      "name": "Copilot cycle sovereign",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 455.36,
+      "detail": "('assert', 'sov')",
+      "error": null
+    },
+    {
+      "id": "E02",
+      "name": "Agent memory recall",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.41,
+      "detail": "('assert', 'recall')",
+      "error": null
+    },
+    {
+      "id": "E03",
+      "name": "Vault deposit cycle",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 470.48,
+      "detail": "('assert', 'vault')",
+      "error": null
+    },
+    {
+      "id": "E04",
+      "name": "Receipt seal",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.16,
+      "detail": "('seal', 'seal')",
+      "error": null
+    },
+    {
+      "id": "E05",
+      "name": "Receipt verify",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.05,
+      "detail": "('assert', 'verify')",
+      "error": null
+    },
+    {
+      "id": "E06",
+      "name": "SLA cycle",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 544.45,
+      "detail": "('assert', 'sla')",
+      "error": null
+    },
+    {
+      "id": "E07",
+      "name": "SOLUS reason tool",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3.2,
+      "detail": "('assert', 'solus')",
+      "error": null
+    },
+    {
+      "id": "E08",
+      "name": "Vault status tool",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.2,
+      "detail": "('assert', 'status')",
+      "error": null
+    },
+    {
+      "id": "E09",
+      "name": "Field route tool",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.12,
+      "detail": "('assert', 'route')",
+      "error": null
+    },
+    {
+      "id": "E10",
+      "name": "Field bridge tool",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 1.33,
+      "detail": "('assert', 'bridge')",
+      "error": null
+    },
+    {
+      "id": "E11",
+      "name": "Field status tool",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.09,
+      "detail": "('assert', 'fstatus')",
+      "error": null
+    },
+    {
+      "id": "E12",
+      "name": "Minted token",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 720.97,
+      "detail": "('assert', 'token')",
+      "error": null
+    },
+    {
+      "id": "E13",
+      "name": "Octopus wired",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.0,
+      "detail": "('assert', 'octo')",
+      "error": null
+    },
+    {
+      "id": "E14",
+      "name": "Brand SOLUS",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 844.89,
+      "detail": "('assert', 'SOLUS')",
+      "error": null
+    },
+    {
+      "id": "E15",
+      "name": "Enterprise MC mfg",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3.99,
+      "detail": "('mfg_predictive', 'mfg')",
+      "error": null
+    },
+    {
+      "id": "E16",
+      "name": "Enterprise MC energy",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 10.37,
+      "detail": "('energy_grid', 'energy')",
+      "error": null
+    },
+    {
+      "id": "E17",
+      "name": "Enterprise MC aerospace",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3.79,
+      "detail": "('aerospace_orbital', 'aero')",
+      "error": null
+    },
+    {
+      "id": "E18",
+      "name": "Enterprise MC insurance",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 4.05,
+      "detail": "('insurance_seismic', 'ins')",
+      "error": null
+    },
+    {
+      "id": "E19",
+      "name": "Enterprise MC construction",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3.69,
+      "detail": "('structural_civil', 'struct')",
+      "error": null
+    },
+    {
+      "id": "E20",
+      "name": "Enterprise MC healthcare",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3.31,
+      "detail": "('health_device', 'health')",
+      "error": null
+    },
+    {
+      "id": "E21",
+      "name": "Enterprise MC robotics",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 6.76,
+      "detail": "('robotics_fleet', 'robot')",
+      "error": null
+    },
+    {
+      "id": "E22",
+      "name": "Enterprise MC telecom",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3.87,
+      "detail": "('telecom_compliance', 'tele')",
+      "error": null
+    },
+    {
+      "id": "E23",
+      "name": "Enterprise MC research",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3.76,
+      "detail": "('rd_lab', 'rd')",
+      "error": null
+    },
+    {
+      "id": "E24",
+      "name": "Enterprise MC agent AI",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 4.56,
+      "detail": "('ai_copilot_rag', 'ai')",
+      "error": null
+    },
+    {
+      "id": "E25",
+      "name": "MAESI full run",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 31.41,
+      "detail": "('assert', 'run')",
+      "error": null
+    },
+    {
+      "id": "E26",
+      "name": "Native AI available",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 40.03,
+      "detail": "('assert', 'nai')",
+      "error": null
+    },
+    {
+      "id": "E27",
+      "name": "Session burst x5",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 3876.49,
+      "detail": "('5x', 'burst')",
+      "error": null
+    },
+    {
+      "id": "E28",
+      "name": "Vault recall",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.16,
+      "detail": "('assert', 'vrecall')",
+      "error": null
+    },
+    {
+      "id": "E29",
+      "name": "Tool schema count",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'schemas')",
+      "error": null
+    },
+    {
+      "id": "E30",
+      "name": "Third party false",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.16,
+      "detail": "('assert', '3p')",
+      "error": null
+    },
+    {
+      "id": "E31",
+      "name": "Validate invoke",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.45,
+      "detail": "('assert', 'val')",
+      "error": null
+    },
+    {
+      "id": "E32",
+      "name": "Match invoke",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.63,
+      "detail": "('assert', 'match')",
+      "error": null
+    },
+    {
+      "id": "E33",
+      "name": "Multi ref index",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 30.24,
+      "detail": "('assert', 'index')",
+      "error": null
+    },
+    {
+      "id": "E34",
+      "name": "Plain summary",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 848.32,
+      "detail": "('assert', 'summary')",
+      "error": null
+    },
+    {
+      "id": "E35",
+      "name": "Enterprise grade slice",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 13.76,
+      "detail": "('assert', 'grade')",
+      "error": null
+    },
+    {
+      "id": "C01",
+      "name": "Noisy field bridge",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.39,
+      "detail": "('assert', 'nbridge')",
+      "error": null
+    },
+    {
+      "id": "C02",
+      "name": "Noisy route ground-world",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.06,
+      "detail": "('assert', 'nroute')",
+      "error": null
+    },
+    {
+      "id": "C03",
+      "name": "20 rapid bridges",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 5.27,
+      "detail": "('20b', '20b')",
+      "error": null
+    },
+    {
+      "id": "C04",
+      "name": "10 rapid routes",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.13,
+      "detail": "('10r', '10r')",
+      "error": null
+    },
+    {
+      "id": "C05",
+      "name": "Invalid node route",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'inv')",
+      "error": null
+    },
+    {
+      "id": "C06",
+      "name": "Self route",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'self')",
+      "error": null
+    },
+    {
+      "id": "C07",
+      "name": "Ladder only policy",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'ladder')",
+      "error": null
+    },
+    {
+      "id": "C08",
+      "name": "Orbital preferred",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'orb')",
+      "error": null
+    },
+    {
+      "id": "C09",
+      "name": "Receipt chain x15",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 6.41,
+      "detail": "('15links', 'c15')",
+      "error": null
+    },
+    {
+      "id": "C10",
+      "name": "Vault multi deposit x8",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 2930.35,
+      "detail": "('8dep', 'v8')",
+      "error": null
+    },
+    {
+      "id": "C11",
+      "name": "Noisy match still scores",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.74,
+      "detail": "('assert', 'nm')",
+      "error": null
+    },
+    {
+      "id": "C12",
+      "name": "Octopus noisy cycle",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 429.38,
+      "detail": "('octo', 'onoisy')",
+      "error": null
+    },
+    {
+      "id": "C13",
+      "name": "Copilot noisy cycle",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 785.93,
+      "detail": "('assert', 'cnoisy')",
+      "error": null
+    },
+    {
+      "id": "C14",
+      "name": "Align bad freq",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.18,
+      "detail": "('assert', 'hz0')",
+      "error": null
+    },
+    {
+      "id": "C15",
+      "name": "Align schumann",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.12,
+      "detail": "('assert', 'sch')",
+      "error": null
+    },
+    {
+      "id": "C16",
+      "name": "Health under load",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.14,
+      "detail": "('assert', 'health')",
+      "error": null
+    },
+    {
+      "id": "C17",
+      "name": "Presets under load",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.2,
+      "detail": "('assert', 'presets')",
+      "error": null
+    },
+    {
+      "id": "C18",
+      "name": "Singleton reuse",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.0,
+      "detail": "('assert', 'singleton')",
+      "error": null
+    },
+    {
+      "id": "C19",
+      "name": "Mesh nodes >= 14",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'nodes')",
+      "error": null
+    },
+    {
+      "id": "C20",
+      "name": "Anchors >= 31",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.06,
+      "detail": "('assert', 'anchors')",
+      "error": null
+    },
+    {
+      "id": "C21",
+      "name": "Internet false",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.05,
+      "detail": "('assert', 'inet')",
+      "error": null
+    },
+    {
+      "id": "C22",
+      "name": "Airgapped true",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.04,
+      "detail": "('assert', 'air')",
+      "error": null
+    },
+    {
+      "id": "C23",
+      "name": "Route alias schumann-root",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'alias')",
+      "error": null
+    },
+    {
+      "id": "C24",
+      "name": "Route anchor path",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'anch')",
+      "error": null
+    },
+    {
+      "id": "C25",
+      "name": "Bridge all refs",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 13.84,
+      "detail": "('4refs', 'all')",
+      "error": null
+    },
+    {
+      "id": "C26",
+      "name": "Copilot field flow",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.37,
+      "detail": "('c+f', 'flow')",
+      "error": null
+    },
+    {
+      "id": "C27",
+      "name": "Validate noisy",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.1,
+      "detail": "('assert', 'vnoisy')",
+      "error": null
+    },
+    {
+      "id": "C28",
+      "name": "Rank empty guard",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'empty')",
+      "error": null
+    },
+    {
+      "id": "C29",
+      "name": "Concurrent sessions",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 6913.87,
+      "detail": "('8s', 'sess')",
+      "error": null
+    },
+    {
+      "id": "C30",
+      "name": "Enterprise MC noisy 5",
+      "lane": "chaos",
+      "passed": true,
+      "latency_ms": 7.84,
+      "detail": "('mfg_predictive', 'mcn')",
+      "error": null
+    },
+    {
+      "id": "F01",
+      "name": "F1 connect\u2192status",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.03,
+      "detail": "('connect', 'c\u2192s')",
+      "error": null
+    },
+    {
+      "id": "F02",
+      "name": "F2 connect\u2192bridge",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.6,
+      "detail": "('bridge', 'c\u2192b')",
+      "error": null
+    },
+    {
+      "id": "F03",
+      "name": "F3 connect\u2192route",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.06,
+      "detail": "('route', 'c\u2192r')",
+      "error": null
+    },
+    {
+      "id": "F04",
+      "name": "F4 bridge\u2192align",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.63,
+      "detail": "('b+a', 'b\u2192a')",
+      "error": null
+    },
+    {
+      "id": "F05",
+      "name": "F5 route\u2192health",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.1,
+      "detail": "('r+h', 'r\u2192h')",
+      "error": null
+    },
+    {
+      "id": "F06",
+      "name": "F6 SDK bridge",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.56,
+      "detail": "('assert', 'sdk-b')",
+      "error": null
+    },
+    {
+      "id": "F07",
+      "name": "F7 SDK route",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'sdk-r')",
+      "error": null
+    },
+    {
+      "id": "F08",
+      "name": "F8 mode field access",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'mode')",
+      "error": null
+    },
+    {
+      "id": "F09",
+      "name": "F9 copilot+field route",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.08,
+      "detail": "('c route', 'c+r')",
+      "error": null
+    },
+    {
+      "id": "F10",
+      "name": "F10 copilot+field bridge",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.94,
+      "detail": "('c bridge', 'c+b')",
+      "error": null
+    },
+    {
+      "id": "F11",
+      "name": "F11 octopus+field",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 488.26,
+      "detail": "('o+f', 'o+f')",
+      "error": null
+    },
+    {
+      "id": "F12",
+      "name": "F12 vault+receipt+field",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 933.86,
+      "detail": "('v+f', 'v+r+f')",
+      "error": null
+    },
+    {
+      "id": "F13",
+      "name": "F13 preset ground-world",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.0,
+      "detail": "('assert', 'p0')",
+      "error": null
+    },
+    {
+      "id": "F14",
+      "name": "F14 preset ground-iono",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.0,
+      "detail": "('assert', 'p1')",
+      "error": null
+    },
+    {
+      "id": "F15",
+      "name": "F15 preset leo-geo",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.0,
+      "detail": "('assert', 'p3')",
+      "error": null
+    },
+    {
+      "id": "F16",
+      "name": "F16 full enterprise cycle",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 899.41,
+      "detail": "('full', 'full')",
+      "error": null
+    },
+    {
+      "id": "F17",
+      "name": "F17 MAESI query+bridge",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 1.58,
+      "detail": "('q+b', 'q+b')",
+      "error": null
+    },
+    {
+      "id": "F18",
+      "name": "F18 route table",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'table')",
+      "error": null
+    },
+    {
+      "id": "F19",
+      "name": "F19 neighbors ground",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'nbr')",
+      "error": null
+    },
+    {
+      "id": "F20",
+      "name": "F20 resolve aliases",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.0,
+      "detail": "('assert', 'res')",
+      "error": null
+    },
+    {
+      "id": "F21",
+      "name": "F21 bridge\u2192route same ref",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.67,
+      "detail": "('br', 'br')",
+      "error": null
+    },
+    {
+      "id": "F22",
+      "name": "F22 multi-hop world",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'hops')",
+      "error": null
+    },
+    {
+      "id": "F23",
+      "name": "F23 leo to world flow",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'leo\u2192w')",
+      "error": null
+    },
+    {
+      "id": "F24",
+      "name": "F24 meo to geo flow",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.03,
+      "detail": "('assert', 'meo\u2192g')",
+      "error": null
+    },
+    {
+      "id": "F25",
+      "name": "F25 ladder climb",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'climb')",
+      "error": null
+    },
+    {
+      "id": "F26",
+      "name": "F26 status has health",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.04,
+      "detail": "('assert', 'st+h')",
+      "error": null
+    },
+    {
+      "id": "F27",
+      "name": "F27 copilot SLA+field",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 986.6,
+      "detail": "('sla+f', 'sla+f')",
+      "error": null
+    },
+    {
+      "id": "F28",
+      "name": "F28 organism+field",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 29.77,
+      "detail": "('assert', 'org')",
+      "error": null
+    },
+    {
+      "id": "F29",
+      "name": "F29 4-ref bridge chain",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 2.4,
+      "detail": "('4chain', 'chain')",
+      "error": null
+    },
+    {
+      "id": "F30",
+      "name": "F30 enterprise+field E2E",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 877.86,
+      "detail": "('e2e', 'e2e')",
+      "error": null
+    },
+    {
+      "id": "F31",
+      "name": "F31 route id stable",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'rid')",
+      "error": null
+    },
+    {
+      "id": "F32",
+      "name": "F32 path_hz populated",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'phz')",
+      "error": null
+    },
+    {
+      "id": "F33",
+      "name": "F33 access_mode field",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.01,
+      "detail": "('assert', 'mode')",
+      "error": null
+    },
+    {
+      "id": "F34",
+      "name": "F34 sovereign flags",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.02,
+      "detail": "('assert', 'flags')",
+      "error": null
+    },
+    {
+      "id": "F35",
+      "name": "F35 report payload",
+      "lane": "flow",
+      "passed": true,
+      "latency_ms": 0.05,
+      "detail": "('assert', 'ver')",
+      "error": null
+    }
+  ]
+}

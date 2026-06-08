@@ -1,0 +1,1184 @@
+{
+  "suite": "sovereign_local_120",
+  "mode": "sovereign-local",
+  "brand": "SOLUS",
+  "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+  "sovereign": true,
+  "third_party": false,
+  "engine": "solus-local",
+  "own_models_only": true,
+  "manifest": {
+    "brand": "SOLUS",
+    "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+    "sovereign": true,
+    "third_party": false,
+    "engine": "solus-local",
+    "models": [
+      {
+        "model_id": "solus-logic-model",
+        "layer": "logic",
+        "operators": [
+          "prove",
+          "verify",
+          "parse",
+          "complexity"
+        ],
+        "sovereign": true,
+        "third_party": false
+      },
+      {
+        "model_id": "solus-reasoning-model",
+        "layer": "reasoning",
+        "operators": [
+          "infer",
+          "chain",
+          "weigh",
+          "conclude"
+        ],
+        "sovereign": true,
+        "third_party": false
+      },
+      {
+        "model_id": "solus-emergence-model",
+        "layer": "emergence",
+        "operators": [
+          "resonate",
+          "harmonic_lift",
+          "cross_couple",
+          "lift"
+        ],
+        "sovereign": true,
+        "third_party": false
+      },
+      {
+        "model_id": "solus-adaptation-model",
+        "layer": "adaptation",
+        "operators": [
+          "adapt",
+          "drift",
+          "recalibrate",
+          "remember"
+        ],
+        "sovereign": true,
+        "third_party": false
+      }
+    ],
+    "mode": "sovereign-local",
+    "own_models_only": true,
+    "sla_latency_ms": 150.0
+  },
+  "n_tests": 120,
+  "passed": 120,
+  "failed": 0,
+  "success_rate": 1.0,
+  "sovereign_grade": true,
+  "total_runtime_ms": 36591.7,
+  "lanes": {
+    "solus": {
+      "passed": 20,
+      "total": 20
+    },
+    "enterprise": {
+      "passed": 20,
+      "total": 20
+    },
+    "octopus": {
+      "passed": 20,
+      "total": 20
+    },
+    "native_ai": {
+      "passed": 20,
+      "total": 20
+    },
+    "mesie_core": {
+      "passed": 20,
+      "total": 20
+    },
+    "resilience": {
+      "passed": 20,
+      "total": 20
+    }
+  },
+  "outcomes": [
+    {
+      "id": "S01",
+      "name": "Mode manifest sovereign",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.024,
+      "detail": "mode=sovereign-local",
+      "error": null
+    },
+    {
+      "id": "S02",
+      "name": "Composition manifest",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.016,
+      "detail": "(None, 'models=4')",
+      "error": null
+    },
+    {
+      "id": "S03",
+      "name": "Formal stack compose",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 1.644,
+      "detail": "(None, 'composed')",
+      "error": null
+    },
+    {
+      "id": "S04",
+      "name": "Logic model prove",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.047,
+      "detail": "(True, 'logic ok')",
+      "error": null
+    },
+    {
+      "id": "S05",
+      "name": "Reasoning model infer",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.005,
+      "detail": "(None, 'reasoned')",
+      "error": null
+    },
+    {
+      "id": "S06",
+      "name": "Emergence resonate",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.127,
+      "detail": "(None, 'resonated')",
+      "error": null
+    },
+    {
+      "id": "S07",
+      "name": "Adaptation recalibrate",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.004,
+      "detail": "(None, 'adapted')",
+      "error": null
+    },
+    {
+      "id": "S08",
+      "name": "Pattern forge xray",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.547,
+      "detail": "(True, 'xray ok')",
+      "error": null
+    },
+    {
+      "id": "S09",
+      "name": "Organism pulse vitals",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.132,
+      "detail": "(True, 'health=thriving')",
+      "error": null
+    },
+    {
+      "id": "S10",
+      "name": "Organism reason cycle",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 1.122,
+      "detail": "(None, 'cycle')",
+      "error": null
+    },
+    {
+      "id": "S11",
+      "name": "Caretaker names local",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.002,
+      "detail": "(True, 'caretakers=5')",
+      "error": null
+    },
+    {
+      "id": "S12",
+      "name": "Formal model ids",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.001,
+      "detail": "(True, '4 models')",
+      "error": null
+    },
+    {
+      "id": "S13",
+      "name": "Math layer via MAESI",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.793,
+      "detail": "(None, 'maesi+solus')",
+      "error": null
+    },
+    {
+      "id": "S14",
+      "name": "Composition hash stable",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.965,
+      "detail": "(None, 'deterministic')",
+      "error": null
+    },
+    {
+      "id": "S15",
+      "name": "Logic heart pulse",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.016,
+      "detail": "(True, 'heart')",
+      "error": null
+    },
+    {
+      "id": "S16",
+      "name": "Pattern heart pulse",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.012,
+      "detail": "(True, 'heart')",
+      "error": null
+    },
+    {
+      "id": "S17",
+      "name": "OWN_MODELS_ONLY flag",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.001,
+      "detail": "(True, 'own_models')",
+      "error": null
+    },
+    {
+      "id": "S18",
+      "name": "LOCAL_ENGINE id",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.001,
+      "detail": "(True, 'solus-local')",
+      "error": null
+    },
+    {
+      "id": "S19",
+      "name": "Formula composition",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.001,
+      "detail": "(True, 'formula')",
+      "error": null
+    },
+    {
+      "id": "S20",
+      "name": "Organism tend SDK",
+      "lane": "solus",
+      "passed": true,
+      "latency_ms": 0.12,
+      "detail": "(None, 'tend')",
+      "error": null
+    },
+    {
+      "id": "E01",
+      "name": "Copilot cycle sovereign",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 269.577,
+      "detail": "(None, 'cycle')",
+      "error": null
+    },
+    {
+      "id": "E02",
+      "name": "Agent memory recall",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.548,
+      "detail": "(True, 'recall')",
+      "error": null
+    },
+    {
+      "id": "E03",
+      "name": "Receipt append seal",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.106,
+      "detail": "(None, 'sealed')",
+      "error": null
+    },
+    {
+      "id": "E04",
+      "name": "Receipt chain verify",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.081,
+      "detail": "(True, 'len=1')",
+      "error": null
+    },
+    {
+      "id": "E05",
+      "name": "Vault deposit token",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 120.214,
+      "detail": "(None, 'deposited')",
+      "error": null
+    },
+    {
+      "id": "E06",
+      "name": "Vault recall hits",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.152,
+      "detail": "(True, 'recall')",
+      "error": null
+    },
+    {
+      "id": "E07",
+      "name": "Vault status sovereign",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.092,
+      "detail": "(None, 'size=206')",
+      "error": null
+    },
+    {
+      "id": "E08",
+      "name": "Tool schemas count",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.013,
+      "detail": "(True, 'tools=9')",
+      "error": null
+    },
+    {
+      "id": "E09",
+      "name": "Invoke solus_reason",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 1.423,
+      "detail": "(True, 'solus')",
+      "error": null
+    },
+    {
+      "id": "E10",
+      "name": "Invoke vault_status",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.128,
+      "detail": "(True, 'vault')",
+      "error": null
+    },
+    {
+      "id": "E11",
+      "name": "Invoke validate",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.211,
+      "detail": "(None, 'valid')",
+      "error": null
+    },
+    {
+      "id": "E12",
+      "name": "Invoke match",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.328,
+      "detail": "(None, 'match')",
+      "error": null
+    },
+    {
+      "id": "E13",
+      "name": "Minted token shape",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 262.555,
+      "detail": "(None, 'token')",
+      "error": null
+    },
+    {
+      "id": "E14",
+      "name": "SLA under threshold",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 309.923,
+      "detail": "(False, 'sla')",
+      "error": null
+    },
+    {
+      "id": "E15",
+      "name": "Session isolation",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 587.943,
+      "detail": "(None, 'sessions')",
+      "error": null
+    },
+    {
+      "id": "E16",
+      "name": "Sovereign tools list",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.006,
+      "detail": "(True, 'schemas')",
+      "error": null
+    },
+    {
+      "id": "E17",
+      "name": "Receipt work units",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'units')",
+      "error": null
+    },
+    {
+      "id": "E18",
+      "name": "Vault compound embed",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.002,
+      "detail": "(True, 'embed')",
+      "error": null
+    },
+    {
+      "id": "E19",
+      "name": "Brand SOLUS",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 350.908,
+      "detail": "(True, 'SOLUS')",
+      "error": null
+    },
+    {
+      "id": "E20",
+      "name": "Enterprise octopus hook",
+      "lane": "enterprise",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'octopus')",
+      "error": null
+    },
+    {
+      "id": "O01",
+      "name": "Full standard cycle",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 266.361,
+      "detail": "(None, 'cycle')",
+      "error": null
+    },
+    {
+      "id": "O02",
+      "name": "SOLUS memory mint",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 2.557,
+      "detail": "(None, 'mint')",
+      "error": null
+    },
+    {
+      "id": "O03",
+      "name": "SENSE arm validate",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 297.408,
+      "detail": "(True, 'sense')",
+      "error": null
+    },
+    {
+      "id": "O04",
+      "name": "EMBED arm vector",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 366.533,
+      "detail": "(True, 'embed')",
+      "error": null
+    },
+    {
+      "id": "O05",
+      "name": "MATCH arm score",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 452.521,
+      "detail": "(True, 'match')",
+      "error": null
+    },
+    {
+      "id": "O06",
+      "name": "MOVE arm steps",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 282.196,
+      "detail": "(True, 'move')",
+      "error": null
+    },
+    {
+      "id": "O07",
+      "name": "CONTROL arm",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 383.902,
+      "detail": "(True, 'control')",
+      "error": null
+    },
+    {
+      "id": "O08",
+      "name": "WORKFLOW arm",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 358.434,
+      "detail": "(True, 'workflow')",
+      "error": null
+    },
+    {
+      "id": "O09",
+      "name": "LOGIC arm",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 318.535,
+      "detail": "(True, 'logic')",
+      "error": null
+    },
+    {
+      "id": "O10",
+      "name": "MEMORY arm",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 358.658,
+      "detail": "(True, 'memory')",
+      "error": null
+    },
+    {
+      "id": "O11",
+      "name": "Eight arms used",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 378.972,
+      "detail": "(True, 'arms')",
+      "error": null
+    },
+    {
+      "id": "O12",
+      "name": "Receipt in cycle",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 384.533,
+      "detail": "(True, 'receipt')",
+      "error": null
+    },
+    {
+      "id": "O13",
+      "name": "Vault in cycle",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 331.739,
+      "detail": "(True, 'vault')",
+      "error": null
+    },
+    {
+      "id": "O14",
+      "name": "Enterprise AI block",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 451.015,
+      "detail": "(True, 'enterprise')",
+      "error": null
+    },
+    {
+      "id": "O15",
+      "name": "Polyglot health local",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 5885.205,
+      "detail": "(None, 'polyglot')",
+      "error": null
+    },
+    {
+      "id": "O16",
+      "name": "All ArmId enum",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 0.021,
+      "detail": "(True, '8 arms')",
+      "error": null
+    },
+    {
+      "id": "O17",
+      "name": "Solus memory arm direct",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 2.207,
+      "detail": "(True, 'arm')",
+      "error": null
+    },
+    {
+      "id": "O18",
+      "name": "Repeated cycles stable",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 1237.32,
+      "detail": "(None, 'repeat')",
+      "error": null
+    },
+    {
+      "id": "O19",
+      "name": "Plain summary",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 431.52,
+      "detail": "(True, 'summary')",
+      "error": null
+    },
+    {
+      "id": "O20",
+      "name": "Config solus memory",
+      "lane": "octopus",
+      "passed": true,
+      "latency_ms": 0.011,
+      "detail": "(True, 'config')",
+      "error": null
+    },
+    {
+      "id": "N01",
+      "name": "Stream boot phase",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 331.237,
+      "detail": "(None, 'stream')",
+      "error": null
+    },
+    {
+      "id": "N02",
+      "name": "Deliverable mint",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 430.791,
+      "detail": "(NativeAIDeliverableReport(run_id='sov_del', sovereign=True, brand='SOLUS', formula='Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation', conclusion='reasoning: moderate signal \u2014 monitor via mini heart | emergence=0.1404', plain_summary='Native AI [SOLUS]: sov_del \u2014 Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation. Neighbors=3, token=157a8d39c5a3\u2026, vault=207, work=146.2732, 415.1ms local.', minted_token={'token_id': '157a8d39c5a3a6a53ff120a476c3303c', 'work_units': 3.422334}, vault={'vault_size': 207, 'compound_work_units': 146.2732}, formal_models={'logic': {'model_id': 'solus-logic-prover', 'ok': True, 'brain': {'conclusion': 'logic_proof: moderate signal \u2014 monitor via mini heart', 'confidence': 0.7118, 'evidence': ['mid-range confidence band']}}, 'reasoning': {'model_id': 'solus-reasoning-model', 'ok': True, 'brain': {'conclusion': 'reasoning: moderate signal \u2014 monitor via mini heart', 'confidence': 0.5496, 'evidence': ['mid-range confidence band']}}, 'emergence': {'model_id': 'solus-emergence-model', 'ok': True, 'brain': {'conclusion': 'emergence: moderate signal \u2014 monitor via mini heart', 'confidence': 0.6319, 'evidence': ['mid-range confidence band']}}, 'adaptation': {'model_id': 'solus-adaptation-model', 'ok': True, 'brain': {'conclusion': 'adaptation: moderate signal \u2014 monitor via mini heart', 'confidence': 0.5496, 'evidence': ['mid-range confidence band']}}}, neighbors=[{'record_id': 'ref-earthquake-psd-001', 'similarity': 1.0}, {'record_id': 'ref-rotdnn-001', 'similarity': 0.9866}, {'record_id': 'ref-structural-fas-001', 'similarity': 0.7468}], bundle=DeliverableBundle(run_id='sov_del', json_path=WindowsPath('C:/Users/Medin/Multi-Element-Spectral-Intelligence-Engine-MESIE-/deliverables/native_ai/sovereign_local/NativeAI_sov_del.json'), markdown_path=WindowsPath('C:/Users/Medin/Multi-Element-Spectral-Intelligence-Engine-MESIE-/deliverables/native_ai/sovereign_local/NativeAI_sov_del.md'), vault_snapshot_path=WindowsPath('C:/Users/Medin/Multi-Element-Spectral-Intelligence-Engine-MESIE-/deliverables/native_ai/sovereign_local/NativeAI_sov_del_vault.json'), token_bundle_path=WindowsPath('C:/Users/Medin/Multi-Element-Spectral-Intelligence-Engine-MESIE-/deliverables/native_ai/sovereign_local/NativeAI_sov_del_tokens.json'), stream_log_path=WindowsPath('C:/Users/Medin/Multi-Element-Spectral-Intelligence-Engine-MESIE-/deliverables/native_ai/sovereign_local/NativeAI_sov_del_stream.jsonl'), sovereign=True, third_party=False, brand='SOLUS', formula='Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation'), stream_events=12), 'deliverable')",
+      "error": null
+    },
+    {
+      "id": "N03",
+      "name": "Vault on complete",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'vault')",
+      "error": null
+    },
+    {
+      "id": "N04",
+      "name": "Receipt chain local",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.296,
+      "detail": "(True, 'receipts')",
+      "error": null
+    },
+    {
+      "id": "N05",
+      "name": "Formal stack wired",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'stack')",
+      "error": null
+    },
+    {
+      "id": "N06",
+      "name": "Organism wired",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.001,
+      "detail": "(True, 'organism')",
+      "error": null
+    },
+    {
+      "id": "N07",
+      "name": "Index corpus",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 43.659,
+      "detail": "(True, 'index')",
+      "error": null
+    },
+    {
+      "id": "N08",
+      "name": "Client lazy init",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'client')",
+      "error": null
+    },
+    {
+      "id": "N09",
+      "name": "Math layer present",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.001,
+      "detail": "(True, 'math')",
+      "error": null
+    },
+    {
+      "id": "N10",
+      "name": "Stream log events",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.002,
+      "detail": "(True, 'log')",
+      "error": null
+    },
+    {
+      "id": "N11",
+      "name": "Sovereign brand",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 340.143,
+      "detail": "(None, 'SOLUS')",
+      "error": null
+    },
+    {
+      "id": "N12",
+      "name": "Neighbors retrieved",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 257.861,
+      "detail": "(None, 'neighbors')",
+      "error": null
+    },
+    {
+      "id": "N13",
+      "name": "Conclusion generated",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 301.085,
+      "detail": "(None, 'conclusion')",
+      "error": null
+    },
+    {
+      "id": "N14",
+      "name": "Bundle paths",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 369.887,
+      "detail": "(None, 'bundle')",
+      "error": null
+    },
+    {
+      "id": "N15",
+      "name": "Multiple runs",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 668.573,
+      "detail": "(None, 'multi')",
+      "error": null
+    },
+    {
+      "id": "N16",
+      "name": "Session id",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'sovereign-local')",
+      "error": null
+    },
+    {
+      "id": "N17",
+      "name": "Deliverable dir",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'dir')",
+      "error": null
+    },
+    {
+      "id": "N18",
+      "name": "Stream phases complete",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 305.58,
+      "detail": "(True, 'complete')",
+      "error": null
+    },
+    {
+      "id": "N19",
+      "name": "Token minted",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 319.881,
+      "detail": "(None, 'token')",
+      "error": null
+    },
+    {
+      "id": "N20",
+      "name": "Zero third party stream",
+      "lane": "native_ai",
+      "passed": true,
+      "latency_ms": 329.9,
+      "detail": "(None, 'sovereign')",
+      "error": null
+    },
+    {
+      "id": "M01",
+      "name": "Validate reference",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.696,
+      "detail": "(True, 'level=6')",
+      "error": null
+    },
+    {
+      "id": "M02",
+      "name": "Match composite",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 1.165,
+      "detail": "(True, 'match')",
+      "error": null
+    },
+    {
+      "id": "M03",
+      "name": "Rank top-k",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 1.633,
+      "detail": "(True, 'rank')",
+      "error": null
+    },
+    {
+      "id": "M04",
+      "name": "Embed vector",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.114,
+      "detail": "(True, 'embed')",
+      "error": null
+    },
+    {
+      "id": "M05",
+      "name": "Fingerprint query",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 6.763,
+      "detail": "(True, 'fp')",
+      "error": null
+    },
+    {
+      "id": "M06",
+      "name": "Fast cosine search",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.358,
+      "detail": "(True, 'cosine')",
+      "error": null
+    },
+    {
+      "id": "M07",
+      "name": "MAESI query",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.498,
+      "detail": "(True, 'query')",
+      "error": null
+    },
+    {
+      "id": "M08",
+      "name": "Knowledge laws",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.002,
+      "detail": "(True, 'laws')",
+      "error": null
+    },
+    {
+      "id": "M09",
+      "name": "Technical matrix",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.002,
+      "detail": "(True, 'tech')",
+      "error": null
+    },
+    {
+      "id": "M10",
+      "name": "Research matrix",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.002,
+      "detail": "(True, 'research')",
+      "error": null
+    },
+    {
+      "id": "M11",
+      "name": "Full run report",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 31.662,
+      "detail": "(True, 'run')",
+      "error": null
+    },
+    {
+      "id": "M12",
+      "name": "Salient features",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 6.093,
+      "detail": "(True, 'salient')",
+      "error": null
+    },
+    {
+      "id": "M13",
+      "name": "Time-frequency",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.853,
+      "detail": "(True, 'tf')",
+      "error": null
+    },
+    {
+      "id": "M14",
+      "name": "Anomaly adapter",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.278,
+      "detail": "(None, 'anomaly')",
+      "error": null
+    },
+    {
+      "id": "M15",
+      "name": "Noisy still valid",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.076,
+      "detail": "(True, 'noisy')",
+      "error": null
+    },
+    {
+      "id": "M16",
+      "name": "Self match high",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.346,
+      "detail": "(True, 'self')",
+      "error": null
+    },
+    {
+      "id": "M17",
+      "name": "Struct in refs",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.002,
+      "detail": "(True, 'ref-structural-fas-001')",
+      "error": null
+    },
+    {
+      "id": "M18",
+      "name": "Eq in refs",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.001,
+      "detail": "(True, 'ref-earthquake-psd-001')",
+      "error": null
+    },
+    {
+      "id": "M19",
+      "name": "All refs load",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'refs=4')",
+      "error": null
+    },
+    {
+      "id": "M20",
+      "name": "Synthetic record",
+      "lane": "mesie_core",
+      "passed": true,
+      "latency_ms": 0.103,
+      "detail": "(True, 'synth')",
+      "error": null
+    },
+    {
+      "id": "R01",
+      "name": "50 noisy matches",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 14.165,
+      "detail": "(None, '50')",
+      "error": null
+    },
+    {
+      "id": "R02",
+      "name": "20 rapid copilot cycles",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 12977.096,
+      "detail": "(None, '20')",
+      "error": null
+    },
+    {
+      "id": "R03",
+      "name": "10 receipt chain links",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.721,
+      "detail": "(None, '10')",
+      "error": null
+    },
+    {
+      "id": "R04",
+      "name": "Vault multi deposit",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 1359.838,
+      "detail": "(None, '5')",
+      "error": null
+    },
+    {
+      "id": "R05",
+      "name": "Octopus under noise",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 367.799,
+      "detail": "(None, 'noise')",
+      "error": null
+    },
+    {
+      "id": "R06",
+      "name": "Empty theorem logic",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.176,
+      "detail": "(True, 'logic')",
+      "error": null
+    },
+    {
+      "id": "R07",
+      "name": "Tiny spectrum",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.457,
+      "detail": "(None, 'tiny')",
+      "error": null
+    },
+    {
+      "id": "R08",
+      "name": "Large spectrum",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 3.393,
+      "detail": "(None, 'large')",
+      "error": null
+    },
+    {
+      "id": "R09",
+      "name": "Zero amplitude guard",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.128,
+      "detail": "(None, 'zero')",
+      "error": null
+    },
+    {
+      "id": "R10",
+      "name": "Concurrent vault recall",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.076,
+      "detail": "(True, 'recall')",
+      "error": null
+    },
+    {
+      "id": "R11",
+      "name": "Fingerprint reindex",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 44.318,
+      "detail": "(None, 'reindex')",
+      "error": null
+    },
+    {
+      "id": "R12",
+      "name": "Client reindex",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 24.078,
+      "detail": "(True, 'reindex')",
+      "error": null
+    },
+    {
+      "id": "R13",
+      "name": "Rank empty pool guard",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.052,
+      "detail": "(None, 'guard')",
+      "error": null
+    },
+    {
+      "id": "R14",
+      "name": "Match disparate",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.625,
+      "detail": "(True, 'disparate')",
+      "error": null
+    },
+    {
+      "id": "R15",
+      "name": "Stream twice",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 346.844,
+      "detail": "(None, 'x2')",
+      "error": null
+    },
+    {
+      "id": "R16",
+      "name": "Mode frozen",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.003,
+      "detail": "(True, 'frozen')",
+      "error": null
+    },
+    {
+      "id": "R17",
+      "name": "Manifest roundtrip",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.094,
+      "detail": "(None, 'json')",
+      "error": null
+    },
+    {
+      "id": "R18",
+      "name": "Organism double pulse",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.183,
+      "detail": "(True, 'pulse')",
+      "error": null
+    },
+    {
+      "id": "R19",
+      "name": "Copilot SLA burst",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 3602.365,
+      "detail": "(None, 'sla')",
+      "error": null
+    },
+    {
+      "id": "R20",
+      "name": "Full lane smoke",
+      "lane": "resilience",
+      "passed": true,
+      "latency_ms": 0.004,
+      "detail": "(True, 'sovereign-local')",
+      "error": null
+    }
+  ]
+}

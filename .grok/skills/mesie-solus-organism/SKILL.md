@@ -1,7 +1,7 @@
 ---
 name: mesie-solus-organism
 description: >
-  Hosts Logic Prover + Pattern Forge as autonomous caretakers inside MAESI SDK. Triggers: caretaker, mini brain, mini heart, organism, solus, sovereign. Use for /mesie-solus-organism or MESIE/MAESI/NeuroAIX tasks.
+  Four own formal models: Logic, Reasoning, Emergence, Adaptation — zero third-party. Triggers: adaptation, caretaker, emergence, formal model, logic, organism, reasoning, solus, sovereign. Use for /mesie-solus-organism or MESIE/MAESI/NeuroAIX tasks.
 ---
 
 # mesie-solus-organism
@@ -10,7 +10,7 @@ Native MESIE / MAESI / NeuroAIX skill — **SOLUS Local Math AI Caretakers**.
 
 ## When to use
 
-- Hosts Logic Prover + Pattern Forge as autonomous caretakers inside MAESI SDK.
+- Four own formal models: Logic, Reasoning, Emergence, Adaptation — zero third-party.
 
 ## Tools in this skill
 

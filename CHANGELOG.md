@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.3.3] — MAESI SDK 1.4.0 — 2026-06-08
+
+### Added (proof substrate)
+- **Proof Substrate** (`mesie/verification/proof_substrate.py`) — sealed SHA256 evidence graph binding claims → artifacts → reproduce commands
+- Tool: `proof-substrate` | Script: `scripts/run_proof_substrate.py` | Deliverable: `deliverables/Proof_Substrate.json`
+
+### Added
+- **Mission World Week** (`mesie/worlds/`) — 7-day theater simulation with real data hierarchy and operational narrative
+- **Is This True?** (`mesie/verification/is_this_true.py`) — honest evidence-tier verification for external critique
+- **Trust Remediation Agents** (`mesie/agents/trust_remediation.py`) — automated gap audit + production-readiness branch workflow
+- **NeuroSwarmAI.com Readiness** (`mesie/verification/readiness.py`) — gap closure plan + website evidence pack
+- **Scenario Simulation Suite** — military drone + enterprise civilian scenarios backed by bundled references
+- **Virtual Silicon VS1** (`mesie/silicon/`) — RF HIL, OTA multicast mesh, certification lane
+- **Production Tiers** (`mesie/production/`) — Tier 1 appliance manifest + Tier 2 cluster swarm narrative
+- **Major Benchmarks** — MLPerf-class, vector DB, MQTT, cloud LLM, swarm comparison harness (14/14 wins)
+- **Enterprise Drone Thesis** — defense/offense validation with measured swarm evidence
+- **Canonical versions** (`mesie/version_info.py`) — single source for MESIE, MAESI SDK, and subsystem releases
+
+### Changed
+- MESIE `0.3.2` → `0.3.3`; MAESI SDK `1.3.0` → `1.4.0`
+- Appliance, virtual chip, swarm, audit, scenario, and MLPerf suite subsystems → `1.1.0` / `1.2.0`
+- Native tool registry: 52 tools including mission-world-week, is-this-true, trust-agents, neuroswarm-readiness
+
+### Honest limits (unchanged)
+- No combat certification claim until physical SDR HIL and independent audit close named gaps
+
 ## [0.2.2] - 2026-06-05
 
 ### Added

@@ -32,6 +32,18 @@
 | P2_90d | Third-party reproducibility audit | planned |
 | P2_90d | Sovereign appliance penetration test | planned |
 
+## Proof substrate
+
+Sealed evidence graph with SHA256 artifact hashes and reproducible harness commands:
+
+```bash
+python scripts/run_proof_substrate.py
+python scripts/run_proof_substrate.py --verify
+```
+
+- `deliverables/Proof_Substrate.json`
+- `deliverables/neuroswarmai_com/proof_substrate.json`
+
 ## Reproduce on your machine
 
 ```bash
@@ -39,4 +51,4 @@ git clone <repo>
 python scripts/run_neuroswarm_readiness.py
 ```
 
-*Artifacts: 9 files in evidence pack*
+*Artifacts: 10+ files in evidence pack (incl. proof substrate)*

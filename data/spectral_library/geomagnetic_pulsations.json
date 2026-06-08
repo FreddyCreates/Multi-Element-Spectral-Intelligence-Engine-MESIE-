@@ -1,0 +1,17 @@
+{
+  "record_id": "spectral-lib-geomag-001",
+  "record_type": "geomagnetic",
+  "description": "Geomagnetic pulsation bands — Pc1-Pc5 ULF reference for anchor calibration",
+  "source": "Jacobs et al., IAGA ULF classification",
+  "pulsation_bands": {
+    "modes": [
+      {"name": "Pc1", "frequency_Hz": 0.2, "typical_amplitude_pT": 0.01},
+      {"name": "Pc2", "frequency_Hz": 0.1, "typical_amplitude_pT": 0.02},
+      {"name": "Pc3", "frequency_Hz": 0.025, "typical_amplitude_pT": 0.05},
+      {"name": "Pc4", "frequency_Hz": 0.006, "typical_amplitude_pT": 0.08},
+      {"name": "Pc5", "frequency_Hz": 0.002, "typical_amplitude_pT": 0.12},
+      {"name": "Pi1", "frequency_Hz": 0.5, "typical_amplitude_pT": 0.008},
+      {"name": "Pi2", "frequency_Hz": 0.05, "typical_amplitude_pT": 0.03}
+    ]
+  }
+}

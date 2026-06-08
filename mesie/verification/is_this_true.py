@@ -43,8 +43,8 @@ class IsThisTrueEngine:
         ("mission_critical_overclaim", "100/100 mission-critical defense is not publicly accredited"),
     ]
 
-    def __init__(self) -> None:
-        self.registry = default_claim_registry()
+    def __init__(self, registry: Optional[List[ClaimEntry]] = None) -> None:
+        self.registry = registry or default_claim_registry()
 
     def _map_critique(self) -> List[Dict[str, str]]:
         mapping = []

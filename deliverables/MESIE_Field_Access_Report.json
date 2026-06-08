@@ -1,0 +1,207 @@
+{
+  "suite": "field_access",
+  "access_mode": "frequency_field",
+  "airgapped": true,
+  "internet_connected": false,
+  "third_party": false,
+  "sovereign": true,
+  "world_computer_id": "65299b5c26728588",
+  "field_nodes": 14,
+  "anchors": 31,
+  "passed": 14,
+  "total": 14,
+  "elapsed_s": 0.01,
+  "connection": {
+    "plain_summary": "World computer connected [SOLUS]: airgapped=True, internet=False, field_nodes=14, orbital=7, anchors=31 \u2014 access via frequency alignment, zero third-party",
+    "orbital_nodes": 7,
+    "ladder_tiers": 7
+  },
+  "bridges": [
+    {
+      "record": "ref-earthquake-psd-001",
+      "best_anchor": "schumann_1",
+      "coherence": 0.5994360939954307
+    },
+    {
+      "record": "ref-rotdnn-001",
+      "best_anchor": "schumann_1",
+      "coherence": 0.6367716579002483
+    },
+    {
+      "record": "ref-structural-fas-001",
+      "best_anchor": "schumann_1",
+      "coherence": 0.5071440667461503
+    },
+    {
+      "record": "ref-vibration-monitor-001",
+      "best_anchor": "schumann_4",
+      "coherence": 0.6231095656091294
+    }
+  ],
+  "router": {
+    "version": "1.0.0",
+    "router_version": "1.0.0",
+    "nodes": 14,
+    "aliases": 20,
+    "presets": 8,
+    "policies": [
+      "shortest",
+      "ladder_only",
+      "orbital_preferred"
+    ],
+    "graph_edges": 33
+  },
+  "health": {
+    "ok": true,
+    "router_version": "1.0.0",
+    "registry_version": "1.0.0",
+    "active_nodes": 14,
+    "aliases": 20,
+    "graph_ready": true,
+    "default_route_ok": true,
+    "sovereign": true,
+    "third_party": false,
+    "airgapped": true,
+    "checked_at": "2026-06-07T21:21:02Z"
+  },
+  "presets": [
+    {
+      "preset_id": "ground-to-world",
+      "label": "Surface Schumann \u2192 world computer root",
+      "from": "ground",
+      "to": "world",
+      "ok": true,
+      "hops": 4,
+      "latency_ms": 0.0,
+      "access_mode": "frequency_field"
+    },
+    {
+      "preset_id": "ground-to-ionosphere",
+      "label": "Eco-Hz ground beacon \u2192 ionosphere cavity",
+      "from": "ground",
+      "to": "ionosphere",
+      "ok": true,
+      "hops": 2,
+      "latency_ms": 0.0,
+      "access_mode": "frequency_field"
+    },
+    {
+      "preset_id": "ionosphere-to-world",
+      "label": "Ionosphere cavity \u2192 world root",
+      "from": "ionosphere",
+      "to": "world",
+      "ok": true,
+      "hops": 3,
+      "latency_ms": 0.0,
+      "access_mode": "frequency_field"
+    },
+    {
+      "preset_id": "leo-to-geo",
+      "label": "LEO edge \u2192 GEO backbone (orbital Hz-ladder)",
+      "from": "leo0",
+      "to": "geo",
+      "ok": true,
+      "hops": 3,
+      "latency_ms": 0.0,
+      "access_mode": "frequency_field"
+    },
+    {
+      "preset_id": "leo-to-world",
+      "label": "LEO edge \u2192 world computer",
+      "from": "leo0",
+      "to": "world",
+      "ok": true,
+      "hops": 2,
+      "latency_ms": 0.0,
+      "access_mode": "frequency_field"
+    },
+    {
+      "preset_id": "meo-to-geo",
+      "label": "MEO relay \u2192 GEO backbone",
+      "from": "meo0",
+      "to": "geo",
+      "ok": true,
+      "hops": 2,
+      "latency_ms": 192.749,
+      "access_mode": "orbital_hz_ladder"
+    },
+    {
+      "preset_id": "ladder0-to-ladder3",
+      "label": "ELF tier \u2192 VHF/UHF tier climb",
+      "from": "ladder0",
+      "to": "ladder3",
+      "ok": true,
+      "hops": 3,
+      "latency_ms": 254.0,
+      "access_mode": "frequency_field"
+    },
+    {
+      "preset_id": "ground-to-leo",
+      "label": "Field ground \u2192 LEO orbital edge",
+      "from": "ground",
+      "to": "leo0",
+      "ok": true,
+      "hops": 5,
+      "latency_ms": 0.0,
+      "access_mode": "frequency_field"
+    }
+  ],
+  "tests": [
+    {
+      "name": "connect",
+      "ok": true
+    },
+    {
+      "name": "bridge_ref-earthquake-psd-001",
+      "ok": "schumann_1"
+    },
+    {
+      "name": "bridge_ref-rotdnn-001",
+      "ok": "schumann_1"
+    },
+    {
+      "name": "bridge_ref-structural-fas-001",
+      "ok": "schumann_1"
+    },
+    {
+      "name": "bridge_ref-vibration-monitor-001",
+      "ok": "schumann_4"
+    },
+    {
+      "name": "schumann_align",
+      "ok": true
+    },
+    {
+      "name": "route_ground_world",
+      "ok": true
+    },
+    {
+      "name": "route_orbital",
+      "ok": true
+    },
+    {
+      "name": "presets_ok",
+      "ok": true
+    },
+    {
+      "name": "router_health",
+      "ok": true
+    },
+    {
+      "name": "alias_route",
+      "ok": true
+    },
+    {
+      "name": "sovereign_mode",
+      "ok": true
+    },
+    {
+      "name": "maesi_bridge",
+      "ok": true
+    },
+    {
+      "name": "node_mesh",
+      "ok": true
+    }
+  ]
+}

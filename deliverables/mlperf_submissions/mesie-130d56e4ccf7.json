@@ -1,0 +1,88 @@
+{
+  "submission_id": "mesie-130d56e4ccf7",
+  "suite": "MESIE-Spectral-Inference",
+  "suite_version": "1.0.0",
+  "submitter": "NeuroSwarmAI / MESIE SDK",
+  "submission_date": "2026-06-08",
+  "system_name": "Windows-10-10.0.26200-SP0",
+  "system_details": {
+    "processor": "ARMv8 (64-bit) Family 8 Model 1 Revision 201, Qualcomm Technologies Inc",
+    "python": "3.11.6",
+    "mesie_version": "0.3.2",
+    "sdk_version": "1.3.0"
+  },
+  "valid": true,
+  "notes": "Spectral inference workload \u2014 not MLPerf vision benchmark. Format aligned with MLPerf Inference latency/throughput reporting.",
+  "results": [
+    {
+      "benchmark": "spectral_match_single",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.3891,
+        "p50": 0.1891,
+        "p90": 0.3587200539186597,
+        "p99": 5.4052,
+        "min": 0.1189,
+        "max": 27.2545
+      },
+      "throughput": {
+        "qps": 2570.03
+      },
+      "samples": 300
+    },
+    {
+      "benchmark": "spectral_ann_query",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.1273,
+        "p50": 0.1513,
+        "p90": 0.15721002127975225,
+        "p99": 0.1843,
+        "min": 0.074,
+        "max": 1.2935
+      },
+      "throughput": {
+        "qps": 7855.46
+      },
+      "samples": 300
+    },
+    {
+      "benchmark": "spectral_threat_fast_path",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.8597,
+        "p50": 0.5512,
+        "p90": 1.4563,
+        "p99": 8.8255,
+        "min": 0.4259,
+        "max": 18.4569
+      },
+      "throughput": {
+        "qps": 1814.22
+      },
+      "samples": 500
+    },
+    {
+      "benchmark": "spectral_enterprise_fast",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 1.6925,
+        "p50": 1.1344,
+        "p90": 2.086979942396283,
+        "p99": 16.9948,
+        "min": 0.7126,
+        "max": 42.2787
+      },
+      "throughput": {
+        "qps": 590.84
+      },
+      "samples": 200
+    }
+  ],
+  "sut": "MESIE FastSpectralCompute + ThreatFast + EnterpriseFast",
+  "division": "edge_open_spectral"
+}

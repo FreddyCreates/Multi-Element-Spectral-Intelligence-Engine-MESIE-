@@ -1,0 +1,111 @@
+{
+  "version": "1.1.0",
+  "domain": "military_drone",
+  "company": "NeuroSwarmAI",
+  "data_provenance": "Bundled ITU/NATO/GPS/Starlink reference libraries + EW/jam spectral captures",
+  "scenarios": [
+    {
+      "id": "mil_ew_contested_jam",
+      "label": "EW contested — swept interference + ground jam failover",
+      "doctrine": "defense",
+      "preset": "ew",
+      "primary_data": "defense_ew_spectrum_reference",
+      "secondary_data": "rf_jamming_profile_reference",
+      "library_refs": ["defense_rf_bands", "electromagnetic_bands"],
+      "n_agents": 1000,
+      "jam_ground": true,
+      "attrition_rate": 0.1,
+      "criteria": {
+        "mission_ok": true,
+        "jam_failover_or_orbital": true,
+        "ms_per_agent_max": 0.5,
+        "threat_fast_p50_max_ms": 12.0
+      }
+    },
+    {
+      "id": "mil_gps_spoof_isr",
+      "label": "GPS L-band spoof detection — ISR spectral sweep",
+      "doctrine": "defense",
+      "preset": "isr",
+      "primary_data": "defense_ew_spectrum_reference",
+      "library_refs": ["satellite_frequencies"],
+      "library_signal": "GPS.L1",
+      "n_agents": 500,
+      "jam_ground": false,
+      "attrition_rate": 0.05,
+      "criteria": {
+        "mission_ok": true,
+        "spectral_match_min": 0.2,
+        "route_ok": true
+      }
+    },
+    {
+      "id": "mil_ku_strike_intercept",
+      "label": "Ku-band downlink intercept — cross-domain strike",
+      "doctrine": "offense",
+      "preset": "strike",
+      "primary_data": "defense_ew_spectrum_reference",
+      "library_refs": ["satellite_frequencies", "defense_rf_bands"],
+      "library_signal": "Starlink.downlink_Ku",
+      "n_agents": 500,
+      "jam_ground": false,
+      "attrition_rate": 0.05,
+      "criteria": {
+        "mission_ok": true,
+        "tasks_allocated_min": 2,
+        "platform_commands_min": 1
+      }
+    },
+    {
+      "id": "mil_schumann_ground_sync",
+      "label": "Schumann ground timing — eco-Hz swarm sync",
+      "doctrine": "defense",
+      "preset": "swarm_forge",
+      "primary_data": "rf_jamming_profile_reference",
+      "library_refs": ["schumann_resonances"],
+      "n_agents": 2000,
+      "jam_ground": false,
+      "attrition_rate": 0.08,
+      "criteria": {
+        "coordination_ok": true,
+        "ms_per_agent_max": 0.5,
+        "consensus_required": true
+      }
+    },
+    {
+      "id": "mil_leo_attrition_reform",
+      "label": "LEO cluster attrition — formation self-heal",
+      "doctrine": "offense",
+      "preset": "strike",
+      "primary_data": "defense_ew_spectrum_reference",
+      "secondary_data": "rf_jamming_profile_reference",
+      "library_refs": ["satellite_frequencies"],
+      "library_signal": "Starlink",
+      "n_agents": 2000,
+      "jam_ground": true,
+      "attrition_rate": 0.15,
+      "criteria": {
+        "mission_ok": true,
+        "formation_ok": true,
+        "jam_failover_or_orbital": true
+      }
+    },
+    {
+      "id": "mil_orbital_backbone_failover",
+      "label": "Orbital backbone failover — LEO to GEO under jam",
+      "doctrine": "defense",
+      "preset": "ew",
+      "primary_data": "rf_jamming_profile_reference",
+      "library_refs": ["satellite_frequencies", "defense_rf_bands"],
+      "n_agents": 10000,
+      "jam_ground": true,
+      "attrition_rate": 0.1,
+      "criteria": {
+        "coordination_ok": true,
+        "ms_per_agent_max": 0.5,
+        "jam_failover_or_orbital": true,
+        "e2e_p50_max_ms": 12.0
+      }
+    }
+  ]
+}

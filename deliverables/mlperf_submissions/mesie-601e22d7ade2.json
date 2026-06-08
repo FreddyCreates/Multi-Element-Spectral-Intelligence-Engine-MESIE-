@@ -1,0 +1,187 @@
+{
+  "submission_id": "mesie-601e22d7ade2",
+  "suite": "MESIE-Spectral-Inference",
+  "suite_version": "1.1.0",
+  "submitter": "NeuroSwarmAI / MESIE SDK",
+  "submission_date": "2026-06-08",
+  "system_name": "Windows-10-10.0.26200-SP0",
+  "system_details": {
+    "processor": "ARMv8 (64-bit) Family 8 Model 1 Revision 201, Qualcomm Technologies Inc",
+    "python": "3.11.6",
+    "mesie_version": "0.3.2",
+    "sdk_version": "1.3.0",
+    "virtual_silicon": "MESIE-VS1",
+    "sut_class": "virtual_chip_on_commodity_cpu"
+  },
+  "valid": true,
+  "credibility": {
+    "tier": "community_formal_pack",
+    "official_mlperf_leaderboard": false,
+    "format_compliant": true,
+    "external_audit_ready": true,
+    "virtual_silicon_backed": true
+  },
+  "compliance": {
+    "schema": "mlperf_inference_v4.1_inspired",
+    "required_fields": [
+      "submission_id",
+      "suite",
+      "system_name",
+      "system_details",
+      "results",
+      "sut",
+      "division",
+      "compliance",
+      "audit_trail"
+    ],
+    "scenarios_mapped": [
+      "SingleStream",
+      "MultiStream",
+      "Server",
+      "Offline"
+    ],
+    "scenarios_used": [
+      "SingleStream",
+      "MultiStream"
+    ],
+    "units": [
+      "ms",
+      "ms_per_agent",
+      "qps"
+    ],
+    "official_mlperf_board": false,
+    "community_formal_pack": true,
+    "peer_review_ready": true,
+    "workload_class": "edge_spectral_inference",
+    "checklist": {
+      "latency_percentiles_reported": true,
+      "throughput_reported": true,
+      "system_details_documented": true,
+      "reproducibility_hash_present": true,
+      "virtual_silicon_lane_included": true,
+      "hardware_in_loop_rf_cert": true,
+      "ota_mesh_lane_included": true
+    }
+  },
+  "notes": "Spectral inference workload \u2014 MLPerf Inference v4.1-inspired reporting. Virtual silicon RF HIL + OTA mesh lanes included. Not submitted to official MLPerf vision/resnet board.",
+  "results": [
+    {
+      "benchmark": "spectral_match_single",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.1268,
+        "p50": 0.1213,
+        "p90": 0.12920983135700226,
+        "p99": 0.1998,
+        "min": 0.1153,
+        "max": 0.3907
+      },
+      "throughput": {
+        "qps": 7886.44
+      },
+      "samples": 100
+    },
+    {
+      "benchmark": "spectral_ann_query",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.076,
+        "p50": 0.074,
+        "p90": 0.0796101288869977,
+        "p99": 0.1159,
+        "min": 0.0701,
+        "max": 0.1493
+      },
+      "throughput": {
+        "qps": 13157.89
+      },
+      "samples": 100
+    },
+    {
+      "benchmark": "spectral_threat_fast_path",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.7239,
+        "p50": 0.4404,
+        "p90": 0.9073,
+        "p99": 2.9637,
+        "min": 0.4241,
+        "max": 20.5668
+      },
+      "throughput": {
+        "qps": 2270.66
+      },
+      "samples": 100
+    },
+    {
+      "benchmark": "spectral_enterprise_fast",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.8543,
+        "p50": 0.7202,
+        "p90": 0.9830898838117723,
+        "p99": 2.9386,
+        "min": 0.6958,
+        "max": 3.3744
+      },
+      "throughput": {
+        "qps": 1170.55
+      },
+      "samples": 100
+    },
+    {
+      "benchmark": "swarm_cluster_10k_ms_per_agent",
+      "scenario": "MultiStream",
+      "units": "ms_per_agent",
+      "latency": {
+        "mean": 0.054332,
+        "p50": 0.3084,
+        "coordination_ms": 543.3186
+      },
+      "throughput": {
+        "agents_per_sec": 18405.0
+      },
+      "samples": 1,
+      "doctrine": "cluster_star_optimized_decentralized_swarm"
+    },
+    {
+      "benchmark": "rf_virtual_silicon_hil",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "p50": 0.4595,
+        "mean": 0.4595
+      },
+      "virtual_silicon": true,
+      "hil_certified": true,
+      "snr_db": 24.0,
+      "field_coherence": 0.5655,
+      "samples": 1
+    },
+    {
+      "benchmark": "ota_mesh_round",
+      "scenario": "MultiStream",
+      "units": "frames",
+      "throughput": {
+        "frames_sent": 9,
+        "frames_received": 27
+      },
+      "over_the_air": true,
+      "propagation_tier": "UHF/Terrestrial",
+      "samples": 1
+    }
+  ],
+  "sut": "MESIE VirtualSilicon VS1 + FastSpectralCompute + ThreatFast + OTA MAC",
+  "division": "edge_open_spectral",
+  "audit_trail": {
+    "harness_version": "1.1.0",
+    "n_trials_requested": 100,
+    "generated_at": "2026-06-08T01:29:32Z",
+    "reproducibility_seed": 42,
+    "content_hash": "108d69773b841df4"
+  }
+}

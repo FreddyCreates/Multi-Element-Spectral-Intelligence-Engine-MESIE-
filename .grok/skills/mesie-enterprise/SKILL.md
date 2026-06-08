@@ -1,16 +1,16 @@
 ---
 name: mesie-enterprise
 description: >
-  Monte Carlo benchmark across 10 enterprise use cases. Triggers: enterprise, monte carlo, sla benchmark. Use for /mesie-enterprise or MESIE/MAESI/NeuroAIX tasks.
+  Monte Carlo benchmark across 10 enterprise use cases (incl. AI agent spectral memory). Triggers: enterprise, monte carlo, sla benchmark. Use for /mesie-enterprise or MESIE/MAESI/NeuroAIX tasks.
 ---
 
 # mesie-enterprise
 
-Native MESIE / MAESI / NeuroAIX skill — **Domain & Enterprise Analysis**.
+Native MESIE / MAESI / NeuroAIX skill — **Enterprise AI — Agent Memory & Sovereign Copilots**.
 
 ## When to use
 
-- Monte Carlo benchmark across 10 enterprise use cases.
+- Monte Carlo benchmark across 10 enterprise use cases (incl. AI agent spectral memory).
 
 ## Tools in this skill
 

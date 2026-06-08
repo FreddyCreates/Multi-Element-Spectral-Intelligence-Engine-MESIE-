@@ -1,0 +1,1599 @@
+{
+  "suite": "drone_swarm_intelligence",
+  "company": "NeuroSwarmAI",
+  "engine_version": "2.0.0",
+  "passed": 16,
+  "total": 16,
+  "elapsed_s": 13.72,
+  "routing": {
+    "routes": [
+      {
+        "route": "ground-schumann\u2192world-computer-root",
+        "policy": "shortest",
+        "ok": true,
+        "hops": 4,
+        "latency_ms": 0.0,
+        "access_mode": "frequency_field"
+      },
+      {
+        "route": "ground\u2192world",
+        "policy": "shortest",
+        "ok": true,
+        "hops": 4,
+        "latency_ms": 0.0,
+        "access_mode": "frequency_field"
+      },
+      {
+        "route": "orbital-leo-edge-000\u2192orbital-geo-backbone-000",
+        "policy": "orbital_preferred",
+        "ok": true,
+        "hops": 3,
+        "latency_ms": 0.0,
+        "access_mode": "frequency_field"
+      },
+      {
+        "route": "leo0\u2192geo",
+        "policy": "orbital_preferred",
+        "ok": true,
+        "hops": 3,
+        "latency_ms": 0.0,
+        "access_mode": "frequency_field"
+      },
+      {
+        "route": "schumann\u2192root",
+        "policy": "shortest",
+        "ok": true,
+        "hops": 4,
+        "latency_ms": 0.0,
+        "access_mode": "frequency_field"
+      }
+    ],
+    "presets_ok": true,
+    "router_health": true,
+    "alias_route_ok": true,
+    "sovereign_airgapped": true,
+    "all_routes_ok": true
+  },
+  "missions": [
+    {
+      "version": "2.0.0",
+      "mission_id": "mission-ew-1780899104",
+      "preset": "ew",
+      "n_agents": 500,
+      "threat_consensus": "hold",
+      "spectral_score": 0.0,
+      "route_policy": "orbital_preferred",
+      "route_ok": true,
+      "tasks_allocated": 3,
+      "allocation_method": "marl_local",
+      "formation": "v_shape",
+      "formation_ok": true,
+      "lan_gossip_msgs": 10,
+      "dtn_pending": 32,
+      "platform_commands": 10,
+      "coordination_ms": 1074.3402,
+      "ms_per_agent": 2.14868,
+      "decentralized": true,
+      "airgapped": true,
+      "sovereign": true,
+      "ok": true,
+      "details": {
+        "swarm": {
+          "version": "1.1.0-cluster",
+          "n_agents": 500,
+          "n_clusters": 16,
+          "active_after_attrition": 475,
+          "doctrine": "cluster_star_optimized_decentralized_swarm",
+          "decentralized": true,
+          "airgapped": true,
+          "threat_consensus": "hold",
+          "consensus_confidence": 0.0,
+          "coordination_ms": 23.3963,
+          "ms_per_agent": 0.046793,
+          "e2e_p50_ms": 0.3354,
+          "gossip_bandwidth_bytes": 768,
+          "jamming_failover_ok": true,
+          "self_heal_ok": true,
+          "route_policies_used": [
+            "orbital_preferred"
+          ],
+          "access_modes": [
+            "frequency_field",
+            "orbital_hz_ladder"
+          ],
+          "sovereign": true,
+          "ok": true,
+          "agents_sample": [
+            {
+              "agent_id": "orbital_00000",
+              "cluster_id": "cluster-0000",
+              "domain_role": "orbital",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.6861
+            },
+            {
+              "agent_id": "ground_00001",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00002",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00003",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00004",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "geo_00005",
+              "cluster_id": "cluster-0000",
+              "domain_role": "geo",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00006",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00007",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            }
+          ]
+        },
+        "allocation": {
+          "n_agents": 256,
+          "n_tasks": 3,
+          "assignments": [
+            {
+              "agent_id": "agent_00000",
+              "task_id": "task_detect_0",
+              "cost": 63.631,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00001",
+              "task_id": "task_detect_0",
+              "cost": 55.606,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00002",
+              "task_id": "task_detect_0",
+              "cost": 47.809,
+              "method": "marl_local"
+            }
+          ],
+          "total_cost": 167.046,
+          "method": "marl_local",
+          "coverage": 1.0,
+          "ok": true
+        },
+        "formation": {
+          "formation": "v_shape",
+          "n_agents": 200,
+          "n_active": 190,
+          "min_separation_m": 10.0,
+          "collisions_avoided": 0,
+          "reform_after_attrition": true,
+          "cohesion": 372.057,
+          "ok": true
+        },
+        "routing": {
+          "routes": [
+            {
+              "route": "ground-schumann\u2192world-computer-root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "ground\u2192world",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "orbital-leo-edge-000\u2192orbital-geo-backbone-000",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "leo0\u2192geo",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "schumann\u2192root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            }
+          ],
+          "presets_ok": true,
+          "router_health": true,
+          "alias_route_ok": true,
+          "sovereign_airgapped": true,
+          "all_routes_ok": true
+        },
+        "lan": {
+          "node_id": "swarm-planner",
+          "port": 37521,
+          "inbox_pending": 24,
+          "seen": 24,
+          "drop_dir": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library\\lan_gossip",
+          "protocol": "udp+json",
+          "airgapped_lan": true
+        },
+        "adapter": {
+          "platform": "sim",
+          "connected": true,
+          "n_drones": 100,
+          "sim_mode": true,
+          "mavlink_port": 14540,
+          "commands_queued": 0
+        }
+      }
+    },
+    {
+      "version": "2.0.0",
+      "mission_id": "mission-strike-1780899105",
+      "preset": "strike",
+      "n_agents": 500,
+      "threat_consensus": "hold",
+      "spectral_score": 0.0,
+      "route_policy": "orbital_preferred",
+      "route_ok": true,
+      "tasks_allocated": 3,
+      "allocation_method": "marl_local",
+      "formation": "v_shape",
+      "formation_ok": true,
+      "lan_gossip_msgs": 10,
+      "dtn_pending": 32,
+      "platform_commands": 10,
+      "coordination_ms": 3358.7103,
+      "ms_per_agent": 6.717421,
+      "decentralized": true,
+      "airgapped": true,
+      "sovereign": true,
+      "ok": true,
+      "details": {
+        "swarm": {
+          "version": "1.1.0-cluster",
+          "n_agents": 500,
+          "n_clusters": 16,
+          "active_after_attrition": 475,
+          "doctrine": "cluster_star_optimized_decentralized_swarm",
+          "decentralized": true,
+          "airgapped": true,
+          "threat_consensus": "hold",
+          "consensus_confidence": 0.0,
+          "coordination_ms": 17.7835,
+          "ms_per_agent": 0.035567,
+          "e2e_p50_ms": 0.5268,
+          "gossip_bandwidth_bytes": 768,
+          "jamming_failover_ok": true,
+          "self_heal_ok": true,
+          "route_policies_used": [
+            "ladder_only",
+            "orbital_preferred",
+            "shortest"
+          ],
+          "access_modes": [
+            "frequency_field",
+            "orbital_hz_ladder"
+          ],
+          "sovereign": true,
+          "ok": true,
+          "agents_sample": [
+            {
+              "agent_id": "orbital_00000",
+              "cluster_id": "cluster-0000",
+              "domain_role": "orbital",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.9033
+            },
+            {
+              "agent_id": "ground_00001",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00002",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00003",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00004",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "geo_00005",
+              "cluster_id": "cluster-0000",
+              "domain_role": "geo",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00006",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00007",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": false,
+              "score": 0.5003,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            }
+          ]
+        },
+        "allocation": {
+          "n_agents": 256,
+          "n_tasks": 3,
+          "assignments": [
+            {
+              "agent_id": "agent_00000",
+              "task_id": "task_intercept_0",
+              "cost": 63.609,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00001",
+              "task_id": "task_intercept_0",
+              "cost": 55.89,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00002",
+              "task_id": "task_intercept_0",
+              "cost": 48.514,
+              "method": "marl_local"
+            }
+          ],
+          "total_cost": 168.013,
+          "method": "marl_local",
+          "coverage": 1.0,
+          "ok": true
+        },
+        "formation": {
+          "formation": "v_shape",
+          "n_agents": 200,
+          "n_active": 190,
+          "min_separation_m": 10.0,
+          "collisions_avoided": 0,
+          "reform_after_attrition": true,
+          "cohesion": 372.057,
+          "ok": true
+        },
+        "routing": {
+          "routes": [
+            {
+              "route": "ground-schumann\u2192world-computer-root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "ground\u2192world",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "orbital-leo-edge-000\u2192orbital-geo-backbone-000",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "leo0\u2192geo",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "schumann\u2192root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            }
+          ],
+          "presets_ok": true,
+          "router_health": true,
+          "alias_route_ok": true,
+          "sovereign_airgapped": true,
+          "all_routes_ok": true
+        },
+        "lan": {
+          "node_id": "swarm-planner",
+          "port": 37521,
+          "inbox_pending": 1009,
+          "seen": 1009,
+          "drop_dir": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library\\lan_gossip",
+          "protocol": "udp+json",
+          "airgapped_lan": true
+        },
+        "adapter": {
+          "platform": "sim",
+          "connected": true,
+          "n_drones": 100,
+          "sim_mode": true,
+          "mavlink_port": 14540,
+          "commands_queued": 0
+        }
+      }
+    },
+    {
+      "version": "2.0.0",
+      "mission_id": "mission-isr-1780899108",
+      "preset": "isr",
+      "n_agents": 500,
+      "threat_consensus": "engage",
+      "spectral_score": 1.0,
+      "route_policy": "shortest",
+      "route_ok": true,
+      "tasks_allocated": 3,
+      "allocation_method": "marl_local",
+      "formation": "v_shape",
+      "formation_ok": true,
+      "lan_gossip_msgs": 10,
+      "dtn_pending": 32,
+      "platform_commands": 10,
+      "coordination_ms": 3766.6631,
+      "ms_per_agent": 7.533326,
+      "decentralized": true,
+      "airgapped": true,
+      "sovereign": true,
+      "ok": true,
+      "details": {
+        "swarm": {
+          "version": "1.1.0-cluster",
+          "n_agents": 500,
+          "n_clusters": 16,
+          "active_after_attrition": 475,
+          "doctrine": "cluster_star_optimized_decentralized_swarm",
+          "decentralized": true,
+          "airgapped": true,
+          "threat_consensus": "engage",
+          "consensus_confidence": 1.0,
+          "coordination_ms": 48.2055,
+          "ms_per_agent": 0.096411,
+          "e2e_p50_ms": 0.6191,
+          "gossip_bandwidth_bytes": 768,
+          "jamming_failover_ok": true,
+          "self_heal_ok": true,
+          "route_policies_used": [
+            "ladder_only",
+            "orbital_preferred",
+            "shortest"
+          ],
+          "access_modes": [
+            "frequency_field",
+            "orbital_hz_ladder"
+          ],
+          "sovereign": true,
+          "ok": true,
+          "agents_sample": [
+            {
+              "agent_id": "orbital_00000",
+              "cluster_id": "cluster-0000",
+              "domain_role": "orbital",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 1.0845
+            },
+            {
+              "agent_id": "ground_00001",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00002",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00003",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": false,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00004",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "geo_00005",
+              "cluster_id": "cluster-0000",
+              "domain_role": "geo",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00006",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00007",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            }
+          ]
+        },
+        "allocation": {
+          "n_agents": 256,
+          "n_tasks": 3,
+          "assignments": [
+            {
+              "agent_id": "agent_00000",
+              "task_id": "task_scan_0",
+              "cost": 59.114,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00001",
+              "task_id": "task_scan_0",
+              "cost": 50.734,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00002",
+              "task_id": "task_scan_0",
+              "cost": 43.236,
+              "method": "marl_local"
+            }
+          ],
+          "total_cost": 153.084,
+          "method": "marl_local",
+          "coverage": 1.0,
+          "ok": true
+        },
+        "formation": {
+          "formation": "v_shape",
+          "n_agents": 200,
+          "n_active": 190,
+          "min_separation_m": 10.0,
+          "collisions_avoided": 0,
+          "reform_after_attrition": true,
+          "cohesion": 372.057,
+          "ok": true
+        },
+        "routing": {
+          "routes": [
+            {
+              "route": "ground-schumann\u2192world-computer-root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "ground\u2192world",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "orbital-leo-edge-000\u2192orbital-geo-backbone-000",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "leo0\u2192geo",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "schumann\u2192root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            }
+          ],
+          "presets_ok": true,
+          "router_health": true,
+          "alias_route_ok": true,
+          "sovereign_airgapped": true,
+          "all_routes_ok": true
+        },
+        "lan": {
+          "node_id": "swarm-planner",
+          "port": 37521,
+          "inbox_pending": 1009,
+          "seen": 1009,
+          "drop_dir": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library\\lan_gossip",
+          "protocol": "udp+json",
+          "airgapped_lan": true
+        },
+        "adapter": {
+          "platform": "sim",
+          "connected": true,
+          "n_drones": 100,
+          "sim_mode": true,
+          "mavlink_port": 14540,
+          "commands_queued": 0
+        }
+      }
+    },
+    {
+      "version": "2.0.0",
+      "mission_id": "mission-swarm_forge-1780899112",
+      "preset": "swarm_forge",
+      "n_agents": 500,
+      "threat_consensus": "engage",
+      "spectral_score": 1.0,
+      "route_policy": "ladder_only",
+      "route_ok": true,
+      "tasks_allocated": 3,
+      "allocation_method": "marl_local",
+      "formation": "v_shape",
+      "formation_ok": true,
+      "lan_gossip_msgs": 10,
+      "dtn_pending": 32,
+      "platform_commands": 10,
+      "coordination_ms": 3889.2616,
+      "ms_per_agent": 7.778523,
+      "decentralized": true,
+      "airgapped": true,
+      "sovereign": true,
+      "ok": true,
+      "details": {
+        "swarm": {
+          "version": "1.1.0-cluster",
+          "n_agents": 500,
+          "n_clusters": 16,
+          "active_after_attrition": 475,
+          "doctrine": "cluster_star_optimized_decentralized_swarm",
+          "decentralized": true,
+          "airgapped": true,
+          "threat_consensus": "engage",
+          "consensus_confidence": 1.0,
+          "coordination_ms": 21.3731,
+          "ms_per_agent": 0.042746,
+          "e2e_p50_ms": 0.3167,
+          "gossip_bandwidth_bytes": 768,
+          "jamming_failover_ok": true,
+          "self_heal_ok": true,
+          "route_policies_used": [
+            "ladder_only",
+            "orbital_preferred",
+            "shortest"
+          ],
+          "access_modes": [
+            "frequency_field",
+            "orbital_hz_ladder"
+          ],
+          "sovereign": true,
+          "ok": true,
+          "agents_sample": [
+            {
+              "agent_id": "orbital_00000",
+              "cluster_id": "cluster-0000",
+              "domain_role": "orbital",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.6067
+            },
+            {
+              "agent_id": "ground_00001",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00002",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00003",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00004",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "geo_00005",
+              "cluster_id": "cluster-0000",
+              "domain_role": "geo",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00006",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            },
+            {
+              "agent_id": "ground_00007",
+              "cluster_id": "cluster-0000",
+              "domain_role": "ground",
+              "active": true,
+              "threat": true,
+              "score": 0.6456,
+              "route_ok": true,
+              "route_policy": "orbital_preferred",
+              "route_latency_ms": 0.0,
+              "access_mode": "frequency_field",
+              "local_decision_ms": 0.0
+            }
+          ]
+        },
+        "allocation": {
+          "n_agents": 256,
+          "n_tasks": 3,
+          "assignments": [
+            {
+              "agent_id": "agent_00000",
+              "task_id": "task_train_0",
+              "cost": 59.07,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00001",
+              "task_id": "task_train_0",
+              "cost": 50.474,
+              "method": "marl_local"
+            },
+            {
+              "agent_id": "agent_00002",
+              "task_id": "task_train_0",
+              "cost": 43.328,
+              "method": "marl_local"
+            }
+          ],
+          "total_cost": 152.872,
+          "method": "marl_local",
+          "coverage": 1.0,
+          "ok": true
+        },
+        "formation": {
+          "formation": "v_shape",
+          "n_agents": 200,
+          "n_active": 190,
+          "min_separation_m": 10.0,
+          "collisions_avoided": 0,
+          "reform_after_attrition": true,
+          "cohesion": 372.057,
+          "ok": true
+        },
+        "routing": {
+          "routes": [
+            {
+              "route": "ground-schumann\u2192world-computer-root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "ground\u2192world",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "orbital-leo-edge-000\u2192orbital-geo-backbone-000",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "leo0\u2192geo",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "schumann\u2192root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            }
+          ],
+          "presets_ok": true,
+          "router_health": true,
+          "alias_route_ok": true,
+          "sovereign_airgapped": true,
+          "all_routes_ok": true
+        },
+        "lan": {
+          "node_id": "swarm-planner",
+          "port": 37521,
+          "inbox_pending": 1009,
+          "seen": 1009,
+          "drop_dir": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library\\lan_gossip",
+          "protocol": "udp+json",
+          "airgapped_lan": true
+        },
+        "adapter": {
+          "platform": "sim",
+          "connected": true,
+          "n_drones": 100,
+          "sim_mode": true,
+          "mavlink_port": 14540,
+          "commands_queued": 0
+        }
+      }
+    }
+  ],
+  "scale_runs": [
+    {
+      "version": "1.1.0-cluster",
+      "n_agents": 100,
+      "n_clusters": 4,
+      "active_after_attrition": 90,
+      "doctrine": "cluster_star_optimized_decentralized_swarm",
+      "decentralized": true,
+      "airgapped": true,
+      "threat_consensus": "hold",
+      "consensus_confidence": 0.0,
+      "coordination_ms": 4.9575,
+      "ms_per_agent": 0.049575,
+      "e2e_p50_ms": 0.6632,
+      "gossip_bandwidth_bytes": 192,
+      "jamming_failover_ok": true,
+      "self_heal_ok": true,
+      "route_policies_used": [
+        "ladder_only",
+        "orbital_preferred",
+        "shortest"
+      ],
+      "access_modes": [
+        "frequency_field"
+      ],
+      "sovereign": true,
+      "ok": true,
+      "agents_sample": [
+        {
+          "agent_id": "orbital_00000",
+          "cluster_id": "cluster-0000",
+          "domain_role": "orbital",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 1.0275
+        },
+        {
+          "agent_id": "ground_00001",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00002",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00003",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00004",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "geo_00005",
+          "cluster_id": "cluster-0000",
+          "domain_role": "geo",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00006",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00007",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        }
+      ]
+    },
+    {
+      "version": "1.1.0-cluster",
+      "n_agents": 1000,
+      "n_clusters": 32,
+      "active_after_attrition": 900,
+      "doctrine": "cluster_star_optimized_decentralized_swarm",
+      "decentralized": true,
+      "airgapped": true,
+      "threat_consensus": "hold",
+      "consensus_confidence": 0.0,
+      "coordination_ms": 122.9483,
+      "ms_per_agent": 0.122948,
+      "e2e_p50_ms": 0.7246,
+      "gossip_bandwidth_bytes": 1536,
+      "jamming_failover_ok": true,
+      "self_heal_ok": true,
+      "route_policies_used": [
+        "orbital_preferred"
+      ],
+      "access_modes": [
+        "frequency_field",
+        "orbital_hz_ladder"
+      ],
+      "sovereign": true,
+      "ok": true,
+      "agents_sample": [
+        {
+          "agent_id": "orbital_00000",
+          "cluster_id": "cluster-0000",
+          "domain_role": "orbital",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 3.5348
+        },
+        {
+          "agent_id": "ground_00001",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00002",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00003",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00004",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "geo_00005",
+          "cluster_id": "cluster-0000",
+          "domain_role": "geo",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00006",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00007",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": false,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        }
+      ]
+    },
+    {
+      "version": "1.1.0-cluster",
+      "n_agents": 10000,
+      "n_clusters": 313,
+      "active_after_attrition": 9000,
+      "doctrine": "cluster_star_optimized_decentralized_swarm",
+      "decentralized": true,
+      "airgapped": true,
+      "threat_consensus": "hold",
+      "consensus_confidence": 0.0,
+      "coordination_ms": 1116.0372,
+      "ms_per_agent": 0.111604,
+      "e2e_p50_ms": 0.5947,
+      "gossip_bandwidth_bytes": 15024,
+      "jamming_failover_ok": true,
+      "self_heal_ok": true,
+      "route_policies_used": [
+        "orbital_preferred"
+      ],
+      "access_modes": [
+        "frequency_field",
+        "orbital_hz_ladder"
+      ],
+      "sovereign": true,
+      "ok": true,
+      "agents_sample": [
+        {
+          "agent_id": "orbital_00000",
+          "cluster_id": "cluster-0000",
+          "domain_role": "orbital",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 7.994
+        },
+        {
+          "agent_id": "ground_00001",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00002",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00003",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00004",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "geo_00005",
+          "cluster_id": "cluster-0000",
+          "domain_role": "geo",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00006",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        },
+        {
+          "agent_id": "ground_00007",
+          "cluster_id": "cluster-0000",
+          "domain_role": "ground",
+          "active": true,
+          "threat": false,
+          "score": 0.5003,
+          "route_ok": true,
+          "route_policy": "orbital_preferred",
+          "route_latency_ms": 0.0,
+          "access_mode": "frequency_field",
+          "local_decision_ms": 0.0
+        }
+      ]
+    }
+  ],
+  "built_modules": [
+    "mission_planner",
+    "lan_gossip",
+    "task_allocation",
+    "formation",
+    "dtn_store",
+    "drone_adapter",
+    "swarm_mission_presets"
+  ],
+  "tests": [
+    {
+      "name": "routing_nervous_system",
+      "ok": true,
+      "detail": "ground/orbital/alias"
+    },
+    {
+      "name": "presets_health",
+      "ok": true,
+      "detail": "mesh viable"
+    },
+    {
+      "name": "sovereign_airgapped",
+      "ok": true,
+      "detail": "denied env"
+    },
+    {
+      "name": "pso_task_allocation",
+      "ok": true,
+      "detail": "coverage=1.0"
+    },
+    {
+      "name": "formation_self_heal",
+      "ok": true,
+      "detail": "v_shape sep=10.0m"
+    },
+    {
+      "name": "lan_udp_gossip",
+      "ok": true,
+      "detail": "udp+json"
+    },
+    {
+      "name": "dtn_store_forward",
+      "ok": true,
+      "detail": "contested buffer"
+    },
+    {
+      "name": "drone_adapter_sim",
+      "ok": true,
+      "detail": "sim"
+    },
+    {
+      "name": "mission_ew",
+      "ok": true,
+      "detail": "tasks=3 cmds=10"
+    },
+    {
+      "name": "mission_strike",
+      "ok": true,
+      "detail": "tasks=3 cmds=10"
+    },
+    {
+      "name": "mission_isr",
+      "ok": true,
+      "detail": "tasks=3 cmds=10"
+    },
+    {
+      "name": "mission_swarm_forge",
+      "ok": true,
+      "detail": "tasks=3 cmds=10"
+    },
+    {
+      "name": "mission_presets",
+      "ok": true,
+      "detail": "4 presets"
+    },
+    {
+      "name": "scale_100",
+      "ok": true,
+      "detail": "0.049575ms/agent"
+    },
+    {
+      "name": "scale_1000",
+      "ok": true,
+      "detail": "0.122948ms/agent"
+    },
+    {
+      "name": "scale_10000",
+      "ok": true,
+      "detail": "0.111604ms/agent"
+    }
+  ]
+}

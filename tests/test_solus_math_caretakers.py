@@ -2,13 +2,25 @@
 
 import numpy as np
 
-from mesie.sdk import MAESIClient, SDKSolusOrganism, SolusLogicProver, SolusPatternForge, SOLUS_BRAND, LOCAL_ENGINE
+from mesie.sdk import (
+    MAESIClient,
+    SDKSolusOrganism,
+    SolusLogicProver,
+    SolusPatternForge,
+    SOLUS_BRAND,
+    LOCAL_ENGINE,
+    FORMAL_COMPOSITION,
+    OWN_MODELS_ONLY,
+)
 from data import list_references, load_reference_record
 
 
 def test_solus_brand_local():
     assert SOLUS_BRAND == "SOLUS"
     assert LOCAL_ENGINE == "solus-local"
+    assert OWN_MODELS_ONLY is True
+    assert "Logic" in FORMAL_COMPOSITION
+    assert "Adaptation" in FORMAL_COMPOSITION
 
 
 def test_logic_prover_prove():
@@ -29,9 +41,11 @@ def test_pattern_forge_xray():
     assert "depths" in r.data
 
 
-def test_organism_two_caretakers():
+def test_organism_formal_models():
     org = SDKSolusOrganism()
-    assert len(org.caretaker_names) == 2
+    assert len(org.formal_model_ids) == 4
+    assert len(org.caretaker_names) >= 4
+    assert org.formula == FORMAL_COMPOSITION
     v = org.pulse()
     assert v.sovereign
     assert v.sdk_health in ("thriving", "stable", "watch")

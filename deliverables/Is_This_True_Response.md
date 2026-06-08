@@ -21,7 +21,7 @@
 - Spectral jam profile reference; no RF anechoic or live EW range
 - Real drone hardware integration: No published flight test video or cleared contractor validation
 - Not DoD accreditation; scenario pass != combat validation
-- Independent validation of NeuroSwarm/Chimeria deployment: Defense tech often opaque; we cannot claim external proof
+- Independent validation of NeuroSwarmAI.com deployment: Self-published harness until third party reproduces and signs
 
 ## Grok/X critique mapping
 

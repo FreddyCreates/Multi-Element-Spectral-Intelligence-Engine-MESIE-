@@ -15,6 +15,9 @@ from mesie.internal_api.router import InternalRouter
 from mesie.io.loaders import RecordInput, load_record
 from mesie.octopus.arms import ArmId, OctopusArm
 from mesie.cognitive.agent_state_adapter import SpectralAnomalyAdapter
+from mesie.enterprise.receipt_chain import ComputationalReceipt, MintedWorkToken
+from mesie.enterprise.sovereign_vault import SovereignVault
+from mesie.octopus.solus_memory import SolusMemoryArm
 from mesie.polyglot.contract import SUITE_NAME
 from mesie.polyglot.suite import AISVectorPolyglotSuite
 
@@ -31,6 +34,7 @@ class OctopusConfig:
     user_index_path: Optional[PathLike] = None
     user_index_save: Optional[PathLike] = None
     use_polyglot_arms: bool = True
+    use_solus_memory: bool = True
 
 
 @dataclass
@@ -47,6 +51,10 @@ class OctopusRunReport:
     workflow: Dict[str, Any]
     user_library: Dict[str, Any]
     polyglot: Dict[str, Any]
+    enterprise_ai: Dict[str, Any]
+    solus_memory: Dict[str, Any]
+    receipt_chain: Dict[str, Any]
+    sovereign_vault: Dict[str, Any]
     plain_summary: str
 
 
@@ -71,6 +79,11 @@ class OctopusController:
             for arm in self._arms.values():
                 arm.enable(False)
         self._bootstrap_user_library()
+        self._solus_memory: Optional[SolusMemoryArm] = None
+        self._vault: Optional[SovereignVault] = None
+        if self.config.use_solus_memory:
+            self._vault = SovereignVault()
+            self._solus_memory = SolusMemoryArm()
 
     def arm(self, arm_id: ArmId) -> OctopusArm:
         return self._arms[arm_id]
@@ -189,8 +202,51 @@ class OctopusController:
         )
         arms_used.append("logic")
 
-        mem = self.arm(ArmId.MEMORY).reach("memory", {"record": rec})
-        reason = self.arm(ArmId.MEMORY).reach("reason", {"record": rec})
+        vault_prior: Dict[str, Any] = {}
+        if self._vault:
+            vault_prior = self._vault.recall(
+                results={
+                    "match_score": similarity,
+                    "similarity": similarity,
+                    "anomaly": anomaly_score,
+                },
+                workflow={"workflow_id": self.config.default_workflow_id},
+                top_k=3,
+            )
+
+        cycle_ctx = {
+            "cycle_id": f"{self.config.default_workflow_id}_{rec.record_id}",
+            "match_score": similarity,
+            "similarity": similarity,
+            "anomaly": anomaly_score,
+            "neighbors": len(neighbors_user),
+            "valid": bool(v.data.get("is_valid", False)),
+            "arms": list(arms_used) + ["memory"],
+            "latency_ms": polyglot_meta.get("vector_query_ms", 0),
+            "vault_prior_hits": vault_prior.get("hits", []),
+        }
+
+        mem = self.arm(ArmId.MEMORY).reach("memory", {"record": rec, "cycle_context": cycle_ctx})
+        reason = self.arm(ArmId.MEMORY).reach("reason", {"record": rec, "cycle_context": cycle_ctx})
+
+        solus_memory: Dict[str, Any] = {}
+        receipt_chain: Dict[str, Any] = {}
+        if self._solus_memory:
+            solus_memory = self._solus_memory.run_cycle(
+                rec,
+                cycle_context=cycle_ctx,
+                intelligence_memory=mem.data if mem.ok else {},
+                intelligence_reason=reason.data if reason.ok else {},
+            )
+            receipt_chain = solus_memory.get("receipt_chain", {})
+
+        enterprise_ai: Dict[str, Any] = {
+            "sovereign": True,
+            "memory_arm": "solus",
+            "solus_cycle": solus_memory.get("solus_cycle", {}),
+            "minted_token": solus_memory.get("minted_token"),
+            "conclusion": (solus_memory.get("solus_cycle") or {}).get("conclusion", reason.data.get("conclusion")),
+        }
         arms_used.append("memory")
 
         wf_define = self.router.call(
@@ -212,10 +268,61 @@ class OctopusController:
         )
         arms_used.append("workflow")
 
+        vault_report: Dict[str, Any] = {}
+        if self._vault and solus_memory.get("minted_token") and solus_memory.get("receipt"):
+            raw_token = solus_memory["minted_token"]
+            raw_receipt = solus_memory["receipt"]
+            solus_cycle = solus_memory.get("solus_cycle") or {}
+            token = MintedWorkToken(**{k: raw_token[k] for k in MintedWorkToken.__dataclass_fields__})
+            receipt = ComputationalReceipt(**{k: raw_receipt[k] for k in ComputationalReceipt.__dataclass_fields__})
+            entry = self._vault.deposit(
+                token=token,
+                receipt=receipt,
+                composition=solus_cycle,
+                results={
+                    **solus_cycle,
+                    "match_score": similarity,
+                    "similarity": similarity,
+                    "anomaly": anomaly_score,
+                    "neighbors": len(neighbors_user),
+                },
+                workflow={
+                    "workflow_id": self.config.default_workflow_id,
+                    "steps": [
+                        {"name": "validate", "engine": "validation"},
+                        {"name": "embed", "engine": "polyglot"},
+                        {"name": "match", "engine": "polyglot"},
+                        {"name": "memory", "engine": "solus"},
+                        {"name": "workflow", "engine": "workflow"},
+                    ],
+                    "completed": wf_run.data.get("completed"),
+                    "arms": arms_used,
+                },
+                ai_patterns={
+                    "formal_models": list((solus_cycle.get("formal_models") or {}).keys()),
+                    "caretakers": solus_cycle.get("caretakers", []),
+                    "pattern_xray": solus_cycle.get("pattern_xray"),
+                    "emerged": bool(float(solus_cycle.get("emergence_score", 0) or 0) > 0.05),
+                },
+                record_id=rec.record_id,
+                cycle_id=cycle_ctx["cycle_id"],
+            )
+            vault_report = {
+                "vault_id": entry.vault_id,
+                "token_id": entry.token_id,
+                "deposited": True,
+                "vault_size": self._vault.size,
+                "compound_work_units": self._vault.compound().total_work_units,
+                "prior_hits": vault_prior.get("hits", []),
+            }
+            solus_memory["vault"] = vault_report
+            enterprise_ai["vault"] = vault_report
+
         polyglot_meta["vector_indexed"] = self.polyglot_suite.vector.state.n_indexed
         polyglot_meta["technical_hits"] = vector_neighbors or neighbors_user
 
-        summary = self._plain_summary(v, m, c, lg, reason, wf_run, polyglot_meta)
+        solus_conclusion = enterprise_ai.get("conclusion", reason.data.get("conclusion", "unknown"))
+        summary = self._plain_summary(v, m, c, lg, reason, wf_run, polyglot_meta, solus_conclusion)
 
         return OctopusRunReport(
             workflow_id=self.config.default_workflow_id,
@@ -226,7 +333,7 @@ class OctopusController:
             movement={"steps": move_results},
             control=c.to_dict(),
             logic=lg.to_dict(),
-            memory={"memory": mem.to_dict(), "reason": reason.to_dict()},
+            memory={"memory": mem.to_dict(), "reason": reason.to_dict(), "solus": solus_memory},
             workflow={"define": wf_define.to_dict(), "run": wf_run.to_dict()},
             user_library={
                 "status": user_lib.to_dict(),
@@ -234,6 +341,10 @@ class OctopusController:
                 "vector_fingerprint_hits": vector_neighbors,
             },
             polyglot=polyglot_meta,
+            enterprise_ai=enterprise_ai,
+            solus_memory=solus_memory,
+            receipt_chain=receipt_chain,
+            sovereign_vault=vault_report or (self._vault.to_dict() if self._vault else {}),
             plain_summary=summary,
         )
 
@@ -246,12 +357,12 @@ class OctopusController:
         reason: EngineResponse,
         workflow: EngineResponse,
         polyglot: Dict[str, Any],
+        solus_conclusion: str = "unknown",
     ) -> str:
         valid = validation.data.get("is_valid", False)
         score = match.data.get("composite_score", 0)
         cmds = control.data.get("commands", [])
         rules = logic.data.get("count", 0)
-        conclusion = reason.data.get("conclusion", "unknown")
         done = workflow.data.get("completed", False)
         embed_rt = polyglot.get("embed_runtime", "python")
         match_rt = polyglot.get("match_runtime", "rust")
@@ -259,5 +370,5 @@ class OctopusController:
             f"Record valid={valid}. Match score={score:.3f} via {match_rt}. "
             f"Embed via {embed_rt} ({SUITE_NAME}). "
             f"Control issued {cmds or ['none']}. Logic fired {rules} rule(s). "
-            f"Intelligence says {conclusion}. Workflow complete={done}."
+            f"SOLUS MEMORY: {str(solus_conclusion)[:80]}. Workflow complete={done}."
         )

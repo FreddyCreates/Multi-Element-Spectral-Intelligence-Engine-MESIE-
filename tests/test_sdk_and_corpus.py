@@ -125,7 +125,7 @@ class TestSpectralCorpus:
 class TestSDK:
     def test_version(self):
         engine = SpectralIntelligenceSDK()
-        assert engine.version == "0.3.0"
+        assert engine.version == "0.3.3"
 
     def test_repr(self):
         engine = SpectralIntelligenceSDK()

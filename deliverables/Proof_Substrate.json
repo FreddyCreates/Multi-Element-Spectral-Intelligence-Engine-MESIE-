@@ -1,0 +1,281 @@
+{
+  "substrate_version": "1.0.0",
+  "mesie_version": "0.3.3",
+  "sdk_version": "1.4.0",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "verdict": "partially_true_software_substrate",
+  "confidence": "high_on_local_harness_low_on_field_deployment",
+  "genesis_hash": "eb9be6924dd865c7ef171cc1a7429dcef266b3f52e2598a3692feaa77ba06f41",
+  "seal_digest": "ce02e284dafdb8ca0c3c0d8e1bf08e183c66fb85ac503e41bcb854b997d44643",
+  "claims": [
+    {
+      "claim_id": "sub_ms_threat",
+      "public_claim": "Sub-12ms threat-fast spectral decisions",
+      "tier": "measured_local",
+      "tier_label": "Measured on this machine (reproducible harness)",
+      "artifacts": [
+        {
+          "path": "deliverables/NeuroSwarmAI_Audit_Evidence.json",
+          "sha256": "89f2219ec79a1e57ec1501f11fd1985c460c223997b8082892959c9df77ce5ea",
+          "bytes": 15182,
+          "present": true
+        },
+        {
+          "path": "deliverables/MAESI_SDK_Major_Benchmarks.json",
+          "sha256": "87916835ab955bba74f65e53653267c16fc626f8f67b0e8d6acd8b7cb2489839",
+          "bytes": 12463,
+          "present": true
+        }
+      ],
+      "measured_summary": "p50 threat-fast ~0.85ms on Qualcomm ARM64 laptop harness",
+      "honest_limit": "Single-machine Python harness; not independent lab audit",
+      "reproduce_command": "python scripts/run_neuroswarm_audit.py --trials 1000"
+    },
+    {
+      "claim_id": "swarm_10k",
+      "public_claim": "10K decentralized swarm coordination",
+      "tier": "simulated_validated",
+      "tier_label": "Software simulation validated (not physical HIL)",
+      "artifacts": [
+        {
+          "path": "deliverables/NeuroSwarmAI_Drone_Swarm_Report.json",
+          "sha256": "c371091e234a083af6928c71693ccc09babab9893eb89902a9d6001fcf172fa0",
+          "bytes": 49891,
+          "present": true
+        },
+        {
+          "path": "deliverables/MESIE_Scenario_Simulation_Report.json",
+          "sha256": "cbfc43e2d09abcb0996b169b3a841e9c099950f8e5d5055c8d7cd092fbb70b17",
+          "bytes": 27842,
+          "present": true
+        }
+      ],
+      "measured_summary": "~0.05-0.11 ms/agent cluster-optimized in software sim",
+      "honest_limit": "In-process simulation; not 10K physical drones or multi-host mesh at scale",
+      "reproduce_command": "python scripts/run_drone_swarm_suite.py --agents 10000"
+    },
+    {
+      "claim_id": "jam_failover",
+      "public_claim": "Jamming failover to orbital routing",
+      "tier": "simulated_validated",
+      "tier_label": "Software simulation validated (not physical HIL)",
+      "artifacts": [
+        {
+          "path": "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.json",
+          "sha256": "951a13048693757d98fe918451a5c85f45a7ca48d32304444b03e621a9814b35",
+          "bytes": 4006,
+          "present": true
+        }
+      ],
+      "measured_summary": "jam_ground=True scenarios pass orbital_preferred access modes",
+      "honest_limit": "Spectral jam profile reference; no RF anechoic or live EW range",
+      "reproduce_command": "python scripts/run_enterprise_drone_thesis.py"
+    },
+    {
+      "claim_id": "real_drone_hw",
+      "public_claim": "Real drone hardware integration",
+      "tier": "gap",
+      "tier_label": "Known gap \u2014 not proven",
+      "artifacts": [
+        {
+          "path": "mesie/swarm/drone_adapter.py",
+          "sha256": "c9702cd5261b51bdc0c7795a52521097ac22add9fed8152111c41febaa0aebc6",
+          "bytes": 3825,
+          "present": true
+        }
+      ],
+      "measured_summary": "PX4/MAVSDK sim adapter dispatches commands; SIM platform only",
+      "honest_limit": "No published flight test video or cleared contractor validation",
+      "reproduce_command": "python scripts/run_drone_swarm_suite.py --agents 100"
+    },
+    {
+      "claim_id": "sovereign_airgap",
+      "public_claim": "Sovereign air-gapped on-prem appliance",
+      "tier": "measured_local",
+      "tier_label": "Measured on this machine (reproducible harness)",
+      "artifacts": [
+        {
+          "path": "deliverables/MESIE_Appliance_Manifest.json",
+          "sha256": "0cc5f21e877b7eb31f912c0a2ea9c0d385dd64aaa6a13a1932eca454e29c1796",
+          "bytes": 1307,
+          "present": true
+        },
+        {
+          "path": "deliverables/MESIE_Production_Tiers_Report.json",
+          "sha256": "22e455be2cb026bbb4585df6ac45f80f1734041804b6cf4facabad3cc332a678",
+          "bytes": 4018,
+          "present": true
+        }
+      ],
+      "measured_summary": "field_access reports airgapped=true, third_party=false",
+      "honest_limit": "Self-reported engine status; not third-party penetration test",
+      "reproduce_command": "python scripts/run_production_tiers.py --tier both"
+    },
+    {
+      "claim_id": "mission_critical_100",
+      "public_claim": "100/100 mission-critical defense scenarios",
+      "tier": "simulated_validated",
+      "tier_label": "Software simulation validated (not physical HIL)",
+      "artifacts": [
+        {
+          "path": "deliverables/MESIE_Scenario_Simulation_Report.json",
+          "sha256": "cbfc43e2d09abcb0996b169b3a841e9c099950f8e5d5055c8d7cd092fbb70b17",
+          "bytes": 27842,
+          "present": true
+        },
+        {
+          "path": "deliverables/mission_worlds/theater_alpha_week_001_week_report.json",
+          "sha256": "1eacd8aebb0581a42abb06a6780f63cd90af81339527ea1552f16a53ccb5df59",
+          "bytes": 39260,
+          "present": true
+        }
+      ],
+      "measured_summary": "12 scenario sim + 7-day theater week ticks (software)",
+      "honest_limit": "Not DoD accreditation; scenario pass != combat validation",
+      "reproduce_command": "python scripts/run_scenario_simulation_suite.py && python scripts/run_mission_world_week.py --days 7"
+    },
+    {
+      "claim_id": "external_corroboration",
+      "public_claim": "Independent validation of NeuroSwarmAI.com deployment",
+      "tier": "gap",
+      "tier_label": "Known gap \u2014 not proven",
+      "artifacts": [
+        {
+          "path": "deliverables/neuroswarmai_com/evidence_manifest.json",
+          "sha256": "6695010d3e5d47ea1dde71a3f14e905ffd9b0f1cf1bac90919e887c446c458a7",
+          "bytes": 4674,
+          "present": true
+        }
+      ],
+      "measured_summary": "Public evidence pack publishable; independent audit not yet completed",
+      "honest_limit": "Self-published harness until third party reproduces and signs",
+      "reproduce_command": "python scripts/run_neuroswarm_readiness.py"
+    },
+    {
+      "claim_id": "connectome_44_region",
+      "public_claim": "44-region connectome spectral intelligence",
+      "tier": "measured_local",
+      "tier_label": "Measured on this machine (reproducible harness)",
+      "artifacts": [
+        {
+          "path": "mesie/connectome/brain_regions.py",
+          "sha256": "0b92d3da71473e5ea2d0159c86aa690b76ba1e0c6f3d2689687e90a848a1fb14",
+          "bytes": 16183,
+          "present": true
+        }
+      ],
+      "measured_summary": "Connectome modules present; used in routing/cognitive paths",
+      "honest_limit": "Inspired architecture; not neuroscience certification",
+      "reproduce_command": "python examples/08_3d_connectome_brain.py"
+    }
+  ],
+  "artifact_index": {
+    "deliverables/Is_This_True_Response.json": {
+      "path": "deliverables/Is_This_True_Response.json",
+      "sha256": "15c40fc43cec4697469aedef7c8d57ef1c47f8ad3ab973043d96c0097f01c8c5",
+      "bytes": 9781,
+      "present": true
+    },
+    "deliverables/MAESI_SDK_Major_Benchmarks.json": {
+      "path": "deliverables/MAESI_SDK_Major_Benchmarks.json",
+      "sha256": "87916835ab955bba74f65e53653267c16fc626f8f67b0e8d6acd8b7cb2489839",
+      "bytes": 12463,
+      "present": true
+    },
+    "deliverables/MESIE_Appliance_Manifest.json": {
+      "path": "deliverables/MESIE_Appliance_Manifest.json",
+      "sha256": "0cc5f21e877b7eb31f912c0a2ea9c0d385dd64aaa6a13a1932eca454e29c1796",
+      "bytes": 1307,
+      "present": true
+    },
+    "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.json": {
+      "path": "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.json",
+      "sha256": "951a13048693757d98fe918451a5c85f45a7ca48d32304444b03e621a9814b35",
+      "bytes": 4006,
+      "present": true
+    },
+    "deliverables/MESIE_Production_Tiers_Report.json": {
+      "path": "deliverables/MESIE_Production_Tiers_Report.json",
+      "sha256": "22e455be2cb026bbb4585df6ac45f80f1734041804b6cf4facabad3cc332a678",
+      "bytes": 4018,
+      "present": true
+    },
+    "deliverables/MESIE_Scenario_Simulation_Report.json": {
+      "path": "deliverables/MESIE_Scenario_Simulation_Report.json",
+      "sha256": "cbfc43e2d09abcb0996b169b3a841e9c099950f8e5d5055c8d7cd092fbb70b17",
+      "bytes": 27842,
+      "present": true
+    },
+    "deliverables/NeuroSwarmAI_Audit_Evidence.json": {
+      "path": "deliverables/NeuroSwarmAI_Audit_Evidence.json",
+      "sha256": "89f2219ec79a1e57ec1501f11fd1985c460c223997b8082892959c9df77ce5ea",
+      "bytes": 15182,
+      "present": true
+    },
+    "deliverables/NeuroSwarmAI_Drone_Swarm_Report.json": {
+      "path": "deliverables/NeuroSwarmAI_Drone_Swarm_Report.json",
+      "sha256": "c371091e234a083af6928c71693ccc09babab9893eb89902a9d6001fcf172fa0",
+      "bytes": 49891,
+      "present": true
+    },
+    "deliverables/Proof_Substrate.json": {
+      "path": "deliverables/Proof_Substrate.json",
+      "sha256": "d44576b25ac2b1b7efe753836f7ebd0047fedafafce2475c5a2695e1ddd24c27",
+      "bytes": 12211,
+      "present": true
+    },
+    "deliverables/mission_worlds/theater_alpha_week_001_week_report.json": {
+      "path": "deliverables/mission_worlds/theater_alpha_week_001_week_report.json",
+      "sha256": "1eacd8aebb0581a42abb06a6780f63cd90af81339527ea1552f16a53ccb5df59",
+      "bytes": 39260,
+      "present": true
+    },
+    "deliverables/neuroswarmai_com/evidence_manifest.json": {
+      "path": "deliverables/neuroswarmai_com/evidence_manifest.json",
+      "sha256": "6695010d3e5d47ea1dde71a3f14e905ffd9b0f1cf1bac90919e887c446c458a7",
+      "bytes": 4674,
+      "present": true
+    },
+    "mesie/connectome/brain_regions.py": {
+      "path": "mesie/connectome/brain_regions.py",
+      "sha256": "0b92d3da71473e5ea2d0159c86aa690b76ba1e0c6f3d2689687e90a848a1fb14",
+      "bytes": 16183,
+      "present": true
+    },
+    "mesie/swarm/drone_adapter.py": {
+      "path": "mesie/swarm/drone_adapter.py",
+      "sha256": "c9702cd5261b51bdc0c7795a52521097ac22add9fed8152111c41febaa0aebc6",
+      "bytes": 3825,
+      "present": true
+    },
+    "deliverables/virtual_silicon/MESIE_Virtual_Silicon_Certification.json": {
+      "path": "deliverables/virtual_silicon/MESIE_Virtual_Silicon_Certification.json",
+      "sha256": "09022883e1ed6845da179533d87aeb7d3b7e5f5f9dd16602d6b2c703e7352cff",
+      "bytes": 1774,
+      "present": true
+    }
+  },
+  "tier_counts": {
+    "measured_local": 3,
+    "simulated_validated": 3,
+    "gap": 2
+  },
+  "gaps_open": 2,
+  "harness_commands": [
+    "python scripts/run_proof_substrate.py",
+    "python scripts/run_is_this_true.py",
+    "python scripts/run_neuroswarm_readiness.py",
+    "python scripts/run_sdk_major_benchmarks.py --trials 300 --agents 10000",
+    "python scripts/run_production_tiers.py --tier both",
+    "python scripts/run_mission_world_week.py --days 7",
+    "python scripts/run_scenario_simulation_suite.py",
+    "python scripts/run_drone_swarm_suite.py --agents 10000",
+    "python scripts/run_neuroswarm_audit.py --trials 1000"
+  ],
+  "truth_summary": {
+    "measured_claims": 3,
+    "simulated_claims": 3,
+    "gap_claims": 2
+  },
+  "generated_at": "2026-06-08T07:39:28Z"
+}

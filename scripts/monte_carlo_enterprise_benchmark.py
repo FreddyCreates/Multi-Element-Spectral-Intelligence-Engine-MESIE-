@@ -14,7 +14,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from data import list_benchmarks, list_references, load_benchmark, load_reference_record
+from data import list_benchmarks, list_references, load_benchmark, load_enterprise_benchmark, load_reference_record
 from mesie import match_records, validate_record
 from mesie.cognitive.agent_state_adapter import SpectralAnomalyAdapter
 from mesie.core.records import MultiElementRecord, SpectralComponent
@@ -98,7 +98,7 @@ def _stats(trials: List[TrialResult]) -> Dict[str, float]:
 
 
 class MonteCarloEnterpriseRunner:
-    def __init__(self, seed: int = 42) -> None:
+    def __init__(self, seed: int = 42, use_enterprise_benchmark: bool = False) -> None:
         self.rng = np.random.default_rng(seed)
         self.refs = {n: load_reference_record(n) for n in list_references()}
         self.ref_list = list(self.refs.values())
@@ -111,8 +111,17 @@ class MonteCarloEnterpriseRunner:
         self.fingerprint.index_records(self.ref_list)
         bench = load_benchmark("spectral_classification_benchmark")
         self.bench_samples = bench.get("samples", [])[:80]
+        self.use_enterprise_benchmark = use_enterprise_benchmark
+        self.enterprise_benchmark: Optional[Dict[str, Any]] = None
+        self.benchmark_slices: Dict[str, Dict[str, Any]] = {}
+        if use_enterprise_benchmark:
+            self.enterprise_benchmark = load_enterprise_benchmark()
+            for uc in self.enterprise_benchmark.get("use_cases", []):
+                self.benchmark_slices[uc["use_case_id"]] = uc
 
     def run_case(self, case: EnterpriseUseCase, n_trials: int) -> UseCaseMonteCarloReport:
+        if self.use_enterprise_benchmark and case.id in self.benchmark_slices:
+            return self._run_case_benchmark(case, n_trials)
         runners: Dict[str, Callable[[int], TrialResult]] = {
             "mfg_predictive": self._trial_mfg,
             "energy_grid": self._trial_energy,
@@ -127,6 +136,52 @@ class MonteCarloEnterpriseRunner:
         }
         fn = runners[case.id]
         trials = [fn(i) for i in range(n_trials)]
+        st = _stats(trials)
+        fails = [t.detail for t in trials if not t.success][:5]
+        return UseCaseMonteCarloReport(
+            use_case=case,
+            n_trials=n_trials,
+            sample_details=fails,
+            **{k: st[k] for k in st},
+        )
+
+    def _run_case_benchmark(self, case: EnterpriseUseCase, n_trials: int) -> UseCaseMonteCarloReport:
+        from mesie.matching.ranking import rank_candidates
+
+        slice_meta = self.benchmark_slices[case.id]
+        samples = slice_meta.get("samples", [])
+        min_score = float(slice_meta.get("min_rank_score", 0.45))
+        if not samples:
+            return UseCaseMonteCarloReport(
+                use_case=case,
+                n_trials=n_trials,
+                success_rate=0.0,
+                mean_latency_ms=0.0,
+                std_latency_ms=0.0,
+                p95_latency_ms=0.0,
+                mean_score=0.0,
+                std_score=0.0,
+                p5_score=0.0,
+                failures=n_trials,
+                sample_details=["no benchmark samples"],
+            )
+
+        trials: List[TrialResult] = []
+        for i in range(n_trials):
+            t0 = time.perf_counter()
+            s = samples[self.rng.integers(0, len(samples))]
+            raw = {
+                "record_id": s.get("sample_id", f"b{i}"),
+                "representation": "single",
+                "components": [{"name": "ch", "frequency": s["frequencies"], "amplitude": s["amplitudes"]}],
+            }
+            rec = load_record(raw)
+            ranked = rank_candidates(rec, self.ref_list, top_k=1)
+            sc = ranked[0].score if ranked else 0.0
+            ms = (time.perf_counter() - t0) * 1000
+            ok = sc >= min_score
+            cls = s.get("class", "unknown")
+            trials.append(TrialResult(i, ok, ms, sc, f"class={cls} score={sc:.3f} min={min_score}"))
         st = _stats(trials)
         fails = [t.detail for t in trials if not t.success][:5]
         return UseCaseMonteCarloReport(
@@ -336,9 +391,12 @@ def main() -> None:
     if "--trials" in sys.argv:
         idx = sys.argv.index("--trials")
         n = int(sys.argv[idx + 1])
+    use_benchmark = "--benchmark" in sys.argv or "--enterprise-v2" in sys.argv
 
-    runner = MonteCarloEnterpriseRunner(seed=42)
+    runner = MonteCarloEnterpriseRunner(seed=42, use_enterprise_benchmark=use_benchmark)
     data = runner.run_all(n_trials=n)
+    if use_benchmark and runner.enterprise_benchmark:
+        data["benchmark"] = runner.enterprise_benchmark.get("dataset_id", "enterprise-v2")
 
     out_json = ROOT / "deliverables" / "MESIE_Monte_Carlo_Enterprise_Report.json"
     out_md = ROOT / "deliverables" / "MESIE_Monte_Carlo_Enterprise_Report.md"

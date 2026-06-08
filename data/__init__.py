@@ -153,6 +153,11 @@ def list_benchmarks() -> list[str]:
     return [f.stem for f in bench_dir.glob("*.json")]
 
 
+def load_enterprise_benchmark(name: str = "enterprise_use_cases_benchmark") -> dict[str, Any]:
+    """Load per-industry enterprise benchmark slices (v2)."""
+    return load_benchmark(name)
+
+
 def load_library(name: str) -> dict[str, Any]:
     """Load a spectral library dataset by name."""
     path = get_library_path(name)

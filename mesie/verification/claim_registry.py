@@ -104,7 +104,7 @@ def default_claim_registry() -> List[ClaimEntry]:
             tier=EvidenceTier.SIMULATED_VALIDATED,
             artifact_paths=[
                 str(DELIVERABLES / "MESIE_Scenario_Simulation_Report.json"),
-                str(DELIVERABLES / "mission_worlds"),
+                str(DELIVERABLES / "mission_worlds" / "theater_alpha_week_001_week_report.json"),
             ],
             measured_summary="12 scenario sim + 7-day theater week ticks (software)",
             honest_limit="Not DoD accreditation; scenario pass != combat validation",
@@ -112,13 +112,13 @@ def default_claim_registry() -> List[ClaimEntry]:
         ),
         ClaimEntry(
             claim_id="external_corroboration",
-            public_claim="Independent validation of NeuroSwarm/Chimeria deployment",
-            critique_source="Grok/X no web corroboration chimeradefense.com",
+            public_claim="Independent validation of NeuroSwarmAI.com deployment",
+            critique_source="Grok/X no web corroboration on neuroswarmai.com",
             tier=EvidenceTier.GAP,
-            artifact_paths=[],
-            measured_summary="No independent public audit found in open sources",
-            honest_limit="Defense tech often opaque; we cannot claim external proof",
-            remediation="Publish evidence pack + invite reproducible third-party harness runs",
+            artifact_paths=[str(DELIVERABLES / "neuroswarmai_com" / "evidence_manifest.json")],
+            measured_summary="Public evidence pack publishable; independent audit not yet completed",
+            honest_limit="Self-published harness until third party reproduces and signs",
+            remediation="Host evidence_manifest.json on neuroswarmai.com/evidence + invite audit",
         ),
         ClaimEntry(
             claim_id="connectome_44_region",

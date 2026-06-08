@@ -3,7 +3,7 @@
 Powered by NeuroAIX™ — The Connectome Intelligence Engine.
 """
 
-__sdk_version__ = "1.1.0"
+from mesie.version_info import MAESI_SDK_VERSION as __sdk_version__
 __brand__ = "MAESI Powered by NeuroAIX"
 __engine__ = "MESIE — Multi-Element Spectral Intelligence Engine"
 
@@ -59,11 +59,16 @@ from mesie.sdk.neuroaix_engine import (
     MAESIObservation,
 )
 from mesie.sdk.solus import (
+    FORMAL_COMPOSITION,
+    OWN_MODELS_ONLY,
     SDKSolusOrganism,
+    SolusFormalStack,
     SolusLogicProver,
+    SolusMathLayer,
     SolusPatternForge,
     SOLUS_BRAND,
     LOCAL_ENGINE,
+    composition_manifest,
 )
 
 __all__ = [
@@ -111,13 +116,35 @@ __all__ = [
     "MAESIObservationEncoder",
     "CognitiveIntegrationLoop",
     "MAESIObservation",
+    "FORMAL_COMPOSITION",
+    "OWN_MODELS_ONLY",
     "SDKSolusOrganism",
+    "SolusFormalStack",
     "SolusLogicProver",
+    "SolusMathLayer",
     "SolusPatternForge",
     "SOLUS_BRAND",
     "LOCAL_ENGINE",
+    "composition_manifest",
 ]
 
 from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
+from mesie.sdk.native_ai import NativeLocalAIEngine, NativeAIDeliverableReport, StreamEvent, StreamPhase
 
-__all__.append("SpectralIntelligenceSDK")
+__all__.extend([
+    "SpectralIntelligenceSDK",
+    "NativeLocalAIEngine",
+    "NativeAIDeliverableReport",
+    "StreamEvent",
+    "StreamPhase",
+    "SwarmSDK",
+    "SwarmSDKReport",
+])
+
+
+def __getattr__(name: str):
+    if name in ("SwarmSDK", "SwarmSDKReport"):
+        from mesie.sdk.swarm_client import SwarmSDK, SwarmSDKReport
+
+        return SwarmSDK if name == "SwarmSDK" else SwarmSDKReport
+    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

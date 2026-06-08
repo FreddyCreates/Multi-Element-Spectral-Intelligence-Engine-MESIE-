@@ -152,6 +152,7 @@ class ReadinessOrchestrator:
         ["scenario_sim", "python", "scripts/run_scenario_simulation_suite.py"],
         ["drone_swarm", "python", "scripts/run_drone_swarm_suite.py", "--agents", "10000"],
         ["audit", "python", "scripts/run_neuroswarm_audit.py"],
+        ["proof_substrate", "python", "scripts/run_proof_substrate.py"],
     ]
 
     def __init__(self) -> None:
@@ -179,9 +180,11 @@ class ReadinessOrchestrator:
     def _evidence_manifest(self, harness_results: List[Dict[str, Any]]) -> Dict[str, Any]:
         import mesie
         from mesie.sdk import __sdk_version__
+        from mesie.version_info import READINESS_VERSION
 
         artifacts = [
             "Is_This_True_Response.json",
+            "Proof_Substrate.json",
             "NeuroSwarmAI_Audit_Evidence.json",
             "MAESI_SDK_Major_Benchmarks.json",
             "MESIE_Production_Tiers_Report.json",
@@ -213,6 +216,7 @@ class ReadinessOrchestrator:
             "product": "MESIE / MAESI SDK",
             "sdk_version": __sdk_version__,
             "mesie_version": mesie.__version__,
+            "readiness_version": READINESS_VERSION,
             "platform": platform.platform(),
             "verdict": "partially_true_software_substrate",
             "readiness_statement": (

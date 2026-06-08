@@ -2,8 +2,9 @@
   "site": "https://neuroswarmai.com",
   "company": "NeuroSwarmAI",
   "product": "MESIE / MAESI SDK",
-  "sdk_version": "1.3.0",
-  "mesie_version": "0.3.2",
+  "sdk_version": "1.4.0",
+  "mesie_version": "0.3.3",
+  "readiness_version": "1.1.0",
   "platform": "Windows-10-10.0.26200-SP0",
   "verdict": "partially_true_software_substrate",
   "readiness_statement": "NeuroSwarmAI publishes measured software evidence. We do not claim combat certification until physical HIL and independent audit close named gaps.",
@@ -12,11 +13,11 @@
   "artifacts": [
     {
       "path": "Is_This_True_Response.json",
-      "bytes": 9612
+      "bytes": 9781
     },
     {
       "path": "NeuroSwarmAI_Audit_Evidence.json",
-      "bytes": 15161
+      "bytes": 15182
     },
     {
       "path": "MAESI_SDK_Major_Benchmarks.json",
@@ -24,19 +25,19 @@
     },
     {
       "path": "MESIE_Production_Tiers_Report.json",
-      "bytes": 4019
+      "bytes": 4018
     },
     {
       "path": "MESIE_Scenario_Simulation_Report.json",
-      "bytes": 27843
+      "bytes": 27842
     },
     {
       "path": "NeuroSwarmAI_Drone_Swarm_Report.json",
-      "bytes": 49869
+      "bytes": 49891
     },
     {
       "path": "mission_worlds/theater_alpha_week_001_week_report.json",
-      "bytes": 39262
+      "bytes": 39260
     },
     {
       "path": "MESIE_Appliance_Manifest.json",
@@ -47,7 +48,38 @@
       "bytes": 1774
     }
   ],
-  "harness_results": [],
+  "harness_results": [
+    {
+      "harness": "readiness_gate",
+      "ok": true,
+      "elapsed_s": 1.03
+    },
+    {
+      "harness": "production_tiers",
+      "ok": true,
+      "elapsed_s": 44.41
+    },
+    {
+      "harness": "mission_world",
+      "ok": true,
+      "elapsed_s": 218.12
+    },
+    {
+      "harness": "scenario_sim",
+      "ok": true,
+      "elapsed_s": 27.83
+    },
+    {
+      "harness": "drone_swarm",
+      "ok": true,
+      "elapsed_s": 15.0
+    },
+    {
+      "harness": "audit",
+      "ok": true,
+      "elapsed_s": 96.89
+    }
+  ],
   "claims": [
     {
       "claim": "Sub-12ms threat-fast spectral decisions",
@@ -111,5 +143,5 @@
     "P1_30d": "Multi-host mesh + PX4 SITL",
     "P2_90d": "RF range partner + independent audit + pen test"
   },
-  "generated_at": "2026-06-08T05:18:32Z"
+  "generated_at": "2026-06-08T06:13:34Z"
 }

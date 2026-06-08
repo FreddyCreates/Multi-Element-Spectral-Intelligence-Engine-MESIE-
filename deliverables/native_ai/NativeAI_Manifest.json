@@ -1,0 +1,14 @@
+{
+  "brand": "SOLUS",
+  "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+  "sovereign": true,
+  "third_party": false,
+  "latest_run": "sdk_deliverable_demo",
+  "vault_size": 23,
+  "compound_work_units": 57.1345,
+  "files": {
+    "json": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\NativeAI_sdk_deliverable_demo.json",
+    "markdown": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\NativeAI_sdk_deliverable_demo.md",
+    "stream": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\NativeAI_sdk_deliverable_demo_stream.jsonl"
+  }
+}

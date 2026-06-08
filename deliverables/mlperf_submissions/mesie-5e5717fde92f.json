@@ -1,0 +1,120 @@
+{
+  "submission_id": "mesie-5e5717fde92f",
+  "suite": "MESIE-Spectral-Inference",
+  "suite_version": "1.0.0",
+  "submitter": "NeuroSwarmAI / MESIE SDK",
+  "submission_date": "2026-06-08",
+  "system_name": "Windows-10-10.0.26200-SP0",
+  "system_details": {
+    "processor": "ARMv8 (64-bit) Family 8 Model 1 Revision 201, Qualcomm Technologies Inc",
+    "python": "3.11.6",
+    "mesie_version": "0.3.2",
+    "sdk_version": "1.3.0"
+  },
+  "valid": true,
+  "notes": "Spectral inference workload \u2014 not MLPerf vision benchmark. Format aligned with MLPerf Inference latency/throughput reporting.",
+  "results": [
+    {
+      "benchmark": "spectral_match_single",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.1382,
+        "p50": 0.121,
+        "p90": 0.15657991170883184,
+        "p99": 0.3892,
+        "min": 0.1175,
+        "max": 0.5687
+      },
+      "throughput": {
+        "qps": 7235.89
+      },
+      "samples": 300
+    },
+    {
+      "benchmark": "spectral_ann_query",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.0775,
+        "p50": 0.0737,
+        "p90": 0.07790999952703714,
+        "p99": 0.1694,
+        "min": 0.0727,
+        "max": 0.3575
+      },
+      "throughput": {
+        "qps": 12903.23
+      },
+      "samples": 300
+    },
+    {
+      "benchmark": "spectral_threat_fast_path",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 1.1439,
+        "p50": 0.8832,
+        "p90": 1.4949,
+        "p99": 7.236,
+        "min": 0.4297,
+        "max": 44.758
+      },
+      "throughput": {
+        "qps": 1132.25
+      },
+      "samples": 500
+    },
+    {
+      "benchmark": "spectral_enterprise_fast",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 1.0584,
+        "p50": 0.7255,
+        "p90": 1.0366399772465227,
+        "p99": 14.0873,
+        "min": 0.6962,
+        "max": 21.1538
+      },
+      "throughput": {
+        "qps": 944.82
+      },
+      "samples": 200
+    },
+    {
+      "benchmark": "swarm_cluster_10k_ms_per_agent",
+      "scenario": "MultiStream",
+      "units": "ms_per_agent",
+      "latency": {
+        "mean": 0.062182,
+        "p50": 0.2955,
+        "coordination_ms": 621.8158
+      },
+      "throughput": {
+        "agents_per_sec": 16082.0
+      },
+      "samples": 1,
+      "doctrine": "cluster_star_optimized_decentralized_swarm"
+    },
+    {
+      "benchmark": "rf_adapter_ingest_sim",
+      "scenario": "SingleStream",
+      "units": "ms",
+      "latency": {
+        "mean": 0.6623,
+        "p50": 0.3938,
+        "p90": 0.5939299706369638,
+        "p99": 6.5175,
+        "min": 0.3748,
+        "max": 12.0506
+      },
+      "throughput": {
+        "qps": 1509.89
+      },
+      "samples": 50
+    }
+  ],
+  "sut": "MESIE FastSpectralCompute + ThreatFast + EnterpriseFast",
+  "division": "edge_open_spectral"
+}

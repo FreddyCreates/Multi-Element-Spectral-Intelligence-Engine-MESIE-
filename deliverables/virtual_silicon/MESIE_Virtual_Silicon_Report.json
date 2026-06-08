@@ -1,0 +1,22 @@
+{
+  "chip": "MESIE-VS1",
+  "certified": true,
+  "rf_hil_certified": true,
+  "ota_mesh_ok": true,
+  "ota_frames_received": 48,
+  "threat_fast_p50_ms": 0.4676,
+  "cert_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\MESIE_Virtual_Silicon_Certification.json",
+  "narrative_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\MESIE_Virtual_Silicon_Narrative.md",
+  "mlperf_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-ed2ef171455a.json",
+  "gaps_resolved": [
+    "RF path: virtual silicon SDR HIL (NSRF binary) certified without physical fab",
+    "Multi-machine mesh: OTA multicast swarm radio (NSOT) with Hz-ladder propagation",
+    "MLPerf: community formal pack with compliance manifest (see mlperf_submit)"
+  ],
+  "gaps_remaining": [
+    "Physical SDR silicon certification (RTL/fab) \u2014 virtual only",
+    "Official MLPerf leaderboard board review \u2014 community pack ready",
+    "Live satellite modem hardware \u2014 virtual orbital tier models only"
+  ],
+  "elapsed_s": 5.64
+}

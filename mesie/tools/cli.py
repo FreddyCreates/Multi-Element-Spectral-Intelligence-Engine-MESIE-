@@ -67,8 +67,13 @@ def cmd_catalog(args: argparse.Namespace) -> int:
                 "triggers": t.triggers,
             }
         )
+    import mesie
+    from mesie.sdk import __sdk_version__
+
     payload = {
         "suite": "MESIE / MAESI / NeuroAIX",
+        "mesie_version": mesie.__version__,
+        "sdk_version": __sdk_version__,
         "tool_count": len(TOOLS),
         "skill_count": len(by_skill) + 1,
         "categories": SKILL_CATEGORIES,

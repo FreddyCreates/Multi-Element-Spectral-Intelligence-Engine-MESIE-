@@ -93,13 +93,14 @@ def _hub_skill(by_skill: Dict[str, List[NativeTool]]) -> Path:
         lines.append(f"| `/{skill}` | {ids} |")
     lines.extend([
         "",
-        "## Quick enterprise stack",
+        "## Quick enterprise AI stack",
         "",
-        "1. `/mesie-embed-library` — index corpus",
-        "2. `/mesie-fingerprint` — TF + LSH + ANN",
-        "3. `/mesie-octopus` — eight-arm workflow",
-        "4. `/mesie-maesi` — knowledge + fast compute",
-        "5. `/mesie-enterprise` — Monte Carlo 10 use cases",
+        "1. `/mesie-native-ai` — stream + generate deliverables inside SDK",
+        "2. `/mesie-enterprise-ai` — sovereign copilot + agent memory + SOLUS MEMORY arm",
+        "3. `/mesie-embed-library` — index corpus for RAG",
+        "4. `/mesie-octopus` — eight-arm workflow (EMBED/MATCH/MEMORY)",
+        "5. `/mesie-solus-organism` — four formal models (Logic/Reasoning/Emergence/Adaptation)",
+        "6. `/mesie-enterprise` — Monte Carlo SLA (incl. AI agent spectral memory)",
         "",
         "Regenerate skills: `python -m mesie.tools.cli skills`",
     ])

@@ -1,7 +1,7 @@
 ---
 name: mesie-logic-prover
 description: >
-  Your local math proof caretaker — mini heart + mini brain, zero 3rd party. Triggers: logic prover, proof, solus math, theorem. Use for /mesie-logic-prover or MESIE/MAESI/NeuroAIX tasks.
+  SOLUS Logic formal model — proof layer in Logic ⊗ Reasoning ⊗ Emergence ⊗ Adaptation. Triggers: logic prover, proof, solus math, theorem. Use for /mesie-logic-prover or MESIE/MAESI/NeuroAIX tasks.
 ---
 
 # mesie-logic-prover
@@ -10,7 +10,7 @@ Native MESIE / MAESI / NeuroAIX skill — **SOLUS Local Math AI Caretakers**.
 
 ## When to use
 
-- Your local math proof caretaker — mini heart + mini brain, zero 3rd party.
+- SOLUS Logic formal model — proof layer in Logic ⊗ Reasoning ⊗ Emergence ⊗ Adaptation.
 
 ## Tools in this skill
 

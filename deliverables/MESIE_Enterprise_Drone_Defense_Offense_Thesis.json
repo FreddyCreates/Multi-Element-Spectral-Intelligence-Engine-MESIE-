@@ -1,0 +1,148 @@
+{
+  "thesis": "Enterprise Spectral Intelligence for Drone Defense and Offense",
+  "sdk_version": "1.3.0",
+  "mesie_version": "0.3.2",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "corpus_size": 12,
+  "generated_at": "2026-06-08T01:48:45Z",
+  "defense": {
+    "domain": "defense",
+    "passed": 5,
+    "total": 5,
+    "tests": [
+      {
+        "name": "routing_nervous_system",
+        "ok": true,
+        "detail": {
+          "routes": [
+            {
+              "route": "ground-schumann\u2192world-computer-root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "ground\u2192world",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "orbital-leo-edge-000\u2192orbital-geo-backbone-000",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "leo0\u2192geo",
+              "policy": "orbital_preferred",
+              "ok": true,
+              "hops": 3,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            },
+            {
+              "route": "schumann\u2192root",
+              "policy": "shortest",
+              "ok": true,
+              "hops": 4,
+              "latency_ms": 0.0,
+              "access_mode": "frequency_field"
+            }
+          ],
+          "presets_ok": true,
+          "router_health": true,
+          "alias_route_ok": true,
+          "sovereign_airgapped": true,
+          "all_routes_ok": true
+        }
+      },
+      {
+        "name": "ew_contested_defense_mission",
+        "ok": true,
+        "tasks": 3,
+        "formation": "v_shape",
+        "jam_failover": null,
+        "coordination_ms": 1066.3924
+      },
+      {
+        "name": "defense_10k_jam_attrition",
+        "ok": true,
+        "ms_per_agent": 0.052848,
+        "e2e_p50_ms": 0.3352,
+        "consensus": "engage"
+      },
+      {
+        "name": "threat_fast_sub_ms",
+        "ok": true,
+        "p50_ms": 0.8509,
+        "p99_ms": 10.3371
+      },
+      {
+        "name": "enterprise_fast_defense_cycle",
+        "ok": true,
+        "latency_ms": 1.886,
+        "threat": false,
+        "match_score": 0.46
+      }
+    ]
+  },
+  "offense": {
+    "domain": "offense",
+    "passed": 5,
+    "total": 5,
+    "tests": [
+      {
+        "name": "strike_cross_domain_offense",
+        "ok": true,
+        "route_policy": "orbital_preferred",
+        "formation": "v_shape",
+        "platform_commands": 10,
+        "tasks_allocated": 3
+      },
+      {
+        "name": "offense_pso_intercept_allocation",
+        "ok": true,
+        "coverage": 1.0,
+        "total_cost": 319.801
+      },
+      {
+        "name": "offense_formation_v_reform",
+        "ok": true,
+        "formation": "v_shape",
+        "min_separation_m": 10.0
+      },
+      {
+        "name": "offense_5k_strike_coordination",
+        "ok": true,
+        "ms_per_agent": 0.072118,
+        "doctrine": "cluster_star_optimized_decentralized_swarm"
+      },
+      {
+        "name": "hive_offense_consensus",
+        "ok": true,
+        "confidence": null
+      }
+    ]
+  },
+  "enterprise": {
+    "copilot_tools": 29,
+    "sovereign": true,
+    "defense_sla_ok": false,
+    "offense_sla_ok": false,
+    "defense_latency_ms": 1342.3,
+    "offense_latency_ms": 1332.28,
+    "vault_tokens": 0,
+    "virtual_silicon_certified": true,
+    "ota_mesh_ok": true,
+    "rf_hil_certified": true
+  },
+  "thesis_pass": true,
+  "elapsed_s": 10.14
+}

@@ -1,0 +1,49 @@
+{
+  "product": "MESIE Sovereign Spectral Appliance",
+  "company": "NeuroSwarmAI",
+  "appliance_version": "1.1.0",
+  "sdk_version": "1.4.0",
+  "mesie_version": "0.3.3",
+  "tier": "tier1",
+  "airgapped": true,
+  "sla": {
+    "threat_fast_ms": 12.0,
+    "enterprise_fast_ms": 500.0,
+    "measured_threat_p50": 0.8774,
+    "measured_enterprise_p50": 1.2097
+  },
+  "benchmarks": {
+    "major_win_rate": 100.0,
+    "major_wins": 14,
+    "major_losses": 0,
+    "major_verdict": "strong_for_edge_spectral_swarms",
+    "major_benchmarks_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MAESI_SDK_Major_Benchmarks.json",
+    "swarm_10k_ms_per_agent": 0.090127,
+    "mlperf_submission_id": "mesie-dbab01cad699"
+  },
+  "modules": [
+    "enterprise_copilot",
+    "sovereign_vault",
+    "field_access",
+    "swarm_sdk",
+    "virtual_silicon",
+    "rf_adapter",
+    "ota_mesh",
+    "cluster_optimizer",
+    "mlperf_pack"
+  ],
+  "deployment": {
+    "mode": "on_prem_airgapped",
+    "network": "none_required",
+    "ingest": [
+      "csv",
+      "udp",
+      "rf_sim",
+      "rf_udp",
+      "virtual_silicon_hil",
+      "ota_multicast"
+    ],
+    "platform": "Windows-10-10.0.26200-SP0"
+  },
+  "generated_at": "2026-06-08T06:07:18Z"
+}

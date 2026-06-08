@@ -1,0 +1,105 @@
+{
+  "sdk_version": "1.4.0",
+  "tier1": {
+    "tier": "tier1",
+    "health_ok": true,
+    "manifest": {
+      "product": "MESIE Sovereign Spectral Appliance",
+      "company": "NeuroSwarmAI",
+      "appliance_version": "1.1.0",
+      "sdk_version": "1.4.0",
+      "mesie_version": "0.3.3",
+      "tier": "tier1",
+      "airgapped": true,
+      "sla": {
+        "threat_fast_ms": 12.0,
+        "enterprise_fast_ms": 500.0,
+        "measured_threat_p50": 0.8774,
+        "measured_enterprise_p50": 1.2097
+      },
+      "benchmarks": {
+        "major_win_rate": 100.0,
+        "major_wins": 14,
+        "major_losses": 0,
+        "major_verdict": "strong_for_edge_spectral_swarms",
+        "major_benchmarks_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MAESI_SDK_Major_Benchmarks.json",
+        "swarm_10k_ms_per_agent": 0.090127,
+        "mlperf_submission_id": "mesie-a6cf21586864"
+      },
+      "modules": [
+        "enterprise_copilot",
+        "sovereign_vault",
+        "field_access",
+        "swarm_sdk",
+        "virtual_silicon",
+        "rf_adapter",
+        "ota_mesh",
+        "cluster_optimizer",
+        "mlperf_pack"
+      ],
+      "deployment": {
+        "mode": "on_prem_airgapped",
+        "network": "none_required",
+        "ingest": [
+          "csv",
+          "udp",
+          "rf_sim",
+          "rf_udp",
+          "virtual_silicon_hil",
+          "ota_multicast"
+        ],
+        "platform": "Windows-10-10.0.26200-SP0"
+      },
+      "generated_at": "2026-06-08T06:07:07Z"
+    },
+    "ready_to_ship": true,
+    "manifest_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Appliance_Manifest.json",
+    "narrative_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Appliance_Narrative.md",
+    "sla": {
+      "threat_fast_ms": 12.0,
+      "enterprise_fast_ms": 500.0,
+      "measured_threat_p50": 0.8774,
+      "measured_enterprise_p50": 1.2097
+    },
+    "benchmarks": {
+      "major_win_rate": 100.0,
+      "major_wins": 14,
+      "major_losses": 0,
+      "major_verdict": "strong_for_edge_spectral_swarms",
+      "major_benchmarks_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MAESI_SDK_Major_Benchmarks.json",
+      "swarm_10k_ms_per_agent": 0.090127,
+      "mlperf_submission_id": "mesie-a6cf21586864"
+    }
+  },
+  "tier2": {
+    "tier": "tier2",
+    "virtual_silicon_certified": true,
+    "virtual_silicon_cert_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\MESIE_Virtual_Silicon_Certification.json",
+    "cluster_optimized_ms_per_agent": 0.09701,
+    "cluster_optimized_win": true,
+    "cluster_e2e_p50": 0.5959,
+    "rf_adapter_ok": true,
+    "rf_silicon_certified": true,
+    "rf_field_coherence": 0.5718,
+    "rf_hil_path": "virtual_sdr_adc \u2192 nsrf_binary \u2192 field_bridge",
+    "ota_mesh_ok": true,
+    "ota_frames_received": 48,
+    "ota_over_the_air": true,
+    "mlperf_submission": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-456a8ee879fd.json",
+    "mlperf_credibility_tier": "community_formal_pack",
+    "mlperf_compliance": true,
+    "gaps_resolved": [
+      "RF path: virtual silicon SDR HIL (NSRF binary) certified without physical fab",
+      "Multi-machine mesh: OTA multicast swarm radio (NSOT) with Hz-ladder propagation",
+      "MLPerf: community formal pack with compliance manifest (see mlperf_submit)"
+    ],
+    "gaps_remaining": [
+      "Physical SDR silicon certification (RTL/fab) \u2014 virtual only",
+      "Official MLPerf leaderboard board review \u2014 community pack ready",
+      "Live satellite modem hardware \u2014 virtual orbital tier models only"
+    ],
+    "ready": true
+  },
+  "elapsed_s": 43.05,
+  "production_ready": true
+}

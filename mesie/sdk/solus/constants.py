@@ -5,3 +5,5 @@ GOLDEN_ANGLE = 137.508
 HEARTBEAT_MS = 873
 SOLUS_BRAND = "SOLUS"
 LOCAL_ENGINE = "solus-local"
+FORMAL_COMPOSITION = "Logic ⊗ Reasoning ⊗ Emergence ⊗ Adaptation"
+OWN_MODELS_ONLY = True

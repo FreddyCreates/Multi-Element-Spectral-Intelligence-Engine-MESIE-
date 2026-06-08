@@ -1,0 +1,15 @@
+"""Canonical release identifiers — single source for version bumps."""
+
+MESIE_VERSION = "0.3.3"
+MAESI_SDK_VERSION = "1.4.0"
+
+# Subsystem releases bundled with MESIE 0.3.3 / MAESI SDK 1.4.0
+APPLIANCE_VERSION = "1.1.0"
+VIRTUAL_CHIP_VERSION = "1.1.0"
+SWARM_VERSION = "1.1.0"
+NEUROSWARM_AUDIT_VERSION = "1.1.0"
+MLPERF_SUITE_VERSION = "1.2.0"
+SCENARIO_SUITE_VERSION = "1.1.0"
+MISSION_WORLD_VERSION = "1.1.0"
+READINESS_VERSION = "1.1.0"
+PROOF_SUBSTRATE_VERSION = "1.0.0"

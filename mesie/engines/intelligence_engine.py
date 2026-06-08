@@ -14,12 +14,17 @@ from mesie.io.loaders import load_record
 
 class IntelligenceEngine(Engine):
     name = "intelligence"
-    capabilities = ["reason", "memory", "observe"]
+    capabilities = ["reason", "memory", "observe", "agent_session", "spectral_cycle"]
 
-    def __init__(self) -> None:
+    def __init__(self, *, use_solus: bool = True) -> None:
         self._protocol = IntelligenceProtocol(IntelligenceConfig())
         self._memory = SpectralMemoryAdapter()
         self._vectorizer = SpectralVectorizer()
+        self._organism = None
+        if use_solus:
+            from mesie.sdk.solus import SDKSolusOrganism
+
+            self._organism = SDKSolusOrganism()
 
     def handle(self, message: MessageEnvelope) -> Optional[EngineResponse]:
         if message.target not in (self.name, "*"):
@@ -29,6 +34,20 @@ class IntelligenceEngine(Engine):
             return EngineResponse(False, self.name, action, error=f"Unknown action: {action}")
 
         try:
+            if action == "spectral_cycle":
+                if not self._organism:
+                    return EngineResponse(False, self.name, action, error="SOLUS organism not enabled")
+                rec = load_record(message.payload["record"])
+                comp = rec.components[0]
+                ctx = message.payload.get("cycle_context", {})
+                ctx.setdefault("record_id", rec.record_id)
+                result = self._organism.reason_spectral_cycle(
+                    comp.frequency.tolist(),
+                    comp.amplitude.tolist(),
+                    cycle_context=ctx,
+                )
+                return EngineResponse(True, self.name, action, result)
+
             rec = load_record(message.payload["record"])
             amp = rec.components[0].amplitude
 
@@ -39,25 +58,46 @@ class IntelligenceEngine(Engine):
             if action == "reason":
                 emb = self._vectorizer.transform(rec)
                 result = self._protocol.reason(emb)
-                return EngineResponse(
-                    True,
-                    self.name,
-                    action,
-                    {
-                        "conclusion": result.conclusion,
-                        "confidence": result.confidence,
-                        "evidence": getattr(result, "evidence", {}),
-                    },
-                )
+                data: dict = {
+                    "conclusion": result.conclusion,
+                    "confidence": result.confidence,
+                    "evidence": getattr(result, "evidence", {}),
+                }
+                if self._organism:
+                    comp = rec.components[0]
+                    ctx = message.payload.get("cycle_context", {"record_id": rec.record_id})
+                    solus = self._organism.reason_spectral_cycle(
+                        comp.frequency.tolist(),
+                        comp.amplitude.tolist(),
+                        cycle_context=ctx,
+                    )
+                    data["solus"] = solus
+                    data["conclusion"] = solus.get("conclusion", data["conclusion"])
+                    data["sovereign"] = True
+                    data["enterprise_ai"] = True
+                return EngineResponse(True, self.name, action, data)
 
             if action == "memory":
                 obj = self._memory.to_memory_object(rec)
-                return EngineResponse(
-                    True,
-                    self.name,
-                    action,
-                    {"keys": list(obj.keys()), "semantic_id": obj.get("semantic_id")},
-                )
+                data = {"keys": list(obj.keys()), "semantic_id": obj.get("semantic_id")}
+                if self._organism:
+                    comp = rec.components[0]
+                    ctx = message.payload.get("cycle_context", {"record_id": rec.record_id})
+                    solus = self._organism.reason_spectral_cycle(
+                        comp.frequency.tolist(),
+                        comp.amplitude.tolist(),
+                        cycle_context=ctx,
+                    )
+                    data["solus_memory"] = solus
+                    data["sovereign"] = True
+                    data["enterprise_ai"] = True
+                return EngineResponse(True, self.name, action, data)
+
+            if action == "agent_session":
+                if not self._organism:
+                    return EngineResponse(False, self.name, action, error="SOLUS organism not enabled")
+                tended = self._organism.tend_agent_session(message.payload.get("session", {}))
+                return EngineResponse(True, self.name, action, tended)
         except (KeyError, TypeError, ValueError, IndexError) as exc:
             return EngineResponse(False, self.name, action, error=str(exc))
 

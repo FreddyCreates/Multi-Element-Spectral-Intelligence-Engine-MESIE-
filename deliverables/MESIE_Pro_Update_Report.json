@@ -1,0 +1,338 @@
+{
+  "version": "pro-1.0.0",
+  "company": "NeuroSwarmAI",
+  "references": 9,
+  "corpus_size": 12,
+  "copilot_tools": 22,
+  "checks": [
+    {
+      "name": "Domain corpus",
+      "ok": true,
+      "detail": "12 records, 8 domains"
+    },
+    {
+      "name": "CSV field ingest",
+      "ok": true,
+      "detail": "64 points"
+    },
+    {
+      "name": "UDP frame parse",
+      "ok": true,
+      "detail": "json 64 pts"
+    },
+    {
+      "name": "Anchor calibration",
+      "ok": true,
+      "detail": "2 anchors, drift=72.7596%"
+    },
+    {
+      "name": "Mesh export",
+      "ok": true,
+      "detail": "peer=fd88b189feb6"
+    },
+    {
+      "name": "Copilot tools",
+      "ok": true,
+      "detail": "22 tools"
+    },
+    {
+      "name": "Fast enterprise cycle",
+      "ok": true,
+      "detail": "1.0172ms"
+    },
+    {
+      "name": "Hive mind 1K",
+      "ok": true,
+      "detail": "0.442822 ms/agent"
+    },
+    {
+      "name": "External benchmark",
+      "ok": true,
+      "detail": "mesie_competitive"
+    }
+  ],
+  "passed": 9,
+  "total": 9,
+  "positioning": {
+    "reasoning_breadth": {
+      "general_llm": "open-domain chat, massive training corpus",
+      "mesie_solus": "spectral + formal SOLUS \u2014 specialized general within signal domains"
+    },
+    "tool_ecosystem": {
+      "general_llm": "massive plugin marketplace",
+      "mesie": "growing sovereign copilot tools + native CLI (20+ post-pro-update)"
+    },
+    "latency_posture": {
+      "threat_fast_p50_ms": 0.4347,
+      "enterprise_fast_p50_ms": 0.5222,
+      "enterprise_fast_sub_ms": true,
+      "threat_fast_sub_ms": true
+    }
+  },
+  "gaps_named": [
+    "Live RF/Schumann hardware ingest (CSV/UDP adapters shipped; coil/modem pending)",
+    "Distributed P2P mesh between machines (LAN file-drop shipped; live sync pending)",
+    "General open-domain language AI (SOLUS spectral+formal only)",
+    "Production PyPI/Cloudflare hardened deploy",
+    "Silicon hardware certification",
+    "Independent third-party leaderboard submission"
+  ],
+  "tier1_ready": [
+    "Airgapped enterprise spectral copilot appliance",
+    "Field Access API: bridge_to_field + route_field + CSV/UDP ingest"
+  ],
+  "tier2_ready": [
+    "Anchor calibration against Schumann/geomag libraries",
+    "Sovereign mesh LAN peer export",
+    "Hive mind 10K swarm coordination",
+    "External benchmark pack for customer SLA trust"
+  ],
+  "external": {
+    "version": "1.0.0",
+    "hardware": {
+      "platform": "Windows-10-10.0.26200-SP0",
+      "processor": "ARMv8 (64-bit) Family 8 Model 1 Revision 201, Qualcomm Technologies Inc"
+    },
+    "comparisons": [
+      {
+        "system": "naive_python_vector_rag",
+        "metric": "retrieval_p50",
+        "value_ms": 0.042,
+        "mesie_value_ms": 0.1157,
+        "mesie_wins": false,
+        "notes": "Loop cosine over corpus vs FastSpectralCompute ANN"
+      },
+      {
+        "system": "typical_mqtt_broker_rtt",
+        "metric": "round_trip_p50",
+        "value_ms": 25.0,
+        "mesie_value_ms": 0.4347,
+        "mesie_wins": true,
+        "notes": "Industry MQTT RTT ~10-50ms (documented); MESIE threat-fast local"
+      },
+      {
+        "system": "cloud_llm_tool_call",
+        "metric": "agent_step_p50",
+        "value_ms": 800.0,
+        "mesie_value_ms": 0.5222,
+        "mesie_wins": true,
+        "notes": "Cloud LLM+tool round-trip ~500-2000ms; MESIE fast enterprise"
+      },
+      {
+        "system": "full_octopus_enterprise",
+        "metric": "cycle_p50",
+        "value_ms": 637.0,
+        "mesie_value_ms": 0.5222,
+        "mesie_wins": true,
+        "notes": "Prior measured full Octopus vs new fast enterprise path"
+      },
+      {
+        "system": "centralized_swarm_coordinator",
+        "metric": "10k_agents_ms_per_agent",
+        "value_ms": 0.5,
+        "mesie_value_ms": 0.407615,
+        "mesie_wins": true,
+        "notes": "Hive mind hierarchical routing vs naive centralized polling"
+      }
+    ],
+    "positioning": {
+      "reasoning_breadth": {
+        "general_llm": "open-domain chat, massive training corpus",
+        "mesie_solus": "spectral + formal SOLUS \u2014 specialized general within signal domains"
+      },
+      "tool_ecosystem": {
+        "general_llm": "massive plugin marketplace",
+        "mesie": "growing sovereign copilot tools + native CLI (20+ post-pro-update)"
+      },
+      "latency_posture": {
+        "threat_fast_p50_ms": 0.4347,
+        "enterprise_fast_p50_ms": 0.5222,
+        "enterprise_fast_sub_ms": true,
+        "threat_fast_sub_ms": true
+      }
+    },
+    "gaps_named": [
+      "Live RF/Schumann hardware ingest (CSV/UDP adapters shipped; coil/modem pending)",
+      "Distributed P2P mesh between machines (LAN file-drop shipped; live sync pending)",
+      "General open-domain language AI (SOLUS spectral+formal only)",
+      "Production PyPI/Cloudflare hardened deploy",
+      "Silicon hardware certification",
+      "Independent third-party leaderboard submission"
+    ],
+    "tier1_ready": [
+      "Airgapped enterprise spectral copilot appliance",
+      "Field Access API: bridge_to_field + route_field + CSV/UDP ingest"
+    ],
+    "tier2_ready": [
+      "Anchor calibration against Schumann/geomag libraries",
+      "Sovereign mesh LAN peer export",
+      "Hive mind 10K swarm coordination",
+      "External benchmark pack for customer SLA trust"
+    ],
+    "latency": {
+      "threat_fast": {
+        "n_trials": 100,
+        "mean_ms": 0.4798,
+        "p50_ms": 0.4347,
+        "p95_ms": 0.7406,
+        "p99_ms": 1.1686,
+        "min_ms": 0.4228,
+        "max_ms": 1.3296
+      },
+      "enterprise_fast": {
+        "n_trials": 100,
+        "mean_ms": 0.6357,
+        "p50_ms": 0.5222,
+        "p95_ms": 1.2615,
+        "p99_ms": 2.0631,
+        "min_ms": 0.5103,
+        "max_ms": 2.7199
+      },
+      "hive_1k": {
+        "n_agents": 1000,
+        "consensus_match_id": "ref-bio-eeg-001",
+        "consensus_score": 1.0,
+        "threat_consensus": true,
+        "coordination_ms": 441.4981,
+        "ms_per_agent": 0.441498,
+        "votes": [
+          {
+            "agent_id": "agent_00000",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00001",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00002",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00003",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00004",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00005",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00006",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00007",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00008",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          },
+          {
+            "agent_id": "agent_00009",
+            "top_match_id": "ref-bio-eeg-001",
+            "score": 1.0,
+            "threat": true,
+            "route_ok": true
+          }
+        ],
+        "ok": true
+      },
+      "hive_10k": {
+        "ms_per_agent": 0.407615,
+        "coordination_ms": 4076.1505
+      },
+      "mesie_match_p50": 0.1596,
+      "mesie_ann_p50": 0.1157
+    },
+    "overall": "mesie_competitive"
+  },
+  "calibration": {
+    "calibrated": 2,
+    "mean_drift_pct": 72.7596,
+    "mean_coherence_gain": 0.0,
+    "anchors": [
+      {
+        "anchor_id": "schumann_1",
+        "nominal_hz": 7.83,
+        "measured_peak_hz": 7.83,
+        "drift_hz": 0.0,
+        "drift_pct": 0.0,
+        "coherence_before": 0.6327,
+        "coherence_after": 0.6327
+      },
+      {
+        "anchor_id": "geo_seismic_breathing_0S0",
+        "nominal_hz": 0.0008146,
+        "measured_peak_hz": 0.002,
+        "drift_hz": 0.001185,
+        "drift_pct": 145.5193,
+        "coherence_before": 0.7282,
+        "coherence_after": 0.7282
+      }
+    ],
+    "reference_sources": [
+      "cal-schumann_resonances-schumann_resonances",
+      "cal-geomagnetic_pulsations-pulsation_bands"
+    ],
+    "ok": true
+  },
+  "mesh_bundle_hash": "45f97ba63d7124328ad57507",
+  "fast_enterprise": {
+    "latency_ms": 0.976,
+    "neighbors": [
+      {
+        "id": "ref-earthquake-psd-001",
+        "score": 1.0
+      },
+      {
+        "id": "ref-rotdnn-001",
+        "score": 0.9866
+      },
+      {
+        "id": "ref-geomag-001",
+        "score": 0.8946
+      }
+    ],
+    "match_score": 0.6358,
+    "field_coherence": 0.5994,
+    "memory_hits": 3,
+    "threat": true,
+    "sla_fast_ms": 5.0,
+    "sla_ok": true,
+    "path": "enterprise_fast"
+  },
+  "elapsed_s": 5.44,
+  "overall": "pro_update_ready"
+}

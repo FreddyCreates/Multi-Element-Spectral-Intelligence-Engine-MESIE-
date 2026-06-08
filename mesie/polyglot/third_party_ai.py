@@ -69,7 +69,49 @@ class ThirdPartyAIConnector:
             )
             return self._dispatch(msg).to_dict()
 
+        def _agent_recall(args: dict) -> dict:
+            from mesie.enterprise import EnterpriseAICopilot
+
+            copilot = EnterpriseAICopilot(session_id=args.get("session_id", "third-party"))
+            return copilot.memory.recall(
+                args.get("record"),
+                top_k=int(args.get("top_k", 5)),
+                session_id=args.get("session_id"),
+            )
+
+        def _solus_reason(args: dict) -> dict:
+            from mesie.enterprise import EnterpriseAICopilot
+
+            return EnterpriseAICopilot().solus_reason(args.get("record"), theorem=args.get("theorem"))
+
         return [
+            ThirdPartyTool(
+                "mesie_agent_memory_recall",
+                "Recall enterprise agent spectral memory (corpus + session). Sovereign local.",
+                {
+                    "type": "object",
+                    "properties": {
+                        "record": {"type": "object"},
+                        "session_id": {"type": "string"},
+                        "top_k": {"type": "integer"},
+                    },
+                    "required": ["record"],
+                },
+                _agent_recall,
+            ),
+            ThirdPartyTool(
+                "mesie_solus_reason",
+                "SOLUS local reasoning on a spectrum — Logic Prover + Pattern Forge.",
+                {
+                    "type": "object",
+                    "properties": {
+                        "record": {"type": "object"},
+                        "theorem": {"type": "string"},
+                    },
+                    "required": ["record"],
+                },
+                _solus_reason,
+            ),
             ThirdPartyTool(
                 "mesie_validate_spectrum",
                 "Validate a spectral JSON record against MESIE schema.",
