@@ -22,6 +22,7 @@ from mesie.robotics.neuromorphic_runtime import (
     SpikeEvent,
     RuntimeMetrics,
 )
+from mesie.robotics.zenodo_dataset import build_mersd, MERSDManifest, MERSD_VERSION
 
 __all__ = [
     "MultiModalFusion",
@@ -36,4 +37,7 @@ __all__ = [
     "RuntimeConfig",
     "SpikeEvent",
     "RuntimeMetrics",
+    "build_mersd",
+    "MERSDManifest",
+    "MERSD_VERSION",
 ]

@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "title": "MESIE Edge Robotics Spectral Dataset (MERSD v1.0)",
+  "description": "Open spectral robotics corpus for edge UAV swarms under EW contest and industrial ground-robot condition monitoring. Each episode includes MESIE spectral JSON records, 256-d multi-modal fusion embeddings, neuromorphic spike features, and swarm/fault/jam labels. Fills gap vs vision-only robotics datasets on Zenodo.",
+  "episode_count": 48,
+  "record_count": 64,
+  "robot_classes": [
+    "aerial_swarm",
+    "mobile_manipulator"
+  ],
+  "splits": {
+    "train": 33,
+    "val": 7,
+    "test": 8
+  },
+  "keywords": [
+    "robotics",
+    "UAV",
+    "drone swarm",
+    "spectral intelligence",
+    "edge robotics",
+    "electronic warfare",
+    "predictive maintenance",
+    "condition monitoring",
+    "multi-modal fusion",
+    "neuromorphic",
+    "open data",
+    "economic impact"
+  ],
+  "license": "Apache-2.0",
+  "generated_at": "2026-06-08T23:07:20Z",
+  "mesie_version": "0.3.6",
+  "gaps_filled": [
+    "No open EW-contested UAV swarm spectral episode corpus on Zenodo (vision/IMU dominate)",
+    "Spectral JSON + fusion embedding + neuromorphic labels in one robotics package",
+    "Dual-use: defense edge robotics + industrial economic-impact condition monitoring"
+  ],
+  "zenodo_targets": [
+    "High-download categories: robotics dataset, UAV swarm, condition monitoring",
+    "Keywords: spectral, edge computing, open dataset \u2014 underserved vs RGB-D corpora"
+  ],
+  "zip_archive": "MERSD_v1.0.0.zip"
+}

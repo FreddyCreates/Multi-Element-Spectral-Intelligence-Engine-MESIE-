@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "MESIE Edge Robotics Spectral Dataset (MERSD v1.0)"
+version: 1.0.0
+license: Apache-2.0
+authors:
+  - family-names: Medina
+    given-names: Alfredo
+    affiliation: NeuroSwarmAI
+abstract: >-
+  Open edge robotics spectral dataset: UAV swarm EW episodes and industrial
+  condition monitoring with fusion embeddings and neuromorphic features.
+keywords:
+  - robotics
+  - UAV
+  - spectral intelligence
+  - edge computing
+  - dataset

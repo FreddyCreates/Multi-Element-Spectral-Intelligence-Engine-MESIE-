@@ -1,0 +1,22 @@
+{
+  "fault_classes": [
+    "ew_degraded",
+    "nominal"
+  ],
+  "jam_states": [
+    "clear",
+    "ground_jam",
+    "orbital_preferred"
+  ],
+  "swarm_outcomes": [
+    "mission_ok"
+  ],
+  "robot_classes": [
+    "aerial_swarm",
+    "mobile_manipulator"
+  ],
+  "economic_sectors": [
+    "defense_robotics",
+    "economic_impact"
+  ]
+}
