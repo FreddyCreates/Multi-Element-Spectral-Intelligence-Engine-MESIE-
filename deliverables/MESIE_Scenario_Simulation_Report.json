@@ -1,0 +1,797 @@
+{
+  "suite": "scenario_simulation",
+  "sdk_version": "1.3.0",
+  "mesie_version": "0.3.2",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "elapsed_s": 34.86,
+  "military": {
+    "catalog": {
+      "version": "1.0.0",
+      "domain": "military_drone",
+      "company": "NeuroSwarmAI",
+      "data_provenance": "Bundled ITU/NATO/GPS/Starlink reference libraries + EW/jam spectral captures",
+      "scenarios": [
+        {
+          "id": "mil_ew_contested_jam",
+          "label": "EW contested \u2014 swept interference + ground jam failover",
+          "doctrine": "defense",
+          "preset": "ew",
+          "primary_data": "defense_ew_spectrum_reference",
+          "secondary_data": "rf_jamming_profile_reference",
+          "library_refs": [
+            "defense_rf_bands",
+            "electromagnetic_bands"
+          ],
+          "n_agents": 1000,
+          "jam_ground": true,
+          "attrition_rate": 0.1,
+          "criteria": {
+            "mission_ok": true,
+            "jam_failover_or_orbital": true,
+            "ms_per_agent_max": 0.5,
+            "threat_fast_p50_max_ms": 12.0
+          }
+        },
+        {
+          "id": "mil_gps_spoof_isr",
+          "label": "GPS L-band spoof detection \u2014 ISR spectral sweep",
+          "doctrine": "defense",
+          "preset": "isr",
+          "primary_data": "defense_ew_spectrum_reference",
+          "library_refs": [
+            "satellite_frequencies"
+          ],
+          "library_signal": "GPS.L1",
+          "n_agents": 500,
+          "jam_ground": false,
+          "attrition_rate": 0.05,
+          "criteria": {
+            "mission_ok": true,
+            "spectral_match_min": 0.2,
+            "route_ok": true
+          }
+        },
+        {
+          "id": "mil_ku_strike_intercept",
+          "label": "Ku-band downlink intercept \u2014 cross-domain strike",
+          "doctrine": "offense",
+          "preset": "strike",
+          "primary_data": "defense_ew_spectrum_reference",
+          "library_refs": [
+            "satellite_frequencies",
+            "defense_rf_bands"
+          ],
+          "library_signal": "Starlink.downlink_Ku",
+          "n_agents": 500,
+          "jam_ground": false,
+          "attrition_rate": 0.05,
+          "criteria": {
+            "mission_ok": true,
+            "tasks_allocated_min": 2,
+            "platform_commands_min": 1
+          }
+        },
+        {
+          "id": "mil_schumann_ground_sync",
+          "label": "Schumann ground timing \u2014 eco-Hz swarm sync",
+          "doctrine": "defense",
+          "preset": "swarm_forge",
+          "primary_data": "rf_jamming_profile_reference",
+          "library_refs": [
+            "schumann_resonances"
+          ],
+          "n_agents": 2000,
+          "jam_ground": false,
+          "attrition_rate": 0.08,
+          "criteria": {
+            "coordination_ok": true,
+            "ms_per_agent_max": 0.5,
+            "consensus_required": true
+          }
+        },
+        {
+          "id": "mil_leo_attrition_reform",
+          "label": "LEO cluster attrition \u2014 formation self-heal",
+          "doctrine": "offense",
+          "preset": "strike",
+          "primary_data": "defense_ew_spectrum_reference",
+          "secondary_data": "rf_jamming_profile_reference",
+          "library_refs": [
+            "satellite_frequencies"
+          ],
+          "library_signal": "Starlink",
+          "n_agents": 2000,
+          "jam_ground": true,
+          "attrition_rate": 0.15,
+          "criteria": {
+            "mission_ok": true,
+            "formation_ok": true,
+            "jam_failover_or_orbital": true
+          }
+        },
+        {
+          "id": "mil_orbital_backbone_failover",
+          "label": "Orbital backbone failover \u2014 LEO to GEO under jam",
+          "doctrine": "defense",
+          "preset": "ew",
+          "primary_data": "rf_jamming_profile_reference",
+          "library_refs": [
+            "satellite_frequencies",
+            "defense_rf_bands"
+          ],
+          "n_agents": 10000,
+          "jam_ground": true,
+          "attrition_rate": 0.1,
+          "criteria": {
+            "coordination_ok": true,
+            "ms_per_agent_max": 0.5,
+            "jam_failover_or_orbital": true,
+            "e2e_p50_max_ms": 12.0
+          }
+        }
+      ]
+    },
+    "passed": 6,
+    "total": 6,
+    "runs": [
+      {
+        "scenario_id": "mil_ew_contested_jam",
+        "label": "EW contested \u2014 swept interference + ground jam failover",
+        "domain": "military_drone",
+        "doctrine": "defense",
+        "data_sources": [
+          "reference:defense_ew_spectrum_reference",
+          "reference:rf_jamming_profile_reference",
+          "library:defense_rf_bands (ITU + NATO band conventions (reference framing))",
+          "library:electromagnetic_bands (IEEE Std 521-2019, ITU Radio Regulations)"
+        ],
+        "ok": true,
+        "metrics": {
+          "mission_ok": true,
+          "coord_ok": true,
+          "ms_per_agent": 0.084006,
+          "e2e_p50_ms": 0.3302,
+          "threat_consensus": "engage",
+          "jam_failover_ok": true,
+          "access_orbital": true,
+          "tasks_allocated": 3,
+          "platform_commands": 10,
+          "formation_ok": true,
+          "route_ok": true,
+          "match_score": 0.626591171468368,
+          "threat_fast_p50_ms": 0.5299,
+          "library_signal_hz": null,
+          "spectral_score": 1.0,
+          "coordination_ms": 1731.6262
+        },
+        "criteria_results": {
+          "mission_ok": true,
+          "jam_failover_or_orbital": true,
+          "ms_per_agent_max": true,
+          "threat_fast_p50_max_ms": true
+        },
+        "elapsed_ms": 1984.53,
+        "plain_summary": "EW contested \u2014 swept interference + ground jam failover: mission=True, 0.0840 ms/agent, data=4 sources, pass=True"
+      },
+      {
+        "scenario_id": "mil_gps_spoof_isr",
+        "label": "GPS L-band spoof detection \u2014 ISR spectral sweep",
+        "domain": "military_drone",
+        "doctrine": "defense",
+        "data_sources": [
+          "reference:defense_ew_spectrum_reference",
+          "library:satellite_frequencies (ITU Radio Regulations, FCC filings, ESA frequency coordination)"
+        ],
+        "ok": true,
+        "metrics": {
+          "mission_ok": true,
+          "coord_ok": true,
+          "ms_per_agent": 0.114934,
+          "e2e_p50_ms": 0.628,
+          "threat_consensus": "engage",
+          "jam_failover_ok": true,
+          "access_orbital": true,
+          "tasks_allocated": 3,
+          "platform_commands": 10,
+          "formation_ok": true,
+          "route_ok": true,
+          "match_score": 1.0,
+          "threat_fast_p50_ms": 1.0945,
+          "library_signal_hz": null,
+          "spectral_score": 1.0,
+          "coordination_ms": 4412.3583
+        },
+        "criteria_results": {
+          "mission_ok": true,
+          "spectral_match_min": true,
+          "route_ok": true
+        },
+        "elapsed_ms": 4808.91,
+        "plain_summary": "GPS L-band spoof detection \u2014 ISR spectral sweep: mission=True, 0.1149 ms/agent, data=2 sources, pass=True"
+      },
+      {
+        "scenario_id": "mil_ku_strike_intercept",
+        "label": "Ku-band downlink intercept \u2014 cross-domain strike",
+        "domain": "military_drone",
+        "doctrine": "offense",
+        "data_sources": [
+          "reference:defense_ew_spectrum_reference",
+          "library:satellite_frequencies (ITU Radio Regulations, FCC filings, ESA frequency coordination)",
+          "library:defense_rf_bands (ITU + NATO band conventions (reference framing))"
+        ],
+        "ok": true,
+        "metrics": {
+          "mission_ok": true,
+          "coord_ok": true,
+          "ms_per_agent": 0.101805,
+          "e2e_p50_ms": 0.6833,
+          "threat_consensus": "engage",
+          "jam_failover_ok": true,
+          "access_orbital": true,
+          "tasks_allocated": 3,
+          "platform_commands": 10,
+          "formation_ok": true,
+          "route_ok": true,
+          "match_score": 1.0,
+          "threat_fast_p50_ms": 1.0717,
+          "library_signal_hz": null,
+          "spectral_score": 1.0,
+          "coordination_ms": 5035.4107
+        },
+        "criteria_results": {
+          "mission_ok": true,
+          "tasks_allocated_min": true,
+          "platform_commands_min": true
+        },
+        "elapsed_ms": 5416.22,
+        "plain_summary": "Ku-band downlink intercept \u2014 cross-domain strike: mission=True, 0.1018 ms/agent, data=3 sources, pass=True"
+      },
+      {
+        "scenario_id": "mil_schumann_ground_sync",
+        "label": "Schumann ground timing \u2014 eco-Hz swarm sync",
+        "domain": "military_drone",
+        "doctrine": "defense",
+        "data_sources": [
+          "reference:rf_jamming_profile_reference",
+          "library:schumann_resonances (Schumann (1952), Balser & Wagner (1960), Nickolaenko & Hayakawa (2002), Williams (1992))"
+        ],
+        "ok": true,
+        "metrics": {
+          "mission_ok": true,
+          "coord_ok": true,
+          "ms_per_agent": 0.104476,
+          "e2e_p50_ms": 0.6825,
+          "threat_consensus": "engage",
+          "jam_failover_ok": true,
+          "access_orbital": true,
+          "tasks_allocated": 3,
+          "platform_commands": 10,
+          "formation_ok": true,
+          "route_ok": true,
+          "match_score": 1.0,
+          "threat_fast_p50_ms": 1.1088,
+          "library_signal_hz": null,
+          "spectral_score": 1.0,
+          "coordination_ms": 4963.9496
+        },
+        "criteria_results": {
+          "coordination_ok": true,
+          "ms_per_agent_max": true,
+          "consensus_required": true
+        },
+        "elapsed_ms": 5466.02,
+        "plain_summary": "Schumann ground timing \u2014 eco-Hz swarm sync: mission=True, 0.1045 ms/agent, data=2 sources, pass=True"
+      },
+      {
+        "scenario_id": "mil_leo_attrition_reform",
+        "label": "LEO cluster attrition \u2014 formation self-heal",
+        "domain": "military_drone",
+        "doctrine": "offense",
+        "data_sources": [
+          "reference:defense_ew_spectrum_reference",
+          "reference:rf_jamming_profile_reference",
+          "library:satellite_frequencies (ITU Radio Regulations, FCC filings, ESA frequency coordination)"
+        ],
+        "ok": true,
+        "metrics": {
+          "mission_ok": true,
+          "coord_ok": true,
+          "ms_per_agent": 0.06816,
+          "e2e_p50_ms": 0.6078,
+          "threat_consensus": "engage",
+          "jam_failover_ok": true,
+          "access_orbital": true,
+          "tasks_allocated": 3,
+          "platform_commands": 10,
+          "formation_ok": true,
+          "route_ok": true,
+          "match_score": 0.626591171468368,
+          "threat_fast_p50_ms": 1.071,
+          "library_signal_hz": 11700000000.0,
+          "spectral_score": 1.0,
+          "coordination_ms": 4982.4973
+        },
+        "criteria_results": {
+          "mission_ok": true,
+          "formation_ok": true,
+          "jam_failover_or_orbital": true
+        },
+        "elapsed_ms": 5390.35,
+        "plain_summary": "LEO cluster attrition \u2014 formation self-heal: mission=True, 0.0682 ms/agent, data=3 sources, pass=True"
+      },
+      {
+        "scenario_id": "mil_orbital_backbone_failover",
+        "label": "Orbital backbone failover \u2014 LEO to GEO under jam",
+        "domain": "military_drone",
+        "doctrine": "defense",
+        "data_sources": [
+          "reference:rf_jamming_profile_reference",
+          "library:satellite_frequencies (ITU Radio Regulations, FCC filings, ESA frequency coordination)",
+          "library:defense_rf_bands (ITU + NATO band conventions (reference framing))"
+        ],
+        "ok": true,
+        "metrics": {
+          "mission_ok": true,
+          "coord_ok": true,
+          "ms_per_agent": 0.130383,
+          "e2e_p50_ms": 0.6462,
+          "threat_consensus": "engage",
+          "jam_failover_ok": true,
+          "access_orbital": true,
+          "tasks_allocated": 3,
+          "platform_commands": 10,
+          "formation_ok": true,
+          "route_ok": true,
+          "match_score": 1.0,
+          "threat_fast_p50_ms": 1.0459,
+          "library_signal_hz": null,
+          "spectral_score": 1.0,
+          "coordination_ms": 5682.6723
+        },
+        "criteria_results": {
+          "coordination_ok": true,
+          "ms_per_agent_max": true,
+          "jam_failover_or_orbital": true,
+          "e2e_p50_max_ms": true
+        },
+        "elapsed_ms": 7214.11,
+        "plain_summary": "Orbital backbone failover \u2014 LEO to GEO under jam: mission=True, 0.1304 ms/agent, data=3 sources, pass=True"
+      }
+    ]
+  },
+  "enterprise": {
+    "catalog": {
+      "version": "1.0.0",
+      "domain": "enterprise_civilian",
+      "company": "NeuroSwarmAI",
+      "data_provenance": "Bundled reference spectra + enterprise_use_cases_benchmark v2 per-industry slices",
+      "scenarios": [
+        {
+          "id": "ent_factory_vibration",
+          "label": "Factory predictive maintenance \u2014 vibration anomaly",
+          "industry": "manufacturing",
+          "enterprise_use_case": "mfg_predictive",
+          "primary_data": "vibration_monitoring_reference",
+          "secondary_data": "earthquake_psd_reference",
+          "n_agents": 64,
+          "criteria": {
+            "enterprise_fast_sla_ms": 500.0,
+            "cross_match_score_range": [
+              0.0,
+              0.75
+            ],
+            "match_ok": true
+          }
+        },
+        {
+          "id": "ent_power_grid_harmonic",
+          "label": "Energy grid harmonic fault \u2014 substation spectral alert",
+          "industry": "energy",
+          "enterprise_use_case": "energy_grid",
+          "primary_data": "power_grid_harmonics_reference",
+          "library_refs": [
+            "electromagnetic_bands"
+          ],
+          "n_agents": 32,
+          "criteria": {
+            "enterprise_fast_sla_ms": 500.0,
+            "field_coherence_min": 0.3,
+            "threat_fast_p50_max_ms": 12.0
+          }
+        },
+        {
+          "id": "ent_structural_seismic",
+          "label": "Civil structural monitoring \u2014 seismic vs machinery separation",
+          "industry": "civil",
+          "enterprise_use_case": "structural_civil",
+          "primary_data": "earthquake_psd_reference",
+          "secondary_data": "structural_fas_reference",
+          "n_agents": 48,
+          "criteria": {
+            "cross_match_score_range": [
+              0.0,
+              0.85
+            ],
+            "enterprise_fast_sla_ms": 500.0
+          }
+        },
+        {
+          "id": "ent_hospital_eeg",
+          "label": "Clinical EEG device monitor \u2014 biomedical spectral watch",
+          "industry": "healthcare",
+          "enterprise_use_case": "health_device",
+          "primary_data": "biomedical_eeg_reference",
+          "n_agents": 16,
+          "criteria": {
+            "enterprise_fast_sla_ms": 500.0,
+            "match_ok": true,
+            "sovereign": true
+          }
+        },
+        {
+          "id": "ent_robotics_fleet",
+          "label": "Robotics fleet coordination \u2014 vibration + swarm allocation",
+          "industry": "robotics",
+          "enterprise_use_case": "robotics_fleet",
+          "primary_data": "vibration_monitoring_reference",
+          "preset": "isr",
+          "n_agents": 256,
+          "jam_ground": false,
+          "attrition_rate": 0.05,
+          "criteria": {
+            "mission_or_coord_ok": true,
+            "task_coverage_min": 0.5,
+            "enterprise_fast_sla_ms": 500.0
+          }
+        },
+        {
+          "id": "ent_telecom_compliance",
+          "label": "Telecom spectral compliance \u2014 IEEE/ITU band occupancy",
+          "industry": "telecom",
+          "enterprise_use_case": "telecom_compliance",
+          "primary_data": "defense_ew_spectrum_reference",
+          "library_refs": [
+            "electromagnetic_bands",
+            "satellite_frequencies"
+          ],
+          "n_agents": 32,
+          "criteria": {
+            "library_loaded": true,
+            "enterprise_fast_sla_ms": 500.0,
+            "ann_top_k_ok": true
+          }
+        }
+      ]
+    },
+    "passed": 6,
+    "total": 6,
+    "runs": [
+      {
+        "scenario_id": "ent_factory_vibration",
+        "label": "Factory predictive maintenance \u2014 vibration anomaly",
+        "domain": "enterprise_civilian",
+        "doctrine": "manufacturing",
+        "data_sources": [
+          "reference:vibration_monitoring_reference",
+          "reference:earthquake_psd_reference",
+          "benchmark:mfg_predictive/machinery-000"
+        ],
+        "ok": true,
+        "metrics": {
+          "enterprise_fast_ms": 6.3103,
+          "enterprise_sla_ok": false,
+          "match_score": 0.5676,
+          "field_coherence": 0.6231095656091294,
+          "cross_match_score": 0.5675837885195266,
+          "anomaly_separation": 0.06758378851952662,
+          "sovereign": true,
+          "threat_fast_p50_ms": 1.1113,
+          "ann_neighbors": [
+            [
+              "ref-vibration-monitor-001",
+              1.0000000000000002
+            ],
+            [
+              "lib-schumann_resonances",
+              0.9928802744951565
+            ],
+            [
+              "lib-defense_rf_bands",
+              0.9916342686069092
+            ],
+            [
+              "ref-defense-ew-001",
+              0.9524095448414779
+            ],
+            [
+              "ref-bio-eeg-001",
+              0.9506287254203347
+            ]
+          ],
+          "library_loaded": false,
+          "enterprise_benchmark_sample": "mfg_predictive",
+          "benchmark_class": "machinery"
+        },
+        "criteria_results": {
+          "enterprise_fast_sla_ms": true,
+          "cross_match_score_range": true,
+          "match_ok": true
+        },
+        "elapsed_ms": 227.27,
+        "plain_summary": "Factory predictive maintenance \u2014 vibration anomaly: enterprise_fast=6.31ms, industry=manufacturing, pass=True"
+      },
+      {
+        "scenario_id": "ent_power_grid_harmonic",
+        "label": "Energy grid harmonic fault \u2014 substation spectral alert",
+        "domain": "enterprise_civilian",
+        "doctrine": "energy",
+        "data_sources": [
+          "reference:power_grid_harmonics_reference",
+          "library:electromagnetic_bands (IEEE Std 521-2019, ITU Radio Regulations)",
+          "benchmark:energy_grid/ambient-000"
+        ],
+        "ok": true,
+        "metrics": {
+          "enterprise_fast_ms": 1.7925,
+          "enterprise_sla_ok": true,
+          "match_score": 0.4749,
+          "field_coherence": 0.5699172989444722,
+          "cross_match_score": 0.5,
+          "anomaly_separation": 0.0,
+          "sovereign": true,
+          "threat_fast_p50_ms": 1.0572,
+          "ann_neighbors": [
+            [
+              "ref-power-grid-001",
+              1.0
+            ],
+            [
+              "ref-defense-ew-001",
+              0.9826149571001525
+            ],
+            [
+              "ref-bio-eeg-001",
+              0.9762460370548254
+            ],
+            [
+              "lib-schumann_resonances",
+              0.9639195276426922
+            ],
+            [
+              "ref-vibration-monitor-001",
+              0.9484732753078776
+            ]
+          ],
+          "library_loaded": true,
+          "enterprise_benchmark_sample": "energy_grid",
+          "benchmark_class": "ambient"
+        },
+        "criteria_results": {
+          "enterprise_fast_sla_ms": true,
+          "field_coherence_min": true,
+          "threat_fast_p50_max_ms": true
+        },
+        "elapsed_ms": 290.21,
+        "plain_summary": "Energy grid harmonic fault \u2014 substation spectral alert: enterprise_fast=1.79ms, industry=energy, pass=True"
+      },
+      {
+        "scenario_id": "ent_structural_seismic",
+        "label": "Civil structural monitoring \u2014 seismic vs machinery separation",
+        "domain": "enterprise_civilian",
+        "doctrine": "civil",
+        "data_sources": [
+          "reference:earthquake_psd_reference",
+          "reference:structural_fas_reference",
+          "benchmark:structural_civil/structural-000"
+        ],
+        "ok": true,
+        "metrics": {
+          "enterprise_fast_ms": 2.4084,
+          "enterprise_sla_ok": true,
+          "match_score": 0.6358,
+          "field_coherence": 0.5994360939954307,
+          "cross_match_score": 0.6358377786595253,
+          "anomaly_separation": 0.1358377786595253,
+          "sovereign": true,
+          "threat_fast_p50_ms": 1.0949,
+          "ann_neighbors": [
+            [
+              "ref-earthquake-psd-001",
+              1.0
+            ],
+            [
+              "ref-rotdnn-001",
+              0.9866395334421517
+            ],
+            [
+              "ref-geomag-001",
+              0.8946266633598677
+            ],
+            [
+              "ref-structural-fas-001",
+              0.746782816815508
+            ],
+            [
+              "lib-schumann_resonances",
+              0.45365465076214023
+            ]
+          ],
+          "library_loaded": false,
+          "enterprise_benchmark_sample": "structural_civil",
+          "benchmark_class": "structural"
+        },
+        "criteria_results": {
+          "cross_match_score_range": true,
+          "enterprise_fast_sla_ms": true
+        },
+        "elapsed_ms": 272.22,
+        "plain_summary": "Civil structural monitoring \u2014 seismic vs machinery separation: enterprise_fast=2.41ms, industry=civil, pass=True"
+      },
+      {
+        "scenario_id": "ent_hospital_eeg",
+        "label": "Clinical EEG device monitor \u2014 biomedical spectral watch",
+        "domain": "enterprise_civilian",
+        "doctrine": "healthcare",
+        "data_sources": [
+          "reference:biomedical_eeg_reference",
+          "benchmark:health_device/ambient-000"
+        ],
+        "ok": true,
+        "metrics": {
+          "enterprise_fast_ms": 2.2484,
+          "enterprise_sla_ok": true,
+          "match_score": 0.588,
+          "field_coherence": 0.5729589157520051,
+          "cross_match_score": 0.5,
+          "anomaly_separation": 0.0,
+          "sovereign": true,
+          "threat_fast_p50_ms": 1.0855,
+          "ann_neighbors": [
+            [
+              "ref-bio-eeg-001",
+              1.0000000000000002
+            ],
+            [
+              "ref-power-grid-001",
+              0.9762460370548257
+            ],
+            [
+              "lib-schumann_resonances",
+              0.9747493156671446
+            ],
+            [
+              "ref-vibration-monitor-001",
+              0.9506287254203348
+            ],
+            [
+              "ref-defense-ew-001",
+              0.9338064976094332
+            ]
+          ],
+          "library_loaded": false,
+          "enterprise_benchmark_sample": "health_device",
+          "benchmark_class": "ambient"
+        },
+        "criteria_results": {
+          "enterprise_fast_sla_ms": true,
+          "match_ok": true,
+          "sovereign": true
+        },
+        "elapsed_ms": 204.17,
+        "plain_summary": "Clinical EEG device monitor \u2014 biomedical spectral watch: enterprise_fast=2.25ms, industry=healthcare, pass=True"
+      },
+      {
+        "scenario_id": "ent_robotics_fleet",
+        "label": "Robotics fleet coordination \u2014 vibration + swarm allocation",
+        "domain": "enterprise_civilian",
+        "doctrine": "robotics",
+        "data_sources": [
+          "reference:vibration_monitoring_reference",
+          "benchmark:robotics_fleet/machinery-000"
+        ],
+        "ok": true,
+        "metrics": {
+          "enterprise_fast_ms": 13.427,
+          "enterprise_sla_ok": false,
+          "match_score": 0.5676,
+          "field_coherence": 0.6231095656091294,
+          "cross_match_score": 0.5,
+          "anomaly_separation": 0.0,
+          "sovereign": true,
+          "threat_fast_p50_ms": 1.0739,
+          "ann_neighbors": [
+            [
+              "ref-vibration-monitor-001",
+              1.0000000000000002
+            ],
+            [
+              "lib-schumann_resonances",
+              0.9928802744951565
+            ],
+            [
+              "lib-defense_rf_bands",
+              0.9916342686069092
+            ],
+            [
+              "ref-defense-ew-001",
+              0.9524095448414779
+            ],
+            [
+              "ref-bio-eeg-001",
+              0.9506287254203347
+            ]
+          ],
+          "library_loaded": false,
+          "enterprise_benchmark_sample": "robotics_fleet",
+          "benchmark_class": "machinery",
+          "mission_ok": true,
+          "coord_ok": true,
+          "task_coverage": 1.0
+        },
+        "criteria_results": {
+          "mission_or_coord_ok": true,
+          "task_coverage_min": true,
+          "enterprise_fast_sla_ms": true
+        },
+        "elapsed_ms": 3370.49,
+        "plain_summary": "Robotics fleet coordination \u2014 vibration + swarm allocation: enterprise_fast=13.43ms, industry=robotics, pass=True"
+      },
+      {
+        "scenario_id": "ent_telecom_compliance",
+        "label": "Telecom spectral compliance \u2014 IEEE/ITU band occupancy",
+        "domain": "enterprise_civilian",
+        "doctrine": "telecom",
+        "data_sources": [
+          "reference:defense_ew_spectrum_reference",
+          "library:electromagnetic_bands (IEEE Std 521-2019, ITU Radio Regulations)",
+          "library:satellite_frequencies (ITU Radio Regulations, FCC filings, ESA frequency coordination)",
+          "benchmark:telecom_compliance/blast-000"
+        ],
+        "ok": true,
+        "metrics": {
+          "enterprise_fast_ms": 0.8795,
+          "enterprise_sla_ok": true,
+          "match_score": 0.5003,
+          "field_coherence": 0.6591337230873011,
+          "cross_match_score": 0.5,
+          "anomaly_separation": 0.0,
+          "sovereign": true,
+          "threat_fast_p50_ms": 0.5236,
+          "ann_neighbors": [
+            [
+              "ref-defense-ew-001",
+              1.0
+            ],
+            [
+              "ref-power-grid-001",
+              0.9826149571001527
+            ],
+            [
+              "ref-rf-jam-001",
+              0.9660075344383264
+            ],
+            [
+              "ref-vibration-monitor-001",
+              0.9524095448414779
+            ],
+            [
+              "lib-schumann_resonances",
+              0.9499805534577315
+            ]
+          ],
+          "library_loaded": true,
+          "enterprise_benchmark_sample": "telecom_compliance",
+          "benchmark_class": "blast"
+        },
+        "criteria_results": {
+          "library_loaded": true,
+          "enterprise_fast_sla_ms": true,
+          "ann_top_k_ok": true
+        },
+        "elapsed_ms": 130.54,
+        "plain_summary": "Telecom spectral compliance \u2014 IEEE/ITU band occupancy: enterprise_fast=0.88ms, industry=telecom, pass=True"
+      }
+    ]
+  },
+  "all_pass": true
+}

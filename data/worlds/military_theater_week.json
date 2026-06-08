@@ -1,0 +1,105 @@
+{
+  "world_id": "theater_alpha_week_001",
+  "label": "Theater Alpha — 7-day contested EW drone campaign",
+  "company": "NeuroSwarmAI",
+  "theater": "Alpha",
+  "real_data_backbone": [
+    "defense_ew_spectrum_reference",
+    "rf_jamming_profile_reference",
+    "defense_rf_bands",
+    "satellite_frequencies",
+    "schumann_resonances",
+    "electromagnetic_bands"
+  ],
+  "hierarchy": {
+    "theater": "Alpha",
+    "campaign": "Operation Spectral Shield",
+    "operations": [
+      {
+        "id": "op_day1_isr_baseline",
+        "day": 1,
+        "phase": "ISR baseline — GPS L1 + ground Schumann sync",
+        "doctrine": "defense",
+        "preset": "isr",
+        "primary_data": "defense_ew_spectrum_reference",
+        "library_signal": "GPS.L1",
+        "n_agents": 500,
+        "jam_ground": false,
+        "attrition_rate": 0.02
+      },
+      {
+        "id": "op_day2_ew_probe",
+        "day": 2,
+        "phase": "EW probe — swept interference detection",
+        "doctrine": "defense",
+        "preset": "ew",
+        "primary_data": "defense_ew_spectrum_reference",
+        "secondary_data": "rf_jamming_profile_reference",
+        "n_agents": 1000,
+        "jam_ground": true,
+        "attrition_rate": 0.05
+      },
+      {
+        "id": "op_day3_strike_window",
+        "day": 3,
+        "phase": "Strike window — Ku downlink intercept",
+        "doctrine": "offense",
+        "preset": "strike",
+        "primary_data": "defense_ew_spectrum_reference",
+        "library_signal": "Starlink.downlink_Ku",
+        "n_agents": 800,
+        "jam_ground": false,
+        "attrition_rate": 0.04
+      },
+      {
+        "id": "op_day4_jam_escalation",
+        "day": 4,
+        "phase": "Jam escalation — ground denied, orbital failover",
+        "doctrine": "defense",
+        "preset": "ew",
+        "primary_data": "rf_jamming_profile_reference",
+        "n_agents": 5000,
+        "jam_ground": true,
+        "attrition_rate": 0.08
+      },
+      {
+        "id": "op_day5_attrition_reform",
+        "day": 5,
+        "phase": "Attrition reform — LEO cluster self-heal",
+        "doctrine": "offense",
+        "preset": "strike",
+        "primary_data": "defense_ew_spectrum_reference",
+        "secondary_data": "rf_jamming_profile_reference",
+        "n_agents": 3000,
+        "jam_ground": true,
+        "attrition_rate": 0.15
+      },
+      {
+        "id": "op_day6_10k_surge",
+        "day": 6,
+        "phase": "10K surge — full theater coordination",
+        "doctrine": "defense",
+        "preset": "ew",
+        "primary_data": "rf_jamming_profile_reference",
+        "n_agents": 10000,
+        "jam_ground": true,
+        "attrition_rate": 0.1
+      },
+      {
+        "id": "op_day7_sustainment",
+        "day": 7,
+        "phase": "Sustainment — enterprise grid + swarm forge recovery",
+        "doctrine": "defense",
+        "preset": "swarm_forge",
+        "primary_data": "rf_jamming_profile_reference",
+        "library_refs": ["schumann_resonances"],
+        "n_agents": 2000,
+        "jam_ground": false,
+        "attrition_rate": 0.03,
+        "enterprise_parallel": "ent_power_grid_harmonic"
+      }
+    ]
+  },
+  "ticks_per_day": 8,
+  "sim_mission_real_to_system": true
+}
