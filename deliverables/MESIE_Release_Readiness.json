@@ -1,7 +1,7 @@
 {
   "ready": true,
-  "mesie_version": "0.3.4",
-  "sdk_version": "1.4.1",
+  "mesie_version": "0.3.5",
+  "sdk_version": "1.4.2",
   "checks": [
     {
       "name": "bootstrap",
@@ -29,6 +29,16 @@
       "detail": "samgov-full-v1"
     },
     {
+      "name": "auro_native_speaking",
+      "ok": true,
+      "detail": "auro-native-v1"
+    },
+    {
+      "name": "auro_eval",
+      "ok": true,
+      "detail": "7/7"
+    },
+    {
       "name": "llm_bridge",
       "ok": true,
       "detail": "{'ollama': False, 'grok': False, 'configured_provider': 'ollama'}"
@@ -36,7 +46,7 @@
     {
       "name": "pytest_core",
       "ok": true,
-      "detail": "............                                                             [100%]\n12 passed in 3.66s\n"
+      "detail": "..................                                                       [100%]\n18 passed in 3.94s\n"
     }
   ]
 }

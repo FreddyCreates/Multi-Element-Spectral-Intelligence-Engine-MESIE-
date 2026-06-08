@@ -149,18 +149,7 @@ class SamGovSuite:
         return out
 
     def answer(self, question: str) -> str:
-        """Contractor copilot quick answers — routes to workflows."""
-        q = question.lower()
-        if "proof" in q or "substrate" in q:
-            return "Run proof-substrate — sealed SHA256 evidence graph for proposals."
-        if "readiness" in q or "evidence" in q:
-            return "Run neuroswarm-readiness — website evidence pack + gap plan."
-        if "gsa" in q or "sam" in q or "opportunit" in q:
-            n = len(self._load_opportunities())
-            return f"SamGov edition: {n} bundled opportunity refs. Set SAM_API_KEY for live feed."
-        if "repro" in q:
-            return "PowerShell: .\\deliverables\\neuroswarmai_com\\reproduce.ps1"
-        return (
-            "SamGov contractor edition — proof substrate, readiness, interior DC, "
-            "cluster edge, production tiers. Type 'workflows' for list."
-        )
+        """Contractor copilot — delegates speech to Auro native speaking intelligence."""
+        from mesie.neuroai.auro import AuroSpeakingEngine
+
+        return AuroSpeakingEngine(session_id="samgov-suite").answer(question)

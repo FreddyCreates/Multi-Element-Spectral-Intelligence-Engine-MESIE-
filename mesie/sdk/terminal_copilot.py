@@ -1,4 +1,4 @@
-"""Terminal copilot — sovereign AI + Sam.gov edition + Grok/Llama research tier."""
+"""Terminal copilot — sovereign AI + Auro native speaking (Sam.gov) + Grok/Llama research."""
 
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ class CopilotTier(str, Enum):
 
 TIER_LABELS = {
     CopilotTier.SOVEREIGN: "SOLUS native local AI — own models, vault, receipts (default)",
-    CopilotTier.SAMGOV: "Sam.gov / GSA contractor — proof, readiness, opportunity alignment",
+    CopilotTier.SAMGOV: "Auro native speaking intelligence — Sam.gov / GSA contractor edition",
     CopilotTier.RESEARCH: "Research/startup — Grok or Llama/Ollama + MESIE tools",
 }
 
@@ -37,6 +37,7 @@ class TerminalCopilot:
     history: List[Dict[str, str]] = field(default_factory=list)
     _client: Any = field(default=None, init=False)
     _samgov: Any = field(default=None, init=False)
+    _auro: Any = field(default=None, init=False)
     _llm: Optional[LLMBridge] = field(default=None, init=False)
 
     def _maesi(self):
@@ -52,6 +53,13 @@ class TerminalCopilot:
 
             self._samgov = SamGovSuite()
         return self._samgov
+
+    def _auro_engine(self):
+        if self._auro is None:
+            from mesie.neuroai.auro import AuroSpeakingEngine
+
+            self._auro = AuroSpeakingEngine(session_id="mesie-terminal-samgov")
+        return self._auro
 
     def _bridge(self) -> LLMBridge:
         if self._llm is None:
@@ -80,6 +88,7 @@ class TerminalCopilot:
         if self.tier == CopilotTier.RESEARCH:
             st["llm"] = self._bridge().available()
         if self.tier == CopilotTier.SAMGOV:
+            st["auro"] = self._auro_engine().status()
             st["samgov_edition"] = self._sam().EDITION
         return st
 
@@ -113,9 +122,16 @@ class TerminalCopilot:
                 return f"Tool '{tid}' finished (exit {rc})"
             except ValueError as e:
                 return str(e)
+        if low in ("auro", "auro status") and self.tier == CopilotTier.SAMGOV:
+            return json.dumps(self._auro_engine().status(), indent=2)
         if low.startswith("workflows") and self.tier == CopilotTier.SAMGOV:
             rep = self._sam().build_report()
             return "\n".join(f"  {w.workflow_id}: {w.title}" for w in rep.workflows)
+        if low == "eval" and self.tier == CopilotTier.SAMGOV:
+            from mesie.neuroai.auro.eval import AuroEvalSuite
+
+            rep = AuroEvalSuite().run(self._auro_engine())
+            return json.dumps(rep.to_dict(), indent=2)
 
         self.history.append({"role": "user", "content": text})
         reply = self._think(text)
@@ -124,7 +140,7 @@ class TerminalCopilot:
 
     def _think(self, text: str) -> str:
         if self.tier == CopilotTier.SAMGOV:
-            return self._sam().answer(text)
+            return self._auro_engine().answer(text)
 
         if self.tier == CopilotTier.RESEARCH:
             bridge = self._bridge()
@@ -182,12 +198,12 @@ class TerminalCopilot:
             "  help | status | tiers | tier <sovereign|samgov|research>",
             "  list              — native tools",
             "  run <tool-id>     — execute registry tool",
-            "  workflows         — Sam.gov workflows (samgov tier)",
+            "  workflows | auro | eval — Sam.gov + Auro speaking intelligence",
             "  exit              — leave shell",
             "",
             "Tiers:",
             "  sovereign  — SOLUS native AI (default, zero third-party)",
-            "  samgov     — GSA contractor proof + readiness edition",
+            "  samgov     — Auro native speaking + GSA contractor workflows",
             "  research   — Grok or Llama/Ollama + MESIE tools",
         ]
         return "\n".join(lines)

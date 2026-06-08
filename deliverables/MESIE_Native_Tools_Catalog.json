@@ -1,7 +1,7 @@
 {
   "suite": "MESIE / MAESI / NeuroAIX",
-  "mesie_version": "0.3.4",
-  "sdk_version": "1.4.1",
+  "mesie_version": "0.3.5",
+  "sdk_version": "1.4.2",
   "terminal_profile": {
     "kind": "powershell",
     "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE",
@@ -61,7 +61,7 @@
       "notes": "Sovereign copilot tool execution on edge appliance"
     }
   ],
-  "tool_count": 62,
+  "tool_count": 64,
   "skill_count": 28,
   "categories": {
     "enterprise_ai": "Enterprise AI \u2014 Agent Memory & Sovereign Copilots",
@@ -775,6 +775,37 @@
         "triggers": [
           "cognitive",
           "memory adapter"
+        ]
+      },
+      {
+        "id": "auro-speaking",
+        "name": "Auro Native Speaking Intelligence",
+        "category": "neuroaix",
+        "command": "python scripts/run_auro_suite.py",
+        "powershell_command": "python scripts/run_auro_suite.py",
+        "bash_command": "python scripts/run_auro_suite.py",
+        "deliverable": "deliverables/Auro_Native_Speaking_Manifest.json",
+        "triggers": [
+          "auro",
+          "speaking intelligence",
+          "native voice",
+          "alpha family",
+          "thesis defer"
+        ]
+      },
+      {
+        "id": "auro-eval",
+        "name": "Auro Speaking Eval Suite",
+        "category": "neuroaix",
+        "command": "python scripts/run_auro_eval.py",
+        "powershell_command": "python scripts/run_auro_eval.py",
+        "bash_command": "python scripts/run_auro_eval.py",
+        "deliverable": "deliverables/Auro_Eval_Report.json",
+        "triggers": [
+          "auro eval",
+          "speaking eval",
+          "role coherence",
+          "voice memory"
         ]
       }
     ],

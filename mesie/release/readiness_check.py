@@ -49,9 +49,16 @@ def run_release_check(*, run_pytest: bool = True) -> ReleaseReadinessReport:
         add(f"copilot_{tier.value}", bool(c._help()), c.tier.value)
 
     from mesie.enterprise.samgov_suite import SamGovSuite
+    from mesie.neuroai.auro import AuroSpeakingEngine
+    from mesie.neuroai.auro.eval import AuroEvalSuite
 
     sg = SamGovSuite().build_report()
     add("samgov_edition", len(sg.workflows) >= 5, sg.edition)
+
+    auro = AuroSpeakingEngine()
+    add("auro_native_speaking", auro.status().get("third_party_inference") is False, auro.edition)
+    auro_eval = AuroEvalSuite().run(auro)
+    add("auro_eval", auro_eval.passed >= 5, f"{auro_eval.passed}/{len(auro_eval.cases)}")
 
     from mesie.sdk.llm_bridge import LLMBridge
 
@@ -66,6 +73,7 @@ def run_release_check(*, run_pytest: bool = True) -> ReleaseReadinessReport:
                 "tests/test_terminal.py",
                 "tests/test_interior_datacenter.py",
                 "tests/test_release_copilot.py",
+                "tests/test_auro_engine.py",
                 "-q",
             ],
             cwd=str(ROOT),

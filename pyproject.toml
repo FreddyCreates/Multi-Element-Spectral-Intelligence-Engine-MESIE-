@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mesie"
-version = "0.3.4"
+version = "0.3.5"
 description = "Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, transformer-based intelligence protocols, and cognitive integration"
 readme = "README.md"
 license = "Apache-2.0"
@@ -82,7 +82,7 @@ include-package-data = true
 include = ["mesie*", "data*"]
 
 [tool.setuptools.package-data]
-data = ["reference/*.json", "benchmarks/*.json", "samgov/*.json", "scenarios/*.json"]
+data = ["reference/*.json", "benchmarks/*.json", "samgov/*.json", "scenarios/*.json", "neuroai/*.json"]
 "mesie.release" = ["assets/*.ps1"]
 
 [tool.setuptools.cmdclass]
