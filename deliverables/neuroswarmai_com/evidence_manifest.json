@@ -1,0 +1,115 @@
+{
+  "site": "https://neuroswarmai.com",
+  "company": "NeuroSwarmAI",
+  "product": "MESIE / MAESI SDK",
+  "sdk_version": "1.3.0",
+  "mesie_version": "0.3.2",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "verdict": "partially_true_software_substrate",
+  "readiness_statement": "NeuroSwarmAI publishes measured software evidence. We do not claim combat certification until physical HIL and independent audit close named gaps.",
+  "reproduce_command": "python scripts/run_neuroswarm_readiness.py",
+  "is_this_true_url_path": "/evidence/is-this-true",
+  "artifacts": [
+    {
+      "path": "Is_This_True_Response.json",
+      "bytes": 9612
+    },
+    {
+      "path": "NeuroSwarmAI_Audit_Evidence.json",
+      "bytes": 15161
+    },
+    {
+      "path": "MAESI_SDK_Major_Benchmarks.json",
+      "bytes": 12463
+    },
+    {
+      "path": "MESIE_Production_Tiers_Report.json",
+      "bytes": 4019
+    },
+    {
+      "path": "MESIE_Scenario_Simulation_Report.json",
+      "bytes": 27843
+    },
+    {
+      "path": "NeuroSwarmAI_Drone_Swarm_Report.json",
+      "bytes": 49869
+    },
+    {
+      "path": "mission_worlds/theater_alpha_week_001_week_report.json",
+      "bytes": 39262
+    },
+    {
+      "path": "MESIE_Appliance_Manifest.json",
+      "bytes": 1307
+    },
+    {
+      "path": "virtual_silicon/MESIE_Virtual_Silicon_Certification.json",
+      "bytes": 1774
+    }
+  ],
+  "harness_results": [],
+  "claims": [
+    {
+      "claim": "Sub-12ms threat-fast spectral decisions",
+      "tier": "measured_local",
+      "safe_to_say": true,
+      "summary": "p50 threat-fast ~0.85ms on Qualcomm ARM64 laptop harness",
+      "limit": "Single-machine Python harness; not independent lab audit"
+    },
+    {
+      "claim": "10K decentralized swarm coordination",
+      "tier": "simulated_validated",
+      "safe_to_say": true,
+      "summary": "~0.05-0.11 ms/agent cluster-optimized in software sim",
+      "limit": "In-process simulation; not 10K physical drones or multi-host mesh at scale"
+    },
+    {
+      "claim": "Jamming failover to orbital routing",
+      "tier": "simulated_validated",
+      "safe_to_say": true,
+      "summary": "jam_ground=True scenarios pass orbital_preferred access modes",
+      "limit": "Spectral jam profile reference; no RF anechoic or live EW range"
+    },
+    {
+      "claim": "Real drone hardware integration",
+      "tier": "gap",
+      "safe_to_say": false,
+      "summary": "PX4/MAVSDK sim adapter dispatches commands; SIM platform only",
+      "limit": "No published flight test video or cleared contractor validation"
+    },
+    {
+      "claim": "Sovereign air-gapped on-prem appliance",
+      "tier": "measured_local",
+      "safe_to_say": true,
+      "summary": "field_access reports airgapped=true, third_party=false",
+      "limit": "Self-reported engine status; not third-party penetration test"
+    },
+    {
+      "claim": "100/100 mission-critical defense scenarios",
+      "tier": "simulated_validated",
+      "safe_to_say": true,
+      "summary": "12 scenario sim + 7-day theater week ticks (software)",
+      "limit": "Not DoD accreditation; scenario pass != combat validation"
+    },
+    {
+      "claim": "Independent validation of NeuroSwarmAI.com deployment",
+      "tier": "gap",
+      "safe_to_say": false,
+      "summary": "Public evidence pack publishable; independent audit not yet completed",
+      "limit": "Self-published harness until third party reproduces and signs"
+    },
+    {
+      "claim": "44-region connectome spectral intelligence",
+      "tier": "measured_local",
+      "safe_to_say": true,
+      "summary": "Connectome modules present; used in routing/cognitive paths",
+      "limit": "Inspired architecture; not neuroscience certification"
+    }
+  ],
+  "gap_closure_phases": {
+    "P0_now": "Publish evidence + honest wording (this release)",
+    "P1_30d": "Multi-host mesh + PX4 SITL",
+    "P2_90d": "RF range partner + independent audit + pen test"
+  },
+  "generated_at": "2026-06-08T05:18:32Z"
+}

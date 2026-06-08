@@ -1,0 +1,122 @@
+{
+  "site_url": "https://neuroswarmai.com",
+  "readiness_level": "L2_software_production",
+  "production_ready": true,
+  "gaps_open": 2,
+  "gaps_closed_software": 3,
+  "harness_pass": true,
+  "phase_summary": {
+    "P0_now": 3,
+    "P1_30d": 2,
+    "P2_90d": 3
+  },
+  "gap_closure_plan": [
+    {
+      "gap_id": "external_corroboration",
+      "phase": "P0_now",
+      "title": "Publish public evidence pack on neuroswarmai.com",
+      "owner": "engineering",
+      "status": "ready",
+      "closes_claim": "external_corroboration",
+      "action": "Host deliverables/neuroswarmai_com/evidence_manifest.json + Is_This_True page",
+      "website_copy": "Reproducible benchmarks \u2014 run our open harness on your hardware.",
+      "artifact": "deliverables/neuroswarmai_com/evidence_manifest.json"
+    },
+    {
+      "gap_id": "mission_critical_wording",
+      "phase": "P0_now",
+      "title": "Fix website wording: software validation not combat certified",
+      "owner": "marketing",
+      "status": "ready",
+      "closes_claim": "mission_critical_100",
+      "action": "Replace '100/100 mission-critical' with '12/12 software scenarios + 56/56 theater week ticks'",
+      "website_copy": "Software scenario validation on reference spectra \u2014 not DoD accreditation.",
+      "artifact": ""
+    },
+    {
+      "gap_id": "reproducible_harness",
+      "phase": "P0_now",
+      "title": "One-command reproducibility for third parties",
+      "owner": "engineering",
+      "status": "ready",
+      "closes_claim": "sub_ms_threat",
+      "action": "python scripts/run_neuroswarm_readiness.py",
+      "website_copy": "Verify sub-ms threat path: clone repo, run readiness script, inspect JSON artifacts.",
+      "artifact": "deliverables/neuroswarmai_com/reproduce.sh"
+    },
+    {
+      "gap_id": "swarm_10k_methodology",
+      "phase": "P1_30d",
+      "title": "Multi-host LAN/OTA soak (3+ machines)",
+      "owner": "engineering",
+      "status": "planned",
+      "closes_claim": "swarm_10k",
+      "action": "Deploy OTA mesh on 3 LAN nodes; publish node count + frame receipt logs",
+      "website_copy": "10K in-process sim today; multi-host soak in progress.",
+      "artifact": ""
+    },
+    {
+      "gap_id": "px4_sitl",
+      "phase": "P1_30d",
+      "title": "PX4 SITL hardware-in-loop gate",
+      "owner": "engineering",
+      "status": "planned",
+      "closes_claim": "real_drone_hw",
+      "action": "Wire drone_adapter to PX4 SITL; record command ACK in CI artifact",
+      "website_copy": "Simulation adapter today; SITL flight loop target Q3.",
+      "artifact": ""
+    },
+    {
+      "gap_id": "rf_range",
+      "phase": "P2_90d",
+      "title": "SDR / RF anechoic or range partner test",
+      "owner": "partners",
+      "status": "planned",
+      "closes_claim": "jam_failover",
+      "action": "Virtual silicon HIL certified now; physical EW range when partner available",
+      "website_copy": "Jam failover validated in software against ITU reference jam profiles.",
+      "artifact": ""
+    },
+    {
+      "gap_id": "independent_audit",
+      "phase": "P2_90d",
+      "title": "Third-party reproducibility audit",
+      "owner": "partners",
+      "status": "planned",
+      "closes_claim": "external_corroboration",
+      "action": "Invite cleared lab or academic partner to run harness; publish signed report",
+      "website_copy": "Independent audit invited \u2014 contact for reproducibility kit.",
+      "artifact": ""
+    },
+    {
+      "gap_id": "pen_test",
+      "phase": "P2_90d",
+      "title": "Sovereign appliance penetration test",
+      "owner": "security",
+      "status": "planned",
+      "closes_claim": "sovereign_airgap",
+      "action": "Customer-deploy Tier-1 appliance + third-party pen test",
+      "website_copy": "Air-gapped architecture documented; formal pen test on customer deploy.",
+      "artifact": ""
+    }
+  ],
+  "public_claims_safe": [
+    "Sub-ms threat-fast spectral decisions (measured locally, reproducible harness)",
+    "Sovereign air-gapped software appliance architecture",
+    "12/12 military + 6/6 enterprise software scenarios on real reference data",
+    "56/56 theater week simulation ticks (Operation Spectral Shield)",
+    "Virtual silicon RF HIL + OTA mesh (software-certified)"
+  ],
+  "public_claims_do_not_say": [
+    "Combat-certified or DoD-accredited (not claimed)",
+    "10K physical drones deployed (simulation + cluster math today)",
+    "Live EW range or anechoic chamber validated (reference profiles only)",
+    "Independent third-party audit completed (invited, not yet done)"
+  ],
+  "evidence_pack_paths": [
+    "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\neuroswarmai_com\\evidence_manifest.json",
+    "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\Is_This_True_Response.json"
+  ],
+  "git_branch": "trust/production-readiness",
+  "generated_at": "2026-06-08T05:18:32Z"
+}
