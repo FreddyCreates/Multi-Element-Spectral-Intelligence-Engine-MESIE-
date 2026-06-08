@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "source": "bundled_reference_not_live_sam",
+  "honest_limit": "Configure SAM_API_KEY env for live SAM.gov API — these are alignment templates",
+  "opportunities": [
+    {
+      "id": "gsa-ref-uas-spectral-001",
+      "title": "Small UAS spectral threat detection — edge deploy",
+      "naics": "541715",
+      "set_aside": "small_business",
+      "mesie_fit": ["swarm_sdk", "virtual_silicon", "proof_substrate"],
+      "repro": "deliverables/neuroswarmai_com/reproduce.ps1"
+    },
+    {
+      "id": "gsa-ref-ew-contested-002",
+      "title": "Contested EW spectral analysis — sovereign appliance",
+      "naics": "334511",
+      "set_aside": "none",
+      "mesie_fit": ["production_tiers", "scenario_sim", "jam_failover"],
+      "repro": "python scripts/run_enterprise_drone_thesis.py"
+    },
+    {
+      "id": "gsa-ref-enterprise-grid-003",
+      "title": "Enterprise grid harmonics monitoring — spectral intelligence",
+      "naics": "221122",
+      "set_aside": "8a",
+      "mesie_fit": ["maesi_sdk", "interior_datacenter", "enterprise_ai"],
+      "repro": "python scripts/run_multi_enterprise_20.py"
+    }
+  ]
+}

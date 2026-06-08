@@ -11,7 +11,9 @@ from mesie.sdk.terminal import default_session, open_surfaces, open_terminal, to
 from mesie.tools.registry import SKILL_CATEGORIES, TOOLS, tool_by_id
 
 
-ROOT = Path(__file__).resolve().parents[2]
+from mesie.release.paths import resolve_workspace_root
+
+ROOT = resolve_workspace_root()
 
 
 def _run_command(cmd: str) -> int:
@@ -49,47 +51,11 @@ def cmd_run(args: argparse.Namespace) -> int:
     return _run_command(cmd)
 
 
-def cmd_shell(_: argparse.Namespace) -> int:
-    session = default_session(ROOT)
-    print(f"MESIE shell ({session.profile.kind.value}) — type 'help', 'list', 'run <tool>', 'exit'")
-    print(f"PowerShell helpers: . .\\scripts\\MESIE.ps1")
-    while True:
-        try:
-            line = input("mesie> ").strip()
-        except (EOFError, KeyboardInterrupt):
-            print()
-            return 0
-        if not line:
-            continue
-        if line in ("exit", "quit"):
-            return 0
-        if line == "help":
-            print("  list          — list tools")
-            print("  run <id>      — run native tool")
-            print("  surfaces      — where terminal can open")
-            print("  exit          — leave shell")
-            continue
-        if line == "list":
-            cmd_list(argparse.Namespace())
-            continue
-        if line == "surfaces":
-            print(json.dumps(open_surfaces(), indent=2))
-            continue
-        if line.startswith("run "):
-            tool_id = line[4:].strip().split(maxsplit=1)
-            tid = tool_id[0]
-            extra = tool_id[1] if len(tool_id) > 1 else ""
-            try:
-                rc = session.run_tool(tid, extra)
-            except ValueError as e:
-                print(e, file=sys.stderr)
-                rc = 1
-            if rc != 0:
-                print(f"exit {rc}", file=sys.stderr)
-            continue
-        rc = session.run(line).returncode
-        if rc != 0:
-            print(f"exit {rc}", file=sys.stderr)
+def cmd_shell(args: argparse.Namespace) -> int:
+    from mesie.sdk.terminal_copilot import run_copilot_terminal
+
+    tier = getattr(args, "tier", "sovereign") or "sovereign"
+    return run_copilot_terminal(tier=tier)
 
 
 def cmd_open_terminal(args: argparse.Namespace) -> int:
@@ -166,7 +132,8 @@ def main(argv: list[str] | None = None) -> int:
     p_run.add_argument("extra", nargs="?", default="", help="Extra args appended to command")
     p_run.set_defaults(func=cmd_run)
 
-    p_shell = sub.add_parser("shell", help="Interactive MESIE terminal shell")
+    p_shell = sub.add_parser("shell", help="Interactive MESIE terminal + AI copilot")
+    p_shell.add_argument("--tier", choices=["sovereign", "samgov", "research"], default="sovereign")
     p_shell.set_defaults(func=cmd_shell)
 
     p_open = sub.add_parser("open-terminal", help="Open OS terminal at repo root")

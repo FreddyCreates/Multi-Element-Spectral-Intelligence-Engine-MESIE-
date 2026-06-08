@@ -16,7 +16,9 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Union
 
-ROOT = Path(__file__).resolve().parents[2]
+from mesie.release.paths import resolve_workspace_root
+
+ROOT = resolve_workspace_root()
 
 
 class ShellKind(str, Enum):
@@ -93,10 +95,10 @@ class TerminalSession:
         t = tool_by_id(tool_id)
         if not t:
             raise ValueError(f"Unknown tool: {tool_id}")
-        cmd = t.command
+        args = [sys.executable, "-m", "mesie.tools.cli", "run", tool_id]
         if extra:
-            cmd = f"{cmd} {extra}"
-        return self.run(cmd).returncode
+            args.append(extra)
+        return subprocess.run(args, cwd=str(self.cwd)).returncode
 
     def open_interactive(self, *, command: Optional[str] = None) -> Optional[int]:
         """Open a new terminal window at cwd (PowerShell on Windows)."""

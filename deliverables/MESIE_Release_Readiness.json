@@ -1,0 +1,42 @@
+{
+  "ready": true,
+  "mesie_version": "0.3.4",
+  "sdk_version": "1.4.1",
+  "checks": [
+    {
+      "name": "bootstrap",
+      "ok": true,
+      "detail": "C:\\Users\\Medin\\.mesie"
+    },
+    {
+      "name": "copilot_sovereign",
+      "ok": true,
+      "detail": "sovereign"
+    },
+    {
+      "name": "copilot_samgov",
+      "ok": true,
+      "detail": "samgov"
+    },
+    {
+      "name": "copilot_research",
+      "ok": true,
+      "detail": "research"
+    },
+    {
+      "name": "samgov_edition",
+      "ok": true,
+      "detail": "samgov-full-v1"
+    },
+    {
+      "name": "llm_bridge",
+      "ok": true,
+      "detail": "{'ollama': False, 'grok': False, 'configured_provider': 'ollama'}"
+    },
+    {
+      "name": "pytest_core",
+      "ok": true,
+      "detail": "............                                                             [100%]\n12 passed in 3.66s\n"
+    }
+  ]
+}

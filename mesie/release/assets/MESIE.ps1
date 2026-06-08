@@ -1,21 +1,22 @@
-# MESIE / MAESI SDK — PowerShell entry (full terminal peer)
-# Usage: . .\scripts\MESIE.ps1
-#        Get-MESIETools
-#        Invoke-MESIETool proof-substrate
-#        Open-MESIETerminal
+# MESIE / MAESI SDK — PowerShell module (pip install + ~/.mesie bootstrap)
+# Usage: . "$env:USERPROFILE\.mesie\MESIE.ps1"
+#        Start-MESIECopilot -Tier samgov
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-$script:MesieRoot = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
-Set-Location $script:MesieRoot
+if ($env:MESIE_HOME) {
+    $script:MesieConfigDir = $env:MESIE_HOME
+} else {
+    $script:MesieConfigDir = Join-Path $HOME ".mesie"
+}
 
-function Get-MESIERoot {
-    return $script:MesieRoot
+function Get-MESIEConfigDir {
+    return $script:MesieConfigDir
 }
 
 function Get-MESIETools {
-    python -m mesie.tools.cli list
+    mesie-tools list
 }
 
 function Invoke-MESIETool {
@@ -27,23 +28,23 @@ function Invoke-MESIETool {
     )
     $extra = ($Extra -join " ").Trim()
     if ($extra) {
-        python -m mesie.tools.cli run $ToolId $extra
+        mesie-tools run $ToolId $extra
     } else {
-        python -m mesie.tools.cli run $ToolId
+        mesie-tools run $ToolId
     }
     if ($LASTEXITCODE -ne 0) { throw "MESIE tool '$ToolId' failed with exit $LASTEXITCODE" }
 }
 
 function Invoke-MESIEReadiness {
-    python scripts/run_neuroswarm_readiness.py @args
+    mesie-tools run neuroswarm-readiness @args
 }
 
 function Invoke-MESIEProofSubstrate {
     param([switch]$Verify)
     if ($Verify) {
-        python scripts/run_proof_substrate.py --verify
+        mesie-tools run proof-substrate --verify
     } else {
-        python scripts/run_proof_substrate.py
+        mesie-tools run proof-substrate
     }
 }
 
@@ -51,15 +52,15 @@ function Open-MESIETerminal {
     param([string]$Command)
     $args = @("open-terminal")
     if ($Command) { $args += @("--command", $Command) }
-    python -m mesie.tools.cli @args
+    mesie-tools @args
 }
 
 function Enter-MESIEShell {
-    python -m mesie.tools.cli shell
+    mesie-tools shell
 }
 
 function Show-MESIESurfaces {
-    python -c "from mesie.sdk.terminal import open_surfaces; import json; print(json.dumps(open_surfaces(), indent=2))"
+    mesie-tools surfaces
 }
 
 function Start-MESIECopilot {
@@ -79,5 +80,5 @@ function Install-MESIEBootstrap {
     }
 }
 
-Write-Host "MESIE SDK loaded — root: $script:MesieRoot" -ForegroundColor Cyan
-Write-Host "Commands: Start-MESIECopilot | Invoke-MESIETool <id> | Install-MESIEBootstrap" -ForegroundColor DarkGray
+Write-Host "MESIE SDK loaded — config: $script:MesieConfigDir" -ForegroundColor Cyan
+Write-Host "Copilot: Start-MESIECopilot [-Tier sovereign|samgov|research]" -ForegroundColor DarkGray

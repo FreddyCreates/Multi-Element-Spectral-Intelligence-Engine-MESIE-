@@ -1,7 +1,7 @@
 {
   "suite": "MESIE / MAESI / NeuroAIX",
-  "mesie_version": "0.3.3",
-  "sdk_version": "1.4.0",
+  "mesie_version": "0.3.4",
+  "sdk_version": "1.4.1",
   "terminal_profile": {
     "kind": "powershell",
     "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE",
@@ -61,7 +61,7 @@
       "notes": "Sovereign copilot tool execution on edge appliance"
     }
   ],
-  "tool_count": 58,
+  "tool_count": 62,
   "skill_count": 28,
   "categories": {
     "enterprise_ai": "Enterprise AI \u2014 Agent Memory & Sovereign Copilots",
@@ -198,6 +198,34 @@
           "windows terminal",
           "wt",
           "enter shell"
+        ]
+      },
+      {
+        "id": "release-ready",
+        "name": "Release Readiness Gate",
+        "category": "deploy",
+        "command": "python scripts/run_release_ready.py",
+        "powershell_command": "python scripts/run_release_ready.py",
+        "bash_command": "python scripts/run_release_ready.py",
+        "deliverable": "deliverables/MESIE_Release_Readiness.json",
+        "triggers": [
+          "release",
+          "release ready",
+          "ship"
+        ]
+      },
+      {
+        "id": "mesie-bootstrap",
+        "name": "Install Bootstrap",
+        "category": "deploy",
+        "command": "mesie-bootstrap --install-profile",
+        "powershell_command": "mesie-bootstrap --install-profile",
+        "bash_command": "mesie-bootstrap --install-profile",
+        "deliverable": null,
+        "triggers": [
+          "bootstrap",
+          "install",
+          "pip install"
         ]
       }
     ],
@@ -455,6 +483,21 @@
           "commit",
           "production readiness"
         ]
+      },
+      {
+        "id": "samgov-edition",
+        "name": "Sam.gov Contractor Edition",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_samgov_suite.py",
+        "powershell_command": "python scripts/run_samgov_suite.py",
+        "bash_command": "python scripts/run_samgov_suite.py",
+        "deliverable": "deliverables/MESIE_SamGov_Contractor_Edition.json",
+        "triggers": [
+          "sam.gov",
+          "gsa",
+          "contractor",
+          "government"
+        ]
       }
     ],
     "mesie-fingerprint": [
@@ -688,6 +731,21 @@
           "deliverable",
           "local ai",
           "solus sdk"
+        ]
+      },
+      {
+        "id": "maesi-copilot",
+        "name": "MAESI AI Copilot Terminal",
+        "category": "maesi",
+        "command": "maesi --tier sovereign",
+        "powershell_command": "maesi --tier sovereign",
+        "bash_command": "maesi --tier sovereign",
+        "deliverable": null,
+        "triggers": [
+          "maesi",
+          "copilot",
+          "terminal ai",
+          "sovereign ai"
         ]
       }
     ],

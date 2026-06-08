@@ -129,6 +129,8 @@ __all__ = [
 ]
 
 from mesie.sdk.terminal import TerminalSession, default_session, detect_shell, open_surfaces, open_terminal
+from mesie.sdk.terminal_copilot import CopilotTier, TerminalCopilot, run_copilot_terminal
+from mesie.sdk.llm_bridge import LLMBridge, LLMBridgeConfig
 from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
 from mesie.sdk.native_ai import NativeLocalAIEngine, NativeAIDeliverableReport, StreamEvent, StreamPhase
 
@@ -138,6 +140,11 @@ __all__.extend([
     "detect_shell",
     "open_surfaces",
     "open_terminal",
+    "CopilotTier",
+    "TerminalCopilot",
+    "run_copilot_terminal",
+    "LLMBridge",
+    "LLMBridgeConfig",
     "SpectralIntelligenceSDK",
     "NativeLocalAIEngine",
     "NativeAIDeliverableReport",
