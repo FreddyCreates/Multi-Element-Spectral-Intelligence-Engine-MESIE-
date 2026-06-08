@@ -40,16 +40,23 @@ CANONICAL_ARTIFACTS = [
     "MESIE_Deployment_Doctrine.json",
 ]
 
-REPRODUCE_BY_CLAIM: Dict[str, str] = {
-    "sub_ms_threat": "python scripts/run_neuroswarm_audit.py --trials 1000",
-    "swarm_10k": "python scripts/run_drone_swarm_suite.py --agents 10000",
-    "jam_failover": "python scripts/run_enterprise_drone_thesis.py",
-    "real_drone_hw": "python scripts/run_drone_swarm_suite.py --agents 100",
-    "sovereign_airgap": "python scripts/run_production_tiers.py --tier both",
-    "mission_critical_100": "python scripts/run_scenario_simulation_suite.py && python scripts/run_mission_world_week.py --days 7",
-    "external_corroboration": "python scripts/run_neuroswarm_readiness.py",
-    "connectome_44_region": "python examples/08_3d_connectome_brain.py",
-}
+def _reproduce_commands() -> Dict[str, str]:
+    from mesie.sdk.terminal import default_session
+
+    s = default_session()
+    return {
+        "sub_ms_threat": "python scripts/run_neuroswarm_audit.py --trials 1000",
+        "swarm_10k": "python scripts/run_drone_swarm_suite.py --agents 10000",
+        "jam_failover": "python scripts/run_enterprise_drone_thesis.py",
+        "real_drone_hw": "python scripts/run_drone_swarm_suite.py --agents 100",
+        "sovereign_airgap": "python scripts/run_production_tiers.py --tier both",
+        "mission_critical_100": s.format_chain(
+            "python scripts/run_scenario_simulation_suite.py",
+            "python scripts/run_mission_world_week.py --days 7",
+        ),
+        "external_corroboration": "python scripts/run_neuroswarm_readiness.py",
+        "connectome_44_region": "python examples/08_3d_connectome_brain.py",
+    }
 
 GENESIS = "MESIE-Proof-Substrate-v1"
 
@@ -221,7 +228,9 @@ class ProofSubstrateEngine:
                     artifacts=arts,
                     measured_summary=c.measured_summary,
                     honest_limit=c.honest_limit,
-                    reproduce_command=REPRODUCE_BY_CLAIM.get(c.claim_id, "python scripts/run_is_this_true.py"),
+                    reproduce_command=_reproduce_commands().get(
+                        c.claim_id, "python scripts/run_is_this_true.py"
+                    ),
                 )
             )
 
@@ -320,5 +329,17 @@ class ProofSubstrateEngine:
                 status = f"`{a.sha256[:12]}…` ({a.bytes} B)" if a.present else "_missing_"
                 lines.append(f"  - `{a.path}` → {status}")
             lines.append("")
-        lines.extend(["## Verify seal", "", "```bash", "python scripts/run_proof_substrate.py --verify", "```"])
+        from mesie.sdk.terminal import default_session
+
+        session = default_session()
+        lines.extend([
+            "## Verify seal",
+            "",
+            "```powershell",
+            "python scripts/run_proof_substrate.py --verify",
+            "# or: Invoke-MESIEProofSubstrate -Verify",
+            "```",
+            "",
+            f"Active shell: `{session.profile.kind.value}`",
+        ])
         return "\n".join(lines)

@@ -63,7 +63,7 @@ DEFAULT_OPERATOR_PROFILES: List[OperatorProfile] = [
         profile_id="field_operator",
         label="Contested field operator",
         deployment_class=DeploymentClass.EDGE_CONTESTED,
-        typical_hardware=["issued laptop", "rugged tablet", "phone bridge"],
+        typical_hardware=["issued laptop", "rugged tablet", "phone bridge", "powershell"],
         use_case="Launch/monitor drone ops from whatever edge device is available",
         proof_expectation="Threat-fast spectral path + swarm route on edge hardware",
     ),

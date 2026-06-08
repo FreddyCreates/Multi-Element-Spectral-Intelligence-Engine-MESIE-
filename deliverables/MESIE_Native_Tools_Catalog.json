@@ -2,7 +2,66 @@
   "suite": "MESIE / MAESI / NeuroAIX",
   "mesie_version": "0.3.3",
   "sdk_version": "1.4.0",
-  "tool_count": 52,
+  "terminal_profile": {
+    "kind": "powershell",
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE",
+    "args_prefix": [],
+    "is_windows": true,
+    "chain_operator": ";"
+  },
+  "terminal_surfaces": [
+    {
+      "surface": "MAESIClient.terminal",
+      "usage": "client.terminal.open_interactive()",
+      "notes": "SDK property \u2014 opens PowerShell on Windows from Python"
+    },
+    {
+      "surface": "mesie-tools shell",
+      "usage": "python -m mesie.tools.cli shell",
+      "notes": "Interactive REPL-style shell with tool runner"
+    },
+    {
+      "surface": "mesie-tools open-terminal",
+      "usage": "python -m mesie.tools.cli open-terminal [--command CMD]",
+      "notes": "Spawn new OS terminal window at repo root"
+    },
+    {
+      "surface": "scripts/MESIE.ps1",
+      "usage": ". .\\scripts\\MESIE.ps1; Invoke-MESIETool readiness",
+      "notes": "PowerShell module \u2014 primary edge entry on Windows"
+    },
+    {
+      "surface": "scripts/Enter-MESIEShell.ps1",
+      "usage": ".\\scripts\\Enter-MESIEShell.ps1",
+      "notes": "Opens Windows Terminal / PowerShell preloaded with SDK helpers"
+    },
+    {
+      "surface": "deliverables/neuroswarmai_com/reproduce.ps1",
+      "usage": ".\\deliverables\\neuroswarmai_com\\reproduce.ps1",
+      "notes": "Customer / GSA contractor repro harness"
+    },
+    {
+      "surface": "VS Code / Cursor integrated terminal",
+      "usage": "Default profile: PowerShell; run scripts/MESIE.ps1 dot-source",
+      "notes": "IDE terminal is a first-class peer \u2014 same commands"
+    },
+    {
+      "surface": "Windows Terminal profile",
+      "usage": "wt -p PowerShell -d <repo> python -m mesie.tools.cli list",
+      "notes": "Ship MESIE.ps1 path in appliance manifest for WT bookmarks"
+    },
+    {
+      "surface": "Trust remediation agents",
+      "usage": "mesie/agents/trust_remediation.py via terminal.run()",
+      "notes": "Agent commits use shell-aware subprocess"
+    },
+    {
+      "surface": "Enterprise copilot run_tool",
+      "usage": "copilot invokes mesie-tools run <id> through terminal layer",
+      "notes": "Sovereign copilot tool execution on edge appliance"
+    }
+  ],
+  "tool_count": 58,
   "skill_count": 28,
   "categories": {
     "enterprise_ai": "Enterprise AI \u2014 Agent Memory & Sovereign Copilots",
@@ -23,6 +82,8 @@
         "name": "Major Third-Party Benchmarks",
         "category": "qa",
         "command": "python scripts/run_sdk_major_benchmarks.py --trials 300 --agents 10000",
+        "powershell_command": "python scripts/run_sdk_major_benchmarks.py --trials 300 --agents 10000",
+        "bash_command": "python scripts/run_sdk_major_benchmarks.py --trials 300 --agents 10000",
         "deliverable": "deliverables/MAESI_SDK_Major_Benchmarks.json",
         "triggers": [
           "major benchmarks",
@@ -38,6 +99,8 @@
         "name": "Speed Benchmark",
         "category": "qa",
         "command": "python scripts/determinism_benchmark.py",
+        "powershell_command": "python scripts/determinism_benchmark.py",
+        "bash_command": "python scripts/determinism_benchmark.py",
         "deliverable": null,
         "triggers": [
           "benchmark",
@@ -52,6 +115,8 @@
         "name": "Load Bundled Data",
         "category": "core",
         "command": "python examples/09_load_bundled_data.py",
+        "powershell_command": "python examples/09_load_bundled_data.py",
+        "bash_command": "python examples/09_load_bundled_data.py",
         "deliverable": null,
         "triggers": [
           "bundled data",
@@ -64,6 +129,8 @@
         "name": "Fix Reference Data",
         "category": "core",
         "command": "python scripts/fix_reference_data.py",
+        "powershell_command": "python scripts/fix_reference_data.py",
+        "bash_command": "python scripts/fix_reference_data.py",
         "deliverable": null,
         "triggers": [
           "fix data",
@@ -78,6 +145,8 @@
         "name": "Cloudflare Worker",
         "category": "deploy",
         "command": "type docs\\cloudflare.md",
+        "powershell_command": "type docs\\cloudflare.md",
+        "bash_command": "type docs\\cloudflare.md",
         "deliverable": null,
         "triggers": [
           "cloudflare",
@@ -91,11 +160,44 @@
         "name": "Export Tool Catalog",
         "category": "deploy",
         "command": "python -m mesie.tools.cli catalog",
+        "powershell_command": "python -m mesie.tools.cli catalog",
+        "bash_command": "python -m mesie.tools.cli catalog",
         "deliverable": "deliverables/MESIE_Native_Tools_Catalog.json",
         "triggers": [
           "catalog",
           "tool list",
           "skills map"
+        ]
+      },
+      {
+        "id": "mesie-shell",
+        "name": "MESIE Terminal Shell",
+        "category": "deploy",
+        "command": "python -m mesie.tools.cli shell",
+        "powershell_command": "python -m mesie.tools.cli shell",
+        "bash_command": "python -m mesie.tools.cli shell",
+        "deliverable": null,
+        "triggers": [
+          "powershell",
+          "terminal",
+          "shell",
+          "mesie.ps1",
+          "open terminal"
+        ]
+      },
+      {
+        "id": "open-terminal",
+        "name": "Open OS Terminal",
+        "category": "deploy",
+        "command": "powershell -ExecutionPolicy Bypass -File scripts/Enter-MESIEShell.ps1",
+        "powershell_command": "powershell -ExecutionPolicy Bypass -File scripts/Enter-MESIEShell.ps1",
+        "bash_command": "powershell -ExecutionPolicy Bypass -File scripts/Enter-MESIEShell.ps1",
+        "deliverable": null,
+        "triggers": [
+          "open terminal",
+          "windows terminal",
+          "wt",
+          "enter shell"
         ]
       }
     ],
@@ -105,6 +207,8 @@
         "name": "Multi-Domain Suites",
         "category": "analysis",
         "command": "python scripts/run_multi_domain_suites.py",
+        "powershell_command": "python scripts/run_multi_domain_suites.py",
+        "bash_command": "python scripts/run_multi_domain_suites.py",
         "deliverable": "deliverables/MESIE_Multi_Domain_Suite_Report.md",
         "triggers": [
           "domains",
@@ -119,6 +223,8 @@
         "name": "Scenario Simulation Suite",
         "category": "domains",
         "command": "python scripts/run_scenario_simulation_suite.py",
+        "powershell_command": "python scripts/run_scenario_simulation_suite.py",
+        "bash_command": "python scripts/run_scenario_simulation_suite.py",
         "deliverable": "deliverables/MESIE_Scenario_Simulation_Report.json",
         "triggers": [
           "scenario",
@@ -135,6 +241,8 @@
         "name": "Drone Swarm Coordination",
         "category": "enterprise_ai",
         "command": "python scripts/run_drone_swarm_suite.py --agents 10000",
+        "powershell_command": "python scripts/run_drone_swarm_suite.py --agents 10000",
+        "bash_command": "python scripts/run_drone_swarm_suite.py --agents 10000",
         "deliverable": "deliverables/NeuroSwarmAI_Drone_Swarm_Report.json",
         "triggers": [
           "drone swarm",
@@ -149,6 +257,8 @@
         "name": "Mission World Week Sim",
         "category": "domains",
         "command": "python scripts/run_mission_world_week.py --days 7",
+        "powershell_command": "python scripts/run_mission_world_week.py --days 7",
+        "bash_command": "python scripts/run_mission_world_week.py --days 7",
         "deliverable": "deliverables/mission_worlds/military_theater_week_001_week_report.json",
         "triggers": [
           "mission world",
@@ -164,6 +274,8 @@
         "name": "Create Embedding",
         "category": "core",
         "command": "python examples/06_create_spectral_embedding.py",
+        "powershell_command": "python examples/06_create_spectral_embedding.py",
+        "bash_command": "python examples/06_create_spectral_embedding.py",
         "deliverable": null,
         "triggers": [
           "embed",
@@ -178,6 +290,8 @@
         "name": "Embed Full Library",
         "category": "retrieval",
         "command": "python scripts/embed_spectral_library.py",
+        "powershell_command": "python scripts/embed_spectral_library.py",
+        "bash_command": "python scripts/embed_spectral_library.py",
         "deliverable": "library/spectral_index.json",
         "triggers": [
           "embed library",
@@ -189,6 +303,8 @@
         "name": "Embed User Library",
         "category": "retrieval",
         "command": "python scripts/embed_my_library.py <folder> --octopus",
+        "powershell_command": "python scripts/embed_my_library.py <folder> --octopus",
+        "bash_command": "python scripts/embed_my_library.py <folder> --octopus",
         "deliverable": "library/my_spectral_index.json",
         "triggers": [
           "my library",
@@ -202,6 +318,8 @@
         "name": "Monte Carlo Enterprise",
         "category": "enterprise_ai",
         "command": "python scripts/monte_carlo_enterprise_benchmark.py --trials 200 --benchmark",
+        "powershell_command": "python scripts/monte_carlo_enterprise_benchmark.py --trials 200 --benchmark",
+        "bash_command": "python scripts/monte_carlo_enterprise_benchmark.py --trials 200 --benchmark",
         "deliverable": "deliverables/MESIE_Monte_Carlo_Enterprise_Report.md",
         "triggers": [
           "monte carlo",
@@ -214,6 +332,8 @@
         "name": "Multi-Enterprise 20",
         "category": "enterprise_ai",
         "command": "python scripts/run_multi_enterprise_20.py --trials 50",
+        "powershell_command": "python scripts/run_multi_enterprise_20.py --trials 50",
+        "bash_command": "python scripts/run_multi_enterprise_20.py --trials 50",
         "deliverable": "deliverables/MESIE_Multi_Enterprise_20_Report.md",
         "triggers": [
           "multi enterprise",
@@ -228,6 +348,8 @@
         "name": "Enterprise AI Copilot",
         "category": "enterprise_ai",
         "command": "python scripts/run_enterprise_ai_suite.py",
+        "powershell_command": "python scripts/run_enterprise_ai_suite.py",
+        "bash_command": "python scripts/run_enterprise_ai_suite.py",
         "deliverable": "deliverables/Enterprise_AI_Suite_Report.json",
         "triggers": [
           "enterprise ai",
@@ -245,6 +367,8 @@
         "name": "Pro Update Suite",
         "category": "enterprise_ai",
         "command": "python scripts/run_pro_update_suite.py --trials 200",
+        "powershell_command": "python scripts/run_pro_update_suite.py --trials 200",
+        "bash_command": "python scripts/run_pro_update_suite.py --trials 200",
         "deliverable": "deliverables/MESIE_Pro_Update_Report.json",
         "triggers": [
           "pro update",
@@ -259,6 +383,8 @@
         "name": "Production Tier 1+2",
         "category": "enterprise_ai",
         "command": "python scripts/run_production_tiers.py --tier both",
+        "powershell_command": "python scripts/run_production_tiers.py --tier both",
+        "bash_command": "python scripts/run_production_tiers.py --tier both",
         "deliverable": "deliverables/MESIE_Production_Tiers_Report.json",
         "triggers": [
           "production",
@@ -270,10 +396,42 @@
         ]
       },
       {
+        "id": "interior-datacenter",
+        "name": "Interior Data Center",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_interior_datacenter.py",
+        "powershell_command": "python scripts/run_interior_datacenter.py",
+        "bash_command": "python scripts/run_interior_datacenter.py",
+        "deliverable": "deliverables/MESIE_Interior_DataCenter_Manifest.json",
+        "triggers": [
+          "interior datacenter",
+          "corpus vault",
+          "sovereign dc",
+          "data center"
+        ]
+      },
+      {
+        "id": "cluster-edge",
+        "name": "Cluster Edge Fabric",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_cluster_edge.py --nodes 4 --agents 1000",
+        "powershell_command": "python scripts/run_cluster_edge.py --nodes 4 --agents 1000",
+        "bash_command": "python scripts/run_cluster_edge.py --nodes 4 --agents 1000",
+        "deliverable": "deliverables/MESIE_Cluster_Edge_Report.json",
+        "triggers": [
+          "cluster edge",
+          "lan cluster",
+          "multi node",
+          "edge fabric"
+        ]
+      },
+      {
         "id": "drone-thesis",
         "name": "Drone Defense+Offense Thesis",
         "category": "enterprise_ai",
         "command": "python scripts/run_enterprise_drone_thesis.py",
+        "powershell_command": "python scripts/run_enterprise_drone_thesis.py",
+        "bash_command": "python scripts/run_enterprise_drone_thesis.py",
         "deliverable": "deliverables/MESIE_Enterprise_Drone_Defense_Offense_Thesis.md",
         "triggers": [
           "thesis",
@@ -288,6 +446,8 @@
         "name": "Trust Remediation Agents",
         "category": "enterprise_ai",
         "command": "python scripts/run_trust_remediation_agents.py",
+        "powershell_command": "python scripts/run_trust_remediation_agents.py",
+        "bash_command": "python scripts/run_trust_remediation_agents.py",
         "deliverable": "deliverables/Trust_Remediation_Report.json",
         "triggers": [
           "trust agents",
@@ -303,6 +463,8 @@
         "name": "Fingerprint ANN Pipeline",
         "category": "retrieval",
         "command": "python examples/13_fingerprint_ann_pipeline.py",
+        "powershell_command": "python examples/13_fingerprint_ann_pipeline.py",
+        "bash_command": "python examples/13_fingerprint_ann_pipeline.py",
         "deliverable": "library/spectral_index.json",
         "triggers": [
           "fingerprint",
@@ -319,6 +481,8 @@
         "name": "Generate PSD",
         "category": "core",
         "command": "python examples/03_generate_psd.py",
+        "powershell_command": "python examples/03_generate_psd.py",
+        "bash_command": "python examples/03_generate_psd.py",
         "deliverable": null,
         "triggers": [
           "generate psd",
@@ -330,6 +494,8 @@
         "name": "Generate FAS",
         "category": "core",
         "command": "python examples/04_generate_fas.py",
+        "powershell_command": "python examples/04_generate_fas.py",
+        "bash_command": "python examples/04_generate_fas.py",
         "deliverable": null,
         "triggers": [
           "generate fas"
@@ -340,6 +506,8 @@
         "name": "RotDNN Workflow",
         "category": "core",
         "command": "python examples/05_rotdnn_workflow.py",
+        "powershell_command": "python examples/05_rotdnn_workflow.py",
+        "bash_command": "python examples/05_rotdnn_workflow.py",
         "deliverable": null,
         "triggers": [
           "rotdnn",
@@ -353,6 +521,8 @@
         "name": "Internal API Bus",
         "category": "orchestration",
         "command": "python scripts/run_internal_bus_demo.py",
+        "powershell_command": "python scripts/run_internal_bus_demo.py",
+        "bash_command": "python scripts/run_internal_bus_demo.py",
         "deliverable": null,
         "triggers": [
           "internal bus",
@@ -366,6 +536,8 @@
         "name": "List Engines",
         "category": "orchestration",
         "command": "python -c \"from mesie.engines.registry import build_default_registry; r=build_default_registry(); print(', '.join(sorted(r.names())))\"",
+        "powershell_command": "python -c \"from mesie.engines.registry import build_default_registry; r=build_default_registry(); print(', '.join(sorted(r.names())))\"",
+        "bash_command": "python -c \"from mesie.engines.registry import build_default_registry; r=build_default_registry(); print(', '.join(sorted(r.names())))\"",
         "deliverable": null,
         "triggers": [
           "engines",
@@ -380,6 +552,8 @@
         "name": "Research Knowledge Search",
         "category": "maesi",
         "command": "python -c \"from mesie.sdk import search_research; print(search_research('LSH ANN', 5))\"",
+        "powershell_command": "python -c \"from mesie.sdk import search_research; print(search_research('LSH ANN', 5))\"",
+        "bash_command": "python -c \"from mesie.sdk import search_research; print(search_research('LSH ANN', 5))\"",
         "deliverable": null,
         "triggers": [
           "research",
@@ -394,6 +568,8 @@
         "name": "Virtual Silicon VS1",
         "category": "analysis",
         "command": "python scripts/run_virtual_silicon_suite.py",
+        "powershell_command": "python scripts/run_virtual_silicon_suite.py",
+        "bash_command": "python scripts/run_virtual_silicon_suite.py",
         "deliverable": "deliverables/virtual_silicon/MESIE_Virtual_Silicon_Report.json",
         "triggers": [
           "virtual silicon",
@@ -407,6 +583,8 @@
         "name": "Laptop Research Report",
         "category": "analysis",
         "command": "python scripts/embed_spectral_library.py && python scripts/generate_laptop_research_report.py",
+        "powershell_command": "python scripts/embed_spectral_library.py; python scripts/generate_laptop_research_report.py",
+        "bash_command": "python scripts/embed_spectral_library.py && python scripts/generate_laptop_research_report.py",
         "deliverable": "deliverables/MESIE_Laptop_Research_Report.md",
         "triggers": [
           "laptop",
@@ -421,6 +599,8 @@
         "name": "SOLUS Logic Prover",
         "category": "solus",
         "command": "python scripts/run_solus_math_caretakers.py",
+        "powershell_command": "python scripts/run_solus_math_caretakers.py",
+        "bash_command": "python scripts/run_solus_math_caretakers.py",
         "deliverable": "deliverables/SOLUS_Math_Caretakers_Report.json",
         "triggers": [
           "logic prover",
@@ -436,6 +616,8 @@
         "name": "MAESI SDK Run",
         "category": "maesi",
         "command": "python scripts/run_maesi_sdk.py",
+        "powershell_command": "python scripts/run_maesi_sdk.py",
+        "bash_command": "python scripts/run_maesi_sdk.py",
         "deliverable": "deliverables/MAESI_SDK_Run_Report.json",
         "triggers": [
           "maesi",
@@ -448,6 +630,8 @@
         "name": "Fast Compute Benchmark",
         "category": "maesi",
         "command": "python scripts/run_fast_compute_benchmark.py",
+        "powershell_command": "python scripts/run_fast_compute_benchmark.py",
+        "bash_command": "python scripts/run_fast_compute_benchmark.py",
         "deliverable": "deliverables/MAESI_Fast_Compute_Benchmark.json",
         "triggers": [
           "fast compute",
@@ -463,6 +647,8 @@
         "name": "Match Two Spectra",
         "category": "core",
         "command": "python examples/02_match_two_records.py",
+        "powershell_command": "python examples/02_match_two_records.py",
+        "bash_command": "python examples/02_match_two_records.py",
         "deliverable": null,
         "triggers": [
           "match",
@@ -475,6 +661,8 @@
         "name": "Rank Candidates",
         "category": "core",
         "command": "python scripts/run_rank_demo.py",
+        "powershell_command": "python scripts/run_rank_demo.py",
+        "bash_command": "python scripts/run_rank_demo.py",
         "deliverable": null,
         "triggers": [
           "rank",
@@ -490,6 +678,8 @@
         "name": "Native Local AI Deliverables",
         "category": "maesi",
         "command": "python scripts/run_native_ai_deliverables.py",
+        "powershell_command": "python scripts/run_native_ai_deliverables.py",
+        "bash_command": "python scripts/run_native_ai_deliverables.py",
         "deliverable": "deliverables/native_ai/NativeAI_Manifest.json",
         "triggers": [
           "native ai",
@@ -507,6 +697,8 @@
         "name": "NeuroAIX Connectome",
         "category": "neuroaix",
         "command": "python examples/08_3d_connectome_brain.py",
+        "powershell_command": "python examples/08_3d_connectome_brain.py",
+        "bash_command": "python examples/08_3d_connectome_brain.py",
         "deliverable": null,
         "triggers": [
           "neuroaix",
@@ -519,6 +711,8 @@
         "name": "Cognitive Memory",
         "category": "neuroaix",
         "command": "python examples/07_cognitive_memory_adapter.py",
+        "powershell_command": "python examples/07_cognitive_memory_adapter.py",
+        "bash_command": "python examples/07_cognitive_memory_adapter.py",
         "deliverable": null,
         "triggers": [
           "cognitive",
@@ -532,6 +726,8 @@
         "name": "NeuroSwarm Audit Evidence",
         "category": "enterprise_ai",
         "command": "python scripts/run_neuroswarm_audit.py --trials 1000",
+        "powershell_command": "python scripts/run_neuroswarm_audit.py --trials 1000",
+        "bash_command": "python scripts/run_neuroswarm_audit.py --trials 1000",
         "deliverable": "deliverables/NeuroSwarmAI_Audit_Evidence.json",
         "triggers": [
           "neuroswarm",
@@ -542,10 +738,27 @@
         ]
       },
       {
+        "id": "deployment-doctrine",
+        "name": "Deployment Doctrine",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_interior_datacenter.py",
+        "powershell_command": "python scripts/run_interior_datacenter.py",
+        "bash_command": "python scripts/run_interior_datacenter.py",
+        "deliverable": "deliverables/MESIE_Deployment_Doctrine.json",
+        "triggers": [
+          "deployment doctrine",
+          "edge contested",
+          "gsa contractor",
+          "third way"
+        ]
+      },
+      {
         "id": "is-this-true",
         "name": "Is This True?",
         "category": "enterprise_ai",
         "command": "python scripts/run_is_this_true.py",
+        "powershell_command": "python scripts/run_is_this_true.py",
+        "bash_command": "python scripts/run_is_this_true.py",
         "deliverable": "deliverables/Is_This_True_Response.json",
         "triggers": [
           "is this true",
@@ -555,10 +768,28 @@
         ]
       },
       {
+        "id": "proof-substrate",
+        "name": "Proof Substrate",
+        "category": "enterprise_ai",
+        "command": "python scripts/run_proof_substrate.py",
+        "powershell_command": "python scripts/run_proof_substrate.py",
+        "bash_command": "python scripts/run_proof_substrate.py",
+        "deliverable": "deliverables/Proof_Substrate.json",
+        "triggers": [
+          "proof substrate",
+          "evidence graph",
+          "seal",
+          "hash chain",
+          "substrate"
+        ]
+      },
+      {
         "id": "neuroswarm-readiness",
         "name": "NeuroSwarmAI.com Readiness",
         "category": "enterprise_ai",
         "command": "python scripts/run_neuroswarm_readiness.py",
+        "powershell_command": "python scripts/run_neuroswarm_readiness.py",
+        "bash_command": "python scripts/run_neuroswarm_readiness.py",
         "deliverable": "deliverables/neuroswarmai_com/evidence_manifest.json",
         "triggers": [
           "readiness",
@@ -574,6 +805,8 @@
         "name": "Octopus Engineering",
         "category": "orchestration",
         "command": "python examples/11_octopus_internal_api.py",
+        "powershell_command": "python examples/11_octopus_internal_api.py",
+        "bash_command": "python examples/11_octopus_internal_api.py",
         "deliverable": null,
         "triggers": [
           "octopus",
@@ -590,6 +823,8 @@
         "name": "Orbital Edge 50d",
         "category": "analysis",
         "command": "python scripts/orbital_edge_50d_analysis.py",
+        "powershell_command": "python scripts/orbital_edge_50d_analysis.py",
+        "bash_command": "python scripts/orbital_edge_50d_analysis.py",
         "deliverable": "scripts/orbital_edge_50d_report.json",
         "triggers": [
           "orbital",
@@ -604,6 +839,8 @@
         "name": "SOLUS Pattern Forge",
         "category": "solus",
         "command": "python scripts/run_solus_math_caretakers.py",
+        "powershell_command": "python scripts/run_solus_math_caretakers.py",
+        "bash_command": "python scripts/run_solus_math_caretakers.py",
         "deliverable": "deliverables/SOLUS_Math_Caretakers_Report.json",
         "triggers": [
           "pattern forge",
@@ -620,6 +857,8 @@
         "name": "AISVectorPolyglot Suite",
         "category": "orchestration",
         "command": "python scripts/run_ais_polyglot_suite.py",
+        "powershell_command": "python scripts/run_ais_polyglot_suite.py",
+        "bash_command": "python scripts/run_ais_polyglot_suite.py",
         "deliverable": "deliverables/AISVectorPolyglot_Integration_Report.json",
         "triggers": [
           "ais",
@@ -639,6 +878,8 @@
         "name": "SOLUS SDK Organism",
         "category": "solus",
         "command": "python scripts/run_solus_math_caretakers.py",
+        "powershell_command": "python scripts/run_solus_math_caretakers.py",
+        "bash_command": "python scripts/run_solus_math_caretakers.py",
         "deliverable": "deliverables/SOLUS_Math_Caretakers_Report.json",
         "triggers": [
           "solus",
@@ -657,6 +898,8 @@
         "name": "Sovereign Local 120",
         "category": "enterprise_ai",
         "command": "python scripts/run_sovereign_local_suite.py",
+        "powershell_command": "python scripts/run_sovereign_local_suite.py",
+        "bash_command": "python scripts/run_sovereign_local_suite.py",
         "deliverable": "deliverables/MESIE_Sovereign_Local_120_Report.md",
         "triggers": [
           "sovereign local",
@@ -670,6 +913,8 @@
         "name": "Field Access Bridge",
         "category": "enterprise_ai",
         "command": "python scripts/run_field_access_suite.py",
+        "powershell_command": "python scripts/run_field_access_suite.py",
+        "bash_command": "python scripts/run_field_access_suite.py",
         "deliverable": "deliverables/MESIE_Field_Access_Report.json",
         "triggers": [
           "field access",
@@ -685,6 +930,8 @@
         "name": "Field Route",
         "category": "enterprise_ai",
         "command": "python scripts/field_route.py list",
+        "powershell_command": "python scripts/field_route.py list",
+        "bash_command": "python scripts/field_route.py list",
         "deliverable": null,
         "triggers": [
           "field route",
@@ -698,6 +945,8 @@
         "name": "Field Route Path",
         "category": "enterprise_ai",
         "command": "python scripts/field_route.py route ground world",
+        "powershell_command": "python scripts/field_route.py route ground world",
+        "bash_command": "python scripts/field_route.py route ground world",
         "deliverable": null,
         "triggers": [
           "field route path",
@@ -711,6 +960,8 @@
         "name": "Run Test Suite",
         "category": "qa",
         "command": "python -m pytest tests/ -q",
+        "powershell_command": "python -m pytest tests/ -q",
+        "bash_command": "python -m pytest tests/ -q",
         "deliverable": null,
         "triggers": [
           "test",
@@ -723,6 +974,8 @@
         "name": "SDK Test Drive",
         "category": "qa",
         "command": "python scripts/sdk_test_drive.py",
+        "powershell_command": "python scripts/sdk_test_drive.py",
+        "bash_command": "python scripts/sdk_test_drive.py",
         "deliverable": "scripts/sdk_test_drive_report.json",
         "triggers": [
           "sdk test drive",
@@ -736,6 +989,8 @@
         "name": "Validate Record",
         "category": "core",
         "command": "python examples/01_load_and_validate.py",
+        "powershell_command": "python examples/01_load_and_validate.py",
+        "bash_command": "python examples/01_load_and_validate.py",
         "deliverable": null,
         "triggers": [
           "validate",

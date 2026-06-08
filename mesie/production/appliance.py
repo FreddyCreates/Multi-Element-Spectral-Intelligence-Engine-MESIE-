@@ -176,6 +176,12 @@ class ProductionAppliance:
                 "ingest": ["csv", "udp", "rf_sim", "rf_udp", "virtual_silicon_hil", "ota_multicast"],
                 "platform": platform.platform(),
                 "operator_profiles": ["field_operator", "gsa_drone_contractor", "builder_lab_llc"],
+                "terminal": {
+                    "primary": "powershell",
+                    "sdk_module": "scripts/MESIE.ps1",
+                    "cli_shell": "python -m mesie.tools.cli shell",
+                    "open": "python -m mesie.tools.cli open-terminal",
+                },
             },
             generated_at=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         )

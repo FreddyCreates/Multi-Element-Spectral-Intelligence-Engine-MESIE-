@@ -272,6 +272,14 @@ TOOLS: List[NativeTool] = [
                ["catalog", "tool list", "skills map"],
                "python -m mesie.tools.cli catalog",
                "deliverables/MESIE_Native_Tools_Catalog.json"),
+    NativeTool("mesie-shell", "MESIE Terminal Shell", "mesie-deploy", "deploy",
+               "PowerShell-first interactive shell + open-terminal surfaces.",
+               ["powershell", "terminal", "shell", "mesie.ps1", "open terminal"],
+               "python -m mesie.tools.cli shell"),
+    NativeTool("open-terminal", "Open OS Terminal", "mesie-deploy", "deploy",
+               "Spawn PowerShell / Windows Terminal at repo root with SDK loaded.",
+               ["open terminal", "windows terminal", "wt", "enter shell"],
+               "powershell -ExecutionPolicy Bypass -File scripts/Enter-MESIEShell.ps1"),
 ]
 
 

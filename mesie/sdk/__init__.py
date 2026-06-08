@@ -128,10 +128,16 @@ __all__ = [
     "composition_manifest",
 ]
 
+from mesie.sdk.terminal import TerminalSession, default_session, detect_shell, open_surfaces, open_terminal
 from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
 from mesie.sdk.native_ai import NativeLocalAIEngine, NativeAIDeliverableReport, StreamEvent, StreamPhase
 
 __all__.extend([
+    "TerminalSession",
+    "default_session",
+    "detect_shell",
+    "open_surfaces",
+    "open_terminal",
     "SpectralIntelligenceSDK",
     "NativeLocalAIEngine",
     "NativeAIDeliverableReport",

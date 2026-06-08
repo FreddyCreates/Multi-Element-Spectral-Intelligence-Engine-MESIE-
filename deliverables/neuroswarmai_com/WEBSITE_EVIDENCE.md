@@ -44,10 +44,19 @@ python scripts/run_proof_substrate.py --verify
 - `deliverables/Proof_Substrate.json`
 - `deliverables/neuroswarmai_com/proof_substrate.json`
 
-## Reproduce on your machine
+## Reproduce on your machine (PowerShell — edge primary)
+
+```powershell
+git clone <repo>
+Set-Location Multi-Element-Spectral-Intelligence-Engine-MESIE-
+. .\scripts\MESIE.ps1
+Invoke-MESIEReadiness
+# or full customer harness:
+.\deliverables\neuroswarmai_com\reproduce.ps1
+```
 
 ```bash
-git clone <repo>
+# Linux / macOS peer
 python scripts/run_neuroswarm_readiness.py
 ```
 

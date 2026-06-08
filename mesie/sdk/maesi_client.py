@@ -66,6 +66,7 @@ class MAESIClient:
         self._native_ai = None
         self._field_access = None
         self._swarm = None
+        self._terminal = None
         if use_solus_caretakers or use_solus_math_layer:
             from mesie.sdk.solus import SDKSolusOrganism, SolusMathLayer
 
@@ -121,6 +122,23 @@ class MAESIClient:
     def route_field(self, source: str, destination: str, *, policy: str = "shortest"):
         """Route through the sovereign field mesh — aliases like ground, world, leo0, geo."""
         return self.field_access.route(source, destination, policy=policy)
+
+    @property
+    def terminal(self):
+        """Full terminal session — PowerShell-first on Windows edge deploys."""
+        if self._terminal is None:
+            from mesie.sdk.terminal import default_session
+
+            self._terminal = default_session()
+        return self._terminal
+
+    def run_tool(self, tool_id: str, extra: str = "") -> int:
+        """Run a native registry tool through the SDK terminal layer."""
+        return self.terminal.run_tool(tool_id, extra)
+
+    def open_terminal(self, *, command: str | None = None) -> int | None:
+        """Open interactive OS terminal (PowerShell window on Windows)."""
+        return self.terminal.open_interactive(command=command)
 
     @property
     def swarm(self):
