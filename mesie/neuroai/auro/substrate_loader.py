@@ -159,8 +159,9 @@ def load_auro_manifest() -> Dict[str, Any]:
         "lineage": lineage,
         "substrate": st,
         "gptrepo_protocols": load_gptrepo_protocol_names(),
-        "native_model": "PROTO-183-SOCP",
-        "native_model_source": st.get("socp_protocol", ""),
+        "native_model": "AuroNativeLM-v1",
+        "native_model_built": True,
+        "socp_reference": st.get("socp_protocol", ""),
         "alpha_family": alpha_family_from_paper(),
         "speaking_loop": [
             "perception",

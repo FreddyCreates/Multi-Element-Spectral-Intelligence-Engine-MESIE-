@@ -3,11 +3,14 @@
 from mesie.neuroai.auro.engine import AuroSpeakingEngine, AuroSpeechAct
 from mesie.neuroai.auro.eval import AuroEvalSuite, AuroEvalReport
 from mesie.neuroai.auro.manifest import load_auro_manifest
+from mesie.neuroai.auro.native_lm import AuroNativeLanguageModel, MODEL_ID
 from mesie.neuroai.auro.roles import AlphaRole, RoleBoundary
 
 __all__ = [
     "AuroSpeakingEngine",
     "AuroSpeechAct",
+    "AuroNativeLanguageModel",
+    "MODEL_ID",
     "AuroEvalSuite",
     "AuroEvalReport",
     "AlphaRole",

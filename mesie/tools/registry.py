@@ -295,7 +295,7 @@ TOOLS: List[NativeTool] = [
                "python scripts/sync_auro_substrate.py",
                "data/neuroai/substrate/sync_manifest.json"),
     NativeTool("auro-speaking", "Auro Native Speaking Intelligence", "mesie-neuroaix", "neuroaix",
-               "Medina native speaking AI — GPTREPO PROTO-183 SOCP + NeuroAI Paper IV. Zero third-party inference.",
+               "Medina native speaking AI — AuroNativeLM-v1 built per Paper IV. Zero third-party inference.",
                ["auro", "speaking intelligence", "native voice", "alpha family", "thesis defer", "socp"],
                "python scripts/run_auro_suite.py",
                "deliverables/Auro_Native_Speaking_Manifest.json"),

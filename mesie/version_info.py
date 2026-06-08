@@ -1,7 +1,7 @@
 """Canonical release identifiers — single source for version bumps."""
 
-MESIE_VERSION = "0.3.5"
-MAESI_SDK_VERSION = "1.4.2"
+MESIE_VERSION = "0.3.6"
+MAESI_SDK_VERSION = "1.4.3"
 
 # Subsystem releases bundled with MESIE 0.3.5 / MAESI SDK 1.4.2
 APPLIANCE_VERSION = "1.1.0"
@@ -18,4 +18,4 @@ CLUSTER_EDGE_VERSION = "1.0.0"
 DEPLOYMENT_DOCTRINE_VERSION = "1.0.0"
 TERMINAL_SDK_VERSION = "1.1.0"
 SAMGOV_EDITION_VERSION = "1.0.0"
-AURO_SPEAKING_VERSION = "1.0.0"
+AURO_SPEAKING_VERSION = "1.1.0"

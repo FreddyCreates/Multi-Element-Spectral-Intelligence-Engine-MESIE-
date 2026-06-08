@@ -1,0 +1,36 @@
+{
+  "schema": "medina.thesis.claim_ledger.v1",
+  "packet_id": "NEUROAI-REPO-CERN-EXPANDED-20260601",
+  "claim_classes": {
+    "C1_blocked": {
+      "spoken_markers": ["I cannot claim", "blocked", "boundary held"],
+      "tone_cap": 0.4,
+      "prosody": "[restrain]"
+    },
+    "C2_private": {
+      "spoken_markers": ["public-safe", "abstracted", "internal context noted"],
+      "tone_cap": 0.55,
+      "prosody": "[clarify]"
+    },
+    "C3_hypothesis": {
+      "spoken_markers": ["we hypothesize", "research hypothesis", "not validated proof"],
+      "tone_cap": 0.65,
+      "prosody": "[clarify]"
+    },
+    "C4_repo_supports": {
+      "spoken_markers": ["the repo supports", "measured locally", "artifact present"],
+      "tone_cap": 0.75,
+      "prosody": ""
+    },
+    "C5_we_know": {
+      "spoken_markers": ["we know", "sealed evidence shows"],
+      "tone_cap": 0.85,
+      "prosody": "",
+      "requires_thesis_artifact": true
+    }
+  },
+  "spoken_claim_calibration": {
+    "mismatch_penalty": "tone exceeds evidence — spoken claim-score fails",
+    "escalation": "defer to THESIS written packet when consequential"
+  }
+}

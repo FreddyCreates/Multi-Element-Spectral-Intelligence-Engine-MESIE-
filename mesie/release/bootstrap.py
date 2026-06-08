@@ -44,7 +44,7 @@ def bootstrap(*, install_profile: bool = False, quiet: bool = False) -> Dict[str
         "auro_substrate": {
             "gptrepo_root": str(gptrepo_root()),
             "neuroai_packet_root": str(neuroai_packet_root()),
-            "native_model": "PROTO-183-SOCP",
+            "native_model": "AuroNativeLM-v1",
         },
         "terminal_profile": detect_shell().to_dict(),
         "entry_commands": {

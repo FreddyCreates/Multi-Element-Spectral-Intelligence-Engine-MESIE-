@@ -56,9 +56,9 @@ def run_release_check(*, run_pytest: bool = True) -> ReleaseReadinessReport:
     add("samgov_edition", len(sg.workflows) >= 5, sg.edition)
 
     auro = AuroSpeakingEngine()
-    add("auro_native_speaking", auro.status().get("third_party_inference") is False, auro.edition)
+    add("auro_native_lm", auro.status().get("built") is True, auro.status().get("native_model", ""))
     auro_eval = AuroEvalSuite().run(auro)
-    add("auro_eval", auro_eval.passed >= 5, f"{auro_eval.passed}/{len(auro_eval.cases)}")
+    add("auro_eval", auro_eval.passed >= 10, f"{auro_eval.passed}/{len(auro_eval.cases)} matrix={auro_eval.matrix_passed}")
 
     from mesie.sdk.llm_bridge import LLMBridge
 
