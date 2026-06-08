@@ -82,7 +82,7 @@ include-package-data = true
 include = ["mesie*", "data*"]
 
 [tool.setuptools.package-data]
-data = ["reference/*.json", "benchmarks/*.json", "samgov/*.json", "scenarios/*.json", "neuroai/*.json"]
+data = ["reference/*.json", "benchmarks/*.json", "samgov/*.json", "scenarios/*.json", "neuroai/*.json", "neuroai/substrate/*"]
 "mesie.release" = ["assets/*.ps1"]
 
 [tool.setuptools.cmdclass]

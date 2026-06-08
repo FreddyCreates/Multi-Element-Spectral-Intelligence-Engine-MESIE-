@@ -4,12 +4,18 @@ from __future__ import annotations
 
 from mesie.neuroai.auro import AuroSpeakingEngine
 from mesie.neuroai.auro.eval import AuroEvalSuite
-from mesie.neuroai.auro.manifest import load_auro_manifest
+from mesie.neuroai.auro.manifest import load_auro_manifest, substrate_status
 from mesie.neuroai.auro.roles import enforce_boundary
+
+
+def test_substrate_points_to_external_repos():
+    st = substrate_status()
+    assert st["gptrepo_present"] or st["paper_iv_present"] or st["vendored_fallback"]
 
 
 def test_manifest_alpha_family():
     m = load_auro_manifest()
+    assert m["native_model"] == "PROTO-183-SOCP"
     assert "AURO" in m["alpha_family"]
     assert "THESIS" in m["alpha_family"]
     assert "sentient" in str(m["blocked_claims"]).lower() or any(
@@ -28,7 +34,8 @@ def test_auro_speaks_native_not_external():
     act = eng.speak("Who are you?")
     assert act.sovereign is True
     assert act.loop_state.get("role") == "AURO"
-    assert act.native_model == "AuroNativeComposer-v1"
+    assert act.native_model == "PROTO-183-SOCP"
+    assert "solus" in act.spoken.lower() or "auro" in act.spoken.lower()
     assert "Medina" in act.spoken or "Auro" in act.spoken
 
 

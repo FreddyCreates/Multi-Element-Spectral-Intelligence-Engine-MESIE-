@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 from mesie.release.paths import resolve_workspace_root, script_source, user_config_dir
+from mesie.neuroai.auro.substrate_loader import gptrepo_root, neuroai_packet_root
 
 ROOT = resolve_workspace_root()
 
@@ -40,6 +41,11 @@ def bootstrap(*, install_profile: bool = False, quiet: bool = False) -> Dict[str
         "powershell_module": str(dst_ps1),
         "default_tier": "sovereign",
         "copilot_tiers": ["sovereign", "samgov", "research"],
+        "auro_substrate": {
+            "gptrepo_root": str(gptrepo_root()),
+            "neuroai_packet_root": str(neuroai_packet_root()),
+            "native_model": "PROTO-183-SOCP",
+        },
         "terminal_profile": detect_shell().to_dict(),
         "entry_commands": {
             "maesi": "maesi",

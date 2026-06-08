@@ -1,0 +1,22 @@
+{
+  "lineage_schema": "medina.series_lineage.v1",
+  "packet_id": "NEUROAI-REPO-CERN-EXPANDED-20260601",
+  "created_at": "2026-06-01T23:55:00Z",
+  "source_mode": "repo_intelligence_primary_with_subagent_support",
+  "prior_packets": [
+    "/workspace/output/neuroai-repo-intelligence-cern-series-20260601.zip"
+  ],
+  "papers": [
+    "p1-memory-runtime-hypothesis.md",
+    "p2-source-forge-deploy-nexus.md",
+    "p3-proof-scores-memory-preserving-agents.md",
+    "p4-auro-dynamics-speaking-intelligence.md"
+  ],
+  "authority_state": "CLAIM_HARDENED / PUBLIC_SAFE_DRAFT",
+  "review_state": "operator_review_required",
+  "subagent_lanes": [
+    "repo intelligence mining",
+    "literature grounding",
+    "narrative/design architecture"
+  ]
+}

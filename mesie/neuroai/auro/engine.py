@@ -8,8 +8,9 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from mesie.neuroai.auro.manifest import AURO_EDITION, AURO_PACKET_ID, load_auro_manifest
+from mesie.neuroai.auro.manifest import AURO_EDITION, AURO_PACKET_ID, load_auro_manifest, substrate_status
 from mesie.neuroai.auro.memory import AuroVoiceMemory
+from mesie.neuroai.auro.socp_native import SovereignOfflineCognition
 from mesie.neuroai.auro.speaking_loop import SpeakingIntelligenceLoop
 from mesie.sdk.solus import SDKSolusOrganism
 from mesie.sdk.solus.constants import SOLUS_BRAND
@@ -43,12 +44,13 @@ class AuroSpeakingEngine:
     packet_id: str = AURO_PACKET_ID
     memory: AuroVoiceMemory = field(default_factory=lambda: AuroVoiceMemory("auro-gov-default"))
     organism: SDKSolusOrganism = field(default_factory=SDKSolusOrganism)
+    socp: SovereignOfflineCognition = field(default_factory=SovereignOfflineCognition)
     _loop: Optional[SpeakingIntelligenceLoop] = field(default=None, init=False)
     _samgov: Any = field(default=None, init=False)
 
     def __post_init__(self) -> None:
         self.memory.session_id = self.session_id
-        self._loop = SpeakingIntelligenceLoop(self.memory)
+        self._loop = SpeakingIntelligenceLoop(self.memory, socp=self.socp)
 
     def _sam(self):
         if self._samgov is None:
@@ -62,42 +64,34 @@ class AuroSpeakingEngine:
         from mesie.sdk import __sdk_version__
 
         manifest = load_auro_manifest()
+        sub = substrate_status()
         return {
             "identity": "Auro — Medina native speaking intelligence",
             "edition": self.edition,
             "packet_id": self.packet_id,
             "mesie_version": mesie.__version__,
             "sdk_version": __sdk_version__,
-            "native_model": "AuroNativeComposer-v1",
+            "native_model": manifest.get("native_model", "PROTO-183-SOCP"),
+            "native_model_source": manifest.get("native_model_source", ""),
+            "substrate": sub,
+            "socp": self.socp.status(),
             "solus_brand": SOLUS_BRAND,
             "sovereign": True,
             "third_party_inference": False,
             "alpha_family": list(manifest.get("alpha_family", {}).keys()),
+            "gptrepo_protocols": manifest.get("gptrepo_protocols", []),
+            "paper_iv_loaded": manifest.get("paper_iv_loaded", False),
             "voice_memory_turns": len(self.memory._turns),
             "speaking_loop": manifest.get("speaking_loop", []),
             "blocked_claims": manifest.get("blocked_claims", []),
         }
 
-    def _solus_reason(self, text: str) -> str:
-        """Native SOLUS caretaker reasoning — not external LLM."""
-        try:
-            sig = [float(ord(c) % 97) for c in text[:128]]
-            if len(sig) < 8:
-                sig = sig + [1.0] * (8 - len(sig))
-            freqs = list(range(len(sig)))
-            analysis = self.organism.analyze_spectrum(freqs, sig)
-            ratio = analysis.get("xray", {}).get("signal_ratio", 0.0)
-            logic = self.organism.logic_action(
-                "prove",
-                theorem=f"auro_session_{self.session_id}: bounded speech preserves proof posture",
-            )
-            conf = logic.brain.get("confidence", 0.0)
-            return (
-                f"signal_ratio={ratio:.3f}, logic_confidence={conf:.3f} — "
-                f"voice carries boundary; THESIS owns sealed proof."
-            )
-        except Exception as exc:
-            return f"solus_local_reasoning={exc}"
+    def _native_reason(self, text: str) -> str:
+        """GPTREPO PROTO-183 SOCP — native offline cognition from your other repo."""
+        result = self.socp.query(text)
+        conf = result.get("confidence", 0)
+        src = result.get("source", "solus")
+        return f"[{src} conf={conf:.3f}] {result.get('response', '')}"
 
     def _samgov_context(self, text: str) -> str:
         low = text.lower()
@@ -108,9 +102,9 @@ class AuroSpeakingEngine:
 
     def speak(self, user_text: str) -> AuroSpeechAct:
         """Full speaking loop — native compose, no Grok/Llama/OpenAI."""
-        solus = self._solus_reason(user_text)
+        native = self._native_reason(user_text)
         sam_ctx = self._samgov_context(user_text)
-        state = self._loop.run(user_text, solus_conclusion=solus, samgov_context=sam_ctx)
+        state = self._loop.run(user_text, solus_conclusion=native, samgov_context=sam_ctx)
         utterance = state.utterance
         spoken = utterance.format_spoken() if utterance else "Auro online."
 
@@ -120,7 +114,7 @@ class AuroSpeakingEngine:
         return AuroSpeechAct(
             spoken=spoken,
             loop_state=state.to_dict(),
-            native_model=utterance.native_model if utterance else "AuroNativeComposer-v1",
+            native_model=utterance.native_model if utterance else "PROTO-183-SOCP",
             edition=self.edition,
             packet_id=self.packet_id,
             sovereign=True,

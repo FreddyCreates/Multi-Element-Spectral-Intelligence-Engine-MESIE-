@@ -1,0 +1,16 @@
+{
+  "synced_from": {
+    "gptrepo": "C:\\Users\\Medin\\GPTREPO",
+    "neuroai_packet": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601"
+  },
+  "copied": [
+    "data\\neuroai\\substrate\\lineage_record.json",
+    "data\\neuroai\\substrate\\citation_to_claim_matrix.json",
+    "data\\neuroai\\substrate\\p4-auro-dynamics-speaking-intelligence.md",
+    "data\\neuroai\\substrate\\neuroai_packet_README.md",
+    "data\\neuroai\\substrate\\sovereign-offline-cognition-protocol.js",
+    "data\\neuroai\\substrate\\auro-guardian-intelligence-protocol.js",
+    "data\\neuroai\\substrate\\auro-absorption-charter-protocol.js"
+  ],
+  "native_model": "PROTO-183-SOCP"
+}

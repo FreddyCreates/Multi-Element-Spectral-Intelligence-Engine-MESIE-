@@ -1,0 +1,22 @@
+{
+  "description": "Auro native LM substrate lives in Medina's other repos — MESIE bridges, does not invent.",
+  "gptrepo_root_default": "C:\\Users\\Medin\\GPTREPO",
+  "neuroai_packet_default": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601",
+  "env_overrides": {
+    "gptrepo": "MESIE_GPTREPO_ROOT or GPTREPO_ROOT",
+    "neuroai": "MESIE_NEUROAI_PACKET_ROOT or NEUROAI_PACKET_ROOT"
+  },
+  "native_model": {
+    "id": "PROTO-183-SOCP",
+    "source_file": "GPTREPO/protocols/sovereign-offline-cognition-protocol.js",
+    "companion_protocols": [
+      "GPTREPO/protocols/auro-guardian-intelligence-protocol.js",
+      "GPTREPO/protocols/auro-absorption-charter-protocol.js"
+    ]
+  },
+  "paper_iv": {
+    "packet_id": "NEUROAI-REPO-CERN-EXPANDED-20260601",
+    "source_file": "papers/p4-auro-dynamics-speaking-intelligence.md"
+  },
+  "vendored_fallback": "data/neuroai/substrate/"
+}

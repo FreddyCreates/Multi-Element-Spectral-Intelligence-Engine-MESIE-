@@ -6,113 +6,73 @@
   "third_party_inference": false,
   "manifest": {
     "packet_id": "NEUROAI-REPO-CERN-EXPANDED-20260601",
-    "series": "Repo-Native NeuroAI Infrastructure",
-    "paper": "IV of IV \u2014 Auro and the Dynamics of Speaking Intelligence",
     "authority_state": "CLAIM_HARDENED / PUBLIC_SAFE_DRAFT",
-    "claim_posture": "C4 strategic thesis plus C3 hypothesis",
-    "primary_substrate": [
-      "R3",
-      "R6",
-      "R7",
-      "R8"
-    ],
-    "embodiment_context": [
-      "E7",
-      "E8",
-      "E9",
-      "E10"
-    ],
-    "blocked_claims": [
-      "sentient",
-      "conscious",
-      "clinically validated",
-      "human-equivalent",
-      "biologically proven",
-      "CERN affiliation",
-      "production deployment certified",
-      "external notarization"
-    ],
-    "supported_claims": [
-      "repo-native speaking intelligence research surface",
-      "role-aware memory and authority control",
-      "Alpha-family cognitive role separation",
-      "measurable dynamical speaking loop"
-    ],
-    "medina_identity": {
-      "sovereign_infrastructure": "Medina / NeuroSwarmAI",
-      "native_speaking_intelligence": "Auro",
-      "not_foundation": [
-        "external LLM",
-        "Grok",
-        "Llama",
-        "OpenAI",
-        "Anthropic"
+    "lineage": {
+      "lineage_schema": "medina.series_lineage.v1",
+      "packet_id": "NEUROAI-REPO-CERN-EXPANDED-20260601",
+      "created_at": "2026-06-01T23:55:00Z",
+      "source_mode": "repo_intelligence_primary_with_subagent_support",
+      "prior_packets": [
+        "/workspace/output/neuroai-repo-intelligence-cern-series-20260601.zip"
+      ],
+      "papers": [
+        "p1-memory-runtime-hypothesis.md",
+        "p2-source-forge-deploy-nexus.md",
+        "p3-proof-scores-memory-preserving-agents.md",
+        "p4-auro-dynamics-speaking-intelligence.md"
+      ],
+      "authority_state": "CLAIM_HARDENED / PUBLIC_SAFE_DRAFT",
+      "review_state": "operator_review_required",
+      "subagent_lanes": [
+        "repo intelligence mining",
+        "literature grounding",
+        "narrative/design architecture"
       ]
     },
+    "substrate": {
+      "gptrepo_root": "C:\\Users\\Medin\\GPTREPO",
+      "gptrepo_present": true,
+      "socp_protocol": "C:\\Users\\Medin\\GPTREPO\\protocols\\sovereign-offline-cognition-protocol.js",
+      "socp_present": true,
+      "neuroai_packet_root": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601",
+      "neuroai_present": true,
+      "paper_iv": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601\\papers\\p4-auro-dynamics-speaking-intelligence.md",
+      "paper_iv_present": true,
+      "lineage": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601\\manifests\\lineage_record.json",
+      "lineage_present": true,
+      "vendored_fallback": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\data\\neuroai\\substrate",
+      "source": "external_repos"
+    },
+    "gptrepo_protocols": [
+      "auro-absorption-charter-protocol.js",
+      "auro-guardian-intelligence-protocol.js"
+    ],
+    "native_model": "PROTO-183-SOCP",
+    "native_model_source": "C:\\Users\\Medin\\GPTREPO\\protocols\\sovereign-offline-cognition-protocol.js",
     "alpha_family": {
       "AURO": {
         "role": "native speaking intelligence",
-        "may_speak": [
-          "orientation",
-          "warmth",
-          "narration",
-          "operator guidance",
-          "public-safe abstraction"
-        ],
-        "must_not_claim": [
-          "THESIS proof authority",
-          "Medina corporate legal standing",
-          "clinical validation"
-        ]
+        "source": "neuroai/paper_iv"
       },
       "THESIS": {
         "role": "research, IP, proof, publication, notarization, deployment translation",
-        "may_speak": [
-          "evidence tiers",
-          "proof packets",
-          "claim calibration",
-          "remediation"
-        ],
-        "must_not_claim": [
-          "Auro speaking identity",
-          "affective intimacy as proof"
-        ]
+        "source": "neuroai/paper_iv"
       },
       "ORIGO": {
         "role": "builder / operating architect",
-        "may_speak": [
-          "build architecture",
-          "deployment doctrine",
-          "cluster edge"
-        ],
-        "must_not_claim": [
-          "proof notarization",
-          "clinical speech"
-        ]
+        "source": "neuroai/paper_iv"
       },
       "CODEX_PHANTASMATIS": {
         "role": "coding and implementation-heavy execution",
-        "may_speak": [
-          "implementation status",
-          "tool execution",
-          "repro commands"
-        ],
-        "must_not_claim": [
-          "strategic thesis",
-          "proof authority"
-        ]
+        "source": "neuroai/paper_iv"
       },
       "CIVOS_PRIME": {
         "role": "high-order governance / orchestration",
-        "may_speak": [
-          "orchestration",
-          "policy boundary",
-          "escalation"
-        ],
-        "must_not_claim": [
-          "spectral proof",
-          "operator intimacy"
-        ]
+        "source": "neuroai/paper_iv"
+      },
+      "MEDINA": {
+        "role": "sovereign intelligence infrastructure / company",
+        "source": "neuroai/paper_iv"
       }
     },
     "speaking_loop": [
@@ -125,15 +85,30 @@
       "user_response",
       "state_update"
     ],
-    "eval_program": [
-      "voice_memory_continuity",
-      "role_coherence",
-      "spoken_claim_calibration",
-      "affect_stability",
-      "boundary_speech",
-      "interruption_recovery",
-      "escalation_to_thesis"
-    ]
+    "blocked_claims": [
+      "sentient",
+      "conscious",
+      "clinically validated",
+      "human-equivalent",
+      "biologically proven",
+      "CERN affiliation",
+      "production deployment certified",
+      "external notarization"
+    ],
+    "paper_iv_chars": 18691,
+    "paper_iv_loaded": true,
+    "medina_identity": {
+      "sovereign_infrastructure": "Medina / NeuroSwarmAI",
+      "native_speaking_intelligence": "Auro",
+      "oro_charter": "ORO-CHARTER-001",
+      "not_foundation": [
+        "external LLM",
+        "Grok",
+        "Llama",
+        "OpenAI",
+        "Anthropic"
+      ]
+    }
   },
   "status": {
     "identity": "Auro \u2014 Medina native speaking intelligence",
@@ -141,7 +116,39 @@
     "packet_id": "NEUROAI-REPO-CERN-EXPANDED-20260601",
     "mesie_version": "0.3.5",
     "sdk_version": "1.4.2",
-    "native_model": "AuroNativeComposer-v1",
+    "native_model": "PROTO-183-SOCP",
+    "native_model_source": "C:\\Users\\Medin\\GPTREPO\\protocols\\sovereign-offline-cognition-protocol.js",
+    "substrate": {
+      "gptrepo_root": "C:\\Users\\Medin\\GPTREPO",
+      "gptrepo_present": true,
+      "socp_protocol": "C:\\Users\\Medin\\GPTREPO\\protocols\\sovereign-offline-cognition-protocol.js",
+      "socp_present": true,
+      "neuroai_packet_root": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601",
+      "neuroai_present": true,
+      "paper_iv": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601\\papers\\p4-auro-dynamics-speaking-intelligence.md",
+      "paper_iv_present": true,
+      "lineage": "C:\\Users\\Medin\\Downloads\\neuroai-repo-expanded\\neuroai-repo-intelligence-cern-series-expanded-20260601\\manifests\\lineage_record.json",
+      "lineage_present": true,
+      "vendored_fallback": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\data\\neuroai\\substrate",
+      "source": "external_repos"
+    },
+    "socp": {
+      "protocol": "PROTO-183-SOCP",
+      "ring": "Sovereign Ring",
+      "solus_mode": true,
+      "knowledge_entries": 37,
+      "reasoning_rules": 10,
+      "metrics": {
+        "solus_activations": 1,
+        "offline_queries": 7,
+        "knowledge_hits": 5,
+        "rule_applications": 2
+      },
+      "phi": 1.618033988749895,
+      "heartbeat": 873,
+      "gptrepo_socp_source": "C:\\Users\\Medin\\GPTREPO\\protocols\\sovereign-offline-cognition-protocol.js",
+      "gptrepo_present": true
+    },
     "solus_brand": "SOLUS",
     "sovereign": true,
     "third_party_inference": false,
@@ -150,8 +157,14 @@
       "THESIS",
       "ORIGO",
       "CODEX_PHANTASMATIS",
-      "CIVOS_PRIME"
+      "CIVOS_PRIME",
+      "MEDINA"
     ],
+    "gptrepo_protocols": [
+      "auro-absorption-charter-protocol.js",
+      "auro-guardian-intelligence-protocol.js"
+    ],
+    "paper_iv_loaded": true,
     "voice_memory_turns": 7,
     "speaking_loop": [
       "perception",
@@ -231,8 +244,8 @@
         "detail": "THESIS defer"
       }
     ],
-    "generated_at": "2026-06-08T20:28:33Z"
+    "generated_at": "2026-06-08T20:34:16Z"
   },
   "session_export": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\Auro_Voice_Session.json",
-  "generated_at": "2026-06-08T20:28:33Z"
+  "generated_at": "2026-06-08T20:34:16Z"
 }

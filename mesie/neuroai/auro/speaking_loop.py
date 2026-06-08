@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from mesie.neuroai.auro.socp_native import SovereignOfflineCognition
 
 from mesie.neuroai.auro.affect import AffectState, modulate_affect
 from mesie.neuroai.auro.claim_boundary import ClaimSelection, select_claims
@@ -41,8 +44,14 @@ class SpeakingLoopState:
 class SpeakingIntelligenceLoop:
     """Dynamical authority surface — speech, memory, affect, proof coupled."""
 
-    def __init__(self, memory: AuroVoiceMemory, composer: Optional[AuroNativeComposer] = None) -> None:
+    def __init__(
+        self,
+        memory: AuroVoiceMemory,
+        composer: Optional[AuroNativeComposer] = None,
+        socp: Any = None,
+    ) -> None:
         self.memory = memory
+        self.socp = socp
         self.composer = composer or AuroNativeComposer()
 
     def run(

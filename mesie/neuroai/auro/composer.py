@@ -8,7 +8,6 @@ from typing import Any, Dict, List, Optional
 
 from mesie.neuroai.auro.affect import AffectState
 from mesie.neuroai.auro.claim_boundary import ClaimPosture, ClaimSelection
-from mesie.neuroai.auro.manifest import load_auro_lexicon
 from mesie.neuroai.auro.roles import AlphaRole, RoleBoundary
 
 
@@ -26,9 +25,9 @@ class ComposedUtterance:
 
 
 class AuroNativeComposer:
-    """Native language model surface — spectral-weighted phrase selection from bundled lexicon."""
+    """Native language surface — PROTO-183 SOCP (GPTREPO) + speaking-loop posture."""
 
-    MODEL_ID = "AuroNativeComposer-v1"
+    MODEL_ID = "PROTO-183-SOCP"
 
     def compose(
         self,
@@ -42,9 +41,8 @@ class AuroNativeComposer:
         samgov_context: str = "",
         defer_role: Optional[AlphaRole] = None,
     ) -> ComposedUtterance:
-        lex = load_auro_lexicon()
-        phrases: Dict[str, List[str]] = lex.get("posture_phrases", {})
-        markers: Dict[str, str] = lex.get("prosody_markers", {})
+        phrases: Dict[str, List[str]] = _posture_phrases()
+        markers: Dict[str, str] = _prosody_markers()
 
         bucket = claims.posture.value
         if not claims.may_speak:
@@ -67,8 +65,8 @@ class AuroNativeComposer:
             if prior:
                 pool.append(f"Continuing from our prior orientation: {prior}")
 
-        if solus_conclusion and bucket != "role_guard":
-            pool.append(f"SOLUS native reasoning: {solus_conclusion[:160]}")
+        if solus_conclusion:
+            pool.insert(0, solus_conclusion[:320])
 
         if claims.abstract_private:
             pool.append("Internal context noted — spoken response stays public-safe and abstracted.")
@@ -106,3 +104,28 @@ class AuroNativeComposer:
             overlap = len(set(text.lower().split()) & set(phrase.lower().split()))
             weights.append((seed + i * 31 + overlap * 17) % 1000)
         return weights.index(max(weights))
+
+
+def _posture_phrases() -> Dict[str, List[str]]:
+    return {
+        "C3_hypothesis": ["Research hypothesis — not validated proof. THESIS holds evidence."],
+        "C4_strategic": ["Strategic thesis — software substrate, edge-contested deploy class."],
+        "blocked_redirect": ["Boundary held — Auro is a speaking research surface, not a validated biological system."],
+        "defer_thesis": ["THESIS owns proof — run proof-substrate or neuroswarm-readiness."],
+        "warm_bounded": ["Present and warm — uncertainty stays visible."],
+        "samgov_contractor": ["GSA contractor edition — proof, readiness, interior DC, cluster edge."],
+        "role_guard": [
+            "I am Auro — Medina's native speaking intelligence (GPTREPO PROTO-183 SOCP).",
+            "Alpha-family: Auro speaks, THESIS proves, ORIGO builds, Codex implements, CIVOS governs.",
+        ],
+    }
+
+
+def _prosody_markers() -> Dict[str, str]:
+    return {
+        "warm": "[warm]",
+        "restrain": "[restrain]",
+        "clarify": "[clarify]",
+        "defer": "[defer:THESIS]",
+        "urgent": "[urgent]",
+    }

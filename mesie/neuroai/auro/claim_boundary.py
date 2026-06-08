@@ -101,7 +101,7 @@ def select_claims(user_text: str, *, boundary_violation: Optional[str] = None) -
             proof_artifacts=["deliverables/MESIE_SamGov_Contractor_Edition.json"],
         )
 
-    if re.search(r"\b(you are|who are you|auro|medina)\b", low):
+    if re.search(r"\b(you are|who are you|your role|alpha.?family|auro|medina)\b", low):
         return ClaimSelection(
             posture=ClaimPosture.ROLE_GUARD,
             may_speak=True,
