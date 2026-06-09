@@ -2,8 +2,26 @@
 
 ## [0.4.0] - 2026-06-07
 
+### Added
+- **Foundation Pretraining Suite** — Masked Spectral Modeling, InfoNCE Contrastive Learning, Temporal Prediction, and unified loss orchestration
+- **3D Connectome Brain Environment** — 44 real brain regions with MNI coordinates, 68 white-matter tract connections, and neural signal propagation simulation
+- **Miniverse Nesting** — Recursive containment with scale-bridging and downward attention via SpectralAttentionAdapter
+- **MAESI SDK v1.1** — Technical library, research knowledge catalog, FastSpectralCompute, fingerprint pipeline
+- **Edge API** — Cloudflare Worker API for spectral validation and matching at the edge
+- **Desktop Application** — Cross-platform Electron app with builds for Windows, macOS, and Linux
+- **Polyglot Bindings** — Rust, Julia, TypeScript, and Motoko (Internet Computer) integrations
+- **Intelligence AI Protocols** — Multi-level autonomous reasoning from passive observation to fully autonomous decision-making
+- **Spectral Transformer Pipeline** — End-to-end transformer encoder with configurable tokenization and multi-head spectral attention
+- **Observation Encoder** — Raw world → spectra → MESIE embedding → agent observation vector pipeline
+- **Digital Twin Simulation** — Physics-based environments with RL reward signals
+- **Spectral Memory Store** — k-NN retrieval over spectral embeddings with event/time filtering
+- **Reasoning Datasets** and **Training Recipe** modules for foundation model development
+- Zenodo DOI: [10.5281/zenodo.20598320](https://doi.org/10.5281/zenodo.20598320)
+
 ### Changed
 - Bumped package version from 0.3.0 to 0.4.0
+- All transformer and intelligence components implemented in pure NumPy for portability
+- Optional PyTorch/HuggingFace Transformers integration via `[intelligence]` or `[full]` install extras
 
 ## [0.2.2] - 2026-06-05
 
