@@ -42,7 +42,7 @@ Build request headers, including authorization if token is provided.
 function _headers(client::ZenodoClient)
     headers = Dict("Accept" => "application/json")
     if !isempty(client.access_token)
-        headers["Authorization"] = "******"
+        headers["Authorization"] = string("Bearer ", client.access_token)
     end
     return headers
 end
