@@ -2,6 +2,34 @@
 
 Julia SDK for accessing Zenodo datasets with MESIE transformer-based spectral intelligence.
 
+## 🚀 One-Shot Launch (Research OS)
+
+Open your Julia terminal and run:
+
+```julia
+include(download("https://raw.githubusercontent.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/main/bindings/julia/ZenodoSpectralSDK/launch.jl"))
+```
+
+Or if you have the repository cloned:
+
+```bash
+cd bindings/julia/ZenodoSpectralSDK
+julia launch.jl
+```
+
+That's it. The launcher will:
+1. ✅ Auto-install all Julia dependencies (HTTP, JSON, etc.)
+2. ✅ Load the full ZenodoSpectralSDK
+3. ✅ Launch an interactive Research OS terminal in your Julia REPL
+
+The Research OS provides:
+- 🌐 **Zenodo Browser** — Search, discover, and download scientific datasets
+- 🔬 **Spectral Analysis Lab** — Anomaly detection, resonance, classification
+- 🧠 **Transformer Lab** — Embeddings, matching, fingerprinting
+- 📂 **Research Workspaces** — Organize datasets, analyses, and notes
+- ⭐ **Curated Datasets** — High-impact spectral/signal datasets
+- ⚡ **Quick Analysis** — Instant analysis from file or manual input
+
 ## Overview
 
 ZenodoSpectralSDK connects to [Zenodo](https://zenodo.org)'s public repository to discover, fetch, and analyze popular scientific datasets using MESIE's spectral transformer architecture. It focuses on the most-viewed/downloaded datasets relevant to spectral analysis and signal processing.
@@ -160,6 +188,7 @@ Supported actions:
 ```
 ZenodoSpectralSDK/
 ├── Project.toml           # Julia package manifest
+├── launch.jl              # One-shot launcher (auto-installs + starts REPL)
 ├── cli.jl                 # CLI entry point
 ├── README.md              # This file
 ├── test/                  # Test suite
@@ -168,7 +197,8 @@ ZenodoSpectralSDK/
     ├── ZenodoSpectralSDK.jl  # Module definition
     ├── zenodo_client.jl      # Zenodo REST API client
     ├── transformer.jl        # Spectral transformer model
-    └── intelligence.jl       # Intelligence protocols + dispatch
+    ├── intelligence.jl       # Intelligence protocols + dispatch
+    └── repl.jl               # Interactive Research OS terminal
 ```
 
 ## Integration with MESIE
