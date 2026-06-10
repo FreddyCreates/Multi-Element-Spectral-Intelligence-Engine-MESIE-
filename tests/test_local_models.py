@@ -1,390 +1,354 @@
-"""Tests for mesie.ai.local_models — type-safe local model interface."""
+"""Tests for mesie.ai.local_models — on-device inference backends."""
 
+import numpy as np
 import pytest
 
 from mesie.ai.local_models import (
-    ChatMessage,
-    EmbeddingResponse,
-    GenerationParams,
-    GenerationResponse,
+    BackendConfig,
+    BackendKind,
+    EmbeddingResult,
+    InferenceMode,
+    InferenceResult,
+    LlamaCppBackend,
     LocalModelBackend,
-    LocalModelClient,
-    LocalModelConfig,
-    MessageRole,
-    ModelCapability,
-    ModelProvider,
+    LocalModelRegistry,
     OllamaBackend,
-    SpectralContext,
-    StopReason,
+    SovereignBackend,
+    SpectralInferenceContext,
+    StopCondition,
     StreamChunk,
-    TokenUsage,
     register_backend,
 )
 
 
-# =============================================================================
-# Configuration tests
-# =============================================================================
+class TestBackendConfig:
+    """Tests for BackendConfig dataclass."""
 
-
-class TestLocalModelConfig:
     def test_defaults(self):
-        config = LocalModelConfig()
-        assert config.provider == ModelProvider.OLLAMA
-        assert config.model_name == "llama3"
+        config = BackendConfig()
+        assert config.kind == BackendKind.SOVEREIGN
+        assert config.model_name == "mesie-neurocore-v1"
         assert config.host == "127.0.0.1"
         assert config.port == 11434
-        assert config.context_length == 4096
+        assert config.d_model == 128
+        assert config.n_heads == 8
+        assert config.temperature == 0.7
+        assert config.seed is None
 
-    def test_base_url(self):
-        config = LocalModelConfig(host="localhost", port=8080)
-        assert config.base_url == "http://localhost:8080"
-
-    def test_supports_capability(self):
-        config = LocalModelConfig(
-            capabilities=[ModelCapability.TEXT_GENERATION, ModelCapability.EMBEDDINGS]
+    def test_custom_config(self):
+        config = BackendConfig(
+            kind=BackendKind.OLLAMA,
+            model_name="llama3",
+            port=11435,
+            temperature=0.0,
+            seed=42,
         )
-        assert config.supports(ModelCapability.TEXT_GENERATION)
-        assert config.supports(ModelCapability.EMBEDDINGS)
-        assert not config.supports(ModelCapability.VISION)
-
-    def test_custom_provider(self):
-        config = LocalModelConfig(provider=ModelProvider.CUSTOM, model_name="my-model")
-        assert config.provider == ModelProvider.CUSTOM
+        assert config.kind == BackendKind.OLLAMA
+        assert config.model_name == "llama3"
+        assert config.port == 11435
+        assert config.seed == 42
 
 
-# =============================================================================
-# GenerationParams tests
-# =============================================================================
+class TestSpectralInferenceContext:
+    """Tests for SpectralInferenceContext — MESIE-native context."""
 
+    def test_empty_context(self):
+        ctx = SpectralInferenceContext()
+        assert ctx.record_id == ""
+        assert ctx.frequency_range == (0.0, 0.0)
+        assert ctx.peak_frequencies == []
 
-class TestGenerationParams:
-    def test_defaults(self):
-        params = GenerationParams()
-        assert params.temperature == 0.7
-        assert params.top_p == 0.9
-        assert params.top_k == 40
-        assert params.max_tokens == 1024
-
-    def test_invalid_temperature(self):
-        with pytest.raises(ValueError, match="temperature must be >= 0.0"):
-            GenerationParams(temperature=-0.1)
-
-    def test_invalid_top_p(self):
-        with pytest.raises(ValueError, match="top_p must be in"):
-            GenerationParams(top_p=0.0)
-        with pytest.raises(ValueError, match="top_p must be in"):
-            GenerationParams(top_p=1.5)
-
-    def test_invalid_top_k(self):
-        with pytest.raises(ValueError, match="top_k must be >= 0"):
-            GenerationParams(top_k=-1)
-
-    def test_invalid_max_tokens(self):
-        with pytest.raises(ValueError, match="max_tokens must be >= 1"):
-            GenerationParams(max_tokens=0)
-
-    def test_valid_params(self):
-        params = GenerationParams(
-            temperature=0.0, top_p=1.0, top_k=0, max_tokens=1, seed=42
-        )
-        assert params.seed == 42
-        assert params.temperature == 0.0
-
-
-# =============================================================================
-# ChatMessage tests
-# =============================================================================
-
-
-class TestChatMessage:
-    def test_system_factory(self):
-        msg = ChatMessage.system("You are helpful.")
-        assert msg.role == MessageRole.SYSTEM
-        assert msg.content == "You are helpful."
-
-    def test_user_factory(self):
-        msg = ChatMessage.user("Hello")
-        assert msg.role == MessageRole.USER
-
-    def test_assistant_factory(self):
-        msg = ChatMessage.assistant("Hi there")
-        assert msg.role == MessageRole.ASSISTANT
-
-    def test_to_dict(self):
-        msg = ChatMessage.user("test", key="value")
-        d = msg.to_dict()
-        assert d["role"] == "user"
-        assert d["content"] == "test"
-        assert d["metadata"] == {"key": "value"}
-
-    def test_to_dict_no_metadata(self):
-        msg = ChatMessage.user("test")
-        d = msg.to_dict()
-        assert "metadata" not in d
-
-
-# =============================================================================
-# Response types tests
-# =============================================================================
-
-
-class TestGenerationResponse:
-    def test_tokens_per_second(self):
-        resp = GenerationResponse(
-            text="hello",
-            usage=TokenUsage(prompt_tokens=10, completion_tokens=50, total_tokens=60),
-            latency_ms=1000.0,
-        )
-        assert resp.tokens_per_second == pytest.approx(50.0)
-
-    def test_tokens_per_second_zero_latency(self):
-        resp = GenerationResponse(text="hello", latency_ms=0.0)
-        assert resp.tokens_per_second == 0.0
-
-    def test_stop_reason(self):
-        resp = GenerationResponse(text="x", stop_reason=StopReason.MAX_TOKENS)
-        assert resp.stop_reason == StopReason.MAX_TOKENS
-
-
-class TestEmbeddingResponse:
-    def test_auto_dimensions(self):
-        resp = EmbeddingResponse(embedding=[1.0, 2.0, 3.0])
-        assert resp.dimensions == 3
-
-    def test_explicit_dimensions(self):
-        resp = EmbeddingResponse(embedding=[1.0, 2.0], dimensions=2)
-        assert resp.dimensions == 2
-
-
-class TestTokenUsage:
-    def test_defaults(self):
-        usage = TokenUsage()
-        assert usage.prompt_tokens == 0
-        assert usage.completion_tokens == 0
-        assert usage.total_tokens == 0
-
-
-# =============================================================================
-# SpectralContext tests
-# =============================================================================
-
-
-class TestSpectralContext:
-    def test_to_prompt_context(self):
-        ctx = SpectralContext(
+    def test_context_block_format(self):
+        ctx = SpectralInferenceContext(
+            record_id="REC-001",
             frequency_range=(0.5, 50.0),
-            peak_frequencies=[2.3, 8.1, 15.0],
-            spectral_summary="Three dominant peaks in low-frequency range",
-            record_id="rec_001",
+            peak_frequencies=[5.0, 12.5, 25.0],
+            component_names=["north", "east", "vertical"],
+            domain="frequency",
         )
-        text = ctx.to_prompt_context()
-        assert "[Spectral Context]" in text
-        assert "0.50–50.00 Hz" in text
-        assert "2.30 Hz" in text
-        assert "rec_001" in text
-        assert "Three dominant" in text
+        block = ctx.to_context_block()
+        assert "[SPECTRAL CONTEXT]" in block
+        assert "[/SPECTRAL CONTEXT]" in block
+        assert "REC-001" in block
+        assert "5.00" in block
+        assert "north" in block
 
-    def test_minimal_context(self):
-        ctx = SpectralContext()
-        text = ctx.to_prompt_context()
-        assert "[Spectral Context]" in text
-        assert "0.00–100.00 Hz" in text
-
-
-# =============================================================================
-# Mock backend for client tests
-# =============================================================================
-
-
-class MockBackend(LocalModelBackend):
-    """Mock backend for testing the client without a real model."""
-
-    def __init__(self, config: LocalModelConfig) -> None:
-        super().__init__(config)
-        self.generate_calls: list = []
-        self.chat_calls: list = []
-        self.embed_calls: list = []
-
-    def generate(self, prompt, params):
-        self.generate_calls.append((prompt, params))
-        return GenerationResponse(
-            text=f"Generated: {prompt[:20]}",
-            stop_reason=StopReason.END_OF_SEQUENCE,
-            usage=TokenUsage(prompt_tokens=10, completion_tokens=5, total_tokens=15),
-            model_name=self.config.model_name,
-            latency_ms=50.0,
+    def test_context_with_embedding(self):
+        embedding = np.random.randn(64)
+        ctx = SpectralInferenceContext(
+            record_id="REC-002",
+            embedding=embedding,
         )
+        block = ctx.to_context_block()
+        assert "embedding_dim: 64" in block
+        assert "embedding_norm:" in block
 
-    def chat(self, messages, params):
-        self.chat_calls.append((messages, params))
-        return GenerationResponse(
-            text="Chat response",
-            model_name=self.config.model_name,
-            latency_ms=60.0,
+    def test_from_record(self):
+        """Test building context from a mock MultiElementRecord."""
+
+        class MockComponent:
+            name = "comp_x"
+            frequency = np.array([1.0, 5.0, 10.0, 20.0, 50.0])
+            amplitude = np.array([0.1, 0.5, 0.9, 0.3, 0.7])
+            domain = "frequency"
+
+        class MockRecord:
+            record_id = "MOCK-001"
+            components = [MockComponent()]
+            metadata = {"source": "test"}
+
+        ctx = SpectralInferenceContext.from_record(MockRecord())
+        assert ctx.record_id == "MOCK-001"
+        assert ctx.frequency_range == (1.0, 50.0)
+        assert len(ctx.peak_frequencies) > 0
+        assert "comp_x" in ctx.component_names
+        assert ctx.domain == "frequency"
+
+
+class TestSovereignBackend:
+    """Tests for the MESIE-native SovereignBackend."""
+
+    def test_kind(self):
+        backend = SovereignBackend()
+        assert backend.kind == BackendKind.SOVEREIGN
+
+    def test_health_check_always_true(self):
+        """Sovereign backend has zero deps — always healthy."""
+        backend = SovereignBackend()
+        config = BackendConfig()
+        assert backend.health_check(config) is True
+
+    def test_infer_basic(self):
+        backend = SovereignBackend()
+        config = BackendConfig(d_model=64, n_heads=4)
+        result = backend.infer("Classify this spectral pattern", config)
+        assert isinstance(result, InferenceResult)
+        assert result.text != ""
+        assert result.confidence > 0.0
+        assert result.latency_ms > 0.0
+        assert result.model_name == "mesie-neurocore-v1"
+        assert result.stop_condition == StopCondition.END_TOKEN
+
+    def test_infer_with_spectral_context(self):
+        backend = SovereignBackend()
+        config = BackendConfig(d_model=64)
+        ctx = SpectralInferenceContext(
+            record_id="TEST-001",
+            frequency_range=(0.1, 100.0),
+            peak_frequencies=[5.0, 15.0, 45.0],
+            domain="frequency",
         )
+        result = backend.infer("Analyze anomaly", config, context=ctx)
+        assert isinstance(result, InferenceResult)
+        assert result.spectral_context is ctx
+        assert result.text != ""
 
-    def embed(self, text):
-        self.embed_calls.append(text)
-        return EmbeddingResponse(
-            embedding=[0.1, 0.2, 0.3, 0.4],
-            model_name=self.config.model_name,
-            latency_ms=10.0,
+    def test_embed_deterministic(self):
+        """Sovereign embedding must be deterministic (MESIE reproducibility)."""
+        backend = SovereignBackend()
+        config = BackendConfig(d_model=64)
+        r1 = backend.embed("test spectral signal", config)
+        r2 = backend.embed("test spectral signal", config)
+        assert isinstance(r1, EmbeddingResult)
+        assert r1.dimensions == 64
+        assert len(r1.vector) == 64
+        # Must be deterministic
+        np.testing.assert_array_equal(r1.vector, r2.vector)
+
+    def test_embed_normalized(self):
+        """Embedding vectors should be L2-normalized."""
+        backend = SovereignBackend()
+        config = BackendConfig(d_model=32)
+        result = backend.embed("normalize this", config)
+        norm = np.linalg.norm(result.vector)
+        assert abs(norm - 1.0) < 1e-6
+
+    def test_embed_different_inputs_differ(self):
+        backend = SovereignBackend()
+        config = BackendConfig(d_model=64)
+        r1 = backend.embed("signal alpha", config)
+        r2 = backend.embed("signal beta", config)
+        assert not np.array_equal(r1.vector, r2.vector)
+
+    def test_stream_fallback(self):
+        """Stream defaults to single-shot infer."""
+        backend = SovereignBackend()
+        config = BackendConfig(d_model=32)
+        chunks = list(backend.stream("test prompt", config))
+        assert len(chunks) == 1
+        assert chunks[0].done is True
+        assert chunks[0].text != ""
+
+
+class TestOllamaBackend:
+    """Tests for OllamaBackend (network-dependent tests are skipped)."""
+
+    def test_kind(self):
+        backend = OllamaBackend()
+        assert backend.kind == BackendKind.OLLAMA
+
+    def test_health_check_offline(self):
+        """When Ollama isn't running, health check returns False."""
+        backend = OllamaBackend()
+        config = BackendConfig(host="127.0.0.1", port=19999, timeout_s=1.0)
+        assert backend.health_check(config) is False
+
+    def test_infer_offline_returns_error(self):
+        """Graceful failure when Ollama is unavailable."""
+        backend = OllamaBackend()
+        config = BackendConfig(
+            kind=BackendKind.OLLAMA,
+            model_name="llama3",
+            port=19999,
+            timeout_s=1.0,
         )
-
-    def stream(self, prompt, params):
-        yield StreamChunk(text="Hello", done=False)
-        yield StreamChunk(text=" world", done=True, usage=TokenUsage(total_tokens=5))
-
-    def health_check(self):
-        return True
-
-    def list_models(self):
-        return ["mock-model-1", "mock-model-2"]
+        result = backend.infer("test", config)
+        assert result.stop_condition == StopCondition.ERROR
+        assert result.confidence == 0.0
+        assert "error" in result.metadata
 
 
-# =============================================================================
-# LocalModelClient tests (with mock backend)
-# =============================================================================
+class TestLlamaCppBackend:
+    """Tests for LlamaCppBackend."""
+
+    def test_kind(self):
+        backend = LlamaCppBackend()
+        assert backend.kind == BackendKind.LLAMA_CPP
+
+    def test_health_check_no_model(self):
+        """Without llama-cpp-python installed, returns False."""
+        backend = LlamaCppBackend()
+        config = BackendConfig(model_name="/nonexistent/model.gguf")
+        # Will be False because either llama_cpp not installed or model doesn't exist
+        assert backend.health_check(config) is False
 
 
-class TestLocalModelClient:
-    def _make_client(self) -> tuple:
-        config = LocalModelConfig(model_name="test-model")
-        backend = MockBackend(config)
-        client = LocalModelClient(config, backend=backend)
-        return client, backend
+class TestLocalModelRegistry:
+    """Tests for LocalModelRegistry — mirrors EngineRegistry pattern."""
 
-    def test_generate(self):
-        client, backend = self._make_client()
-        resp = client.generate("Hello world")
-        assert resp.text.startswith("Generated:")
-        assert len(backend.generate_calls) == 1
+    def test_default_registry(self):
+        registry = LocalModelRegistry()
+        backends = registry.available_backends()
+        assert BackendKind.SOVEREIGN in backends
+        assert BackendKind.OLLAMA in backends
+        assert BackendKind.LLAMA_CPP in backends
 
-    def test_generate_with_spectral_context(self):
-        client, backend = self._make_client()
-        ctx = SpectralContext(peak_frequencies=[5.0, 10.0])
-        resp = client.generate("Analyze", spectral_context=ctx)
-        prompt_sent = backend.generate_calls[0][0]
-        assert "[Spectral Context]" in prompt_sent
-        assert "Analyze" in prompt_sent
+    def test_infer_sovereign(self):
+        registry = LocalModelRegistry(BackendConfig(kind=BackendKind.SOVEREIGN, d_model=32))
+        result = registry.infer("Test inference")
+        assert isinstance(result, InferenceResult)
+        assert result.text != ""
+        assert result.latency_ms > 0.0
 
-    def test_generate_with_params(self):
-        client, backend = self._make_client()
-        params = GenerationParams(temperature=0.1, max_tokens=100)
-        resp = client.generate("test", params=params)
-        assert backend.generate_calls[0][1].temperature == 0.1
+    def test_infer_with_overrides(self):
+        registry = LocalModelRegistry(BackendConfig(kind=BackendKind.SOVEREIGN, d_model=32))
+        result = registry.infer("Test", temperature=0.0, max_tokens=64)
+        assert isinstance(result, InferenceResult)
 
-    def test_chat(self):
-        client, backend = self._make_client()
-        messages = [
-            ChatMessage.system("Be helpful"),
-            ChatMessage.user("Hi"),
-        ]
-        resp = client.chat(messages)
-        assert resp.text == "Chat response"
-        assert len(backend.chat_calls) == 1
+    def test_embed_sovereign(self):
+        registry = LocalModelRegistry(BackendConfig(kind=BackendKind.SOVEREIGN, d_model=64))
+        result = registry.embed("spectral embedding test")
+        assert isinstance(result, EmbeddingResult)
+        assert result.dimensions == 64
+        assert len(result.vector) == 64
 
-    def test_chat_with_spectral_context(self):
-        client, backend = self._make_client()
-        ctx = SpectralContext(spectral_summary="Test spectrum")
-        messages = [ChatMessage.user("Analyze")]
-        resp = client.chat(messages, spectral_context=ctx)
-        sent_messages = backend.chat_calls[0][0]
-        # Spectral context should be injected as first system message
-        assert sent_messages[0].role == MessageRole.SYSTEM
-        assert "Test spectrum" in sent_messages[0].content
+    def test_reason_with_record(self):
+        """Test structured reasoning with a mock spectral record."""
 
-    def test_embed(self):
-        client, backend = self._make_client()
-        resp = client.embed("test text")
-        assert resp.embedding == [0.1, 0.2, 0.3, 0.4]
-        assert resp.dimensions == 4
-        assert backend.embed_calls == ["test text"]
+        class MockComponent:
+            name = "vertical"
+            frequency = np.array([0.5, 1.0, 5.0, 10.0, 25.0])
+            amplitude = np.array([0.2, 0.4, 0.8, 0.6, 0.3])
+            domain = "frequency"
 
-    def test_stream(self):
-        client, _ = self._make_client()
-        chunks = list(client.stream("Hello"))
-        assert len(chunks) == 2
-        assert chunks[0].text == "Hello"
-        assert chunks[0].done is False
-        assert chunks[1].text == " world"
-        assert chunks[1].done is True
+        class MockRecord:
+            record_id = "REASON-001"
+            components = [MockComponent()]
+            metadata = {}
 
-    def test_health_check(self):
-        client, _ = self._make_client()
-        assert client.health_check() is True
+        registry = LocalModelRegistry(BackendConfig(kind=BackendKind.SOVEREIGN, d_model=32))
+        result = registry.reason("Is this anomalous?", record=MockRecord())
+        assert isinstance(result, InferenceResult)
+        assert result.spectral_context is not None
+        assert result.spectral_context.record_id == "REASON-001"
 
-    def test_list_models(self):
-        client, _ = self._make_client()
-        models = client.list_models()
-        assert "mock-model-1" in models
+    def test_health_check_sovereign(self):
+        registry = LocalModelRegistry(BackendConfig(kind=BackendKind.SOVEREIGN))
+        assert registry.health_check() is True
 
-    def test_repr(self):
-        client, _ = self._make_client()
-        r = repr(client)
-        assert "LocalModelClient" in r
-        assert "test-model" in r
+    def test_stream_sovereign(self):
+        registry = LocalModelRegistry(BackendConfig(kind=BackendKind.SOVEREIGN, d_model=32))
+        chunks = list(registry.stream("Stream test"))
+        assert len(chunks) >= 1
+        assert chunks[-1].done is True
 
-    def test_provider_property(self):
-        client, _ = self._make_client()
-        assert client.provider == ModelProvider.OLLAMA
-
-    def test_model_name_property(self):
-        client, _ = self._make_client()
-        assert client.model_name == "test-model"
-
-    def test_analyze_spectrum(self):
-        client, backend = self._make_client()
-        ctx = SpectralContext(
-            peak_frequencies=[2.5, 7.0],
-            spectral_summary="Low-frequency peaks",
-        )
-        resp = client.analyze_spectrum(ctx)
-        assert resp.text == "Chat response"
-        # Should have called chat with system + context + user messages
-        msgs = backend.chat_calls[0][0]
-        assert len(msgs) == 3
-        assert msgs[0].role == MessageRole.SYSTEM
-        assert "MESIE" in msgs[0].content
-
-
-# =============================================================================
-# Backend registry tests
-# =============================================================================
-
-
-class TestBackendRegistry:
     def test_register_custom_backend(self):
-        register_backend(ModelProvider.CUSTOM, MockBackend)
-        config = LocalModelConfig(provider=ModelProvider.CUSTOM, model_name="custom")
-        client = LocalModelClient(config)
-        assert client.health_check() is True
+        """Test custom backend registration — extensibility."""
 
-    def test_unregistered_provider_raises(self):
-        config = LocalModelConfig(provider=ModelProvider.LLAMA_CPP)
-        with pytest.raises(ValueError, match="No backend registered"):
-            LocalModelClient(config)
+        class CustomBackend(LocalModelBackend):
+            kind = BackendKind.VLLM_LOCAL
 
-    def test_register_non_subclass_raises(self):
-        with pytest.raises(TypeError, match="must subclass"):
-            register_backend(ModelProvider.CUSTOM, dict)  # type: ignore
+            def infer(self, prompt, config, context=None):
+                return InferenceResult(text="custom", confidence=1.0)
+
+            def embed(self, text, config):
+                return EmbeddingResult(vector=np.zeros(8), dimensions=8)
+
+            def health_check(self, config):
+                return True
+
+        registry = LocalModelRegistry()
+        registry.register(BackendKind.VLLM_LOCAL, CustomBackend)
+        result = registry.infer("test", backend=BackendKind.VLLM_LOCAL)
+        assert result.text == "custom"
+        assert result.confidence == 1.0
 
 
-# =============================================================================
-# ModelProvider / ModelCapability enum tests
-# =============================================================================
+class TestInferenceResult:
+    """Tests for InferenceResult."""
+
+    def test_high_confidence_threshold(self):
+        result = InferenceResult(confidence=0.8)
+        assert result.is_high_confidence is True
+
+    def test_low_confidence_threshold(self):
+        result = InferenceResult(confidence=0.5)
+        assert result.is_high_confidence is False
+
+    def test_boundary_confidence(self):
+        """0.7 is the MESIE standard threshold."""
+        result = InferenceResult(confidence=0.7)
+        assert result.is_high_confidence is True
 
 
-class TestEnums:
-    def test_model_provider_values(self):
-        assert ModelProvider.OLLAMA.value == "ollama"
-        assert ModelProvider.LLAMA_CPP.value == "llama_cpp"
-        assert ModelProvider.HUGGINGFACE_LOCAL.value == "huggingface_local"
+class TestBackendKindEnum:
+    """Tests for BackendKind enumeration."""
 
-    def test_model_capability_values(self):
-        assert ModelCapability.SPECTRAL_ANALYSIS.value == "spectral_analysis"
+    def test_all_kinds(self):
+        assert BackendKind.SOVEREIGN.value == "sovereign"
+        assert BackendKind.OLLAMA.value == "ollama"
+        assert BackendKind.LLAMA_CPP.value == "llama_cpp"
+        assert BackendKind.HUGGINGFACE_LOCAL.value == "hf_local"
+        assert BackendKind.VLLM_LOCAL.value == "vllm_local"
 
-    def test_stop_reason_values(self):
-        assert StopReason.END_OF_SEQUENCE.value == "end_of_sequence"
-        assert StopReason.MAX_TOKENS.value == "max_tokens"
+
+class TestRegisterBackend:
+    """Tests for the global register_backend function."""
+
+    def test_register_and_use(self):
+        class TestBackend(LocalModelBackend):
+            kind = BackendKind.HUGGINGFACE_LOCAL
+
+            def infer(self, prompt, config, context=None):
+                return InferenceResult(text="hf_test", confidence=0.9)
+
+            def embed(self, text, config):
+                return EmbeddingResult(vector=np.ones(4), dimensions=4)
+
+            def health_check(self, config):
+                return True
+
+        register_backend(BackendKind.HUGGINGFACE_LOCAL, TestBackend)
+        registry = LocalModelRegistry(BackendConfig(kind=BackendKind.HUGGINGFACE_LOCAL))
+        result = registry.infer("test")
+        assert result.text == "hf_test"
