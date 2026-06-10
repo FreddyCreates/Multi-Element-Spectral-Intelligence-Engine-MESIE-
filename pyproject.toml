@@ -72,6 +72,7 @@ mesie-tools = "mesie.tools.cli:main"
 Homepage = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-"
 Repository = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-"
 Documentation = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/tree/main/docs"
+"DOI / Zenodo" = "https://doi.org/10.5281/zenodo.20598320"
 "PyPI Release Guide" = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/blob/main/docs/pypi_release.md"
 "Cloudflare Worker" = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/blob/main/workers/mesie-api/README.md"
 

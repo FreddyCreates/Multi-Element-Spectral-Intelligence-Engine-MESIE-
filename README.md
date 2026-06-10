@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![DOI](https://img.shields.io/badge/DOI-pending-lightgrey.svg)](https://zenodo.org)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20598320.svg)](https://doi.org/10.5281/zenodo.20598320)
 [![CI](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml/badge.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-0.4.0-green.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-)
 [![Monte Carlo](https://img.shields.io/badge/Monte_Carlo-5%2C000_trials_100%25_pass-brightgreen.svg)](deliverables/MESIE_Monte_Carlo_Enterprise_Report.md)
@@ -422,12 +422,13 @@ See [docs/research_program.md](docs/research_program.md) for the full research p
 If you use MESIE in your research, please cite:
 
 ```bibtex
-@software{medina2024mesie,
+@software{medina2026mesie,
   author = {Medina, Alfredo},
   title = {MESIE: Multi-Element Spectral Intelligence Engine},
-  version = {0.2.0},
-  year = {2024},
-  url = {https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-}
+  version = {0.4.0},
+  year = {2026},
+  url = {https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-},
+  doi = {10.5281/zenodo.20598320}
 }
 ```
 
