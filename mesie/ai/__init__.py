@@ -72,6 +72,24 @@ from mesie.ai.reinforcement import (
     AgentMetrics,
     AgentType,
 )
+from mesie.ai.local_models import (
+    LocalModelClient,
+    LocalModelConfig,
+    LocalModelBackend,
+    ModelProvider,
+    ModelCapability,
+    ChatMessage,
+    MessageRole,
+    GenerationParams,
+    GenerationResponse,
+    EmbeddingResponse,
+    StreamChunk,
+    StopReason,
+    TokenUsage,
+    SpectralContext,
+    OllamaBackend,
+    register_backend,
+)
 
 __all__ = [
     # Core models
@@ -140,4 +158,21 @@ __all__ = [
     "Experience",
     "AgentMetrics",
     "AgentType",
+    # Local models
+    "LocalModelClient",
+    "LocalModelConfig",
+    "LocalModelBackend",
+    "ModelProvider",
+    "ModelCapability",
+    "ChatMessage",
+    "MessageRole",
+    "GenerationParams",
+    "GenerationResponse",
+    "EmbeddingResponse",
+    "StreamChunk",
+    "StopReason",
+    "TokenUsage",
+    "SpectralContext",
+    "OllamaBackend",
+    "register_backend",
 ]
