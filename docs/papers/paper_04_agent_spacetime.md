@@ -43,15 +43,46 @@ Spatial embedding offers a design language for autonomous-agent coordination in 
 | Influence analogy | "Attraction forces model authority/influence between agents — metaphorical, not empirical physics." |
 | Production security | **Not claimed.** Repo contains experimental scaffolding only. |
 
+## Mission world integration
+
+Theater week simulation (`mesie/worlds/week_engine.py`) routes every mission tick through `TheaterSpacetimeBridge`:
+
+- Jam / threat / doctrine → signal tier
+- Tier + zone policy → intelligence routing target
+- Substrate advances one spatial tick per theater tick
+- `TickRecord` carries `spacetime_tier`, `spacetime_zone`, `spacetime_action`, `spacetime_route_ok`
+- `MissionWorldState.spacetime_summary` aggregates week routing stats
+
+```bash
+python scripts/run_mission_world_week.py --days 7
+```
+
+## Release-safe architecture diagram
+
+Full preprint diagram: `deliverables/Paper04_Spacetime_Release_Diagram.md`
+
+```mermaid
+flowchart TB
+    TW[Theater Week Tick] --> CL{Tier Classifier}
+    CL -->|cooperative| IE[Intelligence Engine]
+    CL -->|shadow| WE[Workflow Engine]
+    CL -->|hostile| QS[Quarantine Sink]
+    TW --> ST[Spacetime Substrate]
+    ST --> ZN[Zones: command / field / shadow / quarantine]
+```
+
 ## Run
 
 ```bash
 python scripts/run_spacetime_suite.py
+python scripts/run_mission_world_week.py --days 7
 # or: python -m mesie.tools.cli run spacetime-suite
 ```
 
-Deliverable: `deliverables/Paper04_Spacetime_Architecture_Report.json`
+Deliverables:
+- `deliverables/Paper04_Spacetime_Architecture_Report.json`
+- `deliverables/Paper04_Spacetime_Release_Diagram.md`
 
 ## IP / release gate
 
-Before preprint release: agent registry diagram approval, pseudocode for tier classification, simulation traces, threat-model document, IP review of zone names and coordinates.
+Before preprint release: agent registry diagram approval, pseudocode for tier classification, simulation traces, threat-model document, IP review of zone names and coordinates. Release diagram uses generic zone names only.

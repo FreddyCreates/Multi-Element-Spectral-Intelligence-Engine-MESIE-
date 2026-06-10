@@ -49,3 +49,12 @@ class TestSpacetimeEval:
         result = run_spacetime_eval(ticks=12)
         assert result["ready"] is True
         assert result["passed"] == result["total"]
+
+
+class TestWorldIntegration:
+    def test_theater_bridge_wired(self):
+        from mesie.worlds.week_engine import MissionWorldWeekEngine
+
+        _, report = MissionWorldWeekEngine().run_week(days=1)
+        assert "Spacetime routes" in " ".join(report.findings)
+        assert report.spacetime_summary["routes_total"] > 0

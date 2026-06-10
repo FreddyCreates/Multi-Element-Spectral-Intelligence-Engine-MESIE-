@@ -14,6 +14,7 @@ from mesie.swarm.mission_planner import SwarmMissionPlanner
 from mesie.library.domain_corpus import load_domain_corpus
 from mesie.worlds.hierarchy import WorldHierarchy, load_world
 from mesie.worlds.narrative import tick_narrative, week_narrative_md
+from mesie.worlds.spacetime_bridge import TheaterSpacetimeBridge
 from mesie.worlds.state import MissionWorldState, TickRecord
 
 
@@ -28,6 +29,7 @@ class WeekWorldReport:
     narrative_path: str
     findings: List[str]
     enterprise_parallels: List[Dict[str, Any]]
+    spacetime_summary: Dict[str, Any]
     ok: bool
 
     def to_dict(self) -> Dict[str, Any]:
@@ -43,6 +45,7 @@ class MissionWorldWeekEngine:
         self._coord = DecentralizedSwarmCoordinator(self._corpus)
         self._planner = SwarmMissionPlanner(self._corpus)
         self._scenario_sim = ScenarioSimulator()
+        self._spacetime = TheaterSpacetimeBridge()
 
     def _run_tick(
         self,
@@ -94,7 +97,22 @@ class MissionWorldWeekEngine:
             doctrine=op.doctrine,
             metrics=metrics,
         )
-        ok = mission.ok and coord.ok and (not op.jam_ground or coord.jamming_failover_ok)
+        st = self._spacetime.process_tick(
+            operation_id=op.id,
+            tick_idx=tick_idx,
+            doctrine=op.doctrine,
+            mission_ok=mission.ok,
+            threat_consensus=mission.threat_consensus,
+            jam_active=op.jam_ground,
+            jam_failover_ok=coord.jamming_failover_ok,
+            attrition_cumulative=state.attrition_cumulative,
+        )
+        ok = (
+            mission.ok
+            and coord.ok
+            and (not op.jam_ground or coord.jamming_failover_ok)
+            and (st.route_allowed or st.signal_tier != "hostile")
+        )
         return TickRecord(
             sim_day=op.day,
             tick=tick_idx,
@@ -108,6 +126,10 @@ class MissionWorldWeekEngine:
             agents_active=int(op.n_agents * (1 - state.attrition_cumulative)),
             narrative=nar,
             ok=ok,
+            spacetime_tier=st.signal_tier,
+            spacetime_zone=st.target_zone,
+            spacetime_action=st.route_action,
+            spacetime_route_ok=st.route_allowed,
         )
 
     def run_week(self, *, days: int = 7) -> tuple[MissionWorldState, WeekWorldReport]:
@@ -139,6 +161,7 @@ class MissionWorldWeekEngine:
                     ent_rep = self._scenario_sim.run_enterprise(ent_spec)
                     enterprise_runs.append(ent_rep.to_dict())
 
+        state.spacetime_summary = self._spacetime.week_summary()
         state_path = state.save()
         from pathlib import Path
 
@@ -153,6 +176,8 @@ class MissionWorldWeekEngine:
             f"Day 6 10K surge ms/agent: {next((t.ms_per_agent for t in state.ticks if '10k' in t.operation_id), 0):.4f}",
             f"Jam escalation peak: {state.jam_level:.0%}",
             f"Enterprise parallels run: {len(enterprise_runs)}",
+            f"Spacetime routes: {state.spacetime_summary.get('routes_allowed', 0)}/{state.spacetime_summary.get('routes_total', 0)} allowed",
+            f"Spacetime hostile/shadow ticks: {state.spacetime_summary.get('hostile_ticks', 0)}/{state.spacetime_summary.get('shadow_ticks', 0)}",
         ]
 
         report = WeekWorldReport(
@@ -165,6 +190,7 @@ class MissionWorldWeekEngine:
             narrative_path=str(nar_path),
             findings=findings,
             enterprise_parallels=enterprise_runs,
+            spacetime_summary=state.spacetime_summary,
             ok=ticks_ok >= len(state.ticks) * 0.85,
         )
         return state, report

@@ -25,6 +25,10 @@ class TickRecord:
     agents_active: int
     narrative: str
     ok: bool
+    spacetime_tier: str = ""
+    spacetime_zone: str = ""
+    spacetime_action: str = ""
+    spacetime_route_ok: bool = True
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -44,6 +48,7 @@ class MissionWorldState:
     operations_completed: int = 0
     ticks: List[TickRecord] = field(default_factory=list)
     operational_mode: str = "LIVE_SIM"
+    spacetime_summary: Dict[str, Any] = field(default_factory=dict)
 
     def advance_hour(self, hours: int = 3) -> None:
         self.sim_hour += hours
@@ -64,6 +69,7 @@ class MissionWorldState:
             "agents_deployed_peak": self.agents_deployed_peak,
             "operations_completed": self.operations_completed,
             "operational_mode": self.operational_mode,
+            "spacetime_summary": self.spacetime_summary,
             "tick_count": len(self.ticks),
             "ticks": [t.to_dict() for t in self.ticks],
         }

@@ -60,6 +60,10 @@ class SimulatedSpacetimeSubstrate:
         self._router = SpacetimeRouter()
         self._tick = 0
 
+    @property
+    def tick_count(self) -> int:
+        return self._tick
+
     def _update_zones(self) -> Dict[str, List[str]]:
         occ: Dict[str, List[str]] = {z.zone_id: [] for z in self.zones}
         for a in self.agents:

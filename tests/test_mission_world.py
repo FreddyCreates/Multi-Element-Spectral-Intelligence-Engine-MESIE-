@@ -13,6 +13,9 @@ def test_world_hierarchy():
 
 
 def test_week_sim_compressed():
-    _, report = MissionWorldWeekEngine().run_week(days=1)
+    state, report = MissionWorldWeekEngine().run_week(days=1)
     assert report.ticks_total >= 8
     assert report.peak_agents >= 500
+    assert report.spacetime_summary.get("routes_total", 0) >= report.ticks_total
+    assert state.ticks[0].spacetime_tier in ("cooperative", "shadow", "hostile")
+    assert state.spacetime_summary.get("substrate_ticks", 0) >= report.ticks_total
