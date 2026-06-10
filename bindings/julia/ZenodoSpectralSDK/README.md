@@ -4,17 +4,18 @@ Julia SDK for accessing Zenodo datasets with MESIE transformer-based spectral in
 
 ## 🚀 One-Shot Launch (Research OS)
 
-Open your Julia terminal and run:
-
-```julia
-include(download("https://raw.githubusercontent.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/main/bindings/julia/ZenodoSpectralSDK/launch.jl"))
-```
-
-Or if you have the repository cloned:
+**Recommended: Clone and run locally:**
 
 ```bash
-cd bindings/julia/ZenodoSpectralSDK
+git clone https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-.git
+cd Multi-Element-Spectral-Intelligence-Engine-MESIE-/bindings/julia/ZenodoSpectralSDK
 julia launch.jl
+```
+
+Or from a Julia REPL if you already have the repo:
+
+```julia
+include("bindings/julia/ZenodoSpectralSDK/launch.jl")
 ```
 
 That's it. The launcher will:

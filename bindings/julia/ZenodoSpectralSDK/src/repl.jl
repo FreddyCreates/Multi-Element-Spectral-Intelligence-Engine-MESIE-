@@ -293,7 +293,7 @@ function zenodo_stats()
     println("  │ Unique Views:     $(get(stats, "unique_views", 0))")
     println("  │ Unique Downloads: $(get(stats, "unique_downloads", 0))")
     println("  │ Version Views:    $(get(stats, "version_views", 0))")
-    println("  │ Version Downloads:$(get(stats, "version_downloads", 0))")
+    println("  │ Version Downloads: $(get(stats, "version_downloads", 0))")
     println("  ╰──────────────────────────────────────────────────────────────")
     println()
 end
