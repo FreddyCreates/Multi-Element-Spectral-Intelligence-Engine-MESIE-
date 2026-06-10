@@ -1,0 +1,518 @@
+{
+  "authority_state": "INTERNAL_RESEARCH",
+  "claim_boundary": "repo_verified_architecture",
+  "design_posture": "experimental_framework_not_production_security",
+  "passed": 7,
+  "total": 7,
+  "ready": true,
+  "cases": [
+    {
+      "name": "cooperative_routes_operational",
+      "passed": true,
+      "detail": "cooperative"
+    },
+    {
+      "name": "hostile_tier_quarantine_hint",
+      "passed": true,
+      "detail": "hostile"
+    },
+    {
+      "name": "shadow_tier_inspect",
+      "passed": true,
+      "detail": "inspect_and_isolate"
+    },
+    {
+      "name": "zone_blocks_hostile_in_buffer",
+      "passed": true,
+      "detail": "shadow_buffer"
+    },
+    {
+      "name": "simulation_containment",
+      "passed": true,
+      "detail": "quarantine_events=1"
+    },
+    {
+      "name": "simulation_latency",
+      "passed": true,
+      "detail": "mean_tick_ms=0.1195"
+    },
+    {
+      "name": "routing_volume",
+      "passed": true,
+      "detail": "routes=96"
+    }
+  ],
+  "simulation": {
+    "ticks_run": 24,
+    "routes_total": 96,
+    "routes_allowed": 72,
+    "quarantine_events": 1,
+    "containment_ok": true,
+    "mean_tick_ms": 0.1195,
+    "traces": [
+      {
+        "tick": 20,
+        "agent_positions": {
+          "resident_alpha": [
+            0.09017044636628865,
+            -9.94119076397012e-05,
+            0.018973744224133948
+          ],
+          "resident_beta": [
+            11.944413161746514,
+            0.012140571302872136,
+            3.973976342784926
+          ],
+          "defense_node_1": [
+            6.0,
+            8.0,
+            0.0
+          ],
+          "honeypot_a": [
+            24.0,
+            -6.0,
+            2.0
+          ],
+          "threat_probe": [
+            35.0,
+            12.0,
+            6.0
+          ],
+          "packet_relay": [
+            3.9802022793521092,
+            -3.9532300486224603,
+            0.9956826346903878
+          ]
+        },
+        "routes": [
+          {
+            "signal_id": "sig_resident_alpha_20",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_resident_beta_20",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_threat_probe_20",
+            "tier": "hostile",
+            "source_zone": "quarantine_hold",
+            "target_zone": "quarantine_hold",
+            "action": "quarantine",
+            "allowed": false,
+            "intelligence_target": "quarantine_sink"
+          },
+          {
+            "signal_id": "sig_packet_relay_20",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          }
+        ],
+        "quarantined": [
+          "threat_probe"
+        ],
+        "zone_occupancy": {
+          "command_core": [
+            "resident_alpha",
+            "resident_beta",
+            "defense_node_1",
+            "packet_relay"
+          ],
+          "field_ops": [],
+          "shadow_buffer": [],
+          "quarantine_hold": [
+            "threat_probe"
+          ],
+          "honeypot_surface": [
+            "honeypot_a"
+          ]
+        }
+      },
+      {
+        "tick": 21,
+        "agent_positions": {
+          "resident_alpha": [
+            0.09472220130001108,
+            -0.00012834642850334776,
+            0.019933937990899715
+          ],
+          "resident_beta": [
+            11.941608645150112,
+            0.01275225901774057,
+            3.9726660410114
+          ],
+          "defense_node_1": [
+            6.0,
+            8.0,
+            0.0
+          ],
+          "honeypot_a": [
+            24.0,
+            -6.0,
+            2.0
+          ],
+          "threat_probe": [
+            35.0,
+            12.0,
+            6.0
+          ],
+          "packet_relay": [
+            3.979192844446742,
+            -3.9508507102647177,
+            0.9954607741798857
+          ]
+        },
+        "routes": [
+          {
+            "signal_id": "sig_resident_alpha_21",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_resident_beta_21",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_threat_probe_21",
+            "tier": "hostile",
+            "source_zone": "quarantine_hold",
+            "target_zone": "quarantine_hold",
+            "action": "quarantine",
+            "allowed": false,
+            "intelligence_target": "quarantine_sink"
+          },
+          {
+            "signal_id": "sig_packet_relay_21",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          }
+        ],
+        "quarantined": [
+          "threat_probe"
+        ],
+        "zone_occupancy": {
+          "command_core": [
+            "resident_alpha",
+            "resident_beta",
+            "defense_node_1",
+            "packet_relay"
+          ],
+          "field_ops": [],
+          "shadow_buffer": [],
+          "quarantine_hold": [
+            "threat_probe"
+          ],
+          "honeypot_surface": [
+            "honeypot_a"
+          ]
+        }
+      },
+      {
+        "tick": 22,
+        "agent_positions": {
+          "resident_alpha": [
+            0.09927815516723332,
+            -0.00015966254731196938,
+            0.020895254081926554
+          ],
+          "resident_beta": [
+            11.938801690786317,
+            0.01336439238708605,
+            3.971354855430991
+          ],
+          "defense_node_1": [
+            6.0,
+            8.0,
+            0.0
+          ],
+          "honeypot_a": [
+            24.0,
+            -6.0,
+            2.0
+          ],
+          "threat_probe": [
+            35.0,
+            12.0,
+            6.0
+          ],
+          "packet_relay": [
+            3.9781814950789296,
+            -3.948467365830822,
+            0.9952383263301138
+          ]
+        },
+        "routes": [
+          {
+            "signal_id": "sig_resident_alpha_22",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_resident_beta_22",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_threat_probe_22",
+            "tier": "hostile",
+            "source_zone": "quarantine_hold",
+            "target_zone": "quarantine_hold",
+            "action": "quarantine",
+            "allowed": false,
+            "intelligence_target": "quarantine_sink"
+          },
+          {
+            "signal_id": "sig_packet_relay_22",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          }
+        ],
+        "quarantined": [
+          "threat_probe"
+        ],
+        "zone_occupancy": {
+          "command_core": [
+            "resident_alpha",
+            "resident_beta",
+            "defense_node_1",
+            "packet_relay"
+          ],
+          "field_ops": [],
+          "shadow_buffer": [],
+          "quarantine_hold": [
+            "threat_probe"
+          ],
+          "honeypot_surface": [
+            "honeypot_a"
+          ]
+        }
+      },
+      {
+        "tick": 23,
+        "agent_positions": {
+          "resident_alpha": [
+            0.10383831942347467,
+            -0.00019337437146750675,
+            0.021857696222902217
+          ],
+          "resident_beta": [
+            11.935992293051319,
+            0.013976971661935293,
+            3.9700427839052694
+          ],
+          "defense_node_1": [
+            6.0,
+            8.0,
+            0.0
+          ],
+          "honeypot_a": [
+            24.0,
+            -6.0,
+            2.0
+          ],
+          "threat_probe": [
+            35.0,
+            12.0,
+            6.0
+          ],
+          "packet_relay": [
+            3.9771682238065753,
+            -3.9460799988453608,
+            0.9950152887885955
+          ]
+        },
+        "routes": [
+          {
+            "signal_id": "sig_resident_alpha_23",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_resident_beta_23",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_threat_probe_23",
+            "tier": "hostile",
+            "source_zone": "quarantine_hold",
+            "target_zone": "quarantine_hold",
+            "action": "quarantine",
+            "allowed": false,
+            "intelligence_target": "quarantine_sink"
+          },
+          {
+            "signal_id": "sig_packet_relay_23",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          }
+        ],
+        "quarantined": [
+          "threat_probe"
+        ],
+        "zone_occupancy": {
+          "command_core": [
+            "resident_alpha",
+            "resident_beta",
+            "defense_node_1",
+            "packet_relay"
+          ],
+          "field_ops": [],
+          "shadow_buffer": [],
+          "quarantine_hold": [
+            "threat_probe"
+          ],
+          "honeypot_surface": [
+            "honeypot_a"
+          ]
+        }
+      },
+      {
+        "tick": 24,
+        "agent_positions": {
+          "resident_alpha": [
+            0.10840270558500885,
+            -0.0002294961107843774,
+            0.022821268160699678
+          ],
+          "resident_beta": [
+            11.933180446318989,
+            0.014589997091153183,
+            3.968729824287455
+          ],
+          "defense_node_1": [
+            6.0,
+            8.0,
+            0.0
+          ],
+          "honeypot_a": [
+            24.0,
+            -6.0,
+            2.0
+          ],
+          "threat_probe": [
+            35.0,
+            12.0,
+            6.0
+          ],
+          "packet_relay": [
+            3.976153023140341,
+            -3.9436885927254997,
+            0.9947916591879674
+          ]
+        },
+        "routes": [
+          {
+            "signal_id": "sig_resident_alpha_24",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_resident_beta_24",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          },
+          {
+            "signal_id": "sig_threat_probe_24",
+            "tier": "hostile",
+            "source_zone": "quarantine_hold",
+            "target_zone": "quarantine_hold",
+            "action": "quarantine",
+            "allowed": false,
+            "intelligence_target": "quarantine_sink"
+          },
+          {
+            "signal_id": "sig_packet_relay_24",
+            "tier": "cooperative",
+            "source_zone": "command_core",
+            "target_zone": "command_core",
+            "action": "operational_route",
+            "allowed": true,
+            "intelligence_target": "intelligence_engine"
+          }
+        ],
+        "quarantined": [
+          "threat_probe"
+        ],
+        "zone_occupancy": {
+          "command_core": [
+            "resident_alpha",
+            "resident_beta",
+            "defense_node_1",
+            "packet_relay"
+          ],
+          "field_ops": [],
+          "shadow_buffer": [],
+          "quarantine_hold": [
+            "threat_probe"
+          ],
+          "honeypot_surface": [
+            "honeypot_a"
+          ]
+        }
+      }
+    ],
+    "authority_state": "INTERNAL_RESEARCH",
+    "claim_boundary": "repo_verified_architecture",
+    "design_posture": "experimental_framework_not_production_security"
+  }
+}
