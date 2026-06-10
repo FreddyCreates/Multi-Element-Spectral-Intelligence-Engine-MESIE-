@@ -440,7 +440,7 @@ class SovereignBackend(LocalModelBackend):
             try:
                 from phantom_native.sovereign_tensor import SovereignTensor
 
-                tensor = SovereignTensor(data=signal, shape=[config.d_model])
+                tensor = SovereignTensor(data=signal, shape=(config.d_model,))
                 output = core.forward(tensor)
                 output_data = output.data if hasattr(output, "data") else signal
 
