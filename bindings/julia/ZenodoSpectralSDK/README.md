@@ -2,12 +2,36 @@
 
 Julia SDK for accessing Zenodo datasets with MESIE transformer-based spectral intelligence.
 
-## 🚀 One-Shot Launch (Research OS)
+## 🚀 Full Installation (Recommended)
 
-**Recommended: Clone and run locally:**
+The `install.sh` script handles **everything** — installs bash, git, Julia, and all SDK dependencies:
 
 ```bash
 git clone https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-.git
+cd Multi-Element-Spectral-Intelligence-Engine-MESIE-/bindings/julia/ZenodoSpectralSDK
+chmod +x install.sh
+./install.sh
+```
+
+This will:
+1. ✅ Install/verify **bash** (auto-detects apt, dnf, brew, apk, pacman)
+2. ✅ Install/verify **git**
+3. ✅ Install/verify **Julia** (downloads official binary if missing)
+4. ✅ Install all Julia package dependencies (HTTP, JSON, Downloads)
+5. ✅ Precompile packages for fast startup
+6. ✅ Run a health check to verify the SDK works
+
+### After Installation — Launch the Research OS Terminal
+
+```bash
+julia launch.jl
+```
+
+The launcher verifies system dependencies (bash, git) are present, installs Julia packages if needed, then launches the interactive Research OS terminal.
+
+### Quick Start (If You Already Have Julia + Git + Bash)
+
+```bash
 cd Multi-Element-Spectral-Intelligence-Engine-MESIE-/bindings/julia/ZenodoSpectralSDK
 julia launch.jl
 ```
@@ -18,10 +42,11 @@ Or from a Julia REPL if you already have the repo:
 include("bindings/julia/ZenodoSpectralSDK/launch.jl")
 ```
 
-That's it. The launcher will:
-1. ✅ Auto-install all Julia dependencies (HTTP, JSON, etc.)
-2. ✅ Load the full ZenodoSpectralSDK
-3. ✅ Launch an interactive Research OS terminal in your Julia REPL
+The launcher will:
+1. ✅ Verify bash and git are available (offers to install if missing)
+2. ✅ Auto-install all Julia dependencies (HTTP, JSON, etc.)
+3. ✅ Load the full ZenodoSpectralSDK
+4. ✅ Launch an interactive Research OS terminal in your Julia REPL
 
 The Research OS provides:
 - 🌐 **Zenodo Browser** — Search, discover, and download scientific datasets
