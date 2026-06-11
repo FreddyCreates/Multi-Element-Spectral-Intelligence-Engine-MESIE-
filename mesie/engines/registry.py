@@ -16,6 +16,7 @@ from mesie.engines.hardware_abstraction_engine import HardwareAbstractionEngine
 from mesie.engines.scalability_engine import ScalabilityEngine
 from mesie.engines.attestation_engine import AttestationEngine
 from mesie.engines.reproducibility_engine import ReproducibilityEngine
+from mesie.engines.auto_validation_agent import AutoValidationEngine
 from mesie.engines.multimodel_julia_engine import (
     MultiModelEmbeddingEngine,
     MultiModelFingerprintEngine,
@@ -57,6 +58,7 @@ def build_default_registry(
         ScalabilityEngine(),
         AttestationEngine(),
         ReproducibilityEngine(),
+        AutoValidationEngine(),
         # Research Agent engine
         ResearchEngine(),
         # Multi-model Python↔Julia engines

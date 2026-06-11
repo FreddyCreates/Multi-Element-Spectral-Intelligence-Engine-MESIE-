@@ -454,11 +454,11 @@ class TestSDKv03:
 
     def test_version(self):
         sdk = SpectralIntelligenceSDK()
-        assert sdk.version == "0.3.0"
+        assert sdk.version == "0.4.0"
 
     def test_repr(self):
         sdk = SpectralIntelligenceSDK()
-        assert "v0.3.0" in repr(sdk)
+        assert "v0.4.0" in repr(sdk)
         assert "core=active" in repr(sdk)
 
     def test_list_engines(self):
@@ -471,7 +471,7 @@ class TestSDKv03:
     def test_status(self):
         sdk = SpectralIntelligenceSDK()
         status = sdk.status()
-        assert status["version"] == "0.3.0"
+        assert status["version"] == "0.4.0"
         assert status["core"] == "active"
         assert "engines" in status
 

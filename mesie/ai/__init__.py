@@ -72,6 +72,22 @@ from mesie.ai.reinforcement import (
     AgentMetrics,
     AgentType,
 )
+from mesie.ai.local_models import (
+    LocalModelRegistry,
+    LocalModelBackend,
+    BackendConfig,
+    BackendKind,
+    InferenceMode,
+    InferenceResult,
+    EmbeddingResult,
+    StreamChunk,
+    StopCondition,
+    SpectralInferenceContext,
+    SovereignBackend,
+    OllamaBackend,
+    LlamaCppBackend,
+    register_backend,
+)
 
 __all__ = [
     # Core models
@@ -140,4 +156,19 @@ __all__ = [
     "Experience",
     "AgentMetrics",
     "AgentType",
+    # Local models
+    "LocalModelRegistry",
+    "LocalModelBackend",
+    "BackendConfig",
+    "BackendKind",
+    "InferenceMode",
+    "InferenceResult",
+    "EmbeddingResult",
+    "StreamChunk",
+    "StopCondition",
+    "SpectralInferenceContext",
+    "SovereignBackend",
+    "OllamaBackend",
+    "LlamaCppBackend",
+    "register_backend",
 ]

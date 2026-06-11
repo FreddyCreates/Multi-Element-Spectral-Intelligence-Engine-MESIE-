@@ -24,6 +24,7 @@ from typing import Any, Dict, List, Optional
 import numpy as np
 
 from mesie.engines.attestation_engine import AttestationEngine
+from mesie.engines.base import Engine
 from mesie.engines.hardware_abstraction_engine import (
     DeviceClass,
     HardwareAbstractionEngine,
@@ -400,3 +401,93 @@ def run_auto_validation(
         scalability_nodes=scalability_nodes,
         n_reproducibility_seeds=n_reproducibility_seeds,
     )
+
+
+class AutoValidationEngine(Engine):
+    """Bus-accessible engine adapter for AutoValidationAgent.
+
+    Exposes autonomous validation capabilities on the internal message bus,
+    allowing other engines and ghost agents to trigger validation runs.
+
+    Capabilities:
+        run_auto_validation: Execute full validation suite.
+        quick_check: Run a lightweight validation (fewer nodes/seeds).
+        status: Return last validation verdict summary.
+    """
+
+    name = "auto_validation"
+    capabilities = ["run_auto_validation", "quick_check", "status"]
+
+    def __init__(self, seed: int = 42) -> None:
+        self._agent = AutoValidationAgent(seed=seed)
+        self._last_verdict: Optional[ValidationVerdict] = None
+
+    def handle(self, message: "MessageEnvelope") -> "Optional[EngineResponse]":
+        from mesie.internal_api.messages import EngineResponse, MessageEnvelope
+
+        if message.target not in (self.name, "*"):
+            return None
+        action = message.action
+        if action not in self.capabilities:
+            return EngineResponse(False, self.name, action, error=f"Unknown action: {action}")
+
+        try:
+            if action == "run_auto_validation":
+                return self._handle_run(message.payload)
+            elif action == "quick_check":
+                return self._handle_quick(message.payload)
+            elif action == "status":
+                return self._handle_status()
+        except Exception as exc:
+            return EngineResponse(False, self.name, action, error=str(exc))
+
+        return EngineResponse(False, self.name, action, error="Unhandled")
+
+    def _handle_run(self, payload: Dict[str, Any]) -> "EngineResponse":
+        from mesie.internal_api.messages import EngineResponse
+
+        nodes = payload.get("scalability_nodes", None)
+        seeds = payload.get("n_reproducibility_seeds", 50)
+        verdict = self._agent.run_full_validation(
+            scalability_nodes=nodes,
+            n_reproducibility_seeds=seeds,
+        )
+        self._last_verdict = verdict
+        return EngineResponse(True, self.name, "run_auto_validation", {
+            "overall_pass": verdict.overall_pass,
+            "pass_rate": verdict.pass_rate,
+            "total_checks": verdict.total_checks,
+            "passed_checks": verdict.passed_checks,
+            "execution_time_s": verdict.execution_time_s,
+            "deterministic_hash": verdict.deterministic_hash,
+        })
+
+    def _handle_quick(self, payload: Dict[str, Any]) -> "EngineResponse":
+        from mesie.internal_api.messages import EngineResponse
+
+        verdict = self._agent.run_full_validation(
+            scalability_nodes=[100, 500],
+            n_reproducibility_seeds=10,
+        )
+        self._last_verdict = verdict
+        return EngineResponse(True, self.name, "quick_check", {
+            "overall_pass": verdict.overall_pass,
+            "pass_rate": verdict.pass_rate,
+            "execution_time_s": verdict.execution_time_s,
+        })
+
+    def _handle_status(self) -> "EngineResponse":
+        from mesie.internal_api.messages import EngineResponse
+
+        if self._last_verdict is None:
+            return EngineResponse(True, self.name, "status", {"last_run": None})
+        v = self._last_verdict
+        return EngineResponse(True, self.name, "status", {
+            "last_run": {
+                "overall_pass": v.overall_pass,
+                "pass_rate": v.pass_rate,
+                "total_checks": v.total_checks,
+                "execution_time_s": v.execution_time_s,
+                "deterministic_hash": v.deterministic_hash,
+            }
+        })
