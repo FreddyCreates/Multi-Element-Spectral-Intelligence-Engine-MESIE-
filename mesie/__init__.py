@@ -66,6 +66,7 @@ from mesie.edge.satellite_nodes import (
 from mesie.edge.edge_protocol import EdgeSpectralProtocol, EdgeMessage, EdgeRoute
 from mesie.io.corpus import SpectralCorpus
 from mesie.sdk.intelligence_sdk import SpectralIntelligenceSDK
+from mesie.sdk.universal_lab_sdk import UniversalLabSDK
 from mesie.internal_api import InternalBus, InternalRouter, MessageEnvelope, MessageTopic, EngineResponse
 from mesie.engines import Engine, EngineRegistry, build_default_registry
 from mesie.octopus import ArmId, OctopusArm, OctopusController, OctopusConfig, OctopusRunReport
@@ -151,6 +152,7 @@ __all__ = [
     "SpectralCorpus",
     "SpectralDataProtocol",
     "SpectralIntelligenceSDK",
+    "UniversalLabSDK",
     "SpectralMatcher",
     "SpectralMemoryBuffer",
     "SpectralMetadata",

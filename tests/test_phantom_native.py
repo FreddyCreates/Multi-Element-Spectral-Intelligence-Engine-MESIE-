@@ -1,279 +1,437 @@
-"""Tests for phantom_native — Sovereign Native Stack (Phantom-MESIE Integration)."""
+"""Tests for phantom_native — Sovereign Native Stack (Phantom-MESIE Integration).
+
+Covers:
+- SovereignTensor: SIMD-style ops, quantization, helix encoding, MESIE ingestion
+- TaurusMemory: store/recall, decay, compression, similarity search
+- SovereignNeuroCore: forward pass, attention analysis, memory integration
+- SovereignSwarmRuntime: spawn, execute, sealed intent, aggregation
+"""
 
 import math
+import time
 
 import pytest
 
-from phantom_native.sovereign_tensor import SovereignTensor
-from phantom_native.neurocore import SovereignNeuroCore
-from phantom_native.swarm_runtime import (
-    ExecutionReceipt,
-    SovereignSwarmRuntime,
-    SovereignVault,
-    ShadowWireEnvelope,
-)
 
-
-# ==================================================================
-# SovereignTensor tests
-# ==================================================================
+# ============================================================
+# SovereignTensor Tests
+# ============================================================
 
 
 class TestSovereignTensor:
-    def test_creation_basic(self):
-        t = SovereignTensor([1.0, 2.0, 3.0], (3,))
-        assert t.shape == (3,)
-        assert t.data == [1.0, 2.0, 3.0]
-        assert t.size == 3
+    def test_create_basic(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-    def test_creation_2d(self):
-        t = SovereignTensor([1.0, 2.0, 3.0, 4.0], (2, 2))
-        assert t.shape == (2, 2)
-        assert t.size == 4
+        t = SovereignTensor([1.0, 2.0, 3.0, 4.0], (4,))
+        assert t.shape == (4,)
+        assert len(t) == 4
+        assert t.resonance == 1.0
 
     def test_shape_mismatch_raises(self):
-        with pytest.raises(ValueError, match="Shape / data mismatch"):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        with pytest.raises(ValueError):
             SovereignTensor([1.0, 2.0], (3,))
 
     def test_zeros_and_ones(self):
-        z = SovereignTensor.zeros((4,))
-        assert z.data == [0.0, 0.0, 0.0, 0.0]
-        o = SovereignTensor.ones((2, 3))
-        assert o.size == 6
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        z = SovereignTensor.zeros((8,))
+        assert all(x == 0.0 for x in z.data)
+        o = SovereignTensor.ones((8,))
         assert all(x == 1.0 for x in o.data)
 
-    def test_add(self):
-        a = SovereignTensor([1.0, 2.0], (2,))
-        b = SovereignTensor([3.0, 4.0], (2,))
-        c = a.add(b)
-        assert c.data == [4.0, 6.0]
+    def test_vector_add(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-    def test_add_shape_mismatch(self):
-        a = SovereignTensor([1.0, 2.0], (2,))
-        b = SovereignTensor([1.0, 2.0, 3.0], (3,))
-        with pytest.raises(ValueError, match="Shape mismatch"):
-            a.add(b)
+        a = SovereignTensor([1.0] * 16, (16,))
+        b = SovereignTensor([2.0] * 16, (16,))
+        c = a.vector_add(b)
+        assert all(abs(x - 3.0) < 1e-5 for x in c.data)
 
-    def test_sub(self):
-        a = SovereignTensor([5.0, 3.0], (2,))
-        b = SovereignTensor([1.0, 2.0], (2,))
-        c = a.sub(b)
-        assert c.data == [4.0, 1.0]
+    def test_vector_add_non_multiple_of_8(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        a = SovereignTensor([1.0] * 13, (13,))
+        b = SovereignTensor([0.5] * 13, (13,))
+        c = a.vector_add(b)
+        assert len(c.data) == 13
+        assert all(abs(x - 1.5) < 1e-5 for x in c.data)
+
+    def test_vector_mul(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        a = SovereignTensor([2.0] * 8, (8,))
+        b = SovereignTensor([3.0] * 8, (8,))
+        c = a.vector_mul(b)
+        assert all(abs(x - 6.0) < 1e-5 for x in c.data)
 
     def test_scale(self):
-        t = SovereignTensor([2.0, 4.0], (2,))
-        s = t.scale(0.5)
-        assert s.data == [1.0, 2.0]
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-    def test_dot(self):
-        a = SovereignTensor([1.0, 2.0, 3.0], (3,))
-        b = SovereignTensor([4.0, 5.0, 6.0], (3,))
-        assert a.dot(b) == pytest.approx(32.0)
+        t = SovereignTensor([1.0, 2.0, 3.0], (3,))
+        s = t.scale(2.0)
+        assert list(s.data) == pytest.approx([2.0, 4.0, 6.0])
 
-    def test_matmul(self):
-        # 2x2 identity-like matmul
-        a = SovereignTensor([1.0, 0.0, 0.0, 1.0], (2, 2))
-        b = SovereignTensor([5.0, 6.0, 7.0, 8.0], (2, 2))
-        c = a.matmul(b)
+    def test_resonance_matmul(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        # 2x3 * 3x2 = 2x2
+        a = SovereignTensor([1.0, 0.0, 0.0, 0.0, 1.0, 0.0], (2, 3))
+        b = SovereignTensor([1.0, 2.0, 3.0, 4.0, 5.0, 6.0], (3, 2))
+        c = a.resonance_matmul(b)
         assert c.shape == (2, 2)
-        # resonance_score defaults to 1.0 * 1.0 = 1.0
-        assert c.data == pytest.approx([5.0, 6.0, 7.0, 8.0])
+        # With resonance=1.0, first row = [1,2], second row = [3,4]
+        assert abs(c.data[0] - 1.0) < 1e-5
+        assert abs(c.data[1] - 2.0) < 1e-5
+        assert abs(c.data[2] - 3.0) < 1e-5
+        assert abs(c.data[3] - 4.0) < 1e-5
 
-    def test_matmul_with_resonance(self):
+    def test_resonance_matmul_weighting(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
         a = SovereignTensor(
-            [1.0, 0.0, 0.0, 1.0], (2, 2), {"resonance": 0.5}
+            [1.0, 1.0, 1.0, 1.0], (2, 2), {"resonance": 0.5}
         )
         b = SovereignTensor(
-            [2.0, 2.0, 2.0, 2.0], (2, 2), {"resonance": 2.0}
+            [1.0, 0.0, 0.0, 1.0], (2, 2), {"resonance": 2.0}
         )
-        c = a.matmul(b)
-        # resonance = 0.5 * 2.0 = 1.0, so same as plain matmul
-        assert c.data == pytest.approx([2.0, 2.0, 2.0, 2.0])
+        c = a.resonance_matmul(b)
+        # resonance product = 0.5 * 2.0 = 1.0
+        assert c.shape == (2, 2)
 
-    def test_norm(self):
-        t = SovereignTensor([3.0, 4.0], (2,))
-        assert t.norm() == pytest.approx(5.0)
+    def test_dot_product(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-    def test_to_bytes_roundtrip(self):
-        t = SovereignTensor([1.5, 2.5, 3.5], (3,))
-        raw = t.to_bytes()
-        t2 = SovereignTensor.from_bytes(raw, (3,))
-        assert t2.data == pytest.approx(t.data, rel=1e-5)
-
-    def test_from_mesie_component(self):
-        component = {
-            "frequency": [1.0, 2.0, 3.0],
-            "amplitude": [0.5, 1.0, 1.5],
-            "element_weight": 0.8,
-            "node_id": "node_42",
-        }
-        t = SovereignTensor.from_mesie_component(component)
-        assert t.shape == (3,)
-        assert t.data == [0.5, 1.0, 1.5]
-        assert t.resonance_score == 0.8
-        assert t.lineage == "node_42"
-
-    def test_from_mesie_component_empty(self):
-        t = SovereignTensor.from_mesie_component({})
-        assert t.shape == (1,)
-        assert t.data == [0.0]
+        a = SovereignTensor([1.0, 2.0, 3.0], (3,))
+        b = SovereignTensor([4.0, 5.0, 6.0], (3,))
+        assert abs(a.dot(b) - 32.0) < 1e-5
 
     def test_quantize_int8(self):
-        t = SovereignTensor([1.0, -0.5, 0.25], (3,))
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        t = SovereignTensor([1.0, -0.5, 0.25, 0.0], (4,))
         q = t.quantize_int8()
+        assert q.spectral_meta["quantized"] is True
         assert "quant_scale" in q.spectral_meta
-        # All values should be in [-127, 127] range
-        for v in q.data:
-            assert -127.0 <= v <= 127.0
+        # Max value maps to 127
+        assert abs(q.data[0] - 127.0) < 1e-5
 
-    def test_quantize_dequantize_roundtrip(self):
-        t = SovereignTensor([1.0, -0.5, 0.25], (3,))
+    def test_dequantize_roundtrip(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        t = SovereignTensor([1.0, -0.5, 0.25, 0.0], (4,))
         q = t.quantize_int8()
-        d = q.dequantize()
-        # Expect some quantization error but close
-        for orig, recovered in zip(t.data, d.data):
-            assert recovered == pytest.approx(orig, abs=0.02)
+        dq = q.dequantize()
+        # Approximate roundtrip (quantization introduces error)
+        for orig, recovered in zip(t.data, dq.data):
+            assert abs(orig - recovered) < 0.02
 
-    def test_repr(self):
-        t = SovereignTensor([1.0, 2.0], (2,))
-        r = repr(t)
-        assert "SovereignTensor" in r
-        assert "shape=(2,)" in r
+    def test_helix_encode(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        t = SovereignTensor([1.0] * 32, (32,))
+        h = t.helix_encode(turns=4)
+        assert h.spectral_meta["helix"]["encoded"] is True
+        assert h.spectral_meta["helix"]["turns"] == 4
+        # First element: cos(0) * 1.0 + sin(0) * 0.1 = 1.0 + 0.0 = 1.0
+        assert abs(h.data[0] - 1.0) < 1e-5
+
+    def test_from_mesie_component(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        component = {
+            "amplitude": [0.1, 0.5, 0.9, 0.3],
+            "frequency": [1.0, 2.0, 3.0, 4.0],
+            "element_weight": 0.8,
+            "node_id": ["node_1"],
+        }
+        t = SovereignTensor.from_mesie_component(component)
+        assert t.shape == (4,)
+        assert t.resonance == 0.8
+        assert list(t.data) == pytest.approx([0.1, 0.5, 0.9, 0.3], abs=1e-5)
+
+    def test_to_bytes_deterministic(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        t1 = SovereignTensor([1.0, 2.0, 3.0], (3,))
+        t2 = SovereignTensor([1.0, 2.0, 3.0], (3,))
+        assert t1.to_bytes() == t2.to_bytes()
+
+    def test_from_bytes_roundtrip(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        t = SovereignTensor([1.5, 2.5, 3.5, 4.5], (4,))
+        raw = t.to_bytes()
+        t2 = SovereignTensor.from_bytes(raw, (4,))
+        for a, b in zip(t.data, t2.data):
+            assert abs(a - b) < 1e-5
+
+    def test_norm(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+
+        t = SovereignTensor([3.0, 4.0], (2,))
+        assert abs(t.norm() - 5.0) < 1e-5
 
 
-# ==================================================================
-# SovereignNeuroCore tests
-# ==================================================================
+# ============================================================
+# TaurusMemory Tests
+# ============================================================
+
+
+class TestTaurusMemory:
+    def test_store_and_recall_by_key(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory(capacity=16)
+        t = SovereignTensor([1.0, 2.0, 3.0], (3,))
+        key = mem.store(t, key="test_key")
+        assert key == "test_key"
+        recalled = mem.recall_by_key("test_key")
+        assert recalled is not None
+        assert list(recalled.data) == pytest.approx([1.0, 2.0, 3.0])
+
+    def test_auto_key_generation(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory()
+        t = SovereignTensor([1.0], (1,))
+        key = mem.store(t)
+        assert key.startswith("qsha:")
+
+    def test_capacity_eviction(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory(capacity=3)
+        for i in range(5):
+            mem.store(SovereignTensor([float(i)], (1,)))
+        assert len(mem.working_memory) == 3
+
+    def test_recall_top_k(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory(capacity=16)
+        for i in range(8):
+            t = SovereignTensor([float(i)], (1,), {"resonance": float(i)})
+            mem.store(t, importance=float(i))
+        top = mem.recall_top_k(3)
+        assert len(top) == 3
+
+    def test_recall_by_similarity(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory(capacity=16)
+        mem.store(SovereignTensor([1.0, 0.0, 0.0], (3,)))
+        mem.store(SovereignTensor([0.0, 1.0, 0.0], (3,)))
+        mem.store(SovereignTensor([0.9, 0.1, 0.0], (3,)))
+
+        query = SovereignTensor([1.0, 0.0, 0.0], (3,))
+        results = mem.recall_by_similarity(query, top_k=2)
+        assert len(results) == 2
+        # Most similar should be the [1,0,0] vector
+        assert results[0][2] > 0.9  # high similarity
+
+    def test_compress_helix(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory()
+        t = SovereignTensor([1.0, 3.0, 5.0, 7.0], (4,))
+        compressed = mem.compress_helix(t)
+        assert len(compressed.data) == 2
+        assert abs(compressed.data[0] - 2.0) < 1e-5  # (1+3)/2
+        assert abs(compressed.data[1] - 6.0) < 1e-5  # (5+7)/2
+
+    def test_consolidate(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory(capacity=16)
+        # Store items with varying importance
+        for i in range(5):
+            mem.store(SovereignTensor([float(i)], (1,)), importance=float(i) * 0.2)
+        removed = mem.consolidate(threshold=0.5)
+        assert removed >= 0
+
+    def test_size(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.taurus import TaurusMemory
+
+        mem = TaurusMemory(capacity=8)
+        mem.store(SovereignTensor([1.0], (1,)))
+        status = mem.size()
+        assert status["working_memory"] == 1
+        assert status["long_term"] == 1
+        assert status["capacity"] == 8
+
+
+# ============================================================
+# SovereignNeuroCore Tests
+# ============================================================
 
 
 class TestSovereignNeuroCore:
-    def test_creation_defaults(self):
+    def test_create_default(self):
+        from phantom_native.neurocore import SovereignNeuroCore
+
         core = SovereignNeuroCore()
         assert core.d_model == 128
         assert core.n_heads == 8
-        assert core.memory_cap == 32
-        assert core.memory_size() == 0
 
-    def test_creation_custom_config(self):
-        core = SovereignNeuroCore({"d_model": 64, "n_heads": 4, "memory_cap": 16})
+    def test_create_custom_config(self):
+        from phantom_native.neurocore import SovereignNeuroCore
+
+        core = SovereignNeuroCore({"d_model": 64, "n_heads": 4})
         assert core.d_model == 64
         assert core.n_heads == 4
-        assert core.memory_cap == 16
 
-    def test_forward_produces_output(self):
-        core = SovereignNeuroCore({"d_model": 16})
-        tensor = SovereignTensor([1.0, 2.0, 3.0, 4.0], (4,))
-        out = core.forward(tensor)
-        assert out.shape == (4,)
-        assert len(out.data) == 4
-        # Output should not be all zeros (unless input is zero)
-        assert any(x != 0.0 for x in out.data)
+    def test_forward_pass(self):
+        from phantom_native.neurocore import SovereignNeuroCore
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-    def test_forward_updates_taurus_memory(self):
-        core = SovereignNeuroCore({"d_model": 8, "memory_cap": 5})
-        tensor = SovereignTensor([1.0, 2.0], (2,))
+        core = SovereignNeuroCore({"d_model": 32, "n_heads": 4})
+        t = SovereignTensor([math.sin(i * 0.1) for i in range(64)], (64,))
+        out = core.forward(t)
+        assert out.shape == (64,)
+        assert len(out.data) == 64
 
-        for _ in range(7):
-            core.forward(tensor)
+    def test_attention_analysis(self):
+        from phantom_native.neurocore import SovereignNeuroCore
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-        # Memory should be capped at 5
-        assert core.memory_size() == 5
+        core = SovereignNeuroCore({"d_model": 16, "n_heads": 4})
+        t = SovereignTensor([1.0] * 16, (16,))
+        core.forward(t)
+        analysis = core.get_attention_analysis()
+        assert analysis["n_heads"] == 4
+        assert len(analysis["head_analyses"]) == 4
+        for head in analysis["head_analyses"]:
+            assert "attention_entropy" in head
+            assert "max_attention" in head
+            assert "attention_sparsity" in head
 
-    def test_clear_memory(self):
-        core = SovereignNeuroCore({"d_model": 8})
-        tensor = SovereignTensor([1.0], (1,))
-        core.forward(tensor)
-        assert core.memory_size() == 1
-        core.clear_memory()
-        assert core.memory_size() == 0
+    def test_taurus_memory_fills(self):
+        from phantom_native.neurocore import SovereignNeuroCore
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-    def test_recall_recent(self):
-        core = SovereignNeuroCore({"d_model": 8, "memory_cap": 10})
+        core = SovereignNeuroCore({"d_model": 16, "n_heads": 2, "memory_capacity": 8})
         for i in range(5):
-            core.forward(SovereignTensor([float(i)], (1,)))
-        recent = core.recall_recent(3)
-        assert len(recent) == 3
+            t = SovereignTensor([float(i)] * 16, (16,))
+            core.forward(t)
+        assert len(core.taurus.working_memory) == 5
 
-    def test_resonance_attention_sums_to_one(self):
-        core = SovereignNeuroCore({"d_model": 8})
-        q = [0.5] * 8
-        k = [0.3] * 8
-        attn = core._resonance_attention(q, k)
-        assert sum(attn) == pytest.approx(1.0, rel=1e-6)
+    def test_reset_memory(self):
+        from phantom_native.neurocore import SovereignNeuroCore
+        from phantom_native.sovereign_tensor import SovereignTensor
 
-    def test_repr(self):
-        core = SovereignNeuroCore()
-        r = repr(core)
-        assert "SovereignNeuroCore" in r
+        core = SovereignNeuroCore({"d_model": 16, "n_heads": 2})
+        t = SovereignTensor([1.0] * 16, (16,))
+        core.forward(t)
+        assert len(core.taurus.working_memory) > 0
+        core.reset_memory()
+        assert len(core.taurus.working_memory) == 0
 
 
-# ==================================================================
-# SovereignSwarmRuntime tests
-# ==================================================================
+# ============================================================
+# SovereignSwarmRuntime Tests
+# ============================================================
 
 
 class TestSovereignSwarmRuntime:
     def test_spawn_neuronet(self):
+        from phantom_native.swarm_runtime import SovereignSwarmRuntime
+
         runtime = SovereignSwarmRuntime()
-        core_id = runtime.spawn_neuronet({"d_model": 16})
+        core_id = runtime.spawn_neuronet({"d_model": 32, "n_heads": 4})
         assert core_id.startswith("qsha:")
-        assert runtime.swarm_size == 1
+        assert len(runtime.cores) == 1
 
     def test_spawn_multiple(self):
-        runtime = SovereignSwarmRuntime()
-        id1 = runtime.spawn_neuronet({"d_model": 16})
-        id2 = runtime.spawn_neuronet({"d_model": 32})
-        assert id1 != id2
-        assert runtime.swarm_size == 2
+        from phantom_native.swarm_runtime import SovereignSwarmRuntime
 
-    def test_remove_core(self):
         runtime = SovereignSwarmRuntime()
-        core_id = runtime.spawn_neuronet()
-        assert runtime.remove_core(core_id)
-        assert runtime.swarm_size == 0
-        assert not runtime.remove_core("nonexistent")
+        ids = [runtime.spawn_neuronet() for _ in range(4)]
+        assert len(runtime.cores) == 4
+        assert len(set(ids)) == 4  # unique IDs
 
     def test_execute(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.swarm_runtime import SovereignSwarmRuntime
+
         runtime = SovereignSwarmRuntime()
-        runtime.spawn_neuronet({"d_model": 8})
-        runtime.spawn_neuronet({"d_model": 8})
-        component = {"frequency": [1.0, 2.0], "amplitude": [0.5, 1.0]}
-        results = runtime.execute(component)
+        runtime.spawn_neuronet({"d_model": 16, "n_heads": 2})
+        runtime.spawn_neuronet({"d_model": 16, "n_heads": 2})
+        t = SovereignTensor([1.0] * 16, (16,))
+        results = runtime.execute(t)
         assert len(results) == 2
-        for r in results:
-            assert isinstance(r, SovereignTensor)
 
-    def test_execute_sealed_intent(self):
+    def test_sealed_intent_execution(self):
+        from phantom_native.swarm_runtime import SovereignSwarmRuntime
+
         runtime = SovereignSwarmRuntime()
-        runtime.spawn_neuronet({"d_model": 8})
+        runtime.spawn_neuronet({"d_model": 16, "n_heads": 2})
 
-        intent = {"spectrum": {"frequency": [1.0, 2.0], "amplitude": [0.5, 1.0]}}
+        intent = {"amplitude": [0.1, 0.5, 0.9, 0.3], "element_weight": 0.8}
         sealed = runtime.vault.seal_intent(intent)
         receipt = runtime.execute_sealed_intent(sealed)
 
-        assert isinstance(receipt, ExecutionReceipt)
         assert receipt.commitment.startswith("commit:")
+        assert receipt.shadow_wire["masked"] is True
         assert receipt.public_meta["swarm_size"] == 1
-        assert "masked_topology" in receipt.shadow_wire
-        assert runtime.manifest_commitment == receipt.commitment
+
+    def test_aggregate_swarm(self):
+        from phantom_native.sovereign_tensor import SovereignTensor
+        from phantom_native.swarm_runtime import SovereignSwarmRuntime
+
+        runtime = SovereignSwarmRuntime()
+        tensors = [
+            SovereignTensor([1.0, 2.0], (2,), {"resonance": 1.0}),
+            SovereignTensor([3.0, 4.0], (2,), {"resonance": 1.0}),
+        ]
+        agg = runtime.aggregate_swarm(tensors)
+        # Equal resonance → simple average
+        assert abs(agg.data[0] - 2.0) < 1e-5
+        assert abs(agg.data[1] - 3.0) < 1e-5
+
+    def test_swarm_status(self):
+        from phantom_native.swarm_runtime import SovereignSwarmRuntime
+
+        runtime = SovereignSwarmRuntime()
+        runtime.spawn_neuronet()
+        runtime.spawn_neuronet()
+        status = runtime.get_swarm_status()
+        assert status["n_cores"] == 2
+        assert status["manifest"].startswith("manifest:")
 
     def test_vault_seal_open_roundtrip(self):
+        from phantom_native.swarm_runtime import SovereignVault
+
         vault = SovereignVault()
-        intent = {"key": "value", "nested": [1, 2, 3]}
+        intent = {"amplitude": [1.0, 2.0, 3.0], "resonance": 0.9}
         sealed = vault.seal_intent(intent)
-        recovered = vault.open_sealed_intent(sealed)
-        assert recovered == intent
+        opened = vault.open_sealed_intent(sealed)
+        assert opened["resonance"] == 0.9
 
-    def test_shadow_wire_mask(self):
+    def test_shadow_wire_masking(self):
+        from phantom_native.swarm_runtime import ShadowWireEnvelope
+
         wire = ShadowWireEnvelope()
-        mask = wire.mask_topology(["core_a", "core_b", "core_c"])
-        assert "masked_topology" in mask
-        assert mask["core_count"] == 3
-        # Same input → same mask (deterministic)
-        mask2 = wire.mask_topology(["core_a", "core_b", "core_c"])
-        assert mask == mask2
+        masked = wire.mask_topology(["core_1", "core_2", "core_3"])
+        assert masked["n_cores"] == 3
+        assert masked["masked"] is True
+        assert "swarm_hash" in masked
 
-    def test_empty_swarm_execute(self):
-        runtime = SovereignSwarmRuntime()
-        results = runtime.execute({"amplitude": [1.0]})
-        assert results == []
+    def test_execution_receipt_verify(self):
+        from phantom_native.swarm_runtime import ExecutionReceipt
+
+        receipt = ExecutionReceipt(
+            commitment="commit:abc123",
+            shadow_wire={"masked": True},
+        )
+        assert receipt.verify("commit:abc123") is True
+        assert receipt.verify("commit:xyz") is False

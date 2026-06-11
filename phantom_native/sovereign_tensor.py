@@ -1,21 +1,27 @@
-# phantom_native/sovereign_tensor.py
-"""SovereignTensor — Pure native tensor engine integrated with MESIE spectral primitives.
+"""SovereignTensor — Pure native tensor engine with MESIE spectral integration.
 
-Zero external dependencies beyond the Python standard library.
-Supports deterministic binary serialization for QSHA + Vault workflows,
-direct ingestion from MESIE SpectralComponent objects, and resonance-weighted
-linear algebra.
+SIMD-style vectorized operations using stdlib array module for cache-friendly
+float32 buffers. No NumPy dependency in the core path. Integrates directly
+with MESIE SpectralComponent records, helix encoding, and resonance weighting.
 """
 
 from __future__ import annotations
 
+import array
 import math
 import struct
 from typing import Any, Dict, List, Optional, Tuple
 
 
 class SovereignTensor:
-    """Pure native tensor engine integrated with MESIE spectral primitives."""
+    """SIMD-ready tensor with MESIE spectral integration.
+
+    Attributes:
+        shape: Tuple of dimension sizes.
+        data: Cache-friendly float32 buffer (flattened).
+        spectral_meta: MESIE spectral metadata (resonance, helix params, lineage).
+        resonance: Resonance weighting score from spectral metadata.
+    """
 
     def __init__(
         self,
@@ -24,186 +30,223 @@ class SovereignTensor:
         spectral_meta: Optional[Dict[str, Any]] = None,
     ):
         self.shape = shape
-        self.data = data[:]  # flattened copy
+        self.data = array.array("f", data)  # float32 buffer
         self.spectral_meta = spectral_meta or {}
         expected = self._compute_size(shape)
-        if len(data) != expected:
+        if len(self.data) != expected:
             raise ValueError(
-                f"Shape / data mismatch: shape {shape} expects {expected} elements, "
-                f"got {len(data)}"
+                f"Shape {shape} expects {expected} elements, got {len(self.data)}"
             )
 
         # MESIE-native metadata
-        self.resonance_score: float = self.spectral_meta.get("resonance", 1.0)
-        self.helix_params: Dict[str, Any] = self.spectral_meta.get("helix", {})
-        self.lineage: Any = self.spectral_meta.get("lineage", [])
-
-    # ------------------------------------------------------------------
-    # Size helpers
-    # ------------------------------------------------------------------
+        self.resonance = self.spectral_meta.get("resonance", 1.0)
+        self.helix_params = self.spectral_meta.get("helix", {})
+        self.lineage = self.spectral_meta.get("lineage", [])
 
     @staticmethod
     def _compute_size(shape: Tuple[int, ...]) -> int:
-        """Return the number of elements implied by *shape*."""
+        """Compute total element count from shape."""
         p = 1
         for d in shape:
             p *= d
         return p
 
-    @property
-    def size(self) -> int:
-        """Total number of elements."""
-        return self._compute_size(self.shape)
-
-    # ------------------------------------------------------------------
-    # Serialization
-    # ------------------------------------------------------------------
-
     def to_bytes(self) -> bytes:
-        """Deterministic binary representation for QSHA + Vault."""
-        return struct.pack(f"{len(self.data)}f", *self.data)
+        """Deterministic binary serialization for QSHA + Vault."""
+        return self.data.tobytes()
 
     @classmethod
     def from_bytes(cls, raw: bytes, shape: Tuple[int, ...]) -> "SovereignTensor":
-        """Reconstruct a tensor from its deterministic binary form."""
+        """Reconstruct tensor from deterministic binary."""
         n = cls._compute_size(shape)
         data = list(struct.unpack(f"{n}f", raw))
         return cls(data, shape)
 
-    # ------------------------------------------------------------------
-    # MESIE integration
-    # ------------------------------------------------------------------
-
     @classmethod
-    def from_mesie_component(cls, component: Dict[str, Any]) -> "SovereignTensor":
-        """Direct ingestion from a MESIE SpectralComponent dict.
+    def from_mesie_component(cls, component: Dict) -> "SovereignTensor":
+        """Direct ingestion from MESIE SpectralComponent (frequency + amplitude).
 
-        Expects keys like ``frequency``, ``amplitude``, ``element_weight``,
-        and optionally ``node_id``.
+        Args:
+            component: Dictionary with 'amplitude', 'frequency', and optional
+                       'element_weight' and 'node_id' fields.
         """
-        freq = component.get("frequency", [])
-        amp = component.get("amplitude", [])
-        data = list(amp) if amp else list(freq)
-        if not data:
-            data = [0.0]
+        amp = component.get("amplitude", [0.0])
+        data = list(amp)
         shape = (len(data),)
-        meta: Dict[str, Any] = {
+        meta = {
             "resonance": component.get("element_weight", 1.0),
             "helix": {"turns": 8, "dimensions": len(data)},
-            "lineage": component.get("node_id"),
+            "lineage": component.get("node_id", []),
         }
         return cls(data, shape, meta)
 
     @classmethod
     def zeros(cls, shape: Tuple[int, ...]) -> "SovereignTensor":
-        """Create a zero-filled tensor of given shape."""
+        """Create a zero-filled tensor."""
         n = cls._compute_size(shape)
         return cls([0.0] * n, shape)
 
     @classmethod
     def ones(cls, shape: Tuple[int, ...]) -> "SovereignTensor":
-        """Create a one-filled tensor of given shape."""
+        """Create a tensor filled with ones."""
         n = cls._compute_size(shape)
         return cls([1.0] * n, shape)
 
     # ------------------------------------------------------------------
-    # Core operations — fully unrolled for fixed shapes
+    # SIMD-style vectorized operations (manual unrolling for hot paths)
     # ------------------------------------------------------------------
 
-    def add(self, other: "SovereignTensor") -> "SovereignTensor":
-        """Element-wise addition."""
+    def vector_add(self, other: "SovereignTensor") -> "SovereignTensor":
+        """SIMD-friendly 8-wide unrolled element-wise addition."""
         if self.shape != other.shape:
             raise ValueError(f"Shape mismatch: {self.shape} vs {other.shape}")
-        result = [a + b for a, b in zip(self.data, other.data)]
-        return SovereignTensor(result, self.shape, self.spectral_meta)
+        n = len(self.data)
+        result = array.array("f", [0.0] * n)
 
-    def sub(self, other: "SovereignTensor") -> "SovereignTensor":
-        """Element-wise subtraction."""
+        # 8-wide unroll (SIMD-friendly)
+        i = 0
+        while i + 8 <= n:
+            result[i] = self.data[i] + other.data[i]
+            result[i + 1] = self.data[i + 1] + other.data[i + 1]
+            result[i + 2] = self.data[i + 2] + other.data[i + 2]
+            result[i + 3] = self.data[i + 3] + other.data[i + 3]
+            result[i + 4] = self.data[i + 4] + other.data[i + 4]
+            result[i + 5] = self.data[i + 5] + other.data[i + 5]
+            result[i + 6] = self.data[i + 6] + other.data[i + 6]
+            result[i + 7] = self.data[i + 7] + other.data[i + 7]
+            i += 8
+        # Scalar tail
+        while i < n:
+            result[i] = self.data[i] + other.data[i]
+            i += 1
+
+        return SovereignTensor(list(result), self.shape, self.spectral_meta)
+
+    def vector_mul(self, other: "SovereignTensor") -> "SovereignTensor":
+        """SIMD-friendly element-wise multiplication."""
         if self.shape != other.shape:
             raise ValueError(f"Shape mismatch: {self.shape} vs {other.shape}")
-        result = [a - b for a, b in zip(self.data, other.data)]
-        return SovereignTensor(result, self.shape, self.spectral_meta)
+        n = len(self.data)
+        result = array.array("f", [0.0] * n)
 
-    def scale(self, scalar: float) -> "SovereignTensor":
+        i = 0
+        while i + 4 <= n:
+            result[i] = self.data[i] * other.data[i]
+            result[i + 1] = self.data[i + 1] * other.data[i + 1]
+            result[i + 2] = self.data[i + 2] * other.data[i + 2]
+            result[i + 3] = self.data[i + 3] * other.data[i + 3]
+            i += 4
+        while i < n:
+            result[i] = self.data[i] * other.data[i]
+            i += 1
+
+        return SovereignTensor(list(result), self.shape, self.spectral_meta)
+
+    def scale(self, factor: float) -> "SovereignTensor":
         """Scalar multiplication."""
-        result = [x * scalar for x in self.data]
+        result = [x * factor for x in self.data]
         return SovereignTensor(result, self.shape, self.spectral_meta)
 
-    def dot(self, other: "SovereignTensor") -> float:
-        """Dot product for 1-D tensors."""
-        if len(self.shape) != 1 or len(other.shape) != 1:
-            raise ValueError("dot requires 1-D tensors")
-        if self.shape[0] != other.shape[0]:
-            raise ValueError(f"Length mismatch: {self.shape[0]} vs {other.shape[0]}")
-        return sum(a * b for a, b in zip(self.data, other.data))
+    def resonance_matmul(self, other: "SovereignTensor") -> "SovereignTensor":
+        """Resonance-weighted matrix multiplication.
 
-    def matmul(self, other: "SovereignTensor") -> "SovereignTensor":
-        """Resonance-weighted matrix multiplication for 2-D tensors."""
+        Applies resonance product weighting to the output, optimized
+        for fixed small spectral shapes with 4-wide inner unrolling.
+        """
         if len(self.shape) != 2 or len(other.shape) != 2:
-            raise ValueError("matmul requires 2-D tensors")
+            raise ValueError("matmul requires 2D tensors")
         if self.shape[1] != other.shape[0]:
             raise ValueError(
-                f"Inner dimension mismatch: {self.shape[1]} vs {other.shape[0]}"
+                f"Inner dimensions mismatch: {self.shape[1]} vs {other.shape[0]}"
             )
+
         m, k = self.shape
         _, n = other.shape
-        result = [0.0] * (m * n)
-
-        resonance = self.resonance_score * other.resonance_score
+        result = array.array("f", [0.0] * (m * n))
+        resonance = self.resonance * other.resonance
 
         for i in range(m):
             for j in range(n):
                 acc = 0.0
-                for p in range(k):
+                p = 0
+                # 4-wide inner unroll
+                while p + 4 <= k:
+                    acc += (
+                        self.data[i * k + p] * other.data[p * n + j]
+                        + self.data[i * k + p + 1] * other.data[(p + 1) * n + j]
+                        + self.data[i * k + p + 2] * other.data[(p + 2) * n + j]
+                        + self.data[i * k + p + 3] * other.data[(p + 3) * n + j]
+                    )
+                    p += 4
+                # Scalar tail
+                while p < k:
                     acc += self.data[i * k + p] * other.data[p * n + j]
-                result[i * n + j] = acc * resonance  # resonance weighting
-        return SovereignTensor(result, (m, n), self.spectral_meta)
+                    p += 1
+                result[i * n + j] = acc * resonance
+        return SovereignTensor(list(result), (m, n), self.spectral_meta)
 
-    def norm(self) -> float:
-        """L2 norm."""
-        return math.sqrt(sum(x * x for x in self.data))
+    def dot(self, other: "SovereignTensor") -> float:
+        """Dot product of two 1D tensors."""
+        if self.shape != other.shape or len(self.shape) != 1:
+            raise ValueError("dot requires matching 1D tensors")
+        acc = 0.0
+        for i in range(len(self.data)):
+            acc += self.data[i] * other.data[i]
+        return acc
 
     # ------------------------------------------------------------------
     # Quantization for edge deployment
     # ------------------------------------------------------------------
 
     def quantize_int8(self) -> "SovereignTensor":
-        """Native int8 quantization for edge deployment.
+        """Native INT8 quantization for edge deployment.
 
-        Stores quantized values as floats for interoperability.
-        The quantization scale is recorded in ``spectral_meta["quant_scale"]``.
+        Stores quantized values as floats with quant_scale in metadata.
         """
-        scale = max(abs(x) for x in self.data) if self.data else 1.0
-        if scale == 0.0:
-            scale = 1.0
+        max_val = max(abs(x) for x in self.data) if self.data else 1.0
+        scale = max_val if max_val > 0 else 1.0
         qdata = [float(int((x / scale) * 127)) for x in self.data]
         meta = dict(self.spectral_meta)
         meta["quant_scale"] = scale
+        meta["quantized"] = True
         return SovereignTensor(qdata, self.shape, meta)
 
     def dequantize(self) -> "SovereignTensor":
-        """Reverse int8 quantization using stored scale."""
-        scale = self.spectral_meta.get("quant_scale")
-        if scale is None:
-            raise ValueError("No quant_scale in spectral_meta; not a quantized tensor")
-        data = [(x / 127.0) * scale for x in self.data]
+        """Reverse INT8 quantization."""
+        scale = self.spectral_meta.get("quant_scale", 1.0)
+        data = [x * scale / 127.0 for x in self.data]
         meta = dict(self.spectral_meta)
         meta.pop("quant_scale", None)
+        meta.pop("quantized", None)
         return SovereignTensor(data, self.shape, meta)
 
     # ------------------------------------------------------------------
-    # Representations
+    # Helix encoding utilities
     # ------------------------------------------------------------------
 
-    def __repr__(self) -> str:
-        preview = self.data[:6]
-        suffix = ", ..." if len(self.data) > 6 else ""
-        return (
-            f"SovereignTensor(shape={self.shape}, "
-            f"data=[{', '.join(f'{x:.4f}' for x in preview)}{suffix}])"
-        )
+    def helix_encode(self, turns: int = 8) -> "SovereignTensor":
+        """Apply helix rotation encoding to the tensor data.
 
-    def __eq__(self, other: object) -> bool:
-        if not isinstance(other, SovereignTensor):
-            return NotImplemented
-        return self.shape == other.shape and self.data == other.data
+        Maps data onto a helical manifold for efficient spectral retrieval.
+        """
+        n = len(self.data)
+        encoded = array.array("f", [0.0] * n)
+        for i in range(n):
+            phase = 2.0 * math.pi * turns * (i / max(n - 1, 1))
+            encoded[i] = self.data[i] * math.cos(phase) + math.sin(phase) * 0.1
+        meta = dict(self.spectral_meta)
+        meta["helix"] = {"turns": turns, "dimensions": n, "encoded": True}
+        return SovereignTensor(list(encoded), self.shape, meta)
+
+    def norm(self) -> float:
+        """L2 norm of the tensor."""
+        return math.sqrt(sum(x * x for x in self.data))
+
+    def __len__(self) -> int:
+        return len(self.data)
+
+    def __repr__(self) -> str:
+        return (
+            f"SovereignTensor(shape={self.shape}, resonance={self.resonance:.3f}, "
+            f"size={len(self.data)})"
+        )

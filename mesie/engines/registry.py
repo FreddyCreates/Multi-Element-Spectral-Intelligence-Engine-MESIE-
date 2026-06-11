@@ -24,6 +24,7 @@ from mesie.engines.multimodel_julia_engine import (
     MultiModelValidationEngine,
 )
 from mesie.engines.polyglot_engine import PolyglotEngine
+from mesie.engines.research_engine import ResearchEngine
 from mesie.engines.workflow_engine import WorkflowEngine
 from mesie.internal_api.bus import InternalBus
 
@@ -58,6 +59,8 @@ def build_default_registry(
         AttestationEngine(),
         ReproducibilityEngine(),
         AutoValidationEngine(),
+        # Research Agent engine
+        ResearchEngine(),
         # Multi-model Python↔Julia engines
         MultiModelValidationEngine(),
         MultiModelMatchingEngine(),

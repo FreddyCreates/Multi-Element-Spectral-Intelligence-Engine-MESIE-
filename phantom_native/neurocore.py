@@ -1,158 +1,215 @@
-# phantom_native/neurocore.py
 """SovereignNeuroCore — Native MESIE NeuroCore with resonance attention.
 
-Provides a self-contained neural processing core that combines:
-- Resonance-weighted attention (no external ML libraries)
-- Helix-encoded weight initialization from MESIE primitives
-- TAURUS working memory integration for temporal context
+A self-contained neural processing unit combining:
+- Helix-encoded weight initialization
+- Resonance-weighted attention kernels
+- TAURUS memory integration (working + long-term)
+- SIMD-style vectorized forward pass
 
-Zero heavy dependencies — built entirely on Python standard library + MESIE
-framework primitives.
+Zero heavy dependencies — uses only stdlib + SovereignTensor + TaurusMemory.
 """
 
 from __future__ import annotations
 
 import math
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from phantom_native.sovereign_tensor import SovereignTensor
+from phantom_native.taurus import TaurusMemory
 
 
 class SovereignNeuroCore:
     """Native MESIE NeuroCore — resonance + helix + TAURUS aware.
 
-    Args:
-        config: Configuration dictionary with keys:
-            - ``d_model`` (int): Internal dimension (default 128).
-            - ``n_heads`` (int): Number of attention heads (default 8).
-            - ``memory_cap`` (int): TAURUS working memory capacity (default 32).
+    Attributes:
+        d_model: Internal representation dimension.
+        n_heads: Number of attention heads.
+        taurus: Native TAURUS memory instance.
+        weights: Helix-encoded weight matrices (Q, K, V).
     """
 
-    def __init__(self, config: Dict[str, Any] | None = None):
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
         config = config or {}
-        self.d_model: int = config.get("d_model", 128)
-        self.n_heads: int = config.get("n_heads", 8)
-        self.memory_cap: int = config.get("memory_cap", 32)
-        self.weights: Dict[str, List[float]] = self._init_helix_weights()
-        self.taurus_memory: List[SovereignTensor] = []  # working memory
-
-    # ------------------------------------------------------------------
-    # Weight initialization
-    # ------------------------------------------------------------------
+        self.d_model = config.get("d_model", 128)
+        self.n_heads = config.get("n_heads", 8)
+        self.head_dim = self.d_model // self.n_heads
+        self.taurus = TaurusMemory(
+            capacity=config.get("memory_capacity", 32),
+            decay_rate=config.get("decay_rate", 0.95),
+        )
+        self.weights = self._init_helix_weights()
+        self._attention_maps: List[List[float]] = []
 
     def _init_helix_weights(self) -> Dict[str, List[float]]:
-        """Helix-encoded initial weights from MESIE primitives.
+        """Initialize weights using helix encoding from MESIE primitives.
 
-        Uses sinusoidal patterns inspired by helix encoding to generate
-        deterministic initial projections for Q, K, V.
+        Helix initialization provides structured frequency-aware starting
+        points that align with spectral data characteristics.
         """
+        d = self.d_model
         return {
-            "query": [math.sin(i * 0.1) for i in range(self.d_model)],
-            "key": [math.cos(i * 0.1) for i in range(self.d_model)],
-            "value": [1.0 / math.sqrt(self.d_model) for _ in range(self.d_model)],
+            "query": [math.sin(i * 0.1) * 0.5 for i in range(d)],
+            "key": [math.cos(i * 0.1) * 0.5 for i in range(d)],
+            "value": [1.0 / math.sqrt(d) for _ in range(d)],
+            "output": [math.sin(i * 0.05 + 0.3) * 0.3 for i in range(d)],
         }
 
-    # ------------------------------------------------------------------
-    # Resonance attention kernel
-    # ------------------------------------------------------------------
-
     def _resonance_attention(
-        self, q: List[float], k: List[float]
+        self, q: List[float], k: List[float], v: List[float]
     ) -> List[float]:
-        """Custom resonance-weighted attention kernel.
+        """Resonance-weighted attention kernel.
 
-        Computes attention scores by combining dot-product similarity
-        with an exponential resonance decay factor, then applies a
-        native softmax approximation.
+        Computes attention scores with exponential resonance decay,
+        then applies softmax and weighted sum over values.
 
         Args:
-            q: Query vector (length d_model).
-            k: Key vector (length d_model).
+            q: Query vector.
+            k: Key vector.
+            v: Value vector.
 
         Returns:
-            Attention weights after resonance-weighted softmax.
+            Attention-weighted output vector.
         """
         n = len(q)
         scores: List[float] = []
+
+        # Compute resonance-weighted attention scores
+        scale = 1.0 / math.sqrt(n) if n > 0 else 1.0
         for i in range(n):
-            dot = q[i] * k[i]  # element-wise attention score
+            dot = q[i] * k[i] * scale
             resonance = math.exp(-abs(dot) * 0.5)  # resonance decay
             scores.append(dot * resonance)
 
-        # Native softmax
-        if not scores:
-            return []
-        max_s = max(scores)
+        # Softmax (numerically stable)
+        max_s = max(scores) if scores else 0.0
         exp_s = [math.exp(s - max_s) for s in scores]
-        total = sum(exp_s)
-        if total == 0.0:
-            return [1.0 / n for _ in range(n)]
-        return [e / total for e in exp_s]
+        total = sum(exp_s) or 1.0
+        attn_weights = [e / total for e in exp_s]
 
-    # ------------------------------------------------------------------
-    # Forward pass
-    # ------------------------------------------------------------------
+        # Store attention map for interpretability
+        self._attention_maps.append(attn_weights[:])
+
+        # Weighted sum over values
+        output = [0.0] * n
+        for i in range(n):
+            output[i] = attn_weights[i] * v[i]
+
+        return output
 
     def forward(self, tensor: SovereignTensor) -> SovereignTensor:
-        """Full forward pass with resonance, helix, and TAURUS.
+        """Full forward pass with resonance attention, helix projection, and TAURUS.
+
+        Pipeline:
+        1. Project input to Q, K, V via helix weights
+        2. Apply resonance attention kernel
+        3. Output projection
+        4. Store result in TAURUS working memory
+        5. Fuse with top-k context from memory
 
         Args:
-            tensor: Input SovereignTensor.
+            tensor: Input SovereignTensor (any 1D shape).
 
         Returns:
-            Processed SovereignTensor after resonance attention + TAURUS update.
+            Processed SovereignTensor with attention-weighted embedding.
         """
+        self._attention_maps.clear()
         d = self.d_model
-        data = tensor.data
+        n = len(tensor.data)
 
-        # Project to Q, K, V (native)
+        # Project to QKV (cyclic indexing for arbitrary input sizes)
         q = [
-            data[i % len(data)] * self.weights["query"][i % d]
-            for i in range(d)
+            tensor.data[i % n] * self.weights["query"][i % d] for i in range(d)
         ]
         k = [
-            data[i % len(data)] * self.weights["key"][i % d]
-            for i in range(d)
+            tensor.data[i % n] * self.weights["key"][i % d] for i in range(d)
         ]
         v = [
-            data[i % len(data)] * self.weights["value"][i % d]
-            for i in range(d)
+            tensor.data[i % n] * self.weights["value"][i % d] for i in range(d)
         ]
 
-        # Compute attention weights
-        attn = self._resonance_attention(q, k)
+        # Multi-head resonance attention
+        head_outputs: List[List[float]] = []
+        for h in range(self.n_heads):
+            start = h * self.head_dim
+            end = start + self.head_dim
+            head_q = q[start:end]
+            head_k = k[start:end]
+            head_v = v[start:end]
+            head_out = self._resonance_attention(head_q, head_k, head_v)
+            head_outputs.append(head_out)
 
-        # Weighted sum of values → broadcast to output shape
-        weighted_sum = sum(attn[j] * v[j] for j in range(len(v)))
-        output_data = [weighted_sum for _ in range(len(data))]
+        # Concatenate heads
+        concat = []
+        for head_out in head_outputs:
+            concat.extend(head_out)
+
+        # Output projection
+        output_data = [
+            concat[i] * self.weights["output"][i % d] for i in range(len(concat))
+        ]
+
+        # Pad or truncate to match original input shape
+        if len(output_data) < n:
+            output_data.extend([0.0] * (n - len(output_data)))
+        elif len(output_data) > n:
+            output_data = output_data[:n]
 
         out_tensor = SovereignTensor(output_data, tensor.shape, tensor.spectral_meta)
 
-        # TAURUS working memory update
-        self.taurus_memory.append(out_tensor)
-        if len(self.taurus_memory) > self.memory_cap:
-            self.taurus_memory.pop(0)
+        # TAURUS memory update
+        self.taurus.store(out_tensor, importance=tensor.resonance)
+
+        # Fuse with top-k memory context (residual connection)
+        context = self.taurus.recall_top_k(4)
+        if context:
+            # Average context and add as residual
+            ctx_sum = [0.0] * n
+            for ctx_tensor in context:
+                for i in range(min(len(ctx_tensor.data), n)):
+                    ctx_sum[i] += ctx_tensor.data[i]
+            ctx_weight = 0.1 / len(context)
+            fused = [
+                output_data[i] + ctx_sum[i] * ctx_weight for i in range(n)
+            ]
+            out_tensor = SovereignTensor(fused, tensor.shape, tensor.spectral_meta)
 
         return out_tensor
 
-    # ------------------------------------------------------------------
-    # Memory utilities
-    # ------------------------------------------------------------------
+    def get_attention_analysis(self) -> Dict[str, Any]:
+        """Return interpretability metrics from last forward pass.
 
-    def memory_size(self) -> int:
-        """Current number of entries in working memory."""
-        return len(self.taurus_memory)
+        Returns:
+            Dictionary with attention entropy, max attention, and sparsity
+            metrics per head.
+        """
+        if not self._attention_maps:
+            return {"n_heads": 0, "head_analyses": []}
 
-    def clear_memory(self) -> None:
-        """Reset TAURUS working memory."""
-        self.taurus_memory.clear()
+        analyses = []
+        for i, attn in enumerate(self._attention_maps):
+            # Entropy
+            entropy = -sum(
+                w * math.log(w + 1e-10) for w in attn if w > 0
+            )
+            max_attn = max(attn) if attn else 0.0
+            sparsity = sum(1 for w in attn if w < 0.01) / max(len(attn), 1)
+            analyses.append(
+                {
+                    "head": i,
+                    "attention_entropy": entropy,
+                    "max_attention": max_attn,
+                    "attention_sparsity": sparsity,
+                }
+            )
 
-    def recall_recent(self, n: int = 5) -> List[SovereignTensor]:
-        """Retrieve the *n* most recent working memory entries."""
-        return self.taurus_memory[-n:]
+        return {"n_heads": len(self._attention_maps), "head_analyses": analyses}
+
+    def reset_memory(self) -> None:
+        """Clear TAURUS working memory."""
+        self.taurus.working_memory.clear()
 
     def __repr__(self) -> str:
         return (
             f"SovereignNeuroCore(d_model={self.d_model}, n_heads={self.n_heads}, "
-            f"memory={self.memory_size()}/{self.memory_cap})"
+            f"memory={self.taurus.size()})"
         )
