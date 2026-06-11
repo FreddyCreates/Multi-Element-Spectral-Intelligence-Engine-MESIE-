@@ -2,6 +2,8 @@
 # AISVectorPolyglot Julia CLI — reads JSON stdin, writes JSON stdout
 
 using JSON
+using LinearAlgebra: dot, norm
+using Statistics: mean
 
 function primary_arrays(record)
     comps = get(record, "components", nothing)
