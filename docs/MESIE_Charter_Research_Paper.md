@@ -529,7 +529,186 @@ This charter paper establishes the foundation for ongoing research into spectral
 
 ---
 
-## 16. Acknowledgments
+## 16. Governance Protocols
+
+### 16.1 Overview
+
+MESIE implements a comprehensive governance framework that defines how the system operates across time, users, policies, ethics, and service boundaries. The governance layer is not an afterthought—it is a first-class architectural component (`mesie.governance`) that enforces invariants across all surfaces.
+
+### 16.2 Temporal Governance
+
+The system defines temporal policies that control:
+
+- **Version Lifecycle:** Versions move through `supported → deprecated → sunset` stages with mandatory minimum support windows (default: 180 days).
+- **Deprecation Schedules:** Every deprecated component has a documented sunset date, replacement path, and migration guide.
+- **Policy Expiry:** Time-bounded policies auto-expire unless explicitly renewed. Review intervals enforce periodic human oversight (default: 90-day cycles).
+- **Immutable Timelines:** All governance decisions are timestamped in UTC and cannot be retroactively modified.
+
+### 16.3 User Governance
+
+Multi-user and multi-tenant operation is governed by:
+
+- **Role Hierarchy:** Seven governance roles—Viewer, Contributor, Analyst, Administrator, Auditor, Ethics Officer, System Owner—with well-defined permission boundaries.
+- **Access Policies:** Resource-level access control with support for MFA requirements, session limits, IP allowlists, and geographic restrictions.
+- **Multi-Tenant Isolation:** Logical, physical, or hybrid isolation with per-tenant resource quotas, namespace separation, and optional cross-tenant access.
+- **User Audit Trails:** Every user action is logged with timestamp, actor, resource, and action metadata.
+
+### 16.4 Ethics Framework
+
+The MESIE Ethics Framework enforces seven core principles:
+
+1. **Fairness** — Disparate impact testing (80% rule) across protected attributes
+2. **Transparency** — Structured transparency reports with periods, sections, and data
+3. **Accountability** — Immutable ledger of decisions with rationale and affected parties
+4. **Harm Prevention** — Risk-scoring gate that blocks operations exceeding harm thresholds
+5. **Privacy** — Data minimization and purpose limitation
+6. **Consent** — Registry-based consent tracking with revocation support
+7. **Human Oversight** — Ethics officer role with audit capabilities across all operations
+
+Operations that score above 0.7 on any harm category are automatically blocked. Override requires ethics officer authorization with logged rationale.
+
+### 16.5 Data and Usage Policies
+
+- **Data Classification:** Four levels—public, internal, confidential, restricted—with escalating protection requirements.
+- **Purpose Limitation:** Data policies explicitly enumerate allowed and prohibited uses.
+- **Usage Quotas:** Rate limits, volume limits, and operation whitelists per policy.
+- **Retention Schedules:** Configurable retention, archival, and deletion timelines with legal hold support.
+- **Compliance Checking:** Automated compliance scoring against GDPR, CCPA, SOC2 frameworks.
+- **Consent Management:** Per-user, per-purpose consent with expiration and revocation.
+
+### 16.6 Audit and Provenance
+
+All system operations produce an immutable audit trail:
+
+- **Hash-Chain Integrity:** Each audit record includes a SHA-256 hash of its content plus the previous record's hash, forming a tamper-evident chain.
+- **Provenance Tracking:** Every data artifact has a full lineage chain from origin through all transformations.
+- **Query Interface:** Audit logs are queryable by actor, resource, event type, action, and time range.
+- **Non-Repudiation:** Sealed records cannot be modified after creation without breaking chain integrity.
+
+### 16.7 HTTP Service Governance
+
+HTTP services in the MESIE ecosystem operate under governance contracts:
+
+- **Service Contracts:** Define base URLs, endpoint catalogs, authentication requirements, payload limits, content types, and CORS policies.
+- **Rate Limiting:** Per-user and per-IP limits at second/minute/hour granularity with burst protection.
+- **SLA Definitions:** Quantified targets for availability (99.9%), response time (≤500ms), error rate (≤1%), with automated compliance checking.
+- **Endpoint Governance:** Per-endpoint rules for required headers, body size limits, caching, deprecation, and sunset dates.
+- **API Versioning:** URL-prefix versioning strategy with supported/deprecated/sunset lifecycle management.
+
+---
+
+## 17. Working HTTP Services
+
+### 17.1 mesie-api (Cloudflare Workers)
+
+The primary MESIE HTTP service runs as a Cloudflare Worker providing:
+
+| Endpoint | Method | Auth | Description |
+|----------|--------|------|-------------|
+| `/health` | GET | No | Service health and version |
+| `/v1` | GET | No | Endpoint catalog |
+| `/v1/datasets` | GET | No | Available reference datasets |
+| `/v1/validate` | POST | Yes | Validate a spectral record |
+| `/v1/match` | POST | Yes | Match candidate against reference |
+
+**Governance applied:**
+- ****** or `X-MESIE-Key` authentication
+- CORS: open (`*`) for public access, key-gated for write operations
+- Payload validation with structured error responses
+- Version prefix strategy (`/v1/`)
+
+### 17.2 Service Contract Specification
+
+```json
+{
+  "service_name": "mesie-api",
+  "version": "0.2.0",
+  "base_url": "https://mesie-api.<worker>.workers.dev",
+  "authentication": "****** or X-MESIE-Key header",
+  "content_types": ["application/json"],
+  "max_payload_bytes": 10485760,
+  "sla": {
+    "availability_target": 99.9,
+    "max_response_time_ms": 500,
+    "max_error_rate": 0.01
+  }
+}
+```
+
+### 17.3 Future HTTP Services Roadmap
+
+| Service | Purpose | Status |
+|---------|---------|--------|
+| `mesie-api` | Spectral validation and matching | **Live** |
+| `mesie-embeddings` | Embedding generation service | Planned |
+| `mesie-governance` | Governance policy enforcement API | Planned |
+| `mesie-registry` | Deliverable registry and discovery | Planned |
+| `mesie-audit` | Audit log query service | Planned |
+
+---
+
+## 18. Research Papers
+
+The MESIE research program produces a structured series of papers:
+
+### 18.1 Published Papers
+
+1. **Paper I: De Spectris Mundi** — Foundational spectral theory, multi-element representation, and the MESIE data model. (`docs/papers/paper_I_de_spectris_mundi.md`)
+
+2. **Paper II: Machina Cogitans** — Cognitive architecture integration, transformer-based spectral intelligence, and agent state adapters. (`docs/papers/paper_II_machina_cogitans.md`)
+
+3. **Paper III: Nexus Intelligentiae** — Network intelligence, connectome representations, and cross-domain spectral reasoning. (`docs/papers/paper_III_nexus_intelligentiae.md`)
+
+### 18.2 Planned Papers
+
+4. **Paper IV: Gubernatio Systematis** — Governance protocols, temporal policies, multi-user ethics, and accountability frameworks for spectral intelligence systems.
+
+5. **Paper V: Servitium Spectrale** — HTTP service architecture, API governance, SLA enforcement, and distributed spectral computation.
+
+6. **Paper VI: Veritas Machinae** — Verification engines, proof packs, immutable audit chains, and formal guarantees for spectral operations.
+
+---
+
+## 19. Protocols and Charters
+
+### 19.1 Core Protocols
+
+| Protocol | Domain | Module |
+|----------|--------|--------|
+| Spectral Data Exchange | I/O | `mesie.protocols` |
+| Intelligence Streaming | AI | `mesie.protocols` |
+| Cognitive Integration | Agent | `mesie.cognitive` |
+| Temporal Governance | Time | `mesie.governance.temporal` |
+| User Access Control | Users | `mesie.governance.users` |
+| Ethics Enforcement | Ethics | `mesie.governance.ethics` |
+| Data Policy Compliance | Policy | `mesie.governance.policies` |
+| Audit Chain Integrity | Audit | `mesie.governance.audit` |
+| HTTP Service Contracts | API | `mesie.governance.http_service` |
+
+### 19.2 Charter Documents
+
+- **MESIE Charter Research Paper** — This document; establishes the theoretical foundation and architectural vision.
+- **MESIE Protocols and Transformers Working Paper** — Technical details of protocol implementations (`docs/MESIE_v0.2.0_Protocols_and_Transformers_Working_Paper.md`).
+- **Production-Grade Packet Policy** — Quality standards for all deliverables (`production-grade-builder/PACKET_POLICY.md`).
+
+### 19.3 Governance Protocol Lifecycle
+
+```
+DRAFT → REVIEW → ACTIVE → DEPRECATED → SUNSET
+  ↑                          |
+  └── REVISION ←─────────────┘
+```
+
+Every protocol:
+- Starts as DRAFT with assigned author and review deadline
+- Enters REVIEW with minimum 2 signers required
+- Becomes ACTIVE with effective date and review interval
+- May be DEPRECATED with replacement and migration guide
+- Reaches SUNSET after minimum deprecation window
+
+---
+
+## 20. Acknowledgments
 
 MESIE is developed as independent research, combining insights from earthquake engineering, signal processing, artificial intelligence, and cognitive science. The project benefits from the open-source scientific Python ecosystem.
 
