@@ -2,6 +2,7 @@
 
 Provides comprehensive evaluation metrics, probing tasks,
 and downstream benchmarks for assessing pretrained models.
+Includes DRACO-equivalent diagnostic benchmark for architecture evaluation.
 """
 
 from mesie.foundation.evaluation.metrics import (
@@ -23,6 +24,13 @@ from mesie.foundation.evaluation.benchmarks import (
     FewShotClassificationBenchmark,
     AnomalyDetectionBenchmark,
 )
+from mesie.foundation.evaluation.draco_diagnostic import (
+    MESIESpectralDRACO,
+    DiagnosticResult,
+    DiagnosticReport,
+    SpectralDomain,
+    IntelligenceLevel,
+)
 
 __all__ = [
     "SpectralMetrics",
@@ -38,4 +46,9 @@ __all__ = [
     "CrossModalRetrievalBenchmark",
     "FewShotClassificationBenchmark",
     "AnomalyDetectionBenchmark",
+    "MESIESpectralDRACO",
+    "DiagnosticResult",
+    "DiagnosticReport",
+    "SpectralDomain",
+    "IntelligenceLevel",
 ]

@@ -1,0 +1,100 @@
+{
+  "architecture": "MESIE-v0.4.0",
+  "test_date": "2026-06-14T03:57:21",
+  "summary": {
+    "total_tests": 13,
+    "passed_tests": 9,
+    "pass_rate": 0.6923076923076923
+  },
+  "by_category": {
+    "frequency_resolution": {
+      "passed": 1,
+      "total": 1
+    },
+    "robustness": {
+      "passed": 1,
+      "total": 1
+    },
+    "anomaly_detection": {
+      "passed": 1,
+      "total": 1
+    },
+    "few_shot_learning": {
+      "passed": 0,
+      "total": 1
+    },
+    "cross_domain_transfer": {
+      "passed": 2,
+      "total": 4
+    },
+    "intelligence_level": {
+      "passed": 4,
+      "total": 5
+    }
+  },
+  "by_domain": {
+    "seismic\u2192eeg_neural": {
+      "passed": 0,
+      "total": 1
+    },
+    "seismic\u2192audio_acoustic": {
+      "passed": 0,
+      "total": 1
+    },
+    "structural_vibration\u2192eeg_neural": {
+      "passed": 1,
+      "total": 1
+    },
+    "structural_vibration\u2192audio_acoustic": {
+      "passed": 1,
+      "total": 1
+    }
+  },
+  "by_intelligence_level": {
+    "passive": {
+      "passed": 1,
+      "total": 1
+    },
+    "reactive": {
+      "passed": 1,
+      "total": 1
+    },
+    "adaptive": {
+      "passed": 1,
+      "total": 1
+    },
+    "predictive": {
+      "passed": 1,
+      "total": 1
+    },
+    "autonomous": {
+      "passed": 0,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "category": "frequency_resolution",
+      "metric": "rayleigh_criterion_pass",
+      "value": 1.0,
+      "target": 1.0,
+      "passed": true,
+      "confidence": {
+        "lower": 0.95,
+        "upper": 1.05
+      },
+      "error_analysis": {
+        "frequency_spacing_hz": 0.5,
+        "fft_resolution_hz": 0.1953125,
+        "resolvable": true
+      },
+      "metadata": {
+        "test_type": "spectral_resolution"
+      }
+    },
+    {
+      "category": "robustness",
+      "metric": "noise_robustness",
+      "value": 0.9930621981620789,
+      "target": 0.7,
+      "passed": 
