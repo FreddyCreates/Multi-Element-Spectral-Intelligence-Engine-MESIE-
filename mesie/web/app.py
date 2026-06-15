@@ -130,7 +130,8 @@ class MESIEWebApp:
         if method == "OPTIONS":
             return 204, CORS_HEADERS, b""
 
-        # Strip trailing slash
+        # Strip query string and trailing slash
+        path = path.split("?")[0]
         path = path.rstrip("/") or "/"
 
         # Authentication

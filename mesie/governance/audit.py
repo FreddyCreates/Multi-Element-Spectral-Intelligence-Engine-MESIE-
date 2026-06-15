@@ -21,7 +21,7 @@ class ImmutableRecord:
     record_hash: str = ""
 
     def compute_hash(self) -> str:
-        content = f"{self.sequence}|{self.event_type}|{self.actor}|{self.resource}|{self.action}|{self.timestamp}|{self.previous_hash}"
+        content = f"{self.sequence}|{self.event_type}|{self.actor}|{self.resource}|{self.action}|{self.timestamp}|{self.details}|{self.previous_hash}"
         return sha256(content.encode()).hexdigest()
 
     def seal(self) -> None:

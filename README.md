@@ -169,7 +169,7 @@ pip install mesie[intelligence]
 
 **For Development:**
 ```bash
-pip install -e ".[dev,full]""
+pip install -e ".[dev,full]"
 ```
 
 ---

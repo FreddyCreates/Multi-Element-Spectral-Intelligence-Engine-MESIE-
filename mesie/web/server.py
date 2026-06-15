@@ -44,7 +44,10 @@ class MESIERequestHandler(BaseHTTPRequestHandler):
     def _dispatch(self) -> None:
         """Read request and forward to the app."""
         # Read body
-        content_length = int(self.headers.get("Content-Length", 0))
+        try:
+            content_length = int(self.headers.get("Content-Length", 0))
+        except ValueError:
+            content_length = 0
         body = self.rfile.read(content_length) if content_length > 0 else b""
 
         # Collect headers as lowercase dict
