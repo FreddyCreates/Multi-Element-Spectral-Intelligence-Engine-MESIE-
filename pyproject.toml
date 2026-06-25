@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mesie"
-version = "0.3.6"
+version = "0.4.0"
 description = "Multi-Element Spectral Intelligence Engine — spectral matching, generation, embeddings, transformer-based intelligence protocols, and cognitive integration"
 readme = "README.md"
 license = "Apache-2.0"
@@ -60,6 +60,11 @@ dev = [
     "pytest-cov>=4.0",
     "build>=1.0",
     "twine>=4.0",
+]
+server = [
+    "fastapi>=0.100",
+    "uvicorn>=0.23",
+    "pydantic>=2.0",
 ]
 
 [project.scripts]

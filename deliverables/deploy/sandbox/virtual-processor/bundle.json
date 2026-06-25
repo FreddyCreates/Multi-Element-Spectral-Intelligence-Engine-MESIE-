@@ -1,0 +1,40 @@
+{
+  "service_id": "virtual-processor",
+  "ready": true,
+  "generated_at": "2026-06-25T17:35:54Z",
+  "definition": {
+    "id": "virtual-processor",
+    "name": "MESIE Virtual Processor",
+    "version": "1.0.0",
+    "port": 8750,
+    "host": "127.0.0.1",
+    "health_path": "/processor/status",
+    "health_url": "http://127.0.0.1:8750/processor/status",
+    "command": [
+      "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+      "-m",
+      "mesie.processor",
+      "--serve"
+    ],
+    "env": {
+      "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+    },
+    "dependencies": [],
+    "background": false,
+    "mcp_key": "mesie-processor",
+    "ready": true
+  },
+  "paths": {
+    "sandbox": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor",
+    "manifest": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor\\manifest.json",
+    "launcher_ps1": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor\\launcher.ps1",
+    "launcher_sh": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor\\launcher.sh",
+    "mcp_snippet": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor\\mcp-snippet.json"
+  },
+  "checksums": {
+    "manifest.json": "0bb6abf7929c6aaf",
+    "launcher.ps1": "764e59b517d1e382",
+    "launcher.sh": "ff3d84024392a1a0",
+    "mcp-snippet.json": "3f3c6c38b4797d4a"
+  }
+}

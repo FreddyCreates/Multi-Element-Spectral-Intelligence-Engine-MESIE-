@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "mesie-processor": {
+      "command": "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+      "args": [
+        "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\mesie\\processor\\mcp_server.py"
+      ],
+      "env": {
+        "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-",
+        "MESIE_PROCESSOR_URL": "http://127.0.0.1:8750"
+      }
+    }
+  },
+  "note": "Dry-run artifact only. Apply via: python scripts/package_services.py --deploy virtual-processor --target cursor-mcp --apply"
+}

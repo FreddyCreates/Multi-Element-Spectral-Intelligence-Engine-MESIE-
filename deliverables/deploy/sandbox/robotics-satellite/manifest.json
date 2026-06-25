@@ -1,0 +1,17 @@
+{
+  "product": "MESIE Robotics Satellite",
+  "version": "1.0.0",
+  "mesie_version": "0.4.0",
+  "generated_at": "2026-06-25T17:35:54Z",
+  "status": {
+    "background": true,
+    "log": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\robotics_satellite.jsonl",
+    "interval_s": 300
+  },
+  "sample": {
+    "note": "pairs with virtual-processor :8750"
+  },
+  "deploy_artifacts": {
+    "log_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\robotics_satellite.jsonl"
+  }
+}

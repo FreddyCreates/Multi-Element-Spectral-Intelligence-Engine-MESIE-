@@ -1,0 +1,64 @@
+{
+  "product": "MESIE Virtual Processor",
+  "version": "1.0.0",
+  "mesie_version": "0.4.0",
+  "generated_at": "2026-06-25T17:35:54Z",
+  "status": {
+    "product": "MESIE Virtual Processor",
+    "processor_version": "1.0.0",
+    "accounting": {
+      "mpc_test_pass": true,
+      "ui_local_assets": true,
+      "zip_integration_ok": true,
+      "packet_files": 73,
+      "packet_bytes": 889427,
+      "mint_ledger": "553A41683B48",
+      "measured_by_source": 9576,
+      "local_nova_cycles": 32,
+      "local_nova_lrcs_minted": 32,
+      "authority": "local_accounting_only",
+      "last_lrc": null
+    },
+    "vault": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.processor_vault",
+    "operations": [
+      "embed",
+      "match",
+      "benchmark",
+      "exec_tool",
+      "virtual_chip",
+      "robotics_pulse"
+    ],
+    "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell."
+  },
+  "sample": {
+    "product": "MESIE Virtual Processor",
+    "processor_version": "1.0.0",
+    "accounting": {
+      "mpc_test_pass": true,
+      "ui_local_assets": true,
+      "zip_integration_ok": true,
+      "packet_files": 73,
+      "packet_bytes": 889427,
+      "mint_ledger": "553A41683B48",
+      "measured_by_source": 9576,
+      "local_nova_cycles": 32,
+      "local_nova_lrcs_minted": 32,
+      "authority": "local_accounting_only",
+      "last_lrc": null
+    },
+    "vault": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.processor_vault",
+    "operations": [
+      "embed",
+      "match",
+      "benchmark",
+      "exec_tool",
+      "virtual_chip",
+      "robotics_pulse"
+    ],
+    "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell."
+  },
+  "deploy_artifacts": {
+    "port": 8750,
+    "health_path": "/processor/status"
+  }
+}

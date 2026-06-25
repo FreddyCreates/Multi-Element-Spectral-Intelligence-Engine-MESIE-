@@ -1,0 +1,109 @@
+{
+  "product": "MESIE Service Catalog",
+  "generated_at": "2026-06-25T17:35:54Z",
+  "services": [
+    {
+      "id": "virtual-processor",
+      "name": "MESIE Virtual Processor",
+      "version": "1.0.0",
+      "port": 8750,
+      "host": "127.0.0.1",
+      "health_path": "/processor/status",
+      "health_url": "http://127.0.0.1:8750/processor/status",
+      "command": [
+        "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+        "-m",
+        "mesie.processor",
+        "--serve"
+      ],
+      "env": {
+        "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+      },
+      "dependencies": [],
+      "background": false,
+      "mcp_key": "mesie-processor",
+      "ready": true
+    },
+    {
+      "id": "medina-surface",
+      "name": "Medina Surface",
+      "version": "1.0.0",
+      "port": 8760,
+      "host": "127.0.0.1",
+      "health_path": "/surface/status",
+      "health_url": "http://127.0.0.1:8760/surface/status",
+      "command": [
+        "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+        "scripts/medina_surface.py",
+        "--serve"
+      ],
+      "env": {
+        "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+      },
+      "dependencies": [],
+      "background": false,
+      "mcp_key": null,
+      "ready": true
+    },
+    {
+      "id": "novamini-http",
+      "name": "NOVAMINI HTTP Hub",
+      "version": "1.0.0",
+      "port": 6180,
+      "host": "127.0.0.1",
+      "health_path": "/status",
+      "health_url": "http://127.0.0.1:6180/status",
+      "command": [
+        "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+        "-m",
+        "mesie.novamini",
+        "--serve",
+        "6180"
+      ],
+      "env": {
+        "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+      },
+      "dependencies": [],
+      "background": false,
+      "mcp_key": null,
+      "ready": true
+    },
+    {
+      "id": "robotics-satellite",
+      "name": "MESIE Robotics Satellite",
+      "version": "1.0.0",
+      "port": null,
+      "host": "127.0.0.1",
+      "health_path": null,
+      "health_url": null,
+      "command": [
+        "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+        "-m",
+        "mesie.processor.satellite_robotics"
+      ],
+      "env": {
+        "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+      },
+      "dependencies": [
+        "virtual-processor"
+      ],
+      "background": true,
+      "mcp_key": null,
+      "ready": true
+    }
+  ],
+  "external": {
+    "id": "loom",
+    "name": "Loom MCP (GPTREPO)",
+    "source": "gptrepo",
+    "path": "C:\\Users\\Medin\\.medina",
+    "note": "Configured in ~/.cursor/mcp.json \u2014 do not modify from MESIE deploy"
+  },
+  "deploy_targets": [
+    "local-http",
+    "powershell",
+    "cursor-mcp",
+    "docker"
+  ],
+  "sandbox_root": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox"
+}

@@ -1,0 +1,40 @@
+{
+  "service_id": "novamini-http",
+  "ready": true,
+  "generated_at": "2026-06-25T17:35:54Z",
+  "definition": {
+    "id": "novamini-http",
+    "name": "NOVAMINI HTTP Hub",
+    "version": "1.0.0",
+    "port": 6180,
+    "host": "127.0.0.1",
+    "health_path": "/status",
+    "health_url": "http://127.0.0.1:6180/status",
+    "command": [
+      "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+      "-m",
+      "mesie.novamini",
+      "--serve",
+      "6180"
+    ],
+    "env": {
+      "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+    },
+    "dependencies": [],
+    "background": false,
+    "mcp_key": null,
+    "ready": true
+  },
+  "paths": {
+    "sandbox": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\novamini-http",
+    "manifest": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\novamini-http\\manifest.json",
+    "launcher_ps1": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\novamini-http\\launcher.ps1",
+    "launcher_sh": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\novamini-http\\launcher.sh",
+    "mcp_snippet": null
+  },
+  "checksums": {
+    "manifest.json": "a5fd2077da51bda9",
+    "launcher.ps1": "84e3ec9a20024dd6",
+    "launcher.sh": "5edc8e6a4aec4ae6"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "product": "Medina Surface",
+  "version": "1.0.0",
+  "mesie_version": "0.4.0",
+  "generated_at": "2026-06-25T17:35:54Z",
+  "status": {
+    "systems": 10,
+    "services": 3,
+    "deliverables": 76
+  },
+  "sample": {
+    "counts": {
+      "systems": 10,
+      "papers": 4,
+      "deliverables": 76,
+      "services": 3
+    }
+  },
+  "deploy_artifacts": {
+    "port": 8760,
+    "health_path": "/surface/status"
+  }
+}

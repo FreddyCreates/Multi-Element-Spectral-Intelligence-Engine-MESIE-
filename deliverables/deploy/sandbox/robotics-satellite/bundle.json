@@ -1,0 +1,40 @@
+{
+  "service_id": "robotics-satellite",
+  "ready": true,
+  "generated_at": "2026-06-25T17:35:54Z",
+  "definition": {
+    "id": "robotics-satellite",
+    "name": "MESIE Robotics Satellite",
+    "version": "1.0.0",
+    "port": null,
+    "host": "127.0.0.1",
+    "health_path": null,
+    "health_url": null,
+    "command": [
+      "C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\python.exe",
+      "-m",
+      "mesie.processor.satellite_robotics"
+    ],
+    "env": {
+      "MESIE_ROOT": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+    },
+    "dependencies": [
+      "virtual-processor"
+    ],
+    "background": true,
+    "mcp_key": null,
+    "ready": true
+  },
+  "paths": {
+    "sandbox": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\robotics-satellite",
+    "manifest": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\robotics-satellite\\manifest.json",
+    "launcher_ps1": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\robotics-satellite\\launcher.ps1",
+    "launcher_sh": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\robotics-satellite\\launcher.sh",
+    "mcp_snippet": null
+  },
+  "checksums": {
+    "manifest.json": "c2056ff6278fe9e8",
+    "launcher.ps1": "f8abbbd49259bb32",
+    "launcher.sh": "0c4b393d7463a7f3"
+  }
+}

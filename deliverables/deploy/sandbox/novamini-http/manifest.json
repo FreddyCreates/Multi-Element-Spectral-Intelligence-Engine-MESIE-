@@ -1,0 +1,87 @@
+{
+  "product": "NOVAMINI (MESIE-LM)",
+  "version": "1.0.0",
+  "generated_at": "",
+  "status": {
+    "product": "NOVAMINI (MESIE-LM)",
+    "version": "1.0.0",
+    "model_id": "NOVAMINI-MESIE-LM-v0.1",
+    "native_lm": "AuroNativeLM-v1",
+    "session_id": "novamini-1aaaedf90e",
+    "quad": "NMIN",
+    "flos_pathways": [
+      "THINK",
+      "BUILD",
+      "SPEAK",
+      "TRUTH",
+      "NOVMINI"
+    ],
+    "third_party_inference": false,
+    "turns": 0,
+    "vivi": {
+      "id": "VIVI-NMIN-ad0edec9",
+      "depth": 0,
+      "coherence": 0.618,
+      "alive": true
+    },
+    "lm": {
+      "model_id": "AuroNativeLM-v1",
+      "session_id": "novamini-1aaaedf90e",
+      "knowledge_entries": 32,
+      "reasoning_rules": 4,
+      "memory_turns": 0,
+      "trajectory_id": "traj_eb4bfb8e770e",
+      "trajectory_health": "stable",
+      "third_party_inference": false,
+      "paper_iv_absorbed": true
+    },
+    "memory": {
+      "turns": 0,
+      "vault": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.novamini_vault\\novamini-1aaaedf90e",
+      "ledger": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.novamini_vault\\novamini-1aaaedf90e\\memory_ledger.jsonl"
+    }
+  },
+  "sample": {
+    "product": "NOVAMINI (MESIE-LM)",
+    "version": "1.0.0",
+    "model_id": "NOVAMINI-MESIE-LM-v0.1",
+    "native_lm": "AuroNativeLM-v1",
+    "session_id": "novamini-1aaaedf90e",
+    "quad": "NMIN",
+    "flos_pathways": [
+      "THINK",
+      "BUILD",
+      "SPEAK",
+      "TRUTH",
+      "NOVMINI"
+    ],
+    "third_party_inference": false,
+    "turns": 0,
+    "vivi": {
+      "id": "VIVI-NMIN-ad0edec9",
+      "depth": 0,
+      "coherence": 0.618,
+      "alive": true
+    },
+    "lm": {
+      "model_id": "AuroNativeLM-v1",
+      "session_id": "novamini-1aaaedf90e",
+      "knowledge_entries": 32,
+      "reasoning_rules": 4,
+      "memory_turns": 0,
+      "trajectory_id": "traj_eb4bfb8e770e",
+      "trajectory_health": "stable",
+      "third_party_inference": false,
+      "paper_iv_absorbed": true
+    },
+    "memory": {
+      "turns": 0,
+      "vault": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.novamini_vault\\novamini-1aaaedf90e",
+      "ledger": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.novamini_vault\\novamini-1aaaedf90e\\memory_ledger.jsonl"
+    }
+  },
+  "deploy_artifacts": {
+    "port": 6180,
+    "health_path": "/status"
+  }
+}
