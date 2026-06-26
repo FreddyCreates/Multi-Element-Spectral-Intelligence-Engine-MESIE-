@@ -46,6 +46,10 @@ class BenchmarkRequest(BaseModel):
     trials: int = Field(default=200, ge=10, le=5000)
 
 
+class VirtualChipRequest(BaseModel):
+    chip_id: str = Field(default="MESIE-VS1")
+
+
 @app.get("/processor/status")
 def status() -> Dict[str, Any]:
     return _proc().status()
@@ -63,7 +67,7 @@ def embed(body: EmbedRequest) -> Dict[str, Any]:
 
 @app.post("/processor/match")
 def match(body: MatchRequest) -> Dict[str, Any]:
-    return _proc().match_pair(body.path_a, body.path_b).to_dict()
+    return _proc().match_pair(body.path_a, path_b=body.path_b).to_dict()
 
 
 @app.post("/processor/benchmark")
@@ -76,9 +80,14 @@ def exec_tool(body: ExecRequest) -> Dict[str, Any]:
     return _proc().exec_tool(body.tool_id, timeout_s=body.timeout_s).to_dict()
 
 
+@app.get("/processor/chips")
+def list_chips() -> Dict[str, Any]:
+    return _proc().list_chips().to_dict()
+
+
 @app.post("/processor/virtual-chip")
-def virtual_chip() -> Dict[str, Any]:
-    return _proc().virtual_chip_certify().to_dict()
+def virtual_chip(body: VirtualChipRequest = VirtualChipRequest()) -> Dict[str, Any]:
+    return _proc().virtual_chip_certify(chip_id=body.chip_id).to_dict()
 
 
 @app.post("/processor/robotics-pulse")

@@ -211,6 +211,11 @@ TOOLS: List[NativeTool] = [
                ["virtual silicon", "virtual chip", "rf hil", "ota mesh"],
                "python scripts/run_virtual_silicon_suite.py",
                "deliverables/virtual_silicon/MESIE_Virtual_Silicon_Report.json"),
+    NativeTool("compute-fabric", "Spectral Compute Fabric", "mesie-laptop", "analysis",
+               "Certify all virtual chip SKUs — band-sign LSH ANN, deploy manifest, per-chip receipts.",
+               ["compute fabric", "virtual chip", "chip registry", "ann", "deploy manifest"],
+               "python scripts/run_compute_fabric_suite.py",
+               "deliverables/virtual_silicon/MESIE_Compute_Fabric_Report.json"),
     NativeTool("drone-thesis", "Drone Defense+Offense Thesis", "mesie-enterprise-ai", "enterprise_ai",
                "Enterprise thesis validation — EW defense, strike offense, measured report.",
                ["thesis", "drone defense", "drone offense", "enterprise", "chimeria"],
@@ -373,6 +378,16 @@ TOOLS: List[NativeTool] = [
                "Embed terminal + copilot to ~/.mesie on install.",
                ["bootstrap", "install", "pip install"],
                "mesie-bootstrap --install-profile"),
+    NativeTool("sovereign-cloud-icp", "Sovereign Cloud ICP Deploy", "mesie-deploy", "deploy",
+               "Full platform deploy — 4 canisters (registry, gateway, attestation, engines) on Internet Computer.",
+               ["icp", "sovereign cloud", "dfx deploy", "canister", "internet computer"],
+               "powershell -File Deploy-SovereignCloud-ICP.ps1 -Network local",
+               "deliverables/icp/SOVEREIGN_CLOUD_PLATFORM_MANIFEST.json"),
+    NativeTool("icp-bridge-sync", "ICP Bridge Sync", "mesie-deploy", "deploy",
+               "Sync edge processor, mesh, NOVA, and official pack hashes to ICP canisters.",
+               ["icp bridge", "bridge sync", "on-chain registry", "lrc sync"],
+               "python scripts/sync_icp_bridge.py --network local",
+               "deliverables/icp/ICP_BRIDGE_SYNC_STATE.json"),
 ]
 
 

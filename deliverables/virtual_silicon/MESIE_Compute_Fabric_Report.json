@@ -1,0 +1,54 @@
+{
+  "suite": "compute_fabric",
+  "elapsed_s": 6.29,
+  "fast_compute": {
+    "p50_ms": 0.161,
+    "p95_ms": 0.2447,
+    "trials": 100,
+    "index_size": 456,
+    "backend": "library_index:spectral_index.json"
+  },
+  "chips_certified": [
+    {
+      "chip_id": "MESIE-VS1",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS1_Certification.json",
+      "threat_fast_p50_ms": 0.5835,
+      "ann_p50_ms": 0.1566,
+      "ann_p95_ms": 0.1785,
+      "ann_backend": "library_index:spectral_index.json"
+    },
+    {
+      "chip_id": "MESIE-VS2-ANN",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS2-ANN_Certification.json",
+      "threat_fast_p50_ms": 0.5864,
+      "ann_p50_ms": 0.1599,
+      "ann_p95_ms": 0.6072,
+      "ann_backend": "library_index:spectral_index.json"
+    },
+    {
+      "chip_id": "MESIE-VS3-EDGE",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS3-EDGE_Certification.json",
+      "threat_fast_p50_ms": 1.2558,
+      "ann_p50_ms": 0.2911,
+      "ann_p95_ms": 0.4184,
+      "ann_backend": "library_index:spectral_index.json"
+    },
+    {
+      "chip_id": "MESIE-VS4-ORBITAL",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS4-ORBITAL_Certification.json",
+      "threat_fast_p50_ms": 1.2517,
+      "ann_p50_ms": 0.3393,
+      "ann_p95_ms": 0.522,
+      "ann_backend": "library_index:spectral_index.json"
+    }
+  ],
+  "all_certified": true,
+  "deploy_manifest": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\MESIE_Chip_Deploy_Manifest.json",
+  "vs1_cert_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\MESIE_Virtual_Silicon_Certification.json",
+  "narrative_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\MESIE_Virtual_Silicon_Narrative.md",
+  "generated_at": "2026-06-26T09:04:50Z"
+}

@@ -91,6 +91,7 @@ class OTARadioMesh:
         mcast_group: str = DEFAULT_MCAST,
         port: int = DEFAULT_PORT,
         bind_host: str = "0.0.0.0",
+        propagation_tier_index: int = PROPAGATION_TIER,
     ) -> None:
         self.node_id = node_id
         self.mcast_group = mcast_group
@@ -102,7 +103,7 @@ class OTARadioMesh:
         self._sent = 0
         self._sock: Optional[socket.socket] = None
         self._thread: Optional[threading.Thread] = None
-        tier = STANDARD_TIERS[PROPAGATION_TIER]
+        tier = STANDARD_TIERS[propagation_tier_index]
         self._prop_delay_ms = tier.typical_latency_ms
         self._tier_name = tier.name
 
@@ -184,9 +185,14 @@ class OTARadioMesh:
         }
 
 
-def run_ota_mesh_round(n_nodes: int = 4, *, rounds: int = 3) -> OTAMeshReport:
+def run_ota_mesh_round(
+    n_nodes: int = 4,
+    *,
+    rounds: int = 3,
+    propagation_tier_index: int = PROPAGATION_TIER,
+) -> OTAMeshReport:
     """Multi-node OTA gossip round — each node transmits and receives via multicast."""
-    nodes = [OTARadioMesh(f"ota-node-{i}") for i in range(n_nodes)]
+    nodes = [OTARadioMesh(f"ota-node-{i}", propagation_tier_index=propagation_tier_index) for i in range(n_nodes)]
     for n in nodes:
         n.start()
     time.sleep(0.05)
@@ -204,7 +210,7 @@ def run_ota_mesh_round(n_nodes: int = 4, *, rounds: int = 3) -> OTAMeshReport:
     received = sum(len(n.drain()) for n in nodes)
     for n in nodes:
         n.stop()
-    tier = STANDARD_TIERS[PROPAGATION_TIER]
+    tier = STANDARD_TIERS[propagation_tier_index]
     ok = received >= n_nodes  # each node should hear at least one peer
     return OTAMeshReport(
         nodes=n_nodes,
@@ -212,7 +218,7 @@ def run_ota_mesh_round(n_nodes: int = 4, *, rounds: int = 3) -> OTAMeshReport:
         frames_received=received,
         propagation_tier=tier.name,
         typical_latency_ms=tier.typical_latency_ms,
-        airgapped=True,
+        airgapped=propagation_tier_index < 4,
         over_the_air=True,
         virtual_silicon_mac=True,
         ok=ok,

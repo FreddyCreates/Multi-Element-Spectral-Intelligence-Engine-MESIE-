@@ -17,7 +17,7 @@ def test_processor_status():
     st = proc.status()
     assert st["product"] == "MESIE Virtual Processor"
     assert "embed" in st["operations"]
-    assert st["processor_version"] == "1.0.0"
+    assert st["processor_version"] == "1.1.0"
 
 
 def test_processor_export_manifest(tmp_path: Path):

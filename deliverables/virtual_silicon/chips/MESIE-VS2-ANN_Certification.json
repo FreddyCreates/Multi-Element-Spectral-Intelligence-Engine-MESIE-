@@ -1,10 +1,10 @@
 {
   "chip_version": "1.2.0",
   "spec": {
-    "chip_name": "MESIE-VS1",
+    "chip_name": "MESIE-VS2-ANN",
     "process_node_nm": 7,
     "rf_frontends": 1,
-    "spectral_alu_width": 256,
+    "spectral_alu_width": 512,
     "ota_mac": "NSOT_multicast_v1",
     "sovereign": true,
     "airgapped": true
@@ -14,8 +14,8 @@
     "path": "virtual_sdr_adc \u2192 nsrf_binary \u2192 field_bridge",
     "snr_db": 24.0,
     "frame_bytes": 536,
-    "ingest_latency_ms": 1.2955,
-    "field_coherence": 0.565,
+    "ingest_latency_ms": 0.9361,
+    "field_coherence": 0.5744,
     "bridge_ok": true,
     "virtual_silicon": true,
     "notes": "Virtual silicon HIL \u2014 equivalent to certified SDR ingest lane without physical fab."
@@ -32,11 +32,11 @@
     "ok": true
   },
   "benchmark_lane": {
-    "threat_fast_p50_ms": 1.2573,
-    "ann_p50_ms": 0.3451,
-    "ann_p95_ms": 0.6783,
+    "threat_fast_p50_ms": 0.5864,
+    "ann_p50_ms": 0.1599,
+    "ann_p95_ms": 0.6072,
     "ann_backend": "library_index:spectral_index.json",
-    "rf_hil_latency_ms": 8.487,
+    "rf_hil_latency_ms": 1.2659,
     "ota_mesh_ok": true,
     "ota_frames_received": 48
   },
@@ -47,14 +47,13 @@
     "Multi-machine mesh: OTA multicast swarm radio (NSOT) with Hz-ladder propagation",
     "MLPerf: community formal pack with compliance manifest (see mlperf_submit)",
     "ANN lane: statistical p50/p95 with band-sign LSH pre-filter (library_index:spectral_index.json)",
-    "Chip registry: deployable SKUs MESIE-VS1 via MESIE_Chip_Deploy_Manifest.json"
+    "Chip registry: deployable SKUs MESIE-VS2-ANN via MESIE_Chip_Deploy_Manifest.json"
   ],
   "gaps_remaining": [
     "Physical SDR silicon certification (RTL/fab) \u2014 virtual only",
     "Official MLPerf leaderboard board review \u2014 community pack ready",
     "Live satellite modem hardware \u2014 virtual orbital tier models only"
   ],
-  "generated_at": "2026-06-26T09:04:49Z",
-  "chip_id": "MESIE-VS1",
-  "content_hash": "8ad3694660433c48"
+  "generated_at": "2026-06-26T09:04:45Z",
+  "content_hash": "b75afd46e7b48426"
 }

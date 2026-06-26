@@ -38,6 +38,8 @@ class VirtualChipSpec:
 class VirtualChipBenchmarkLane:
     threat_fast_p50_ms: float
     ann_p50_ms: float
+    ann_p95_ms: float
+    ann_backend: str
     rf_hil_latency_ms: float
     ota_mesh_ok: bool
     ota_frames_received: int
@@ -77,37 +79,60 @@ class VirtualChipCertification:
 class VirtualSiliconChip:
     """Software virtual chip: replaces discrete RF+DSP+mesh ASIC on laptop/appliance."""
 
-    def __init__(self, spec: Optional[VirtualChipSpec] = None) -> None:
-        self.spec = spec or VirtualChipSpec()
+    def __init__(self, spec: Optional[VirtualChipSpec] = None, *, chip_id: str = "MESIE-VS1") -> None:
+        from mesie.silicon.chip_registry import get_chip
+
+        self._sku = get_chip(chip_id)
+        self.spec = spec or self._sku.spec
+        self.chip_id = chip_id
         self.rf = VirtualRFFrontEnd()
         self._corpus = load_domain_corpus()
 
-    def certify_rf_hil(self) -> RFHILCertReport:
-        return self.rf.run_hil_loop(snr_db=24.0)
+    @classmethod
+    def from_sku(cls, chip_id: str) -> "VirtualSiliconChip":
+        return cls(chip_id=chip_id)
 
-    def run_ota_mesh(self, *, n_nodes: int = 4) -> OTAMeshReport:
-        return run_ota_mesh_round(n_nodes=n_nodes)
+    def certify_rf_hil(self) -> RFHILCertReport:
+        rep = self.rf.run_hil_loop(snr_db=24.0)
+        if self.spec.rf_frontends > 1:
+            rep2 = self.rf.run_hil_loop(snr_db=22.0)
+            if not rep2.certified:
+                rep = rep2
+        return rep
+
+    def run_ota_mesh(self, *, n_nodes: Optional[int] = None) -> OTAMeshReport:
+        return run_ota_mesh_round(
+            n_nodes=n_nodes or self._sku.ota_nodes,
+            propagation_tier_index=self._sku.ota_propagation_tier,
+        )
 
     def benchmark_lane(self) -> VirtualChipBenchmarkLane:
-        audit = NeuroSwarmClaimsVerifier(n_latency_trials=200)
+        audit = NeuroSwarmClaimsVerifier(n_latency_trials=self._sku.threat_trials)
         threat = audit.benchmark_threat_response_fast_path()
         fc = FastSpectralCompute()
-        fc.build_index(self._corpus)
+        loaded = fc.load_library_index()
+        if loaded == 0:
+            fc.build_index(self._corpus)
         q = self._corpus[0]
-
-        t0 = time.perf_counter()
-        fc.cosine_search(q, top_k=5)
-        ann_ms = (time.perf_counter() - t0) * 1000
+        ann = fc.benchmark_ann_p50(q, n_trials=self._sku.ann_trials)
 
         hil = self.rf.run_hil_loop()
         ota = self.run_ota_mesh()
         return VirtualChipBenchmarkLane(
             threat_fast_p50_ms=threat.p50_ms,
-            ann_p50_ms=round(ann_ms, 4),
+            ann_p50_ms=ann.p50_ms,
+            ann_p95_ms=ann.p95_ms,
+            ann_backend=ann.backend,
             rf_hil_latency_ms=hil.ingest_latency_ms,
             ota_mesh_ok=ota.ok,
             ota_frames_received=ota.frames_received,
         )
+
+    @staticmethod
+    def attach_content_hash(payload: Dict[str, Any]) -> None:
+        payload["content_hash"] = hashlib.sha256(
+            json.dumps({k: v for k, v in payload.items() if k != "content_hash"}, sort_keys=True).encode()
+        ).hexdigest()[:16]
 
     def certify(self) -> VirtualChipCertification:
         rf_hil = self.certify_rf_hil()
@@ -126,6 +151,8 @@ class VirtualSiliconChip:
                 "RF path: virtual silicon SDR HIL (NSRF binary) certified without physical fab",
                 "Multi-machine mesh: OTA multicast swarm radio (NSOT) with Hz-ladder propagation",
                 "MLPerf: community formal pack with compliance manifest (see mlperf_submit)",
+                f"ANN lane: statistical p50/p95 with band-sign LSH pre-filter ({bench.ann_backend})",
+                f"Chip registry: deployable SKUs {self.chip_id} via MESIE_Chip_Deploy_Manifest.json",
             ],
             gaps_remaining=[
                 "Physical SDR silicon certification (RTL/fab) — virtual only",
@@ -138,9 +165,8 @@ class VirtualSiliconChip:
     def export_certification(self, path: Optional[Path] = None) -> Path:
         cert = self.certify()
         payload = cert.to_dict()
-        payload["content_hash"] = hashlib.sha256(
-            json.dumps(payload, sort_keys=True).encode()
-        ).hexdigest()[:16]
+        payload["chip_id"] = self.chip_id
+        self.attach_content_hash(payload)
         CERT_DIR.mkdir(parents=True, exist_ok=True)
         out = path or CERT_DIR / "MESIE_Virtual_Silicon_Certification.json"
         out.write_text(json.dumps(payload, indent=2), encoding="utf-8")
@@ -149,7 +175,7 @@ class VirtualSiliconChip:
     def narrative_md(self) -> str:
         cert = self.certify()
         return "\n".join([
-            "# MESIE Virtual Silicon (VS1)",
+            f"# MESIE Virtual Silicon ({self.chip_id})",
             "",
             f"**Chip:** {cert.spec.chip_name} v{cert.chip_version}",
             f"**Certified:** {cert.certified}",
@@ -158,34 +184,32 @@ class VirtualSiliconChip:
             "",
             "A **virtual chip** — spectral RF front-end, ALU, and OTA MAC implemented in software",
             "on your laptop or on-prem appliance. Same APIs and latency envelope as a future ASIC,",
-            "without waiting for fab.",
+            "without waiting for fab. **Not regular MCP** — invoke via Virtual Processor HTTP `:8750`.",
             "",
             "## RF front-end (HIL certified)",
             "",
             f"- Path: `{cert.rf_hil.path}`",
+            f"- Front-ends: {cert.spec.rf_frontends}",
             f"- SNR: {cert.rf_hil.snr_db} dB (virtual ground truth)",
             f"- Latency: {cert.rf_hil.ingest_latency_ms} ms",
             f"- Field coherence: {cert.rf_hil.field_coherence}",
             "",
             "## OTA swarm radio",
             "",
-            f"- Protocol: NSOT multicast over LAN (simulated OTA propagation)",
+            f"- Protocol: {cert.spec.ota_mac}",
             f"- Tier: {cert.ota_mesh.propagation_tier}",
             f"- Frames: {cert.ota_mesh.frames_sent} sent / {cert.ota_mesh.frames_received} received",
-            f"- Over-the-air: {cert.ota_mesh.over_the_air}",
             "",
-            "## Benchmark lane",
+            "## Benchmark lane (statistical)",
             "",
             f"- Threat-fast p50: {cert.benchmark_lane.threat_fast_p50_ms} ms",
-            f"- ANN query: {cert.benchmark_lane.ann_p50_ms} ms",
+            f"- ANN p50 / p95: {cert.benchmark_lane.ann_p50_ms} / {cert.benchmark_lane.ann_p95_ms} ms",
+            f"- ANN backend: {cert.benchmark_lane.ann_backend}",
             "",
-            "## Gaps resolved vs remaining",
+            "## Deploy",
             "",
-            "**Resolved:**",
-            *[f"- {g}" for g in cert.gaps_resolved],
-            "",
-            "**Remaining (honest):**",
-            *[f"- {g}" for g in cert.gaps_remaining],
+            "- `POST http://127.0.0.1:8750/processor/virtual-chip` body `{\"chip_id\": \"" + self.chip_id + "\"}`",
+            "- Manifest: `deliverables/virtual_silicon/MESIE_Chip_Deploy_Manifest.json`",
             "",
             f"*Generated {cert.generated_at}*",
         ])

@@ -53,10 +53,13 @@ class VirtualProcessor:
         packet_bytes = sum(p.stat().st_size for p in packet_dir.rglob("*.json")) if packet_dir.is_dir() else 0
         return {
             "product": "MESIE Virtual Processor",
-            "processor_version": "1.0.0",
+            "processor_version": "1.1.0",
             "accounting": self.ledger.export_status(packet_files=packet_files, packet_bytes=packet_bytes),
             "vault": str(self.vault_root),
-            "operations": ["embed", "match", "benchmark", "exec_tool", "virtual_chip", "robotics_pulse"],
+            "operations": [
+                "embed", "match", "benchmark", "exec_tool", "virtual_chip", "list_chips", "robotics_pulse",
+            ],
+            "chip_skus": [sku.chip_id for sku in self._chip_skus()],
             "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell.",
         }
 
@@ -125,6 +128,8 @@ class VirtualProcessor:
         out = {
             "threat_p50_ms": threat.p50_ms,
             "ann_p50_ms": lane.ann_p50_ms,
+            "ann_p95_ms": lane.ann_p95_ms,
+            "ann_backend": lane.ann_backend,
             "ota_mesh_ok": lane.ota_mesh_ok,
             "trials": trials,
         }
@@ -146,12 +151,27 @@ class VirtualProcessor:
         out = {"tool_id": tool_id, "exit_code": r.returncode, "stdout_tail": (r.stdout or "")[-800:], "stderr_tail": (r.stderr or "")[-400:]}
         return self._finish("exec_tool", t0, out, measured=len(r.stdout or "") + len(r.stderr or ""), ok=r.returncode == 0)
 
-    def virtual_chip_certify(self) -> ProcessorResult:
+    @staticmethod
+    def _chip_skus():
+        from mesie.silicon.chip_registry import list_chips
+
+        return list_chips()
+
+    def list_chips(self) -> ProcessorResult:
+        from mesie.silicon.chip_registry import deploy_manifest
+
+        t0 = time.perf_counter()
+        out = deploy_manifest()
+        return self._finish("list_chips", t0, out, measured=len(out.get("skus", [])))
+
+    def virtual_chip_certify(self, *, chip_id: str = "MESIE-VS1") -> ProcessorResult:
         from mesie.silicon.virtual_chip import VirtualSiliconChip
 
         t0 = time.perf_counter()
-        cert = VirtualSiliconChip().certify()
+        chip = VirtualSiliconChip.from_sku(chip_id)
+        cert = chip.certify()
         out = cert.to_dict()
+        out["chip_id"] = chip_id
         return self._finish("virtual_chip", t0, out, measured=cert.benchmark_lane.ota_frames_received + 100)
 
     def robotics_pulse(self) -> ProcessorResult:

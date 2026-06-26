@@ -14,8 +14,8 @@
     "path": "virtual_sdr_adc \u2192 nsrf_binary \u2192 field_bridge",
     "snr_db": 24.0,
     "frame_bytes": 536,
-    "ingest_latency_ms": 1.2955,
-    "field_coherence": 0.565,
+    "ingest_latency_ms": 0.6276,
+    "field_coherence": 0.5611,
     "bridge_ok": true,
     "virtual_silicon": true,
     "notes": "Virtual silicon HIL \u2014 equivalent to certified SDR ingest lane without physical fab."
@@ -32,11 +32,11 @@
     "ok": true
   },
   "benchmark_lane": {
-    "threat_fast_p50_ms": 1.2573,
-    "ann_p50_ms": 0.3451,
-    "ann_p95_ms": 0.6783,
+    "threat_fast_p50_ms": 0.5835,
+    "ann_p50_ms": 0.1566,
+    "ann_p95_ms": 0.1785,
     "ann_backend": "library_index:spectral_index.json",
-    "rf_hil_latency_ms": 8.487,
+    "rf_hil_latency_ms": 0.4824,
     "ota_mesh_ok": true,
     "ota_frames_received": 48
   },
@@ -54,7 +54,6 @@
     "Official MLPerf leaderboard board review \u2014 community pack ready",
     "Live satellite modem hardware \u2014 virtual orbital tier models only"
   ],
-  "generated_at": "2026-06-26T09:04:49Z",
-  "chip_id": "MESIE-VS1",
-  "content_hash": "8ad3694660433c48"
+  "generated_at": "2026-06-26T09:04:44Z",
+  "content_hash": "72142a41a0ea2df7"
 }

@@ -1,0 +1,174 @@
+{
+  "product": "MESIE Virtual Silicon Compute Fabric",
+  "fabric_version": "1.2.0",
+  "mesie_version": "0.4.0",
+  "generated_at": "2026-06-26T09:04:48Z",
+  "instruction_for_agents": "Virtual chips are software-defined spectral processors on commodity CPU \u2014 NOT fab RTL. Invoke via HTTP :8750 POST /processor/virtual-chip {\"chip_id\": \"MESIE-VS1\"} or run scripts/run_compute_fabric_suite.py for certification.",
+  "http_surface": {
+    "base": "http://127.0.0.1:8750",
+    "certify": "POST /processor/virtual-chip",
+    "chips": "GET /processor/chips",
+    "benchmark": "POST /processor/benchmark",
+    "fast_compute": "POST /processor/embed"
+  },
+  "skus": [
+    {
+      "chip_id": "MESIE-VS1",
+      "name": "MESIE Virtual Silicon VS1",
+      "description": "Baseline sovereign chip \u2014 single RF front-end, 256-bit spectral ALU, NSOT OTA MAC.",
+      "spec": {
+        "chip_name": "MESIE-VS1",
+        "process_node_nm": 7,
+        "rf_frontends": 1,
+        "spectral_alu_width": 256,
+        "ota_mac": "NSOT_multicast_v1",
+        "sovereign": true,
+        "airgapped": true
+      },
+      "ann_trials": 200,
+      "ota_nodes": 4,
+      "threat_trials": 200,
+      "deploy_profile": "sovereign_local",
+      "ota_propagation_tier": 3,
+      "processor_ops": [
+        "virtual_chip",
+        "benchmark",
+        "embed",
+        "match"
+      ]
+    },
+    {
+      "chip_id": "MESIE-VS2-ANN",
+      "name": "MESIE Virtual Silicon VS2-ANN",
+      "description": "ANN-optimized SKU \u2014 512-bit ALU, library-backed index, statistical p50 ANN lane.",
+      "spec": {
+        "chip_name": "MESIE-VS2-ANN",
+        "process_node_nm": 7,
+        "rf_frontends": 1,
+        "spectral_alu_width": 512,
+        "ota_mac": "NSOT_multicast_v1",
+        "sovereign": true,
+        "airgapped": true
+      },
+      "ann_trials": 500,
+      "ota_nodes": 4,
+      "threat_trials": 300,
+      "deploy_profile": "appliance_ann",
+      "ota_propagation_tier": 3,
+      "processor_ops": [
+        "virtual_chip",
+        "benchmark",
+        "embed",
+        "match",
+        "exec_tool"
+      ]
+    },
+    {
+      "chip_id": "MESIE-VS3-EDGE",
+      "name": "MESIE Virtual Silicon VS3-EDGE",
+      "description": "Edge contested SKU \u2014 dual RF front-ends, widened OTA mesh, threat-fast SLA profile.",
+      "spec": {
+        "chip_name": "MESIE-VS3-EDGE",
+        "process_node_nm": 7,
+        "rf_frontends": 2,
+        "spectral_alu_width": 384,
+        "ota_mac": "NSOT_multicast_v2_edge",
+        "sovereign": true,
+        "airgapped": true
+      },
+      "ann_trials": 200,
+      "ota_nodes": 8,
+      "threat_trials": 500,
+      "deploy_profile": "edge_contested",
+      "ota_propagation_tier": 3,
+      "processor_ops": [
+        "virtual_chip",
+        "benchmark",
+        "robotics_pulse",
+        "embed"
+      ]
+    },
+    {
+      "chip_id": "MESIE-VS4-ORBITAL",
+      "name": "MESIE Virtual Silicon VS4-ORBITAL",
+      "description": "Orbital edge SKU \u2014 SHF/Satellite Hz-ladder tier, 12-node constellation mesh, robotics pulse lane.",
+      "spec": {
+        "chip_name": "MESIE-VS4-ORBITAL",
+        "process_node_nm": 7,
+        "rf_frontends": 1,
+        "spectral_alu_width": 448,
+        "ota_mac": "NSOT_multicast_orbital_v1",
+        "sovereign": true,
+        "airgapped": false
+      },
+      "ann_trials": 250,
+      "ota_nodes": 12,
+      "threat_trials": 300,
+      "deploy_profile": "orbital_edge",
+      "ota_propagation_tier": 4,
+      "processor_ops": [
+        "virtual_chip",
+        "benchmark",
+        "robotics_pulse",
+        "embed"
+      ]
+    }
+  ],
+  "certified": [
+    {
+      "chip_id": "MESIE-VS1",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS1_Certification.json",
+      "threat_fast_p50_ms": 0.5835,
+      "ann_p50_ms": 0.1566,
+      "ann_p95_ms": 0.1785,
+      "ann_backend": "library_index:spectral_index.json"
+    },
+    {
+      "chip_id": "MESIE-VS2-ANN",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS2-ANN_Certification.json",
+      "threat_fast_p50_ms": 0.5864,
+      "ann_p50_ms": 0.1599,
+      "ann_p95_ms": 0.6072,
+      "ann_backend": "library_index:spectral_index.json"
+    },
+    {
+      "chip_id": "MESIE-VS3-EDGE",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS3-EDGE_Certification.json",
+      "threat_fast_p50_ms": 1.2558,
+      "ann_p50_ms": 0.2911,
+      "ann_p95_ms": 0.4184,
+      "ann_backend": "library_index:spectral_index.json"
+    },
+    {
+      "chip_id": "MESIE-VS4-ORBITAL",
+      "certified": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\virtual_silicon\\chips\\MESIE-VS4-ORBITAL_Certification.json",
+      "threat_fast_p50_ms": 1.2517,
+      "ann_p50_ms": 0.3393,
+      "ann_p95_ms": 0.522,
+      "ann_backend": "library_index:spectral_index.json"
+    }
+  ],
+  "deploy_profiles": {
+    "sovereign_local": {
+      "airgapped": true,
+      "sla_threat_p50_ms": 12.0
+    },
+    "appliance_ann": {
+      "airgapped": true,
+      "sla_ann_p50_ms": 2.0
+    },
+    "edge_contested": {
+      "airgapped": false,
+      "sla_threat_p50_ms": 8.0
+    },
+    "orbital_edge": {
+      "airgapped": false,
+      "sla_propagation_tier": "SHF/Satellite",
+      "sla_latency_ms": 5.0
+    }
+  }
+}

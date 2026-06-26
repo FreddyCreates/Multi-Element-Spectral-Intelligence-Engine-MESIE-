@@ -11,7 +11,7 @@ import urllib.request
 from typing import Any, Dict, List, Optional
 
 SERVER_NAME = "mesie-processor"
-SERVER_VERSION = "1.0.0"
+SERVER_VERSION = "1.1.0"
 MCP_VERSION = "2024-11-05"
 BASE_URL = os.environ.get("MESIE_PROCESSOR_URL", "http://127.0.0.1:8750").rstrip("/")
 
@@ -61,6 +61,33 @@ TOOLS: Dict[str, Dict[str, Any]] = {
         "method": "POST",
         "path": "/processor/exec",
         "body_keys": ["tool_id", "timeout_s"],
+    },
+    "processor_list_chips": {
+        "description": "List deployable virtual chip SKUs + HTTP surface from compute fabric manifest.",
+        "inputSchema": {"type": "object", "properties": {}},
+        "method": "GET",
+        "path": "/processor/chips",
+    },
+    "processor_virtual_chip": {
+        "description": "Certify a virtual silicon chip SKU (RF HIL, OTA mesh, statistical ANN lane).",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "chip_id": {
+                    "type": "string",
+                    "default": "MESIE-VS1",
+                    "enum": [
+                        "MESIE-VS1",
+                        "MESIE-VS2-ANN",
+                        "MESIE-VS3-EDGE",
+                        "MESIE-VS4-ORBITAL",
+                    ],
+                },
+            },
+        },
+        "method": "POST",
+        "path": "/processor/virtual-chip",
+        "body_keys": ["chip_id"],
     },
 }
 
