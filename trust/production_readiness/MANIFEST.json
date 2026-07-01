@@ -1,0 +1,35 @@
+{
+  "bundle": "trust/production_readiness",
+  "branch": "trust/production-readiness",
+  "mesie_version": "0.4.0",
+  "description": "Production-readiness wave 2 — processor platform, deliverable versioning, NOVA sphere, synthesis archives.",
+  "components": {
+    "synthesis": "trust/production_readiness/synthesis/",
+    "runbook": "trust/production_readiness/RUNBOOK.md",
+    "bundle_check": "scripts/run_trust_bundle_check.py",
+    "deliverable_versioning": "mesie/release/deliverable_versioning.py",
+    "processor_platform": "mesie/processor/",
+    "processor_deliverables": "deliverables/processor/",
+    "compute_fabric": "deliverables/virtual_silicon/",
+    "universal_signals": "mesie/signals/",
+    "nova_sphere": "mesie/nova/",
+    "mininova": "mesie/mininova/",
+    "novamini": "mesie/novamini/",
+    "micro_runtime": "mesie/agentic/micro/",
+    "native_ai_archives": "deliverables/native_ai/sovereign_local/runs/",
+    "mission_world_archives": "library/mission_worlds/runs/"
+  },
+  "gitignored_runtime": [
+    ".processor_vault/",
+    ".novamini_vault/",
+    "library/mesh_peers/vp_nodes/",
+    "deliverables/**/NOVA_RUNTIME_FEED.jsonl"
+  ],
+  "commands": {
+    "bundle_check": "python scripts/run_trust_bundle_check.py",
+    "synthesize_deliverables": "python scripts/synthesize_deliverable_runs.py",
+    "processor_mesh": "python scripts/run_vp_mesh.py",
+    "nova_runtime": "python scripts/run_nova_runtime.py",
+    "compute_fabric": "python scripts/run_compute_fabric_suite.py"
+  }
+}

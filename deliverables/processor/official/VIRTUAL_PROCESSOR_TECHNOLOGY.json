@@ -1,0 +1,119 @@
+{
+  "product": "MESIE Virtual Processor",
+  "sku": "MESIE-VP-1.2",
+  "version": "1.2.0",
+  "doctrine": "Everything is a signal — text, JSON, events, physics, and spectra unify under one stack.",
+  "formula": "Logic ⊗ Reasoning ⊗ Emergence ⊗ Adaptation (SOLUS)",
+  "execution_model": "Python executes; LLMs orchestrate; LRC receipts prove measured work.",
+  "technology_layers": [
+    {
+      "layer": "Universal Signal Plane",
+      "components": [
+        "UniversalSignalReader",
+        "SignalTextEmitter",
+        "TranslatorEngine"
+      ],
+      "modalities": [
+        "text",
+        "json",
+        "state",
+        "event",
+        "numeric",
+        "spectral",
+        "file"
+      ]
+    },
+    {
+      "layer": "Spectral Compute Core",
+      "components": [
+        "FastSpectralCompute",
+        "SpectralVectorizer",
+        "match_records",
+        "fingerprint LSH"
+      ],
+      "engines": [
+        "control",
+        "embedding",
+        "fingerprint",
+        "generation",
+        "intelligence",
+        "logic",
+        "matching",
+        "movement",
+        "polyglot",
+        "validation",
+        "workflow"
+      ]
+    },
+    {
+      "layer": "Virtual Processor",
+      "port": 8750,
+      "operations": [
+        "embed",
+        "match",
+        "benchmark",
+        "read_signal",
+        "generate_text",
+        "mesh_pulse",
+        "robotics_pulse",
+        "virtual_chip",
+        "exec_tool",
+        "nova-runtime",
+        "mesh",
+        "mesh/pulse",
+        "mesh/soak"
+      ],
+      "accounting": "Local LRC mint ledger per operation"
+    },
+    {
+      "layer": "VP-MESH Network",
+      "protocol": "VP-MESH v1.2",
+      "transport": "UDP multicast 239.192.77.2:37542 + LAN peer registry",
+      "routing": "φ-weighted lowest-latency peer selection",
+      "ota": "NSOT-compatible multicast gossip"
+    },
+    {
+      "layer": "NOVA Micro Organization",
+      "careers": 70,
+      "teams": 12,
+      "runtime": "never-stop supervisor + robotics satellite"
+    },
+    {
+      "layer": "Virtual Silicon",
+      "chip": "MESIE-VS1",
+      "hil": "Virtual RF SDR ingest lane (software-certified)",
+      "mesh_mac": "NSOT_multicast_v1"
+    },
+    {
+      "layer": "Sovereign Surface",
+      "integrations": [
+        "SovereignForge heartbeat",
+        "Loom vault",
+        "Medina Surface :8760"
+      ]
+    }
+  ],
+  "protocols": [
+    "mesie.ai.intelligence_protocols",
+    "mesie.edge.edge_protocol",
+    "mesie.internal_api.bus"
+  ],
+  "physics_foundations": [
+    "mesie.edge.hz_ladder",
+    "mesie.cosmology.teotl_flow",
+    "mesie.worlds.spacetime_bridge"
+  ],
+  "library": {
+    "ok": true,
+    "root": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library",
+    "files": 1055,
+    "bytes": 10778542,
+    "mb": 10.28,
+    "swarm_dtn": 32,
+    "lan_gossip": 1009,
+    "spectral_index": true
+  },
+  "tools_count": 79,
+  "stack_reference": "deliverables/processor/MESIE_STACK_ARCHITECTURE.json",
+  "generated_at": "2026-06-26T09:20:30Z"
+}

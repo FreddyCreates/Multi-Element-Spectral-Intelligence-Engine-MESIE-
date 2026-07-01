@@ -1,0 +1,274 @@
+{
+  "product": "MININOVA",
+  "version": "1.0.0",
+  "mesie_version": "0.4.0",
+  "status": {
+    "product": "MININOVA",
+    "mininova_version": "1.0.0",
+    "mesie_version": "0.4.0",
+    "session_id": "release-mininova-export",
+    "layers": [
+      "novamini",
+      "linguistic",
+      "translator",
+      "micro_fleet"
+    ],
+    "novamini": {
+      "product": "NOVAMINI (MESIE-LM)",
+      "version": "1.0.0",
+      "model_id": "NOVAMINI-MESIE-LM-v0.1",
+      "native_lm": "AuroNativeLM-v1",
+      "session_id": "release-mininova-export",
+      "quad": "NMIN",
+      "flos_pathways": [
+        "THINK",
+        "BUILD",
+        "SPEAK",
+        "TRUTH",
+        "NOVMINI"
+      ],
+      "third_party_inference": false,
+      "turns": 0,
+      "vivi": {
+        "id": "VIVI-NMIN-ea842dc6",
+        "depth": 0,
+        "coherence": 0.618,
+        "alive": true
+      },
+      "lm": {
+        "model_id": "AuroNativeLM-v1",
+        "session_id": "release-mininova-export",
+        "knowledge_entries": 32,
+        "reasoning_rules": 4,
+        "memory_turns": 0,
+        "trajectory_id": "traj_13ab5bbd0e2d",
+        "trajectory_health": "stable",
+        "third_party_inference": false,
+        "paper_iv_absorbed": true
+      },
+      "memory": {
+        "turns": 1,
+        "vault": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.novamini_vault\\release-mininova-export",
+        "ledger": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.novamini_vault\\release-mininova-export\\memory_ledger.jsonl"
+      }
+    },
+    "micro_fleet": {
+      "count": 2,
+      "agents": [
+        {
+          "agent_id": "micro-linguist-0f93953c",
+          "career": "linguist",
+          "title": "Linguistic Analyst",
+          "cycles": 0,
+          "coherence": 0.618,
+          "alive": true,
+          "goals": [
+            "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+          ],
+          "interval_s": 45.0,
+          "history_len": 0,
+          "last": null
+        },
+        {
+          "agent_id": "micro-translator-51004b7b",
+          "career": "translator",
+          "title": "Modality Translator",
+          "cycles": 0,
+          "coherence": 0.618,
+          "alive": true,
+          "goals": [
+            "Map text/spectral/state into unified MESIE records."
+          ],
+          "interval_s": 30.0,
+          "history_len": 0,
+          "last": null
+        }
+      ],
+      "ts": 1782283337.8783627
+    },
+    "sovereign": true,
+    "third_party_inference": false
+  },
+  "sample": {
+    "spoken": "Medina is sovereign infrastructure; external models are not our foundation.\nStrategic thesis \u2014 edge-contested software substrate. Voice, Memory, Affect, and Authority in Repo-Native NeuroAI Agents\n\nSeries: *Repo-Native NeuroAI Infrastructure*  \nPaper: IV of IV  \nPacket ID: `NEUROAI-REPO-CERN-EXPANDED-20260601`  \nAuthority state:",
+    "role": "AURO",
+    "linguistic": {
+      "tokens": [
+        "MININOVA",
+        "production",
+        "release",
+        "sample"
+      ],
+      "coherence": 0.6257,
+      "center_index": 2,
+      "attractors": [
+        {
+          "word": "MININOVA",
+          "angle_rad": 9.8449,
+          "phi_weight": 0.5496
+        },
+        {
+          "word": "production",
+          "angle_rad": 9.6184,
+          "phi_weight": 0.5573
+        },
+        {
+          "word": "release",
+          "angle_rad": 2.0184,
+          "phi_weight": 0.8845
+        },
+        {
+          "word": "sample",
+          "angle_rad": 8.5809,
+          "phi_weight": 0.5935
+        }
+      ]
+    },
+    "translated": {
+      "modality": "text",
+      "text": "MININOVA production release sample",
+      "spectral_signature": [
+        0.780094297111319,
+        0.4622745245558277,
+        0.24658078381388118,
+        0.19376862617380586,
+        0.08825225233975176,
+        0.13488010174688556,
+        0.06743189909580644,
+        0.046759906199029234,
+        0.09657944055380906,
+        0.05257283264093526,
+        0.040183913555613675,
+        0.101048470870666,
+        0.04773414516101703,
+        0.0724604853094891,
+        0.06077573933600751,
+        0.07528878721945871
+      ],
+      "fingerprint": "8db9d3e22a1e4f95fcf24a3d3b60301bed976149c6322c3d0eeda0906a14777e",
+      "meta": {
+        "dims": 17
+      }
+    },
+    "memory_hits": [
+      {
+        "score": 0.6767,
+        "user": "MININOVA production release sample",
+        "spoken": "Medina is sovereign infrastructure; external models are not our foundation.\nStrategic thesis \u2014 edge-contested software substrate. Voice, Memory, Affect, and Authority in Repo-Native NeuroAI Agents\n\nSe",
+        "role": "AURO"
+      }
+    ],
+    "micro_fleet": {
+      "pulse": [
+        {
+          "pulse": {
+            "agent_id": "micro-linguist-0f93953c",
+            "career": "linguist",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "goals": [
+              "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+            ]
+          },
+          "result": {
+            "ok": true,
+            "career": "linguist",
+            "mission": "Coherence, doctrine attractors, \u03c6-weighted language geometry.",
+            "note": "default micro pulse"
+          },
+          "ts": 1782283337.879675
+        },
+        {
+          "pulse": {
+            "agent_id": "micro-translator-51004b7b",
+            "career": "translator",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "goals": [
+              "Map text/spectral/state into unified MESIE records."
+            ]
+          },
+          "result": {
+            "ok": true,
+            "career": "translator",
+            "mission": "Map text/spectral/state into unified MESIE records.",
+            "note": "default micro pulse"
+          },
+          "ts": 1782283337.879675
+        }
+      ],
+      "status": {
+        "count": 2,
+        "agents": [
+          {
+            "agent_id": "micro-linguist-0f93953c",
+            "career": "linguist",
+            "title": "Linguistic Analyst",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "alive": true,
+            "goals": [
+              "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+            ],
+            "interval_s": 45.0,
+            "history_len": 1,
+            "last": {
+              "pulse": {
+                "agent_id": "micro-linguist-0f93953c",
+                "career": "linguist",
+                "cycles": 1,
+                "coherence": 0.6562,
+                "goals": [
+                  "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+                ]
+              },
+              "result": {
+                "ok": true,
+                "career": "linguist",
+                "mission": "Coherence, doctrine attractors, \u03c6-weighted language geometry.",
+                "note": "default micro pulse"
+              },
+              "ts": 1782283337.879675
+            }
+          },
+          {
+            "agent_id": "micro-translator-51004b7b",
+            "career": "translator",
+            "title": "Modality Translator",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "alive": true,
+            "goals": [
+              "Map text/spectral/state into unified MESIE records."
+            ],
+            "interval_s": 30.0,
+            "history_len": 1,
+            "last": {
+              "pulse": {
+                "agent_id": "micro-translator-51004b7b",
+                "career": "translator",
+                "cycles": 1,
+                "coherence": 0.6562,
+                "goals": [
+                  "Map text/spectral/state into unified MESIE records."
+                ]
+              },
+              "result": {
+                "ok": true,
+                "career": "translator",
+                "mission": "Map text/spectral/state into unified MESIE records.",
+                "note": "default micro pulse"
+              },
+              "ts": 1782283337.879675
+            }
+          }
+        ],
+        "ts": 1782283337.879675
+      }
+    },
+    "latency_ms": 1.22,
+    "mininova_version": "1.0.0",
+    "mesie_version": "0.4.0",
+    "sovereign": true
+  }
+}

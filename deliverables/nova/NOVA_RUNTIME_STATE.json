@@ -1,0 +1,651 @@
+{
+  "ts": 1782462607.1615863,
+  "uptime_s": 0.8,
+  "session_id": "nova-runtime-production",
+  "never_stop": true,
+  "micro_org": {
+    "size": 70,
+    "expected": 70,
+    "pulsing": 0,
+    "satellites_active": 70,
+    "teams": {
+      "intelligence": {
+        "count": 8,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "linguist",
+            "title": "Linguistic Analyst",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "translator",
+            "title": "Modality Translator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "cognitive",
+            "title": "Adaptive Cognitive Router",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "embedder",
+            "title": "Spectral Embed Guard",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "matcher",
+            "title": "Spectral Matcher",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "fingerprint_guard",
+            "title": "Fingerprint Sentinel",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "retriever",
+            "title": "Top-K Retriever",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "salience_router",
+            "title": "Salience Router",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "release": {
+        "count": 9,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "release_sentinel",
+            "title": "Release Sentinel",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "version_auditor",
+            "title": "Version Auditor",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "manifest_writer",
+            "title": "Manifest Writer",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "schema_validator",
+            "title": "Schema Validator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "readiness_gate",
+            "title": "Readiness Gate",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "determinism_checker",
+            "title": "Determinism Checker",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "showcase_broadcaster",
+            "title": "Showcase Broadcaster",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "devkit_packager",
+            "title": "DevKit Packager",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "processor_release_gate",
+            "title": "Processor Release Gate",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "operations": {
+        "count": 7,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "satellite_watch",
+            "title": "Fleet Watch",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "health_monitor",
+            "title": "Health Monitor",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "port_watch",
+            "title": "Port Watch",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "log_triage",
+            "title": "Log Triage",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "benchmark_runner",
+            "title": "Benchmark Runner",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "sla_watcher",
+            "title": "SLA Watcher",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "robotics_satellite",
+            "title": "Robotics Satellite",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "design": {
+        "count": 6,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "schema_designer",
+            "title": "Schema Designer",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "api_contract_auditor",
+            "title": "API Contract Auditor",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "surface_mapper",
+            "title": "Surface Mapper",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "doc_synthesizer",
+            "title": "Doc Synthesizer",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "architecture_reviewer",
+            "title": "Architecture Reviewer",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "doctrine_curator",
+            "title": "Doctrine Curator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "integration": {
+        "count": 8,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "surface_bridge",
+            "title": "Surface Bridge",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "mcp_wiring",
+            "title": "MCP Wiring",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "repo_scanner",
+            "title": "Repo Fleet Scanner",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "bus_router",
+            "title": "Internal Bus Router",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "loom_bridge",
+            "title": "Loom Vault Bridge",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "coding_lab_bridge",
+            "title": "Coding Lab Bridge",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "memory_desk_bridge",
+            "title": "Memory Desk Bridge",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "processor_bridge",
+            "title": "Processor Bridge",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "polyglot": {
+        "count": 5,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "python_arm",
+            "title": "Python Arm",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "rust_arm",
+            "title": "Rust Arm",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "julia_arm",
+            "title": "Julia Arm",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "typescript_arm",
+            "title": "TypeScript Arm",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "motoko_arm",
+            "title": "Motoko Arm",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "domains": {
+        "count": 7,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "orbital_analyst",
+            "title": "Orbital Analyst",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "seismic_watch",
+            "title": "Seismic Watch",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "robotics_coord",
+            "title": "Robotics Coordinator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "power_grid",
+            "title": "Power Grid Analyst",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "terrain_mapper",
+            "title": "Terrain Mapper",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "enterprise_monte",
+            "title": "Monte Carlo Sentinel",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "domain_signal_hub",
+            "title": "Domain Signal Hub",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "solus": {
+        "count": 4,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "logic_prover_caretaker",
+            "title": "Logic Prover Caretaker",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "pattern_forge_caretaker",
+            "title": "Pattern Forge Caretaker",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "emergence_watcher",
+            "title": "Emergence Watcher",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "adaptation_tuner",
+            "title": "Adaptation Tuner",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "memory": {
+        "count": 5,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "vault_curator",
+            "title": "Vault Curator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "receipt_chain",
+            "title": "Receipt Chain",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "knowledge_indexer",
+            "title": "Knowledge Indexer",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "sovereign_gate",
+            "title": "Sovereign Gate",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "interior_datacenter",
+            "title": "Interior DC Curator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "infrastructure": {
+        "count": 7,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "engine_registry_keeper",
+            "title": "Engine Registry Keeper",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "protocol_executor",
+            "title": "Protocol Executor",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "library_feeder",
+            "title": "Library Feeder",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "edge_protocol_ops",
+            "title": "Edge Protocol Ops",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "octopus_controller",
+            "title": "Octopus Controller",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "workflow_orchestrator",
+            "title": "Workflow Orchestrator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "training_corpus_curator",
+            "title": "Training Corpus Curator",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      },
+      "foundations": {
+        "count": 4,
+        "pulsing": 0,
+        "agents": [
+          {
+            "career": "law_compiler",
+            "title": "Law Compiler",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "charter_keeper",
+            "title": "Charter Keeper",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "signal_router",
+            "title": "Signal Router",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          },
+          {
+            "career": "physics_foundation",
+            "title": "Physics Foundation",
+            "cycles": 0,
+            "coherence": 0.618,
+            "satellite_active": true,
+            "last_ok": null
+          }
+        ]
+      }
+    }
+  },
+  "robotics": {
+    "process_alive": true,
+    "pid": 27008,
+    "log": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\robotics_satellite.jsonl",
+    "total_cycles": 31,
+    "last_cycle": 1,
+    "last_threat_p50_ms": 0.8792,
+    "last_lrc": "A61E273950E9",
+    "fusion_dims": 256
+  },
+  "restarts": 1
+}

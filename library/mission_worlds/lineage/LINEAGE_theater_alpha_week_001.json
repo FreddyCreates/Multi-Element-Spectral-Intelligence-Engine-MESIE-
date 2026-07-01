@@ -1,0 +1,16 @@
+{
+  "run_key": "theater_alpha_week_001",
+  "suite": "mission_world",
+  "latest_stamp": "",
+  "latest_paths": {},
+  "history": [
+    {
+      "event": "synthesis_restore",
+      "stamp": "20260625T202633Z",
+      "committed_dir": "runs\\20260625T202633Z_committed_full_theater_alpha_week_001",
+      "partial_dir": "runs\\20260625T202633Z_partial_local_theater_alpha_week_001",
+      "note": "Preserved both snapshots; canonical paths restored to committed full run."
+    }
+  ],
+  "updated_at": "2026-06-25T20:26:33Z"
+}

@@ -1,0 +1,37 @@
+{
+  "ready": true,
+  "processor_version": "1.0.0",
+  "checks": [
+    {
+      "name": "status",
+      "ok": true,
+      "detail": "['embed', 'match', 'benchmark', 'read_signal', 'generate_text', 'mesh_pulse', 'exec_tool', 'virtual_chip', 'list_chips', 'robotics_pulse']"
+    },
+    {
+      "name": "robotics_pulse",
+      "ok": true,
+      "detail": "threat_p50=0.6082"
+    },
+    {
+      "name": "embed",
+      "ok": true,
+      "detail": "dims=17"
+    },
+    {
+      "name": "benchmark",
+      "ok": true,
+      "detail": "p50=0.5884"
+    },
+    {
+      "name": "mesh_pulse",
+      "ok": true,
+      "detail": "peers=4 ota=48"
+    },
+    {
+      "name": "accounting_lrc",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "generated_at": "2026-06-26T09:20:43Z"
+}

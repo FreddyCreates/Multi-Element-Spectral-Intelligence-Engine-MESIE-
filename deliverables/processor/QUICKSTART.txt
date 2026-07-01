@@ -1,0 +1,22 @@
+MESIE Virtual Processor Developer Kit — Quickstart
+==================================================
+
+1. Start never-stop runtime:
+   .\Start-NovaRuntime.ps1
+
+2. Start HTTP processor:
+   python scripts/run_virtual_processor.py
+
+3. Read any signal (text, JSON, event, file path):
+   POST http://127.0.0.1:8750/processor/read-signal
+   {"payload":"your text or object","hint":"text"}
+
+4. Generate analyst text from any signal:
+   POST http://127.0.0.1:8750/processor/generate-text
+   {"payload":"sensor alert JSON","style":"executive"}
+
+5. Proof for market:
+   deliverables/nova/NOVA_SHOWCASE.json
+   deliverables/processor/VIRTUAL_PROCESSOR_MARKET_RESEARCH.json
+
+Doctrine: Everything is a signal — spectra, text, state, physics, domains.

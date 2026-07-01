@@ -75,7 +75,18 @@ class MissionWorldState:
         }
 
     def save(self) -> Path:
+        from mesie.release.deliverable_versioning import DeliverableVersioning
+
         STATE_DIR.mkdir(parents=True, exist_ok=True)
         path = STATE_DIR / f"{self.world_id}_state.json"
-        path.write_text(json.dumps(self.to_dict(), indent=2), encoding="utf-8")
+        payload = self.to_dict()
+
+        ver = DeliverableVersioning(STATE_DIR)
+        ver.write_versioned(
+            {"state": payload},
+            run_key=self.world_id,
+            suite="mission_world",
+            canonical_names={"state": path},
+            note=f"mission world save day={self.sim_day}",
+        )
         return path

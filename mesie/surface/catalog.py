@@ -87,6 +87,7 @@ def build_catalog(*, export: bool = True) -> SurfaceCatalog:
         {"id": "surface_http", "url": "http://127.0.0.1:8760/surface/status"},
         {"id": "processor_http", "url": "http://127.0.0.1:8750/processor/status"},
         {"id": "loom_mcp", "note": "MCP server loom — loom_status, skills_run, runspace_exec, knowledge_mint"},
+        {"id": "processor_platform", "note": "docs/MESIE_Virtual_Processor_Platform.md — HTTP compute platform, NOT regular Loom MCP"},
         {"id": "mesie_cli", "command": "python -m mesie.tools.cli run <tool-id>"},
     ]
 

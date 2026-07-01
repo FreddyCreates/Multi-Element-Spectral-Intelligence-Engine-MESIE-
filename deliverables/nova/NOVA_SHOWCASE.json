@@ -1,0 +1,201 @@
+{
+  "ok": true,
+  "product": "NOVA_SHOWCASE",
+  "mesie_version": "0.4.0",
+  "elapsed_s": 3.13,
+  "foundations": {
+    "engines": [
+      "control",
+      "embedding",
+      "fingerprint",
+      "generation",
+      "intelligence",
+      "logic",
+      "matching",
+      "movement",
+      "polyglot",
+      "validation",
+      "workflow"
+    ],
+    "engine_count": 11,
+    "protocols": [
+      "mesie.ai.intelligence_protocols",
+      "mesie.edge.edge_protocol",
+      "mesie.internal_api.bus"
+    ],
+    "physics": [
+      "mesie.edge.hz_ladder",
+      "mesie.cosmology.teotl_flow",
+      "mesie.worlds.spacetime_bridge"
+    ],
+    "library": {
+      "ok": true,
+      "root": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library",
+      "files": 1056,
+      "bytes": 10778902,
+      "mb": 10.28,
+      "swarm_dtn": 32,
+      "lan_gossip": 1009,
+      "spectral_index": true
+    },
+    "deliverables": {
+      "ok": true,
+      "files": 150,
+      "bytes": 1424074,
+      "mb": 1.36
+    },
+    "tools": 79,
+    "mesie_root": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-",
+    "doctrine": "Everything is a signal \u2014 spectral records unify text, state, physics, domains."
+  },
+  "demos": {
+    "robotics_pulse": {
+      "ok": true,
+      "operation": "robotics_pulse",
+      "output": {
+        "fusion_dims": 256,
+        "threat_p50_ms": 0.6509,
+        "sovereign": true
+      },
+      "latency_ms": 492.22,
+      "lrc": {
+        "lrc_id": "68B39184BF27",
+        "cycle": 208,
+        "operation": "robotics_pulse",
+        "measured_units": 306,
+        "latency_ms": 492.22,
+        "payload_hash": "806d7c900edae170",
+        "ts": 1782465644.1098816
+      },
+      "measured_units": 306
+    },
+    "embed": {
+      "ok": true,
+      "operation": "embed",
+      "output": {
+        "dims": 17,
+        "record_id": "ref-earthquake-psd-001"
+      },
+      "latency_ms": 21.98,
+      "lrc": {
+        "lrc_id": "FC73388B6433",
+        "cycle": 209,
+        "operation": "embed",
+        "measured_units": 17,
+        "latency_ms": 21.98,
+        "payload_hash": "8d4cb5c446f4306e",
+        "ts": 1782465644.1324444
+      },
+      "measured_units": 17
+    },
+    "read_signal": {
+      "ok": true,
+      "operation": "read_signal",
+      "output": {
+        "modality": "text",
+        "text": "Everything is a signal \u2014 text and physics unify.",
+        "spectral_signature": [
+          0.8123124429589214,
+          0.41274934308889405,
+          0.20030975262982337,
+          0.05779389785681421,
+          0.16195270974480586,
+          0.14544350309726653,
+          0.03306524906231951,
+          0.13770607967484674,
+          0.11314998951536462,
+          0.011476620191426631,
+          0.11284016026355663,
+          0.022318992841498356,
+          0.10572467238765615,
+          0.07781878033886351,
+          0.03788272676027292,
+          0.07914638660392513,
+          0.0882336825229666
+        ],
+        "fingerprint": "f12887bfd407fd84a5e77871e05c742e034cf4a5e3b212124133c46172c2b629",
+        "record_id": "f12887bfd407fd84",
+        "meta": {
+          "dims": 17,
+          "hint": "text",
+          "chars": 48,
+          "keys": null
+        }
+      },
+      "latency_ms": 30.7,
+      "lrc": {
+        "lrc_id": "604B97EC96A1",
+        "cycle": 210,
+        "operation": "read_signal",
+        "measured_units": 65,
+        "latency_ms": 30.7,
+        "payload_hash": "424dbdcfba986d74",
+        "ts": 1782465644.2414258
+      },
+      "measured_units": 65
+    },
+    "generate_text": {
+      "ok": true,
+      "operation": "generate_text",
+      "output": {
+        "text": "Signal (event): {\"event\": \"showcase\", \"domains\": [\"seismic\", \"orbital\", \"robotics\"]}\nAssessment: signal observed (confidence 0.00, emergence 0.0000).\nFingerprint 25a8c2b72f2b\u2026 \u2014 sovereign local analysis.",
+        "format": "executive",
+        "signal_fingerprint": "25a8c2b72f2bc35a4775e5d8f6e6eaacdc5cf7fff40f0cd87d528b990ef96771",
+        "sovereign": true,
+        "model": "SOLUS-Logic\u2297Reasoning\u2297Emergence",
+        "meta": {
+          "logic_ok": true,
+          "confidence": 0.0,
+          "emergence": 0.0,
+          "composition_hash": "117ddea5b3280c6abd182230bbba1150",
+          "latency_note": "local-only"
+        }
+      },
+      "latency_ms": 22.95,
+      "lrc": {
+        "lrc_id": "E3845DB35EB2",
+        "cycle": 211,
+        "operation": "generate_text",
+        "measured_units": 203,
+        "latency_ms": 22.95,
+        "payload_hash": "45429cf3868e7ac1",
+        "ts": 1782465644.2653677
+      },
+      "measured_units": 203
+    },
+    "benchmark": {
+      "ok": true,
+      "operation": "benchmark",
+      "output": {
+        "threat_p50_ms": 0.6826,
+        "ann_p50_ms": 0.1775,
+        "ann_p95_ms": 1.3247,
+        "ann_backend": "library_index:spectral_index.json",
+        "ota_mesh_ok": true,
+        "trials": 50
+      },
+      "latency_ms": 2131.78,
+      "lrc": {
+        "lrc_id": "BE618C0906B8",
+        "cycle": 212,
+        "operation": "benchmark",
+        "measured_units": 98,
+        "latency_ms": 2131.78,
+        "payload_hash": "becaab5021d32c10",
+        "ts": 1782465646.3979452
+      },
+      "measured_units": 98
+    },
+    "virtual_chip": {
+      "skipped": true
+    }
+  },
+  "headline": {
+    "threat_p50_ms": 0.6826,
+    "fusion_dims": 256,
+    "library_mb": 10.28,
+    "engines": 11,
+    "doctrine": "Everything is a signal \u2014 spectral records unify text, state, physics, domains."
+  },
+  "generated_at": "2026-06-26T09:20:46Z"
+}

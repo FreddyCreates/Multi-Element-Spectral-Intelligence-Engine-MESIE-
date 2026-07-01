@@ -1,0 +1,16 @@
+{
+  "run_key": "sov_del",
+  "suite": "sovereign_local",
+  "latest_stamp": "",
+  "latest_paths": {},
+  "history": [
+    {
+      "event": "synthesis_restore",
+      "stamp": "20260625T202633Z",
+      "committed_dir": "runs\\20260625T202633Z_committed_full_sov_del",
+      "partial_dir": "runs\\20260625T202633Z_partial_local_sov_del",
+      "note": "Preserved both snapshots; canonical paths restored to committed full run."
+    }
+  ],
+  "updated_at": "2026-06-25T20:26:33Z"
+}

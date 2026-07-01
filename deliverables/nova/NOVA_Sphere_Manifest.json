@@ -1,0 +1,378 @@
+{
+  "product": "NOVA",
+  "version": "1.0.0",
+  "mesie_version": "0.4.0",
+  "status": {
+    "product": "NOVA",
+    "nova_version": "1.0.0",
+    "mesie_version": "0.4.0",
+    "session_id": "release-export",
+    "layers": [
+      "cognitive",
+      "linguistic",
+      "translator",
+      "mesie_core",
+      "micro_fleet"
+    ],
+    "mesie_lm": {
+      "model_id": "AuroNativeLM-v1",
+      "session_id": "release-export",
+      "knowledge_entries": 32,
+      "reasoning_rules": 4,
+      "memory_turns": 0,
+      "trajectory_id": "traj_3c81b9af8454",
+      "trajectory_health": "stable",
+      "third_party_inference": false,
+      "paper_iv_absorbed": true
+    },
+    "micro_fleet": {
+      "count": 4,
+      "agents": [
+        {
+          "agent_id": "micro-linguist-5129c15b",
+          "career": "linguist",
+          "title": "Linguistic Analyst",
+          "cycles": 0,
+          "coherence": 0.618,
+          "alive": true,
+          "goals": [
+            "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+          ],
+          "interval_s": 45.0,
+          "history_len": 0,
+          "last": null
+        },
+        {
+          "agent_id": "micro-translator-f75fe4ba",
+          "career": "translator",
+          "title": "Modality Translator",
+          "cycles": 0,
+          "coherence": 0.618,
+          "alive": true,
+          "goals": [
+            "Map text/spectral/state into unified MESIE records."
+          ],
+          "interval_s": 30.0,
+          "history_len": 0,
+          "last": null
+        },
+        {
+          "agent_id": "micro-cognitive-187bf354",
+          "career": "cognitive",
+          "title": "Adaptive Cognitive Router",
+          "cycles": 0,
+          "coherence": 0.618,
+          "alive": true,
+          "goals": [
+            "Intent routing, salience, adaptive policy on MESIE bus."
+          ],
+          "interval_s": 20.0,
+          "history_len": 0,
+          "last": null
+        },
+        {
+          "agent_id": "micro-satellite_watch-f0573a72",
+          "career": "satellite_watch",
+          "title": "Orbital Watch",
+          "cycles": 0,
+          "coherence": 0.618,
+          "alive": true,
+          "goals": [
+            "Heartbeat + health telemetry for active micro fleet."
+          ],
+          "interval_s": 15.0,
+          "history_len": 0,
+          "last": null
+        }
+      ],
+      "ts": 1782283337.875512
+    },
+    "sovereign": true,
+    "third_party_inference": false
+  },
+  "sample": {
+    "spoken_summary": "Medina is sovereign infrastructure; external models are not our foundation.\nStrategic thesis \u2014 edge-contested software substrate. References\n\n### Repo Intelligence Substrate\n\nR1. `/workspace/agent_files/alpha-family/runtime-contracts.md` \u2014 runtime authority laws for `NOVA_ROOT`, `MEMORY_RUNTIME`, `ACTIVE_STATE_RUNTIME`, and `FOU",
+    "cognitive": {
+      "intent": "NOVA production manifest sample",
+      "domain": "release",
+      "salience": 0.3809,
+      "policy": "sovereign_local",
+      "routes": [
+        "readiness",
+        "test"
+      ]
+    },
+    "linguistic": {
+      "tokens": [
+        "NOVA",
+        "production",
+        "manifest",
+        "sample"
+      ],
+      "coherence": 0.6257,
+      "center_index": 2,
+      "attractors": [
+        {
+          "word": "NOVA",
+          "angle_rad": 0.4774,
+          "phi_weight": 0.9714
+        },
+        {
+          "word": "production",
+          "angle_rad": 9.6184,
+          "phi_weight": 0.5573
+        },
+        {
+          "word": "manifest",
+          "angle_rad": 2.2153,
+          "phi_weight": 0.874
+        },
+        {
+          "word": "sample",
+          "angle_rad": 8.5809,
+          "phi_weight": 0.5935
+        }
+      ]
+    },
+    "translated": {
+      "modality": "text",
+      "text": "NOVA production manifest sample",
+      "spectral_signature": [
+        0.7813980426528929,
+        0.5130293640392529,
+        0.1866387028804182,
+        0.16998893995177639,
+        0.07787348895508345,
+        0.0955583355323022,
+        0.10393982340066582,
+        0.09463604250263154,
+        0.06596015109479933,
+        0.014702771074696454,
+        0.09462627710695028,
+        0.042527826154298114,
+        0.018239780332758835,
+        0.005702395867738531,
+        0.07559764720702039,
+        0.06506919262715019
+      ],
+      "fingerprint": "208f8af7dd84057bd48aee1ef4223b99b70cb45b6c5477e0bf5c6685f2deff56",
+      "meta": {
+        "dims": 17
+      }
+    },
+    "mesie_routes": [
+      "readiness",
+      "test"
+    ],
+    "micro_fleet": {
+      "pulse": [
+        {
+          "pulse": {
+            "agent_id": "micro-linguist-5129c15b",
+            "career": "linguist",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "goals": [
+              "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+            ]
+          },
+          "result": {
+            "ok": true,
+            "career": "linguist",
+            "mission": "Coherence, doctrine attractors, \u03c6-weighted language geometry.",
+            "note": "default micro pulse"
+          },
+          "ts": 1782283337.875512
+        },
+        {
+          "pulse": {
+            "agent_id": "micro-translator-f75fe4ba",
+            "career": "translator",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "goals": [
+              "Map text/spectral/state into unified MESIE records."
+            ]
+          },
+          "result": {
+            "ok": true,
+            "career": "translator",
+            "mission": "Map text/spectral/state into unified MESIE records.",
+            "note": "default micro pulse"
+          },
+          "ts": 1782283337.875512
+        },
+        {
+          "pulse": {
+            "agent_id": "micro-cognitive-187bf354",
+            "career": "cognitive",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "goals": [
+              "Intent routing, salience, adaptive policy on MESIE bus."
+            ]
+          },
+          "result": {
+            "ok": true,
+            "career": "cognitive",
+            "mission": "Intent routing, salience, adaptive policy on MESIE bus.",
+            "note": "default micro pulse"
+          },
+          "ts": 1782283337.875512
+        },
+        {
+          "pulse": {
+            "agent_id": "micro-satellite_watch-f0573a72",
+            "career": "satellite_watch",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "goals": [
+              "Heartbeat + health telemetry for active micro fleet."
+            ]
+          },
+          "result": {
+            "ok": true,
+            "career": "satellite_watch",
+            "mission": "Heartbeat + health telemetry for active micro fleet.",
+            "note": "default micro pulse"
+          },
+          "ts": 1782283337.875512
+        }
+      ],
+      "status": {
+        "count": 4,
+        "agents": [
+          {
+            "agent_id": "micro-linguist-5129c15b",
+            "career": "linguist",
+            "title": "Linguistic Analyst",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "alive": true,
+            "goals": [
+              "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+            ],
+            "interval_s": 45.0,
+            "history_len": 1,
+            "last": {
+              "pulse": {
+                "agent_id": "micro-linguist-5129c15b",
+                "career": "linguist",
+                "cycles": 1,
+                "coherence": 0.6562,
+                "goals": [
+                  "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+                ]
+              },
+              "result": {
+                "ok": true,
+                "career": "linguist",
+                "mission": "Coherence, doctrine attractors, \u03c6-weighted language geometry.",
+                "note": "default micro pulse"
+              },
+              "ts": 1782283337.875512
+            }
+          },
+          {
+            "agent_id": "micro-translator-f75fe4ba",
+            "career": "translator",
+            "title": "Modality Translator",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "alive": true,
+            "goals": [
+              "Map text/spectral/state into unified MESIE records."
+            ],
+            "interval_s": 30.0,
+            "history_len": 1,
+            "last": {
+              "pulse": {
+                "agent_id": "micro-translator-f75fe4ba",
+                "career": "translator",
+                "cycles": 1,
+                "coherence": 0.6562,
+                "goals": [
+                  "Map text/spectral/state into unified MESIE records."
+                ]
+              },
+              "result": {
+                "ok": true,
+                "career": "translator",
+                "mission": "Map text/spectral/state into unified MESIE records.",
+                "note": "default micro pulse"
+              },
+              "ts": 1782283337.875512
+            }
+          },
+          {
+            "agent_id": "micro-cognitive-187bf354",
+            "career": "cognitive",
+            "title": "Adaptive Cognitive Router",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "alive": true,
+            "goals": [
+              "Intent routing, salience, adaptive policy on MESIE bus."
+            ],
+            "interval_s": 20.0,
+            "history_len": 1,
+            "last": {
+              "pulse": {
+                "agent_id": "micro-cognitive-187bf354",
+                "career": "cognitive",
+                "cycles": 1,
+                "coherence": 0.6562,
+                "goals": [
+                  "Intent routing, salience, adaptive policy on MESIE bus."
+                ]
+              },
+              "result": {
+                "ok": true,
+                "career": "cognitive",
+                "mission": "Intent routing, salience, adaptive policy on MESIE bus.",
+                "note": "default micro pulse"
+              },
+              "ts": 1782283337.875512
+            }
+          },
+          {
+            "agent_id": "micro-satellite_watch-f0573a72",
+            "career": "satellite_watch",
+            "title": "Orbital Watch",
+            "cycles": 1,
+            "coherence": 0.6562,
+            "alive": true,
+            "goals": [
+              "Heartbeat + health telemetry for active micro fleet."
+            ],
+            "interval_s": 15.0,
+            "history_len": 1,
+            "last": {
+              "pulse": {
+                "agent_id": "micro-satellite_watch-f0573a72",
+                "career": "satellite_watch",
+                "cycles": 1,
+                "coherence": 0.6562,
+                "goals": [
+                  "Heartbeat + health telemetry for active micro fleet."
+                ]
+              },
+              "result": {
+                "ok": true,
+                "career": "satellite_watch",
+                "mission": "Heartbeat + health telemetry for active micro fleet.",
+                "note": "default micro pulse"
+              },
+              "ts": 1782283337.875512
+            }
+          }
+        ],
+        "ts": 1782283337.8765106
+      }
+    },
+    "latency_ms": 1.37,
+    "nova_version": "1.0.0",
+    "mesie_version": "0.4.0",
+    "sovereign": true
+  }
+}

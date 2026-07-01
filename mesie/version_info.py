@@ -1,9 +1,14 @@
 """Canonical release identifiers — single source for version bumps."""
 
-MESIE_VERSION = "0.3.6"
+MESIE_VERSION = "0.4.0"
 MAESI_SDK_VERSION = "1.4.3"
 
-# Subsystem releases bundled with MESIE 0.3.5 / MAESI SDK 1.4.2
+# NOVA sphere releases (MESIE 0.4.0)
+NOVA_VERSION = "1.0.0"
+MININOVA_VERSION = "1.0.0"
+NOVAMINI_VERSION = "1.0.0"
+
+# Subsystem releases bundled with MESIE 0.4.0 / MAESI SDK 1.4.3
 APPLIANCE_VERSION = "1.1.0"
 VIRTUAL_CHIP_VERSION = "1.2.0"
 SWARM_VERSION = "1.1.0"

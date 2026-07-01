@@ -1,0 +1,728 @@
+{
+  "sovereign": true,
+  "third_party": false,
+  "brand": "SOLUS",
+  "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+  "vault_size": 535,
+  "total_work_units": 949.9038,
+  "persist_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library\\sovereign_vault.json",
+  "last_entry": {
+    "vault_id": "286b5395641576d49c215ead",
+    "token_id": "78693973b278eea3f87de9f47413a2f8",
+    "receipt_id": "3b6aaf5d4dbbdae61a6a8cebece0e92e99936f5aa86c263fe08ee3dd57bc9c5f",
+    "embedding": [
+      0.13495270654012806,
+      0.10711871081622666,
+      0.10711871081622666,
+      0.14591761394651348,
+      0.12145743588611527,
+      0.10796216523210246,
+      0.2049594230578195,
+      0.11470980055910886,
+      0.7408710269300912,
+      0.0,
+      0.0,
+      0.0,
+      0.15309456757120066,
+      0.20163832129530854,
+      0.013151980489479277,
+      0.1318015608424161,
+      0.0,
+      0.21508087604832912,
+      0.0,
+      0.13292729172797058,
+      0.16278670226402947,
+      0.08181507833995263,
+      0.07591089742882205,
+      0.059885263527181834,
+      0.14085688745125868,
+      0.05398108261605123,
+      0.16278670226402947,
+      0.04807690170492063,
+      0.05819835469543023,
+      0.18302960824504869,
+      0.15435215810527148,
+      0.08181507833995263
+    ],
+    "composition": {
+      "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+      "composition_hash": "89b026576505c0705f8e578a7db33457",
+      "formal_models": {
+        "logic": {
+          "model_id": "solus-logic-prover",
+          "ok": true,
+          "brain": {
+            "conclusion": "logic_proof: moderate signal \u2014 monitor via mini heart",
+            "confidence": 0.7118,
+            "evidence": [
+              "mid-range confidence band"
+            ]
+          }
+        },
+        "reasoning": {
+          "model_id": "solus-reasoning-model",
+          "ok": true,
+          "brain": {
+            "conclusion": "reasoning: moderate signal \u2014 monitor via mini heart",
+            "confidence": 0.5515,
+            "evidence": [
+              "mid-range confidence band"
+            ]
+          }
+        },
+        "emergence": {
+          "model_id": "solus-emergence-model",
+          "ok": true,
+          "brain": {
+            "conclusion": "emergence: weak signal \u2014 invoke helper caretaker",
+            "confidence": 0.3057,
+            "evidence": [
+              "low confidence; escalate locally"
+            ]
+          }
+        },
+        "adaptation": {
+          "model_id": "solus-adaptation-model",
+          "ok": true,
+          "brain": {
+            "conclusion": "adaptation: moderate signal \u2014 monitor via mini heart",
+            "confidence": 0.5515,
+            "evidence": [
+              "mid-range confidence band"
+            ]
+          }
+        }
+      },
+      "proof_steps": 5,
+      "adapted": false,
+      "sovereign": true,
+      "third_party": false
+    },
+    "results": {
+      "conclusion": "reasoning: moderate signal \u2014 monitor via mini heart | emergence=0.0611",
+      "match_score": 0.6128,
+      "similarity": 0.6128,
+      "anomaly": null,
+      "logic_confidence": 0.7118,
+      "signal_ratio": 0.9375,
+      "emergence_score": 0.061149,
+      "composite_score": 0.6128,
+      "neighbors": 2,
+      "receipt_hash": "d868735025976ce8669c61dbc3e237da4121c050544da53da1cb5655e472c3e7"
+    },
+    "workflow": {
+      "workflow_id": "sovereign-local",
+      "steps": [],
+      "completed": null,
+      "arms": [
+        "native_ai",
+        "stream"
+      ]
+    },
+    "ai_patterns": {
+      "formal_models": [
+        "logic",
+        "reasoning",
+        "emergence",
+        "adaptation"
+      ],
+      "caretakers": [],
+      "pattern_xray": {
+        "n": 64,
+        "sqrt_n": 8.0,
+        "signal_count": 60,
+        "signal_ratio": 0.9375,
+        "depths": [
+          {
+            "index": 0,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5753,
+            "phi_depth": 3.4457,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 1,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5738,
+            "phi_depth": 3.4448,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 2,
+            "raw": 0.0001,
+            "normalized": 0.0001,
+            "z_score": -5.5676,
+            "phi_depth": 3.441,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 3,
+            "raw": 0.0004,
+            "normalized": 0.0004,
+            "z_score": -5.5442,
+            "phi_depth": 3.4265,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 4,
+            "raw": 0.0015,
+            "normalized": 0.0014,
+            "z_score": -5.467,
+            "phi_depth": 3.3788,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 5,
+            "raw": 0.0047,
+            "normalized": 0.0043,
+            "z_score": -5.2439,
+            "phi_depth": 3.2409,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 6,
+            "raw": 0.0126,
+            "normalized": 0.0115,
+            "z_score": -4.6814,
+            "phi_depth": 2.8933,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 7,
+            "raw": 0.0299,
+            "normalized": 0.0274,
+            "z_score": -3.448,
+            "phi_depth": 2.131,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 8,
+            "raw": 0.0628,
+            "normalized": 0.0576,
+            "z_score": -1.1069,
+            "phi_depth": 0.6841,
+            "is_signal": "False",
+            "classification": "noise"
+          },
+          {
+            "index": 9,
+            "raw": 0.1164,
+            "normalized": 0.1068,
+            "z_score": 2.7094,
+            "phi_depth": 1.6745,
+            "is_signal": "True",
+            "classification": "strong"
+          },
+          {
+            "index": 10,
+            "raw": 0.1905,
+            "normalized": 0.1747,
+            "z_score": 7.9837,
+            "phi_depth": 4.9342,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 11,
+            "raw": 0.2751,
+            "normalized": 0.2524,
+            "z_score": 14.0133,
+            "phi_depth": 8.6607,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 12,
+            "raw": 0.3509,
+            "normalized": 0.3219,
+            "z_score": 19.4055,
+            "phi_depth": 11.9933,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 13,
+            "raw": 0.395,
+            "normalized": 0.3624,
+            "z_score": 22.5463,
+            "phi_depth": 13.9344,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 14,
+            "raw": 0.3925,
+            "normalized": 0.3601,
+            "z_score": 22.3697,
+            "phi_depth": 13.8252,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 15,
+            "raw": 0.3443,
+            "normalized": 0.3159,
+            "z_score": 18.9382,
+            "phi_depth": 11.7045,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 16,
+            "raw": 0.2666,
+            "normalized": 0.2446,
+            "z_score": 13.4083,
+            "phi_depth": 8.2868,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 17,
+            "raw": 0.1824,
+            "normalized": 0.1673,
+            "z_score": 7.4079,
+            "phi_depth": 4.5783,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 18,
+            "raw": 0.1104,
+            "normalized": 0.1012,
+            "z_score": 2.2809,
+            "phi_depth": 1.4097,
+            "is_signal": "True",
+            "classification": "signal"
+          },
+          {
+            "index": 19,
+            "raw": 0.0596,
+            "normalized": 0.0547,
+            "z_score": -1.3292,
+            "phi_depth": 0.8215,
+            "is_signal": "False",
+            "classification": "noise"
+          },
+          {
+            "index": 20,
+            "raw": 0.0302,
+            "normalized": 0.0277,
+            "z_score": -3.4236,
+            "phi_depth": 2.1159,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 21,
+            "raw": 0.0176,
+            "normalized": 0.0161,
+            "z_score": -4.3237,
+            "phi_depth": 2.6722,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 22,
+            "raw": 0.0171,
+            "normalized": 0.0157,
+            "z_score": -4.3557,
+            "phi_depth": 2.692,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 23,
+            "raw": 0.0264,
+            "normalized": 0.0242,
+            "z_score": -3.6954,
+            "phi_depth": 2.2839,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 24,
+            "raw": 0.045,
+            "normalized": 0.0413,
+            "z_score": -2.3718,
+            "phi_depth": 1.4658,
+            "is_signal": "True",
+            "classification": "signal"
+          },
+          {
+            "index": 25,
+            "raw": 0.0732,
+            "normalized": 0.0672,
+            "z_score": -0.3642,
+            "phi_depth": 0.2251,
+            "is_signal": "False",
+            "classification": "noise"
+          },
+          {
+            "index": 26,
+            "raw": 0.1102,
+            "normalized": 0.1011,
+            "z_score": 2.2732,
+            "phi_depth": 1.4049,
+            "is_signal": "True",
+            "classification": "signal"
+          },
+          {
+            "index": 27,
+            "raw": 0.1529,
+            "normalized": 0.1403,
+            "z_score": 5.3125,
+            "phi_depth": 3.2833,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 28,
+            "raw": 0.1953,
+            "normalized": 0.1791,
+            "z_score": 8.3256,
+            "phi_depth": 5.1455,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 29,
+            "raw": 0.2294,
+            "normalized": 0.2105,
+            "z_score": 10.7566,
+            "phi_depth": 6.648,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 30,
+            "raw": 0.248,
+            "normalized": 0.2275,
+            "z_score": 12.0818,
+            "phi_depth": 7.467,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 31,
+            "raw": 0.2467,
+            "normalized": 0.2264,
+            "z_score": 11.9913,
+            "phi_depth": 7.411,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 32,
+            "raw": 0.2259,
+            "normalized": 0.2072,
+            "z_score": 10.5068,
+            "phi_depth": 6.4935,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 33,
+            "raw": 0.1903,
+            "normalized": 0.1746,
+            "z_score": 7.9729,
+            "phi_depth": 4.9275,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 34,
+            "raw": 0.1475,
+            "normalized": 0.1354,
+            "z_score": 4.9275,
+            "phi_depth": 3.0454,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 35,
+            "raw": 0.1052,
+            "normalized": 0.0966,
+            "z_score": 1.917,
+            "phi_depth": 1.1847,
+            "is_signal": "True",
+            "classification": "signal"
+          },
+          {
+            "index": 36,
+            "raw": 0.0691,
+            "normalized": 0.0634,
+            "z_score": -0.6572,
+            "phi_depth": 0.4061,
+            "is_signal": "False",
+            "classification": "noise"
+          },
+          {
+            "index": 37,
+            "raw": 0.0417,
+            "normalized": 0.0383,
+            "z_score": -2.6045,
+            "phi_depth": 1.6097,
+            "is_signal": "True",
+            "classification": "signal"
+          },
+          {
+            "index": 38,
+            "raw": 0.0232,
+            "normalized": 0.0213,
+            "z_score": -3.9241,
+            "phi_depth": 2.4252,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 39,
+            "raw": 0.0119,
+            "normalized": 0.0109,
+            "z_score": -4.7309,
+            "phi_depth": 2.9238,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 40,
+            "raw": 0.0056,
+            "normalized": 0.0051,
+            "z_score": -5.178,
+            "phi_depth": 3.2002,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 41,
+            "raw": 0.0024,
+            "normalized": 0.0022,
+            "z_score": -5.4034,
+            "phi_depth": 3.3395,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 42,
+            "raw": 0.001,
+            "normalized": 0.0009,
+            "z_score": -5.507,
+            "phi_depth": 3.4035,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 43,
+            "raw": 0.0004,
+            "normalized": 0.0003,
+            "z_score": -5.5505,
+            "phi_depth": 3.4304,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 44,
+            "raw": 0.0001,
+            "normalized": 0.0001,
+            "z_score": -5.5671,
+            "phi_depth": 3.4407,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 45,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.573,
+            "phi_depth": 3.4443,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 46,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5749,
+            "phi_depth": 3.4455,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 47,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5754,
+            "phi_depth": 3.4458,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 48,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 49,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 50,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 51,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 52,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 53,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 54,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 55,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 56,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 57,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 58,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 59,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 60,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 61,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 62,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          },
+          {
+            "index": 63,
+            "raw": 0.0,
+            "normalized": 0.0,
+            "z_score": -5.5756,
+            "phi_depth": 3.4459,
+            "is_signal": "True",
+            "classification": "extreme"
+          }
+        ],
+        "engine": "solus-local"
+      },
+      "emerged": null,
+      "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation"
+    },
+    "work_units": 3.444616,
+    "chain_index": 9,
+    "record_id": "ref-bio-eeg-001",
+    "cycle_id": "sovereign-local_sov_del",
+    "timestamp_ms": 1782328797479.92,
+    "sovereign": true,
+    "third_party": false,
+    "brand": "SOLUS",
+    "engine": "solus-local"
+  }
+}

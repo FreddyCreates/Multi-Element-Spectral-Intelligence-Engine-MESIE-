@@ -1,0 +1,134 @@
+{
+  "mesh_version": "1.2.0",
+  "ts": 1782465763.8757308,
+  "node": {
+    "protocol": "VP-MESH",
+    "version": "1.2.0",
+    "node_id": "a39123fd04a4",
+    "processor_url": "http://127.0.0.1:8750",
+    "mcast_group": "239.192.77.2",
+    "port": 37542,
+    "propagation_tier": "UHF/Terrestrial",
+    "peers": 8,
+    "beacons_sent": 1,
+    "beacons_received": 1,
+    "peer_dir": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library\\mesh_peers\\vp_nodes",
+    "sovereign": true,
+    "airgapped_lan": true
+  },
+  "peers": [
+    {
+      "node_id": "0fd333fb5f50",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465688.678386,
+      "healthy": false
+    },
+    {
+      "node_id": "25a828e74e67",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465400.7381856,
+      "healthy": false
+    },
+    {
+      "node_id": "73ba10a809ce",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465635.0137842,
+      "healthy": false
+    },
+    {
+      "node_id": "9ca55e9e4924",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465665.5802827,
+      "healthy": false
+    },
+    {
+      "node_id": "b13569a9d446",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465724.1427593,
+      "healthy": false
+    },
+    {
+      "node_id": "b198e80cd5fb",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465411.739754,
+      "healthy": false
+    },
+    {
+      "node_id": "c6993e8f2bad",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465421.5470324,
+      "healthy": false
+    },
+    {
+      "node_id": "fe4ac9227788",
+      "hostname": "CommandCenter",
+      "lan_ip": "192.168.12.127",
+      "processor_url": "http://127.0.0.1:8750",
+      "operations": [],
+      "threat_p50_ms": null,
+      "lrc_id": null,
+      "last_seen": 1782465479.0945144,
+      "healthy": false
+    }
+  ],
+  "healthy_peers": 0,
+  "last_pulse": {
+    "ok": true,
+    "node_id": "a39123fd04a4",
+    "peers_seen": 8,
+    "ota_frames_received": 48,
+    "ota_mesh_ok": true,
+    "beacons_sent": 1,
+    "beacons_received": 1,
+    "sovereign_bundle_hash": "eed7664da2182ea339a1314e",
+    "routed_local": true,
+    "latency_ms": 20844.22,
+    "propagation_tier": "UHF/Terrestrial"
+  },
+  "route_target": {
+    "node_id": "a39123fd04a4",
+    "hostname": "CommandCenter",
+    "lan_ip": "192.168.12.127",
+    "processor_url": "http://127.0.0.1:8750",
+    "operations": [],
+    "threat_p50_ms": null,
+    "lrc_id": null,
+    "last_seen": 1782465763.8757308,
+    "healthy": true
+  }
+}

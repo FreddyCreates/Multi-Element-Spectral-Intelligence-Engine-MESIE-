@@ -1,0 +1,118 @@
+{
+  "product": "MESIE Virtual Processor",
+  "sku": "MESIE-VP-1.2",
+  "issuer": "Medina Sovereign Intelligence / Builder Lab",
+  "certifications": [
+    {
+      "cert_id": "VP-REL-001",
+      "title": "Virtual Processor Release Gate",
+      "tier": "measured_local",
+      "status": "active",
+      "scope": "Embed, match, benchmark, mesh, LRC accounting",
+      "evidence_paths": [
+        "deliverables/processor/VIRTUAL_PROCESSOR_RELEASE.json"
+      ],
+      "honest_limit": "Single-node harness; customer repro extends corroboration",
+      "valid_for_public_claim": true
+    },
+    {
+      "cert_id": "VS-HIL-001",
+      "title": "Virtual Silicon RF HIL Lane",
+      "tier": "simulated_validated",
+      "status": "active",
+      "scope": "Virtual SDR ADC → NSRF binary → field bridge",
+      "evidence_paths": [
+        "deliverables/processor/official/VIRTUAL_PROCESSOR_COMMERCIAL_TEST_REPORT.json"
+      ],
+      "honest_limit": "Software-certified only — not physical fab or SDR range",
+      "valid_for_public_claim": true
+    },
+    {
+      "cert_id": "VP-MESH-001",
+      "title": "VP-MESH Network Protocol",
+      "tier": "measured_local",
+      "status": "active",
+      "scope": "UDP multicast beacons + OTA gossip + LAN peer registry",
+      "evidence_paths": [
+        "deliverables/processor/VP_MESH_SOAK.json",
+        "deliverables/processor/VP_MESH_STATE.json"
+      ],
+      "honest_limit": "LAN multicast today; multi-host WAN extension is roadmap",
+      "valid_for_public_claim": true
+    },
+    {
+      "cert_id": "SOLUS-ORG-001",
+      "title": "SOLUS Formal Organism",
+      "tier": "documented_reference",
+      "status": "active",
+      "scope": "Logic ⊗ Reasoning ⊗ Emergence ⊗ Adaptation — zero third-party models",
+      "evidence_paths": [
+        "mesie/sdk/solus/"
+      ],
+      "honest_limit": "Own formal models — not third-party LLM certification",
+      "valid_for_public_claim": true
+    },
+    {
+      "cert_id": "NOVA-ORG-070",
+      "title": "NOVA 70-Career IT Organization",
+      "tier": "measured_local",
+      "status": "active",
+      "scope": "Infrastructure micro fleet — laws, protocols, library, release",
+      "evidence_paths": [
+        "deliverables/nova/NOVA_RUNTIME_STATE.json"
+      ],
+      "honest_limit": "Software organization runtime — not human ITIL audit",
+      "valid_for_public_claim": true
+    },
+    {
+      "cert_id": "SIG-PLANE-001",
+      "title": "Universal Signal Plane",
+      "tier": "measured_local",
+      "status": "active",
+      "scope": "Text, JSON, events, files → spectral fingerprint + analyst text",
+      "evidence_paths": [
+        "tests/test_universal_signals.py"
+      ],
+      "honest_limit": "Signal translation layer — not NLP benchmark leaderboard",
+      "valid_for_public_claim": true
+    },
+    {
+      "cert_id": "MLPERF-COMM-001",
+      "title": "MLPerf Community Formal Pack",
+      "tier": "documented_reference",
+      "status": "active",
+      "scope": "Compliance manifest for community pack — not official MLPerf board",
+      "evidence_paths": [
+        "deliverables/mlperf_submit/compliance_manifest.json"
+      ],
+      "honest_limit": "Not submitted to official MLPerf leaderboard",
+      "valid_for_public_claim": false
+    },
+    {
+      "cert_id": "DATA-SOV-001",
+      "title": "Data Sovereignty / Airgapped Path",
+      "tier": "documented_reference",
+      "status": "active",
+      "scope": "Local vault, LRC ledger, no third-party inference on sovereign path",
+      "evidence_paths": [
+        "deliverables/processor/official/VIRTUAL_PROCESSOR_COMPLIANCE_PACK.json"
+      ],
+      "honest_limit": "Architectural compliance — not FedRAMP/ISO audit certificate",
+      "valid_for_public_claim": true
+    },
+    {
+      "cert_id": "COMBAT-NOT-001",
+      "title": "Not Combat / DoD Accredited",
+      "tier": "gap",
+      "status": "acknowledged",
+      "scope": "Explicit non-claim — software scenario validation only",
+      "evidence_paths": [],
+      "honest_limit": "Do not claim combat certification or DoD accreditation",
+      "valid_for_public_claim": false
+    }
+  ],
+  "active_count": 8,
+  "total_count": 9,
+  "public_claim_rule": "Only certifications with valid_for_public_claim=true may appear on marketing.",
+  "generated_at": "2026-06-26T09:22:43Z"
+}

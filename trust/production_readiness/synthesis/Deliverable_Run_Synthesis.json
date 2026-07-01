@@ -1,0 +1,299 @@
+{
+  "generated_at": "2026-06-25T20:26:33Z",
+  "runs": [
+    {
+      "run_key": "sov_del",
+      "suite": "sovereign_local",
+      "files": {
+        "NativeAI_sov_del.json": {
+          "committed_snapshot": "deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_committed_full_sov_del\\NativeAI_sov_del.json",
+          "partial_snapshot": "deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_partial_local_sov_del\\NativeAI_sov_del.json",
+          "canonical_restored_from": "git HEAD (full run)",
+          "synthesis": {
+            "labels": [
+              "committed_full",
+              "partial_local"
+            ],
+            "top_level_keys": {
+              "only_a": [],
+              "only_b": [],
+              "shared": [
+                "brand",
+                "composition",
+                "conclusion",
+                "elapsed_ms",
+                "formal_models",
+                "formula",
+                "generated_at",
+                "minted_token",
+                "plain_summary",
+                "query",
+                "receipt_chain",
+                "run_id",
+                "sovereign",
+                "third_party",
+                "token_bundle",
+                "vault",
+                "vault_export"
+              ]
+            },
+            "field_changes": [
+              {
+                "field": "composition",
+                "type": "object",
+                "json_chars_a": 2410,
+                "json_chars_b": 2404,
+                "delta_chars": -6
+              },
+              {
+                "field": "conclusion",
+                "type": "scalar",
+                "a": "reasoning: moderate signal \u2014 monitor via mini heart | emergence=0.1404",
+                "b": "reasoning: moderate signal \u2014 monitor via mini heart | emergence=0.0611"
+              },
+              {
+                "field": "elapsed_ms",
+                "type": "scalar",
+                "a": 411.87,
+                "b": 645.68
+              },
+              {
+                "field": "formal_models",
+                "type": "object",
+                "json_chars_a": 854,
+                "json_chars_b": 858,
+                "delta_chars": 4
+              },
+              {
+                "field": "generated_at",
+                "type": "scalar",
+                "a": "2026-06-07T18:02:39Z",
+                "b": "2026-06-24T19:19:58Z"
+              },
+              {
+                "field": "minted_token",
+                "type": "object",
+                "json_chars_a": 172,
+                "json_chars_b": 172,
+                "delta_chars": 0
+              },
+              {
+                "field": "plain_summary",
+                "type": "scalar",
+                "a": "Native AI [SOLUS]: sov_del \u2014 Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation. Neighbors=2, token=f8467161f7cb\u2026, vault=232, work=214.7248, 411.9ms local.",
+                "b": "Native AI [SOLUS]: sov_del \u2014 Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation. Neighbors=2, token=78693973b278\u2026, vault=535, work=949.9038, 645.7ms local."
+              },
+              {
+                "field": "query",
+                "type": "object",
+                "json_chars_a": 393,
+                "json_chars_b": 389,
+                "delta_chars": -4
+              },
+              {
+                "field": "receipt_chain",
+                "type": "object",
+                "json_chars_a": 595,
+                "json_chars_b": 595,
+                "delta_chars": 0
+              },
+              {
+                "field": "token_bundle",
+                "type": "object",
+                "json_chars_a": 242,
+                "json_chars_b": 242,
+                "delta_chars": 0
+              },
+              {
+                "field": "vault",
+                "type": "object",
+                "json_chars_a": 92,
+                "json_chars_b": 92,
+                "delta_chars": 0
+              },
+              {
+                "field": "vault_export",
+                "type": "object",
+                "json_chars_a": 21499,
+                "json_chars_b": 12208,
+                "delta_chars": -9291
+              }
+            ]
+          }
+        },
+        "NativeAI_sov_del_vault.json": {
+          "committed_snapshot": "deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_committed_full_sov_del\\NativeAI_sov_del_vault.json",
+          "partial_snapshot": "deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_partial_local_sov_del\\NativeAI_sov_del_vault.json",
+          "canonical_restored_from": "git HEAD (full run)",
+          "synthesis": {
+            "labels": [
+              "committed_full",
+              "partial_local"
+            ],
+            "top_level_keys": {
+              "only_a": [],
+              "only_b": [],
+              "shared": [
+                "brand",
+                "formula",
+                "last_entry",
+                "persist_path",
+                "sovereign",
+                "third_party",
+                "total_work_units",
+                "vault_size"
+              ]
+            },
+            "field_changes": [
+              {
+                "field": "last_entry",
+                "type": "object",
+                "json_chars_a": 21185,
+                "json_chars_b": 11894,
+                "delta_chars": -9291
+              },
+              {
+                "field": "total_work_units",
+                "type": "scalar",
+                "a": 214.7248,
+                "b": 949.9038
+              },
+              {
+                "field": "vault_size",
+                "type": "scalar",
+                "a": 232,
+                "b": 535
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "run_key": "theater_alpha_week_001",
+      "suite": "mission_world",
+      "files": {
+        "theater_alpha_week_001_state.json": {
+          "committed_snapshot": "library\\mission_worlds\\runs\\20260625T202633Z_committed_full_theater_alpha_week_001\\theater_alpha_week_001_state.json",
+          "partial_snapshot": "library\\mission_worlds\\runs\\20260625T202633Z_partial_local_theater_alpha_week_001\\theater_alpha_week_001_state.json",
+          "canonical_restored_from": "git HEAD (full run)",
+          "synthesis": {
+            "labels": [
+              "committed_full",
+              "partial_rerun"
+            ],
+            "top_level_keys": {
+              "only_a": [],
+              "only_b": [
+                "spacetime_summary"
+              ],
+              "shared": [
+                "agents_deployed_peak",
+                "attrition_cumulative",
+                "campaign",
+                "jam_level",
+                "mission_clock_started",
+                "operational_mode",
+                "operations_completed",
+                "sim_day",
+                "sim_hour",
+                "theater",
+                "tick_count",
+                "ticks",
+                "world_id"
+              ]
+            },
+            "field_changes": [
+              {
+                "field": "agents_deployed_peak",
+                "type": "scalar",
+                "a": 10000,
+                "b": 500
+              },
+              {
+                "field": "attrition_cumulative",
+                "type": "scalar",
+                "a": 0.564,
+                "b": 0.023999999999999997
+              },
+              {
+                "field": "jam_level",
+                "type": "scalar",
+                "a": 0.9000000000000001,
+                "b": 0.0
+              },
+              {
+                "field": "mission_clock_started",
+                "type": "scalar",
+                "a": "2026-06-08T06:07:38Z",
+                "b": "2026-06-24T19:20:41Z"
+              },
+              {
+                "field": "operations_completed",
+                "type": "scalar",
+                "a": 56,
+                "b": 8
+              },
+              {
+                "field": "sim_day",
+                "type": "scalar",
+                "a": 8,
+                "b": 2
+              },
+              {
+                "field": "tick_count",
+                "type": "scalar",
+                "a": 56,
+                "b": 8
+              },
+              {
+                "field": "ticks",
+                "type": "list",
+                "len_a": 56,
+                "len_b": 8,
+                "delta": -48,
+                "item_keys_only_a": [],
+                "item_keys_only_b": [
+                  "spacetime_action",
+                  "spacetime_route_ok",
+                  "spacetime_tier",
+                  "spacetime_zone"
+                ]
+              }
+            ],
+            "theater_detail": {
+              "ticks_lost": 48,
+              "ticks_gained": 0,
+              "operations_in_old_only": [
+                "op_day2_ew_probe",
+                "op_day3_strike_window",
+                "op_day4_jam_escalation",
+                "op_day5_attrition_reform",
+                "op_day6_10k_surge",
+                "op_day7_sustainment"
+              ],
+              "operations_in_new_only": [],
+              "peak_agents": {
+                "old": 10000,
+                "new": 500
+              },
+              "attrition": {
+                "old": 0.564,
+                "new": 0.023999999999999997
+              },
+              "jam_level": {
+                "old": 0.9000000000000001,
+                "new": 0.0
+              },
+              "sim_progress": {
+                "old": "day 8 hour 0",
+                "new": "day 2 hour 0"
+              },
+              "interpretation": "Partial rerun kept only early-day ISR baseline ticks; full week ops (days 2\u20137, 10K surge) are present in the committed snapshot only."
+            }
+          }
+        }
+      }
+    }
+  ]
+}

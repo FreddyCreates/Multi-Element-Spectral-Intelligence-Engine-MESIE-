@@ -1,0 +1,31 @@
+{
+  "product": "MESIE Virtual Processor",
+  "sku": "MESIE-VP-1.2",
+  "entity": "Medina Sovereign Intelligence / Builder Lab",
+  "sovereign_principles": [
+    "Python executes; LLMs orchestrate — no chat-only product loops",
+    "Third-party inference disabled on sovereign path (SOLUS + native voice optional)",
+    "Local LRC receipt chain — measured work units per operation",
+    "Airgapped LAN mesh — VP-MESH + sovereign peer bundles",
+    "φ-laws: RECITAL_PLUS_ONE, DUAL_READ, φ-DECAY (Medina Protocol reference)"
+  ],
+  "data_handling": {
+    "default_storage": "Local deliverables/ + .processor_vault/",
+    "mesh_peer_export": "library/mesh_peers/ — LAN file-drop only",
+    "cloud_required": false,
+    "pii_note": "Operator responsible for signal payloads sent to read-signal/generate-text"
+  },
+  "commercial_disclaimers": [
+    "Software validation and measured benchmarks — not combat certification.",
+    "Virtual silicon RF HIL is software-certified; physical SDR range is a named gap.",
+    "MLPerf community pack is not an official MLPerf board submission.",
+    "10K swarm figures are in-process/cluster simulation unless multi-host soak artifact cited."
+  ],
+  "export_control_note": "Consult counsel for ITAR/EAR on defense domain reference spectra bundled in SDK.",
+  "audit_artifacts": [
+    "deliverables/processor/official/VIRTUAL_PROCESSOR_COMMERCIAL_TEST_REPORT.json",
+    "deliverables/nova/NOVA_SHOWCASE.json",
+    "deliverables/processor/VIRTUAL_PROCESSOR_RELEASE.json"
+  ],
+  "generated_at": "2026-06-26T09:20:30Z"
+}

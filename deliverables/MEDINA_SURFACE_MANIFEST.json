@@ -1,0 +1,1211 @@
+{
+  "product": "Medina Surface",
+  "operator": "Medin",
+  "mesie_version": "0.4.0",
+  "sdk_version": "1.4.3",
+  "generated_at": "2026-06-25T23:48:29Z",
+  "instruction_for_agents": "Call medina_surface first. Do not reinvent. Use invoke(system, action) \u2014 talk is external; solids come from here.",
+  "agent_entrypoints": [
+    {
+      "id": "surface_cli",
+      "command": "python scripts/medina_surface.py --status"
+    },
+    {
+      "id": "surface_invoke",
+      "command": "python scripts/medina_surface.py invoke --system mesie --action <tool-id>"
+    },
+    {
+      "id": "surface_http",
+      "url": "http://127.0.0.1:8760/surface/status"
+    },
+    {
+      "id": "processor_http",
+      "url": "http://127.0.0.1:8750/processor/status"
+    },
+    {
+      "id": "loom_mcp",
+      "note": "MCP server loom \u2014 loom_status, skills_run, runspace_exec, knowledge_mint"
+    },
+    {
+      "id": "processor_platform",
+      "note": "docs/MESIE_Virtual_Processor_Platform.md \u2014 HTTP compute platform, NOT regular Loom MCP"
+    },
+    {
+      "id": "mesie_cli",
+      "command": "python -m mesie.tools.cli run <tool-id>"
+    }
+  ],
+  "counts": {
+    "systems": 10,
+    "papers": 4,
+    "deliverables": 80,
+    "services": 3
+  },
+  "systems": [
+    {
+      "id": "mesie",
+      "name": "MESIE / MAESI / NeuroAIX",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-",
+      "callable_via": "medina_surface invoke --system mesie",
+      "proof": {
+        "exists": true,
+        "bytes": 8192,
+        "mtime": 1782369076.1383843
+      }
+    },
+    {
+      "id": "loom",
+      "name": "Loom MCP + Medina Vault",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\.medina",
+      "callable_via": "medina_surface invoke --system loom",
+      "proof": {
+        "exists": true,
+        "bytes": 4096,
+        "mtime": 1782431262.636114
+      }
+    },
+    {
+      "id": "memory-desk",
+      "name": "Sovereign Memory Desk",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\Documents\\Enterprise-OS-intelligence\\sovereign-memory-desk",
+      "callable_via": "medina_surface invoke --system memory-desk",
+      "proof": {
+        "exists": false
+      }
+    },
+    {
+      "id": "command-platform",
+      "name": "Command Platform (ICP organism)",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\command-platform",
+      "callable_via": "medina_surface invoke --system command-platform",
+      "proof": {
+        "exists": true,
+        "bytes": 4096,
+        "mtime": 1775192976.74732
+      }
+    },
+    {
+      "id": "neuroswarm",
+      "name": "NeuroSwarmAI",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\NEUROSWARMAI",
+      "callable_via": "medina_surface invoke --system neuroswarm",
+      "proof": {
+        "exists": true,
+        "bytes": 16384,
+        "mtime": 1781114414.5030272
+      }
+    },
+    {
+      "id": "pegasus",
+      "name": "Spatium Computationis",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\pegasus-battleops\\spatium-computationis",
+      "callable_via": "medina_surface invoke --system pegasus",
+      "proof": {
+        "exists": true,
+        "bytes": 8192,
+        "mtime": 1781660450.433584
+      }
+    },
+    {
+      "id": "terminalis",
+      "name": "Terminalis Native Language Runtime",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\OneDrive\\Documents\\Terminalis_Native_Language_Runtime",
+      "callable_via": "medina_surface invoke --system terminalis",
+      "proof": {
+        "exists": true,
+        "bytes": 4096,
+        "mtime": 1782243480.4904807
+      }
+    },
+    {
+      "id": "parallax",
+      "name": "PARALLAX Exchange Clearinghouse",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\PARALLAX-Exchange-Clearinghouse",
+      "callable_via": "medina_surface invoke --system parallax",
+      "proof": {
+        "exists": true,
+        "bytes": 8192,
+        "mtime": 1780265303.7282789
+      }
+    },
+    {
+      "id": "gptrepo",
+      "name": "GPTREPO / Auro protocols",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\GPTREPO",
+      "callable_via": "medina_surface invoke --system gptrepo",
+      "proof": {
+        "exists": true,
+        "bytes": 24576,
+        "mtime": 1781568888.1020098
+      }
+    },
+    {
+      "id": "coding-lab",
+      "name": "Medina Coding Lab \u2014 2 seats + repo fleet + micro agents",
+      "kind": "system",
+      "path": "C:\\Users\\Medin\\Documents\\Enterprise-OS-intelligence\\medina-coding-lab",
+      "callable_via": "medina_surface invoke --system coding-lab",
+      "proof": {
+        "exists": false
+      }
+    }
+  ],
+  "papers": [
+    {
+      "id": "paper_04_agent_spacetime",
+      "name": "paper 04 agent spacetime",
+      "kind": "paper",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\docs\\papers\\paper_04_agent_spacetime.md",
+      "callable_via": "read path",
+      "proof": {
+        "exists": true,
+        "bytes": 3934,
+        "mtime": 1782282513.1574018
+      }
+    },
+    {
+      "id": "paper_I_de_spectris_mundi",
+      "name": "paper I de spectris mundi",
+      "kind": "paper",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\docs\\papers\\paper_I_de_spectris_mundi.md",
+      "callable_via": "read path",
+      "proof": {
+        "exists": true,
+        "bytes": 12870,
+        "mtime": 1780558553.6913035
+      }
+    },
+    {
+      "id": "paper_II_machina_cogitans",
+      "name": "paper II machina cogitans",
+      "kind": "paper",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\docs\\papers\\paper_II_machina_cogitans.md",
+      "callable_via": "read path",
+      "proof": {
+        "exists": true,
+        "bytes": 13189,
+        "mtime": 1780558553.6913035
+      }
+    },
+    {
+      "id": "paper_III_nexus_intelligentiae",
+      "name": "paper III nexus intelligentiae",
+      "kind": "paper",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\docs\\papers\\paper_III_nexus_intelligentiae.md",
+      "callable_via": "read path",
+      "proof": {
+        "exists": true,
+        "bytes": 20535,
+        "mtime": 1780558553.6899161
+      }
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "AISVectorPolyglot_Integration_Report",
+      "name": "AISVectorPolyglot_Integration_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\AISVectorPolyglot_Integration_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 5969,
+        "mtime": 1780701333.5627217
+      }
+    },
+    {
+      "id": "Auro_Native_Speaking_Manifest",
+      "name": "Auro_Native_Speaking_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\Auro_Native_Speaking_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 8832,
+        "mtime": 1782282513.1176274
+      }
+    },
+    {
+      "id": "Auro_Voice_Session",
+      "name": "Auro_Voice_Session.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\Auro_Voice_Session.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 27122,
+        "mtime": 1782282513.1176274
+      }
+    },
+    {
+      "id": "deploy/MESIE_Service_Catalog",
+      "name": "MESIE_Service_Catalog.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\MESIE_Service_Catalog.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 3230,
+        "mtime": 1782419379.246837
+      }
+    },
+    {
+      "id": "deploy/sandbox/medina-surface/bundle",
+      "name": "bundle.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\medina-surface\\bundle.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1507,
+        "mtime": 1782408954.7514482
+      }
+    },
+    {
+      "id": "deploy/sandbox/medina-surface/manifest",
+      "name": "manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\medina-surface\\manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 440,
+        "mtime": 1782408954.7403243
+      }
+    },
+    {
+      "id": "deploy/sandbox/novamini-http/bundle",
+      "name": "bundle.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\novamini-http\\bundle.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1505,
+        "mtime": 1782408954.7707007
+      }
+    },
+    {
+      "id": "deploy/sandbox/novamini-http/manifest",
+      "name": "manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\novamini-http\\manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 2526,
+        "mtime": 1782408954.7569602
+      }
+    },
+    {
+      "id": "deploy/sandbox/robotics-satellite/bundle",
+      "name": "bundle.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\robotics-satellite\\bundle.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1530,
+        "mtime": 1782408954.783947
+      }
+    },
+    {
+      "id": "deploy/sandbox/robotics-satellite/manifest",
+      "name": "manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\robotics-satellite\\manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 585,
+        "mtime": 1782408954.771706
+      }
+    },
+    {
+      "id": "deploy/sandbox/virtual-processor/bundle",
+      "name": "bundle.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor\\bundle.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1732,
+        "mtime": 1782408954.732816
+      }
+    },
+    {
+      "id": "deploy/sandbox/virtual-processor/manifest",
+      "name": "manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor\\manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1885,
+        "mtime": 1782408954.7187989
+      }
+    },
+    {
+      "id": "deploy/sandbox/virtual-processor/mcp-snippet",
+      "name": "mcp-snippet.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\deploy\\sandbox\\virtual-processor\\mcp-snippet.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 616,
+        "mtime": 1782408954.7218027
+      }
+    },
+    {
+      "id": "Enterprise_AI_Suite_Report",
+      "name": "Enterprise_AI_Suite_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\Enterprise_AI_Suite_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 103929,
+        "mtime": 1782282513.119133
+      }
+    },
+    {
+      "id": "Is_This_True_Response",
+      "name": "Is_This_True_Response.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\Is_This_True_Response.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 9781,
+        "mtime": 1782282513.119133
+      }
+    },
+    {
+      "id": "MAESI_Fast_Compute_Benchmark",
+      "name": "MAESI_Fast_Compute_Benchmark.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MAESI_Fast_Compute_Benchmark.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 159,
+        "mtime": 1782431262.38948
+      }
+    },
+    {
+      "id": "MAESI_SDK_Major_Benchmarks",
+      "name": "MAESI_SDK_Major_Benchmarks.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MAESI_SDK_Major_Benchmarks.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 12512,
+        "mtime": 1782294502.9472754
+      }
+    },
+    {
+      "id": "MAESI_SDK_Run_Report",
+      "name": "MAESI_SDK_Run_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MAESI_SDK_Run_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 918,
+        "mtime": 1782275568.0574064
+      }
+    },
+    {
+      "id": "MEDINA_SURFACE_MANIFEST",
+      "name": "MEDINA_SURFACE_MANIFEST.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MEDINA_SURFACE_MANIFEST.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 43346,
+        "mtime": 1782431254.1451173
+      }
+    },
+    {
+      "id": "MERSD_Zenodo_Release_Manifest",
+      "name": "MERSD_Zenodo_Release_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MERSD_Zenodo_Release_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1559,
+        "mtime": 1782282513.1211364
+      }
+    },
+    {
+      "id": "MESIE_Appliance_Manifest",
+      "name": "MESIE_Appliance_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Appliance_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1307,
+        "mtime": 1782282513.1211364
+      }
+    },
+    {
+      "id": "mesie_benchmark_receipt",
+      "name": "mesie_benchmark_receipt.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mesie_benchmark_receipt.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 805,
+        "mtime": 1782282555.6059115
+      }
+    },
+    {
+      "id": "MESIE_Chaos_Technical_50_Report",
+      "name": "MESIE_Chaos_Technical_50_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Chaos_Technical_50_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 12428,
+        "mtime": 1780700920.7728443
+      }
+    },
+    {
+      "id": "MESIE_Cluster_Edge_Report",
+      "name": "MESIE_Cluster_Edge_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Cluster_Edge_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1263,
+        "mtime": 1782282513.1251442
+      }
+    },
+    {
+      "id": "MESIE_Deployment_Doctrine",
+      "name": "MESIE_Deployment_Doctrine.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Deployment_Doctrine.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 3944,
+        "mtime": 1782282513.1251442
+      }
+    },
+    {
+      "id": "MESIE_Enterprise_Chaos_Flow_100_Report",
+      "name": "MESIE_Enterprise_Chaos_Flow_100_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Enterprise_Chaos_Flow_100_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 21321,
+        "mtime": 1782282513.1261437
+      }
+    },
+    {
+      "id": "MESIE_Enterprise_Drone_Defense_Offense_Thesis",
+      "name": "MESIE_Enterprise_Drone_Defense_Offense_Thesis.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Enterprise_Drone_Defense_Offense_Thesis.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4006,
+        "mtime": 1782282513.1271439
+      }
+    },
+    {
+      "id": "MESIE_Field_Access_Report",
+      "name": "MESIE_Field_Access_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Field_Access_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4820,
+        "mtime": 1782282513.1271439
+      }
+    },
+    {
+      "id": "MESIE_Interior_DataCenter_Manifest",
+      "name": "MESIE_Interior_DataCenter_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Interior_DataCenter_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 8363,
+        "mtime": 1782282513.1281438
+      }
+    },
+    {
+      "id": "MESIE_Monte_Carlo_Enterprise_Report",
+      "name": "MESIE_Monte_Carlo_Enterprise_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Monte_Carlo_Enterprise_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 6214,
+        "mtime": 1782282513.1291442
+      }
+    },
+    {
+      "id": "MESIE_Multi_Domain_Suite_Report",
+      "name": "MESIE_Multi_Domain_Suite_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Multi_Domain_Suite_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 13583,
+        "mtime": 1780558989.87078
+      }
+    },
+    {
+      "id": "MESIE_Multi_Enterprise_20_Report",
+      "name": "MESIE_Multi_Enterprise_20_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Multi_Enterprise_20_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 7173,
+        "mtime": 1782282513.1296494
+      }
+    },
+    {
+      "id": "MESIE_Native_Tools_Catalog",
+      "name": "MESIE_Native_Tools_Catalog.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Native_Tools_Catalog.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 38098,
+        "mtime": 1782282513.1306546
+      }
+    },
+    {
+      "id": "MESIE_Pro_Update_Report",
+      "name": "MESIE_Pro_Update_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Pro_Update_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 9936,
+        "mtime": 1782282513.1306546
+      }
+    },
+    {
+      "id": "MESIE_Production_Tiers_Report",
+      "name": "MESIE_Production_Tiers_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Production_Tiers_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4018,
+        "mtime": 1782282513.1321602
+      }
+    },
+    {
+      "id": "MESIE_Release_Readiness",
+      "name": "MESIE_Release_Readiness.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Release_Readiness.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1124,
+        "mtime": 1782282513.1331656
+      }
+    },
+    {
+      "id": "MESIE_SamGov_Contractor_Edition",
+      "name": "MESIE_SamGov_Contractor_Edition.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_SamGov_Contractor_Edition.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 3602,
+        "mtime": 1782282513.1331656
+      }
+    },
+    {
+      "id": "MESIE_Scenario_Simulation_Report",
+      "name": "MESIE_Scenario_Simulation_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Scenario_Simulation_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 27842,
+        "mtime": 1782282513.134166
+      }
+    },
+    {
+      "id": "MESIE_Sovereign_Local_120_Report",
+      "name": "MESIE_Sovereign_Local_120_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MESIE_Sovereign_Local_120_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 29920,
+        "mtime": 1782282513.1351662
+      }
+    },
+    {
+      "id": "mininova/MININOVA_Sphere_Manifest",
+      "name": "MININOVA_Sphere_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mininova\\MININOVA_Sphere_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 8531,
+        "mtime": 1782283337.880752
+      }
+    },
+    {
+      "id": "mission_worlds/theater_alpha_week_001_week_report",
+      "name": "theater_alpha_week_001_week_report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mission_worlds\\theater_alpha_week_001_week_report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 39260,
+        "mtime": 1782282513.1415818
+      }
+    },
+    {
+      "id": "mlperf_submissions/compliance_manifest",
+      "name": "compliance_manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\compliance_manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 926,
+        "mtime": 1782282513.1415818
+      }
+    },
+    {
+      "id": "mlperf_submissions/latest_submission",
+      "name": "latest_submission.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\latest_submission.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4889,
+        "mtime": 1782282513.1415818
+      }
+    },
+    {
+      "id": "mlperf_submissions/mesie-130d56e4ccf7",
+      "name": "mesie-130d56e4ccf7.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-130d56e4ccf7.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 2260,
+        "mtime": 1782282513.1425865
+      }
+    },
+    {
+      "id": "mlperf_submissions/mesie-456a8ee879fd",
+      "name": "mesie-456a8ee879fd.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-456a8ee879fd.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4889,
+        "mtime": 1782282513.1425865
+      }
+    },
+    {
+      "id": "mlperf_submissions/mesie-49c25acae0b3",
+      "name": "mesie-49c25acae0b3.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-49c25acae0b3.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4899,
+        "mtime": 1782282513.1425865
+      }
+    },
+    {
+      "id": "mlperf_submissions/mesie-5e5717fde92f",
+      "name": "mesie-5e5717fde92f.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-5e5717fde92f.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 3048,
+        "mtime": 1782282513.1435857
+      }
+    },
+    {
+      "id": "mlperf_submissions/mesie-601e22d7ade2",
+      "name": "mesie-601e22d7ade2.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-601e22d7ade2.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4896,
+        "mtime": 1782282513.1435857
+      }
+    },
+    {
+      "id": "mlperf_submissions/mesie-ed2ef171455a",
+      "name": "mesie-ed2ef171455a.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-ed2ef171455a.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4898,
+        "mtime": 1782282513.1445858
+      }
+    },
+    {
+      "id": "mlperf_submissions/mesie-fb8316a09d98",
+      "name": "mesie-fb8316a09d98.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\mlperf_submissions\\mesie-fb8316a09d98.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 2257,
+        "mtime": 1782282513.1445858
+      }
+    },
+    {
+      "id": "native_ai/multi20/NativeAI_multi_enterprise_20",
+      "name": "NativeAI_multi_enterprise_20.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\multi20\\NativeAI_multi_enterprise_20.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 47847,
+        "mtime": 1782282513.1475925
+      }
+    },
+    {
+      "id": "native_ai/multi20/NativeAI_multi_enterprise_20_tokens",
+      "name": "NativeAI_multi_enterprise_20_tokens.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\multi20\\NativeAI_multi_enterprise_20_tokens.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 270,
+        "mtime": 1782282513.1490977
+      }
+    },
+    {
+      "id": "native_ai/multi20/NativeAI_multi_enterprise_20_vault",
+      "name": "NativeAI_multi_enterprise_20_vault.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\multi20\\NativeAI_multi_enterprise_20_vault.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 37462,
+        "mtime": 1782282513.1501029
+      }
+    },
+    {
+      "id": "native_ai/NativeAI_Manifest",
+      "name": "NativeAI_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\NativeAI_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 709,
+        "mtime": 1782282513.1455858
+      }
+    },
+    {
+      "id": "native_ai/NativeAI_sdk_deliverable_demo",
+      "name": "NativeAI_sdk_deliverable_demo.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\NativeAI_sdk_deliverable_demo.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 47843,
+        "mtime": 1782282513.1455858
+      }
+    },
+    {
+      "id": "native_ai/NativeAI_sdk_deliverable_demo_tokens",
+      "name": "NativeAI_sdk_deliverable_demo_tokens.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\NativeAI_sdk_deliverable_demo_tokens.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 270,
+        "mtime": 1782282513.1465862
+      }
+    },
+    {
+      "id": "native_ai/NativeAI_sdk_deliverable_demo_vault",
+      "name": "NativeAI_sdk_deliverable_demo_vault.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\NativeAI_sdk_deliverable_demo_vault.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 37466,
+        "mtime": 1782282513.1475925
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/lineage/LINEAGE_sov_del",
+      "name": "LINEAGE_sov_del.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\lineage\\LINEAGE_sov_del.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 491,
+        "mtime": 1782419193.7788243
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/NativeAI_sov_del",
+      "name": "NativeAI_sov_del.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\NativeAI_sov_del.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 47730,
+        "mtime": 1782419193.670033
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/NativeAI_sov_del_tokens",
+      "name": "NativeAI_sov_del_tokens.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\NativeAI_sov_del_tokens.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 271,
+        "mtime": 1782328798.1266174
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/NativeAI_sov_del_vault",
+      "name": "NativeAI_sov_del_vault.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\NativeAI_sov_del_vault.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 37474,
+        "mtime": 1782419193.7778237
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/runs/20260625T202633Z_committed_full_sov_del/NativeAI_sov_del",
+      "name": "NativeAI_sov_del.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_committed_full_sov_del\\NativeAI_sov_del.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 47730,
+        "mtime": 1782419193.6610117
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/runs/20260625T202633Z_committed_full_sov_del/NativeAI_sov_del_vault",
+      "name": "NativeAI_sov_del_vault.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_committed_full_sov_del\\NativeAI_sov_del_vault.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 37474,
+        "mtime": 1782419193.7700408
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/runs/20260625T202633Z_partial_local_sov_del/NativeAI_sov_del",
+      "name": "NativeAI_sov_del.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_partial_local_sov_del\\NativeAI_sov_del.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 29919,
+        "mtime": 1782328798.1198356
+      }
+    },
+    {
+      "id": "native_ai/sovereign_local/runs/20260625T202633Z_partial_local_sov_del/NativeAI_sov_del_vault",
+      "name": "NativeAI_sov_del_vault.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\native_ai\\sovereign_local\\runs\\20260625T202633Z_partial_local_sov_del\\NativeAI_sov_del_vault.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 20821,
+        "mtime": 1782328798.1266174
+      }
+    },
+    {
+      "id": "NeuroSwarmAI_Audit_Evidence",
+      "name": "NeuroSwarmAI_Audit_Evidence.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\NeuroSwarmAI_Audit_Evidence.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 15182,
+        "mtime": 1782282513.136166
+      }
+    },
+    {
+      "id": "neuroswarmai_com/evidence_manifest",
+      "name": "evidence_manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\neuroswarmai_com\\evidence_manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4674,
+        "mtime": 1782282513.1541028
+      }
+    },
+    {
+      "id": "neuroswarmai_com/proof_substrate",
+      "name": "proof_substrate.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\neuroswarmai_com\\proof_substrate.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 13013,
+        "mtime": 1782328749.912765
+      }
+    },
+    {
+      "id": "neuroswarmai_com/readiness_report",
+      "name": "readiness_report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\neuroswarmai_com\\readiness_report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 5058,
+        "mtime": 1782282513.1553428
+      }
+    },
+    {
+      "id": "NeuroSwarmAI_Drone_Swarm_Report",
+      "name": "NeuroSwarmAI_Drone_Swarm_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\NeuroSwarmAI_Drone_Swarm_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 49891,
+        "mtime": 1782282513.136166
+      }
+    },
+    {
+      "id": "NeuroSwarmAI_Readiness_Report",
+      "name": "NeuroSwarmAI_Readiness_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\NeuroSwarmAI_Readiness_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 5058,
+        "mtime": 1782282513.137166
+      }
+    },
+    {
+      "id": "nova/NOVA_Production_Release",
+      "name": "NOVA_Production_Release.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\nova\\NOVA_Production_Release.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 2592,
+        "mtime": 1782283337.8745131
+      }
+    },
+    {
+      "id": "nova/NOVA_RUNTIME_STATE",
+      "name": "NOVA_RUNTIME_STATE.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\nova\\NOVA_RUNTIME_STATE.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 18494,
+        "mtime": 1782431300.2801483
+      }
+    },
+    {
+      "id": "nova/NOVA_SHOWCASE",
+      "name": "NOVA_SHOWCASE.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\nova\\NOVA_SHOWCASE.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 3172,
+        "mtime": 1782431217.181585
+      }
+    },
+    {
+      "id": "nova/NOVA_Sphere_Manifest",
+      "name": "NOVA_Sphere_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\nova\\NOVA_Sphere_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 11716,
+        "mtime": 1782283337.8775928
+      }
+    },
+    {
+      "id": "novamini/NOVAMINI_MESIE_LM_Manifest",
+      "name": "NOVAMINI_MESIE_LM_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\novamini\\NOVAMINI_MESIE_LM_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4130,
+        "mtime": 1782282555.6059115
+      }
+    },
+    {
+      "id": "novamini/NOVAMINI_Smoke_Session",
+      "name": "NOVAMINI_Smoke_Session.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\novamini\\NOVAMINI_Smoke_Session.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 1252,
+        "mtime": 1782282555.6059115
+      }
+    },
+    {
+      "id": "Paper04_Spacetime_Architecture_Report",
+      "name": "Paper04_Spacetime_Architecture_Report.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\Paper04_Spacetime_Architecture_Report.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 14588,
+        "mtime": 1782282513.1381712
+      }
+    },
+    {
+      "id": "processor/MESIE_Processor_Benchmarks",
+      "name": "MESIE_Processor_Benchmarks.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\MESIE_Processor_Benchmarks.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 4164,
+        "mtime": 1782283885.5413017
+      }
+    },
+    {
+      "id": "processor/MESIE_Processor_Manifest",
+      "name": "MESIE_Processor_Manifest.json",
+      "kind": "deliverable",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\MESIE_Processor_Manifest.json",
+      "callable_via": "read JSON proof",
+      "proof": {
+        "exists": true,
+        "bytes": 2034,
+        "mtime": 1782408988.1105814
+      }
+    }
+  ],
+  "services": [
+    {
+      "id": "mesie-tools",
+      "name": "MESIE native tools (78)",
+      "kind": "tool_registry",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\mesie\\tools\\registry.py",
+      "callable_via": "python -m mesie.tools.cli run <id>",
+      "proof": {
+        "count": 78,
+        "exists": true
+      }
+    },
+    {
+      "id": "virtual-processor",
+      "name": "MESIE Virtual Processor",
+      "kind": "http_service",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\mesie\\processor",
+      "callable_via": "http://127.0.0.1:8750/processor/status | medina_surface invoke --system mesie --action virtual-processor",
+      "proof": {
+        "exists": true,
+        "bytes": 2034,
+        "mtime": 1782408988.1105814
+      }
+    },
+    {
+      "id": "medina-surface-http",
+      "name": "Medina Surface HTTP",
+      "kind": "http_service",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\mesie\\surface",
+      "callable_via": "http://127.0.0.1:8760/surface/status",
+      "proof": {
+        "exists": true,
+        "bytes": 43346,
+        "mtime": 1782431254.1451173
+      }
+    }
+  ]
+}

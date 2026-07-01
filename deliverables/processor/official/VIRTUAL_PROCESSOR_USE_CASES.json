@@ -1,0 +1,89 @@
+{
+  "product": "MESIE Virtual Processor",
+  "sku": "MESIE-VP-1.2",
+  "count": 10,
+  "use_cases": [
+    {
+      "id": "ai_for_ai_orchestration",
+      "vertical": "Enterprise AI",
+      "title": "AI agents orchestrating AI",
+      "description": "LLM planners call Virtual Processor HTTP/MCP; Python executes embed/match/signals with LRC proof.",
+      "buyer": "AI platform teams",
+      "mesh_role": "Route compute to lowest-latency LAN node"
+    },
+    {
+      "id": "defense_edge_threat",
+      "vertical": "Defense / Robotics",
+      "title": "Sub-ms threat-fast spectral path",
+      "description": "Robotics satellite fusion + NeuroSwarm audit benchmarks on edge hardware.",
+      "buyer": "Contested field operators",
+      "mesh_role": "OTA gossip + jam failover routing metadata"
+    },
+    {
+      "id": "industrial_pdm",
+      "vertical": "Industrial",
+      "title": "Predictive maintenance spectral memory",
+      "description": "PSD/FAS/vibration references embedded; top-k retrieval across machine states.",
+      "buyer": "Digital twin / factory IT",
+      "mesh_role": "Interior DC corpus shards across cluster edge nodes"
+    },
+    {
+      "id": "seismic_orbital_power",
+      "vertical": "Multi-domain",
+      "title": "Unified domain signal hub",
+      "description": "Seismic, orbital, power grid, terrain, RF — all as signals in one library index.",
+      "buyer": "Critical infrastructure",
+      "mesh_role": "Domain Signal Hub career + VP-MESH peer sync"
+    },
+    {
+      "id": "sovereign_agent_memory",
+      "vertical": "Enterprise AI",
+      "title": "Sovereign agent memory + receipt chain",
+      "description": "Vault curator careers + LRC accounting; zero third-party inference on sovereign path.",
+      "buyer": "Regulated / airgapped programs",
+      "mesh_role": "Sovereign mesh bundle export to LAN peers"
+    },
+    {
+      "id": "developer_kit_release",
+      "vertical": "Commercial",
+      "title": "Virtual Processor Developer Kit",
+      "description": "Zip manifest + showcase + official dossier for partner distribution.",
+      "buyer": "SDK publishers / integrators",
+      "mesh_role": "Optional multi-node soak in partner labs"
+    },
+    {
+      "id": "drone_swarm_coordination",
+      "vertical": "Defense",
+      "title": "Decentralized swarm coordination",
+      "description": "Gossip consensus, field routing, cluster-optimized ms/agent in software validation.",
+      "buyer": "UAS / counter-UAS programs",
+      "mesh_role": "VP-MESH + OTA mesh rounds"
+    },
+    {
+      "id": "native_ai_deliverables",
+      "vertical": "Enterprise",
+      "title": "SOLUS native AI deliverables",
+      "description": "Stream JSON/MD reports with vault tokens — local only.",
+      "buyer": "Analyst workflows",
+      "mesh_role": "Generate-text from any signal modality"
+    },
+    {
+      "id": "coding_lab_visibility",
+      "vertical": "Operations",
+      "title": "Live swarm visibility window",
+      "description": "Coding lab :8770 feeds robotics + NOVA state for operator dashboards.",
+      "buyer": "Internal IT / SOC",
+      "mesh_role": "Processor bridge career polls mesh state"
+    },
+    {
+      "id": "commercial_benchmark_proof",
+      "vertical": "Commercial",
+      "title": "Market-facing benchmark proof",
+      "description": "NOVA_SHOWCASE + official commercial test report for public claims.",
+      "buyer": "Marketing / GSA / partners",
+      "mesh_role": "VP_MESH_SOAK.json multi-round proof"
+    }
+  ],
+  "plain_summary": "10 high-level commercial use cases across enterprise AI, defense edge, industrial, and sovereign programs.",
+  "generated_at": "2026-06-26T09:20:30Z"
+}

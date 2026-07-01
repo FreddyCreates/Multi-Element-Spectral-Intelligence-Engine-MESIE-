@@ -150,7 +150,7 @@ Reruns **never silently overwrite**. Before each write:
 3. New run written to timestamp folder **and** canonical path
 
 Synthesis after the June 24 partial rerun:  
-`deliverables/synthesis/Deliverable_Run_Synthesis.md`
+`trust/production_readiness/synthesis/Deliverable_Run_Synthesis.md`
 
 ```bash
 python scripts/synthesize_deliverable_runs.py

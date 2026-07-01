@@ -1,0 +1,25 @@
+{
+  "document_type": "OFFICIAL_COMMERCIAL_DOSSIER",
+  "product": "MESIE Virtual Processor",
+  "sku": "MESIE-VP-1.2",
+  "version": "1.2.0",
+  "entity": "Medina Sovereign Intelligence / Builder Lab",
+  "commercial_ready": true,
+  "pass_rate": 100.0,
+  "artifacts": {
+    "technology": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\official\\VIRTUAL_PROCESSOR_TECHNOLOGY.json",
+    "use_cases": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\official\\VIRTUAL_PROCESSOR_USE_CASES.json",
+    "certifications": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\official\\VIRTUAL_PROCESSOR_CERTIFICATION_MANIFEST.json",
+    "compliance": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\official\\VIRTUAL_PROCESSOR_COMPLIANCE_PACK.json",
+    "commercial_tests": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\official\\VIRTUAL_PROCESSOR_COMMERCIAL_TEST_REPORT.json",
+    "market_research": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\VIRTUAL_PROCESSOR_MARKET_RESEARCH.json",
+    "devkit": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\VIRTUAL_PROCESSOR_DEVKIT.json",
+    "showcase": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\nova\\NOVA_SHOWCASE.json",
+    "mesh_soak": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\VP_MESH_SOAK.json",
+    "stack": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\MESIE_STACK_ARCHITECTURE.json"
+  },
+  "executive_summary": "MESIE Virtual Processor (MESIE-VP-1.2) — sovereign virtual processor with universal signals, VP-MESH LAN fabric, 70-career NOVA runtime, and measured LRC proof. Commercial test pass rate: 100.0%. Software validation — not combat certification.",
+  "public_release_bundle": "deliverables/processor/VIRTUAL_PROCESSOR_OFFICIAL_BUNDLE.zip",
+  "deploy_command": ".\\Deploy-MESIE.ps1 -Package -DevKit -Mesh -Official",
+  "generated_at": "2026-06-26T09:22:43Z"
+}

@@ -8,7 +8,7 @@ try:
 except ImportError:
     MESIE_VERSION = "0.4.0"
 
-PROCESSOR_VERSION = "1.0.0"
+PROCESSOR_VERSION = "1.2.0"
 
 __all__ = [
     "VirtualProcessor",

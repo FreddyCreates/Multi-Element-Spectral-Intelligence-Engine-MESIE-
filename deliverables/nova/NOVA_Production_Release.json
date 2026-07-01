@@ -1,0 +1,101 @@
+{
+  "ready": true,
+  "nova_version": "1.0.0",
+  "mininova_version": "1.0.0",
+  "mesie_version": "0.4.0",
+  "checks": [
+    {
+      "name": "micro_version_auditor",
+      "ok": true,
+      "detail": "{'ok': True, 'mesie': '0.4.0', 'sdk': '1.4.3'}"
+    },
+    {
+      "name": "micro_release_sentinel",
+      "ok": true,
+      "detail": "{'ok': True, 'detail': '..................                                                       [100%]\\n18 passed in 2.04s\\n'}"
+    },
+    {
+      "name": "micro_manifest_writer",
+      "ok": true,
+      "detail": "{'ok': True, 'latency_ms': 1.99}"
+    },
+    {
+      "name": "micro_linguist",
+      "ok": true,
+      "detail": "{'ok': True, 'latency_ms': 1.16}"
+    },
+    {
+      "name": "mesie_readiness",
+      "ok": true,
+      "detail": "0.4.0"
+    }
+  ],
+  "micro_pulses": [
+    {
+      "pulse": {
+        "agent_id": "micro-version_auditor-e13e6112",
+        "career": "version_auditor",
+        "cycles": 1,
+        "coherence": 0.6562,
+        "goals": [
+          "Verify canonical version_info vs pyproject vs tests."
+        ]
+      },
+      "result": {
+        "ok": true,
+        "mesie": "0.4.0",
+        "sdk": "1.4.3"
+      },
+      "ts": 1782283331.9441948
+    },
+    {
+      "pulse": {
+        "agent_id": "micro-release_sentinel-1020c6dc",
+        "career": "release_sentinel",
+        "cycles": 1,
+        "coherence": 0.6562,
+        "goals": [
+          "Run pytest gates and readiness checks on timer."
+        ]
+      },
+      "result": {
+        "ok": true,
+        "detail": "..................                                                       [100%]\n18 passed in 2.04s\n"
+      },
+      "ts": 1782283334.7291734
+    },
+    {
+      "pulse": {
+        "agent_id": "micro-manifest_writer-87170403",
+        "career": "manifest_writer",
+        "cycles": 1,
+        "coherence": 0.6562,
+        "goals": [
+          "Export NOVA/MININOVA/MESIE production manifests."
+        ]
+      },
+      "result": {
+        "ok": true,
+        "latency_ms": 1.99
+      },
+      "ts": 1782283334.7321799
+    },
+    {
+      "pulse": {
+        "agent_id": "micro-linguist-dfcc29c4",
+        "career": "linguist",
+        "cycles": 1,
+        "coherence": 0.6562,
+        "goals": [
+          "Coherence, doctrine attractors, \u03c6-weighted language geometry."
+        ]
+      },
+      "result": {
+        "ok": true,
+        "latency_ms": 1.16
+      },
+      "ts": 1782283334.7390394
+    }
+  ],
+  "generated_at": "2026-06-24T06:42:17Z"
+}

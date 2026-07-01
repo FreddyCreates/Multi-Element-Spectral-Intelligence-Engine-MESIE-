@@ -74,6 +74,8 @@ def run_release_check(*, run_pytest: bool = True) -> ReleaseReadinessReport:
                 "tests/test_interior_datacenter.py",
                 "tests/test_release_copilot.py",
                 "tests/test_auro_engine.py",
+                "tests/test_novamini.py",
+                "tests/test_nova_sphere.py",
                 "-q",
             ],
             cwd=str(ROOT),

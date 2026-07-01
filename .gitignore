@@ -34,3 +34,16 @@ library/*.json
 .DS_Store
 Thumbs.db
 mesie.egg-info/
+
+# Runtime vaults and local logs (do not commit)
+.processor_vault/
+.novamini_vault/
+deliverables/deploy/logs/
+library/mesh_peers/vp_nodes/
+deliverables/**/NOVA_RUNTIME_FEED.jsonl
+deliverables/processor/VP_MESH_FEED.jsonl
+deliverables/processor/robotics_satellite.jsonl
+deliverables/processor/*.zip
+*.wip
+*.chipbase
+.grok/

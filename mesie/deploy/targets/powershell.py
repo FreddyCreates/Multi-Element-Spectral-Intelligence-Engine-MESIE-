@@ -16,6 +16,7 @@ _POWERSHELL_NAMES = {
     "medina-surface": "Start-MedinaSurface.ps1",
     "novamini-http": "Start-NOVAMINI.ps1",
     "robotics-satellite": "Start-RoboticsSatellite.ps1",
+    "vp-mesh": "Start-VPMesh.ps1",
 }
 
 

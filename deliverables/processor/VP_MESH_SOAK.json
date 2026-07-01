@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "protocol": "VP-MESH",
+  "version": "1.2.0",
+  "rounds": 5,
+  "n_nodes": 4,
+  "pulses": [
+    {
+      "ok": true,
+      "node_id": "fe4ac9227788",
+      "peers_seen": 3,
+      "ota_frames_received": 48,
+      "ota_mesh_ok": true,
+      "beacons_sent": 1,
+      "beacons_received": 1,
+      "sovereign_bundle_hash": "97ea2ce9391884506c9882c4",
+      "routed_local": true,
+      "latency_ms": 10570.86,
+      "propagation_tier": "UHF/Terrestrial"
+    },
+    {
+      "ok": true,
+      "node_id": "fe4ac9227788",
+      "peers_seen": 3,
+      "ota_frames_received": 48,
+      "ota_mesh_ok": true,
+      "beacons_sent": 2,
+      "beacons_received": 2,
+      "sovereign_bundle_hash": "891afb252a4df5de36d8d8cb",
+      "routed_local": true,
+      "latency_ms": 10565.29,
+      "propagation_tier": "UHF/Terrestrial"
+    },
+    {
+      "ok": true,
+      "node_id": "fe4ac9227788",
+      "peers_seen": 3,
+      "ota_frames_received": 48,
+      "ota_mesh_ok": true,
+      "beacons_sent": 3,
+      "beacons_received": 3,
+      "sovereign_bundle_hash": "8915b8a6ae2043fd53e0a60f",
+      "routed_local": true,
+      "latency_ms": 10531.62,
+      "propagation_tier": "UHF/Terrestrial"
+    },
+    {
+      "ok": true,
+      "node_id": "fe4ac9227788",
+      "peers_seen": 3,
+      "ota_frames_received": 48,
+      "ota_mesh_ok": true,
+      "beacons_sent": 4,
+      "beacons_received": 4,
+      "sovereign_bundle_hash": "25a443b8496639e76a7ac4a8",
+      "routed_local": true,
+      "latency_ms": 10597.22,
+      "propagation_tier": "UHF/Terrestrial"
+    },
+    {
+      "ok": true,
+      "node_id": "fe4ac9227788",
+      "peers_seen": 3,
+      "ota_frames_received": 48,
+      "ota_mesh_ok": true,
+      "beacons_sent": 5,
+      "beacons_received": 5,
+      "sovereign_bundle_hash": "59aec266e7d3bcfec2a8d1bb",
+      "routed_local": true,
+      "latency_ms": 10589.54,
+      "propagation_tier": "UHF/Terrestrial"
+    }
+  ],
+  "generated_at": "2026-06-26T09:18:05Z"
+}

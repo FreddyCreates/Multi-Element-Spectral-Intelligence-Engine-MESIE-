@@ -1,0 +1,97 @@
+{
+  "product": "MESIE Virtual Processor",
+  "tagline": "Sovereign compute for AI agents that orchestrate AI \u2014 measured, not simulated.",
+  "version": "1.1.0",
+  "market_position": {
+    "category": "Agentic Infrastructure / Edge Spectral Compute",
+    "differentiators": [
+      "Sub-millisecond threat-response path with published benchmark JSON",
+      "Universal signal plane \u2014 text, JSON, events, and spectra share one embed/match stack",
+      "70-career NOVA IT org runs library, protocols, laws, and release gates",
+      "LRC accounting ledger \u2014 every operation mints a local receipt",
+      "Airgapped virtual silicon certification lane (RF HIL + OTA mesh model)",
+      "Zero third-party inference on the sovereign path (SOLUS + native voice optional)"
+    ],
+    "buyer_personas": [
+      {
+        "segment": "AI platform teams",
+        "need": "Deterministic tool execution layer under LLM orchestrators"
+      },
+      {
+        "segment": "Defense / robotics edge",
+        "need": "Fusion + threat SLA with sovereign audit trail"
+      },
+      {
+        "segment": "Industrial digital twin",
+        "need": "PSD/FAS/seismic/power signals in one retrieval index"
+      },
+      {
+        "segment": "Developer kit publishers",
+        "need": "HTTP + CLI kit agents can call without chat UI"
+      }
+    ],
+    "competitive_frame": {
+      "vs_cloud_llm_only": "LLMs talk; Virtual Processor executes and proves work with LRC + ms benchmarks.",
+      "vs_vector_db_only": "Spectral records carry physics, domains, and text in one embedding \u2014 not flat chunks.",
+      "vs_simulated_agents": "NOVA careers run pytest, embed library, showcase export \u2014 not placeholder pulses."
+    }
+  },
+  "scalability": {
+    "vertical": {
+      "single_node": "MAESI batch match 800x+ loop speedup on laptop-class hardware",
+      "processor_ops": [
+        "embed",
+        "match",
+        "benchmark",
+        "read_signal",
+        "generate_text"
+      ],
+      "memory": "Library index + swarm DTN shards on disk; vault compounds work units"
+    },
+    "horizontal": {
+      "nova_runtime": "70 staggered micro satellites \u2014 light/medium/heavy task tiers",
+      "robotics_satellite": "Independent process with watchdog restart",
+      "mesh": "Virtual OTA multicast swarm model \u2014 4 nodes / 48 frames measured in chip cert",
+      "edge": "Processor HTTP :8750 + MCP bridge; field-route tool for edge protocol"
+    },
+    "limits_today": [
+      "Physical SDR silicon \u2014 virtual HIL only",
+      "Native voice path loads AuroNativeLM \u2014 use SOLUS brief for lightweight generation",
+      "Single-machine NOVA supervisor \u2014 multi-host fleet routing is roadmap"
+    ]
+  },
+  "how_to_use": {
+    "quickstart": [
+      ".\\Start-NovaRuntime.ps1",
+      "python scripts/run_virtual_processor.py",
+      "python scripts/package_processor_devkit.py"
+    ],
+    "http_api": {
+      "base": "http://127.0.0.1:8750",
+      "endpoints": {
+        "GET /processor/status": "Health + operations list",
+        "POST /processor/embed": "{\"record_path\":\"ref-earthquake-psd-001\"}",
+        "POST /processor/read-signal": "{\"payload\":\"any text or JSON\",\"hint\":\"text\"}",
+        "POST /processor/generate-text": "{\"payload\":{...},\"style\":\"analyst_brief\"}",
+        "POST /processor/benchmark": "{\"trials\":200}",
+        "GET /processor/nova-runtime": "Live 70-career state"
+      }
+    },
+    "agent_pattern": "LLM plans \u2192 POST /processor/exec or domain tool \u2192 read LRC + showcase JSON as proof",
+    "developer_kit": "deliverables/processor/VIRTUAL_PROCESSOR_DEVKIT.zip"
+  },
+  "measured_proof": {
+    "threat_p50_ms": 1.583,
+    "ann_p50_ms": 0.0864,
+    "fusion_dims": 256,
+    "embed_ok": true
+  },
+  "foundations": {
+    "library_mb": 10.28,
+    "library_files": 1051,
+    "engines": 11,
+    "tools": 78
+  },
+  "plain_summary": "MESIE Virtual Processor v1.1: sovereign agentic compute with universal signals, 11 engines, 1051 library files, and sub-ms benchmark paths \u2014 packaged devkit + NOVA 70-career runtime for production release.",
+  "generated_at": "2026-06-26T06:06:32Z"
+}

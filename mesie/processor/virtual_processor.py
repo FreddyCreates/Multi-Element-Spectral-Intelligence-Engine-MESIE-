@@ -53,11 +53,12 @@ class VirtualProcessor:
         packet_bytes = sum(p.stat().st_size for p in packet_dir.rglob("*.json")) if packet_dir.is_dir() else 0
         return {
             "product": "MESIE Virtual Processor",
-            "processor_version": "1.1.0",
+            "processor_version": "1.2.0",
             "accounting": self.ledger.export_status(packet_files=packet_files, packet_bytes=packet_bytes),
             "vault": str(self.vault_root),
             "operations": [
-                "embed", "match", "benchmark", "exec_tool", "virtual_chip", "list_chips", "robotics_pulse",
+                "embed", "match", "benchmark", "read_signal", "generate_text",
+                "mesh_pulse", "exec_tool", "virtual_chip", "list_chips", "robotics_pulse",
             ],
             "chip_skus": [sku.chip_id for sku in self._chip_skus()],
             "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell.",
@@ -173,6 +174,46 @@ class VirtualProcessor:
         out = cert.to_dict()
         out["chip_id"] = chip_id
         return self._finish("virtual_chip", t0, out, measured=cert.benchmark_lane.ota_frames_received + 100)
+
+    def read_signal(self, payload: Any, *, hint: Optional[str] = None, source_id: Optional[str] = None) -> ProcessorResult:
+        from mesie.signals import UniversalSignalReader
+
+        t0 = time.perf_counter()
+        result = UniversalSignalReader().read(payload, hint=hint, source_id=source_id)
+        out = result.to_dict()
+        return self._finish("read_signal", t0, out, measured=len(result.spectral_signature) + len(result.text))
+
+    def generate_text(
+        self,
+        payload: Any,
+        *,
+        style: str = "analyst_brief",
+        max_chars: int = 1200,
+        use_native_voice: bool = False,
+        hint: Optional[str] = None,
+    ) -> ProcessorResult:
+        from mesie.signals import SignalTextEmitter
+
+        t0 = time.perf_counter()
+        emission = SignalTextEmitter().generate(
+            payload,
+            style=style,
+            max_chars=max_chars,
+            use_native_voice=use_native_voice,
+            hint=hint,
+        )
+        out = emission.to_dict()
+        return self._finish("generate_text", t0, out, measured=len(out.get("text", "")))
+
+    def mesh_pulse(self, *, ota_nodes: int = 4) -> ProcessorResult:
+        from mesie.processor.mesh_protocol import VirtualProcessorMeshNode
+
+        t0 = time.perf_counter()
+        node = VirtualProcessorMeshNode()
+        report = node.pulse(ota_nodes=ota_nodes)
+        node.stop()
+        out = report.to_dict()
+        return self._finish("mesh_pulse", t0, out, measured=report.peers_seen + report.ota_frames_received, ok=report.ok)
 
     def robotics_pulse(self) -> ProcessorResult:
         """One NeuroSwarm / robotics readiness pulse for satellite loop."""

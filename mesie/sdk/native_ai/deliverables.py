@@ -43,10 +43,14 @@ class DeliverableWriter:
         payload: Dict[str, Any],
         stream_events: Optional[List[Dict[str, Any]]] = None,
     ) -> DeliverableBundle:
+        from mesie.release.deliverable_versioning import DeliverableVersioning
+
         self.output_dir.mkdir(parents=True, exist_ok=True)
         json_path = self.output_dir / f"NativeAI_{run_id}.json"
         md_path = self.output_dir / f"NativeAI_{run_id}.md"
         stream_path = self.output_dir / f"NativeAI_{run_id}_stream.jsonl"
+        vault_path = self.output_dir / f"NativeAI_{run_id}_vault.json"
+        token_path = self.output_dir / f"NativeAI_{run_id}_tokens.json"
 
         doc = {
             "run_id": run_id,
@@ -57,31 +61,46 @@ class DeliverableWriter:
             "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             **payload,
         }
-        json_path.write_text(json.dumps(doc, indent=2, default=str), encoding="utf-8")
-        md_path.write_text(self._markdown(doc), encoding="utf-8")
+        md_text = self._markdown(doc)
 
-        if stream_events:
-            lines = [json.dumps(e, default=str) for e in stream_events]
-            stream_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-        else:
-            stream_path = None
+        ver = DeliverableVersioning(self.output_dir)
+        canonical = {
+            "json": json_path,
+            "markdown": md_path,
+            "vault": vault_path,
+            "tokens": token_path,
+            "stream": stream_path,
+        }
 
-        vault_path = None
-        token_path = None
+        artifacts: Dict[str, Any] = {
+            "json": doc,
+            "markdown": md_text,
+        }
         if payload.get("vault_export"):
-            vault_path = self.output_dir / f"NativeAI_{run_id}_vault.json"
-            vault_path.write_text(json.dumps(payload["vault_export"], indent=2, default=str), encoding="utf-8")
+            artifacts["vault"] = payload["vault_export"]
         if payload.get("token_bundle"):
-            token_path = self.output_dir / f"NativeAI_{run_id}_tokens.json"
-            token_path.write_text(json.dumps(payload["token_bundle"], indent=2, default=str), encoding="utf-8")
+            artifacts["tokens"] = payload["token_bundle"]
+        if stream_events:
+            artifacts["stream"] = "\n".join(json.dumps(e, default=str) for e in stream_events) + "\n"
+
+        ver.write_versioned(
+            artifacts,
+            run_key=run_id,
+            suite="sovereign_local",
+            canonical_names=canonical,
+            note=f"native AI run {run_id}",
+        )
+
+        if not stream_events:
+            stream_path = None
 
         return DeliverableBundle(
             run_id=run_id,
             json_path=json_path,
             markdown_path=md_path,
-            vault_snapshot_path=vault_path,
-            token_bundle_path=token_path,
-            stream_log_path=stream_path,
+            vault_snapshot_path=vault_path if payload.get("vault_export") else None,
+            token_bundle_path=token_path if payload.get("token_bundle") else None,
+            stream_log_path=stream_path if stream_events else None,
         )
 
     @staticmethod

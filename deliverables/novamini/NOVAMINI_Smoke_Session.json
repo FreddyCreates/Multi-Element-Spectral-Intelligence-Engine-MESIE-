@@ -1,0 +1,21 @@
+{
+  "version": "0.1.0",
+  "turns": [
+    {
+      "q": "What is NOVAMINI?",
+      "spoken": "Medina is sovereign infrastructure; external models are not our foundation.\nStrategic thesis \u2014 edge-contested software substrate. 4. The Speaking Intelligence Loop\n\nThis paper proposes the following loop:\n\n1. **Perception**: the agent receives text, voice, user state, environment, or task context.\n2. **Memory retrieval**: it ret",
+      "latency_ms": 1.58
+    },
+    {
+      "q": "Who are you in the Alpha family?",
+      "spoken": "I speak as AURO \u2014 Medina native speaking intelligence. Medina is sovereign infrastructure; external models are not our foundation.\nStrategic thesis \u2014 edge-contested software substrate. I am Auro \u2014 Medina's native speaking intelligence. THESIS proves; I carry the voice and the boundary.",
+      "latency_ms": 0.82
+    },
+    {
+      "q": "What is the speaking loop?",
+      "spoken": "Medina is sovereign infrastructure; external models are not our foundation.\nStrategic thesis \u2014 edge-contested software substrate. Eight-step loop: perception, memory, role, affect, claims, speech, response, state update.",
+      "latency_ms": 0.92
+    }
+  ],
+  "ts": 1782203496.9550135
+}

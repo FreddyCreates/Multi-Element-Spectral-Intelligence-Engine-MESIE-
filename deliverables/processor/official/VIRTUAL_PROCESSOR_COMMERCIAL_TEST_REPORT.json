@@ -1,0 +1,59 @@
+{
+  "product": "MESIE Virtual Processor",
+  "sku": "MESIE-VP-1.2",
+  "commercial_ready": true,
+  "passed": 5,
+  "total": 5,
+  "pass_rate": 100.0,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "python": "3.11.6",
+  "tests": [
+    {
+      "test_id": "release_gate",
+      "category": "production",
+      "description": "Virtual Processor release gate (all checks)",
+      "ok": true,
+      "detail": "['status', 'robotics_pulse', 'embed', 'benchmark', 'mesh_pulse', 'accounting_lrc']",
+      "artifact": "deliverables/processor/VIRTUAL_PROCESSOR_RELEASE.json",
+      "duration_s": 13.43
+    },
+    {
+      "test_id": "nova_showcase",
+      "category": "benchmark",
+      "description": "NOVA showcase workflow proof",
+      "ok": true,
+      "detail": "{'threat_p50_ms': 0.6826, 'fusion_dims': 256, 'library_mb': 10.28, 'engines': 11, 'doctrine': 'Everything is a signal — spectral records unify text, state, physics, domains.'}",
+      "artifact": "deliverables/nova/NOVA_SHOWCASE.json",
+      "duration_s": 3.13
+    },
+    {
+      "test_id": "vp_mesh_soak",
+      "category": "network",
+      "description": "VP-MESH production soak",
+      "ok": true,
+      "detail": "rounds=2 ota_ok=True",
+      "artifact": "deliverables/processor/VP_MESH_SOAK.json",
+      "duration_s": 29.43
+    },
+    {
+      "test_id": "virtual_chip",
+      "category": "silicon",
+      "description": "Virtual silicon certification lane",
+      "ok": true,
+      "detail": "True",
+      "artifact": "embedded in commercial test report",
+      "duration_s": 0.83
+    },
+    {
+      "test_id": "pytest_suite",
+      "category": "automated",
+      "description": "pytest: tests/test_vp_mesh.py, tests/test_universal_signals.py",
+      "ok": true,
+      "detail": "......                                                                   [100%]\n6 passed in 61.08s (0:01:01)\n",
+      "artifact": "",
+      "duration_s": 63.94
+    }
+  ],
+  "elapsed_s": 110.77,
+  "generated_at": "2026-06-26T09:22:20Z"
+}

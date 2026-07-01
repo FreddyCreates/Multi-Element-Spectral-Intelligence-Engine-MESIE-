@@ -82,11 +82,13 @@ def test_virtual_chip_orbital_sku():
     assert cert.certified
 
 
-def test_mcp_shim_exposes_chip_tools():
+def test_mcp_shim_exposes_chip_and_signal_tools():
     from mesie.processor.mcp_server import TOOLS
 
     assert "processor_list_chips" in TOOLS
     assert "processor_virtual_chip" in TOOLS
+    assert "processor_read_signal" in TOOLS
+    assert "processor_mesh_pulse" in TOOLS
     assert TOOLS["processor_list_chips"]["path"] == "/processor/chips"
     schema = TOOLS["processor_virtual_chip"]["inputSchema"]
     assert "MESIE-VS4-ORBITAL" in schema["properties"]["chip_id"]["enum"]

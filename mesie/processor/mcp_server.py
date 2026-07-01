@@ -11,7 +11,7 @@ import urllib.request
 from typing import Any, Dict, List, Optional
 
 SERVER_NAME = "mesie-processor"
-SERVER_VERSION = "1.1.0"
+SERVER_VERSION = "1.2.0"
 MCP_VERSION = "2024-11-05"
 BASE_URL = os.environ.get("MESIE_PROCESSOR_URL", "http://127.0.0.1:8750").rstrip("/")
 
@@ -88,6 +88,27 @@ TOOLS: Dict[str, Dict[str, Any]] = {
         "method": "POST",
         "path": "/processor/virtual-chip",
         "body_keys": ["chip_id"],
+    },
+    "processor_read_signal": {
+        "description": "Universal signal reader — ingest any payload into spectral signature + text.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "payload": {},
+                "hint": {"type": "string"},
+                "source_id": {"type": "string"},
+            },
+            "required": ["payload"],
+        },
+        "method": "POST",
+        "path": "/processor/read-signal",
+        "body_keys": ["payload", "hint", "source_id"],
+    },
+    "processor_mesh_pulse": {
+        "description": "Virtual Processor mesh pulse — OTA gossip round across VP nodes.",
+        "inputSchema": {"type": "object", "properties": {}},
+        "method": "POST",
+        "path": "/processor/mesh/pulse",
     },
 }
 

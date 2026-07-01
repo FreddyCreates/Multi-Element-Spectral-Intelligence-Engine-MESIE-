@@ -151,6 +151,18 @@ SERVICE_REGISTRY: Dict[str, ServiceDefinition] = {
         manifest_exporter=_novamini_manifest,
         powershell_title="NOVAMINI HTTP",
     ),
+    "vp-mesh": ServiceDefinition(
+        id="vp-mesh",
+        name="VP-MESH Supervisor",
+        version="1.2.0",
+        port=None,
+        health_path=None,
+        command=[PYTHON, "scripts/run_vp_mesh.py", "--supervise"],
+        env=_base_env(),
+        dependencies=["virtual-processor"],
+        background=True,
+        powershell_title="VP-MESH Supervisor",
+    ),
     "robotics-satellite": ServiceDefinition(
         id="robotics-satellite",
         name="MESIE Robotics Satellite",

@@ -1,0 +1,136 @@
+{
+  "generated_at": "2026-06-24T06:51:25Z",
+  "accounting": {
+    "mpc_test_pass": true,
+    "ui_local_assets": true,
+    "zip_integration_ok": true,
+    "packet_files": 70,
+    "packet_bytes": 878294,
+    "mint_ledger": "553A41683B48",
+    "measured_by_source": 702,
+    "local_nova_cycles": 3,
+    "local_nova_lrcs_minted": 3,
+    "authority": "local_accounting_only",
+    "last_lrc": {
+      "lrc_id": "B25514D32789",
+      "cycle": 3,
+      "operation": "robotics_pulse",
+      "measured_units": 306,
+      "latency_ms": 113.47,
+      "payload_hash": "4cd301e4804271c6",
+      "ts": 1782283885.5317836
+    }
+  },
+  "runs": [
+    {
+      "ok": true,
+      "operation": "benchmark",
+      "output": {
+        "threat_p50_ms": 0.4301,
+        "ann_p50_ms": 0.2178,
+        "ota_mesh_ok": true,
+        "trials": 200
+      },
+      "latency_ms": 521.56,
+      "lrc": {
+        "lrc_id": "87506336CB9A",
+        "cycle": 1,
+        "operation": "benchmark",
+        "measured_units": 248,
+        "latency_ms": 521.56,
+        "payload_hash": "2377a0b132124dc2",
+        "ts": 1782283884.6109095
+      },
+      "measured_units": 248
+    },
+    {
+      "ok": true,
+      "operation": "virtual_chip",
+      "output": {
+        "chip_version": "1.1.0",
+        "spec": {
+          "chip_name": "MESIE-VS1",
+          "process_node_nm": 7,
+          "rf_frontends": 1,
+          "spectral_alu_width": 256,
+          "ota_mac": "NSOT_multicast_v1",
+          "sovereign": true,
+          "airgapped": true
+        },
+        "rf_hil": {
+          "certified": true,
+          "path": "virtual_sdr_adc \u2192 nsrf_binary \u2192 field_bridge",
+          "snr_db": 24.0,
+          "frame_bytes": 536,
+          "ingest_latency_ms": 0.8492,
+          "field_coherence": 0.5696,
+          "bridge_ok": true,
+          "virtual_silicon": true,
+          "notes": "Virtual silicon HIL \u2014 equivalent to certified SDR ingest lane without physical fab."
+        },
+        "ota_mesh": {
+          "nodes": 4,
+          "frames_sent": 12,
+          "frames_received": 48,
+          "propagation_tier": "UHF/Terrestrial",
+          "typical_latency_ms": 1.0,
+          "airgapped": true,
+          "over_the_air": true,
+          "virtual_silicon_mac": true,
+          "ok": true
+        },
+        "benchmark_lane": {
+          "threat_fast_p50_ms": 0.7487,
+          "ann_p50_ms": 0.1667,
+          "rf_hil_latency_ms": 0.5971,
+          "ota_mesh_ok": true,
+          "ota_frames_received": 48
+        },
+        "platform": "Windows-10-10.0.26200-SP0",
+        "certified": true,
+        "gaps_resolved": [
+          "RF path: virtual silicon SDR HIL (NSRF binary) certified without physical fab",
+          "Multi-machine mesh: OTA multicast swarm radio (NSOT) with Hz-ladder propagation",
+          "MLPerf: community formal pack with compliance manifest (see mlperf_submit)"
+        ],
+        "gaps_remaining": [
+          "Physical SDR silicon certification (RTL/fab) \u2014 virtual only",
+          "Official MLPerf leaderboard board review \u2014 community pack ready",
+          "Live satellite modem hardware \u2014 virtual orbital tier models only"
+        ],
+        "generated_at": "2026-06-24T06:51:25Z"
+      },
+      "latency_ms": 740.11,
+      "lrc": {
+        "lrc_id": "153B5473407D",
+        "cycle": 2,
+        "operation": "virtual_chip",
+        "measured_units": 148,
+        "latency_ms": 740.11,
+        "payload_hash": "fd734f58bc2d9ec7",
+        "ts": 1782283885.3526077
+      },
+      "measured_units": 148
+    },
+    {
+      "ok": true,
+      "operation": "robotics_pulse",
+      "output": {
+        "fusion_dims": 256,
+        "threat_p50_ms": 0.6757,
+        "sovereign": true
+      },
+      "latency_ms": 113.47,
+      "lrc": {
+        "lrc_id": "B25514D32789",
+        "cycle": 3,
+        "operation": "robotics_pulse",
+        "measured_units": 306,
+        "latency_ms": 113.47,
+        "payload_hash": "4cd301e4804271c6",
+        "ts": 1782283885.5317836
+      },
+      "measured_units": 306
+    }
+  ]
+}
