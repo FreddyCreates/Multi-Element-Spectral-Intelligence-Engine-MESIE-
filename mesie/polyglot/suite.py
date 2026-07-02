@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Optional, Sequence
 from mesie.integration.ai_connector import AISystemConnector
 from mesie.io.loaders import RecordInput
 from mesie.polyglot.adapters import (
+    HaskellAdapter,
     JuliaAdapter,
     MotokoAdapter,
     PythonAdapter,
@@ -33,7 +34,7 @@ DEFAULT_ROUTING: Dict[PolyglotAction, RuntimeId] = {
     PolyglotAction.MATCH: RuntimeId.RUST,
     PolyglotAction.EMBED: RuntimeId.PYTHON,
     PolyglotAction.RANK: RuntimeId.PYTHON,
-    PolyglotAction.FINGERPRINT: RuntimeId.PYTHON,
+    PolyglotAction.FINGERPRINT: RuntimeId.HASKELL,
     PolyglotAction.HEALTH: RuntimeId.PYTHON,
 }
 
@@ -64,6 +65,7 @@ class AISVectorPolyglotSuite:
             RuntimeId.JULIA: JuliaAdapter(),
             RuntimeId.MOTOKO: MotokoAdapter(canister_url=motoko_url),
             RuntimeId.TYPESCRIPT: TypeScriptAdapter(),
+            RuntimeId.HASKELL: HaskellAdapter(),
         }
         self.vector = AISVectorBridge()
         self.ais = AISystemConnector()
@@ -132,7 +134,14 @@ class AISVectorPolyglotSuite:
     ) -> Dict[str, Any]:
         """Run match across all runtimes for integration testing."""
         results = {}
-        for rid in (RuntimeId.PYTHON, RuntimeId.RUST, RuntimeId.JULIA, RuntimeId.MOTOKO, RuntimeId.TYPESCRIPT):
+        for rid in (
+            RuntimeId.PYTHON,
+            RuntimeId.RUST,
+            RuntimeId.JULIA,
+            RuntimeId.HASKELL,
+            RuntimeId.MOTOKO,
+            RuntimeId.TYPESCRIPT,
+        ):
             resp = self.match(reference, candidate, runtime=rid)
             results[rid.value] = {
                 "ok": resp.ok,

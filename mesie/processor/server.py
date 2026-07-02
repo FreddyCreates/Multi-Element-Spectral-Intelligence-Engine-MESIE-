@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
 from typing import Any, Dict, Optional
+
+ROOT = Path(__file__).resolve().parents[2]
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -10,7 +14,9 @@ from pydantic import BaseModel, Field
 
 from mesie.processor.virtual_processor import VirtualProcessor
 
-app = FastAPI(title="MESIE Virtual Processor", version="1.0.0")
+from mesie.version_info import MESIE_VERSION
+
+app = FastAPI(title="MESIE Virtual Processor", version=MESIE_VERSION)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -132,6 +138,183 @@ def architecture() -> Dict[str, Any]:
     return stack_architecture_snapshot()
 
 
+@app.get("/processor/use-cases")
+def use_cases_catalog() -> Dict[str, Any]:
+    from mesie.enterprise.use_case_registry import registry_manifest
+
+    return registry_manifest()
+
+
+@app.get("/processor/depth")
+def depth_catalog() -> Dict[str, Any]:
+    from mesie.depth.registry import depth_manifest
+    from mesie.depth.envelope_router import list_depth_routes
+
+    manifest = depth_manifest(include_line_counts=True)
+    manifest["routes"] = list_depth_routes()
+    return manifest
+
+
+@app.get("/processor/depth/{pillar_id}")
+def depth_pillar_status(pillar_id: str) -> Dict[str, Any]:
+    from mesie.depth.registry import count_pillar_lines, pillar_by_id
+    from mesie.depth.envelope_router import depth_envelope_spec
+
+    p = pillar_by_id(pillar_id)
+    if not p:
+        raise HTTPException(status_code=404, detail=f"unknown depth pillar: {pillar_id}")
+    counts = count_pillar_lines(pillar_id)
+    manifest_path = ROOT / "mesie" / "depth" / pillar_id / "engines" / "manifest.json"
+    engine_manifest = {}
+    if manifest_path.is_file():
+        engine_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    return {
+        "ok": True,
+        "pillar": {
+            "pillar_id": p.pillar_id,
+            "title": p.title,
+            "category": p.category,
+            "engines": list(p.engines),
+            "envelope_topic": p.envelope_topic,
+        },
+        "line_counts": counts,
+        "meets_minimum": counts["total"] >= 5000,
+        "envelope_spec": depth_envelope_spec(pillar_id),
+        "engine_manifest": engine_manifest,
+    }
+
+
+class DepthEnvelopeRequest(BaseModel):
+    agent_id: str = "any-ai"
+    tool: str = "depth.invoke"
+    payload: Dict[str, Any] = Field(default_factory=dict)
+    engine: Optional[str] = None
+    prior_hash: Optional[str] = None
+
+
+@app.post("/processor/depth/{pillar_id}/envelope")
+def depth_pillar_envelope(pillar_id: str, body: DepthEnvelopeRequest) -> Dict[str, Any]:
+    from mesie.depth.envelope_router import route_envelope_to_engine, seal_depth_envelope
+
+    sealed = seal_depth_envelope(
+        pillar_id=pillar_id,
+        agent_id=body.agent_id,
+        tool=body.tool,
+        payload=body.payload,
+        engine=body.engine,
+        prior_hash=body.prior_hash,
+    )
+    if not sealed.get("ok"):
+        raise HTTPException(status_code=404, detail=sealed.get("error", "pillar not found"))
+    routed = route_envelope_to_engine(sealed["envelope"])
+    return {"sealed": sealed, "route": routed}
+
+
+@app.get("/processor/harness")
+def alpha_harness_catalog() -> Dict[str, Any]:
+    from mesie.harness.alpha_registry import harness_manifest
+    from mesie.harness.auto_business import auto_business_catalog
+    from mesie.harness.template_library import template_manifest
+    from mesie.compute.virtual_products import load_products
+
+    latency = {}
+    hub_path = ROOT / "deliverables" / "compute" / "MESIE_COMPUTE_HUB.json"
+    family_path = ROOT / "deliverables" / "compute" / "MESIE_COMPUTING_FAMILY_RELEASE.json"
+    if family_path.is_file():
+        try:
+            fam = json.loads(family_path.read_text(encoding="utf-8"))
+            latency = fam.get("latency_table_ms") or {}
+        except json.JSONDecodeError:
+            pass
+    if not latency and hub_path.is_file():
+        try:
+            hub = json.loads(hub_path.read_text(encoding="utf-8"))
+            latency = {
+                "fast_ann_p50_ms": (hub.get("fast_ann") or {}).get("p50_ms"),
+                "vp_ann_p50_ms": (hub.get("virtual_processor") or {}).get("ann_p50_ms"),
+                "st_phi_encode_p50_ms": (hub.get("st_phi") or {}).get("encode_p50_ms"),
+                "nova_threat_p50_ms": (hub.get("virtual_processor") or {}).get("threat_p50_ms"),
+            }
+        except json.JSONDecodeError:
+            pass
+
+    return {
+        "protocol": "MESIE-ALPHA-HARNESS-CATALOG/1.0",
+        "harnesses": harness_manifest(),
+        "templates": template_manifest(),
+        "auto_ai_businesses": auto_business_catalog(),
+        "virtual_products": [p.to_dict() for p in load_products()],
+        "latency_table_ms": latency,
+        "surfaces": {
+            "computing_family": "websites/computing-family/index.html",
+            "enterprise_4k": "websites/enterprise-4k/index.html",
+            "template_library": "deliverables/harness/TEMPLATE_LIBRARY.json",
+        },
+    }
+
+
+@app.get("/processor/dsl")
+def native_dsl_catalog() -> Dict[str, Any]:
+    from mesie.native_dsl.registry import dsl_manifest
+
+    return dsl_manifest(include_line_counts=True)
+
+
+class NativeDSLRequest(BaseModel):
+    source: str
+    compile_only: bool = False
+
+
+@app.post("/processor/dsl/{dsl_id}/compile")
+def native_dsl_compile(dsl_id: str, body: NativeDSLRequest) -> Dict[str, Any]:
+    from mesie.native_dsl.compiler import compile_source
+    from mesie.native_dsl.registry import dsl_by_id
+
+    if not dsl_by_id(dsl_id):
+        raise HTTPException(status_code=404, detail=f"unknown native dsl: {dsl_id}")
+    result = compile_source(dsl_id, body.source)
+    if not result.get("ok"):
+        raise HTTPException(status_code=400, detail=result.get("error", "compile failed"))
+    return result
+
+
+@app.post("/processor/dsl/{dsl_id}/run")
+def native_dsl_run(dsl_id: str, body: NativeDSLRequest) -> Dict[str, Any]:
+    from mesie.native_dsl.compiler import compile_and_run, compile_source
+    from mesie.native_dsl.registry import dsl_by_id
+
+    if not dsl_by_id(dsl_id):
+        raise HTTPException(status_code=404, detail=f"unknown native dsl: {dsl_id}")
+    if body.compile_only:
+        result = compile_source(dsl_id, body.source)
+    else:
+        result = compile_and_run(dsl_id, body.source)
+    if not result.get("ok"):
+        raise HTTPException(status_code=400, detail=result.get("error", "dsl failed"))
+    return result
+
+
+@app.get("/processor/autonomous")
+def autonomous_status() -> Dict[str, Any]:
+    from mesie.server.coherence_engine import load_coherence
+    from mesie.server.process_guardian import guardian_snapshot
+
+    state_path = ROOT / "deliverables" / "runtime" / "AUTONOMOUS_ORCHESTRATOR_STATE.json"
+    orch = {}
+    if state_path.is_file():
+        try:
+            orch = json.loads(state_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            orch = {}
+    return {
+        "self_executing": True,
+        "coherence": load_coherence(),
+        "guardian": guardian_snapshot(),
+        "orchestrator": orch,
+        "doctrine": "MESIE executes for AI runtime — users get workflows, platform self-heals.",
+    }
+
+
 @app.get("/processor/market-research")
 def market_research() -> Dict[str, Any]:
     from mesie.processor.market_research import build_market_research
@@ -223,4 +406,217 @@ def list_tools() -> Dict[str, Any]:
         "count": len(TOOLS),
         "tools": [{"id": t.id, "name": t.name, "command": t.command} for t in TOOLS[:40]],
         "note": "POST /processor/exec {\"tool_id\": \"benchmark\"} to run without chat",
+    }
+
+
+# --- MESIE COMPUTE first-class endpoints ---
+
+
+class ComputeEncodeRequest(BaseModel):
+    payload: Any
+    model: str = Field(default="ST-φ-256")
+
+
+class ComputeBenchmarkRequest(BaseModel):
+    trials: int = Field(default=200, ge=10, le=2000)
+    model: str = Field(default="ST-φ-256")
+
+
+@app.get("/processor/compute/status")
+def compute_status() -> Dict[str, Any]:
+    from mesie.compute.hub import compute_hub_snapshot
+
+    return compute_hub_snapshot()
+
+
+@app.get("/processor/compute/products")
+def compute_products() -> Dict[str, Any]:
+    from mesie.compute.virtual_products import load_products, save_products
+
+    products = load_products()
+    save_products(products)
+    return {"products": [p.to_dict() for p in products], "first_class": True}
+
+
+@app.get("/processor/compute/metrics")
+def compute_metrics() -> Dict[str, Any]:
+    from mesie.compute.live_metrics import collect_live_metrics
+
+    return collect_live_metrics()
+
+
+@app.post("/processor/compute/encode")
+def compute_encode(body: ComputeEncodeRequest) -> Dict[str, Any]:
+    from mesie.compute.hub import MESIEComputeHub
+
+    return MESIEComputeHub(model_id=body.model).encode(body.payload)
+
+
+@app.post("/processor/compute/benchmark")
+def compute_benchmark(body: ComputeBenchmarkRequest) -> Dict[str, Any]:
+    from mesie.compute.hub import MESIEComputeHub
+
+    return MESIEComputeHub(model_id=body.model).full_benchmark(trials=body.trials)
+
+
+@app.get("/processor/compute/squads")
+def compute_squads() -> Dict[str, Any]:
+    from mesie.compute.tri_agent_squads import list_squads
+
+    return {"squads": list_squads()}
+
+
+@app.post("/processor/compute/squads/run")
+def compute_squads_run(squad_id: str = "") -> Dict[str, Any]:
+    from mesie.compute.tri_agent_squads import execute_all_squads, execute_squad
+
+    if squad_id:
+        return execute_squad(squad_id)
+    return execute_all_squads()
+
+
+@app.get("/processor/research/acoustic-metamaterial")
+def research_acoustic_metamaterial() -> Dict[str, Any]:
+    from mesie.research.acoustic_metamaterial_agent import run_research_agent
+    from mesie.domains.acoustic_metamaterial import run_metamaterial_suite
+
+    return {"research": run_research_agent(write_artifacts=False), "domain_suite": run_metamaterial_suite()}
+
+
+@app.get("/processor/compute/transformers")
+def compute_transformers() -> Dict[str, Any]:
+    from mesie.compute.spectral_transformer import list_st_phi_models, write_model_registry
+
+    write_model_registry()
+    return {"models": list_st_phi_models(), "native": True, "vs_huggingface": "no_torch_required"}
+
+
+@app.get("/processor/compute/token-budget")
+def compute_token_budget() -> Dict[str, Any]:
+    from mesie.compute.token_budget import snapshot
+
+    return snapshot()
+
+
+@app.get("/processor/grok/protocol")
+def grok_protocol() -> Dict[str, Any]:
+    from mesie.grok.protocol import build_protocol_manifest
+
+    return build_protocol_manifest()
+
+
+@app.post("/processor/grok/worker")
+def grok_worker(body: Dict[str, Any]) -> Dict[str, Any]:
+    from mesie.grok.worker_bus import WorkerBus, WorkerRole
+
+    role = WorkerRole(body.get("role", "worker"))
+    action = str(body.get("action", "pytest_smoke"))
+    payload = body.get("payload") or {}
+    return WorkerBus(mission_id=str(body.get("mission_id", "api"))).dispatch(role, action, payload=payload)
+
+
+@app.get("/processor/federation/status")
+def federation_status() -> Dict[str, Any]:
+    from mesie.enterprise.federation import FederationOrchestrator
+
+    return FederationOrchestrator().status()
+
+
+@app.post("/processor/federation/envelope")
+def federation_envelope(body: Dict[str, Any]) -> Dict[str, Any]:
+    from mesie.enterprise.federation.protocol import EnterpriseFederationEnvelope
+
+    env = EnterpriseFederationEnvelope.from_dict(body)
+    return env.seal_enterprise()
+
+
+@app.post("/processor/federation/invoke")
+def federation_invoke(body: Dict[str, Any]) -> Dict[str, Any]:
+    from mesie.enterprise.federation import FederationOrchestrator
+    from mesie.enterprise.federation.protocol import EnterpriseFederationEnvelope
+
+    env = EnterpriseFederationEnvelope.from_dict(body)
+    return FederationOrchestrator().invoke(env)
+
+
+@app.get("/processor/enterprise/status")
+def enterprise_status() -> Dict[str, Any]:
+    import json
+    from pathlib import Path
+
+    from mesie.enterprise.repo_unifier import build_thread_manifest
+
+    state_path = Path(__file__).resolve().parents[2] / "deliverables" / "enterprise" / "EXECUTION_ENGINE_STATE.json"
+    state: Dict[str, Any] = {}
+    if state_path.is_file():
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+    return {"thread": build_thread_manifest(), "last_run": state}
+
+
+@app.post("/processor/enterprise/run")
+def enterprise_run(body: Dict[str, Any]) -> Dict[str, Any]:
+    from mesie.enterprise.execution_engine import EnterpriseExecutionEngine
+
+    mission = str(body.get("mission_id", "api-run"))
+    skip = body.get("skip") or []
+    return EnterpriseExecutionEngine(mission_id=mission).run(skip=skip)
+
+
+@app.get("/processor/tokens/manifest")
+def tokens_manifest() -> Dict[str, Any]:
+    from mesie.tokens.dual_bridge import token_manifest
+
+    return token_manifest()
+
+
+@app.post("/processor/tokens/mint")
+def tokens_mint(body: Dict[str, Any]) -> Dict[str, Any]:
+    from mesie.tokens.dual_bridge import mint_receipt_token
+
+    return mint_receipt_token(body or {})
+
+
+@app.get("/processor/production-stack")
+def production_stack() -> Dict[str, Any]:
+    import json
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[2]
+    deliv = root / "deliverables"
+
+    def _load(rel: str) -> Dict[str, Any]:
+        p = deliv / rel
+        if not p.is_file():
+            return {"exists": False}
+        return {"exists": True, "data": json.loads(p.read_text(encoding="utf-8"))}
+
+    showcase = _load("nova/NOVA_SHOWCASE.json")
+    headline: Dict[str, Any] = {}
+    if showcase.get("exists"):
+        d = showcase["data"]
+        headline = {
+            "threat_p50_ms": d.get("threat", {}).get("p50_ms") or d.get("robotics", {}).get("threat_p50_ms"),
+            "fusion_dims": d.get("robotics", {}).get("fusion_dims", 256),
+            "library_mb": d.get("foundations", {}).get("library", {}).get("mb"),
+            "engine_count": d.get("foundations", {}).get("engine_count"),
+            "virtual_chip_certified": d.get("virtual_chip", {}).get("certified"),
+        }
+
+    from mesie.agentic.micro.runtime_supervisor import load_runtime_state
+
+    return {
+        "ok": True,
+        "doc": str(deliv / "enterprise" / "PRODUCTION_STACK_STATUS.md"),
+        "running": {
+            "processor": _proc().status(),
+            "nova": load_runtime_state(),
+        },
+        "headline": headline,
+        "artifacts": {
+            "release": _load("processor/VIRTUAL_PROCESSOR_RELEASE.json"),
+            "devkit": _load("processor/VIRTUAL_PROCESSOR_DEVKIT.json"),
+            "showcase": showcase,
+            "architecture": _load("processor/MESIE_STACK_ARCHITECTURE.json"),
+        },
+        "mcp": "deliverables/icp/MCP_FULL_CONFIG.json",
     }

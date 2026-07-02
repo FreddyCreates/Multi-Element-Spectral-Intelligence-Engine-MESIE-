@@ -1,0 +1,74 @@
+{
+  "protocol": "MESIE-FEDERATED-ENVELOPE/1.0",
+  "enterprise_extension": "MESIE-ENTERPRISE-FEDERATION/1.0",
+  "phi_route": 0.6180339887498948,
+  "federation_nodes": [
+    {
+      "id": "mesie-processor",
+      "url": "http://127.0.0.1:8750",
+      "role": "compute+orchestration"
+    },
+    {
+      "id": "mesie-universal-mcp",
+      "url": "http://127.0.0.1:8765",
+      "role": "super-tools+federation"
+    },
+    {
+      "id": "nova-runtime",
+      "url": "file:deliverables/nova/NOVA_RUNTIME_STATE.json",
+      "role": "70 careers always-on"
+    },
+    {
+      "id": "loom-vault",
+      "url": "mcp:loom",
+      "role": "cross-AI memory"
+    },
+    {
+      "id": "enterprise-engine",
+      "url": "http://127.0.0.1:8750/processor/enterprise",
+      "role": "13-node DAG"
+    },
+    {
+      "id": "career-hub",
+      "url": "http://127.0.0.1:8767",
+      "role": "1000 careers triple protocol"
+    }
+  ],
+  "multi_user_fields": [
+    "org_id",
+    "tenant_id",
+    "user_id",
+    "delegation_chain"
+  ],
+  "polyglot_runtimes": [
+    "python",
+    "julia",
+    "haskell",
+    "rust",
+    "motoko",
+    "typescript"
+  ],
+  "octopus_arms": [
+    "sense",
+    "embed",
+    "match",
+    "move",
+    "control",
+    "workflow",
+    "logic",
+    "memory"
+  ],
+  "hands_commands": [
+    "reach",
+    "grip",
+    "release",
+    "rotate",
+    "pulse"
+  ],
+  "http_surface": {
+    "status": "GET /processor/federation/status",
+    "envelope": "POST /processor/federation/envelope",
+    "invoke": "POST /processor/federation/invoke"
+  },
+  "generated_at": "2026-07-02T06:40:07Z"
+}

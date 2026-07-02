@@ -1,0 +1,106 @@
+{
+  "tenants": [
+    {
+      "tenant_id": "default",
+      "org_id": "mesie-enterprise",
+      "name": "Sovereign Local",
+      "max_agents": 100,
+      "agents": [
+        "mesie-orchestrator",
+        "pytest-federation",
+        "pytest-hands",
+        "suite-runner"
+      ],
+      "airgapped": true
+    },
+    {
+      "tenant_id": "acme-corp",
+      "org_id": "acme",
+      "name": "ACME Defense",
+      "max_agents": 100,
+      "agents": [
+        "agent-alpha"
+      ],
+      "airgapped": true
+    }
+  ],
+  "agents": [
+    {
+      "agent_id": "mesie-orchestrator",
+      "org_id": "mesie-enterprise",
+      "tenant_id": "default",
+      "roles": [
+        "admin",
+        "compute"
+      ],
+      "runtimes": [
+        "python",
+        "julia",
+        "haskell"
+      ],
+      "healthy": true,
+      "last_seen": 1782974368.5868933
+    },
+    {
+      "agent_id": "agent-alpha",
+      "org_id": "acme",
+      "tenant_id": "acme-corp",
+      "roles": [
+        "analyst"
+      ],
+      "runtimes": [
+        "python",
+        "julia",
+        "haskell"
+      ],
+      "healthy": true,
+      "last_seen": 1782976327.8073804
+    },
+    {
+      "agent_id": "pytest-federation",
+      "org_id": "mesie-enterprise",
+      "tenant_id": "default",
+      "roles": [
+        "agent"
+      ],
+      "runtimes": [
+        "python",
+        "julia",
+        "haskell"
+      ],
+      "healthy": true,
+      "last_seen": 1782974368.6127574
+    },
+    {
+      "agent_id": "pytest-hands",
+      "org_id": "mesie-enterprise",
+      "tenant_id": "default",
+      "roles": [
+        "agent"
+      ],
+      "runtimes": [
+        "python",
+        "julia",
+        "haskell"
+      ],
+      "healthy": true,
+      "last_seen": 1782974368.6292367
+    },
+    {
+      "agent_id": "suite-runner",
+      "org_id": "mesie-enterprise",
+      "tenant_id": "default",
+      "roles": [
+        "agent"
+      ],
+      "runtimes": [
+        "python",
+        "julia",
+        "haskell"
+      ],
+      "healthy": true,
+      "last_seen": 1782974407.919719
+    }
+  ],
+  "updated_at": "2026-07-02T07:12:07Z"
+}

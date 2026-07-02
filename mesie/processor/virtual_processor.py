@@ -59,7 +59,10 @@ class VirtualProcessor:
             "operations": [
                 "embed", "match", "benchmark", "read_signal", "generate_text",
                 "mesh_pulse", "exec_tool", "virtual_chip", "list_chips", "robotics_pulse",
+                "compute_encode", "compute_benchmark", "compute_hub",
             ],
+            "compute_hub": "/processor/compute/status",
+            "mesie_compute_first_class": True,
             "chip_skus": [sku.chip_id for sku in self._chip_skus()],
             "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell.",
         }
@@ -214,6 +217,43 @@ class VirtualProcessor:
         node.stop()
         out = report.to_dict()
         return self._finish("mesh_pulse", t0, out, measured=report.peers_seen + report.ota_frames_received, ok=report.ok)
+
+    def compute_encode(self, payload: Any, *, model: str = "ST-φ-256") -> ProcessorResult:
+        from mesie.compute.hub import MESIEComputeHub
+
+        t0 = time.perf_counter()
+        out = MESIEComputeHub(model_id=model).encode(payload)
+        return self._finish("compute_encode", t0, out, measured=out.get("dims", 256))
+
+    def compute_benchmark(self, *, trials: int = 200, model: str = "ST-φ-256") -> ProcessorResult:
+        from mesie.compute.hub import MESIEComputeHub
+
+        t0 = time.perf_counter()
+        out = MESIEComputeHub(model_id=model).full_benchmark(trials=trials)
+        return self._finish("compute_benchmark", t0, out, measured=trials)
+
+    def compute_hub_snapshot(self) -> ProcessorResult:
+        from mesie.compute.hub import compute_hub_snapshot
+
+        t0 = time.perf_counter()
+        out = compute_hub_snapshot()
+        return self._finish("compute_hub", t0, out, measured=len(out.get("products", [])))
+
+    def federation_status(self) -> ProcessorResult:
+        from mesie.enterprise.federation import FederationOrchestrator
+
+        t0 = time.perf_counter()
+        out = FederationOrchestrator().status()
+        return self._finish("federation_status", t0, out, measured=len(out.get("registry", {}).get("tenant_ids", [])))
+
+    def federation_invoke(self, body: Dict[str, Any]) -> ProcessorResult:
+        from mesie.enterprise.federation import FederationOrchestrator
+        from mesie.enterprise.federation.protocol import EnterpriseFederationEnvelope
+
+        t0 = time.perf_counter()
+        env = EnterpriseFederationEnvelope.from_dict(body)
+        out = FederationOrchestrator().invoke(env)
+        return self._finish("federation_invoke", t0, out, measured=int(out.get("latency_ms", 1)))
 
     def robotics_pulse(self) -> ProcessorResult:
         """One NeuroSwarm / robotics readiness pulse for satellite loop."""

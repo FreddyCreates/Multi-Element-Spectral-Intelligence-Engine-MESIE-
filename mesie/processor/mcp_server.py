@@ -110,6 +110,31 @@ TOOLS: Dict[str, Dict[str, Any]] = {
         "method": "POST",
         "path": "/processor/mesh/pulse",
     },
+    "processor_federation_status": {
+        "description": "Enterprise AI federation status — tenants, polyglot runtimes, manifest.",
+        "inputSchema": {"type": "object", "properties": {}},
+        "method": "GET",
+        "path": "/processor/federation/status",
+    },
+    "processor_federation_invoke": {
+        "description": "Invoke enterprise federation envelope — polyglot, arms, hands, depth.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "agent_id": {"type": "string"},
+                "tenant_id": {"type": "string", "default": "default"},
+                "org_id": {"type": "string", "default": "mesie-enterprise"},
+                "tool": {"type": "string"},
+                "runtime": {"type": "string", "enum": ["python", "julia", "haskell", "rust", "motoko"]},
+                "payload": {"type": "object"},
+                "hand_command": {"type": "object"},
+            },
+            "required": ["agent_id", "tool"],
+        },
+        "method": "POST",
+        "path": "/processor/federation/invoke",
+        "body_keys": ["agent_id", "tenant_id", "org_id", "tool", "runtime", "payload", "hand_command"],
+    },
 }
 
 

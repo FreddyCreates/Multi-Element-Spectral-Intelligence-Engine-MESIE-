@@ -26,6 +26,7 @@ class RuntimeId(str, Enum):
     JULIA = "julia"
     MOTOKO = "motoko"
     TYPESCRIPT = "typescript"
+    HASKELL = "haskell"
     HTTP = "http"
     THIRD_PARTY = "third_party"
 
