@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MESIE Model Hub — Sovereign AI Catalog</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+    .tabs { display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap; }
+    .tab { padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; font-size: 0.85rem; }
+    .tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-size: 0.75rem; text-transform: uppercase; }
+    .panel { display: none; margin-top: 1rem; }
+    .panel.active { display: block; }
+    textarea, select, input { width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border); background: #0d1320; color: var(--text); font-family: var(--mono); font-size: 0.85rem; margin-bottom: 0.5rem; }
+    pre { font-family: var(--mono); font-size: 0.75rem; max-height: 280px; overflow: auto; color: var(--muted); }
+    .tier-badge { font-size: 0.7rem; padding: 0.15rem 0.4rem; border-radius: 4px; background: #1a2744; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>Unified Model Hub</h1>
+        <p class="muted"><span id="model-count">—</span> sovereign models · <span id="corpus-count">—</span> corpus records</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">LOADING</span>
+        <button class="btn btn-ghost" onclick="loadCatalog()">Refresh</button>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" data-tab="catalog" onclick="showTab('catalog')">Catalog</div>
+      <div class="tab" data-tab="encode" onclick="showTab('encode')">ST-φ Encode</div>
+      <div class="tab" data-tab="nova" onclick="showTab('nova')">NOVA Forge</div>
+      <div class="tab" data-tab="benchmark" onclick="showTab('benchmark')">Benchmark</div>
+    </div>
+
+    <div class="card panel active" id="panel-catalog">
+      <table>
+        <thead><tr><th>Tier</th><th>Model</th><th>Scale</th><th>Spec</th><th></th></tr></thead>
+        <tbody id="catalog"></tbody>
+      </table>
+    </div>
+
+    <div class="card panel" id="panel-encode">
+      <p class="muted" style="margin-bottom:0.75rem">Encode via ST-φ — worker: platform_encode · protocol P36</p>
+      <select id="encode-model">
+        <option>ST-φ-128</option>
+        <option selected>ST-φ-256</option>
+        <option>ST-φ-512</option>
+      </select>
+      <textarea id="encode-text" rows="3">MESIE sovereign spectral encode — native intelligence</textarea>
+      <button class="btn btn-primary" onclick="runEncode()">Encode</button>
+      <pre id="encode-out" style="margin-top:1rem">—</pre>
+    </div>
+
+    <div class="card panel" id="panel-nova">
+      <p class="muted" style="margin-bottom:0.75rem">Forge NOVA virtual models — worker: platform_forge · protocol P33</p>
+      <select id="forge-model">
+        <option value="">All NOVA (50B + 8B + 3B)</option>
+        <option>NOVA-50B-VIRTUAL</option>
+        <option>NOVAMINI-8B-VIRTUAL</option>
+        <option>MININOVA-3B-VIRTUAL</option>
+      </select>
+      <input id="probe-text" placeholder="Optional probe text" />
+      <button class="btn btn-primary" onclick="runForge()">Forge</button>
+      <pre id="forge-out" style="margin-top:1rem">—</pre>
+    </div>
+
+    <div class="card panel" id="panel-benchmark">
+      <p class="muted" style="margin-bottom:0.75rem">Full compute hub benchmark — ST-φ + Fast ANN + virtual processor</p>
+      <select id="bench-model">
+        <option>ST-φ-128</option>
+        <option selected>ST-φ-256</option>
+        <option>ST-φ-512</option>
+      </select>
+      <input id="bench-trials" type="number" value="100" min="10" max="500" placeholder="Trials" />
+      <button class="btn btn-primary" onclick="runBenchmark()">Run Benchmark</button>
+      <pre id="bench-out" style="margin-top:1rem">—</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("model-hub");
+
+    function showTab(name) {
+      document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.tab === name));
+      document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === `panel-${name}`));
+      location.hash = name === "catalog" ? "" : name;
+    }
+    const hash = location.hash.replace("#", "");
+    if (["encode", "nova", "benchmark"].includes(hash)) showTab(hash);
+
+    async function loadCatalog() {
+      try {
+        const j = await MESIE_BRIDGE.models();
+        document.getElementById("badge").textContent = "LIVE";
+        document.getElementById("model-count").textContent = j.model_count;
+        document.getElementById("corpus-count").textContent = j.corpus_records;
+        document.getElementById("catalog").innerHTML = (j.tiers || []).map(m => `
+          <tr>
+            <td><span class="tier-badge">${m.tier}</span></td>
+            <td class="mono">${m.model_id}</td>
+            <td>${m.effective_params || m.family || "—"}</td>
+            <td class="muted">${m.d_model ? `d=${m.d_model} L=${m.n_layers}` : m.layer || (m.knowledge_entries ? `kb=${m.knowledge_entries}` : "native")}</td>
+            <td>${m.tier.includes("nova") || m.family === "ST-φ" ? `<button class="btn btn-ghost" style="font-size:0.7rem;padding:0.2rem 0.5rem" onclick="quickEncode('${m.model_id}')">test</button>` : ""}</td>
+          </tr>`).join("");
+      } catch (e) {
+        document.getElementById("badge").textContent = "OFFLINE";
+        document.getElementById("catalog").innerHTML = `<tr><td colspan="5" class="muted">Start: python -m mesie.processor --serve</td></tr>`;
+      }
+    }
+
+    function quickEncode(modelId) {
+      showTab("encode");
+      if (modelId.startsWith("ST")) document.getElementById("encode-model").value = modelId;
+      runEncode();
+    }
+
+    async function runEncode() {
+      const text = document.getElementById("encode-text").value;
+      const model = document.getElementById("encode-model").value;
+      const out = document.getElementById("encode-out");
+      out.textContent = "encoding…";
+      try {
+        const j = await MESIE_BRIDGE.encode(text, model);
+        out.textContent = JSON.stringify(j, null, 2);
+      } catch (e) {
+        try {
+          const j = await MESIE_BRIDGE.invoke("st-phi-encode", { payload: text, model });
+          out.textContent = JSON.stringify(j, null, 2);
+        } catch (e2) { out.textContent = String(e2); }
+      }
+    }
+
+    async function runForge() {
+      const model_id = document.getElementById("forge-model").value;
+      const probe = document.getElementById("probe-text").value;
+      const out = document.getElementById("forge-out");
+      out.textContent = "forging…";
+      try {
+        const payload = {};
+        if (model_id) payload.model_id = model_id;
+        if (probe) payload.probe_text = probe;
+        const j = await MESIE_BRIDGE.invoke("nova-studio", payload);
+        out.textContent = JSON.stringify(j, null, 2);
+      } catch (e) { out.textContent = String(e); }
+    }
+
+    async function runBenchmark() {
+      const model = document.getElementById("bench-model").value;
+      const trials = parseInt(document.getElementById("bench-trials").value, 10) || 100;
+      const out = document.getElementById("bench-out");
+      out.textContent = "benchmarking…";
+      try {
+        const j = await MESIE_BRIDGE.benchmark(model, trials);
+        out.textContent = JSON.stringify(j, null, 2);
+      } catch (e) { out.textContent = String(e); }
+    }
+
+    loadCatalog();
+  </script>
+</body>
+</html>

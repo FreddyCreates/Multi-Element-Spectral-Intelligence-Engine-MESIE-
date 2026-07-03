@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_nx_monorepo",
+  "core_id": "core_architectura",
+  "paradigm_id": "nx_monorepo",
+  "latin_agent": "Agent Nx Polyglotta",
+  "stack": "nx",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

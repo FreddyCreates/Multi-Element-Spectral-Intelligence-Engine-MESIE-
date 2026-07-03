@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_spatial_audio",
+  "core_id": "core_spatialis",
+  "paradigm_id": "spatial_audio",
+  "latin_agent": "Agent Sonus Spatialis",
+  "stack": "spatial_audio",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

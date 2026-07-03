@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_threejs_webgl",
+  "core_id": "core_geometrica",
+  "paradigm_id": "threejs_webgl",
+  "latin_agent": "Agent Geometria Triangula",
+  "stack": "threejs",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "movement"
+}

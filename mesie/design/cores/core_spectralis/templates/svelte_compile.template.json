@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_svelte_compile",
+  "core_id": "core_spectralis",
+  "paradigm_id": "svelte_compile",
+  "latin_agent": "Agent Compiler Minimus",
+  "stack": "svelte",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "generation"
+}

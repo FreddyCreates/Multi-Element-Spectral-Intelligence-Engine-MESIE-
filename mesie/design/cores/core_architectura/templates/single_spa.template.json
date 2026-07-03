@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_single_spa",
+  "core_id": "core_architectura",
+  "paradigm_id": "single_spa",
+  "latin_agent": "Agent single-spa Polyglotta",
+  "stack": "single_spa",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

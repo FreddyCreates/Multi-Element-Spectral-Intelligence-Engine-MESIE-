@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_sigmajs_network",
+  "core_id": "core_datavis",
+  "paradigm_id": "sigmajs_network",
+  "latin_agent": "Agent Sigma.js Polyglotta",
+  "stack": "sigma",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "movement"
+}

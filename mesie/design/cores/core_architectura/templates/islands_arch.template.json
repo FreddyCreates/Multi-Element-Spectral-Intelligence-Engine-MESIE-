@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_islands_arch",
+  "core_id": "core_architectura",
+  "paradigm_id": "islands_arch",
+  "latin_agent": "Agent Archipelagus UI",
+  "stack": "islands",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "generation"
+}

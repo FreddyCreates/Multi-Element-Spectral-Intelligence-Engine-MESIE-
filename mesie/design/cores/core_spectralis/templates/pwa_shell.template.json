@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_pwa_shell",
+  "core_id": "core_spectralis",
+  "paradigm_id": "pwa_shell",
+  "latin_agent": "Agent Shell Mobilicus",
+  "stack": "pwa",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "control"
+}

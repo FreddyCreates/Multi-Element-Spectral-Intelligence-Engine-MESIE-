@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_waveform_phi",
+  "core_id": "core_sonora",
+  "paradigm_id": "waveform_phi",
+  "latin_agent": "Agent Unda Harmonica",
+  "stack": "waveform",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "matching"
+}

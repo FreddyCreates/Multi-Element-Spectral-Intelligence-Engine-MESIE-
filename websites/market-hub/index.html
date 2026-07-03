@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MESIE Market Hub — 4-Tier Ready</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+    .tiers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    @media (max-width: 900px) { .tiers { grid-template-columns: repeat(2, 1fr); } }
+    .tier-ok { border-color: var(--ok); }
+    .pack { margin: 1rem 0; padding: 1rem; border-left: 3px solid var(--accent); background: var(--card); border-radius: 0 8px 8px 0; }
+    pre { font-family: var(--mono); font-size: 0.72rem; max-height: 200px; overflow: auto; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="wrap">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>Market Hub</h1>
+        <p class="muted">4-tier market ready loop · 5 businesses · @ItsnotAILabs</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">LOADING</span>
+        <button class="btn btn-primary" onclick="runCycle()">Run Cycle</button>
+        <button class="btn btn-ghost" onclick="refresh()">Refresh</button>
+      </div>
+    </header>
+
+    <section class="tiers" id="tiers"></section>
+
+    <div class="card">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Sleep Loop</h2>
+      <p class="muted" style="font-size:0.85rem">Start overnight: <code class="mono">.\Start-MarketReadySleep.ps1</code></p>
+      <pre id="state">—</pre>
+    </div>
+
+    <h2 style="margin: 2rem 0 1rem">Research Packs</h2>
+    <div class="pack"><h3>05 Market Position 2026</h3><p class="muted">Five shippable businesses — FIVE_BUSINESSES.json</p></div>
+    <div class="pack"><h3>04 Dual-Chain Tokens</h3><p class="muted">LRC + ETH anchor + ICP attestation</p></div>
+
+    <p style="margin-top:2rem">
+      <a href="../mesie-landing/" class="btn btn-primary">MESIE Landing</a>
+      <a href="../enterprise-4k/" class="btn btn-ghost">Enterprise 4K</a>
+      <a href="../platform-hub/" class="btn btn-ghost">Platform Hub</a>
+    </p>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("market-hub");
+
+    const TIER_META = {
+      prove: { n: 1, squad: "ops-triad" },
+      package: { n: 2, squad: "quality-triad" },
+      platform: { n: 3, squad: "intel-triad" },
+      ship: { n: 4, squad: "research-triad" },
+    };
+
+    async function refresh() {
+      try {
+        const j = await MESIE_BRIDGE.marketReady();
+        const last = j.last_cycle || {};
+        document.getElementById("badge").textContent = last.sleep_safe ? "READY" : "WORKING";
+        document.getElementById("state").textContent = JSON.stringify(last, null, 2);
+        const results = last.results || [];
+        const tiers = j.tiers || [];
+        document.getElementById("tiers").innerHTML = tiers.map(t => {
+          const r = results.find(x => x.tier_id === t.tier_id);
+          const ok = r?.market_ready;
+          return `<div class="card ${ok ? 'tier-ok' : ''}">
+            <div class="metric-label">Tier ${t.tier_num}</div>
+            <div style="font-weight:600">${t.title.split('—')[0].trim()}</div>
+            <div class="muted" style="font-size:0.8rem">${t.squad_id}</div>
+            <div class="metric-value" style="font-size:1rem">${ok ? 'OK' : '—'}</div>
+          </div>`;
+        }).join("");
+      } catch (e) {
+        document.getElementById("badge").textContent = "OFFLINE";
+        document.getElementById("state").textContent = String(e);
+      }
+    }
+
+    async function runCycle() {
+      document.getElementById("state").textContent = "running cycle…";
+      try {
+        const j = await MESIE_BRIDGE.marketReadyCycle();
+        document.getElementById("state").textContent = JSON.stringify(j, null, 2);
+        refresh();
+      } catch (e) { document.getElementById("state").textContent = String(e); }
+    }
+
+    refresh();
+    setInterval(refresh, 60000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_superset_embed",
+  "core_id": "core_datavis",
+  "paradigm_id": "superset_embed",
+  "latin_agent": "Agent Superset Polyglotta",
+  "stack": "superset",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "validation"
+}

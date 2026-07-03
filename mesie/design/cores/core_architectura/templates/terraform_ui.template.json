@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_terraform_ui",
+  "core_id": "core_architectura",
+  "paradigm_id": "terraform_ui",
+  "latin_agent": "Agent Terraform Polyglotta",
+  "stack": "tf_ui",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "validation"
+}

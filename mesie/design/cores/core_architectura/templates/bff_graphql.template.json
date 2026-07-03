@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_bff_graphql",
+  "core_id": "core_architectura",
+  "paradigm_id": "bff_graphql",
+  "latin_agent": "Agent Schema Intermedius",
+  "stack": "graphql",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "validation"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_htmx_hypermedia",
+  "core_id": "core_spectralis",
+  "paradigm_id": "htmx_hypermedia",
+  "latin_agent": "Agent HTMX Polyglotta",
+  "stack": "htmx",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

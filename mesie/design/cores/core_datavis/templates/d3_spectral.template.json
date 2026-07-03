@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_d3_spectral",
+  "core_id": "core_datavis",
+  "paradigm_id": "d3_spectral",
+  "latin_agent": "Agent Data Vis Spectrorum",
+  "stack": "d3",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

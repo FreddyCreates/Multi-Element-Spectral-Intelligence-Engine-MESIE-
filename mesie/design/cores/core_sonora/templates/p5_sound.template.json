@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_p5_sound",
+  "core_id": "core_sonora",
+  "paradigm_id": "p5_sound",
+  "latin_agent": "Agent p5.sound Polyglotta",
+  "stack": "p5_sound",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

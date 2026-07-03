@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_wavesurfer_ui",
+  "core_id": "core_sonora",
+  "paradigm_id": "wavesurfer_ui",
+  "latin_agent": "Agent WaveSurfer Polyglotta",
+  "stack": "wavesurfer",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

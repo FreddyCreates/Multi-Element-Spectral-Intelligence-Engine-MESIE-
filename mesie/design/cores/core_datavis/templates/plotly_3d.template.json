@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_plotly_3d",
+  "core_id": "core_datavis",
+  "paradigm_id": "plotly_3d",
+  "latin_agent": "Agent Plotly Polyglotta",
+  "stack": "plotly",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "generation"
+}

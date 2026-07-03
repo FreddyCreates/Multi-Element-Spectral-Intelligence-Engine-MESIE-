@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_unity_webgl",
+  "core_id": "core_realitas",
+  "paradigm_id": "unity_webgl",
+  "latin_agent": "Agent Unity Polyglotta",
+  "stack": "unity",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "generation"
+}

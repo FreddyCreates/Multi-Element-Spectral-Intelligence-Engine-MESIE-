@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_cinematic_cam",
+  "core_id": "core_realitas",
+  "paradigm_id": "cinematic_cam",
+  "latin_agent": "Agent Camera Cinematica",
+  "stack": "cine",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "control"
+}

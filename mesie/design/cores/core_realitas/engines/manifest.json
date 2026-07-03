@@ -1,0 +1,35 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_realitas",
+  "latin_name": "Core Realitas",
+  "reality_class": "ultimate_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Scaena Realitatis",
+    "Agent Materia Physica",
+    "Agent Lux Harmonica",
+    "Agent Post Processus",
+    "Agent Camera Cinematica",
+    "Agent Showcase Producti",
+    "Agent Booth Mercatus",
+    "Agent Metrum Tridimensionale",
+    "Agent Visualisatio Retis",
+    "Agent Realitas Ultima",
+    "Agent Godot Polyglotta",
+    "Agent Unity Polyglotta",
+    "Agent Unreal Polyglotta",
+    "Agent Blender Polyglotta",
+    "Agent Nanite Polyglotta",
+    "Agent Lumen Polyglotta",
+    "Agent Path Polyglotta",
+    "Agent Gaussian Polyglotta",
+    "Agent NeRF Polyglotta",
+    "Agent Reality Polyglotta"
+  ],
+  "protocols": [
+    "P41",
+    "P21",
+    "P24",
+    "P36"
+  ]
+}

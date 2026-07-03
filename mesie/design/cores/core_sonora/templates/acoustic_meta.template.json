@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_acoustic_meta",
+  "core_id": "core_sonora",
+  "paradigm_id": "acoustic_meta",
+  "latin_agent": "Agent Metamateria Soni",
+  "stack": "acoustic",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

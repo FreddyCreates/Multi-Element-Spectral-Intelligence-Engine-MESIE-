@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_nerf_viewer",
+  "core_id": "core_realitas",
+  "paradigm_id": "nerf_viewer",
+  "latin_agent": "Agent NeRF Polyglotta",
+  "stack": "nerf",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "validation"
+}

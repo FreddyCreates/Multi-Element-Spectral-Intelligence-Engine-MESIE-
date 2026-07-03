@@ -1,0 +1,12 @@
+{
+  "template_id": "core_narrativa_docusaurus_site",
+  "core_id": "core_narrativa",
+  "paradigm_id": "docusaurus_site",
+  "latin_agent": "Agent Docusaurus Polyglotta",
+  "stack": "docusaurus",
+  "hooks": [
+    "GET /processor/design/cores/core_narrativa",
+    "POST /processor/design/cores/core_narrativa/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

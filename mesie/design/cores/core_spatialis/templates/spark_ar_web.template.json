@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_spark_ar_web",
+  "core_id": "core_spatialis",
+  "paradigm_id": "spark_ar_web",
+  "latin_agent": "Agent Spark Polyglotta",
+  "stack": "spark",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "generation"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_turborepo_cache",
+  "core_id": "core_architectura",
+  "paradigm_id": "turborepo_cache",
+  "latin_agent": "Agent Turborepo Polyglotta",
+  "stack": "turbo",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

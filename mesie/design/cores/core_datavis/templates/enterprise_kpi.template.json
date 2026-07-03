@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_enterprise_kpi",
+  "core_id": "core_datavis",
+  "paradigm_id": "enterprise_kpi",
+  "latin_agent": "Agent Indicium Mercatus",
+  "stack": "kpi",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

@@ -1,0 +1,2291 @@
+{
+  "protocol": "MESIE-DESIGN-REALITY-ECOSYSTEM/1.0",
+  "mesie_version": "1.2.0",
+  "core_count": 10,
+  "paradigm_count": 200,
+  "paradigms_per_core": 20,
+  "target_paradigms": 200,
+  "canonical_protocol_count": 40,
+  "reality_protocol": "MESIE-REALITY-ENGINE-CORES/1.0",
+  "agent_roles": [
+    "orchestrator",
+    "worker",
+    "helper",
+    "executor"
+  ],
+  "intelligence": "SOLUS + MESIE native \u2014 all agents route to mesie engines (zero third-party inference)",
+  "reality_vision": "Unreal-class web reality showcase \u2014 video-game roots, enterprise products",
+  "protocol_bus": {
+    "protocol": "MESIE-DESIGN-PROTOCOL-BUS/1.0",
+    "protocol_count": 42,
+    "layers": [
+      "business",
+      "compute",
+      "content",
+      "datavis",
+      "depth",
+      "design",
+      "economic",
+      "enterprise",
+      "execution",
+      "federation",
+      "fleet",
+      "harness",
+      "icp",
+      "intelligence",
+      "kernel",
+      "kinetic",
+      "language",
+      "material",
+      "mcp",
+      "memory",
+      "mission",
+      "model",
+      "ops",
+      "proof",
+      "reality",
+      "research",
+      "retrieval",
+      "sonora",
+      "sovereign",
+      "spatial",
+      "surface"
+    ],
+    "protocols": [
+      {
+        "id": "P01",
+        "name": "MESIE-FEDERATED-ENVELOPE/1.0",
+        "layer": "federation",
+        "role": "Cross-AI tool invoke"
+      },
+      {
+        "id": "P02",
+        "name": "MESIE-DEPTH-PILLAR/1.0",
+        "layer": "depth",
+        "role": "Polyglot pillar orchestration"
+      },
+      {
+        "id": "P03",
+        "name": "MESIE-NATIVE-DSL-SUITE/1.0",
+        "layer": "language",
+        "role": "8 sovereign DSLs"
+      },
+      {
+        "id": "P04",
+        "name": "MESIE-ALPHA-HARNESS/1.0",
+        "layer": "harness",
+        "role": "Coding harness catalog"
+      },
+      {
+        "id": "P05",
+        "name": "MESIE-TEMPLATE-LIBRARY/1.0",
+        "layer": "surface",
+        "role": "UI/build templates"
+      },
+      {
+        "id": "P06",
+        "name": "MESIE-AUTO-AI-BUSINESS/1.0",
+        "layer": "business",
+        "role": "Auto-AI business units"
+      },
+      {
+        "id": "P07",
+        "name": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+        "layer": "compute",
+        "role": "8 virtual products"
+      },
+      {
+        "id": "P08",
+        "name": "MESIE-INTELLIGENCE-PROTOCOL/1.0",
+        "layer": "intelligence",
+        "role": "Spectral reasoning levels"
+      },
+      {
+        "id": "P09",
+        "name": "CLOUDCOLONY-TRIPLE-PROTOCOL/1.0",
+        "layer": "sovereign",
+        "role": "Loom + MCP + Bridge"
+      },
+      {
+        "id": "P10",
+        "name": "MESIE-ENTERPRISE-MONTE-CARLO/1.0",
+        "layer": "economic",
+        "role": "Enterprise SLA proof"
+      },
+      {
+        "id": "P11",
+        "name": "MESIE-USE-CASE-CHILD-BRANCH/1.0",
+        "layer": "business",
+        "role": "GitHub-ready repos"
+      },
+      {
+        "id": "P12",
+        "name": "MESIE-NATIVE-RELEASE/1.0",
+        "layer": "research",
+        "role": "Latin paper series"
+      },
+      {
+        "id": "P13",
+        "name": "MEDINA-LOOM/0.1",
+        "layer": "memory",
+        "role": "Sovereign vault"
+      },
+      {
+        "id": "P14",
+        "name": "MEDINA-MCP-COLONY-DEPLOY/1.0",
+        "layer": "mcp",
+        "role": "Vault/compute/fleet"
+      },
+      {
+        "id": "P15",
+        "name": "MEDINA-COLONY-BRIDGE/1.0",
+        "layer": "icp",
+        "role": "Airgap \u2192 mainnet"
+      },
+      {
+        "id": "P16",
+        "name": "MESIE-DESIGN-REALITY-ECOSYSTEM/1.0",
+        "layer": "design",
+        "role": "10 cores \u00d7 200 paradigms"
+      },
+      {
+        "id": "P17",
+        "name": "MESIE-DESIGN-CORE-ENGINE/1.0",
+        "layer": "design",
+        "role": "Per-core reality engine"
+      },
+      {
+        "id": "P18",
+        "name": "MESIE-DESIGN-INTELLIGENCE-AGENT/1.0",
+        "layer": "design",
+        "role": "Latin-named UI agents"
+      },
+      {
+        "id": "P19",
+        "name": "MESIE-DESIGN-ORCHESTRATOR/1.0",
+        "layer": "design",
+        "role": "Front\u2194middle\u2194back bus"
+      },
+      {
+        "id": "P20",
+        "name": "MESIE-DESIGN-EMBED-VECTOR/1.0",
+        "layer": "design",
+        "role": "ST-\u03c6 design brief encoding"
+      },
+      {
+        "id": "P21",
+        "name": "MESIE-THREEJS-SPECTRAL-SCENE/1.0",
+        "layer": "reality",
+        "role": "\u03c6-harmonic 3D showcase"
+      },
+      {
+        "id": "P22",
+        "name": "MESIE-WEBGL-REALITY-LANE/1.0",
+        "layer": "reality",
+        "role": "WebGL render lane"
+      },
+      {
+        "id": "P23",
+        "name": "MESIE-PBR-MATERIAL-SPECTRAL/1.0",
+        "layer": "reality",
+        "role": "Spectral PBR materials"
+      },
+      {
+        "id": "P24",
+        "name": "MESIE-SCENE-GRAPH-AGI/1.0",
+        "layer": "reality",
+        "role": "Scene graph intelligence"
+      },
+      {
+        "id": "P25",
+        "name": "MESIE-UI-TOKEN-PHI/1.0",
+        "layer": "material",
+        "role": "\u03c6 design tokens"
+      },
+      {
+        "id": "P26",
+        "name": "MESIE-MOTION-PROTOCOL/1.0",
+        "layer": "kinetic",
+        "role": "Animation orchestration"
+      },
+      {
+        "id": "P27",
+        "name": "MESIE-SPATIAL-XR/1.0",
+        "layer": "spatial",
+        "role": "XR shell routing"
+      },
+      {
+        "id": "P28",
+        "name": "MESIE-DATAVIS-SPECTRAL/1.0",
+        "layer": "datavis",
+        "role": "Chart + dashboard AGI"
+      },
+      {
+        "id": "P29",
+        "name": "MESIE-SONORA-WEBAUDIO/1.0",
+        "layer": "sonora",
+        "role": "Audio-visual coupling"
+      },
+      {
+        "id": "P30",
+        "name": "MESIE-ARCHITECTURA-MFE/1.0",
+        "layer": "enterprise",
+        "role": "Micro-frontend bus"
+      },
+      {
+        "id": "P31",
+        "name": "MESIE-NARRATIVA-SCHOLAR/1.0",
+        "layer": "content",
+        "role": "Latin scholarly surfaces"
+      },
+      {
+        "id": "P32",
+        "name": "MESIE-WORKER-BUS-GROK/1.0",
+        "layer": "execution",
+        "role": "Orchestrator/worker/helper"
+      },
+      {
+        "id": "P33",
+        "name": "MESIE-NOVA-CAREER-PULSE/1.0",
+        "layer": "fleet",
+        "role": "70-career maintenance"
+      },
+      {
+        "id": "P34",
+        "name": "MESIE-TRI-AGENT-SQUAD/1.0",
+        "layer": "ops",
+        "role": "3\u00d73 maintenance triads"
+      },
+      {
+        "id": "P35",
+        "name": "MESIE-SOLUS-FORMAL-STACK/1.0",
+        "layer": "intelligence",
+        "role": "Logic\u2297Reasoning\u2297Emergence"
+      },
+      {
+        "id": "P36",
+        "name": "MESIE-ST-PHI-TRANSFORMER/1.0",
+        "layer": "model",
+        "role": "Native spectral transformer"
+      },
+      {
+        "id": "P37",
+        "name": "MESIE-\u03c6-KERNEL/1.0",
+        "layer": "kernel",
+        "role": "Embedding compression"
+      },
+      {
+        "id": "P38",
+        "name": "MESIE-FAST-ANN/1.0",
+        "layer": "retrieval",
+        "role": "Sub-ms vector search"
+      },
+      {
+        "id": "P39",
+        "name": "MESIE-LRC-RECEIPT/1.0",
+        "layer": "proof",
+        "role": "Local receipt mint"
+      },
+      {
+        "id": "P40",
+        "name": "MESIE-SWARM-MISSION-DAG/1.0",
+        "layer": "mission",
+        "role": "Long-horizon build DAG"
+      },
+      {
+        "id": "P41",
+        "name": "MESIE-REALITY-UNREAL-CLASS/1.0",
+        "layer": "reality",
+        "role": "Showcase-grade scene engine"
+      },
+      {
+        "id": "P42",
+        "name": "MESIE-DESIGN-HARNESS-EMBED/1.0",
+        "layer": "design",
+        "role": "Harness + embedding tie"
+      }
+    ],
+    "envelope_fields": [
+      "agent_id",
+      "core_id",
+      "paradigm_id",
+      "phi_route",
+      "body_hash",
+      "prior_hash"
+    ],
+    "generated_at": "2026-07-02T07:44:43Z"
+  },
+  "cores": [
+    {
+      "core_id": "core_spectralis",
+      "latin_name": "Core Spectralis",
+      "english_title": "Web Foundation Intelligence",
+      "reality_class": "web_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P16",
+        "P05",
+        "P20",
+        "P25"
+      ],
+      "library_path": "mesie/design/cores/core_spectralis",
+      "processor": "GET /processor/design/cores/core_spectralis",
+      "paradigms": [
+        {
+          "paradigm_id": "html_semantic",
+          "name": "HTML5 Semantic",
+          "stack": "html",
+          "latin_agent": "Agent Structura Semanticus",
+          "role": "orchestrator",
+          "mesie_engine": "validation",
+          "language": "html"
+        },
+        {
+          "paradigm_id": "css_cascade",
+          "name": "CSS Cascade",
+          "stack": "css",
+          "latin_agent": "Agent Stylus Harmonicus",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "css"
+        },
+        {
+          "paradigm_id": "js_esnext",
+          "name": "JavaScript ESNext",
+          "stack": "javascript",
+          "latin_agent": "Agent Scriptum Vivus",
+          "role": "executor",
+          "mesie_engine": "polyglot",
+          "language": "javascript"
+        },
+        {
+          "paradigm_id": "ts_strict",
+          "name": "TypeScript Strict",
+          "stack": "typescript",
+          "latin_agent": "Agent Typus Formalis",
+          "role": "helper",
+          "mesie_engine": "logic",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "react_concurrent",
+          "name": "React Concurrent",
+          "stack": "react",
+          "latin_agent": "Agent Componentia Fluxus",
+          "role": "worker",
+          "mesie_engine": "workflow",
+          "language": "react"
+        },
+        {
+          "paradigm_id": "vue_compose",
+          "name": "Vue Composition",
+          "stack": "vue",
+          "latin_agent": "Agent Reactivus Componens",
+          "role": "worker",
+          "mesie_engine": "workflow",
+          "language": "vue"
+        },
+        {
+          "paradigm_id": "svelte_compile",
+          "name": "Svelte Compile",
+          "stack": "svelte",
+          "latin_agent": "Agent Compiler Minimus",
+          "role": "helper",
+          "mesie_engine": "generation",
+          "language": "svelte"
+        },
+        {
+          "paradigm_id": "astro_islands",
+          "name": "Astro Islands",
+          "stack": "astro",
+          "latin_agent": "Agent Insula Statica",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "astro"
+        },
+        {
+          "paradigm_id": "web_components",
+          "name": "Web Components",
+          "stack": "wc",
+          "latin_agent": "Agent Shadow Domus",
+          "role": "executor",
+          "mesie_engine": "embedding",
+          "language": "wc"
+        },
+        {
+          "paradigm_id": "pwa_shell",
+          "name": "PWA App Shell",
+          "stack": "pwa",
+          "latin_agent": "Agent Shell Mobilicus",
+          "role": "orchestrator",
+          "mesie_engine": "control",
+          "language": "pwa"
+        },
+        {
+          "paradigm_id": "angular_signals",
+          "name": "Angular Signals",
+          "stack": "angular",
+          "latin_agent": "Agent Angular Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "next_app_router",
+          "name": "Next.js App Router",
+          "stack": "next",
+          "latin_agent": "Agent Next.js Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "nuxt_hybrid",
+          "name": "Nuxt Hybrid",
+          "stack": "nuxt",
+          "latin_agent": "Agent Nuxt Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "remix_loader",
+          "name": "Remix Loaders",
+          "stack": "remix",
+          "latin_agent": "Agent Remix Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "qwik_resumable",
+          "name": "Qwik Resumable",
+          "stack": "qwik",
+          "latin_agent": "Agent Qwik Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "lit_element",
+          "name": "Lit Web Components",
+          "stack": "lit",
+          "latin_agent": "Agent Lit Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "htmx_hypermedia",
+          "name": "HTMX Hypermedia",
+          "stack": "htmx",
+          "latin_agent": "Agent HTMX Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "alpine_declarative",
+          "name": "Alpine Declarative",
+          "stack": "alpine",
+          "latin_agent": "Agent Alpine Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "solidjs_fine",
+          "name": "Solid.js Fine-Grained",
+          "stack": "solid",
+          "latin_agent": "Agent Solid.js Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "ember_octane",
+          "name": "Ember Octane",
+          "stack": "ember",
+          "latin_agent": "Agent Ember Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_geometrica",
+      "latin_name": "Core Geometrica",
+      "english_title": "3D Spatial Reality Intelligence",
+      "reality_class": "unreal_class_web",
+      "paradigm_count": 20,
+      "protocols": [
+        "P21",
+        "P22",
+        "P23",
+        "P24",
+        "P41"
+      ],
+      "library_path": "mesie/design/cores/core_geometrica",
+      "processor": "GET /processor/design/cores/core_geometrica",
+      "paradigms": [
+        {
+          "paradigm_id": "threejs_webgl",
+          "name": "Three.js WebGL",
+          "stack": "threejs",
+          "latin_agent": "Agent Geometria Triangula",
+          "role": "orchestrator",
+          "mesie_engine": "movement",
+          "language": "threejs"
+        },
+        {
+          "paradigm_id": "babylon_pbr",
+          "name": "Babylon.js PBR",
+          "stack": "babylon",
+          "latin_agent": "Agent Babylon Spectralis",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "babylon"
+        },
+        {
+          "paradigm_id": "webgpu_compute",
+          "name": "WebGPU Compute",
+          "stack": "webgpu",
+          "latin_agent": "Agent GPU Computantis",
+          "role": "executor",
+          "mesie_engine": "intelligence",
+          "language": "webgpu"
+        },
+        {
+          "paradigm_id": "gltf_pipeline",
+          "name": "glTF 2.0 Pipeline",
+          "stack": "gltf",
+          "latin_agent": "Agent Formatus Interoperabilis",
+          "role": "helper",
+          "mesie_engine": "validation",
+          "language": "gltf"
+        },
+        {
+          "paradigm_id": "shader_glsl",
+          "name": "GLSL Shaders",
+          "stack": "glsl",
+          "latin_agent": "Agent Shader Harmonicus",
+          "role": "worker",
+          "mesie_engine": "fingerprint",
+          "language": "glsl"
+        },
+        {
+          "paradigm_id": "instanced_mesh",
+          "name": "Instanced Mesh",
+          "stack": "instancing",
+          "latin_agent": "Agent Multitudo Mesh",
+          "role": "helper",
+          "mesie_engine": "matching",
+          "language": "instancing"
+        },
+        {
+          "paradigm_id": "scene_graph",
+          "name": "Scene Graph AGI",
+          "stack": "scene_graph",
+          "latin_agent": "Agent Graphus Scaenae",
+          "role": "orchestrator",
+          "mesie_engine": "workflow",
+          "language": "scene_graph"
+        },
+        {
+          "paradigm_id": "camera_orbit",
+          "name": "Orbital Camera",
+          "stack": "camera",
+          "latin_agent": "Agent Camera Circumitus",
+          "role": "helper",
+          "mesie_engine": "control",
+          "language": "camera"
+        },
+        {
+          "paradigm_id": "physics_rapier",
+          "name": "Rapier Physics",
+          "stack": "physics",
+          "latin_agent": "Agent Physica Collisio",
+          "role": "executor",
+          "mesie_engine": "movement",
+          "language": "physics"
+        },
+        {
+          "paradigm_id": "spectral_mesh",
+          "name": "Spectral Mesh \u03c6",
+          "stack": "spectral_mesh",
+          "latin_agent": "Agent Mesh Spectrorum",
+          "role": "orchestrator",
+          "mesie_engine": "embedding",
+          "language": "spectral_mesh"
+        },
+        {
+          "paradigm_id": "playcanvas_engine",
+          "name": "PlayCanvas Engine",
+          "stack": "playcanvas",
+          "latin_agent": "Agent PlayCanvas Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "regl_pipeline",
+          "name": "regl Pipeline",
+          "stack": "regl",
+          "latin_agent": "Agent regl Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "deckgl_layers",
+          "name": "deck.gl Layers",
+          "stack": "deckgl",
+          "latin_agent": "Agent deck.gl Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "cesium_globe",
+          "name": "Cesium Globe",
+          "stack": "cesium",
+          "latin_agent": "Agent Cesium Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "potree_lidar",
+          "name": "Potree LiDAR",
+          "stack": "potree",
+          "latin_agent": "Agent Potree Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "vtkjs_volume",
+          "name": "VTK.js Volume",
+          "stack": "vtk",
+          "latin_agent": "Agent VTK.js Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "kepler_gl",
+          "name": "Kepler.gl",
+          "stack": "kepler",
+          "latin_agent": "Agent Kepler.gl Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "ogl_minimal",
+          "name": "OGL Minimal",
+          "stack": "ogl",
+          "latin_agent": "Agent OGL Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "model_viewer",
+          "name": "model-viewer",
+          "stack": "model_viewer",
+          "latin_agent": "Agent model-viewer Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "react_three_fiber",
+          "name": "React Three Fiber",
+          "stack": "r3f",
+          "latin_agent": "Agent React Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_materialis",
+      "latin_name": "Core Materialis",
+      "english_title": "Design System & Token Intelligence",
+      "reality_class": "material_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P25",
+        "P05",
+        "P18"
+      ],
+      "library_path": "mesie/design/cores/core_materialis",
+      "processor": "GET /processor/design/cores/core_materialis",
+      "paradigms": [
+        {
+          "paradigm_id": "design_tokens",
+          "name": "Design Tokens",
+          "stack": "tokens",
+          "latin_agent": "Agent Token Phi",
+          "role": "orchestrator",
+          "mesie_engine": "validation",
+          "language": "tokens"
+        },
+        {
+          "paradigm_id": "tailwind_utility",
+          "name": "Tailwind Utility",
+          "stack": "tailwind",
+          "latin_agent": "Agent Classis Utilitas",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "tailwind"
+        },
+        {
+          "paradigm_id": "css_variables",
+          "name": "CSS Custom Properties",
+          "stack": "css_vars",
+          "latin_agent": "Agent Variabilis Cascada",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "css_vars"
+        },
+        {
+          "paradigm_id": "styled_components",
+          "name": "Styled Components",
+          "stack": "styled",
+          "latin_agent": "Agent Stylus Inyectus",
+          "role": "worker",
+          "mesie_engine": "polyglot",
+          "language": "styled"
+        },
+        {
+          "paradigm_id": "emotion_css",
+          "name": "Emotion CSS-in-JS",
+          "stack": "emotion",
+          "latin_agent": "Agent Emotio Stylus",
+          "role": "helper",
+          "mesie_engine": "generation",
+          "language": "emotion"
+        },
+        {
+          "paradigm_id": "figma_tokens",
+          "name": "Figma Tokens",
+          "stack": "figma",
+          "latin_agent": "Agent Figura Harmonica",
+          "role": "helper",
+          "mesie_engine": "workflow",
+          "language": "figma"
+        },
+        {
+          "paradigm_id": "dark_mode_phi",
+          "name": "Dark Mode \u03c6",
+          "stack": "dark",
+          "latin_agent": "Agent Noctis Phi",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "dark"
+        },
+        {
+          "paradigm_id": "typography_scale",
+          "name": "Typography Scale",
+          "stack": "type",
+          "latin_agent": "Agent Typographia Modulis",
+          "role": "worker",
+          "mesie_engine": "intelligence",
+          "language": "type"
+        },
+        {
+          "paradigm_id": "icon_spectral",
+          "name": "Spectral Icon Set",
+          "stack": "icons",
+          "latin_agent": "Agent Iconographia",
+          "role": "helper",
+          "mesie_engine": "fingerprint",
+          "language": "icons"
+        },
+        {
+          "paradigm_id": "mesie_css",
+          "name": "MESIE mesie.css",
+          "stack": "mesie_css",
+          "latin_agent": "Agent Medina Stylus",
+          "role": "orchestrator",
+          "mesie_engine": "validation",
+          "language": "mesie_css"
+        },
+        {
+          "paradigm_id": "sass_modules",
+          "name": "Sass Modules",
+          "stack": "sass",
+          "latin_agent": "Agent Sass Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "less_hierarchy",
+          "name": "Less Hierarchy",
+          "stack": "less",
+          "latin_agent": "Agent Less Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "unocss_atomic",
+          "name": "UnoCSS Atomic",
+          "stack": "unocss",
+          "latin_agent": "Agent UnoCSS Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "openprops",
+          "name": "Open Props",
+          "stack": "openprops",
+          "latin_agent": "Agent Open Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "style_dictionary",
+          "name": "Style Dictionary",
+          "stack": "style_dict",
+          "latin_agent": "Agent Style Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "chakra_system",
+          "name": "Chakra UI",
+          "stack": "chakra",
+          "latin_agent": "Agent Chakra Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "mui_theme",
+          "name": "MUI Theme",
+          "stack": "mui",
+          "latin_agent": "Agent MUI Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "ant_design",
+          "name": "Ant Design",
+          "stack": "antd",
+          "latin_agent": "Agent Ant Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "theme_ui",
+          "name": "Theme UI",
+          "stack": "theme_ui",
+          "latin_agent": "Agent Theme Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "stitches_css",
+          "name": "Stitches CSS",
+          "stack": "stitches",
+          "latin_agent": "Agent Stitches Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_kinetica",
+      "latin_name": "Core Kinetica",
+      "english_title": "Motion & Temporal Intelligence",
+      "reality_class": "kinetic_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P26",
+        "P08"
+      ],
+      "library_path": "mesie/design/cores/core_kinetica",
+      "processor": "GET /processor/design/cores/core_kinetica",
+      "paradigms": [
+        {
+          "paradigm_id": "gsap_timeline",
+          "name": "GSAP Timeline",
+          "stack": "gsap",
+          "latin_agent": "Agent Tempus Linealis",
+          "role": "orchestrator",
+          "mesie_engine": "workflow",
+          "language": "gsap"
+        },
+        {
+          "paradigm_id": "framer_motion",
+          "name": "Framer Motion",
+          "stack": "framer",
+          "latin_agent": "Agent Motus Fluidus",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "framer"
+        },
+        {
+          "paradigm_id": "lottie_vector",
+          "name": "Lottie Vector",
+          "stack": "lottie",
+          "latin_agent": "Agent Animatio Vectoris",
+          "role": "helper",
+          "mesie_engine": "generation",
+          "language": "lottie"
+        },
+        {
+          "paradigm_id": "css_spring",
+          "name": "CSS Spring Physics",
+          "stack": "spring",
+          "latin_agent": "Agent Elasticus Phi",
+          "role": "helper",
+          "mesie_engine": "control",
+          "language": "spring"
+        },
+        {
+          "paradigm_id": "scroll_trigger",
+          "name": "ScrollTrigger",
+          "stack": "scroll",
+          "latin_agent": "Agent Scroll Observator",
+          "role": "executor",
+          "mesie_engine": "intelligence",
+          "language": "scroll"
+        },
+        {
+          "paradigm_id": "page_transition",
+          "name": "Page Transitions",
+          "stack": "transition",
+          "latin_agent": "Agent Transitus Paginae",
+          "role": "worker",
+          "mesie_engine": "workflow",
+          "language": "transition"
+        },
+        {
+          "paradigm_id": "micro_interaction",
+          "name": "Micro-interactions",
+          "stack": "micro",
+          "latin_agent": "Agent Parvus Motus",
+          "role": "helper",
+          "mesie_engine": "matching",
+          "language": "micro"
+        },
+        {
+          "paradigm_id": "phi_easing",
+          "name": "\u03c6-Harmonic Easing",
+          "stack": "easing",
+          "latin_agent": "Agent Easing Aureus",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "easing"
+        },
+        {
+          "paradigm_id": "motion_reduce",
+          "name": "Reduced Motion A11y",
+          "stack": "a11y_motion",
+          "latin_agent": "Agent Accessibilitas",
+          "role": "helper",
+          "mesie_engine": "validation",
+          "language": "a11y_motion"
+        },
+        {
+          "paradigm_id": "timeline_receipt",
+          "name": "Timeline Receipt Chain",
+          "stack": "receipt",
+          "latin_agent": "Agent Chronologia Sigilli",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "receipt"
+        },
+        {
+          "paradigm_id": "animejs_timeline",
+          "name": "anime.js",
+          "stack": "anime",
+          "latin_agent": "Agent anime.js Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "motion_one",
+          "name": "Motion One",
+          "stack": "motion_one",
+          "latin_agent": "Agent Motion Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "theatrejs_studio",
+          "name": "Theatre.js",
+          "stack": "theatre",
+          "latin_agent": "Agent Theatre.js Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "react_spring",
+          "name": "React Spring",
+          "stack": "react_spring",
+          "latin_agent": "Agent React Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "popmotion",
+          "name": "Popmotion",
+          "stack": "popmotion",
+          "latin_agent": "Agent Popmotion Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "waapi_native",
+          "name": "WAAPI Native",
+          "stack": "waapi",
+          "latin_agent": "Agent WAAPI Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "drei_helpers",
+          "name": "drei Helpers",
+          "stack": "drei",
+          "latin_agent": "Agent drei Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "cinema4d_export",
+          "name": "C4D Export Lane",
+          "stack": "c4d",
+          "latin_agent": "Agent C4D Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "velocity_legacy",
+          "name": "Velocity.js",
+          "stack": "velocity",
+          "latin_agent": "Agent Velocity.js Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "timeline_gsap_plugins",
+          "name": "GSAP Plugins",
+          "stack": "gsap_plugins",
+          "latin_agent": "Agent GSAP Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_spatialis",
+      "latin_name": "Core Spatialis",
+      "english_title": "XR & Spatial UI Intelligence",
+      "reality_class": "spatial_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P27",
+        "P24"
+      ],
+      "library_path": "mesie/design/cores/core_spatialis",
+      "processor": "GET /processor/design/cores/core_spatialis",
+      "paradigms": [
+        {
+          "paradigm_id": "webxr_immersive",
+          "name": "WebXR Immersive",
+          "stack": "webxr",
+          "latin_agent": "Agent Immersio Spatialis",
+          "role": "orchestrator",
+          "mesie_engine": "control",
+          "language": "webxr"
+        },
+        {
+          "paradigm_id": "ar_overlay",
+          "name": "AR Overlay",
+          "stack": "ar",
+          "latin_agent": "Agent Superpositio Realis",
+          "role": "worker",
+          "mesie_engine": "intelligence",
+          "language": "ar"
+        },
+        {
+          "paradigm_id": "vr_locomotion",
+          "name": "VR Locomotion",
+          "stack": "vr",
+          "latin_agent": "Agent Locomotio Virtualis",
+          "role": "executor",
+          "mesie_engine": "movement",
+          "language": "vr"
+        },
+        {
+          "paradigm_id": "hand_tracking",
+          "name": "Hand Tracking UI",
+          "stack": "hands",
+          "latin_agent": "Agent Manus Digitalis",
+          "role": "helper",
+          "mesie_engine": "fingerprint",
+          "language": "hands"
+        },
+        {
+          "paradigm_id": "spatial_audio",
+          "name": "Spatial Audio",
+          "stack": "spatial_audio",
+          "latin_agent": "Agent Sonus Spatialis",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "spatial_audio"
+        },
+        {
+          "paradigm_id": "depth_ui",
+          "name": "Depth-Layered UI",
+          "stack": "depth_ui",
+          "latin_agent": "Agent Stratum Profundum",
+          "role": "worker",
+          "mesie_engine": "workflow",
+          "language": "depth_ui"
+        },
+        {
+          "paradigm_id": "globe_spectral",
+          "name": "Spectral Globe",
+          "stack": "globe",
+          "latin_agent": "Agent Globus Mundi",
+          "role": "orchestrator",
+          "mesie_engine": "matching",
+          "language": "globe"
+        },
+        {
+          "paradigm_id": "point_cloud",
+          "name": "Point Cloud Viz",
+          "stack": "pointcloud",
+          "latin_agent": "Agent Nubes Punctorum",
+          "role": "executor",
+          "mesie_engine": "embedding",
+          "language": "pointcloud"
+        },
+        {
+          "paradigm_id": "6dof_widget",
+          "name": "6DOF Widgets",
+          "stack": "6dof",
+          "latin_agent": "Agent Sex Libertatis",
+          "role": "helper",
+          "mesie_engine": "control",
+          "language": "6dof"
+        },
+        {
+          "paradigm_id": "mesh_anchor",
+          "name": "Mesh Anchor",
+          "stack": "anchor",
+          "latin_agent": "Agent Ancora Retis",
+          "role": "helper",
+          "mesie_engine": "movement",
+          "language": "anchor"
+        },
+        {
+          "paradigm_id": "aframe_scene",
+          "name": "A-Frame Scene",
+          "stack": "aframe",
+          "latin_agent": "Agent A-Frame Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "spark_ar_web",
+          "name": "Spark AR Web",
+          "stack": "spark",
+          "latin_agent": "Agent Spark Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "openxr_session",
+          "name": "OpenXR Session",
+          "stack": "openxr",
+          "latin_agent": "Agent OpenXR Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "8thwall_webar",
+          "name": "8th Wall WebAR",
+          "stack": "8thwall",
+          "latin_agent": "Agent 8th Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "hololens_web",
+          "name": "HoloLens Web",
+          "stack": "hololens",
+          "latin_agent": "Agent HoloLens Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "quest_browser",
+          "name": "Quest Browser",
+          "stack": "quest",
+          "latin_agent": "Agent Quest Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "niantic_lightship",
+          "name": "Lightship VPS",
+          "stack": "lightship",
+          "latin_agent": "Agent Lightship Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "webvm_spatial",
+          "name": "WebVM Spatial",
+          "stack": "webvm",
+          "latin_agent": "Agent WebVM Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "depth_mesh_anchor",
+          "name": "Depth Mesh Anchor",
+          "stack": "depth_anchor",
+          "latin_agent": "Agent Depth Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "hand_ui_gesture",
+          "name": "Hand UI Gesture",
+          "stack": "gesture",
+          "latin_agent": "Agent Hand Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_datavis",
+      "latin_name": "Core Datavis",
+      "english_title": "Dashboard & Spectral Chart Intelligence",
+      "reality_class": "data_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P28",
+        "P07",
+        "P38"
+      ],
+      "library_path": "mesie/design/cores/core_datavis",
+      "processor": "GET /processor/design/cores/core_datavis",
+      "paradigms": [
+        {
+          "paradigm_id": "d3_spectral",
+          "name": "D3 Spectral",
+          "stack": "d3",
+          "latin_agent": "Agent Data Vis Spectrorum",
+          "role": "orchestrator",
+          "mesie_engine": "embedding",
+          "language": "d3"
+        },
+        {
+          "paradigm_id": "canvas_chart",
+          "name": "Canvas Charts",
+          "stack": "canvas",
+          "latin_agent": "Agent Chart Canvas",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "canvas"
+        },
+        {
+          "paradigm_id": "webgl_heatmap",
+          "name": "WebGL Heatmap",
+          "stack": "heatmap",
+          "latin_agent": "Agent Calor Cartographia",
+          "role": "executor",
+          "mesie_engine": "fingerprint",
+          "language": "heatmap"
+        },
+        {
+          "paradigm_id": "ops_dashboard",
+          "name": "4K Ops Dashboard",
+          "stack": "dashboard",
+          "latin_agent": "Agent Tabula Imperii",
+          "role": "orchestrator",
+          "mesie_engine": "control",
+          "language": "dashboard"
+        },
+        {
+          "paradigm_id": "realtime_stream",
+          "name": "Realtime SSE Stream",
+          "stack": "sse",
+          "latin_agent": "Agent Fluxus Temporis",
+          "role": "worker",
+          "mesie_engine": "workflow",
+          "language": "sse"
+        },
+        {
+          "paradigm_id": "ann_visual",
+          "name": "ANN Match Visual",
+          "stack": "ann_vis",
+          "latin_agent": "Agent Vicinitas Visualis",
+          "role": "helper",
+          "mesie_engine": "matching",
+          "language": "ann_vis"
+        },
+        {
+          "paradigm_id": "benchmark_panel",
+          "name": "Benchmark Panel",
+          "stack": "bench",
+          "latin_agent": "Agent Metrum Competitio",
+          "role": "helper",
+          "mesie_engine": "validation",
+          "language": "bench"
+        },
+        {
+          "paradigm_id": "enterprise_kpi",
+          "name": "Enterprise KPI",
+          "stack": "kpi",
+          "latin_agent": "Agent Indicium Mercatus",
+          "role": "worker",
+          "mesie_engine": "intelligence",
+          "language": "kpi"
+        },
+        {
+          "paradigm_id": "mesh_topology",
+          "name": "Mesh Topology Map",
+          "stack": "topology",
+          "latin_agent": "Agent Topologia Retis",
+          "role": "executor",
+          "mesie_engine": "movement",
+          "language": "topology"
+        },
+        {
+          "paradigm_id": "phi_gauge",
+          "name": "\u03c6 Gauge Widget",
+          "stack": "gauge",
+          "latin_agent": "Agent Metrum Aureum",
+          "role": "helper",
+          "mesie_engine": "logic",
+          "language": "gauge"
+        },
+        {
+          "paradigm_id": "echarts_spectral",
+          "name": "ECharts Spectral",
+          "stack": "echarts",
+          "latin_agent": "Agent ECharts Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "plotly_3d",
+          "name": "Plotly 3D",
+          "stack": "plotly",
+          "latin_agent": "Agent Plotly Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "chartjs_canvas",
+          "name": "Chart.js",
+          "stack": "chartjs",
+          "latin_agent": "Agent Chart.js Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "vega_lite",
+          "name": "Vega-Lite",
+          "stack": "vega",
+          "latin_agent": "Agent Vega-Lite Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "observable_notebook",
+          "name": "Observable",
+          "stack": "observable",
+          "latin_agent": "Agent Observable Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "grafana_panel",
+          "name": "Grafana Panel",
+          "stack": "grafana",
+          "latin_agent": "Agent Grafana Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "cytoscape_graph",
+          "name": "Cytoscape.js",
+          "stack": "cytoscape",
+          "latin_agent": "Agent Cytoscape.js Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "sigmajs_network",
+          "name": "Sigma.js",
+          "stack": "sigma",
+          "latin_agent": "Agent Sigma.js Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "superset_embed",
+          "name": "Superset Embed",
+          "stack": "superset",
+          "latin_agent": "Agent Superset Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "deck_stack",
+          "name": "deck.gl Stack",
+          "stack": "deck_stack",
+          "latin_agent": "Agent deck.gl Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_sonora",
+      "latin_name": "Core Sonora",
+      "english_title": "Audio-Visual Coupled Intelligence",
+      "reality_class": "sonora_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P29",
+        "P08"
+      ],
+      "library_path": "mesie/design/cores/core_sonora",
+      "processor": "GET /processor/design/cores/core_sonora",
+      "paradigms": [
+        {
+          "paradigm_id": "webaudio_synth",
+          "name": "WebAudio Synth",
+          "stack": "webaudio",
+          "latin_agent": "Agent Sonus Syntheticus",
+          "role": "orchestrator",
+          "mesie_engine": "generation",
+          "language": "webaudio"
+        },
+        {
+          "paradigm_id": "spectrogram",
+          "name": "Spectrogram Live",
+          "stack": "spectrogram",
+          "latin_agent": "Agent Spectrogramma",
+          "role": "worker",
+          "mesie_engine": "fingerprint",
+          "language": "spectrogram"
+        },
+        {
+          "paradigm_id": "midi_spectral",
+          "name": "MIDI Spectral Map",
+          "stack": "midi",
+          "latin_agent": "Agent Nota Frequens",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "midi"
+        },
+        {
+          "paradigm_id": "waveform_phi",
+          "name": "\u03c6 Waveform",
+          "stack": "waveform",
+          "latin_agent": "Agent Unda Harmonica",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "waveform"
+        },
+        {
+          "paradigm_id": "acoustic_meta",
+          "name": "Acoustic Metamaterial UI",
+          "stack": "acoustic",
+          "latin_agent": "Agent Metamateria Soni",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "acoustic"
+        },
+        {
+          "paradigm_id": "sonification",
+          "name": "Data Sonification",
+          "stack": "sonify",
+          "latin_agent": "Agent Data Sonora",
+          "role": "executor",
+          "mesie_engine": "generation",
+          "language": "sonify"
+        },
+        {
+          "paradigm_id": "binaural",
+          "name": "Binaural Spatial",
+          "stack": "binaural",
+          "latin_agent": "Agent Binauralis",
+          "role": "helper",
+          "mesie_engine": "control",
+          "language": "binaural"
+        },
+        {
+          "paradigm_id": "rhythm_pulse",
+          "name": "Rhythm Pulse NOVA",
+          "stack": "rhythm",
+          "latin_agent": "Agent Pulsus Novae",
+          "role": "worker",
+          "mesie_engine": "workflow",
+          "language": "rhythm"
+        },
+        {
+          "paradigm_id": "eq_spectrum",
+          "name": "EQ Spectrum Match",
+          "stack": "eq",
+          "latin_agent": "Agent Aequilibrium",
+          "role": "helper",
+          "mesie_engine": "matching",
+          "language": "eq"
+        },
+        {
+          "paradigm_id": "audio_envelope",
+          "name": "Audio Envelope Seal",
+          "stack": "envelope",
+          "latin_agent": "Agent Envelopum Soni",
+          "role": "orchestrator",
+          "mesie_engine": "validation",
+          "language": "envelope"
+        },
+        {
+          "paradigm_id": "tonejs_synth",
+          "name": "Tone.js",
+          "stack": "tone",
+          "latin_agent": "Agent Tone.js Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "howler_spatial",
+          "name": "Howler.js",
+          "stack": "howler",
+          "latin_agent": "Agent Howler.js Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "p5_sound",
+          "name": "p5.sound",
+          "stack": "p5_sound",
+          "latin_agent": "Agent p5.sound Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "wavesurfer_ui",
+          "name": "WaveSurfer",
+          "stack": "wavesurfer",
+          "latin_agent": "Agent WaveSurfer Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "audioworklet_dsp",
+          "name": "AudioWorklet DSP",
+          "stack": "worklet",
+          "latin_agent": "Agent AudioWorklet Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "resonance_audio",
+          "name": "Resonance Audio",
+          "stack": "resonance",
+          "latin_agent": "Agent Resonance Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "faust_web",
+          "name": "Faust Web",
+          "stack": "faust",
+          "latin_agent": "Agent Faust Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "csound_wasm",
+          "name": "Csound WASM",
+          "stack": "csound",
+          "latin_agent": "Agent Csound Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "supercollider_web",
+          "name": "SuperCollider Web",
+          "stack": "scweb",
+          "latin_agent": "Agent SuperCollider Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "sonification_bus",
+          "name": "Sonification Bus",
+          "stack": "sonify_bus",
+          "latin_agent": "Agent Sonification Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_architectura",
+      "latin_name": "Core Architectura",
+      "english_title": "Enterprise Micro-Frontend Intelligence",
+      "reality_class": "enterprise_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P30",
+        "P06",
+        "P11"
+      ],
+      "library_path": "mesie/design/cores/core_architectura",
+      "processor": "GET /processor/design/cores/core_architectura",
+      "paradigms": [
+        {
+          "paradigm_id": "micro_frontend",
+          "name": "Micro-Frontend Bus",
+          "stack": "mfe",
+          "latin_agent": "Agent Frontis Modularis",
+          "role": "orchestrator",
+          "mesie_engine": "workflow",
+          "language": "mfe"
+        },
+        {
+          "paradigm_id": "module_federation",
+          "name": "Module Federation",
+          "stack": "federation",
+          "latin_agent": "Agent Foederatio Modulorum",
+          "role": "worker",
+          "mesie_engine": "polyglot",
+          "language": "federation"
+        },
+        {
+          "paradigm_id": "bff_graphql",
+          "name": "BFF GraphQL",
+          "stack": "graphql",
+          "latin_agent": "Agent Schema Intermedius",
+          "role": "helper",
+          "mesie_engine": "validation",
+          "language": "graphql"
+        },
+        {
+          "paradigm_id": "edge_ssr",
+          "name": "Edge SSR",
+          "stack": "ssr",
+          "latin_agent": "Agent Server Marginalis",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "ssr"
+        },
+        {
+          "paradigm_id": "islands_arch",
+          "name": "Islands Architecture",
+          "stack": "islands",
+          "latin_agent": "Agent Archipelagus UI",
+          "role": "helper",
+          "mesie_engine": "generation",
+          "language": "islands"
+        },
+        {
+          "paradigm_id": "design_system_pkg",
+          "name": "Design System Package",
+          "stack": "ds_pkg",
+          "latin_agent": "Agent Systema Materialis",
+          "role": "worker",
+          "mesie_engine": "embedding",
+          "language": "ds_pkg"
+        },
+        {
+          "paradigm_id": "tenant_shell",
+          "name": "Multi-Tenant Shell",
+          "stack": "tenant",
+          "latin_agent": "Agent Colonia Tenant",
+          "role": "orchestrator",
+          "mesie_engine": "control",
+          "language": "tenant"
+        },
+        {
+          "paradigm_id": "receipt_ui",
+          "name": "Receipt Chain UI",
+          "stack": "receipt_ui",
+          "latin_agent": "Agent Catena Probationis",
+          "role": "helper",
+          "mesie_engine": "workflow",
+          "language": "receipt_ui"
+        },
+        {
+          "paradigm_id": "biz_automation",
+          "name": "Auto-AI Business Ops",
+          "stack": "auto_biz",
+          "latin_agent": "Agent Negotium Autonomum",
+          "role": "orchestrator",
+          "mesie_engine": "intelligence",
+          "language": "auto_biz"
+        },
+        {
+          "paradigm_id": "icp_bridge_ui",
+          "name": "ICP Bridge Console",
+          "stack": "icp_ui",
+          "latin_agent": "Agent Pontus Sovereign",
+          "role": "executor",
+          "mesie_engine": "polyglot",
+          "language": "icp_ui"
+        },
+        {
+          "paradigm_id": "single_spa",
+          "name": "single-spa",
+          "stack": "single_spa",
+          "latin_agent": "Agent single-spa Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "qiankun_micro",
+          "name": "qiankun Micro",
+          "stack": "qiankun",
+          "latin_agent": "Agent qiankun Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "nx_monorepo",
+          "name": "Nx Monorepo",
+          "stack": "nx",
+          "latin_agent": "Agent Nx Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "turborepo_cache",
+          "name": "Turborepo",
+          "stack": "turbo",
+          "latin_agent": "Agent Turborepo Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "storybook_isolate",
+          "name": "Storybook",
+          "stack": "storybook",
+          "latin_agent": "Agent Storybook Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "chromatic_visual",
+          "name": "Chromatic",
+          "stack": "chromatic",
+          "latin_agent": "Agent Chromatic Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "cdk_stacks",
+          "name": "AWS CDK UI",
+          "stack": "cdk",
+          "latin_agent": "Agent AWS Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "k8s_dashboard",
+          "name": "K8s Dashboard",
+          "stack": "k8s",
+          "latin_agent": "Agent K8s Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "terraform_ui",
+          "name": "Terraform UI",
+          "stack": "tf_ui",
+          "latin_agent": "Agent Terraform Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "lerna_publish",
+          "name": "Lerna Publish",
+          "stack": "lerna",
+          "latin_agent": "Agent Lerna Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_narrativa",
+      "latin_name": "Core Narrativa",
+      "english_title": "Scholarly & Latin Content Intelligence",
+      "reality_class": "narrative_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P31",
+        "P12",
+        "P35"
+      ],
+      "library_path": "mesie/design/cores/core_narrativa",
+      "processor": "GET /processor/design/cores/core_narrativa",
+      "paradigms": [
+        {
+          "paradigm_id": "latin_paper",
+          "name": "Latin Paper Viewer",
+          "stack": "paper",
+          "latin_agent": "Agent Scriptum Latinum",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "paper"
+        },
+        {
+          "paradigm_id": "md_scholar",
+          "name": "Scholarly Markdown",
+          "stack": "md",
+          "latin_agent": "Agent Markdown Doctoralis",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "md"
+        },
+        {
+          "paradigm_id": "story_scroll",
+          "name": "Story Scroll",
+          "stack": "scroll_story",
+          "latin_agent": "Agent Narratio Scroll",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "scroll_story"
+        },
+        {
+          "paradigm_id": "theorem_block",
+          "name": "Theorem Block",
+          "stack": "theorem",
+          "latin_agent": "Agent Theorema Visibile",
+          "role": "helper",
+          "mesie_engine": "logic",
+          "language": "theorem"
+        },
+        {
+          "paradigm_id": "citation_graph",
+          "name": "Citation Graph",
+          "stack": "citation",
+          "latin_agent": "Agent Citatio Retis",
+          "role": "executor",
+          "mesie_engine": "matching",
+          "language": "citation"
+        },
+        {
+          "paradigm_id": "release_notes",
+          "name": "Release Notes AGI",
+          "stack": "release",
+          "latin_agent": "Agent Notae Editionis",
+          "role": "worker",
+          "mesie_engine": "workflow",
+          "language": "release"
+        },
+        {
+          "paradigm_id": "docs_portal",
+          "name": "Docs Portal",
+          "stack": "docs",
+          "latin_agent": "Agent Portal Documentorum",
+          "role": "orchestrator",
+          "mesie_engine": "validation",
+          "language": "docs"
+        },
+        {
+          "paradigm_id": "research_pack",
+          "name": "Research Pack UI",
+          "stack": "research",
+          "latin_agent": "Agent Fasciculus Research",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "research"
+        },
+        {
+          "paradigm_id": "phi_typography",
+          "name": "\u03c6 Scholar Typography",
+          "stack": "phi_type",
+          "latin_agent": "Agent Typus Doctoralis",
+          "role": "helper",
+          "mesie_engine": "generation",
+          "language": "phi_type"
+        },
+        {
+          "paradigm_id": "abstract_gen",
+          "name": "Abstract Generator",
+          "stack": "abstract",
+          "latin_agent": "Agent Abstractum Solus",
+          "role": "executor",
+          "mesie_engine": "intelligence",
+          "language": "abstract"
+        },
+        {
+          "paradigm_id": "latex_pdf",
+          "name": "LaTeX PDF",
+          "stack": "latex",
+          "latin_agent": "Agent LaTeX Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "typst_compile",
+          "name": "Typst",
+          "stack": "typst",
+          "latin_agent": "Agent Typst Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "asciidoc_book",
+          "name": "AsciiDoc",
+          "stack": "asciidoc",
+          "latin_agent": "Agent AsciiDoc Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "docusaurus_site",
+          "name": "Docusaurus",
+          "stack": "docusaurus",
+          "latin_agent": "Agent Docusaurus Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "vitepress_docs",
+          "name": "VitePress",
+          "stack": "vitepress",
+          "latin_agent": "Agent VitePress Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "gitbook_portal",
+          "name": "GitBook",
+          "stack": "gitbook",
+          "latin_agent": "Agent GitBook Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "notion_sync",
+          "name": "Notion Sync",
+          "stack": "notion",
+          "latin_agent": "Agent Notion Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "roam_graph",
+          "name": "Roam Graph",
+          "stack": "roam",
+          "latin_agent": "Agent Roam Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "muse_scholar",
+          "name": "Muse Scholar",
+          "stack": "muse",
+          "latin_agent": "Agent Muse Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "rst_sphinx",
+          "name": "Sphinx RST",
+          "stack": "sphinx",
+          "latin_agent": "Agent Sphinx Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    },
+    {
+      "core_id": "core_realitas",
+      "latin_name": "Core Realitas",
+      "english_title": "Reality Engine \u2014 Unreal-Class Showcase Intelligence",
+      "reality_class": "ultimate_reality",
+      "paradigm_count": 20,
+      "protocols": [
+        "P41",
+        "P21",
+        "P24",
+        "P36"
+      ],
+      "library_path": "mesie/design/cores/core_realitas",
+      "processor": "GET /processor/design/cores/core_realitas",
+      "paradigms": [
+        {
+          "paradigm_id": "reality_scene",
+          "name": "Reality Scene Composer",
+          "stack": "scene",
+          "latin_agent": "Agent Scaena Realitatis",
+          "role": "orchestrator",
+          "mesie_engine": "workflow",
+          "language": "scene"
+        },
+        {
+          "paradigm_id": "pbr_spectral",
+          "name": "Spectral PBR Materials",
+          "stack": "pbr",
+          "latin_agent": "Agent Materia Physica",
+          "role": "worker",
+          "mesie_engine": "embedding",
+          "language": "pbr"
+        },
+        {
+          "paradigm_id": "light_probe",
+          "name": "Light Probe \u03c6",
+          "stack": "light",
+          "latin_agent": "Agent Lux Harmonica",
+          "role": "helper",
+          "mesie_engine": "fingerprint",
+          "language": "light"
+        },
+        {
+          "paradigm_id": "post_fx",
+          "name": "Post-Processing FX",
+          "stack": "postfx",
+          "latin_agent": "Agent Post Processus",
+          "role": "executor",
+          "mesie_engine": "generation",
+          "language": "postfx"
+        },
+        {
+          "paradigm_id": "cinematic_cam",
+          "name": "Cinematic Camera",
+          "stack": "cine",
+          "latin_agent": "Agent Camera Cinematica",
+          "role": "worker",
+          "mesie_engine": "control",
+          "language": "cine"
+        },
+        {
+          "paradigm_id": "product_showcase",
+          "name": "Product Showcase 3D",
+          "stack": "showcase",
+          "latin_agent": "Agent Showcase Producti",
+          "role": "orchestrator",
+          "mesie_engine": "intelligence",
+          "language": "showcase"
+        },
+        {
+          "paradigm_id": "virtual_booth",
+          "name": "Virtual Trade Booth",
+          "stack": "booth",
+          "latin_agent": "Agent Booth Mercatus",
+          "role": "helper",
+          "mesie_engine": "movement",
+          "language": "booth"
+        },
+        {
+          "paradigm_id": "live_metrics_3d",
+          "name": "Live Metrics 3D",
+          "stack": "metrics3d",
+          "latin_agent": "Agent Metrum Tridimensionale",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "metrics3d"
+        },
+        {
+          "paradigm_id": "mesh_soak_vis",
+          "name": "Mesh Soak Visualizer",
+          "stack": "soak",
+          "latin_agent": "Agent Visualisatio Retis",
+          "role": "executor",
+          "mesie_engine": "movement",
+          "language": "soak"
+        },
+        {
+          "paradigm_id": "unreal_class",
+          "name": "Unreal-Class Lane",
+          "stack": "unreal_lane",
+          "latin_agent": "Agent Realitas Ultima",
+          "role": "orchestrator",
+          "mesie_engine": "polyglot",
+          "language": "unreal_lane"
+        },
+        {
+          "paradigm_id": "godot_web_export",
+          "name": "Godot Web Export",
+          "stack": "godot",
+          "latin_agent": "Agent Godot Polyglotta",
+          "role": "helper",
+          "mesie_engine": "polyglot",
+          "language": "python"
+        },
+        {
+          "paradigm_id": "unity_webgl",
+          "name": "Unity WebGL",
+          "stack": "unity",
+          "latin_agent": "Agent Unity Polyglotta",
+          "role": "worker",
+          "mesie_engine": "generation",
+          "language": "typescript"
+        },
+        {
+          "paradigm_id": "unreal_pixel_stream",
+          "name": "Unreal Pixel Streaming",
+          "stack": "unreal",
+          "latin_agent": "Agent Unreal Polyglotta",
+          "role": "executor",
+          "mesie_engine": "workflow",
+          "language": "rust"
+        },
+        {
+          "paradigm_id": "blender_gltf",
+          "name": "Blender glTF",
+          "stack": "blender",
+          "latin_agent": "Agent Blender Polyglotta",
+          "role": "helper",
+          "mesie_engine": "embedding",
+          "language": "julia"
+        },
+        {
+          "paradigm_id": "nanite_proxy_web",
+          "name": "Nanite Proxy Web",
+          "stack": "nanite",
+          "latin_agent": "Agent Nanite Polyglotta",
+          "role": "worker",
+          "mesie_engine": "matching",
+          "language": "haskell"
+        },
+        {
+          "paradigm_id": "lumen_gi_web",
+          "name": "Lumen GI Web",
+          "stack": "lumen",
+          "latin_agent": "Agent Lumen Polyglotta",
+          "role": "executor",
+          "mesie_engine": "control",
+          "language": "motoko"
+        },
+        {
+          "paradigm_id": "path_trace_wasm",
+          "name": "Path Trace WASM",
+          "stack": "pathtrace",
+          "latin_agent": "Agent Path Polyglotta",
+          "role": "helper",
+          "mesie_engine": "intelligence",
+          "language": "go"
+        },
+        {
+          "paradigm_id": "gaussian_splat",
+          "name": "Gaussian Splat",
+          "stack": "splat",
+          "latin_agent": "Agent Gaussian Polyglotta",
+          "role": "worker",
+          "mesie_engine": "movement",
+          "language": "kotlin"
+        },
+        {
+          "paradigm_id": "nerf_viewer",
+          "name": "NeRF Viewer",
+          "stack": "nerf",
+          "latin_agent": "Agent NeRF Polyglotta",
+          "role": "executor",
+          "mesie_engine": "validation",
+          "language": "swift"
+        },
+        {
+          "paradigm_id": "reality_composer_pro",
+          "name": "Reality Composer Pro",
+          "stack": "rcp",
+          "latin_agent": "Agent Reality Polyglotta",
+          "role": "orchestrator",
+          "mesie_engine": "logic",
+          "language": "wasm"
+        }
+      ]
+    }
+  ],
+  "surfaces": {
+    "reality_engine": "websites/reality-engine/index.html",
+    "computing_family": "websites/computing-family/index.html",
+    "enterprise_4k": "websites/enterprise-4k/index.html"
+  },
+  "generated_at": "2026-07-02T07:44:43Z",
+  "forge_stats": {
+    "agents": 200,
+    "lines": 8800
+  }
+}

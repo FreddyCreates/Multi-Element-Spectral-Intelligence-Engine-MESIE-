@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_deck_stack",
+  "core_id": "core_datavis",
+  "paradigm_id": "deck_stack",
+  "latin_agent": "Agent deck.gl Polyglotta",
+  "stack": "deck_stack",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "logic"
+}

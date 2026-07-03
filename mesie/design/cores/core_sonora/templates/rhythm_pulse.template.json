@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_rhythm_pulse",
+  "core_id": "core_sonora",
+  "paradigm_id": "rhythm_pulse",
+  "latin_agent": "Agent Pulsus Novae",
+  "stack": "rhythm",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

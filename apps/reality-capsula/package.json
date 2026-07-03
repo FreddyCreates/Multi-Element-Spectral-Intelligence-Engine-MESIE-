@@ -1,0 +1,16 @@
+{
+  "name": "mesie-reality-capsula",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MESIE Reality Engine — React + Node + Rust Capsula",
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "build:rust": "cargo build --release --manifest-path rust-core/Cargo.toml",
+    "start": "npm run start -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

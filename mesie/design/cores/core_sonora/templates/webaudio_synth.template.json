@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_webaudio_synth",
+  "core_id": "core_sonora",
+  "paradigm_id": "webaudio_synth",
+  "latin_agent": "Agent Sonus Syntheticus",
+  "stack": "webaudio",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "generation"
+}

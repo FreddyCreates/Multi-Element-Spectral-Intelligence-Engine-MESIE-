@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_post_fx",
+  "core_id": "core_realitas",
+  "paradigm_id": "post_fx",
+  "latin_agent": "Agent Post Processus",
+  "stack": "postfx",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "generation"
+}

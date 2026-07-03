@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_lumen_gi_web",
+  "core_id": "core_realitas",
+  "paradigm_id": "lumen_gi_web",
+  "latin_agent": "Agent Lumen Polyglotta",
+  "stack": "lumen",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "control"
+}

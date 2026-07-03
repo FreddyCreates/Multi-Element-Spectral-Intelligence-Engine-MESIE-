@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_ops_dashboard",
+  "core_id": "core_datavis",
+  "paradigm_id": "ops_dashboard",
+  "latin_agent": "Agent Tabula Imperii",
+  "stack": "dashboard",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "control"
+}

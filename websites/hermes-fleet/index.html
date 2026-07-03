@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HERMES Fleet — NOVA PROTOCOL Clean Internet</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+    .tagline { color: var(--phi); font-family: var(--mono); font-size: 0.9rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .worker { cursor: pointer; }
+    .worker:hover { border-color: var(--accent); }
+    .slot { font-size: 0.7rem; color: var(--phi); font-family: var(--mono); }
+    pre { font-family: var(--mono); font-size: 0.72rem; max-height: 280px; overflow: auto; color: var(--muted); }
+    .doctrine { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; font-size: 0.8rem; }
+    .doctrine div { padding: 0.5rem; background: #0d1320; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>HERMES Fleet</h1>
+        <p class="tagline">NOVA PROTOCOL · Clean Internet for AI · @ItsnotAILabs</p>
+        <p class="muted">12 Cloudflare workers · wrangler.toml · ICP CLI · SDK packs · one-shot deploy</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">LOADING</span>
+        <button class="btn btn-primary" onclick="forgeFleet()">Forge Pack</button>
+        <button class="btn btn-ghost" onclick="deployShot()">Deploy Shot</button>
+        <button class="btn btn-ghost" onclick="refresh()">Refresh</button>
+      </div>
+    </header>
+
+    <section class="grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:1rem">
+      <div class="card"><div class="metric-label">Workers</div><div class="metric-value" id="w-count">12</div></div>
+      <div class="card"><div class="metric-label">Alphas</div><div class="metric-value" id="a-count">31</div></div>
+      <div class="card"><div class="metric-label">ICP Embed</div><div class="metric-value" id="icp">yes</div></div>
+      <div class="card"><div class="metric-label">Brand</div><div class="metric-value" style="font-size:0.85rem">ItsnotAILabs</div></div>
+    </section>
+
+    <div class="card" style="margin-bottom:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Clean Feed Doctrine</h2>
+      <div class="doctrine" id="doctrine"></div>
+    </div>
+
+    <section class="grid" id="workers"></section>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Last Invoke</h2>
+      <pre id="log">—</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("hermes-fleet");
+
+    async function invokeWorker(id) {
+      const log = document.getElementById("log");
+      log.textContent = `invoking ${id}…`;
+      try {
+        const j = await MESIE_BRIDGE.hermesInvoke(id, {});
+        log.textContent = JSON.stringify(j, null, 2);
+        document.getElementById("badge").textContent = "LIVE";
+      } catch (e) { log.textContent = String(e); }
+    }
+
+    async function forgeFleet() {
+      document.getElementById("log").textContent = "forging…";
+      try {
+        const j = await MESIE_BRIDGE.hermesForge();
+        document.getElementById("log").textContent = JSON.stringify(j, null, 2);
+        refresh();
+      } catch (e) { document.getElementById("log").textContent = String(e); }
+    }
+
+    async function deployShot() {
+      await invokeWorker("hermes-deploy-shot");
+    }
+
+    async function refresh() {
+      try {
+        const j = await MESIE_BRIDGE.hermes();
+        const h = j.hermes || j;
+        const nova = j.nova_protocol || {};
+        document.getElementById("badge").textContent = "LIVE";
+        document.getElementById("w-count").textContent = h.worker_count || 12;
+        const doc = nova.clean_feed_doctrine || {};
+        document.getElementById("doctrine").innerHTML = Object.entries(doc).map(([k,v]) =>
+          `<div><strong>${k}</strong><br><span class="muted">${v}</span></div>`).join("");
+        document.getElementById("workers").innerHTML = (h.workers || []).map(w => `
+          <div class="card worker" onclick="invokeWorker('${w.worker_id}')">
+            <div class="slot">${w.slot} · ${w.category}</div>
+            <h3 style="font-size:0.95rem;margin:0.35rem 0">${w.title}</h3>
+            <div class="muted" style="font-size:0.8rem">${w.route}</div>
+            <div class="muted" style="font-size:0.75rem;margin-top:0.35rem">${w.description}</div>
+          </div>`).join("");
+      } catch (e) {
+        document.getElementById("badge").textContent = "OFFLINE";
+        document.getElementById("workers").innerHTML = "<span class='muted'>Start :8750 or run Start-HermesFleet.ps1</span>";
+      }
+    }
+    refresh();
+  </script>
+</body>
+</html>

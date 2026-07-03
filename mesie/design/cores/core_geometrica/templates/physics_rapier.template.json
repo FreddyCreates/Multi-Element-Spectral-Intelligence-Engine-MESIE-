@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_physics_rapier",
+  "core_id": "core_geometrica",
+  "paradigm_id": "physics_rapier",
+  "latin_agent": "Agent Physica Collisio",
+  "stack": "physics",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "movement"
+}

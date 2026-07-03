@@ -1,0 +1,36 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_geometrica",
+  "latin_name": "Core Geometrica",
+  "reality_class": "unreal_class_web",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Geometria Triangula",
+    "Agent Babylon Spectralis",
+    "Agent GPU Computantis",
+    "Agent Formatus Interoperabilis",
+    "Agent Shader Harmonicus",
+    "Agent Multitudo Mesh",
+    "Agent Graphus Scaenae",
+    "Agent Camera Circumitus",
+    "Agent Physica Collisio",
+    "Agent Mesh Spectrorum",
+    "Agent PlayCanvas Polyglotta",
+    "Agent regl Polyglotta",
+    "Agent deck.gl Polyglotta",
+    "Agent Cesium Polyglotta",
+    "Agent Potree Polyglotta",
+    "Agent VTK.js Polyglotta",
+    "Agent Kepler.gl Polyglotta",
+    "Agent OGL Polyglotta",
+    "Agent model-viewer Polyglotta",
+    "Agent React Polyglotta"
+  ],
+  "protocols": [
+    "P21",
+    "P22",
+    "P23",
+    "P24",
+    "P41"
+  ]
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MESIE Computing Family — Live Products</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .squad { font-size: 0.85rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); }
+    th { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; }
+    .mono { font-family: var(--mono); }
+    .squad-run { font-size: 0.7rem; padding: 0.2rem 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>MESIE Computing Family</h1>
+        <p class="muted">8 virtual products · tri-agent squads · protocol P07</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">LOADING</span>
+        <button class="btn btn-ghost" onclick="runAllSquads()">Run All Squads</button>
+        <button class="btn btn-ghost" onclick="refresh()">Refresh</button>
+      </div>
+    </header>
+
+    <section class="grid" id="products"></section>
+
+    <div class="card" style="margin-top:1.5rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:1rem">Tri-Agent Squads</h2>
+      <table>
+        <thead><tr><th>Squad</th><th>Agents</th><th>Mission</th><th></th></tr></thead>
+        <tbody id="squads"></tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:1rem">Live Latency (ms)</h2>
+      <div id="latency" class="mono"></div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:1rem">Compute Status</h2>
+      <pre id="compute-log" class="mono muted" style="font-size:0.75rem;max-height:180px;overflow:auto">—</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("computing-family");
+
+    const SQUAD_META = {
+      "ops-triad": { name: "Ops Triad", agents: "health, benchmark, bridge", mission: "System uptime" },
+      "quality-triad": { name: "Quality Triad", agents: "pytest, commercial pack, metrics", mission: "100% pass gate" },
+      "intel-triad": { name: "Intel Triad", agents: "embed, match, scientific text", mission: "Intelligence pulse" },
+      "research-triad": { name: "Research Triad", agents: "metamaterial, domain, release", mission: "Research + ship" },
+    };
+
+    async function runSquad(id) {
+      try {
+        const j = await MESIE_BRIDGE.runSquad(id);
+        document.getElementById("compute-log").textContent = JSON.stringify(j, null, 2);
+      } catch (e) {
+        document.getElementById("compute-log").textContent = String(e);
+      }
+    }
+
+    async function runAllSquads() {
+      try {
+        const j = await MESIE_BRIDGE.runSquad();
+        document.getElementById("compute-log").textContent = JSON.stringify(j, null, 2);
+      } catch (e) {
+        document.getElementById("compute-log").textContent = String(e);
+      }
+    }
+
+    async function refresh() {
+      let products = [];
+      let latency = {};
+      let squads = [];
+      try {
+        const [harness, compute, squadList] = await Promise.all([
+          MESIE_BRIDGE.harness(),
+          MESIE_BRIDGE.computeStatus().catch(() => null),
+          MESIE_BRIDGE.computeSquads().catch(() => ({ squads: [] })),
+        ]);
+        products = harness.virtual_products || [];
+        latency = harness.latency_table_ms || {};
+        squads = squadList.squads || [];
+        if (compute) document.getElementById("compute-log").textContent = JSON.stringify(compute, null, 2);
+        document.getElementById("badge").textContent = "LIVE";
+      } catch (e) {
+        products = await MESIE_BRIDGE.offlineProducts() || [];
+        document.getElementById("badge").textContent = "OFFLINE";
+      }
+
+      document.getElementById("products").innerHTML = products.map(p => `
+        <div class="card">
+          <div class="metric-label">${p.sku}</div>
+          <div style="font-weight:600;margin:0.25rem 0">${p.name}</div>
+          <div class="metric-value">${p.p50_ms ? p.p50_ms.toFixed(2) : "—"}</div>
+          <div class="muted">invocations ${p.invocations} · ${p.healthy ? "OK" : "idle"}</div>
+        </div>`).join("");
+
+      const squadRows = squads.length ? squads : Object.entries(SQUAD_META).map(([id, m]) => ({ squad_id: id, ...m }));
+      document.getElementById("squads").innerHTML = squadRows.map(s => {
+        const m = SQUAD_META[s.squad_id] || s;
+        return `<tr>
+          <td>${m.name || s.squad_id}</td>
+          <td class="squad">${m.agents || s.agents?.join?.(", ") || "—"}</td>
+          <td class="muted">${m.mission || s.mission || "—"}</td>
+          <td><button class="btn btn-ghost squad-run" onclick="runSquad('${s.squad_id}')">Run</button></td>
+        </tr>`;
+      }).join("");
+
+      document.getElementById("latency").innerHTML = Object.entries(latency)
+        .filter(([,v]) => v != null)
+        .map(([k,v]) => `<div>${k}: <strong>${typeof v === "number" ? v.toFixed(4) : v}</strong></div>`)
+        .join("") || "<span class='muted'>Start :8750 for live latency</span>";
+    }
+    refresh();
+    setInterval(refresh, 30000);
+  </script>
+</body>
+</html>

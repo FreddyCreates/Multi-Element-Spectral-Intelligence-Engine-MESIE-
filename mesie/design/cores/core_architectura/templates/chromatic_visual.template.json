@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_chromatic_visual",
+  "core_id": "core_architectura",
+  "paradigm_id": "chromatic_visual",
+  "latin_agent": "Agent Chromatic Polyglotta",
+  "stack": "chromatic",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "control"
+}

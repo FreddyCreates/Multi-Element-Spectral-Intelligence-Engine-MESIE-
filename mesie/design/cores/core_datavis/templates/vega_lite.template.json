@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_vega_lite",
+  "core_id": "core_datavis",
+  "paradigm_id": "vega_lite",
+  "latin_agent": "Agent Vega-Lite Polyglotta",
+  "stack": "vega",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

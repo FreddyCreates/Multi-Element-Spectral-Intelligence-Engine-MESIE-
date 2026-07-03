@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_phi_gauge",
+  "core_id": "core_datavis",
+  "paradigm_id": "phi_gauge",
+  "latin_agent": "Agent Metrum Aureum",
+  "stack": "gauge",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "logic"
+}

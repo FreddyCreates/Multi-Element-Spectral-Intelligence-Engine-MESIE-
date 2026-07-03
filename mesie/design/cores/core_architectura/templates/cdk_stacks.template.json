@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_cdk_stacks",
+  "core_id": "core_architectura",
+  "paradigm_id": "cdk_stacks",
+  "latin_agent": "Agent AWS Polyglotta",
+  "stack": "cdk",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

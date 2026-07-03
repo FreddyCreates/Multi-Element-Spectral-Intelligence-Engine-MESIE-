@@ -1,0 +1,228 @@
+{
+  "protocol": "MESIE-REALITY-ENGINE-CORES/1.0",
+  "core_count": 10,
+  "paradigm_count": 200,
+  "paradigms_per_core": 20,
+  "canonical_protocol_count": 40,
+  "protocol_bus_count": 42,
+  "stack": {
+    "protocol": "MESIE-REALITY-STACK/1.0",
+    "layers": [
+      {
+        "layer_id": "front",
+        "title": "Front Reality Surfaces",
+        "responsibility": "HTML/CSS/JS/3D/XR \u2014 100+ paradigm stacks as live intelligence agents",
+        "surfaces": [
+          "websites/reality-engine/index.html",
+          "websites/enterprise-4k/index.html",
+          "websites/computing-family/index.html",
+          "templates/surfaces/"
+        ]
+      },
+      {
+        "layer_id": "middle",
+        "title": "Middle Intelligence",
+        "responsibility": "ST-\u03c6 encode, SOLUS formal stack, design orchestrator, federation envelopes",
+        "surfaces": [
+          "mesie/design/orchestrator.py",
+          "mesie/design/reality_engine.py",
+          "mesie/compute/hub.py",
+          "mesie/enterprise/federation/orchestrator.py"
+        ]
+      },
+      {
+        "layer_id": "back",
+        "title": "Back Compute & Proof",
+        "responsibility": "Virtual processor :8750, polyglot suite, depth pillars, receipt chain",
+        "surfaces": [
+          "mesie/processor/server.py",
+          "mesie/polyglot/suite.py",
+          "mesie/depth/envelope_router.py",
+          "mesie/enterprise/receipt_chain.py"
+        ]
+      }
+    ],
+    "flow": "brief \u2192 middle encode \u2192 core agents (20 langs) \u2192 back invoke \u2192 receipt \u2192 front render",
+    "language_count_per_core": 20,
+    "canonical_languages": [
+      "python",
+      "typescript",
+      "rust",
+      "julia",
+      "haskell",
+      "motoko",
+      "go",
+      "kotlin",
+      "swift",
+      "wasm",
+      "elixir",
+      "zig",
+      "lua",
+      "solidity",
+      "glsl",
+      "graphql",
+      "sql",
+      "markdown",
+      "json_schema",
+      "mesie_dsl"
+    ]
+  },
+  "languages": {
+    "protocol": "MESIE-REALITY-ENGINE-CORES/1.0",
+    "language_count": 20,
+    "languages": [
+      {
+        "language_id": "python",
+        "display": "Python",
+        "runtime": "python",
+        "layer": "back"
+      },
+      {
+        "language_id": "typescript",
+        "display": "TypeScript",
+        "runtime": "typescript",
+        "layer": "front"
+      },
+      {
+        "language_id": "rust",
+        "display": "Rust",
+        "runtime": "rust",
+        "layer": "back"
+      },
+      {
+        "language_id": "julia",
+        "display": "Julia",
+        "runtime": "julia",
+        "layer": "middle"
+      },
+      {
+        "language_id": "haskell",
+        "display": "Haskell",
+        "runtime": "haskell",
+        "layer": "middle"
+      },
+      {
+        "language_id": "motoko",
+        "display": "Motoko",
+        "runtime": "motoko",
+        "layer": "back"
+      },
+      {
+        "language_id": "go",
+        "display": "Go",
+        "runtime": "go",
+        "layer": "back"
+      },
+      {
+        "language_id": "kotlin",
+        "display": "Kotlin",
+        "runtime": "kotlin",
+        "layer": "front"
+      },
+      {
+        "language_id": "swift",
+        "display": "Swift",
+        "runtime": "swift",
+        "layer": "front"
+      },
+      {
+        "language_id": "wasm",
+        "display": "WebAssembly",
+        "runtime": "wasm",
+        "layer": "bridge"
+      },
+      {
+        "language_id": "elixir",
+        "display": "Elixir",
+        "runtime": "elixir",
+        "layer": "middle"
+      },
+      {
+        "language_id": "zig",
+        "display": "Zig",
+        "runtime": "zig",
+        "layer": "back"
+      },
+      {
+        "language_id": "lua",
+        "display": "Lua",
+        "runtime": "lua",
+        "layer": "middle"
+      },
+      {
+        "language_id": "solidity",
+        "display": "Solidity",
+        "runtime": "solidity",
+        "layer": "back"
+      },
+      {
+        "language_id": "glsl",
+        "display": "GLSL",
+        "runtime": "glsl",
+        "layer": "front"
+      },
+      {
+        "language_id": "graphql",
+        "display": "GraphQL",
+        "runtime": "graphql",
+        "layer": "bridge"
+      },
+      {
+        "language_id": "sql",
+        "display": "SQL",
+        "runtime": "sql",
+        "layer": "back"
+      },
+      {
+        "language_id": "markdown",
+        "display": "Markdown",
+        "runtime": "markdown",
+        "layer": "front"
+      },
+      {
+        "language_id": "json_schema",
+        "display": "JSON Schema",
+        "runtime": "json_schema",
+        "layer": "bridge"
+      },
+      {
+        "language_id": "mesie_dsl",
+        "display": "MESIE Native DSL",
+        "runtime": "mesie_dsl",
+        "layer": "middle"
+      }
+    ]
+  },
+  "ecosystem": {
+    "cores": [
+      "core_spectralis",
+      "core_geometrica",
+      "core_materialis",
+      "core_kinetica",
+      "core_spatialis",
+      "core_datavis",
+      "core_sonora",
+      "core_architectura",
+      "core_narrativa",
+      "core_realitas"
+    ],
+    "surfaces": {
+      "reality_engine": "websites/reality-engine/index.html",
+      "computing_family": "websites/computing-family/index.html",
+      "enterprise_4k": "websites/enterprise-4k/index.html"
+    }
+  },
+  "vision": "Video-game roots \u2192 enterprise product showcase \u2014 compete with Unreal-class pipelines on web",
+  "certification": {
+    "ok": true,
+    "cores": 10,
+    "paradigms": 200,
+    "status": {
+      "protocol": "MESIE-REALITY-ENGINE-CORES/1.0",
+      "paradigms_per_core": 20,
+      "canonical_protocol_count": 40
+    },
+    "invoke_latency_ms": 605.35,
+    "reality_class": "unreal_class_web"
+  }
+}

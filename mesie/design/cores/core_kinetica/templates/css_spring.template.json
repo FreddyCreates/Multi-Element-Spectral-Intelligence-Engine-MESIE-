@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_css_spring",
+  "core_id": "core_kinetica",
+  "paradigm_id": "css_spring",
+  "latin_agent": "Agent Elasticus Phi",
+  "stack": "spring",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "control"
+}

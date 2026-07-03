@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_waapi_native",
+  "core_id": "core_kinetica",
+  "paradigm_id": "waapi_native",
+  "latin_agent": "Agent WAAPI Polyglotta",
+  "stack": "waapi",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "control"
+}

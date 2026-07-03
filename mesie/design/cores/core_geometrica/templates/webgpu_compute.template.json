@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_webgpu_compute",
+  "core_id": "core_geometrica",
+  "paradigm_id": "webgpu_compute",
+  "latin_agent": "Agent GPU Computantis",
+  "stack": "webgpu",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

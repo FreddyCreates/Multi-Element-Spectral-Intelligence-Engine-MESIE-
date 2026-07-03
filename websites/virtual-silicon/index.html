@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MESIE-VS1 — Baseline Sovereign Virtual Chip</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+    .tagline { color: var(--phi); font-family: var(--mono); font-size: 0.9rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .sku { cursor: pointer; transition: border-color 0.15s; }
+    .sku:hover, .sku.active { border-color: var(--accent); }
+    .sku.baseline { border-color: var(--phi); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { text-align: left; padding: 0.55rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 0.72rem; }
+    pre { font-family: var(--mono); font-size: 0.72rem; max-height: 260px; overflow: auto; color: var(--muted); }
+    .use-list { margin: 0; padding-left: 1.2rem; font-size: 0.9rem; color: var(--text); }
+    .use-list li { margin: 0.35rem 0; }
+    .rank { font-family: var(--mono); color: var(--phi); font-size: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>MESIE-VS1</h1>
+        <p class="tagline">Baseline Sovereign · Spectral Compute Fabric v1.2.0 · @ItsnotAILabs</p>
+        <p class="muted">256-bit ALU · single RF · 4-node OTA — foundational virtual chip for decentralized AI</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">LOADING</span>
+        <button class="btn btn-primary" onclick="certifyBaseline()">Certify VS1</button>
+        <button class="btn btn-ghost" onclick="refresh()">Refresh</button>
+      </div>
+    </header>
+
+    <section class="grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:1rem">
+      <div class="card"><div class="metric-label">ALU Width</div><div class="metric-value">256-bit</div></div>
+      <div class="card"><div class="metric-label">RF Front-ends</div><div class="metric-value">1</div></div>
+      <div class="card"><div class="metric-label">OTA Mesh</div><div class="metric-value">4-node</div></div>
+      <div class="card"><div class="metric-label">Position</div><div class="metric-value" style="font-size:0.85rem">Baseline</div></div>
+    </section>
+
+    <div class="card" style="margin-bottom:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Component Specifications</h2>
+      <table>
+        <thead><tr><th>Component</th><th>Spec</th><th>Interpretation</th></tr></thead>
+        <tbody id="components"></tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-bottom:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">SKU Family</h2>
+      <section class="grid" id="family"></section>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+      <div class="card">
+        <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Sovereign Use Cases</h2>
+        <ul class="use-list" id="use-cases"></ul>
+      </div>
+      <div class="card">
+        <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Integration</h2>
+        <ul class="use-list" id="integration"></ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Last Certification</h2>
+      <pre id="log">—</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("virtual-silicon");
+
+    let catalog = null;
+    let selected = "MESIE-VS1";
+
+    function renderComponents(components) {
+      document.getElementById("components").innerHTML = (components || []).map(c =>
+        `<tr><td><strong>${c.component}</strong></td><td class="mono">${c.specification}</td><td>${c.interpretation}</td></tr>`
+      ).join("");
+    }
+
+    function renderFamily(family, skus) {
+      const skuMap = Object.fromEntries((skus || []).map(s => [s.chip_id, s]));
+      document.getElementById("family").innerHTML = (family || []).map(f => {
+        const s = skuMap[f.chip_id] || {};
+        const active = f.chip_id === selected ? "active" : "";
+        const baseline = f.chip_id === "MESIE-VS1" ? "baseline" : "";
+        return `<div class="card sku ${active} ${baseline}" onclick="selectSku('${f.chip_id}')">
+          <div class="rank">#${f.rank} · ${f.role}</div>
+          <h3 style="margin:0.4rem 0;font-size:1rem">${f.chip_id}</h3>
+          <p class="muted" style="font-size:0.82rem;margin:0">${f.summary || s.description || ""}</p>
+        </div>`;
+      }).join("");
+    }
+
+    function renderLists(baseline) {
+      const uses = baseline.sovereign_use_cases || [];
+      const caps = baseline.integration_capabilities || [];
+      document.getElementById("use-cases").innerHTML = uses.map(u => `<li>${u}</li>`).join("");
+      document.getElementById("integration").innerHTML = caps.map(c => `<li>${c}</li>`).join("");
+    }
+
+    async function selectSku(chipId) {
+      selected = chipId;
+      if (catalog) renderFamily(catalog.sku_family, catalog.skus);
+      try {
+        const j = await MESIE_BRIDGE.certifyChip(chipId);
+        document.getElementById("log").textContent = JSON.stringify(j, null, 2);
+        document.getElementById("badge").textContent = j.ok && j.result?.certified ? "CERTIFIED" : "PARTIAL";
+      } catch (e) {
+        document.getElementById("log").textContent = String(e);
+      }
+    }
+
+    async function certifyBaseline() {
+      await selectSku("MESIE-VS1");
+    }
+
+    async function refresh() {
+      try {
+        catalog = await MESIE_BRIDGE.virtualSilicon();
+        const b = catalog.baseline || {};
+        renderComponents(b.components);
+        renderFamily(catalog.sku_family, catalog.skus);
+        renderLists(b);
+        document.getElementById("badge").textContent = "LIVE";
+      } catch (e) {
+        document.getElementById("badge").textContent = "OFFLINE";
+        document.getElementById("log").textContent = String(e);
+      }
+    }
+
+    refresh();
+  </script>
+</body>
+</html>

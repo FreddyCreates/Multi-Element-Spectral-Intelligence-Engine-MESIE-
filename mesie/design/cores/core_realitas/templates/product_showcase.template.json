@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_product_showcase",
+  "core_id": "core_realitas",
+  "paradigm_id": "product_showcase",
+  "latin_agent": "Agent Showcase Producti",
+  "stack": "showcase",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

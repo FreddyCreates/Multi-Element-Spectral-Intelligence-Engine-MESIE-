@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_popmotion",
+  "core_id": "core_kinetica",
+  "paradigm_id": "popmotion",
+  "latin_agent": "Agent Popmotion Polyglotta",
+  "stack": "popmotion",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "matching"
+}

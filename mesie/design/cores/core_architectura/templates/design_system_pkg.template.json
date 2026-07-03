@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_design_system_pkg",
+  "core_id": "core_architectura",
+  "paradigm_id": "design_system_pkg",
+  "latin_agent": "Agent Systema Materialis",
+  "stack": "ds_pkg",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

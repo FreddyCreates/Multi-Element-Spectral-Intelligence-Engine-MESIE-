@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_remix_loader",
+  "core_id": "core_spectralis",
+  "paradigm_id": "remix_loader",
+  "latin_agent": "Agent Remix Polyglotta",
+  "stack": "remix",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

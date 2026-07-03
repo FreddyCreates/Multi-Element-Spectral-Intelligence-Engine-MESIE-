@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_html_semantic",
+  "core_id": "core_spectralis",
+  "paradigm_id": "html_semantic",
+  "latin_agent": "Agent Structura Semanticus",
+  "stack": "html",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "validation"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_midi_spectral",
+  "core_id": "core_sonora",
+  "paradigm_id": "midi_spectral",
+  "latin_agent": "Agent Nota Frequens",
+  "stack": "midi",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

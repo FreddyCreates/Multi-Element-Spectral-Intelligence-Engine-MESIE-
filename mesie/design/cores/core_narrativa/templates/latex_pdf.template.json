@@ -1,0 +1,12 @@
+{
+  "template_id": "core_narrativa_latex_pdf",
+  "core_id": "core_narrativa",
+  "paradigm_id": "latex_pdf",
+  "latin_agent": "Agent LaTeX Polyglotta",
+  "stack": "latex",
+  "hooks": [
+    "GET /processor/design/cores/core_narrativa",
+    "POST /processor/design/cores/core_narrativa/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

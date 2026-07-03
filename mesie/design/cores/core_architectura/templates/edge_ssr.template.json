@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_edge_ssr",
+  "core_id": "core_architectura",
+  "paradigm_id": "edge_ssr",
+  "latin_agent": "Agent Server Marginalis",
+  "stack": "ssr",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "control"
+}

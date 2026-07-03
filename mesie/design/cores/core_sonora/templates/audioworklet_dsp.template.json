@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_audioworklet_dsp",
+  "core_id": "core_sonora",
+  "paradigm_id": "audioworklet_dsp",
+  "latin_agent": "Agent AudioWorklet Polyglotta",
+  "stack": "worklet",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "matching"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_micro_frontend",
+  "core_id": "core_architectura",
+  "paradigm_id": "micro_frontend",
+  "latin_agent": "Agent Frontis Modularis",
+  "stack": "mfe",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

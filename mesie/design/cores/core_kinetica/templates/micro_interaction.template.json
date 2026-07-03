@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_micro_interaction",
+  "core_id": "core_kinetica",
+  "paradigm_id": "micro_interaction",
+  "latin_agent": "Agent Parvus Motus",
+  "stack": "micro",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "matching"
+}

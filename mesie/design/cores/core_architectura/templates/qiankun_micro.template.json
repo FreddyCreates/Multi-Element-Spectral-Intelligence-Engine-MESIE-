@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_qiankun_micro",
+  "core_id": "core_architectura",
+  "paradigm_id": "qiankun_micro",
+  "latin_agent": "Agent qiankun Polyglotta",
+  "stack": "qiankun",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "generation"
+}

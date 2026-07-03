@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_hand_tracking",
+  "core_id": "core_spatialis",
+  "paradigm_id": "hand_tracking",
+  "latin_agent": "Agent Manus Digitalis",
+  "stack": "hands",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "fingerprint"
+}

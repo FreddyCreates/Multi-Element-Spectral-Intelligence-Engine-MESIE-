@@ -138,8 +138,22 @@ class FederationOrchestrator:
             report = ctrl.run_standard_cycle(a, candidate=b)
             result["octopus"] = asdict(report)
 
+        elif tool.startswith("design.") or tool.startswith("reality."):
+            from mesie.design.envelope import RealityEngineEnvelope
+            from mesie.design.reality_engine import RealityEngine
+
+            core_id = str(payload.get("core_id", "core_realitas"))
+            env = RealityEngineEnvelope(
+                agent_id=envelope.agent_id,
+                core_id=core_id,
+                brief=payload.get("brief") or payload,
+                paradigm_id=payload.get("paradigm_id"),
+                language_id=payload.get("language_id"),
+            )
+            result["reality"] = RealityEngine().invoke(env)
+
         else:
-            result["note"] = "envelope sealed; use polyglot.*, arm.*, hands.*, depth.*, or octopus.run"
+            result["note"] = "envelope sealed; use polyglot.*, arm.*, hands.*, depth.*, design.*, reality.*, or octopus.run"
 
         work_score = 0.5
         if "polyglot" in result:

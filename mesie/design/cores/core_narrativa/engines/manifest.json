@@ -1,0 +1,34 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_narrativa",
+  "latin_name": "Core Narrativa",
+  "reality_class": "narrative_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Scriptum Latinum",
+    "Agent Markdown Doctoralis",
+    "Agent Narratio Scroll",
+    "Agent Theorema Visibile",
+    "Agent Citatio Retis",
+    "Agent Notae Editionis",
+    "Agent Portal Documentorum",
+    "Agent Fasciculus Research",
+    "Agent Typus Doctoralis",
+    "Agent Abstractum Solus",
+    "Agent LaTeX Polyglotta",
+    "Agent Typst Polyglotta",
+    "Agent AsciiDoc Polyglotta",
+    "Agent Docusaurus Polyglotta",
+    "Agent VitePress Polyglotta",
+    "Agent GitBook Polyglotta",
+    "Agent Notion Polyglotta",
+    "Agent Roam Polyglotta",
+    "Agent Muse Polyglotta",
+    "Agent Sphinx Polyglotta"
+  ],
+  "protocols": [
+    "P31",
+    "P12",
+    "P35"
+  ]
+}

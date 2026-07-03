@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_eq_spectrum",
+  "core_id": "core_sonora",
+  "paradigm_id": "eq_spectrum",
+  "latin_agent": "Agent Aequilibrium",
+  "stack": "eq",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "matching"
+}

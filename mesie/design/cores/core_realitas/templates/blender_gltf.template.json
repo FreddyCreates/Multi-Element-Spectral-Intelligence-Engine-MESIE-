@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_blender_gltf",
+  "core_id": "core_realitas",
+  "paradigm_id": "blender_gltf",
+  "latin_agent": "Agent Blender Polyglotta",
+  "stack": "blender",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

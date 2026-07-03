@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_react_concurrent",
+  "core_id": "core_spectralis",
+  "paradigm_id": "react_concurrent",
+  "latin_agent": "Agent Componentia Fluxus",
+  "stack": "react",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

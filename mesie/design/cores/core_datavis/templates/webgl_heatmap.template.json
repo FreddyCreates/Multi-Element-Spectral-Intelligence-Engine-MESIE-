@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_webgl_heatmap",
+  "core_id": "core_datavis",
+  "paradigm_id": "webgl_heatmap",
+  "latin_agent": "Agent Calor Cartographia",
+  "stack": "heatmap",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "fingerprint"
+}

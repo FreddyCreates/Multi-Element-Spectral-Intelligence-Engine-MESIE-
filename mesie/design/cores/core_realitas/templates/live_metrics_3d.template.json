@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_live_metrics_3d",
+  "core_id": "core_realitas",
+  "paradigm_id": "live_metrics_3d",
+  "latin_agent": "Agent Metrum Tridimensionale",
+  "stack": "metrics3d",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "matching"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_narrativa_phi_typography",
+  "core_id": "core_narrativa",
+  "paradigm_id": "phi_typography",
+  "latin_agent": "Agent Typus Doctoralis",
+  "stack": "phi_type",
+  "hooks": [
+    "GET /processor/design/cores/core_narrativa",
+    "POST /processor/design/cores/core_narrativa/invoke"
+  ],
+  "mesie_engine": "generation"
+}

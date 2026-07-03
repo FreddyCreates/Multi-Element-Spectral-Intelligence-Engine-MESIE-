@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_echarts_spectral",
+  "core_id": "core_datavis",
+  "paradigm_id": "echarts_spectral",
+  "latin_agent": "Agent ECharts Polyglotta",
+  "stack": "echarts",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

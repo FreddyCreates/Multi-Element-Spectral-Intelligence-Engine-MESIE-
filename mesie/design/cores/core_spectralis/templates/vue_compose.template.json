@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_vue_compose",
+  "core_id": "core_spectralis",
+  "paradigm_id": "vue_compose",
+  "latin_agent": "Agent Reactivus Componens",
+  "stack": "vue",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

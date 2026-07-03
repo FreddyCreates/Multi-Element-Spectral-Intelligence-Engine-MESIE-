@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_tonejs_synth",
+  "core_id": "core_sonora",
+  "paradigm_id": "tonejs_synth",
+  "latin_agent": "Agent Tone.js Polyglotta",
+  "stack": "tone",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

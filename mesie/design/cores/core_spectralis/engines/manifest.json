@@ -1,0 +1,35 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_spectralis",
+  "latin_name": "Core Spectralis",
+  "reality_class": "web_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Structura Semanticus",
+    "Agent Stylus Harmonicus",
+    "Agent Scriptum Vivus",
+    "Agent Typus Formalis",
+    "Agent Componentia Fluxus",
+    "Agent Reactivus Componens",
+    "Agent Compiler Minimus",
+    "Agent Insula Statica",
+    "Agent Shadow Domus",
+    "Agent Shell Mobilicus",
+    "Agent Angular Polyglotta",
+    "Agent Next.js Polyglotta",
+    "Agent Nuxt Polyglotta",
+    "Agent Remix Polyglotta",
+    "Agent Qwik Polyglotta",
+    "Agent Lit Polyglotta",
+    "Agent HTMX Polyglotta",
+    "Agent Alpine Polyglotta",
+    "Agent Solid.js Polyglotta",
+    "Agent Ember Polyglotta"
+  ],
+  "protocols": [
+    "P16",
+    "P05",
+    "P20",
+    "P25"
+  ]
+}

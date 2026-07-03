@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_webvm_spatial",
+  "core_id": "core_spatialis",
+  "paradigm_id": "webvm_spatial",
+  "latin_agent": "Agent WebVM Polyglotta",
+  "stack": "webvm",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "movement"
+}

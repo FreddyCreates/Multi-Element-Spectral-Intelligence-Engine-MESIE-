@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_js_esnext",
+  "core_id": "core_spectralis",
+  "paradigm_id": "js_esnext",
+  "latin_agent": "Agent Scriptum Vivus",
+  "stack": "javascript",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

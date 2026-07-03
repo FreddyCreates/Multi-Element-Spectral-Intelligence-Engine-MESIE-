@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_velocity_legacy",
+  "core_id": "core_kinetica",
+  "paradigm_id": "velocity_legacy",
+  "latin_agent": "Agent Velocity.js Polyglotta",
+  "stack": "velocity",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "validation"
+}

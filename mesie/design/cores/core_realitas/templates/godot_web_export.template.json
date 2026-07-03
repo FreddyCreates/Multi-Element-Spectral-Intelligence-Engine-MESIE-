@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_godot_web_export",
+  "core_id": "core_realitas",
+  "paradigm_id": "godot_web_export",
+  "latin_agent": "Agent Godot Polyglotta",
+  "stack": "godot",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_storybook_isolate",
+  "core_id": "core_architectura",
+  "paradigm_id": "storybook_isolate",
+  "latin_agent": "Agent Storybook Polyglotta",
+  "stack": "storybook",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "matching"
+}

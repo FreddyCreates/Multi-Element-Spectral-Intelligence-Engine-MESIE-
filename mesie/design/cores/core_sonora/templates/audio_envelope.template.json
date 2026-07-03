@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_audio_envelope",
+  "core_id": "core_sonora",
+  "paradigm_id": "audio_envelope",
+  "latin_agent": "Agent Envelopum Soni",
+  "stack": "envelope",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "validation"
+}

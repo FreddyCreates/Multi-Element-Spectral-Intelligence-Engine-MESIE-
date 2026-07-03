@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_cytoscape_graph",
+  "core_id": "core_datavis",
+  "paradigm_id": "cytoscape_graph",
+  "latin_agent": "Agent Cytoscape.js Polyglotta",
+  "stack": "cytoscape",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

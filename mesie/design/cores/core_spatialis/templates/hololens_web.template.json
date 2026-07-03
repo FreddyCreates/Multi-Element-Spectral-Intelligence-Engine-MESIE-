@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_hololens_web",
+  "core_id": "core_spatialis",
+  "paradigm_id": "hololens_web",
+  "latin_agent": "Agent HoloLens Polyglotta",
+  "stack": "hololens",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "matching"
+}

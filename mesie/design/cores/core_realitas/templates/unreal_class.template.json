@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_unreal_class",
+  "core_id": "core_realitas",
+  "paradigm_id": "unreal_class",
+  "latin_agent": "Agent Realitas Ultima",
+  "stack": "unreal_lane",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

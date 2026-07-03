@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_phi_easing",
+  "core_id": "core_kinetica",
+  "paradigm_id": "phi_easing",
+  "latin_agent": "Agent Easing Aureus",
+  "stack": "easing",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "logic"
+}

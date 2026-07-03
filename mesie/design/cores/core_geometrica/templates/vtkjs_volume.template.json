@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_vtkjs_volume",
+  "core_id": "core_geometrica",
+  "paradigm_id": "vtkjs_volume",
+  "latin_agent": "Agent VTK.js Polyglotta",
+  "stack": "vtk",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "control"
+}

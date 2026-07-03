@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_virtual_booth",
+  "core_id": "core_realitas",
+  "paradigm_id": "virtual_booth",
+  "latin_agent": "Agent Booth Mercatus",
+  "stack": "booth",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "movement"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_realtime_stream",
+  "core_id": "core_datavis",
+  "paradigm_id": "realtime_stream",
+  "latin_agent": "Agent Fluxus Temporis",
+  "stack": "sse",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

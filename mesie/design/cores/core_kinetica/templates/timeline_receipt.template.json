@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_timeline_receipt",
+  "core_id": "core_kinetica",
+  "paradigm_id": "timeline_receipt",
+  "latin_agent": "Agent Chronologia Sigilli",
+  "stack": "receipt",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

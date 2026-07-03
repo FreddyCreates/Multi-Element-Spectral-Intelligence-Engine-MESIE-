@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_css_cascade",
+  "core_id": "core_spectralis",
+  "paradigm_id": "css_cascade",
+  "latin_agent": "Agent Stylus Harmonicus",
+  "stack": "css",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "generation"
+}

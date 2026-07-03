@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOLUS Formal Console — Logic ⊗ Reasoning ⊗ Emergence ⊗ Adaptation</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    .formula { font-family: var(--mono); color: var(--phi); font-size: 1.1rem; margin: 1rem 0; }
+    .layers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    @media (max-width: 900px) { .layers { grid-template-columns: repeat(2, 1fr); } }
+    .layer-card { text-align: center; padding: 1rem; }
+    .layer-card .metric-value { font-size: 1.25rem; }
+    pre { font-family: var(--mono); font-size: 0.75rem; max-height: 360px; overflow: auto; color: var(--muted); }
+    input { width: 100%; padding: 0.5rem; margin: 0.25rem 0; border-radius: 6px; border: 1px solid var(--border); background: #0d1320; color: var(--text); font-family: var(--mono); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>SOLUS Formal Console</h1>
+        <p class="formula">Logic ⊗ Reasoning ⊗ Emergence ⊗ Adaptation</p>
+        <p class="muted">Protocol P35 · worker: platform_solus · zero third-party inference</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">READY</span>
+        <button class="btn btn-ghost" onclick="runWorker()">Worker</button>
+        <button class="btn btn-primary" onclick="runCycle()">Run Cycle</button>
+      </div>
+    </header>
+
+    <section class="layers" id="layers">
+      <div class="card layer-card"><div class="metric-label">Logic</div><div class="metric-value" id="l-logic">—</div></div>
+      <div class="card layer-card"><div class="metric-label">Reasoning</div><div class="metric-value" id="l-reason">—</div></div>
+      <div class="card layer-card"><div class="metric-label">Emergence</div><div class="metric-value" id="l-emerge">—</div></div>
+      <div class="card layer-card"><div class="metric-label">Adaptation</div><div class="metric-value" id="l-adapt">—</div></div>
+    </section>
+
+    <div class="card">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:1rem">Spectral Input</h2>
+      <label class="muted">Frequencies (comma)</label>
+      <input id="freqs" value="1,2,3,5,8,13,21" />
+      <label class="muted">Amplitudes (comma)</label>
+      <input id="amps" value="0.5,0.7,0.9,0.6,0.8,0.75,0.85" />
+      <label class="muted">Record ID</label>
+      <input id="record" value="solus_console_cycle" />
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:1rem">Composition Output</h2>
+      <div id="conclusion" style="font-size:1.1rem;margin-bottom:1rem">—</div>
+      <pre id="log">Click Run Cycle to invoke SOLUS formal stack via MVP bridge.</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("solus-console");
+
+    async function runWorker() {
+      const payload = {
+        frequencies: parseNums(document.getElementById("freqs").value),
+        amplitudes: parseNums(document.getElementById("amps").value),
+        cycle_context: { record_id: document.getElementById("record").value },
+      };
+      document.getElementById("log").textContent = "worker dispatch…";
+      try {
+        const j = await MESIE_BRIDGE.worker("orchestrator", "platform_solus", payload);
+        document.getElementById("log").textContent = JSON.stringify(j, null, 2);
+      } catch (e) { document.getElementById("log").textContent = String(e); }
+    }
+
+    function parseNums(s) {
+      return s.split(",").map(x => parseFloat(x.trim())).filter(n => !isNaN(n));
+    }
+
+    async function runCycle() {
+      const payload = {
+        frequencies: parseNums(document.getElementById("freqs").value),
+        amplitudes: parseNums(document.getElementById("amps").value),
+        cycle_context: { record_id: document.getElementById("record").value },
+      };
+      document.getElementById("log").textContent = "running…";
+      try {
+        const j = await MESIE_BRIDGE.invoke("solus-console", payload);
+        const solus = j.result?.solus || j.result?.result?.solus || {};
+        document.getElementById("badge").textContent = "LIVE";
+        document.getElementById("conclusion").textContent = solus.conclusion || "—";
+        const models = solus.formal_models || {};
+        document.getElementById("l-logic").textContent = (models.logic?.brain?.confidence ?? "—");
+        document.getElementById("l-reason").textContent = (models.reasoning?.brain?.confidence ?? "—").toString().slice(0, 6);
+        document.getElementById("l-emerge").textContent = (solus.emergence_score ?? solus.layers?.emergence?.emergence_score ?? "—").toString().slice(0, 6);
+        document.getElementById("l-adapt").textContent = solus.adapted ? "yes" : "—";
+        document.getElementById("log").textContent = JSON.stringify(solus, null, 2);
+      } catch (e) {
+        document.getElementById("badge").textContent = "OFFLINE";
+        document.getElementById("log").textContent = String(e);
+      }
+    }
+  </script>
+</body>
+</html>

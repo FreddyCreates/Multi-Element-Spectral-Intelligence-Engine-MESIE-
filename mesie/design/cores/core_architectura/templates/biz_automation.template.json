@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_biz_automation",
+  "core_id": "core_architectura",
+  "paradigm_id": "biz_automation",
+  "latin_agent": "Agent Negotium Autonomum",
+  "stack": "auto_biz",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

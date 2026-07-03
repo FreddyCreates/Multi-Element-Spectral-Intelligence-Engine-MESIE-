@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_faust_web",
+  "core_id": "core_sonora",
+  "paradigm_id": "faust_web",
+  "latin_agent": "Agent Faust Polyglotta",
+  "stack": "faust",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

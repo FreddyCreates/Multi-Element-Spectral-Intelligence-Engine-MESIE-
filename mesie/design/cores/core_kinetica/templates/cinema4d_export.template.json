@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_cinema4d_export",
+  "core_id": "core_kinetica",
+  "paradigm_id": "cinema4d_export",
+  "latin_agent": "Agent C4D Polyglotta",
+  "stack": "c4d",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "movement"
+}

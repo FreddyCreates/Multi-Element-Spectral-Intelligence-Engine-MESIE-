@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_benchmark_panel",
+  "core_id": "core_datavis",
+  "paradigm_id": "benchmark_panel",
+  "latin_agent": "Agent Metrum Competitio",
+  "stack": "bench",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "validation"
+}

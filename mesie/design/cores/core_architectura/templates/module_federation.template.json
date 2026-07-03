@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_module_federation",
+  "core_id": "core_architectura",
+  "paradigm_id": "module_federation",
+  "latin_agent": "Agent Foederatio Modulorum",
+  "stack": "federation",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

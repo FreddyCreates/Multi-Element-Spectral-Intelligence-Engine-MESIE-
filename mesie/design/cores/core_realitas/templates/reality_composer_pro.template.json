@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_reality_composer_pro",
+  "core_id": "core_realitas",
+  "paradigm_id": "reality_composer_pro",
+  "latin_agent": "Agent Reality Polyglotta",
+  "stack": "rcp",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "logic"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_framer_motion",
+  "core_id": "core_kinetica",
+  "paradigm_id": "framer_motion",
+  "latin_agent": "Agent Motus Fluidus",
+  "stack": "framer",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "movement"
+}

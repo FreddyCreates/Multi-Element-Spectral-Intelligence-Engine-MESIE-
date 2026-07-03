@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_canvas_chart",
+  "core_id": "core_datavis",
+  "paradigm_id": "canvas_chart",
+  "latin_agent": "Agent Chart Canvas",
+  "stack": "canvas",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "generation"
+}

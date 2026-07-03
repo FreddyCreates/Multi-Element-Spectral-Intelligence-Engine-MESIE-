@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_page_transition",
+  "core_id": "core_kinetica",
+  "paradigm_id": "page_transition",
+  "latin_agent": "Agent Transitus Paginae",
+  "stack": "transition",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

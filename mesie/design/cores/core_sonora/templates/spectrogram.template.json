@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_spectrogram",
+  "core_id": "core_sonora",
+  "paradigm_id": "spectrogram",
+  "latin_agent": "Agent Spectrogramma",
+  "stack": "spectrogram",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "fingerprint"
+}

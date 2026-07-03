@@ -1,0 +1,61 @@
+:root {
+  --bg: #0a0e17;
+  --card: #121a2b;
+  --border: #1e2d4a;
+  --text: #e8edf7;
+  --muted: #8b9cb8;
+  --accent: #3d8bfd;
+  --phi: #c9a227;
+  --ok: #2dd4a0;
+  --font: "DM Sans", system-ui, sans-serif;
+  --mono: "JetBrains Mono", monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+.bg-grid {
+  position: fixed; inset: 0; z-index: -1;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px; opacity: 0.25;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.badge {
+  display: inline-block; padding: 0.25rem 0.6rem;
+  border-radius: 6px; font-size: 0.75rem; font-weight: 600;
+  background: #1a2744; color: var(--accent);
+}
+.badge-ok { background: #0d3328; color: var(--ok); }
+.btn {
+  display: inline-block; padding: 0.6rem 1.2rem;
+  border-radius: 8px; font-weight: 600; cursor: pointer;
+  border: none; font-family: inherit;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+.metric-value { font-size: 1.75rem; font-weight: 700; font-family: var(--mono); }
+.metric-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.muted { color: var(--muted); }
+.mesie-nav {
+  display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center;
+  padding: 0.65rem 0; margin-bottom: 1rem; border-bottom: 1px solid var(--border);
+}
+.mesie-nav a {
+  font-size: 0.8rem; padding: 0.35rem 0.7rem; border-radius: 6px;
+  border: 1px solid var(--border); color: var(--text); text-decoration: none;
+}
+.mesie-nav a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+.mesie-nav a.active { background: #1a2744; border-color: var(--accent); color: var(--accent); }
+.mesie-nav .sep { color: var(--border); margin: 0 0.15rem; }

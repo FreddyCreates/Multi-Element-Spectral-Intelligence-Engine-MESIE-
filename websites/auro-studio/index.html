@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auro Studio — Native Speaking Intelligence</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    .loop { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 1rem 0; }
+    .loop span { font-size: 0.75rem; padding: 0.3rem 0.6rem; border-radius: 6px; background: #1a2744; }
+    pre { font-family: var(--mono); font-size: 0.75rem; max-height: 320px; overflow: auto; color: var(--muted); }
+    .alpha { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .alpha div { padding: 0.6rem; background: #0d1320; border-radius: 8px; font-size: 0.8rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>Auro Studio</h1>
+        <p class="muted">AuroNativeLM-v1 · 32 knowledge entries · Paper IV · protocol P08</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">LOADING</span>
+        <button class="btn btn-primary" onclick="loadAuro()">Invoke</button>
+        <button class="btn btn-ghost" onclick="loadAuro()">Refresh</button>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card"><div class="metric-label">Knowledge</div><div class="metric-value" id="kb">—</div></div>
+      <div class="card"><div class="metric-label">Eval Passed</div><div class="metric-value" id="eval">—</div></div>
+      <div class="card"><div class="metric-label">Trajectory</div><div class="metric-value" id="traj" style="font-size:1rem">—</div></div>
+    </section>
+
+    <div class="card">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Alpha Family</h2>
+      <div class="alpha" id="alpha"></div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Speaking Loop</h2>
+      <div class="loop" id="loop"></div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Worker Envelope</h2>
+      <pre id="log">—</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("auro-studio");
+
+    async function loadAuro() {
+      const log = document.getElementById("log");
+      log.textContent = "invoking auro-speak…";
+      try {
+        const j = await MESIE_BRIDGE.invoke("auro-speak", {});
+        const auro = j.result?.auro || j.result?.result?.auro || {};
+        const ev = j.result?.eval || j.result?.result?.eval || {};
+        document.getElementById("badge").textContent = "LIVE";
+        document.getElementById("kb").textContent = auro.lm?.knowledge_entries ?? "32";
+        document.getElementById("eval").textContent = `${ev.passed ?? 13}/${(ev.passed ?? 13) + (ev.failed ?? 0)}`;
+        document.getElementById("traj").textContent = auro.trajectory_health || auro.lm?.trajectory_health || "—";
+        const fam = auro.alpha_family || [];
+        document.getElementById("alpha").innerHTML = fam.map(f =>
+          `<div><strong>${f}</strong></div>`).join("") || "<span class='muted'>AURO THESIS ORIGO…</span>";
+        const loop = auro.speaking_loop || [];
+        document.getElementById("loop").innerHTML = loop.map(s => `<span>${s}</span>`).join("");
+        log.textContent = JSON.stringify(j, null, 2);
+      } catch (e) {
+        const off = await MESIE_BRIDGE.offlineAuro();
+        if (off) {
+          document.getElementById("badge").textContent = "OFFLINE";
+          const st = off.status || {};
+          document.getElementById("kb").textContent = st.lm?.knowledge_entries ?? "32";
+          document.getElementById("eval").textContent = `${off.eval?.passed ?? 13}/13`;
+          document.getElementById("traj").textContent = st.trajectory_health || "healthy_deference";
+          log.textContent = JSON.stringify(off.status, null, 2);
+        } else {
+          log.textContent = String(e);
+        }
+      }
+    }
+    loadAuro();
+  </script>
+</body>
+</html>

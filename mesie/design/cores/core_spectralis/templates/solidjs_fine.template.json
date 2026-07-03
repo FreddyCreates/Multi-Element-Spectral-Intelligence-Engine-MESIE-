@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_solidjs_fine",
+  "core_id": "core_spectralis",
+  "paradigm_id": "solidjs_fine",
+  "latin_agent": "Agent Solid.js Polyglotta",
+  "stack": "solid",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "validation"
+}

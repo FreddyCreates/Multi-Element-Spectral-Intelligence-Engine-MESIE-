@@ -1,0 +1,33 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_sonora",
+  "latin_name": "Core Sonora",
+  "reality_class": "sonora_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Sonus Syntheticus",
+    "Agent Spectrogramma",
+    "Agent Nota Frequens",
+    "Agent Unda Harmonica",
+    "Agent Metamateria Soni",
+    "Agent Data Sonora",
+    "Agent Binauralis",
+    "Agent Pulsus Novae",
+    "Agent Aequilibrium",
+    "Agent Envelopum Soni",
+    "Agent Tone.js Polyglotta",
+    "Agent Howler.js Polyglotta",
+    "Agent p5.sound Polyglotta",
+    "Agent WaveSurfer Polyglotta",
+    "Agent AudioWorklet Polyglotta",
+    "Agent Resonance Polyglotta",
+    "Agent Faust Polyglotta",
+    "Agent Csound Polyglotta",
+    "Agent SuperCollider Polyglotta",
+    "Agent Sonification Polyglotta"
+  ],
+  "protocols": [
+    "P29",
+    "P08"
+  ]
+}

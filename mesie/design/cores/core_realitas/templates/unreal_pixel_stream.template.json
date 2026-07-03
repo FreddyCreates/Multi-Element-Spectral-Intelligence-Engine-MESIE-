@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_unreal_pixel_stream",
+  "core_id": "core_realitas",
+  "paradigm_id": "unreal_pixel_stream",
+  "latin_agent": "Agent Unreal Polyglotta",
+  "stack": "unreal",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

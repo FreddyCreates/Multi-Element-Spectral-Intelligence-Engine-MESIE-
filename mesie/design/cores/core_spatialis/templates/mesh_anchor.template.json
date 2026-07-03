@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_mesh_anchor",
+  "core_id": "core_spatialis",
+  "paradigm_id": "mesh_anchor",
+  "latin_agent": "Agent Ancora Retis",
+  "stack": "anchor",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "movement"
+}

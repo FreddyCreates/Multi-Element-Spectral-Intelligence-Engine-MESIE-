@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Realitas — MESIE Reality Engine</title>
+  <link rel="stylesheet" href="/websites/shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .layout { display: grid; grid-template-columns: 280px 1fr 300px; min-height: calc(100vh - 52px); }
+    @media (max-width: 1100px) { .layout { grid-template-columns: 1fr; } .panel-left, .panel-right { max-height: 40vh; overflow-y: auto; } }
+    .panel { border-right: 1px solid var(--border); overflow-y: auto; padding: 1rem; }
+    .panel-right { border-right: none; border-left: 1px solid var(--border); }
+  #viewport { position: relative; min-height: 60vh; background: radial-gradient(ellipse at 50% 30%, #0f1a2e 0%, #050810 70%); }
+    #viewport canvas { display: block; width: 100% !important; height: 100% !important; }
+    .overlay-top { position: absolute; top: 1rem; left: 1rem; right: 1rem; z-index: 2; pointer-events: none; }
+    .overlay-top .badge { pointer-events: auto; }
+    .core-btn {
+      display: block; width: 100%; text-align: left; padding: 0.55rem 0.65rem; margin-bottom: 0.35rem;
+      background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text); cursor: pointer; font-family: inherit; font-size: 0.8rem;
+    }
+    .core-btn:hover { border-color: var(--accent); }
+    .core-btn.active { border-color: var(--phi); background: #1a2744; }
+    .core-btn small { display: block; color: var(--muted); font-size: 0.7rem; margin-top: 0.15rem; }
+    .agent-row {
+      font-size: 0.72rem; padding: 0.35rem 0; border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+    .agent-row:hover { color: var(--accent); }
+    .agent-row.selected { color: var(--phi); }
+    .latin { color: var(--phi); font-style: italic; font-size: 0.68rem; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0.75rem 0; }
+    .metrics .card { padding: 0.65rem; }
+    .metrics .metric-value { font-size: 1.1rem; }
+    pre.log { font-family: var(--mono); font-size: 0.65rem; max-height: 180px; overflow: auto; color: var(--muted); white-space: pre-wrap; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .btn-row .btn { font-size: 0.72rem; padding: 0.45rem 0.75rem; }
+    h2.section { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 1rem 0 0.5rem; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <nav id="mesie-nav" style="padding:0.5rem 1rem;border-bottom:1px solid var(--border)"></nav>
+
+  <div class="metrics" style="padding:0 1rem">
+    <div class="card"><div class="metric-label">Cores</div><div class="metric-value" id="m-cores">10</div></div>
+    <div class="card"><div class="metric-label">Agents</div><div class="metric-value" id="m-agents">200</div></div>
+    <div class="card"><div class="metric-label">Protocols</div><div class="metric-value" id="m-proto">40+</div></div>
+    <div class="card"><div class="metric-label">Processor</div><div class="metric-value" id="m-proc" style="font-size:0.85rem">—</div></div>
+  </div>
+
+  <div class="layout">
+    <aside class="panel panel-left">
+      <h2 class="section">Reality Cores</h2>
+      <div id="core-list"></div>
+      <h2 class="section">All Apps</h2>
+      <div id="app-links" class="muted" style="font-size:0.72rem"></div>
+    </aside>
+
+    <main id="viewport">
+      <div class="overlay-top">
+        <h1 style="font-size:1.35rem" id="core-title">Core Realitas</h1>
+        <p class="muted" id="core-sub">Unreal-class web showcase · Three.js · φ-spectral intelligence</p>
+        <span class="badge badge-ok" id="badge">INIT</span>
+      </div>
+    </main>
+
+    <aside class="panel panel-right">
+      <h2 class="section">Agents <span id="agent-count" class="muted">(20)</span></h2>
+      <div id="agents" style="max-height:220px;overflow-y:auto"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="orchestrate()">Orchestrate</button>
+        <button class="btn btn-ghost" onclick="realityInvoke()">Reality Invoke</button>
+        <button class="btn btn-ghost" onclick="invokeAgent()">Agent</button>
+      </div>
+      <h2 class="section">Output</h2>
+      <pre class="log" id="out">Select a core and run orchestration…</pre>
+    </aside>
+  </div>
+
+  <script src="/websites/shared/mesie-bridge.js"></script>
+  <script type="importmap">
+  { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+  </script>
+  <script type="module">
+    import * as THREE from "three";
+
+    const PHI = 0.6180339887498948;
+    let catalog = { cores: [] };
+    let selectedCore = "core_realitas";
+    let selectedParadigm = "unreal_class";
+    const coreMeshes = {};
+
+    const host = document.getElementById("viewport");
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x050810, 0.08);
+    const camera = new THREE.PerspectiveCamera(48, 1, 0.1, 200);
+    camera.position.set(0, 1.4, 5.5);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    host.appendChild(renderer.domElement);
+
+    const rig = new THREE.Group();
+    scene.add(rig);
+    const light1 = new THREE.DirectionalLight(0xffffff, 1.1);
+    light1.position.set(4, 6, 3);
+    scene.add(light1, new THREE.AmbientLight(0x334466, 0.45));
+    const point = new THREE.PointLight(0x3d8bfd, 0.8, 20);
+    point.position.set(-2, 2, 2);
+    scene.add(point);
+
+    function phiColors(geo) {
+      const pos = geo.attributes.position;
+      const colors = [];
+      for (let i = 0; i < pos.count; i++) {
+        const t = i / pos.count;
+        colors.push(PHI * (0.2 + t), 0.35 + t * 0.3, 1.0 - t * PHI * 0.5);
+      }
+      geo.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+    }
+
+    function makeMesh(kind) {
+      let geo;
+      if (kind === "geometrica") geo = new THREE.IcosahedronGeometry(1.3, 3);
+      else if (kind === "spatialis") geo = new THREE.TorusKnotGeometry(0.75, 0.22, 128, 16);
+      else if (kind === "datavis") geo = new THREE.BoxGeometry(1.6, 1.6, 1.6, 4, 4, 4);
+      else if (kind === "sonora") geo = new THREE.SphereGeometry(1.1, 32, 32);
+      else if (kind === "kinetica") geo = new THREE.OctahedronGeometry(1.4, 2);
+      else geo = new THREE.DodecahedronGeometry(1.2, 1);
+      phiColors(geo);
+      const mat = new THREE.MeshStandardMaterial({
+        vertexColors: true, metalness: 0.55, roughness: 0.28,
+        emissive: new THREE.Color(0x0a1628), emissiveIntensity: 0.4,
+      });
+      return new THREE.Mesh(geo, mat);
+    }
+
+    const meshKinds = {
+      core_spectralis: "spectralis", core_geometrica: "geometrica", core_materialis: "materialis",
+      core_kinetica: "kinetica", core_spatialis: "spatialis", core_datavis: "datavis",
+      core_sonora: "sonora", core_architectura: "architectura", core_narrativa: "narrativa",
+      core_realitas: "realitas",
+    };
+
+    let activeMesh = makeMesh("realitas");
+    rig.add(activeMesh);
+
+    function setCoreVisual(coreId) {
+      const kind = meshKinds[coreId] || "realitas";
+      rig.remove(activeMesh);
+      if (!coreMeshes[kind]) coreMeshes[kind] = makeMesh(kind);
+      activeMesh = coreMeshes[kind];
+      rig.add(activeMesh);
+    }
+
+    function resize() {
+      const w = host.clientWidth, h = Math.max(host.clientHeight, 400);
+      renderer.setSize(w, h);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    let t = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      t += 0.01;
+      rig.rotation.y += 0.003;
+      rig.rotation.x = Math.sin(t * 0.4) * 0.12;
+      activeMesh.rotation.z = Math.sin(t * 0.7) * 0.08;
+      point.intensity = 0.6 + Math.sin(t * 2) * 0.2;
+      renderer.render(scene, camera);
+    }
+    animate();
+    document.getElementById("badge").textContent = "REALITY LIVE";
+
+    MESIE_BRIDGE.renderNav("reality-engine");
+
+    function renderCores() {
+      const el = document.getElementById("core-list");
+      el.innerHTML = (catalog.cores || []).map(c => `
+        <button class="core-btn ${c.core_id === selectedCore ? "active" : ""}" data-core="${c.core_id}">
+          <strong>${c.latin_name}</strong>
+          <small>${c.paradigm_count} agents · ${c.reality_class}</small>
+        </button>
+      `).join("");
+      el.querySelectorAll(".core-btn").forEach(btn => {
+        btn.onclick = () => selectCore(btn.dataset.core);
+      });
+    }
+
+    function renderAgents(core) {
+      if (!core) return;
+      document.getElementById("core-title").textContent = core.latin_name;
+      document.getElementById("core-sub").textContent = core.english_title + " · " + core.reality_class;
+      document.getElementById("agent-count").textContent = `(${core.paradigms?.length || 20})`;
+      const agents = core.paradigms || [];
+      if (!selectedParadigm && agents[0]) selectedParadigm = agents[0].paradigm_id;
+      document.getElementById("agents").innerHTML = agents.map(p => `
+        <div class="agent-row ${p.paradigm_id === selectedParadigm ? "selected" : ""}" data-pid="${p.paradigm_id}">
+          <strong>${p.name}</strong><br>
+          <span class="latin">${p.latin_agent}</span>
+          <span class="muted"> · ${p.stack} · ${p.role}</span>
+        </div>
+      `).join("");
+      document.getElementById("agents").querySelectorAll(".agent-row").forEach(row => {
+        row.onclick = () => {
+          selectedParadigm = row.dataset.pid;
+          renderAgents(core);
+        };
+      });
+      setCoreVisual(core.core_id);
+    }
+
+    function selectCore(coreId) {
+      selectedCore = coreId;
+      const core = (catalog.cores || []).find(c => c.core_id === coreId);
+      renderCores();
+      renderAgents(core);
+    }
+
+    async function loadCatalog() {
+      try {
+        const j = await MESIE_BRIDGE.design();
+        catalog = j;
+        document.getElementById("m-cores").textContent = j.core_count || 10;
+        document.getElementById("m-agents").textContent = j.paradigm_count || 200;
+        document.getElementById("m-proto").textContent = (j.canonical_protocol_count || 40) + "+";
+        renderCores();
+        selectCore(selectedCore);
+      } catch (e) {
+        document.getElementById("core-list").innerHTML = "<span class='muted'>Start processor :8750</span>";
+      }
+    }
+
+    async function loadSurfaces() {
+      try {
+        const s = await MESIE_BRIDGE.surfaces();
+        document.getElementById("app-links").innerHTML = (s.apps || []).map(a =>
+          `<div><a href="${a.path.replace("http://127.0.0.1:8750", "")}">${a.title}</a></div>`
+        ).join("");
+      } catch (_) {}
+    }
+
+    async function loadProc() {
+      try {
+        const st = await MESIE_BRIDGE.status();
+        document.getElementById("m-proc").textContent = st.ok ? "LIVE" : "—";
+        document.getElementById("m-proc").style.color = st.ok ? "var(--ok)" : "";
+      } catch (_) {
+        document.getElementById("m-proc").textContent = "OFFLINE";
+      }
+    }
+
+    window.orchestrate = async () => {
+      const out = document.getElementById("out");
+      out.textContent = "orchestrating…";
+      try {
+        const j = await MESIE_BRIDGE.designOrchestrate(selectedCore, {
+          showcase: "product", mesh: "phi", paradigm: selectedParadigm,
+        });
+        out.textContent = JSON.stringify(j.orchestration || j, null, 2);
+      } catch (e) { out.textContent = String(e); }
+    };
+
+    window.realityInvoke = async () => {
+      const out = document.getElementById("out");
+      out.textContent = "reality invoke…";
+      try {
+        const j = await MESIE_BRIDGE.realityInvoke(selectedCore, {
+          showcase: "product", scene: selectedParadigm,
+        }, selectedParadigm);
+        out.textContent = JSON.stringify(j, null, 2);
+      } catch (e) { out.textContent = String(e); }
+    };
+
+    window.invokeAgent = async () => {
+      const out = document.getElementById("out");
+      out.textContent = "invoking agent…";
+      try {
+        const j = await MESIE_BRIDGE.designInvoke(selectedCore, selectedParadigm, { brief: "web" });
+        out.textContent = JSON.stringify(j, null, 2);
+      } catch (e) { out.textContent = String(e); }
+    };
+
+    loadCatalog();
+    loadSurfaces();
+    loadProc();
+  </script>
+</body>
+</html>

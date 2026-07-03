@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_astro_islands",
+  "core_id": "core_spectralis",
+  "paradigm_id": "astro_islands",
+  "latin_agent": "Agent Insula Statica",
+  "stack": "astro",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

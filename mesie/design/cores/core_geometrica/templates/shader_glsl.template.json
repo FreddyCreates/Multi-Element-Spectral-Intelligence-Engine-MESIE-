@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_shader_glsl",
+  "core_id": "core_geometrica",
+  "paradigm_id": "shader_glsl",
+  "latin_agent": "Agent Shader Harmonicus",
+  "stack": "glsl",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "fingerprint"
+}

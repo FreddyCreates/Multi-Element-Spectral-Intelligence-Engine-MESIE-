@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_depth_mesh_anchor",
+  "core_id": "core_spatialis",
+  "paradigm_id": "depth_mesh_anchor",
+  "latin_agent": "Agent Depth Polyglotta",
+  "stack": "depth_anchor",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "validation"
+}

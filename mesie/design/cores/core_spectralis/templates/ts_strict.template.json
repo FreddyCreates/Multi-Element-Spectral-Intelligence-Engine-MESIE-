@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_ts_strict",
+  "core_id": "core_spectralis",
+  "paradigm_id": "ts_strict",
+  "latin_agent": "Agent Typus Formalis",
+  "stack": "typescript",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "logic"
+}

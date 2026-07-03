@@ -1,0 +1,12 @@
+{
+  "template_id": "core_narrativa_citation_graph",
+  "core_id": "core_narrativa",
+  "paradigm_id": "citation_graph",
+  "latin_agent": "Agent Citatio Retis",
+  "stack": "citation",
+  "hooks": [
+    "GET /processor/design/cores/core_narrativa",
+    "POST /processor/design/cores/core_narrativa/invoke"
+  ],
+  "mesie_engine": "matching"
+}

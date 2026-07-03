@@ -1,0 +1,33 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_kinetica",
+  "latin_name": "Core Kinetica",
+  "reality_class": "kinetic_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Tempus Linealis",
+    "Agent Motus Fluidus",
+    "Agent Animatio Vectoris",
+    "Agent Elasticus Phi",
+    "Agent Scroll Observator",
+    "Agent Transitus Paginae",
+    "Agent Parvus Motus",
+    "Agent Easing Aureus",
+    "Agent Accessibilitas",
+    "Agent Chronologia Sigilli",
+    "Agent anime.js Polyglotta",
+    "Agent Motion Polyglotta",
+    "Agent Theatre.js Polyglotta",
+    "Agent React Polyglotta",
+    "Agent Popmotion Polyglotta",
+    "Agent WAAPI Polyglotta",
+    "Agent drei Polyglotta",
+    "Agent C4D Polyglotta",
+    "Agent Velocity.js Polyglotta",
+    "Agent GSAP Polyglotta"
+  ],
+  "protocols": [
+    "P26",
+    "P08"
+  ]
+}

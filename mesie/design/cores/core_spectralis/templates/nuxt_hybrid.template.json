@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_nuxt_hybrid",
+  "core_id": "core_spectralis",
+  "paradigm_id": "nuxt_hybrid",
+  "latin_agent": "Agent Nuxt Polyglotta",
+  "stack": "nuxt",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

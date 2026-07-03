@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_angular_signals",
+  "core_id": "core_spectralis",
+  "paradigm_id": "angular_signals",
+  "latin_agent": "Agent Angular Polyglotta",
+  "stack": "angular",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

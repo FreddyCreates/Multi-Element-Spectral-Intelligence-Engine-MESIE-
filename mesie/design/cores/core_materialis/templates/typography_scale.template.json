@@ -1,0 +1,12 @@
+{
+  "template_id": "core_materialis_typography_scale",
+  "core_id": "core_materialis",
+  "paradigm_id": "typography_scale",
+  "latin_agent": "Agent Typographia Modulis",
+  "stack": "type",
+  "hooks": [
+    "GET /processor/design/cores/core_materialis",
+    "POST /processor/design/cores/core_materialis/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

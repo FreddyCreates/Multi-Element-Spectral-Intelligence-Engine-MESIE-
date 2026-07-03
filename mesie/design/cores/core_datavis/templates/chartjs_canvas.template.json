@@ -1,0 +1,12 @@
+{
+  "template_id": "core_datavis_chartjs_canvas",
+  "core_id": "core_datavis",
+  "paradigm_id": "chartjs_canvas",
+  "latin_agent": "Agent Chart.js Polyglotta",
+  "stack": "chartjs",
+  "hooks": [
+    "GET /processor/design/cores/core_datavis",
+    "POST /processor/design/cores/core_datavis/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

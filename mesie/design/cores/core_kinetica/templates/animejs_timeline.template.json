@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_animejs_timeline",
+  "core_id": "core_kinetica",
+  "paradigm_id": "animejs_timeline",
+  "latin_agent": "Agent anime.js Polyglotta",
+  "stack": "anime",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "polyglot"
+}

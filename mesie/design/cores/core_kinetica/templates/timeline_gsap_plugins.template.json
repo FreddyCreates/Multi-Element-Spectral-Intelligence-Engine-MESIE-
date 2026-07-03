@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_timeline_gsap_plugins",
+  "core_id": "core_kinetica",
+  "paradigm_id": "timeline_gsap_plugins",
+  "latin_agent": "Agent GSAP Polyglotta",
+  "stack": "gsap_plugins",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "logic"
+}

@@ -1,0 +1,34 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_materialis",
+  "latin_name": "Core Materialis",
+  "reality_class": "material_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Token Phi",
+    "Agent Classis Utilitas",
+    "Agent Variabilis Cascada",
+    "Agent Stylus Inyectus",
+    "Agent Emotio Stylus",
+    "Agent Figura Harmonica",
+    "Agent Noctis Phi",
+    "Agent Typographia Modulis",
+    "Agent Iconographia",
+    "Agent Medina Stylus",
+    "Agent Sass Polyglotta",
+    "Agent Less Polyglotta",
+    "Agent UnoCSS Polyglotta",
+    "Agent Open Polyglotta",
+    "Agent Style Polyglotta",
+    "Agent Chakra Polyglotta",
+    "Agent MUI Polyglotta",
+    "Agent Ant Polyglotta",
+    "Agent Theme Polyglotta",
+    "Agent Stitches Polyglotta"
+  ],
+  "protocols": [
+    "P25",
+    "P05",
+    "P18"
+  ]
+}

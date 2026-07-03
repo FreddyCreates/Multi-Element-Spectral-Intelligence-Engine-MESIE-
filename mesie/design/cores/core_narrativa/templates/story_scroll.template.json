@@ -1,0 +1,12 @@
+{
+  "template_id": "core_narrativa_story_scroll",
+  "core_id": "core_narrativa",
+  "paradigm_id": "story_scroll",
+  "latin_agent": "Agent Narratio Scroll",
+  "stack": "scroll_story",
+  "hooks": [
+    "GET /processor/design/cores/core_narrativa",
+    "POST /processor/design/cores/core_narrativa/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

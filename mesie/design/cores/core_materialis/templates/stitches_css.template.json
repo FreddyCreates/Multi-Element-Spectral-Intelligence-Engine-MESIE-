@@ -1,0 +1,12 @@
+{
+  "template_id": "core_materialis_stitches_css",
+  "core_id": "core_materialis",
+  "paradigm_id": "stitches_css",
+  "latin_agent": "Agent Stitches Polyglotta",
+  "stack": "stitches",
+  "hooks": [
+    "GET /processor/design/cores/core_materialis",
+    "POST /processor/design/cores/core_materialis/invoke"
+  ],
+  "mesie_engine": "logic"
+}

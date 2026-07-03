@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_gaussian_splat",
+  "core_id": "core_realitas",
+  "paradigm_id": "gaussian_splat",
+  "latin_agent": "Agent Gaussian Polyglotta",
+  "stack": "splat",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "movement"
+}

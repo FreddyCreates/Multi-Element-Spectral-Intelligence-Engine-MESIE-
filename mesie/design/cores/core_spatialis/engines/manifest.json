@@ -1,0 +1,33 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_spatialis",
+  "latin_name": "Core Spatialis",
+  "reality_class": "spatial_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Immersio Spatialis",
+    "Agent Superpositio Realis",
+    "Agent Locomotio Virtualis",
+    "Agent Manus Digitalis",
+    "Agent Sonus Spatialis",
+    "Agent Stratum Profundum",
+    "Agent Globus Mundi",
+    "Agent Nubes Punctorum",
+    "Agent Sex Libertatis",
+    "Agent Ancora Retis",
+    "Agent A-Frame Polyglotta",
+    "Agent Spark Polyglotta",
+    "Agent OpenXR Polyglotta",
+    "Agent 8th Polyglotta",
+    "Agent HoloLens Polyglotta",
+    "Agent Quest Polyglotta",
+    "Agent Lightship Polyglotta",
+    "Agent WebVM Polyglotta",
+    "Agent Depth Polyglotta",
+    "Agent Hand Polyglotta"
+  ],
+  "protocols": [
+    "P27",
+    "P24"
+  ]
+}

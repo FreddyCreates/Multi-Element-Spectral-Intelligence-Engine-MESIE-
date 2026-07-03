@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_vr_locomotion",
+  "core_id": "core_spatialis",
+  "paradigm_id": "vr_locomotion",
+  "latin_agent": "Agent Locomotio Virtualis",
+  "stack": "vr",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "movement"
+}

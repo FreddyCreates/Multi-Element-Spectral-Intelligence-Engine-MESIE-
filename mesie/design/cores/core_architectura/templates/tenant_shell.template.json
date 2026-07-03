@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_tenant_shell",
+  "core_id": "core_architectura",
+  "paradigm_id": "tenant_shell",
+  "latin_agent": "Agent Colonia Tenant",
+  "stack": "tenant",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "control"
+}

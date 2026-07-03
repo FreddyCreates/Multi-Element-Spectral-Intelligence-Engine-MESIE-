@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_lottie_vector",
+  "core_id": "core_kinetica",
+  "paradigm_id": "lottie_vector",
+  "latin_agent": "Agent Animatio Vectoris",
+  "stack": "lottie",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "generation"
+}

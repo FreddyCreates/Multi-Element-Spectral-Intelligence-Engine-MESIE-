@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MESIE Career Portal — 1000 Careers</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  <style>
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+    .pillar { text-align: center; padding: 1.5rem; }
+    .pillar .n { font-size: 2.5rem; font-weight: 700; color: var(--accent); }
+    #careers { max-height: 400px; overflow-y: auto; font-family: var(--mono); font-size: 0.8rem; }
+    input { width: 100%; padding: 0.75rem; margin: 1rem 0; background: #0d1320; border: 1px solid var(--border); border-radius: 8px; color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="wrap">
+    <h1>Career MCP Portal</h1>
+    <p class="muted">1,000 compressed careers · Triple Protocol · :8767</p>
+    <div class="pillars" id="pillars"></div>
+    <input type="search" id="q" placeholder="Search careers..." />
+    <div class="card"><pre id="careers">Loading...</pre></div>
+    <p style="margin-top:1rem"><a href="../mesie-landing/">← MESIE Landing</a></p>
+  </div>
+  <script>
+    async function load() {
+      try {
+        const hub = await fetch("http://127.0.0.1:8767/hub/status").then(r => r.json());
+        document.getElementById("pillars").innerHTML = Object.entries(hub.by_pillar || {}).map(([k,v]) =>
+          `<div class="card pillar"><div class="n">${v}</div><div>${k}</div></div>`
+        ).join("");
+        const list = await fetch("http://127.0.0.1:8767/careers?limit=30").then(r => r.json());
+        window._careers = list.careers || [];
+        render("");
+      } catch (e) {
+        document.getElementById("careers").textContent = "Start Career Hub: .\\Start-CareerMCPStack.ps1";
+      }
+    }
+    function render(q) {
+      const items = (window._careers || []).filter(c =>
+        !q || (c.title + c.id + c.pillar).toLowerCase().includes(q.toLowerCase())
+      );
+      document.getElementById("careers").textContent = items.map(c =>
+        `${c.id} | ${c.title} | ${c.pillar} | ${c.stage}`
+      ).join("\n") || "No matches";
+    }
+    document.getElementById("q").oninput = (e) => render(e.target.value);
+    load();
+  </script>
+</body>
+</html>

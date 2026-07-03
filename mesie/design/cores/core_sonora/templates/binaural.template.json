@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_binaural",
+  "core_id": "core_sonora",
+  "paradigm_id": "binaural",
+  "latin_agent": "Agent Binauralis",
+  "stack": "binaural",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "control"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_cesium_globe",
+  "core_id": "core_geometrica",
+  "paradigm_id": "cesium_globe",
+  "latin_agent": "Agent Cesium Polyglotta",
+  "stack": "cesium",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

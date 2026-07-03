@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_mesh_soak_vis",
+  "core_id": "core_realitas",
+  "paradigm_id": "mesh_soak_vis",
+  "latin_agent": "Agent Visualisatio Retis",
+  "stack": "soak",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "movement"
+}

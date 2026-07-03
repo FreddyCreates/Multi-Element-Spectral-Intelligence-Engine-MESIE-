@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_lerna_publish",
+  "core_id": "core_architectura",
+  "paradigm_id": "lerna_publish",
+  "latin_agent": "Agent Lerna Polyglotta",
+  "stack": "lerna",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "logic"
+}

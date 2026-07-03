@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_ember_octane",
+  "core_id": "core_spectralis",
+  "paradigm_id": "ember_octane",
+  "latin_agent": "Agent Ember Polyglotta",
+  "stack": "ember",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "logic"
+}

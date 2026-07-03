@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_nanite_proxy_web",
+  "core_id": "core_realitas",
+  "paradigm_id": "nanite_proxy_web",
+  "latin_agent": "Agent Nanite Polyglotta",
+  "stack": "nanite",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "matching"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_light_probe",
+  "core_id": "core_realitas",
+  "paradigm_id": "light_probe",
+  "latin_agent": "Agent Lux Harmonica",
+  "stack": "light",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "fingerprint"
+}

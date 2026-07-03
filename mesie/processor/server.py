@@ -10,6 +10,8 @@ ROOT = Path(__file__).resolve().parents[2]
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from mesie.processor.virtual_processor import VirtualProcessor
@@ -23,6 +25,44 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+_WEB_ROOT = ROOT / "websites"
+if _WEB_ROOT.is_dir():
+    app.mount("/websites", StaticFiles(directory=str(_WEB_ROOT), html=True), name="websites")
+
+
+@app.get("/")
+def web_root() -> RedirectResponse:
+    return RedirectResponse(url="/websites/platform-hub/index.html")
+
+
+@app.get("/processor/surfaces")
+def web_surfaces_catalog() -> Dict[str, Any]:
+    """All MESIE web apps — open via http://127.0.0.1:8750/websites/..."""
+    base = "http://127.0.0.1:8750/websites"
+    apps = [
+        {"id": "platform-hub", "title": "Platform Hub", "path": f"{base}/platform-hub/index.html", "role": "home"},
+        {"id": "reality-engine", "title": "Reality Engine", "path": f"{base}/reality-engine/index.html", "role": "3d-showcase"},
+        {"id": "model-hub", "title": "Model Hub", "path": f"{base}/model-hub/index.html", "role": "models"},
+        {"id": "solus-console", "title": "SOLUS Console", "path": f"{base}/solus-console/index.html", "role": "logic"},
+        {"id": "auro-studio", "title": "Auro Studio", "path": f"{base}/auro-studio/index.html", "role": "speech"},
+        {"id": "producer-lab", "title": "Producer Lab", "path": f"{base}/producer-lab/index.html", "role": "pipeline"},
+        {"id": "computing-family", "title": "Computing Family", "path": f"{base}/computing-family/index.html", "role": "compute"},
+        {"id": "virtual-silicon", "title": "Virtual Silicon", "path": f"{base}/virtual-silicon/index.html", "role": "chips"},
+        {"id": "enterprise-4k", "title": "Enterprise 4K", "path": f"{base}/enterprise-4k/index.html", "role": "enterprise"},
+        {"id": "hermes-fleet", "title": "HERMES Fleet", "path": f"{base}/hermes-fleet/index.html", "role": "workers"},
+        {"id": "market-hub", "title": "Market Hub", "path": f"{base}/market-hub/index.html", "role": "market"},
+        {"id": "mesie-landing", "title": "MESIE Landing", "path": f"{base}/mesie-landing/index.html", "role": "landing"},
+    ]
+    return {
+        "ok": True,
+        "protocol": "MESIE-WEB-SURFACES/1.0",
+        "processor": "http://127.0.0.1:8750",
+        "reality_engine": f"{base}/reality-engine/index.html",
+        "app_count": len(apps),
+        "apps": apps,
+    }
+
 
 _processor: Optional[VirtualProcessor] = None
 
@@ -103,6 +143,11 @@ def exec_tool(body: ExecRequest) -> Dict[str, Any]:
 @app.get("/processor/chips")
 def list_chips() -> Dict[str, Any]:
     return _proc().list_chips().to_dict()
+
+
+@app.get("/processor/virtual-silicon")
+def virtual_silicon_catalog() -> Dict[str, Any]:
+    return _proc().virtual_silicon_catalog().to_dict()
 
 
 @app.post("/processor/virtual-chip")
@@ -210,6 +255,143 @@ def depth_pillar_envelope(pillar_id: str, body: DepthEnvelopeRequest) -> Dict[st
     return {"sealed": sealed, "route": routed}
 
 
+@app.get("/processor/design")
+def design_ecosystem_catalog() -> Dict[str, Any]:
+    from mesie.design.registry import design_ecosystem_manifest
+
+    return design_ecosystem_manifest()
+
+
+@app.get("/processor/design/cores/{core_id}")
+def design_core_status(core_id: str) -> Dict[str, Any]:
+    from mesie.design.core_engine import core_snapshot
+
+    snap = core_snapshot(core_id)
+    if not snap.get("ok"):
+        raise HTTPException(status_code=404, detail=snap.get("error", "core not found"))
+    return snap
+
+
+class DesignBriefRequest(BaseModel):
+    brief: Dict[str, Any] = Field(default_factory=dict)
+    agent_id: str = "any-ai"
+    paradigm_id: Optional[str] = None
+
+
+@app.post("/processor/design/cores/{core_id}/orchestrate")
+def design_core_orchestrate(core_id: str, body: DesignBriefRequest) -> Dict[str, Any]:
+    from mesie.design.orchestrator import orchestrate_design_brief
+
+    return orchestrate_design_brief(core_id, body.brief, agent_id=body.agent_id)
+
+
+@app.post("/processor/design/cores/{core_id}/invoke")
+def design_paradigm_invoke(core_id: str, body: DesignBriefRequest) -> Dict[str, Any]:
+    from mesie.design.core_engine import invoke_paradigm_agent
+
+    if not body.paradigm_id:
+        raise HTTPException(status_code=400, detail="paradigm_id required")
+    return invoke_paradigm_agent(core_id, body.paradigm_id, body.brief)
+
+
+@app.get("/processor/reality/status")
+def reality_engine_status() -> Dict[str, Any]:
+    from mesie.design.reality_engine import RealityEngine
+
+    return RealityEngine().status()
+
+
+@app.post("/processor/reality/invoke")
+def reality_engine_invoke(body: Dict[str, Any]) -> Dict[str, Any]:
+    from mesie.design.envelope import RealityEngineEnvelope
+    from mesie.design.reality_engine import RealityEngine
+
+    env = RealityEngineEnvelope.from_dict(body)
+    return RealityEngine().invoke(env)
+
+
+@app.get("/processor/hermes")
+def hermes_fleet_catalog() -> Dict[str, Any]:
+    from mesie.hermes.registry import hermes_manifest
+    from mesie.hermes.nova_protocol import build_nova_protocol_hermes
+
+    return {
+        "hermes": hermes_manifest(),
+        "nova_protocol": build_nova_protocol_hermes(),
+    }
+
+
+@app.get("/processor/hermes/nova-protocol")
+def hermes_nova_protocol() -> Dict[str, Any]:
+    from mesie.hermes.nova_protocol import build_nova_protocol_hermes
+
+    return build_nova_protocol_hermes()
+
+
+@app.post("/processor/hermes/forge")
+def hermes_forge() -> Dict[str, Any]:
+    from mesie.hermes.forge import forge_hermes_fleet
+
+    return forge_hermes_fleet()
+
+
+class HermesInvokeRequest(BaseModel):
+    payload: Dict[str, Any] = Field(default_factory=dict)
+
+
+@app.post("/processor/hermes/{worker_id}/invoke")
+def hermes_worker_invoke(worker_id: str, body: HermesInvokeRequest) -> Dict[str, Any]:
+    from mesie.hermes.executor import HermesExecutor
+    from mesie.hermes.registry import worker_by_id
+
+    if not worker_by_id(worker_id):
+        raise HTTPException(status_code=404, detail=f"unknown hermes worker: {worker_id}")
+    result = HermesExecutor().invoke(worker_id, payload=body.payload)
+    if not result.get("ok") and result.get("error"):
+        raise HTTPException(status_code=400, detail=result.get("error"))
+    return result
+
+
+@app.get("/processor/models")
+def unified_model_catalog() -> Dict[str, Any]:
+    from mesie.platform.model_catalog import build_unified_model_catalog
+
+    return build_unified_model_catalog()
+
+
+@app.get("/processor/platform")
+def platform_catalog() -> Dict[str, Any]:
+    from mesie.platform.mvp_bridge import bridge_manifest
+    from mesie.platform.model_catalog import build_unified_model_catalog
+    from mesie.platform.registry import platform_manifest
+
+    from mesie.hermes.registry import hermes_manifest
+
+    return {
+        "platform": platform_manifest(),
+        "bridge": bridge_manifest(),
+        "models": build_unified_model_catalog(),
+        "hermes": hermes_manifest(),
+    }
+
+
+class PlatformInvokeRequest(BaseModel):
+    payload: Dict[str, Any] = Field(default_factory=dict)
+    mission_id: str = "api"
+
+
+@app.post("/processor/platform/{service_id}/invoke")
+def platform_invoke(service_id: str, body: PlatformInvokeRequest) -> Dict[str, Any]:
+    from mesie.platform.worker_gateway import PlatformWorkerGateway
+
+    result = PlatformWorkerGateway(mission_id=body.mission_id).invoke(
+        service_id, payload=body.payload
+    )
+    if not result.get("ok") and result.get("error"):
+        raise HTTPException(status_code=404, detail=result.get("error"))
+    return result
+
+
 @app.get("/processor/harness")
 def alpha_harness_catalog() -> Dict[str, Any]:
     from mesie.harness.alpha_registry import harness_manifest
@@ -246,8 +428,15 @@ def alpha_harness_catalog() -> Dict[str, Any]:
         "virtual_products": [p.to_dict() for p in load_products()],
         "latency_table_ms": latency,
         "surfaces": {
+            "platform_hub": "websites/platform-hub/index.html",
+            "model_hub": "websites/model-hub/index.html",
+            "solus_console": "websites/solus-console/index.html",
+            "auro_studio": "websites/auro-studio/index.html",
+            "producer_lab": "websites/producer-lab/index.html",
             "computing_family": "websites/computing-family/index.html",
             "enterprise_4k": "websites/enterprise-4k/index.html",
+            "reality_engine": "websites/reality-engine/index.html",
+            "hermes_fleet": "websites/hermes-fleet/index.html",
             "template_library": "deliverables/harness/TEMPLATE_LIBRARY.json",
         },
     }
@@ -320,6 +509,20 @@ def market_research() -> Dict[str, Any]:
     from mesie.processor.market_research import build_market_research
 
     return build_market_research()
+
+
+@app.get("/processor/market-ready")
+def market_ready_status() -> Dict[str, Any]:
+    from mesie.market.four_tier_loop import market_ready_manifest
+
+    return market_ready_manifest()
+
+
+@app.post("/processor/market-ready/cycle")
+def market_ready_cycle(tier: str = "") -> Dict[str, Any]:
+    from mesie.market.four_tier_loop import run_market_cycle
+
+    return run_market_cycle(tier=tier or None)
 
 
 @app.get("/processor/mesh")

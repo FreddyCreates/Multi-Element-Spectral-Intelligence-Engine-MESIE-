@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_sonification_bus",
+  "core_id": "core_sonora",
+  "paradigm_id": "sonification_bus",
+  "latin_agent": "Agent Sonification Polyglotta",
+  "stack": "sonify_bus",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "logic"
+}

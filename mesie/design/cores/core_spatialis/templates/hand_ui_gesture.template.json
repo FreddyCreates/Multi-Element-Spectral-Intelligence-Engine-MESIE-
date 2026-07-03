@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_hand_ui_gesture",
+  "core_id": "core_spatialis",
+  "paradigm_id": "hand_ui_gesture",
+  "latin_agent": "Agent Hand Polyglotta",
+  "stack": "gesture",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "logic"
+}

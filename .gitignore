@@ -23,6 +23,10 @@ env/
 workers/mesie-api/node_modules/
 workers/mesie-api/.wrangler/
 workers/mesie-api/dist/
+apps/reality-capsula/node_modules/
+apps/reality-capsula/**/node_modules/
+apps/reality-capsula/client/dist/
+apps/reality-capsula/**/*.tsbuildinfo
 
 # Generated spectral indices (rebuild via scripts/)
 library/*.json

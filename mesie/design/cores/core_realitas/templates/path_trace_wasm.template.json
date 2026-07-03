@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_path_trace_wasm",
+  "core_id": "core_realitas",
+  "paradigm_id": "path_trace_wasm",
+  "latin_agent": "Agent Path Polyglotta",
+  "stack": "pathtrace",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

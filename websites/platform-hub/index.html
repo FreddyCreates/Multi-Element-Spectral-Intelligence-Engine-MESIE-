@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MESIE Platform Hub — Native Model Services</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+    .status-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 1rem 0; }
+    @media (max-width: 900px) { .status-bar { grid-template-columns: repeat(2, 1fr); } }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .svc { transition: border-color 0.2s; }
+    .svc:hover { border-color: var(--accent); }
+    .svc h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .proto { font-size: 0.75rem; color: var(--phi); font-family: var(--mono); }
+    .svc-actions { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+    .svc-actions .btn { font-size: 0.75rem; padding: 0.4rem 0.8rem; }
+    pre { font-family: var(--mono); font-size: 0.75rem; max-height: 220px; overflow: auto; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>MESIE Platform Hub</h1>
+        <p class="muted"><span id="svc-count">10</span> services · worker bus · MVP ↔ protocol bridge</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">LOADING</span>
+        <button class="btn btn-ghost" onclick="runAllSquads()">Run Squads</button>
+        <button class="btn btn-ghost" onclick="refresh()">Refresh</button>
+      </div>
+    </header>
+
+    <section class="status-bar">
+      <div class="card"><div class="metric-label">Processor</div><div class="metric-value" id="st-proc">—</div></div>
+      <div class="card"><div class="metric-label">Models</div><div class="metric-value" id="st-models">—</div></div>
+      <div class="card"><div class="metric-label">Corpus</div><div class="metric-value" id="st-corpus">—</div></div>
+      <div class="card"><div class="metric-label">Services</div><div class="metric-value" id="st-svc">—</div></div>
+    </section>
+
+    <section class="grid" id="services"></section>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:1rem">Last Worker Invoke</h2>
+      <pre id="log">—</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("platform-hub");
+
+    function openService(id) {
+      const link = MESIE_BRIDGE.serviceLink(id);
+      if (link) window.location.href = link;
+    }
+
+    async function invokeService(id, e) {
+      if (e) e.stopPropagation();
+      const log = document.getElementById("log");
+      log.textContent = `invoking ${id}…`;
+      try {
+        const j = await MESIE_BRIDGE.invoke(id, { ping: true });
+        log.textContent = JSON.stringify(j, null, 2);
+      } catch (err) {
+        log.textContent = String(err);
+      }
+    }
+
+    async function runAllSquads() {
+      const log = document.getElementById("log");
+      log.textContent = "running tri-agent squads…";
+      try {
+        const j = await MESIE_BRIDGE.runSquad();
+        log.textContent = JSON.stringify(j, null, 2);
+      } catch (e) { log.textContent = String(e); }
+    }
+
+    async function refresh() {
+      let services = [];
+      try {
+        const [plat, models, status] = await Promise.all([
+          MESIE_BRIDGE.platform(),
+          MESIE_BRIDGE.models(),
+          MESIE_BRIDGE.status(),
+        ]);
+        services = plat.platform?.services || [];
+        document.getElementById("badge").textContent = "LIVE";
+        document.getElementById("st-proc").textContent = "OK";
+        document.getElementById("st-models").textContent = models.model_count;
+        document.getElementById("st-corpus").textContent = models.corpus_records;
+        document.getElementById("st-svc").textContent = plat.platform?.service_count || services.length;
+        document.getElementById("svc-count").textContent = services.length;
+      } catch (e) {
+        document.getElementById("badge").textContent = "OFFLINE";
+        const off = await MESIE_BRIDGE.offlinePlatform();
+        if (off?.platform?.services) {
+          services = off.platform.services;
+          document.getElementById("st-models").textContent = off.catalog?.model_count ?? "—";
+          document.getElementById("st-corpus").textContent = off.catalog?.corpus_records ?? "—";
+        }
+      }
+
+      document.getElementById("services").innerHTML = services.map(s => `
+        <div class="card svc" onclick="openService('${s.service_id}')">
+          <div class="metric-label">${s.category}</div>
+          <h3>${s.title}</h3>
+          <div class="proto">${s.protocol_id} · ${s.worker_role}/${s.worker_action}</div>
+          <p class="muted" style="margin-top:0.5rem;font-size:0.85rem">${s.description || ""}</p>
+          <div class="svc-actions">
+            <button class="btn btn-primary" onclick="openService('${s.service_id}');event.stopPropagation()">Open</button>
+            <button class="btn btn-ghost" onclick="invokeService('${s.service_id}', event)">Invoke</button>
+          </div>
+        </div>`).join("");
+    }
+    refresh();
+    setInterval(refresh, 45000);
+  </script>
+</body>
+</html>

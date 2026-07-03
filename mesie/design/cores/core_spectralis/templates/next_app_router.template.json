@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_next_app_router",
+  "core_id": "core_spectralis",
+  "paradigm_id": "next_app_router",
+  "latin_agent": "Agent Next.js Polyglotta",
+  "stack": "next",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "generation"
+}

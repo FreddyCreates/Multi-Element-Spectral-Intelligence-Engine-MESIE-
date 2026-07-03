@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Producer Lab — Large Data ML Pipeline</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    .shell { padding: 2rem; max-width: 1100px; margin: 0 auto; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    @media (max-width: 700px) { .steps { grid-template-columns: 1fr; } }
+    pre { font-family: var(--mono); font-size: 0.75rem; max-height: 360px; overflow: auto; color: var(--muted); }
+    .step-ok { color: var(--ok); }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+      <div>
+        <h1>ML Producer Lab</h1>
+        <p class="muted"><span id="corpus">932+</span> corpus records · harvest → encode → NOVA forge</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="badge">READY</span>
+        <button class="btn btn-ghost" onclick="loadStatus()">Status</button>
+        <button class="btn btn-primary" onclick="runCycle()">Run Cycle</button>
+      </div>
+    </header>
+
+    <section class="steps">
+      <div class="card"><div class="metric-label">Cycles</div><div class="metric-value" id="cycles">—</div></div>
+      <div class="card"><div class="metric-label">Last Cycle</div><div class="metric-value" id="last" style="font-size:0.9rem">—</div></div>
+      <div class="card"><div class="metric-label">Corpus</div><div class="metric-value" id="records">—</div></div>
+    </section>
+
+    <div class="card">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Pipeline Steps</h2>
+      <div id="pipeline" class="muted">corpus_forge → recursive_pulse → nova_forge</div>
+    </div>
+
+    <div class="card" style="margin-top:1rem">
+      <h2 style="font-size:0.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:0.75rem">Worker Output</h2>
+      <pre id="log">Click Run Cycle to invoke producer-pipeline via MVP bridge.</pre>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("producer-lab");
+
+    async function loadStatus() {
+      try {
+        const [models, status] = await Promise.all([
+          MESIE_BRIDGE.models().catch(() => null),
+          MESIE_BRIDGE.invoke("producer-pipeline", { status_only: true }),
+        ]);
+        if (models) document.getElementById("records").textContent = models.corpus_records;
+        const st = status.result?.producer_state || status.result?.result?.producer_state || {};
+        document.getElementById("cycles").textContent = st.cycles ?? "0";
+        document.getElementById("last").textContent = (st.last_cycle_at || "—").slice(0, 19);
+        document.getElementById("badge").textContent = "LIVE";
+      } catch (e) {
+        document.getElementById("badge").textContent = "OFFLINE";
+      }
+    }
+
+    async function runCycle() {
+      const log = document.getElementById("log");
+      log.textContent = "running producer cycle…";
+      try {
+        const j = await MESIE_BRIDGE.invoke("producer-pipeline", {
+          forge_corpus: true,
+          encode: true,
+        });
+        const r = j.result || {};
+        const steps = r.steps || [];
+        document.getElementById("pipeline").innerHTML = steps.map(s =>
+          `<span class="step-ok">${s}</span>`).join(" → ") || "—";
+        const st = r.producer_state || {};
+        document.getElementById("cycles").textContent = st.cycles ?? "—";
+        document.getElementById("last").textContent = (st.last_cycle_at || "—").slice(0, 19);
+        if (r.corpus?.records) document.getElementById("records").textContent = r.corpus.records;
+        document.getElementById("badge").textContent = "LIVE";
+        log.textContent = JSON.stringify(j, null, 2);
+      } catch (e) {
+        log.textContent = String(e);
+        document.getElementById("badge").textContent = "OFFLINE";
+      }
+    }
+
+    MESIE_BRIDGE.models().then(m => {
+      if (m) document.getElementById("records").textContent = m.corpus_records;
+    }).catch(() => {});
+    loadStatus();
+  </script>
+</body>
+</html>

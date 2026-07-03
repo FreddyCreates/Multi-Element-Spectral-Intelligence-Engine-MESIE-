@@ -1,0 +1,13 @@
+{
+  "protocol": "MEDINA-CAPSULA-APP/1.0",
+  "product": "MESIE Reality Capsula",
+  "stack": ["react", "node", "rust", "three.js"],
+  "ports": {
+    "client": 5173,
+    "server": 8780,
+    "processor": 8750
+  },
+  "entry": "client/index.html",
+  "api": "/api",
+  "rust_core": "rust-core/target/release/capsula-rust-core.exe"
+}

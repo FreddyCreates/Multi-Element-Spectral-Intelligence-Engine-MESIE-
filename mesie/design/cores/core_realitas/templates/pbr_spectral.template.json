@@ -1,0 +1,12 @@
+{
+  "template_id": "core_realitas_pbr_spectral",
+  "core_id": "core_realitas",
+  "paradigm_id": "pbr_spectral",
+  "latin_agent": "Agent Materia Physica",
+  "stack": "pbr",
+  "hooks": [
+    "GET /processor/design/cores/core_realitas",
+    "POST /processor/design/cores/core_realitas/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_lit_element",
+  "core_id": "core_spectralis",
+  "paradigm_id": "lit_element",
+  "latin_agent": "Agent Lit Polyglotta",
+  "stack": "lit",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "control"
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_architectura_receipt_ui",
+  "core_id": "core_architectura",
+  "paradigm_id": "receipt_ui",
+  "latin_agent": "Agent Catena Probationis",
+  "stack": "receipt_ui",
+  "hooks": [
+    "GET /processor/design/cores/core_architectura",
+    "POST /processor/design/cores/core_architectura/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

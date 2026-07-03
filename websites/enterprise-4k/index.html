@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MESIE Enterprise 4K — Command Center</title>
+  <link rel="stylesheet" href="../shared/mesie.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* Optimized for 3840x2160 — scales down gracefully */
+    .shell { min-height: 100vh; padding: 2rem 3rem; max-width: 3840px; margin: 0 auto; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
+    .top h1 { font-size: 2rem; }
+    .metrics { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+    @media (max-width: 1600px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 800px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
+    .main { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+    @media (max-width: 1200px) { .main { grid-template-columns: 1fr; } }
+    .panel h2 { font-size: 1rem; margin-bottom: 1rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .biz-row { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+    .biz-row:last-child { border: none; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+    .status-dot.ok { background: var(--ok); }
+    .status-dot.wait { background: var(--phi); }
+    #log { font-family: var(--mono); font-size: 0.8rem; max-height: 320px; overflow-y: auto; color: var(--muted); }
+    .token-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-top: 1rem; }
+    .token-item { padding: 0.75rem; background: #0d1320; border-radius: 8px; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="shell">
+    <nav id="mesie-nav"></nav>
+    <header class="top">
+      <div>
+        <h1>MESIE Enterprise Command</h1>
+        <p class="muted">4K operations desk · v1.2.0 · persistent virtual servers</p>
+      </div>
+      <div>
+        <span class="badge badge-ok" id="live-badge">LIVE</span>
+        <button class="btn btn-ghost" onclick="refresh()">Refresh</button>
+        <a href="../platform-hub/" class="btn btn-ghost">Platform Hub</a>
+      </div>
+    </header>
+
+    <section class="metrics">
+      <div class="card"><div class="metric-label">Processor</div><div class="metric-value" id="m-proc">—</div><div class="muted">:8750</div></div>
+      <div class="card"><div class="metric-label">Universal MCP</div><div class="metric-value" id="m-uni">—</div><div class="muted">:8765</div></div>
+      <div class="card"><div class="metric-label">Career Hub</div><div class="metric-value" id="m-car">—</div><div class="muted">:8767</div></div>
+      <div class="card"><div class="metric-label">Careers</div><div class="metric-value">1000</div><div class="muted">5 pillars</div></div>
+      <div class="card"><div class="metric-label">MCP Servers</div><div class="metric-value">13</div><div class="muted">stdio</div></div>
+      <div class="card"><div class="metric-label">Version</div><div class="metric-value">1.2.0</div><div class="muted">production</div></div>
+    </section>
+
+    <div class="main">
+      <div class="card panel">
+        <h2>Five Businesses — Market Ready</h2>
+        <div id="biz-list"></div>
+      </div>
+      <div class="card panel">
+        <h2>Dual-Chain Tokens</h2>
+        <div class="token-grid" id="tokens"></div>
+        <h2 style="margin-top:1.5rem">Activity Log</h2>
+        <pre id="log"></pre>
+      </div>
+    </div>
+  </div>
+  <script src="../shared/mesie-bridge.js"></script>
+  <script>
+    MESIE_BRIDGE.renderNav("enterprise-4k");
+
+    const BIZ = [
+      { sku: "MESIE-VP-ENT", name: "Virtual Processor", port: 8750 },
+      { sku: "MESIE-UAI-MCP", name: "Universal MCP", port: 8765 },
+      { sku: "MESIE-CAREER-1K", name: "Career MCP", port: 8767 },
+      { sku: "NOVA-RT-70", name: "NOVA Runtime", port: null },
+      { sku: "CC-SOV-ICP", name: "Sovereign Cloud", port: 4943 },
+    ];
+    const TOKENS = [
+      { sym: "MESIE-LRC", tier: "internal", chain: "local" },
+      { sym: "MESIE-PHI", tier: "internal", chain: "ST-φ" },
+      { sym: "MESIE-ANCHOR-ETH", tier: "external", chain: "ethereum" },
+      { sym: "MESIE-ANCHOR-ICP", tier: "external", chain: "icp" },
+    ];
+    const log = (m) => { const el = document.getElementById("log"); el.textContent = new Date().toISOString().slice(11,19) + " " + m + "\n" + el.textContent; };
+
+    document.getElementById("tokens").innerHTML = TOKENS.map(t =>
+      `<div class="token-item"><strong>${t.sym}</strong><br><span class="muted">${t.tier} · ${t.chain}</span></div>`
+    ).join("");
+
+    async function pingProc() {
+      try {
+        await MESIE_BRIDGE.status();
+        document.getElementById("m-proc").textContent = "OK";
+        log("processor ok");
+        return true;
+      } catch (e) {
+        document.getElementById("m-proc").textContent = "—";
+        log("processor offline");
+        return false;
+      }
+    }
+
+    async function refresh() {
+      const results = await Promise.all([
+        pingProc(),
+        MESIE_BRIDGE.pingUniversal().then(j => {
+          document.getElementById("m-uni").textContent = j ? "OK" : "—";
+          log(j ? "universal ok" : "universal offline");
+          return !!j;
+        }),
+        MESIE_BRIDGE.pingCareer().then(j => {
+          document.getElementById("m-car").textContent = j ? "OK" : "—";
+          log(j ? "career ok" : "career offline");
+          return !!j;
+        }),
+      ]);
+      try {
+        const h = await MESIE_BRIDGE.harness();
+        log(`harness: ${h.harnesses?.harness_count || h.harness_count || "?"} harnesses`);
+      } catch (_) {}
+      document.getElementById("live-badge").textContent = results.some(Boolean) ? "LIVE" : "STANDBY";
+      document.getElementById("biz-list").innerHTML = BIZ.map((b, i) => `
+        <div class="biz-row">
+          <span><span class="status-dot ${results[i < 3 ? i : 0] ? 'ok' : 'wait'}"></span>${b.name}</span>
+          <span class="muted">${b.sku}${b.port ? " · :" + b.port : ""}</span>
+        </div>`).join("");
+    }
+    refresh();
+    setInterval(refresh, 30000);
+  </script>
+</body>
+</html>

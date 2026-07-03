@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_web_components",
+  "core_id": "core_spectralis",
+  "paradigm_id": "web_components",
+  "latin_agent": "Agent Shadow Domus",
+  "stack": "wc",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "embedding"
+}

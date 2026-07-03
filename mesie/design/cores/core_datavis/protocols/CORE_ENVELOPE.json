@@ -1,0 +1,34 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_datavis",
+  "latin_name": "Core Datavis",
+  "reality_class": "data_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Data Vis Spectrorum",
+    "Agent Chart Canvas",
+    "Agent Calor Cartographia",
+    "Agent Tabula Imperii",
+    "Agent Fluxus Temporis",
+    "Agent Vicinitas Visualis",
+    "Agent Metrum Competitio",
+    "Agent Indicium Mercatus",
+    "Agent Topologia Retis",
+    "Agent Metrum Aureum",
+    "Agent ECharts Polyglotta",
+    "Agent Plotly Polyglotta",
+    "Agent Chart.js Polyglotta",
+    "Agent Vega-Lite Polyglotta",
+    "Agent Observable Polyglotta",
+    "Agent Grafana Polyglotta",
+    "Agent Cytoscape.js Polyglotta",
+    "Agent Sigma.js Polyglotta",
+    "Agent Superset Polyglotta",
+    "Agent deck.gl Polyglotta"
+  ],
+  "protocols": [
+    "P28",
+    "P07",
+    "P38"
+  ]
+}

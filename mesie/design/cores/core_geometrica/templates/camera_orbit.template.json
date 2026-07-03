@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_camera_orbit",
+  "core_id": "core_geometrica",
+  "paradigm_id": "camera_orbit",
+  "latin_agent": "Agent Camera Circumitus",
+  "stack": "camera",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "control"
+}

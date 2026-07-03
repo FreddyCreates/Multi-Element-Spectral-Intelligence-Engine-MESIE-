@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_qwik_resumable",
+  "core_id": "core_spectralis",
+  "paradigm_id": "qwik_resumable",
+  "latin_agent": "Agent Qwik Polyglotta",
+  "stack": "qwik",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "matching"
+}

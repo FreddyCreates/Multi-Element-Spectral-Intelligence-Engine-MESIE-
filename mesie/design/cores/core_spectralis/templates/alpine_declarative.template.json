@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spectralis_alpine_declarative",
+  "core_id": "core_spectralis",
+  "paradigm_id": "alpine_declarative",
+  "latin_agent": "Agent Alpine Polyglotta",
+  "stack": "alpine",
+  "hooks": [
+    "GET /processor/design/cores/core_spectralis",
+    "POST /processor/design/cores/core_spectralis/invoke"
+  ],
+  "mesie_engine": "movement"
+}

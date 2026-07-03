@@ -1,0 +1,12 @@
+{
+  "template_id": "core_kinetica_theatrejs_studio",
+  "core_id": "core_kinetica",
+  "paradigm_id": "theatrejs_studio",
+  "latin_agent": "Agent Theatre.js Polyglotta",
+  "stack": "theatre",
+  "hooks": [
+    "GET /processor/design/cores/core_kinetica",
+    "POST /processor/design/cores/core_kinetica/invoke"
+  ],
+  "mesie_engine": "workflow"
+}

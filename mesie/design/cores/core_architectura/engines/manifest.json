@@ -1,0 +1,34 @@
+{
+  "protocol": "MESIE-DESIGN-CORE-ENGINE/1.0",
+  "core_id": "core_architectura",
+  "latin_name": "Core Architectura",
+  "reality_class": "enterprise_reality",
+  "paradigm_count": 20,
+  "agents": [
+    "Agent Frontis Modularis",
+    "Agent Foederatio Modulorum",
+    "Agent Schema Intermedius",
+    "Agent Server Marginalis",
+    "Agent Archipelagus UI",
+    "Agent Systema Materialis",
+    "Agent Colonia Tenant",
+    "Agent Catena Probationis",
+    "Agent Negotium Autonomum",
+    "Agent Pontus Sovereign",
+    "Agent single-spa Polyglotta",
+    "Agent qiankun Polyglotta",
+    "Agent Nx Polyglotta",
+    "Agent Turborepo Polyglotta",
+    "Agent Storybook Polyglotta",
+    "Agent Chromatic Polyglotta",
+    "Agent AWS Polyglotta",
+    "Agent K8s Polyglotta",
+    "Agent Terraform Polyglotta",
+    "Agent Lerna Polyglotta"
+  ],
+  "protocols": [
+    "P30",
+    "P06",
+    "P11"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "template_id": "core_geometrica_kepler_gl",
+  "core_id": "core_geometrica",
+  "paradigm_id": "kepler_gl",
+  "latin_agent": "Agent Kepler.gl Polyglotta",
+  "stack": "kepler",
+  "hooks": [
+    "GET /processor/design/cores/core_geometrica",
+    "POST /processor/design/cores/core_geometrica/invoke"
+  ],
+  "mesie_engine": "intelligence"
+}

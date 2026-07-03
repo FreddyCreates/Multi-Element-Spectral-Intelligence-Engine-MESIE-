@@ -1,0 +1,12 @@
+{
+  "template_id": "core_narrativa_muse_scholar",
+  "core_id": "core_narrativa",
+  "paradigm_id": "muse_scholar",
+  "latin_agent": "Agent Muse Polyglotta",
+  "stack": "muse",
+  "hooks": [
+    "GET /processor/design/cores/core_narrativa",
+    "POST /processor/design/cores/core_narrativa/invoke"
+  ],
+  "mesie_engine": "validation"
+}

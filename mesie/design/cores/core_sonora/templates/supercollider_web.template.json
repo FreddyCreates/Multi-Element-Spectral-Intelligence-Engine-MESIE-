@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_supercollider_web",
+  "core_id": "core_sonora",
+  "paradigm_id": "supercollider_web",
+  "latin_agent": "Agent SuperCollider Polyglotta",
+  "stack": "scweb",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "validation"
+}

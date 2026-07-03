@@ -1,0 +1,12 @@
+{
+  "template_id": "core_sonora_csound_wasm",
+  "core_id": "core_sonora",
+  "paradigm_id": "csound_wasm",
+  "latin_agent": "Agent Csound Polyglotta",
+  "stack": "csound",
+  "hooks": [
+    "GET /processor/design/cores/core_sonora",
+    "POST /processor/design/cores/core_sonora/invoke"
+  ],
+  "mesie_engine": "movement"
+}

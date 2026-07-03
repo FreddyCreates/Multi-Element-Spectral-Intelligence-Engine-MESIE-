@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_6dof_widget",
+  "core_id": "core_spatialis",
+  "paradigm_id": "6dof_widget",
+  "latin_agent": "Agent Sex Libertatis",
+  "stack": "6dof",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "control"
+}

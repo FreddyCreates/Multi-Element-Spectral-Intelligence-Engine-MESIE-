@@ -1,0 +1,12 @@
+{
+  "template_id": "core_spatialis_webxr_immersive",
+  "core_id": "core_spatialis",
+  "paradigm_id": "webxr_immersive",
+  "latin_agent": "Agent Immersio Spatialis",
+  "stack": "webxr",
+  "hooks": [
+    "GET /processor/design/cores/core_spatialis",
+    "POST /processor/design/cores/core_spatialis/invoke"
+  ],
+  "mesie_engine": "control"
+}
