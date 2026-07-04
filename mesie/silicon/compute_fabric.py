@@ -20,7 +20,7 @@ def certify_all_chips() -> List[Dict[str, Any]]:
         cert = chip.certify()
         out = FABRIC_DIR / "chips" / f"{sku.chip_id}_Certification.json"
         out.parent.mkdir(parents=True, exist_ok=True)
-        payload = cert.to_dict()
+        payload = cert.to_dict(sku_meta=chip._sku_cert_meta())
         chip.attach_content_hash(payload)
         out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
         results.append({
@@ -61,6 +61,16 @@ def run_compute_fabric_suite() -> Dict[str, Any]:
     # VS1 legacy paths for backward compat
     vs1 = VirtualSiliconChip.from_sku("MESIE-VS1")
     cert_path = vs1.export_certification()
+    vs1_cert = vs1.certify()
+    vs1_payload = vs1_cert.to_dict(sku_meta=vs1._sku_cert_meta())
+    vs1.attach_content_hash(vs1_payload)
+    vs1_chip_path = FABRIC_DIR / "chips" / "MESIE-VS1_Certification.json"
+    vs1_chip_path.write_text(json.dumps(vs1_payload, indent=2) + "\n", encoding="utf-8")
+
+    from mesie.silicon.vs1_spec import vs1_narrative_md
+
+    baseline_path = FABRIC_DIR / "MESIE_VS1_BASELINE_SOVEREIGN.md"
+    baseline_path.write_text(vs1_narrative_md(cert=vs1_payload), encoding="utf-8")
     narrative_path = FABRIC_DIR / "MESIE_Virtual_Silicon_Narrative.md"
     narrative_path.write_text(vs1.narrative_md(), encoding="utf-8")
 
@@ -72,6 +82,8 @@ def run_compute_fabric_suite() -> Dict[str, Any]:
         "all_certified": all(c["certified"] for c in certified),
         "deploy_manifest": str(manifest_path),
         "vs1_cert_path": str(cert_path),
+        "vs1_chip_cert_path": str(vs1_chip_path),
+        "baseline_narrative_path": str(baseline_path),
         "narrative_path": str(narrative_path),
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }

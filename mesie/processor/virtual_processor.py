@@ -174,9 +174,15 @@ class VirtualProcessor:
         t0 = time.perf_counter()
         chip = VirtualSiliconChip.from_sku(chip_id)
         cert = chip.certify()
-        out = cert.to_dict()
-        out["chip_id"] = chip_id
+        out = cert.to_dict(sku_meta=chip._sku_cert_meta())
         return self._finish("virtual_chip", t0, out, measured=cert.benchmark_lane.ota_frames_received + 100)
+
+    def virtual_silicon_catalog(self) -> ProcessorResult:
+        from mesie.silicon.vs1_spec import virtual_silicon_catalog
+
+        t0 = time.perf_counter()
+        out = virtual_silicon_catalog()
+        return self._finish("virtual_silicon", t0, out, measured=len(out.get("skus", [])))
 
     def read_signal(self, payload: Any, *, hint: Optional[str] = None, source_id: Optional[str] = None) -> ProcessorResult:
         from mesie.signals import UniversalSignalReader

@@ -14,8 +14,8 @@
     "path": "virtual_sdr_adc \u2192 nsrf_binary \u2192 field_bridge",
     "snr_db": 24.0,
     "frame_bytes": 536,
-    "ingest_latency_ms": 0.6276,
-    "field_coherence": 0.5611,
+    "ingest_latency_ms": 38.9578,
+    "field_coherence": 0.5743,
     "bridge_ok": true,
     "virtual_silicon": true,
     "notes": "Virtual silicon HIL \u2014 equivalent to certified SDR ingest lane without physical fab."
@@ -32,11 +32,11 @@
     "ok": true
   },
   "benchmark_lane": {
-    "threat_fast_p50_ms": 0.5835,
-    "ann_p50_ms": 0.1566,
-    "ann_p95_ms": 0.1785,
+    "threat_fast_p50_ms": 15.2824,
+    "ann_p50_ms": 0.4042,
+    "ann_p95_ms": 33.4263,
     "ann_backend": "library_index:spectral_index.json",
-    "rf_hil_latency_ms": 0.4824,
+    "rf_hil_latency_ms": 1.081,
     "ota_mesh_ok": true,
     "ota_frames_received": 48
   },
@@ -54,6 +54,46 @@
     "Official MLPerf leaderboard board review \u2014 community pack ready",
     "Live satellite modem hardware \u2014 virtual orbital tier models only"
   ],
-  "generated_at": "2026-06-26T09:04:44Z",
-  "content_hash": "72142a41a0ea2df7"
+  "generated_at": "2026-07-02T09:19:31Z",
+  "chip_id": "MESIE-VS1",
+  "sku_family_rank": 1,
+  "family_role": "baseline_sovereign",
+  "baseline_sovereign": true,
+  "tagline": "Foundational virtual chip for autonomous, decentralized AI",
+  "brand": "ItsnotAILabs",
+  "architectural_role": {
+    "abstraction": "MESIE-VS1 is a virtualized hardware model \u2014 not physical silicon. It emulates or maps onto real substrates (edge devices, servers, microcontrollers) and exposes a consistent software-defined compute surface across heterogeneous hardware.",
+    "philosophy": "Baseline sovereign configuration: minimal external dependency, self-contained AI compute suitable for autonomous decentralized systems without ANN-specific lanes or contested-environment hardening.",
+    "spectral_fabric": "Part of the MESIE spectral compute fabric \u2014 graph-spectral methods, frequency-domain optimization, and multi-dimensional capability layering across virtual chip SKUs."
+  },
+  "component_interpretations": [
+    {
+      "component": "ALU",
+      "specification": "256-bit",
+      "interpretation": "Wide spectral Arithmetic Logic Unit. Processes 256-bit data paths in a single operation \u2014 strong for large-integer arithmetic (crypto, big-integer ML ops), high-precision compute, and efficient vector/matrix handling in AI workloads."
+    },
+    {
+      "component": "RF",
+      "specification": "Single RF",
+      "interpretation": "One radio-frequency front-end. Basic wireless connectivity to other nodes, sensors, or networks. Simpler and more power-efficient than the dual-RF profile in higher SKUs."
+    },
+    {
+      "component": "OTA",
+      "specification": "4-node",
+      "interpretation": "Over-the-air updates, configuration pushes, and coordination across a 4-node cluster. Enables remote firmware/model deltas and lightweight mesh collaboration without physical access."
+    }
+  ],
+  "sovereign_use_cases": [
+    "Standalone sovereign AI agents",
+    "Small decentralized hive clusters",
+    "Core nodes in recursive or living architecture systems",
+    "Privacy-focused or air-gapped-leaning deployments"
+  ],
+  "integration_capabilities": [
+    "Communicate via single RF interface (NSRF binary \u2192 field bridge)",
+    "Receive OTA updates or model deltas across 4-node groups (NSOT multicast)",
+    "Perform 256-bit-wide spectral compute locally",
+    "Participate in larger recursive or hive-style AI systems"
+  ],
+  "content_hash": "bb65d0628cea8321"
 }

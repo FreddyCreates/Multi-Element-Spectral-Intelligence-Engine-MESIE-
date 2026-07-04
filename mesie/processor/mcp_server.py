@@ -68,6 +68,12 @@ TOOLS: Dict[str, Dict[str, Any]] = {
         "method": "GET",
         "path": "/processor/chips",
     },
+    "processor_virtual_silicon": {
+        "description": "MESIE-VS1 baseline sovereign catalog — SKU family, component specs, deploy profiles.",
+        "inputSchema": {"type": "object", "properties": {}},
+        "method": "GET",
+        "path": "/processor/virtual-silicon",
+    },
     "processor_virtual_chip": {
         "description": "Certify a virtual silicon chip SKU (RF HIL, OTA mesh, statistical ANN lane).",
         "inputSchema": {

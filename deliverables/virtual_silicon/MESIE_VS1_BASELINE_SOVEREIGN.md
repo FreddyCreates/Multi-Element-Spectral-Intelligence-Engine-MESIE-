@@ -65,9 +65,9 @@ Part of the MESIE spectral compute fabric — graph-spectral methods, frequency-
 ## Live certification (measured)
 
 - **Certified:** True
-- RF path: `virtual_sdr_adc → nsrf_binary → field_bridge` · SNR 24.0 dB · latency 2.9362 ms
+- RF path: `virtual_sdr_adc → nsrf_binary → field_bridge` · SNR 24.0 dB · latency 38.9578 ms
 - OTA mesh: 4 nodes · 12 sent / 48 received
-- Threat-fast p50: 16.3223 ms
-- ANN p50 / p95: 0.3653 / 28.935 ms
+- Threat-fast p50: 15.2824 ms
+- ANN p50 / p95: 0.4042 / 33.4263 ms
 - Platform: Windows-10-10.0.26200-SP0
-- Generated: 2026-07-02T09:19:39Z
+- Generated: 2026-07-02T09:19:31Z

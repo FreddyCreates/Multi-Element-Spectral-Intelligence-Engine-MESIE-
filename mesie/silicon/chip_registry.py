@@ -20,6 +20,10 @@ class ChipSKU:
     deploy_profile: str = "sovereign_local"
     ota_propagation_tier: int = 3
     processor_ops: List[str] = field(default_factory=list)
+    sku_family_rank: int = 1
+    family_role: str = "general"
+    baseline_sovereign: bool = False
+    tagline: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -33,6 +37,10 @@ class ChipSKU:
             "deploy_profile": self.deploy_profile,
             "ota_propagation_tier": self.ota_propagation_tier,
             "processor_ops": self.processor_ops,
+            "sku_family_rank": self.sku_family_rank,
+            "family_role": self.family_role,
+            "baseline_sovereign": self.baseline_sovereign,
+            "tagline": self.tagline,
         }
 
 
@@ -40,9 +48,13 @@ CHIP_REGISTRY: Dict[str, ChipSKU] = {
     "MESIE-VS1": ChipSKU(
         chip_id="MESIE-VS1",
         name="MESIE Virtual Silicon VS1",
-        description="Baseline sovereign chip — single RF front-end, 256-bit spectral ALU, NSOT OTA MAC.",
+        description="Baseline sovereign chip — single RF front-end, 256-bit spectral ALU, 4-node NSOT OTA MAC.",
         spec=VirtualChipSpec(),
         processor_ops=["virtual_chip", "benchmark", "embed", "match"],
+        sku_family_rank=1,
+        family_role="baseline_sovereign",
+        baseline_sovereign=True,
+        tagline="Foundational virtual chip for autonomous, decentralized AI",
     ),
     "MESIE-VS2-ANN": ChipSKU(
         chip_id="MESIE-VS2-ANN",
@@ -57,6 +69,9 @@ CHIP_REGISTRY: Dict[str, ChipSKU] = {
         threat_trials=300,
         deploy_profile="appliance_ann",
         processor_ops=["virtual_chip", "benchmark", "embed", "match", "exec_tool"],
+        sku_family_rank=2,
+        family_role="ann_optimized",
+        tagline="Wider ALU + statistical ANN lane for neural workloads",
     ),
     "MESIE-VS3-EDGE": ChipSKU(
         chip_id="MESIE-VS3-EDGE",
@@ -73,6 +88,9 @@ CHIP_REGISTRY: Dict[str, ChipSKU] = {
         threat_trials=500,
         deploy_profile="edge_contested",
         processor_ops=["virtual_chip", "benchmark", "robotics_pulse", "embed"],
+        sku_family_rank=3,
+        family_role="contested_edge",
+        tagline="Dual RF + larger mesh for adversarial edge environments",
     ),
     "MESIE-VS4-ORBITAL": ChipSKU(
         chip_id="MESIE-VS4-ORBITAL",
@@ -91,6 +109,9 @@ CHIP_REGISTRY: Dict[str, ChipSKU] = {
         threat_trials=300,
         deploy_profile="orbital_edge",
         processor_ops=["virtual_chip", "benchmark", "robotics_pulse", "embed"],
+        sku_family_rank=4,
+        family_role="orbital_edge",
+        tagline="Satellite-tier mesh for orbital and long-haul edge",
     ),
 }
 
@@ -124,6 +145,7 @@ def deploy_manifest(*, certified_chips: Optional[List[Dict[str, Any]]] = None) -
         ),
         "http_surface": {
             "base": "http://127.0.0.1:8750",
+            "catalog": "GET /processor/virtual-silicon",
             "certify": "POST /processor/virtual-chip",
             "chips": "GET /processor/chips",
             "benchmark": "POST /processor/benchmark",

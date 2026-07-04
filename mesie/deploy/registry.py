@@ -163,6 +163,17 @@ SERVICE_REGISTRY: Dict[str, ServiceDefinition] = {
         background=True,
         powershell_title="VP-MESH Supervisor",
     ),
+    "sovereign-os": ServiceDefinition(
+        id="sovereign-os",
+        name="Medina Sovereign OS",
+        version="1.0.0",
+        port=8770,
+        health_path="/sovereign/status",
+        command=[PYTHON, "-m", "mesie.sovereign_os", "--serve"],
+        env=_base_env(),
+        dependencies=["virtual-processor"],
+        powershell_title="Medina Sovereign OS",
+    ),
     "robotics-satellite": ServiceDefinition(
         id="robotics-satellite",
         name="MESIE Robotics Satellite",

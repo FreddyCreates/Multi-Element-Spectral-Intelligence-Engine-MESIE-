@@ -61,8 +61,8 @@ class VirtualChipCertification:
     gaps_remaining: List[str]
     generated_at: str
 
-    def to_dict(self) -> Dict[str, Any]:
-        return {
+    def to_dict(self, *, sku_meta: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        out: Dict[str, Any] = {
             "chip_version": self.chip_version,
             "spec": self.spec.to_dict(),
             "rf_hil": self.rf_hil.to_dict(),
@@ -74,6 +74,9 @@ class VirtualChipCertification:
             "gaps_remaining": self.gaps_remaining,
             "generated_at": self.generated_at,
         }
+        if sku_meta:
+            out.update(sku_meta)
+        return out
 
 
 class VirtualSiliconChip:
@@ -134,6 +137,29 @@ class VirtualSiliconChip:
             json.dumps({k: v for k, v in payload.items() if k != "content_hash"}, sort_keys=True).encode()
         ).hexdigest()[:16]
 
+    def _sku_cert_meta(self) -> Dict[str, Any]:
+        meta: Dict[str, Any] = {
+            "chip_id": self.chip_id,
+            "sku_family_rank": self._sku.sku_family_rank,
+            "family_role": self._sku.family_role,
+            "baseline_sovereign": self._sku.baseline_sovereign,
+            "tagline": self._sku.tagline,
+            "brand": "ItsnotAILabs",
+        }
+        if self._sku.baseline_sovereign:
+            from mesie.silicon.vs1_spec import (
+                ARCHITECTURAL_ROLE,
+                COMPONENT_SPECS,
+                INTEGRATION_CAPABILITIES,
+                SOVEREIGN_USE_CASES,
+            )
+
+            meta["architectural_role"] = ARCHITECTURAL_ROLE
+            meta["component_interpretations"] = COMPONENT_SPECS
+            meta["sovereign_use_cases"] = SOVEREIGN_USE_CASES
+            meta["integration_capabilities"] = INTEGRATION_CAPABILITIES
+        return meta
+
     def certify(self) -> VirtualChipCertification:
         rf_hil = self.certify_rf_hil()
         ota = self.run_ota_mesh()
@@ -164,8 +190,7 @@ class VirtualSiliconChip:
 
     def export_certification(self, path: Optional[Path] = None) -> Path:
         cert = self.certify()
-        payload = cert.to_dict()
-        payload["chip_id"] = self.chip_id
+        payload = cert.to_dict(sku_meta=self._sku_cert_meta())
         self.attach_content_hash(payload)
         CERT_DIR.mkdir(parents=True, exist_ok=True)
         out = path or CERT_DIR / "MESIE_Virtual_Silicon_Certification.json"
@@ -173,43 +198,13 @@ class VirtualSiliconChip:
         return out
 
     def narrative_md(self) -> str:
+        from mesie.silicon.vs1_spec import vs1_narrative_md
+
         cert = self.certify()
-        return "\n".join([
+        cert_dict = cert.to_dict(sku_meta=self._sku_cert_meta())
+        if self._sku.baseline_sovereign:
+            return vs1_narrative_md(cert=cert_dict)
+        return vs1_narrative_md(cert=cert_dict).replace(
+            "# MESIE-VS1 — Baseline Sovereign Virtual Chip",
             f"# MESIE Virtual Silicon ({self.chip_id})",
-            "",
-            f"**Chip:** {cert.spec.chip_name} v{cert.chip_version}",
-            f"**Certified:** {cert.certified}",
-            "",
-            "## What this is",
-            "",
-            "A **virtual chip** — spectral RF front-end, ALU, and OTA MAC implemented in software",
-            "on your laptop or on-prem appliance. Same APIs and latency envelope as a future ASIC,",
-            "without waiting for fab. **Not regular MCP** — invoke via Virtual Processor HTTP `:8750`.",
-            "",
-            "## RF front-end (HIL certified)",
-            "",
-            f"- Path: `{cert.rf_hil.path}`",
-            f"- Front-ends: {cert.spec.rf_frontends}",
-            f"- SNR: {cert.rf_hil.snr_db} dB (virtual ground truth)",
-            f"- Latency: {cert.rf_hil.ingest_latency_ms} ms",
-            f"- Field coherence: {cert.rf_hil.field_coherence}",
-            "",
-            "## OTA swarm radio",
-            "",
-            f"- Protocol: {cert.spec.ota_mac}",
-            f"- Tier: {cert.ota_mesh.propagation_tier}",
-            f"- Frames: {cert.ota_mesh.frames_sent} sent / {cert.ota_mesh.frames_received} received",
-            "",
-            "## Benchmark lane (statistical)",
-            "",
-            f"- Threat-fast p50: {cert.benchmark_lane.threat_fast_p50_ms} ms",
-            f"- ANN p50 / p95: {cert.benchmark_lane.ann_p50_ms} / {cert.benchmark_lane.ann_p95_ms} ms",
-            f"- ANN backend: {cert.benchmark_lane.ann_backend}",
-            "",
-            "## Deploy",
-            "",
-            "- `POST http://127.0.0.1:8750/processor/virtual-chip` body `{\"chip_id\": \"" + self.chip_id + "\"}`",
-            "- Manifest: `deliverables/virtual_silicon/MESIE_Chip_Deploy_Manifest.json`",
-            "",
-            f"*Generated {cert.generated_at}*",
-        ])
+        )
