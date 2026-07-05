@@ -1,0 +1,37 @@
+{
+  "protocol": "MESIE-LOAD-BEARING/1.0",
+  "ts": "2026-06-29T23:36:44Z",
+  "slices": {
+    "system_prompt": {
+      "tokens": 458,
+      "pct": 0.2
+    },
+    "messages": {
+      "tokens": 115000,
+      "pct": 57.0,
+      "kill_switch": true
+    },
+    "reasoning_overhead": {
+      "tokens": 12900,
+      "pct": 6.4
+    },
+    "free": {
+      "tokens": 71700,
+      "pct": 36.0
+    },
+    "tool_definitions": {
+      "tokens": 7100,
+      "pct": 3.6,
+      "tools": 20,
+      "note": "schema est.; real cost in overhead"
+    }
+  },
+  "uplift": {
+    "messages_compact_tokens": 9584,
+    "messages_saved_tokens": 105416,
+    "reasoning_headroom_tokens": 6450,
+    "free_after_compact_est": 177116
+  },
+  "surface_gate": "production_only",
+  "baseline": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\compute\\TOKEN_BUDGET_BASELINE.json"
+}

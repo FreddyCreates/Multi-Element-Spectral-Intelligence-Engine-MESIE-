@@ -1,0 +1,20 @@
+# HERMES H11 — Clean Internet Feed
+name = "mesie-hermes-clean-feed"
+main = "index.js"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+[vars]
+HERMES_WORKER_ID = "hermes-clean-feed"
+HERMES_SLOT = "H11"
+NOVA_PROTOCOL = "NOVA-PROTOCOL-CLEAN-INTERNET/1.0"
+BRAND = "ItsnotAILabs"
+
+# Set at deploy: wrangler secret put MESIE_PROCESSOR_URL
+# MESIE_PROCESSOR_URL = "https://your-edge-gateway.example"
+
+[[routes]]
+pattern = "/hermes/clean*"
+zone_name = "itsnotailabs.workers.dev"
+
+# account_id = "ITSNOTAILABS_ACCOUNT"

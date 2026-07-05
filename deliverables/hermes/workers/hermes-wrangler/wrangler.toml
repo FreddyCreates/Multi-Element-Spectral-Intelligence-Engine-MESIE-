@@ -1,0 +1,20 @@
+# HERMES H07 — Wrangler Forge
+name = "mesie-hermes-wrangler"
+main = "index.js"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+[vars]
+HERMES_WORKER_ID = "hermes-wrangler"
+HERMES_SLOT = "H07"
+NOVA_PROTOCOL = "NOVA-PROTOCOL-CLEAN-INTERNET/1.0"
+BRAND = "ItsnotAILabs"
+
+# Set at deploy: wrangler secret put MESIE_PROCESSOR_URL
+# MESIE_PROCESSOR_URL = "https://your-edge-gateway.example"
+
+[[routes]]
+pattern = "/hermes/wrangler*"
+zone_name = "itsnotailabs.workers.dev"
+
+# account_id = "ITSNOTAILABS_ACCOUNT"

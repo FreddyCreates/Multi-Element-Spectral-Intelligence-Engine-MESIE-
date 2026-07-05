@@ -1,0 +1,919 @@
+{
+  "title": "MESIE COMPUTING FAMILY",
+  "protocol": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+  "generated_at": "2026-07-01T08:00:32Z",
+  "elapsed_s": 285.2,
+  "virtual_products": [
+    {
+      "sku": "MESIE-COMPUTE-EDGE",
+      "name": "MESIE COMPUTE Edge",
+      "category": "processor",
+      "port": 8750,
+      "description": "First-class spectral compute \u2014 embed, match, signals, NOVA",
+      "operations": [
+        "embed",
+        "match",
+        "benchmark",
+        "read_signal",
+        "generate_text",
+        "mesh_pulse"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "ST-\u03c6-256",
+      "name": "ST-\u03c6 Spectral Transformer 256",
+      "category": "transformer",
+      "port": null,
+      "description": "Native \u03c6-harmonic transformer \u2014 rivals HuggingFace, no torch",
+      "operations": [
+        "encode",
+        "encode_batch",
+        "benchmark"
+      ],
+      "invocations": 13,
+      "last_latency_ms": 2.4682,
+      "p50_ms": 4.2984,
+      "healthy": true
+    },
+    {
+      "sku": "ST-\u03c6-512",
+      "name": "ST-\u03c6 Spectral Transformer 512",
+      "category": "transformer",
+      "port": null,
+      "description": "Research-grade 512-dim spectral encoder",
+      "operations": [
+        "encode",
+        "encode_batch",
+        "benchmark"
+      ],
+      "invocations": 4,
+      "last_latency_ms": 0.0,
+      "p50_ms": 7.2592,
+      "healthy": true
+    },
+    {
+      "sku": "MESIE-\u03c6-KERNEL",
+      "name": "\u03c6-Kernel Compression",
+      "category": "kernel",
+      "port": null,
+      "description": "Spectral slice compression and transfer index",
+      "operations": [
+        "compress_embedding",
+        "compress_file_slices",
+        "export_index"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-FAST-ANN",
+      "name": "Fast Spectral ANN",
+      "category": "retrieval",
+      "port": null,
+      "description": "Band-sign LSH + matrix cosine \u2014 sub-ms queries",
+      "operations": [
+        "cosine_search",
+        "benchmark_ann_p50"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-VS1",
+      "name": "Virtual Silicon VS1",
+      "category": "chip",
+      "port": null,
+      "description": "Certified virtual chip lane \u2014 OTA mesh",
+      "operations": [
+        "certify",
+        "benchmark_lane"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-SOVEREIGN-OS",
+      "name": "Sovereign OS Dashboard",
+      "category": "platform",
+      "port": 8770,
+      "description": "Airgap, Capsula, Triple Protocol control plane",
+      "operations": [
+        "deploy",
+        "bridge",
+        "metrics"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-TRI-AGENT",
+      "name": "Tri-Agent Maintenance Squads",
+      "category": "agents",
+      "port": null,
+      "description": "Groups of 3 AI auto-agents for workflow and maintenance",
+      "operations": [
+        "ops_triad",
+        "quality_triad",
+        "intel_triad"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    }
+  ],
+  "tri_agent_squads": [
+    {
+      "squad_id": "ops-triad",
+      "name": "Ops Triad",
+      "mission": "Health, benchmarks, colony bridge sync",
+      "agents": [
+        {
+          "agent_id": "ops-\u03b1",
+          "role": "Health Monitor",
+          "script": "processor_status"
+        },
+        {
+          "agent_id": "ops-\u03b2",
+          "role": "Benchmark Runner",
+          "script": "compute_benchmark"
+        },
+        {
+          "agent_id": "ops-\u03b3",
+          "role": "Bridge Sync",
+          "script": "colony_sync"
+        }
+      ]
+    },
+    {
+      "squad_id": "quality-triad",
+      "name": "Quality Triad",
+      "mission": "Tests, commercial pack, metrics export",
+      "agents": [
+        {
+          "agent_id": "qual-\u03b1",
+          "role": "Pytest Gate",
+          "script": "pytest_smoke"
+        },
+        {
+          "agent_id": "qual-\u03b2",
+          "role": "Commercial Pack",
+          "script": "official_pack"
+        },
+        {
+          "agent_id": "qual-\u03b3",
+          "role": "Metrics Export",
+          "script": "live_metrics"
+        }
+      ]
+    },
+    {
+      "squad_id": "intel-triad",
+      "name": "Intel Triad",
+      "mission": "Embed, match, scientific text generation",
+      "agents": [
+        {
+          "agent_id": "intel-\u03b1",
+          "role": "Embed Pulse",
+          "script": "embed_pulse"
+        },
+        {
+          "agent_id": "intel-\u03b2",
+          "role": "Match Pulse",
+          "script": "match_pulse"
+        },
+        {
+          "agent_id": "intel-\u03b3",
+          "role": "Signal Generate",
+          "script": "signal_generate"
+        }
+      ]
+    },
+    {
+      "squad_id": "research-triad",
+      "name": "Research Triad",
+      "mission": "Acoustic metamaterial, domain suites, release package",
+      "agents": [
+        {
+          "agent_id": "res-\u03b1",
+          "role": "Metamaterial Agent",
+          "script": "metamaterial_research"
+        },
+        {
+          "agent_id": "res-\u03b2",
+          "role": "Domain Suite",
+          "script": "metamaterial_domain"
+        },
+        {
+          "agent_id": "res-\u03b3",
+          "role": "Release Pack",
+          "script": "full_release_pack"
+        }
+      ]
+    }
+  ],
+  "latency_table_ms": {
+    "fast_ann_p50_ms": 0.2392,
+    "vp_ann_p50_ms": 0.2362,
+    "st_phi_128_encode_p50_ms": 45.0765,
+    "st_phi_256_encode_p50_ms": 45.0765,
+    "nova_threat_p50_ms": null,
+    "enterprise_fast_p50_ms": null,
+    "mesie_ann_p50_ms": null,
+    "swarm_10k_ms_per_agent": null
+  },
+  "industry_benchmarks": {
+    "verdict": null,
+    "win_rate": null,
+    "wins": null,
+    "row_count": 0
+  },
+  "phases": [
+    {
+      "phase": "live_metrics",
+      "ok": true,
+      "result": {
+        "product": "MESIE COMPUTE Live Metrics",
+        "collected_at": "2026-07-01T07:55:58Z",
+        "collection_ms": 8332.2,
+        "processor": {
+          "healthy": false,
+          "url": "http://127.0.0.1:8750",
+          "status": null
+        },
+        "sovereign_os": {
+          "healthy": false,
+          "url": "http://127.0.0.1:8770",
+          "alpha_agents": null
+        },
+        "st_phi": {
+          "encode_p50_ms": 69.9287,
+          "encode_p95_ms": 250.7194,
+          "dims": 256,
+          "trials": 50,
+          "vs_hf_baseline_speedup": 0.11,
+          "native": true,
+          "backend": "numpy_st_phi"
+        },
+        "virtual_products": [
+          {
+            "sku": "MESIE-COMPUTE-EDGE",
+            "name": "MESIE COMPUTE Edge",
+            "category": "processor",
+            "port": 8750,
+            "description": "First-class spectral compute \u2014 embed, match, signals, NOVA",
+            "operations": [
+              "embed",
+              "match",
+              "benchmark",
+              "read_signal",
+              "generate_text",
+              "mesh_pulse"
+            ],
+            "invocations": 0,
+            "last_latency_ms": 0.0,
+            "p50_ms": 0.0,
+            "healthy": false
+          },
+          {
+            "sku": "ST-\u03c6-256",
+            "name": "ST-\u03c6 Spectral Transformer 256",
+            "category": "transformer",
+            "port": null,
+            "description": "Native \u03c6-harmonic transformer \u2014 rivals HuggingFace, no torch",
+            "operations": [
+              "encode",
+              "encode_batch",
+              "benchmark"
+            ],
+            "invocations": 9,
+            "last_latency_ms": 45.0045,
+            "p50_ms": 69.9287,
+            "healthy": true
+          },
+          {
+            "sku": "ST-\u03c6-512",
+            "name": "ST-\u03c6 Spectral Transformer 512",
+            "category": "transformer",
+            "port": null,
+            "description": "Research-grade 512-dim spectral encoder",
+            "operations": [
+              "encode",
+              "encode_batch",
+              "benchmark"
+            ],
+            "invocations": 3,
+            "last_latency_ms": 0.0,
+            "p50_ms": 69.9287,
+            "healthy": true
+          },
+          {
+            "sku": "MESIE-\u03c6-KERNEL",
+            "name": "\u03c6-Kernel Compression",
+            "category": "kernel",
+            "port": null,
+            "description": "Spectral slice compression and transfer index",
+            "operations": [
+              "compress_embedding",
+              "compress_file_slices",
+              "export_index"
+            ],
+            "invocations": 0,
+            "last_latency_ms": 0.0,
+            "p50_ms": 0.0,
+            "healthy": false
+          },
+          {
+            "sku": "MESIE-FAST-ANN",
+            "name": "Fast Spectral ANN",
+            "category": "retrieval",
+            "port": null,
+            "description": "Band-sign LSH + matrix cosine \u2014 sub-ms queries",
+            "operations": [
+              "cosine_search",
+              "benchmark_ann_p50"
+            ],
+            "invocations": 0,
+            "last_latency_ms": 0.0,
+            "p50_ms": 0.0,
+            "healthy": false
+          },
+          {
+            "sku": "MESIE-VS1",
+            "name": "Virtual Silicon VS1",
+            "category": "chip",
+            "port": null,
+            "description": "Certified virtual chip lane \u2014 OTA mesh",
+            "operations": [
+              "certify",
+              "benchmark_lane"
+            ],
+            "invocations": 0,
+            "last_latency_ms": 0.0,
+            "p50_ms": 0.0,
+            "healthy": false
+          },
+          {
+            "sku": "MESIE-SOVEREIGN-OS",
+            "name": "Sovereign OS Dashboard",
+            "category": "platform",
+            "port": 8770,
+            "description": "Airgap, Capsula, Triple Protocol control plane",
+            "operations": [
+              "deploy",
+              "bridge",
+              "metrics"
+            ],
+            "invocations": 0,
+            "last_latency_ms": 0.0,
+            "p50_ms": 0.0,
+            "healthy": false
+          },
+          {
+            "sku": "MESIE-TRI-AGENT",
+            "name": "Tri-Agent Maintenance Squads",
+            "category": "agents",
+            "port": null,
+            "description": "Groups of 3 AI auto-agents for workflow and maintenance",
+            "operations": [
+              "ops_triad",
+              "quality_triad",
+              "intel_triad"
+            ],
+            "invocations": 0,
+            "last_latency_ms": 0.0,
+            "p50_ms": 0.0,
+            "healthy": false
+          }
+        ],
+        "privacy": {
+          "complete": true,
+          "airgap_capable": true
+        },
+        "latency_targets": {
+          "edge_p50_ms": 69.9287,
+          "ann_target_ms": 0.5,
+          "nova_threat_p50_ms": 0.68
+        }
+      }
+    },
+    {
+      "phase": "compute_hub",
+      "ok": true,
+      "result": {
+        "product": "MESIE COMPUTE Hub Benchmark",
+        "trials": 200,
+        "st_phi": {
+          "encode_p50_ms": 45.0765,
+          "encode_p95_ms": 320.8732,
+          "dims": 256,
+          "trials": 200,
+          "vs_hf_baseline_speedup": 0.18,
+          "native": true,
+          "backend": "numpy_st_phi"
+        },
+        "fast_ann": {
+          "p50_ms": 0.2392,
+          "p95_ms": 0.2959,
+          "trials": 100,
+          "index_size": 456,
+          "backend": "library_index:spectral_index.json"
+        },
+        "virtual_processor": {
+          "threat_p50_ms": 0.8088,
+          "ann_p50_ms": 0.2362,
+          "ann_p95_ms": 0.4052,
+          "ann_backend": "library_index:spectral_index.json",
+          "ota_mesh_ok": true,
+          "trials": 100
+        },
+        "phi_kernel": {
+          "kernel": "MESIE-\u03c6-KERNEL/1.0",
+          "slice_count": 0,
+          "total_raw_bytes": 0,
+          "total_compressed_bytes": 0,
+          "compression_ratio": 0.0,
+          "slices": [],
+          "generated_at": "2026-07-01T07:56:13Z"
+        },
+        "timestamp": "2026-07-01T07:56:13Z"
+      }
+    },
+    {
+      "label": "processor_benchmarks",
+      "ok": true,
+      "exit_code": 0,
+      "elapsed_s": 4.44,
+      "result": {
+        "raw_tail": "{\n  \"mpc_test_pass\": true,\n  \"ui_local_assets\": true,\n  \"zip_integration_ok\": true,\n  \"packet_files\": 188,\n  \"packet_bytes\": 4099570,\n  \"mint_ledger\": \"553A41683B48\",\n  \"measured_by_source\": 152265,\n  \"local_nova_cycles\": 806,\n  \"local_nova_lrcs_minted\": 806,\n  \"authority\": \"local_accounting_only\",\n  \"last_lrc\": {\n    \"lrc_id\": \"4D3C6023578E\",\n    \"cycle\": 806,\n    \"operation\": \"robotics_pulse\",\n    \"measured_units\": 306,\n    \"latency_ms\": 179.08,\n    \"payload_hash\": \"e05d05a0653d3c0d\",\n    \"ts\": 1782892577.8765776\n  }\n}\nWrote C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\processor\\MESIE_Processor_Benchmarks.json\n"
+      },
+      "stderr_tail": ""
+    },
+    {
+      "label": "sdk_major_benchmarks",
+      "ok": true,
+      "exit_code": 0,
+      "elapsed_s": 73.44,
+      "result": {
+        "raw_tail": "=== MAESI SDK 1.5.0 Major Benchmarks ===\nVerdict: strong_for_edge_spectral_swarms\nWins: 14/14 (100.0%)\nThreat p50: 0.8496ms\nSwarm 10K: 0.090829 ms/agent\nMission ok: True\nReport: C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\MAESI_SDK_Major_Benchmarks.json\n"
+      },
+      "stderr_tail": ""
+    },
+    {
+      "phase": "economic_monte_carlo",
+      "protocol": "MESIE-ENTERPRISE-MONTE-CARLO/1.0",
+      "use_cases": 10,
+      "overall_success_rate": 1.0,
+      "enterprise_grade": true,
+      "cases": [
+        {
+          "id": "mfg_predictive",
+          "name": "Predictive Maintenance",
+          "industry": "Manufacturing",
+          "description": "Detect pump/machine drift from vibration spectra.",
+          "success_metric": "top_match_sim >= 0.5",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 0.207,
+            "std_latency_ms": 0.217,
+            "p95_latency_ms": 0.291,
+            "mean_score": 0.996,
+            "std_score": 0.0127,
+            "p5_score": 0.988,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "energy_grid",
+          "name": "Grid & Power Monitoring",
+          "industry": "Energy",
+          "description": "Schumann/EM band fingerprint stability under noise.",
+          "success_metric": "validation_level >= 4",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 0.55,
+            "std_latency_ms": 2.064,
+            "p95_latency_ms": 0.33,
+            "mean_score": 6.0,
+            "std_score": 0.0,
+            "p5_score": 6.0,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "aerospace_orbital",
+          "name": "Satellite Ops & Orbital",
+          "industry": "Aerospace",
+          "description": "Orbital-edge style spectral gate + seismic anchor coupling.",
+          "success_metric": "match_score >= 0.6",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 0.544,
+            "std_latency_ms": 2.485,
+            "p95_latency_ms": 0.638,
+            "mean_score": 0.8614,
+            "std_score": 0.0186,
+            "p5_score": 0.8001,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "insurance_seismic",
+          "name": "Catastrophe / Seismic Risk",
+          "industry": "Insurance",
+          "description": "Cross-match earthquake vs structural references.",
+          "success_metric": "match_score >= 0.55",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 0.378,
+            "std_latency_ms": 0.25,
+            "p95_latency_ms": 0.757,
+            "mean_score": 0.635,
+            "std_score": 0.0021,
+            "p5_score": 0.632,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "structural_civil",
+          "name": "Structural / Civil Engineering",
+          "industry": "Construction",
+          "description": "FAS structural spectrum ranking under perturbation.",
+          "success_metric": "rank_top3_self_or_structural",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 4.179,
+            "std_latency_ms": 5.203,
+            "p95_latency_ms": 11.443,
+            "mean_score": 0.846,
+            "std_score": 0.0025,
+            "p5_score": 0.8417,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "health_device",
+          "name": "Medical Device Monitoring",
+          "industry": "Healthcare",
+          "description": "Anomaly separation on biosignal-like spectra.",
+          "success_metric": "anomaly_detects_outlier",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 0.817,
+            "std_latency_ms": 3.98,
+            "p95_latency_ms": 0.694,
+            "mean_score": 74.5451,
+            "std_score": 5.9606,
+            "p5_score": 51.5196,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "robotics_fleet",
+          "name": "Autonomous Robotics Fleet",
+          "industry": "Robotics",
+          "description": "Fast ANN neighbor lookup for fleet state.",
+          "success_metric": "query_ms < 50 and sim > 0.4",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 0.159,
+            "std_latency_ms": 0.046,
+            "p95_latency_ms": 0.21,
+            "mean_score": 0.9913,
+            "std_score": 0.0197,
+            "p5_score": 0.9611,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "telecom_compliance",
+          "name": "Telecom Spectrum Compliance",
+          "industry": "Telecom",
+          "description": "EM band library embedding + research hit.",
+          "success_metric": "research_hit_found",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 0.026,
+            "std_latency_ms": 0.008,
+            "p95_latency_ms": 0.031,
+            "mean_score": 2.0,
+            "std_score": 0.0,
+            "p5_score": 2.0,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "rd_lab",
+          "name": "R&D Spectral Lab",
+          "industry": "Research",
+          "description": "Benchmark sample classification via ranking.",
+          "success_metric": "rank_score >= 0.45",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 3.383,
+            "std_latency_ms": 4.249,
+            "p95_latency_ms": 6.045,
+            "mean_score": 0.7626,
+            "std_score": 0.0137,
+            "p5_score": 0.7443,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        },
+        {
+          "id": "ai_copilot_rag",
+          "name": "AI Agent Spectral Memory",
+          "industry": "Enterprise AI",
+          "description": "MAESI query with knowledge + fingerprint ANN.",
+          "success_metric": "neighbors >= 1 and latency < 100ms",
+          "monte_carlo": {
+            "n_trials": 100,
+            "success_rate": 1.0,
+            "mean_latency_ms": 7.528,
+            "std_latency_ms": 3.77,
+            "p95_latency_ms": 14.171,
+            "mean_score": 1.0,
+            "std_score": 0.0,
+            "p5_score": 1.0,
+            "failures": 0,
+            "sample_failure_details": []
+          }
+        }
+      ],
+      "elapsed_s": 2.06,
+      "ok": true
+    },
+    {
+      "phase": "intelligence_protocols",
+      "ok": false,
+      "error": "'MultiElementRecord' object has no attribute 'get'"
+    },
+    {
+      "phase": "triple_protocol",
+      "ok": true,
+      "protocol": "CLOUDCOLONY-TRIPLE-PROTOCOL/1.0",
+      "layers": 0,
+      "flow_healthy": false,
+      "flow": {
+        "protocol": "CLOUDCOLONY-TRIPLE-PROTOCOL/1.0",
+        "P1_loom": {
+          "layers": 3,
+          "note": "vault + council + signal \u2014 register in Cursor MCP"
+        },
+        "P2_mcp_colony": {
+          "servers": 3,
+          "compute_healthy": false,
+          "dashboard_healthy": false
+        },
+        "P3_colony_bridge": {
+          "ok": true,
+          "mode": "airgap",
+          "cloud_bridge_enabled": false,
+          "local_icp_port": 4943,
+          "edge_processor_port": 8750,
+          "tenant_id": "medina-sovereign-001",
+          "capsula_hash": "89590f1d6ccfcbc859d70bb7d628988b7536b62d95e4c9d87d1e18e07ae65178",
+          "sovereign_pillars": [
+            "Proofs mint on your machine first \u2014 airgap-capable, no cloud dependency",
+            "Bridge syncs hashes to mainnet when you choose \u2014 you control the federation moment",
+            "Edge compute stays local \u2014 ICP never runs your spectral math, only anchors it",
+            "Multi-tenant colonies share the same bridge pattern \u2014 each tenant gets local + cloud tiers"
+          ],
+          "can_bridge": false,
+          "state_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\icp\\AIRGAP_STATE.json"
+        },
+        "flow_complete": true
+      },
+      "elapsed_s": 6.174
+    },
+    {
+      "label": "tri_agent_squads",
+      "ok": true,
+      "exit_code": 0,
+      "elapsed_s": 172.93,
+      "result": {
+        "ok": false,
+        "squads": 4,
+        "reports": [
+          {
+            "squad_id": "ops-triad",
+            "name": "Ops Triad",
+            "agents": [
+              {
+                "agent": {
+                  "agent_id": "ops-\u03b1",
+                  "role": "Health Monitor",
+                  "script": "processor_status"
+                },
+                "result": {
+                  "ok": false,
+                  "exit_code": 1,
+                  "tail": " File \"C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\Lib\\urllib\\request.py\", line 1377, in http_open\n    return self.do_open(http.client.HTTPConnection, req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Medin\\AppData\\Local\\Programs\\Python\\Python311-arm64\\Lib\\urllib\\request.py\", line 1351, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error [WinError 10061] No connection could be made because the target machine actively refused it>\n"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "ops-\u03b2",
+                  "role": "Benchmark Runner",
+                  "script": "compute_benchmark"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "ex.json\"\n  },\n  \"virtual_processor\": {\n    \"threat_p50_ms\": 0.8947,\n    \"ann_p50_ms\": 0.2425,\n    \"ann_p95_ms\": 0.3984,\n    \"ann_backend\": \"library_index:spectral_index.json\",\n    \"ota_mesh_ok\": true,\n    \"trials\": 100\n  },\n  \"phi_kernel\": {\n    \"kernel\": \"MESIE-\\u03c6-KERNEL/1.0\",\n    \"slice_count\": 0,\n    \"total_raw_bytes\": 0,\n    \"total_compressed_bytes\": 0,\n    \"compression_ratio\": 0.0,\n    \"slices\": [],\n    \"generated_at\": \"2026-07-01T07:57:56Z\"\n  },\n  \"timestamp\": \"2026-07-01T07:57:56Z\"\n}\n"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "ops-\u03b3",
+                  "role": "Bridge Sync",
+                  "script": "colony_sync"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "   \"role\": \"ICP mainnet federation when -Network ic\",\n      \"url\": \"https://icp-api.io\",\n      \"healthy\": false,\n      \"canisters\": {}\n    }\n  ],\n  \"bridge_flow\": [\n    \"Edge compute (:8750) executes \\u2014 embed, match, NOVA, signals\",\n    \"Local ICP (:4943) anchors proofs \\u2014 tenants, certs, agents, receipts\",\n    \"Colony bridge syncs manifest hashes local \\u2192 cloud (ic)\",\n    \"3 MCP servers expose vault / compute / fleet to any AI client\"\n  ],\n  \"generated_at\": \"2026-07-01T07:58:03Z\"\n}\n"
+                }
+              }
+            ],
+            "ok": false,
+            "executed_at": "2026-07-01T07:58:03Z"
+          },
+          {
+            "squad_id": "quality-triad",
+            "name": "Quality Triad",
+            "agents": [
+              {
+                "agent": {
+                  "agent_id": "qual-\u03b1",
+                  "role": "Pytest Gate",
+                  "script": "pytest_smoke"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "..............                                                           [100%]\n14 passed in 3.25s\n"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "qual-\u03b2",
+                  "role": "Commercial Pack",
+                  "script": "official_pack"
+                },
+                "result": {
+                  "ok": false,
+                  "error": "Command '['C:\\\\Users\\\\Medin\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python311-arm64\\\\python.exe', 'scripts/run_official_commercial_pack.py', '--quick']' timed out after 120 seconds"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "qual-\u03b3",
+                  "role": "Metrics Export",
+                  "script": "live_metrics"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "\"agents\",\n      \"port\": null,\n      \"description\": \"Groups of 3 AI auto-agents for workflow and maintenance\",\n      \"operations\": [\n        \"ops_triad\",\n        \"quality_triad\",\n        \"intel_triad\"\n      ],\n      \"invocations\": 0,\n      \"last_latency_ms\": 0.0,\n      \"p50_ms\": 0.0,\n      \"healthy\": false\n    }\n  ],\n  \"privacy\": {\n    \"complete\": true,\n    \"airgap_capable\": true\n  },\n  \"latency_targets\": {\n    \"edge_p50_ms\": 7.2592,\n    \"ann_target_ms\": 0.5,\n    \"nova_threat_p50_ms\": 0.68\n  }\n}\n"
+                }
+              }
+            ],
+            "ok": false,
+            "executed_at": "2026-07-01T08:00:17Z"
+          },
+          {
+            "squad_id": "intel-triad",
+            "name": "Intel Triad",
+            "agents": [
+              {
+                "agent": {
+                  "agent_id": "intel-\u03b1",
+                  "role": "Embed Pulse",
+                  "script": "embed_pulse"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "{\"ok\": true, \"operation\": \"embed\", \"output\": {\"dims\": 17, \"record_id\": \"ref-earthquake-psd-001\"}, \"latency_ms\": 1.86, \"lrc\": {\"lrc_id\": \"672BA0453E6A\", \"cycle\": 811, \"operation\": \"embed\", \"measured_units\": 17, \"latency_ms\": 1.86, \"payload_hash\": \"8d4cb5c446f4306e\", \"ts\": 1782892819.633848}, \"measured_units\": 17}\n"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "intel-\u03b2",
+                  "role": "Match Pulse",
+                  "script": "match_pulse"
+                },
+                "result": {
+                  "ok": false,
+                  "exit_code": 1,
+                  "tail": "                                         ^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\data\\__init__.py\", line 111, in load_reference\n    path = get_reference_path(name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\data\\__init__.py\", line 49, in get_reference_path\n    raise FileNotFoundError(f\"Data file not found: {name}\")\nFileNotFoundError: Data file not found: ref-earthquake-psd-002\n"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "intel-\u03b3",
+                  "role": "Signal Generate",
+                  "script": "signal_generate"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "7ffac95e6d5170be853682c2856bd2e3a70f511aaebba7\", \"sovereign\": true, \"model\": \"SOLUS-Logic\\u2297Reasoning\\u2297Emergence\", \"meta\": {\"logic_ok\": true, \"confidence\": 0.0, \"emergence\": 0.0, \"composition_hash\": \"6f95a9bb1bea5cdef0af5e7c842704e1\", \"latency_note\": \"local-only\"}}, \"latency_ms\": 16.81, \"lrc\": {\"lrc_id\": \"BBB7FB5B04AD\", \"cycle\": 812, \"operation\": \"generate_text\", \"measured_units\": 98, \"latency_ms\": 16.81, \"payload_hash\": \"c9ceb61bbb421baf\", \"ts\": 1782892824.143807}, \"measured_units\": 98}\n"
+                }
+              }
+            ],
+            "ok": false,
+            "executed_at": "2026-07-01T08:00:24Z"
+          },
+          {
+            "squad_id": "research-triad",
+            "name": "Research Triad",
+            "agents": [
+              {
+                "agent": {
+                  "agent_id": "res-\u03b1",
+                  "role": "Metamaterial Agent",
+                  "script": "metamaterial_research"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "onest_limits\": [\n    \"MESIE simulates band-gap physics \\u2014 does not replace FEM/Bloch theorem solvers\",\n    \"No combat or DoD metamaterial certification claim\",\n    \"Seismic mitigation requires domain expert validation beyond software\"\n  ],\n  \"references\": [\n    \"https://en.wikipedia.org/wiki/Acoustic_metamaterial\",\n    \"Liu et al. 2000 \\u2014 locally resonant sonic materials\",\n    \"MESIE Paper V \\u2014 Spectral Compute Fabric\",\n    \"MESIE Paper VI \\u2014 ST-\\u03c6 Native Transformers\"\n  ]\n}\n"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "res-\u03b2",
+                  "role": "Domain Suite",
+                  "script": "metamaterial_domain"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "9999999996], \"band_gaps_detected\": [{\"start_hz\": 1914.2857142857142, \"depth_db\": 16.8820058384122}], \"reference_artwork\": \"Eusebio Sempere \\u00d3rgano \\u2014 1670 Hz phononic gap\"}, \"electro_spectral\": {\"spectral_centroid\": 1573.3981985146436, \"spectral_spread\": 888.5635981165038, \"band_energy\": {\"band_low\": 0.0, \"band_mid\": 0.0, \"band_high\": 0.0, \"band_ultra\": 224.20596551891595}, \"frequency_resonance\": 1.141807263725111}, \"mesie_gate\": \"spectral_validate\", \"timestamp\": \"2026-07-01T08:00:28Z\"}\n"
+                }
+              },
+              {
+                "agent": {
+                  "agent_id": "res-\u03b3",
+                  "role": "Release Pack",
+                  "script": "full_release_pack"
+                },
+                "result": {
+                  "ok": true,
+                  "exit_code": 0,
+                  "tail": "{\n  \"product\": \"MESIE Full Release\",\n  \"version\": \"1.0.0\",\n  \"beta_launch\": \"2026-07-30\",\n  \"zip\": \"C:\\\\Users\\\\Medin\\\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\\\deliverables\\\\release\\\\MESIE_FULL_RELEASE.zip\",\n  \"files\": 159,\n  \"components\": [\n    \"MESIE COMPUTE + ST-\\u03c6\",\n    \"Sovereign Cloud ICP\",\n    \"Triple Protocol\",\n    \"Acoustic Metamaterial Research\",\n    \"Commercial Official Pack\",\n    \"Demos + Video Script\"\n  ]\n}\n"
+                }
+              }
+            ],
+            "ok": true,
+            "executed_at": "2026-07-01T08:00:32Z"
+          }
+        ],
+        "executed_at": "2026-07-01T08:00:32Z"
+      },
+      "stderr_tail": ""
+    }
+  ],
+  "system_ties": {
+    "processor": "http://127.0.0.1:8750",
+    "universal_mcp": "http://127.0.0.1:8765",
+    "career_hub": "http://127.0.0.1:8767",
+    "sovereign_os": "http://127.0.0.1:8770",
+    "depth_catalog": "GET /processor/depth",
+    "native_dsl_catalog": "GET /processor/dsl",
+    "triple_protocol": "deliverables/cloudcolony/TRIPLE_PROTOCOL_MANIFEST.json",
+    "native_release": "deliverables/research/papers/NATIVE_RELEASE_MANIFEST.json"
+  },
+  "all_phases_ok": false
+}

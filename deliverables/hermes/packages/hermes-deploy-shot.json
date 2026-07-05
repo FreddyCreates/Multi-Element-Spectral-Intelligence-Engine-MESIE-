@@ -1,0 +1,26 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-deploy-shot",
+  "slot": "H12",
+  "title": "One-Shot Deploy",
+  "route": "/hermes/deploy",
+  "operations": [
+    "pack",
+    "verify",
+    "ship"
+  ],
+  "generates": [
+    "DEPLOY_SHOT.json",
+    "deploy.ps1",
+    "deploy.sh"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "DEPLOY_SHOT.json",
+    "deploy.ps1",
+    "deploy.sh"
+  ],
+  "processor_proxy": "POST /processor/hermes/forge",
+  "third_party_inference": false
+}

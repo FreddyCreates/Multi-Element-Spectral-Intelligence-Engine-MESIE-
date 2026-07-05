@@ -1,0 +1,19 @@
+{
+  "version": "1.2.0",
+  "protocol": "MESIE-MARKET-RELEASE/1.0",
+  "businesses": 5,
+  "research_packs": 5,
+  "websites": [
+    "mesie-landing",
+    "enterprise-4k",
+    "career-portal",
+    "market-hub"
+  ],
+  "tokens": [
+    "MESIE-LRC",
+    "MESIE-PHI",
+    "MESIE-ANCHOR-ETH",
+    "MESIE-ANCHOR-ICP"
+  ],
+  "public_forks": 6
+}

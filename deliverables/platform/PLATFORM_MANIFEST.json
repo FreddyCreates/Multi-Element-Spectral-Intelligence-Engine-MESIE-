@@ -1,0 +1,525 @@
+{
+  "catalog": {
+    "protocol": "MESIE-UNIFIED-MODEL-CATALOG/1.0",
+    "mesie_version": "1.2.0",
+    "third_party_inference": false,
+    "virtual_scaling": "spectral_param_compression",
+    "model_count": 14,
+    "corpus_records": 932,
+    "tiers": [
+      {
+        "tier": "nova_virtual",
+        "model_id": "NOVA-50B-VIRTUAL",
+        "family": "NOVA",
+        "effective_params": "50B virtual",
+        "d_model": 4096,
+        "n_layers": 48,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "nova_virtual",
+        "model_id": "NOVAMINI-8B-VIRTUAL",
+        "family": "NOVAMINI",
+        "effective_params": "8B virtual",
+        "d_model": 2048,
+        "n_layers": 24,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "nova_virtual",
+        "model_id": "MININOVA-3B-VIRTUAL",
+        "family": "MININOVA",
+        "effective_params": "3B virtual",
+        "d_model": 1024,
+        "n_layers": 16,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "edge_transformer",
+        "model_id": "ST-\u03c6-256",
+        "family": "ST-\u03c6",
+        "effective_params": "256M effective edge",
+        "d_model": 256,
+        "n_layers": 2,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "edge_transformer",
+        "model_id": "ST-\u03c6-128",
+        "family": "ST-\u03c6",
+        "d_model": 128,
+        "n_layers": 1,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "edge_transformer",
+        "model_id": "ST-\u03c6-512",
+        "family": "ST-\u03c6",
+        "d_model": 512,
+        "n_layers": 3,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "foundation",
+        "model_id": "SpectralFoundationModel",
+        "family": "foundation",
+        "effective_params": "MoE 12-layer",
+        "d_model": 256,
+        "n_layers": 12,
+        "n_experts": 8,
+        "max_seq_len": 512,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "solus_formal",
+        "model_id": "solus-logic-model",
+        "family": "SOLUS",
+        "layer": "logic",
+        "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "solus_formal",
+        "model_id": "solus-reasoning-model",
+        "family": "SOLUS",
+        "layer": "reasoning",
+        "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "solus_formal",
+        "model_id": "solus-emergence-model",
+        "family": "SOLUS",
+        "layer": "emergence",
+        "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "solus_formal",
+        "model_id": "solus-adaptation-model",
+        "family": "SOLUS",
+        "layer": "adaptation",
+        "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "speaking_intelligence",
+        "model_id": "AuroNativeLM-v1",
+        "family": "AURO",
+        "knowledge_entries": 32,
+        "reasoning_rules": 4,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "cognitive_connectome",
+        "model_id": "NeuroAIXEngine",
+        "family": "NeuroAIX",
+        "brain_regions": 44,
+        "tracts": 68,
+        "native": true,
+        "third_party_inference": false
+      },
+      {
+        "tier": "design_agents",
+        "model_id": "LatinDesignAgents-100",
+        "family": "DesignReality",
+        "agent_count": 200,
+        "core_count": 10,
+        "native": true,
+        "third_party_inference": false
+      }
+    ],
+    "generated_at": "2026-07-02T09:01:59Z"
+  },
+  "platform": {
+    "protocol": "MESIE-MODEL-PLATFORM-REGISTRY/1.0",
+    "mesie_version": "1.2.0",
+    "service_count": 14,
+    "third_party_inference": false,
+    "bridge": "MESIE-MVP-PROTOCOL-BRIDGE/1.0",
+    "worker_bus": "MESIE-WORKER-BUS-GROK/1.0",
+    "services": [
+      {
+        "service_id": "model-hub",
+        "title": "Unified Model Hub",
+        "category": "catalog",
+        "models": [
+          "NOVA-50B-VIRTUAL",
+          "NOVAMINI-8B-VIRTUAL",
+          "MININOVA-3B-VIRTUAL",
+          "ST-\u03c6-128",
+          "ST-\u03c6-256",
+          "ST-\u03c6-512"
+        ],
+        "protocol_id": "P36",
+        "worker_role": "worker",
+        "worker_action": "platform_models",
+        "processor_route": "GET /processor/models",
+        "web_surface": "websites/model-hub/index.html",
+        "port": 8750,
+        "description": "Browse all sovereign models \u2014 encode, forge, benchmark."
+      },
+      {
+        "service_id": "nova-studio",
+        "title": "NOVA Virtual Studio",
+        "category": "forge",
+        "models": [
+          "NOVA-50B-VIRTUAL",
+          "NOVAMINI-8B-VIRTUAL",
+          "MININOVA-3B-VIRTUAL"
+        ],
+        "protocol_id": "P33",
+        "worker_role": "creator",
+        "worker_action": "platform_forge",
+        "processor_route": "POST /processor/platform/nova-studio/invoke",
+        "web_surface": "websites/model-hub/index.html#nova",
+        "port": 8750,
+        "description": "Forge 50B/8B/3B virtual models from corpus probe text."
+      },
+      {
+        "service_id": "st-phi-encode",
+        "title": "ST-\u03c6 Edge Encoder",
+        "category": "encode",
+        "models": [
+          "ST-\u03c6-128",
+          "ST-\u03c6-256",
+          "ST-\u03c6-512"
+        ],
+        "protocol_id": "P36",
+        "worker_role": "worker",
+        "worker_action": "platform_encode",
+        "processor_route": "POST /processor/compute/encode",
+        "web_surface": "websites/model-hub/index.html#encode",
+        "port": 8750,
+        "description": "Sub-ms spectral embedding \u2014 no torch, \u03c6-harmonic attention."
+      },
+      {
+        "service_id": "solus-console",
+        "title": "SOLUS Formal Console",
+        "category": "intelligence",
+        "models": [
+          "solus-logic-model",
+          "solus-reasoning-model",
+          "solus-emergence-model",
+          "solus-adaptation-model"
+        ],
+        "protocol_id": "P35",
+        "worker_role": "orchestrator",
+        "worker_action": "platform_solus",
+        "processor_route": "POST /processor/platform/solus-console/invoke",
+        "web_surface": "websites/solus-console/index.html",
+        "port": 8750,
+        "description": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation over spectral cycles."
+      },
+      {
+        "service_id": "auro-speak",
+        "title": "Auro Native Speaking",
+        "category": "speaking",
+        "models": [
+          "AuroNativeLM-v1"
+        ],
+        "protocol_id": "P08",
+        "worker_role": "creator",
+        "worker_action": "platform_auro",
+        "processor_route": "GET /processor/platform/auro-speak/invoke",
+        "web_surface": "websites/auro-studio/index.html",
+        "port": 8750,
+        "description": "Sovereign speaking intelligence \u2014 32 knowledge entries, Paper IV."
+      },
+      {
+        "service_id": "producer-pipeline",
+        "title": "ML Producer Pipeline",
+        "category": "large_data",
+        "models": [
+          "MESIE-Producer"
+        ],
+        "protocol_id": "P07",
+        "worker_role": "worker",
+        "worker_action": "platform_producer",
+        "processor_route": "POST /processor/platform/producer-pipeline/invoke",
+        "web_surface": "websites/producer-lab/index.html",
+        "port": 8750,
+        "description": "932+ corpus records \u2014 harvest, encode, auto-forge NOVA."
+      },
+      {
+        "service_id": "st-phi-benchmark",
+        "title": "ST-\u03c6 Benchmark Suite",
+        "category": "benchmark",
+        "models": [
+          "ST-\u03c6-128",
+          "ST-\u03c6-256",
+          "ST-\u03c6-512"
+        ],
+        "protocol_id": "P36",
+        "worker_role": "worker",
+        "worker_action": "platform_benchmark",
+        "processor_route": "POST /processor/compute/benchmark",
+        "web_surface": "websites/model-hub/index.html#benchmark",
+        "port": 8750,
+        "description": "Full hub benchmark \u2014 ST-\u03c6 + Fast ANN + virtual processor."
+      },
+      {
+        "service_id": "auro-studio",
+        "title": "Auro Studio",
+        "category": "speaking",
+        "models": [
+          "AuroNativeLM-v1"
+        ],
+        "protocol_id": "P08",
+        "worker_role": "creator",
+        "worker_action": "platform_auro",
+        "processor_route": "POST /processor/platform/auro-speak/invoke",
+        "web_surface": "websites/auro-studio/index.html",
+        "port": 8750,
+        "description": "Dedicated speaking intelligence surface \u2014 eval matrix + alpha family."
+      },
+      {
+        "service_id": "producer-lab",
+        "title": "Producer Lab",
+        "category": "large_data",
+        "models": [
+          "MESIE-Producer"
+        ],
+        "protocol_id": "P07",
+        "worker_role": "worker",
+        "worker_action": "platform_producer",
+        "processor_route": "POST /processor/platform/producer-pipeline/invoke",
+        "web_surface": "websites/producer-lab/index.html",
+        "port": 8750,
+        "description": "Dedicated ML producer \u2014 corpus harvest, pulse, NOVA auto-forge."
+      },
+      {
+        "service_id": "computing-family",
+        "title": "MESIE Computing Family",
+        "category": "products",
+        "models": [
+          "ST-\u03c6-256",
+          "ST-\u03c6-512",
+          "MESIE-COMPUTE-EDGE"
+        ],
+        "protocol_id": "P07",
+        "worker_role": "helper",
+        "worker_action": "platform_compute",
+        "processor_route": "GET /processor/compute/products",
+        "web_surface": "websites/computing-family/index.html",
+        "port": 8750,
+        "description": "8 virtual products + tri-agent squads + live latency."
+      },
+      {
+        "service_id": "platform-hub",
+        "title": "Platform Command Hub",
+        "category": "orchestration",
+        "models": [
+          "ALL"
+        ],
+        "protocol_id": "P32",
+        "worker_role": "orchestrator",
+        "worker_action": "platform_status",
+        "processor_route": "GET /processor/platform",
+        "web_surface": "websites/platform-hub/index.html",
+        "port": 8750,
+        "description": "MVP launcher \u2014 workers, protocols, all model services."
+      },
+      {
+        "service_id": "reality-engine",
+        "title": "Design Reality Engine",
+        "category": "design",
+        "models": [
+          "LatinDesignAgents-100"
+        ],
+        "protocol_id": "P16",
+        "worker_role": "creator",
+        "worker_action": "platform_design",
+        "processor_route": "GET /processor/design",
+        "web_surface": "websites/reality-engine/index.html",
+        "port": 8750,
+        "description": "10 cores \u00d7 100 paradigms \u2014 Three.js \u03c6-icosahedron showcase."
+      },
+      {
+        "service_id": "hermes-fleet",
+        "title": "HERMES Cloudflare Fleet",
+        "category": "edge_execution",
+        "models": [
+          "HERMES-12",
+          "NOVA-PROTOCOL"
+        ],
+        "protocol_id": "P43",
+        "worker_role": "executioner",
+        "worker_action": "platform_hermes",
+        "processor_route": "GET /processor/hermes",
+        "web_surface": "websites/hermes-fleet/index.html",
+        "port": 8750,
+        "description": "12 Cloudflare workers \u2014 wrangler, ICP CLI, SDK, clean internet. ItsnotAILabs."
+      },
+      {
+        "service_id": "enterprise-4k",
+        "title": "Enterprise 4K Command",
+        "category": "enterprise",
+        "models": [
+          "SOLUS",
+          "NOVA",
+          "MESIE"
+        ],
+        "protocol_id": "P30",
+        "worker_role": "orchestrator",
+        "worker_action": "processor_status",
+        "processor_route": "GET /processor/harness",
+        "web_surface": "websites/enterprise-4k/index.html",
+        "port": 8770,
+        "description": "4K ops desk \u2014 five businesses, dual-chain tokens, live ports."
+      }
+    ],
+    "surfaces": {
+      "platform_hub": "websites/platform-hub/index.html",
+      "model_hub": "websites/model-hub/index.html",
+      "solus_console": "websites/solus-console/index.html",
+      "auro_studio": "websites/auro-studio/index.html",
+      "producer_lab": "websites/producer-lab/index.html",
+      "computing_family": "websites/computing-family/index.html",
+      "reality_engine": "websites/reality-engine/index.html",
+      "enterprise_4k": "websites/enterprise-4k/index.html",
+      "hermes_fleet": "websites/hermes-fleet/index.html"
+    },
+    "generated_at": "2026-07-02T09:01:59Z"
+  },
+  "bridge": {
+    "protocol": "MESIE-MVP-PROTOCOL-BRIDGE/1.0",
+    "mesie_version": "1.2.0",
+    "protocol_bus": "MESIE-DESIGN-PROTOCOL-BUS/1.0",
+    "protocol_count": 44,
+    "service_count": 14,
+    "bindings": [
+      {
+        "service_id": "model-hub",
+        "web_surface": "websites/model-hub/index.html",
+        "protocol_id": "P36",
+        "protocol_name": "MESIE-ST-PHI-TRANSFORMER/1.0",
+        "worker_role": "worker",
+        "worker_action": "platform_models"
+      },
+      {
+        "service_id": "nova-studio",
+        "web_surface": "websites/model-hub/index.html#nova",
+        "protocol_id": "P33",
+        "protocol_name": "MESIE-NOVA-CAREER-PULSE/1.0",
+        "worker_role": "creator",
+        "worker_action": "platform_forge"
+      },
+      {
+        "service_id": "st-phi-encode",
+        "web_surface": "websites/model-hub/index.html#encode",
+        "protocol_id": "P36",
+        "protocol_name": "MESIE-ST-PHI-TRANSFORMER/1.0",
+        "worker_role": "worker",
+        "worker_action": "platform_encode"
+      },
+      {
+        "service_id": "solus-console",
+        "web_surface": "websites/solus-console/index.html",
+        "protocol_id": "P35",
+        "protocol_name": "MESIE-SOLUS-FORMAL-STACK/1.0",
+        "worker_role": "orchestrator",
+        "worker_action": "platform_solus"
+      },
+      {
+        "service_id": "auro-speak",
+        "web_surface": "websites/auro-studio/index.html",
+        "protocol_id": "P08",
+        "protocol_name": "MESIE-INTELLIGENCE-PROTOCOL/1.0",
+        "worker_role": "creator",
+        "worker_action": "platform_auro"
+      },
+      {
+        "service_id": "producer-pipeline",
+        "web_surface": "websites/producer-lab/index.html",
+        "protocol_id": "P07",
+        "protocol_name": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+        "worker_role": "worker",
+        "worker_action": "platform_producer"
+      },
+      {
+        "service_id": "st-phi-benchmark",
+        "web_surface": "websites/model-hub/index.html#benchmark",
+        "protocol_id": "P36",
+        "protocol_name": "MESIE-ST-PHI-TRANSFORMER/1.0",
+        "worker_role": "worker",
+        "worker_action": "platform_benchmark"
+      },
+      {
+        "service_id": "auro-studio",
+        "web_surface": "websites/auro-studio/index.html",
+        "protocol_id": "P08",
+        "protocol_name": "MESIE-INTELLIGENCE-PROTOCOL/1.0",
+        "worker_role": "creator",
+        "worker_action": "platform_auro"
+      },
+      {
+        "service_id": "producer-lab",
+        "web_surface": "websites/producer-lab/index.html",
+        "protocol_id": "P07",
+        "protocol_name": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+        "worker_role": "worker",
+        "worker_action": "platform_producer"
+      },
+      {
+        "service_id": "computing-family",
+        "web_surface": "websites/computing-family/index.html",
+        "protocol_id": "P07",
+        "protocol_name": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+        "worker_role": "helper",
+        "worker_action": "platform_compute"
+      },
+      {
+        "service_id": "platform-hub",
+        "web_surface": "websites/platform-hub/index.html",
+        "protocol_id": "P32",
+        "protocol_name": "MESIE-WORKER-BUS-GROK/1.0",
+        "worker_role": "orchestrator",
+        "worker_action": "platform_status"
+      },
+      {
+        "service_id": "reality-engine",
+        "web_surface": "websites/reality-engine/index.html",
+        "protocol_id": "P16",
+        "protocol_name": "MESIE-DESIGN-REALITY-ECOSYSTEM/1.0",
+        "worker_role": "creator",
+        "worker_action": "platform_design"
+      },
+      {
+        "service_id": "hermes-fleet",
+        "web_surface": "websites/hermes-fleet/index.html",
+        "protocol_id": "P43",
+        "protocol_name": "HERMES-FLEET/1.0",
+        "worker_role": "executioner",
+        "worker_action": "platform_hermes"
+      },
+      {
+        "service_id": "enterprise-4k",
+        "web_surface": "websites/enterprise-4k/index.html",
+        "protocol_id": "P30",
+        "protocol_name": "MESIE-ARCHITECTURA-MFE/1.0",
+        "worker_role": "orchestrator",
+        "worker_action": "processor_status"
+      }
+    ],
+    "flow": [
+      "web_app \u2192 bridge_envelope",
+      "envelope \u2192 WorkerBus.dispatch(role, action)",
+      "worker \u2192 native backend (compute, SOLUS, forge, producer)",
+      "receipt \u2192 processor JSON response"
+    ],
+    "generated_at": "2026-07-02T09:01:59Z"
+  }
+}

@@ -1,0 +1,454 @@
+{
+  "protocol": "MESIE-AUTO-AI-BUSINESS/1.0",
+  "mesie_version": "1.2.0",
+  "business_count": 18,
+  "model": {
+    "intelligence": "native SOLUS + MESIE engines on :8750",
+    "not_used": [
+      "OpenAI API",
+      "Anthropic API",
+      "HuggingFace inference"
+    ],
+    "operators": [
+      "human approves ship",
+      "Grok Build executes DAG",
+      "NOVA careers maintain uptime"
+    ],
+    "proof": [
+      "receipt_chain",
+      "LRC mint",
+      "benchmark_manifest"
+    ]
+  },
+  "template_library": 12,
+  "businesses": [
+    {
+      "business_id": "cybersecurity_ai",
+      "title": "Cybersecurity AI",
+      "industry": "Cybersecurity",
+      "parent_business": "biz-02",
+      "github_repo": "mesie-usecase-cybersecurity-ai",
+      "template_id": "dashboard_4k",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/read-signal",
+        "GET /processor/autonomous"
+      ],
+      "scaffold": "templates/businesses/cybersecurity_ai/"
+    },
+    {
+      "business_id": "autonomous_runtime",
+      "title": "Autonomous Self-Executing Runtime",
+      "industry": "Platform",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-autonomous-runtime",
+      "template_id": "computing_family",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET /processor/autonomous",
+        "GET /processor/nova-runtime"
+      ],
+      "scaffold": "templates/businesses/autonomous_runtime/"
+    },
+    {
+      "business_id": "universal_signals",
+      "title": "Universal Signal Plane",
+      "industry": "Signals",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-universal-signals",
+      "template_id": "native_dsl_ide",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/read-signal",
+        "POST /processor/generate-text"
+      ],
+      "scaffold": "templates/businesses/universal_signals/"
+    },
+    {
+      "business_id": "nova_swarm",
+      "title": "NOVA 70-Career Swarm",
+      "industry": "NOVA",
+      "parent_business": "biz-04",
+      "github_repo": "mesie-usecase-nova-swarm",
+      "template_id": "career_portal",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET /processor/nova-runtime",
+        "POST /processor/robotics-pulse"
+      ],
+      "scaffold": "templates/businesses/nova_swarm/"
+    },
+    {
+      "business_id": "drone_swarm",
+      "title": "Decentralized Drone Swarm",
+      "industry": "Defense",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-drone-swarm",
+      "template_id": "dashboard_4k",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/mesh/pulse",
+        "POST /processor/robotics-pulse"
+      ],
+      "scaffold": "templates/businesses/drone_swarm/"
+    },
+    {
+      "business_id": "sovereign_cloud",
+      "title": "Sovereign Cloud ICP",
+      "industry": "Sovereign",
+      "parent_business": "biz-05",
+      "github_repo": "mesie-usecase-sovereign-cloud",
+      "template_id": "auto_business_ops",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET /processor/status"
+      ],
+      "scaffold": "templates/businesses/sovereign_cloud/"
+    },
+    {
+      "business_id": "enterprise_ai_sovereign",
+      "title": "Enterprise AI Sovereign Memory",
+      "industry": "Enterprise AI",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-enterprise-ai",
+      "template_id": "dashboard_4k",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/exec",
+        "GET /processor/architecture"
+      ],
+      "scaffold": "templates/businesses/enterprise_ai_sovereign/"
+    },
+    {
+      "business_id": "mfg_predictive",
+      "title": "Manufacturing Predictive Maintenance",
+      "industry": "Industrial",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-mfg-predictive",
+      "template_id": "product_sku",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/match",
+        "POST /processor/embed"
+      ],
+      "scaffold": "templates/businesses/mfg_predictive/"
+    },
+    {
+      "business_id": "energy_grid",
+      "title": "Energy Grid Stability",
+      "industry": "Energy",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-energy-grid",
+      "template_id": "product_sku",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/read-signal",
+        "POST /processor/match"
+      ],
+      "scaffold": "templates/businesses/energy_grid/"
+    },
+    {
+      "business_id": "robotics_fleet",
+      "title": "Robotics Fleet Edge",
+      "industry": "Robotics",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-robotics-fleet",
+      "template_id": "computing_family",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/robotics-pulse",
+        "POST /processor/benchmark"
+      ],
+      "scaffold": "templates/businesses/robotics_fleet/"
+    },
+    {
+      "business_id": "seismic_insurance",
+      "title": "Seismic Insurance Risk",
+      "industry": "Insurance",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-seismic-insurance",
+      "template_id": "product_sku",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/match",
+        "POST /processor/read-signal"
+      ],
+      "scaffold": "templates/businesses/seismic_insurance/"
+    },
+    {
+      "business_id": "native_ai_transformer",
+      "title": "Native AI Transformer Forge",
+      "industry": "Native AI",
+      "parent_business": "biz-02",
+      "github_repo": "mesie-usecase-native-ai",
+      "template_id": "native_dsl_ide",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET /processor/architecture"
+      ],
+      "scaffold": "templates/businesses/native_ai_transformer/"
+    },
+    {
+      "business_id": "career_workforce",
+      "title": "1000-Career AI Workforce",
+      "industry": "Workforce",
+      "parent_business": "biz-03",
+      "github_repo": "mesie-usecase-career-workforce",
+      "template_id": "career_portal",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET http://127.0.0.1:8767/health"
+      ],
+      "scaffold": "templates/businesses/career_workforce/"
+    },
+    {
+      "business_id": "universal_mcp_federation",
+      "title": "Universal MCP Federation",
+      "industry": "MCP",
+      "parent_business": "biz-02",
+      "github_repo": "mesie-usecase-universal-mcp",
+      "template_id": "api_console",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET http://127.0.0.1:8765/health"
+      ],
+      "scaffold": "templates/businesses/universal_mcp_federation/"
+    },
+    {
+      "business_id": "interior_datacenter",
+      "title": "Interior Data Center Edge",
+      "industry": "Infrastructure",
+      "parent_business": "biz-05",
+      "github_repo": "mesie-usecase-interior-dc",
+      "template_id": "dashboard_4k",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/mesh/soak",
+        "GET /processor/mesh"
+      ],
+      "scaffold": "templates/businesses/interior_datacenter/"
+    },
+    {
+      "business_id": "neuroswarm_audit",
+      "title": "NeuroSwarm Claims Audit",
+      "industry": "Audit",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-neuroswarm-audit",
+      "template_id": "research_paper",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "POST /processor/benchmark"
+      ],
+      "scaffold": "templates/businesses/neuroswarm_audit/"
+    },
+    {
+      "business_id": "dual_chain_tokens",
+      "title": "Dual-Chain Token Bridge",
+      "industry": "Tokens",
+      "parent_business": "biz-04",
+      "github_repo": "mesie-usecase-dual-chain",
+      "template_id": "market_hub",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET /processor/tokens/manifest",
+        "POST /processor/tokens/mint"
+      ],
+      "scaffold": "templates/businesses/dual_chain_tokens/"
+    },
+    {
+      "business_id": "virtual_processor_devkit",
+      "title": "Virtual Processor DevKit",
+      "industry": "Developer Kit",
+      "parent_business": "biz-01",
+      "github_repo": "mesie-usecase-virtual-processor",
+      "template_id": "market_hub",
+      "harness_ids": [
+        "use_case_child_repo",
+        "tri_agent_squad",
+        "auto_ai_business_shell"
+      ],
+      "intelligence": "SOLUS + MESIE native \u2014 embed, match, logic, workflow (no third-party inference)",
+      "operators": [
+        "human:Medin",
+        "executor:Grok-Build",
+        "fleet:NOVA-70"
+      ],
+      "processor_ops": [
+        "GET /processor/status",
+        "GET /processor/market-research"
+      ],
+      "scaffold": "templates/businesses/virtual_processor_devkit/"
+    }
+  ],
+  "generated_at": "2026-07-02T07:08:46Z"
+}

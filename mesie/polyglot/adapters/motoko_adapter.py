@@ -9,13 +9,34 @@ from mesie.polyglot.adapters.rust_adapter import _fallback_match, _fallback_vali
 from mesie.polyglot.contract import AISVectorMessage, PolyglotAction, RuntimeId
 
 
+def _default_engines_canister() -> str:
+    """Resolve sovereign_engines canister from ICP manifest if present."""
+    try:
+        import json
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[3]
+        manifest = root / "deliverables" / "icp" / "SOVEREIGN_CLOUD_PLATFORM_MANIFEST.json"
+        if manifest.is_file():
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            ids = data.get("canister_ids") or {}
+            if isinstance(ids, dict):
+                for key in ("local", "ic"):
+                    block = ids.get(key) if isinstance(ids.get(key), dict) else ids
+                    if isinstance(block, dict) and block.get("sovereign_engines"):
+                        return str(block["sovereign_engines"])
+    except (OSError, json.JSONDecodeError, KeyError, TypeError):
+        pass
+    return ""
+
+
 class MotokoAdapter(PolyglotAdapter):
     """Motoko logic mirrored locally; native mode when dfx canister endpoint is configured."""
 
     runtime = RuntimeId.MOTOKO
 
     def __init__(self, canister_url: str = "") -> None:
-        self.canister_url = canister_url
+        self.canister_url = canister_url or _default_engines_canister()
 
     def available(self) -> bool:
         return bool(self.canister_url)

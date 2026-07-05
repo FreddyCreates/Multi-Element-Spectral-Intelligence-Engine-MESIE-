@@ -1,0 +1,22 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-nova-pulse",
+  "slot": "H10",
+  "title": "NOVA Pulse",
+  "route": "/hermes/nova",
+  "operations": [
+    "career_pulse",
+    "runtime_tick",
+    "lrc_mint"
+  ],
+  "generates": [
+    "NOVA_PULSE.json"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "NOVA_PULSE.json"
+  ],
+  "processor_proxy": "GET /processor/grok/protocol",
+  "third_party_inference": false
+}

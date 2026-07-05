@@ -1,0 +1,38 @@
+{
+  "product": "MESIE COMPUTE Hub Benchmark",
+  "trials": 100,
+  "st_phi": {
+    "encode_p50_ms": 419.6919,
+    "encode_p95_ms": 606.7161,
+    "dims": 256,
+    "trials": 100,
+    "vs_hf_baseline_speedup": 0.02,
+    "native": true,
+    "backend": "numpy_st_phi"
+  },
+  "fast_ann": {
+    "p50_ms": 0.3924,
+    "p95_ms": 14.5189,
+    "trials": 100,
+    "index_size": 456,
+    "backend": "library_index:spectral_index.json"
+  },
+  "virtual_processor": {
+    "threat_p50_ms": 8.7,
+    "ann_p50_ms": 0.3543,
+    "ann_p95_ms": 11.576,
+    "ann_backend": "library_index:spectral_index.json",
+    "ota_mesh_ok": true,
+    "trials": 100
+  },
+  "phi_kernel": {
+    "kernel": "MESIE-\u03c6-KERNEL/1.0",
+    "slice_count": 0,
+    "total_raw_bytes": 0,
+    "total_compressed_bytes": 0,
+    "compression_ratio": 0.0,
+    "slices": [],
+    "generated_at": "2026-07-05T05:59:09Z"
+  },
+  "timestamp": "2026-07-05T05:59:09Z"
+}

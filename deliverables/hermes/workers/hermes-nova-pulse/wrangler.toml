@@ -1,0 +1,20 @@
+# HERMES H10 — NOVA Pulse
+name = "mesie-hermes-nova-pulse"
+main = "index.js"
+compatibility_date = "2024-11-01"
+workers_dev = true
+
+[vars]
+HERMES_WORKER_ID = "hermes-nova-pulse"
+HERMES_SLOT = "H10"
+NOVA_PROTOCOL = "NOVA-PROTOCOL-CLEAN-INTERNET/1.0"
+BRAND = "ItsnotAILabs"
+
+# Set at deploy: wrangler secret put MESIE_PROCESSOR_URL
+# MESIE_PROCESSOR_URL = "https://your-edge-gateway.example"
+
+[[routes]]
+pattern = "/hermes/nova*"
+zone_name = "itsnotailabs.workers.dev"
+
+# account_id = "ITSNOTAILABS_ACCOUNT"

@@ -1,0 +1,31 @@
+{
+  "protocol": "HERMES-ICP-CLI/1.0",
+  "hermes_version": "1.0.0",
+  "dfx_version": "0.15+",
+  "networks": [
+    "local",
+    "ic"
+  ],
+  "commands": [
+    {
+      "cmd": "dfx start --background",
+      "role": "local replica"
+    },
+    {
+      "cmd": "dfx deploy sovereign_registry",
+      "role": "registry canister"
+    },
+    {
+      "cmd": "dfx deploy sovereign_colony",
+      "role": "colony + HERMES anchor"
+    },
+    {
+      "cmd": "python -m mesie.cloud.icp_bridge --sync",
+      "role": "edge \u2192 ICP proof sync"
+    }
+  ],
+  "canister_map_path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\icp\\sovereign-cloud\\canister_ids.json",
+  "hermes_embed": true,
+  "nova_protocol": "NOVA-PROTOCOL-CLEAN-INTERNET/1.0",
+  "generated_at": "2026-07-02T09:13:47Z"
+}

@@ -1,0 +1,128 @@
+{
+  "protocol": "MESIE-MVP-PROTOCOL-BRIDGE/1.0",
+  "mesie_version": "1.2.0",
+  "protocol_bus": "MESIE-DESIGN-PROTOCOL-BUS/1.0",
+  "protocol_count": 44,
+  "service_count": 14,
+  "bindings": [
+    {
+      "service_id": "model-hub",
+      "web_surface": "websites/model-hub/index.html",
+      "protocol_id": "P36",
+      "protocol_name": "MESIE-ST-PHI-TRANSFORMER/1.0",
+      "worker_role": "worker",
+      "worker_action": "platform_models"
+    },
+    {
+      "service_id": "nova-studio",
+      "web_surface": "websites/model-hub/index.html#nova",
+      "protocol_id": "P33",
+      "protocol_name": "MESIE-NOVA-CAREER-PULSE/1.0",
+      "worker_role": "creator",
+      "worker_action": "platform_forge"
+    },
+    {
+      "service_id": "st-phi-encode",
+      "web_surface": "websites/model-hub/index.html#encode",
+      "protocol_id": "P36",
+      "protocol_name": "MESIE-ST-PHI-TRANSFORMER/1.0",
+      "worker_role": "worker",
+      "worker_action": "platform_encode"
+    },
+    {
+      "service_id": "solus-console",
+      "web_surface": "websites/solus-console/index.html",
+      "protocol_id": "P35",
+      "protocol_name": "MESIE-SOLUS-FORMAL-STACK/1.0",
+      "worker_role": "orchestrator",
+      "worker_action": "platform_solus"
+    },
+    {
+      "service_id": "auro-speak",
+      "web_surface": "websites/auro-studio/index.html",
+      "protocol_id": "P08",
+      "protocol_name": "MESIE-INTELLIGENCE-PROTOCOL/1.0",
+      "worker_role": "creator",
+      "worker_action": "platform_auro"
+    },
+    {
+      "service_id": "producer-pipeline",
+      "web_surface": "websites/producer-lab/index.html",
+      "protocol_id": "P07",
+      "protocol_name": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+      "worker_role": "worker",
+      "worker_action": "platform_producer"
+    },
+    {
+      "service_id": "st-phi-benchmark",
+      "web_surface": "websites/model-hub/index.html#benchmark",
+      "protocol_id": "P36",
+      "protocol_name": "MESIE-ST-PHI-TRANSFORMER/1.0",
+      "worker_role": "worker",
+      "worker_action": "platform_benchmark"
+    },
+    {
+      "service_id": "auro-studio",
+      "web_surface": "websites/auro-studio/index.html",
+      "protocol_id": "P08",
+      "protocol_name": "MESIE-INTELLIGENCE-PROTOCOL/1.0",
+      "worker_role": "creator",
+      "worker_action": "platform_auro"
+    },
+    {
+      "service_id": "producer-lab",
+      "web_surface": "websites/producer-lab/index.html",
+      "protocol_id": "P07",
+      "protocol_name": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+      "worker_role": "worker",
+      "worker_action": "platform_producer"
+    },
+    {
+      "service_id": "computing-family",
+      "web_surface": "websites/computing-family/index.html",
+      "protocol_id": "P07",
+      "protocol_name": "MESIE-COMPUTING-FAMILY-RELEASE/1.0",
+      "worker_role": "helper",
+      "worker_action": "platform_compute"
+    },
+    {
+      "service_id": "platform-hub",
+      "web_surface": "websites/platform-hub/index.html",
+      "protocol_id": "P32",
+      "protocol_name": "MESIE-WORKER-BUS-GROK/1.0",
+      "worker_role": "orchestrator",
+      "worker_action": "platform_status"
+    },
+    {
+      "service_id": "reality-engine",
+      "web_surface": "websites/reality-engine/index.html",
+      "protocol_id": "P16",
+      "protocol_name": "MESIE-DESIGN-REALITY-ECOSYSTEM/1.0",
+      "worker_role": "creator",
+      "worker_action": "platform_design"
+    },
+    {
+      "service_id": "hermes-fleet",
+      "web_surface": "websites/hermes-fleet/index.html",
+      "protocol_id": "P43",
+      "protocol_name": "HERMES-FLEET/1.0",
+      "worker_role": "executioner",
+      "worker_action": "platform_hermes"
+    },
+    {
+      "service_id": "enterprise-4k",
+      "web_surface": "websites/enterprise-4k/index.html",
+      "protocol_id": "P30",
+      "protocol_name": "MESIE-ARCHITECTURA-MFE/1.0",
+      "worker_role": "orchestrator",
+      "worker_action": "processor_status"
+    }
+  ],
+  "flow": [
+    "web_app \u2192 bridge_envelope",
+    "envelope \u2192 WorkerBus.dispatch(role, action)",
+    "worker \u2192 native backend (compute, SOLUS, forge, producer)",
+    "receipt \u2192 processor JSON response"
+  ],
+  "generated_at": "2026-07-02T09:01:59Z"
+}

@@ -12,18 +12,39 @@ from typing import Any
 DATA_DIR = Path(__file__).parent
 
 
-def get_reference_path(name: str) -> Path:
-    """Get the full path to a reference data file."""
-    if not name.endswith(".json"):
-        name = f"{name}.json"
+def _find_reference_by_record_id(record_id: str) -> Path | None:
+    """Resolve a record_id (e.g. ref-earthquake-psd-001) to a bundled JSON path."""
+    for sub in ("reference", "benchmarks"):
+        folder = DATA_DIR / sub
+        if not folder.is_dir():
+            continue
+        for path in folder.glob("*.json"):
+            try:
+                with open(path, encoding="utf-8") as f:
+                    payload = json.load(f)
+                if payload.get("record_id") == record_id:
+                    return path
+            except (json.JSONDecodeError, OSError):
+                continue
+    return None
 
-    ref_path = DATA_DIR / "reference" / name
+
+def get_reference_path(name: str) -> Path:
+    """Get the full path to a reference data file (stem, filename, or record_id)."""
+    stem = Path(name).stem if name.endswith(".json") else name
+    filename = f"{stem}.json"
+
+    ref_path = DATA_DIR / "reference" / filename
     if ref_path.exists():
         return ref_path
 
-    bench_path = DATA_DIR / "benchmarks" / name
+    bench_path = DATA_DIR / "benchmarks" / filename
     if bench_path.exists():
         return bench_path
+
+    by_id = _find_reference_by_record_id(stem)
+    if by_id is not None:
+        return by_id
 
     raise FileNotFoundError(f"Data file not found: {name}")
 
@@ -92,13 +113,6 @@ def load_reference(name: str) -> dict[str, Any]:
         return json.load(f)
 
 
-def load_reference_record(name: str):
-    """Load a reference dataset as a MultiElementRecord."""
-    from mesie.io.loaders import load_record
-
-    return load_record(_normalize_reference_payload(load_reference(name)))
-
-
 def load_benchmark(name: str) -> dict[str, Any]:
     """Load a benchmark dataset by name."""
     if not name.endswith(".json"):
@@ -118,31 +132,11 @@ def list_references() -> list[str]:
     return [f.stem for f in ref_dir.glob("*.json")]
 
 
-def load_reference_record(name: str) -> "MultiElementRecord":
-    """Load a reference dataset as a MultiElementRecord.
+def load_reference_record(name: str):
+    """Load a reference dataset as a MultiElementRecord (stem, filename, or record_id)."""
+    from mesie.io.loaders import load_record
 
-    Args:
-        name: Dataset name (e.g., 'earthquake_psd_reference').
-
-    Returns:
-        MultiElementRecord instance.
-    """
-    from mesie.core.records import MultiElementRecord, SpectralComponent
-
-    data = load_reference(name)
-    components = []
-    for comp_data in data.get("components", []):
-        import numpy as np
-        components.append(SpectralComponent(
-            name=comp_data.get("component_id", comp_data.get("direction", "default")),
-            frequency=np.array(comp_data.get("frequencies", []), dtype=float),
-            amplitude=np.array(comp_data.get("amplitudes", []), dtype=float),
-        ))
-
-    return MultiElementRecord(
-        record_id=data.get("record_id", name),
-        components=components,
-    )
+    return load_record(_normalize_reference_payload(load_reference(name)))
 
 
 def list_benchmarks() -> list[str]:

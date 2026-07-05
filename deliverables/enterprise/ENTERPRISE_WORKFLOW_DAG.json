@@ -1,0 +1,121 @@
+{
+  "protocol": "MESIE-ENTERPRISE-WORKFLOW/1.0",
+  "nodes": [
+    {
+      "id": "n01",
+      "name": "unify_repos",
+      "phase": "UNIFY",
+      "deps": [],
+      "critical": true
+    },
+    {
+      "id": "n02",
+      "name": "grok_protocol",
+      "phase": "CONNECT",
+      "deps": [
+        "n01"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n03",
+      "name": "triple_protocol",
+      "phase": "CONNECT",
+      "deps": [
+        "n01"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n04",
+      "name": "multimodal_protocol",
+      "phase": "CONNECT",
+      "deps": [
+        "n03"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n05",
+      "name": "token_budget",
+      "phase": "EFFICIENCY",
+      "deps": [
+        "n01"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n06",
+      "name": "nova_snapshot",
+      "phase": "RUNTIME",
+      "deps": [
+        "n01"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n07",
+      "name": "compute_benchmark",
+      "phase": "MESIE",
+      "deps": [
+        "n01"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n08",
+      "name": "colony_bridge",
+      "phase": "SOVEREIGN",
+      "deps": [
+        "n01"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n09",
+      "name": "research_metamaterial",
+      "phase": "RESEARCH",
+      "deps": [
+        "n07"
+      ],
+      "critical": false
+    },
+    {
+      "id": "n10",
+      "name": "sandbox_loop",
+      "phase": "SANDBOX",
+      "deps": [
+        "n02"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n11",
+      "name": "tri_agent_quality",
+      "phase": "VERIFY",
+      "deps": [
+        "n07",
+        "n10"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n12",
+      "name": "package_release",
+      "phase": "SHIP",
+      "deps": [
+        "n11"
+      ],
+      "critical": true
+    },
+    {
+      "id": "n13",
+      "name": "receipt_chain",
+      "phase": "PERSIST",
+      "deps": [
+        "n12"
+      ],
+      "critical": true
+    }
+  ]
+}

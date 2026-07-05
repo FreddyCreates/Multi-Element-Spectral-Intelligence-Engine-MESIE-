@@ -1,0 +1,36 @@
+{
+  "version": "1.2.0",
+  "protocol": "MESIE-PRODUCTION/1.2.0",
+  "updated": "2026-06-30T04:21:00Z",
+  "mesie_version": "1.2.0",
+  "components": {
+    "virtual_processor": {"port": 8750, "version": "1.2.0"},
+    "universal_mcp": {"port": 8765, "version": "1.0.0", "super_tools": 12},
+    "career_hub": {"port": 8767, "version": "1.0.0", "careers": 1000},
+    "persistent_supervisor": {"version": "1.0.0", "never_stop": true},
+    "ml_recursive": {"version": "1.0.0", "interval_s": 300},
+    "nova_runtime": {"careers": 70, "version": "1.1.0"}
+  },
+  "mcp_servers": 13,
+  "public_forks": [
+    "mesie-career-enterprise",
+    "mesie-career-cybersecurity",
+    "mesie-career-business",
+    "mesie-career-engineering",
+    "mesie-career-architecture",
+    "mesie-career-universal"
+  ],
+  "artifacts": {
+    "persistent_state": "deliverables/runtime/PERSISTENT_SERVERS_STATE.json",
+    "mcp_config": "deliverables/icp/MCP_FULL_CONFIG.json",
+    "career_catalog": "deliverables/careers/CAREER_CATALOG_1000.json",
+    "working_paper": "deliverables/research/CAREER_MCP_TRIPLE_PROTOCOL_WORKING_PAPER.md",
+    "fork_zips": "deliverables/public-forks/*.zip"
+  },
+  "boot": [
+    "Start-MESIEProduction.ps1",
+    "Start-PersistentServers.ps1",
+    "Start-NovaRuntime.ps1",
+    "scripts/publish_career_forks_github.ps1"
+  ]
+}

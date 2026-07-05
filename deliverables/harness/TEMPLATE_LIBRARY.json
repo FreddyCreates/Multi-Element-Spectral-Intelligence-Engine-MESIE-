@@ -1,0 +1,210 @@
+{
+  "protocol": "MESIE-TEMPLATE-LIBRARY/1.0",
+  "mesie_version": "1.2.0",
+  "template_count": 12,
+  "design_system": "websites/shared/mesie.css",
+  "design_tokens": [
+    "--bg",
+    "--card",
+    "--accent",
+    "--phi",
+    "--ok",
+    "--mono"
+  ],
+  "templates": [
+    {
+      "template_id": "dashboard_4k",
+      "title": "Enterprise 4K Command Center",
+      "interface_type": "operations_dashboard",
+      "stack": "html+css+fetch",
+      "path": "websites/enterprise-4k/index.html",
+      "industries": [
+        "enterprise",
+        "platform",
+        "all"
+      ],
+      "hooks": [
+        "GET /processor/status",
+        "GET :8765/health",
+        "GET :8767/health"
+      ],
+      "description": "3840\u00d72160 ops desk \u2014 five businesses, dual-chain tokens, live ping."
+    },
+    {
+      "template_id": "computing_family",
+      "title": "MESIE Computing Family Live",
+      "interface_type": "product_dashboard",
+      "stack": "html+css+fetch",
+      "path": "websites/computing-family/index.html",
+      "industries": [
+        "compute",
+        "all"
+      ],
+      "hooks": [
+        "GET /processor/dsl",
+        "GET /processor/depth",
+        "MESIE_COMPUTE_PRODUCTS.json"
+      ],
+      "description": "8 virtual SKUs, tri-agent squads, latency table \u2014 live stats."
+    },
+    {
+      "template_id": "landing",
+      "title": "Product Landing Page",
+      "interface_type": "marketing",
+      "stack": "html+css",
+      "path": "websites/mesie-landing/index.html",
+      "industries": [
+        "all"
+      ],
+      "hooks": [
+        "hero",
+        "sku_grid",
+        "cta_start_script"
+      ],
+      "description": "\u03c6-branded landing \u2014 link to processor quickstart."
+    },
+    {
+      "template_id": "career_portal",
+      "title": "1000-Career Workforce Portal",
+      "interface_type": "workforce",
+      "stack": "html+css",
+      "path": "websites/career-portal/index.html",
+      "industries": [
+        "workforce",
+        "careers"
+      ],
+      "hooks": [
+        "GET :8767/health",
+        "triple_protocol"
+      ],
+      "description": "5 pillars \u00d7 200 careers \u2014 triple protocol routing."
+    },
+    {
+      "template_id": "market_hub",
+      "title": "Market + Fork Portal",
+      "interface_type": "commerce",
+      "stack": "html+css",
+      "path": "websites/market-hub/index.html",
+      "industries": [
+        "commerce",
+        "devkit"
+      ],
+      "hooks": [
+        "public-forks",
+        "dual_chain_tokens"
+      ],
+      "description": "Child repos, zips, GitHub publish flows."
+    },
+    {
+      "template_id": "api_console",
+      "title": "Processor API Console",
+      "interface_type": "developer",
+      "stack": "html+css+fetch",
+      "path": "templates/surfaces/api_console.html",
+      "industries": [
+        "developer",
+        "all"
+      ],
+      "hooks": [
+        "POST /processor/dsl/{id}/run",
+        "POST /processor/depth/{id}/envelope"
+      ],
+      "description": "Invoke any processor op from browser \u2014 native DSL + depth."
+    },
+    {
+      "template_id": "product_sku",
+      "title": "Single SKU Product App",
+      "interface_type": "product",
+      "stack": "html+css+fetch",
+      "path": "templates/surfaces/product_sku.html",
+      "industries": [
+        "all_industries"
+      ],
+      "hooks": [
+        "MESIE_COMPUTE_PRODUCTS.json",
+        "use_case_spec"
+      ],
+      "description": "One virtual product \u2014 invocations, p50, health, ops list."
+    },
+    {
+      "template_id": "auto_business_ops",
+      "title": "Auto-AI Business Operations",
+      "interface_type": "autonomous_business",
+      "stack": "html+css+fetch+json",
+      "path": "templates/surfaces/auto_business_ops.html",
+      "industries": [
+        "all_industries"
+      ],
+      "hooks": [
+        "AUTO_AI_BUSINESS_CATALOG.json",
+        "tri_agent_squads",
+        "receipt_chain"
+      ],
+      "description": "You + native AI \u2014 mission board, squad status, ship gate."
+    },
+    {
+      "template_id": "native_dsl_ide",
+      "title": "Native DSL Playground",
+      "interface_type": "language",
+      "stack": "html+css+fetch",
+      "path": "templates/surfaces/native_dsl_ide.html",
+      "industries": [
+        "signals",
+        "mcp",
+        "workflow"
+      ],
+      "hooks": [
+        "POST /processor/dsl/{id}/compile",
+        "POST /processor/dsl/{id}/run"
+      ],
+      "description": "8 languages \u2014 compile + run in browser against :8750."
+    },
+    {
+      "template_id": "depth_explorer",
+      "title": "Depth Pillar Explorer",
+      "interface_type": "polyglot_depth",
+      "stack": "html+css+fetch",
+      "path": "templates/surfaces/depth_explorer.html",
+      "industries": [
+        "all_industries"
+      ],
+      "hooks": [
+        "GET /processor/depth",
+        "GET /processor/depth/{id}"
+      ],
+      "description": "18 pillars \u2014 LOC, engines, envelope invoke."
+    },
+    {
+      "template_id": "research_paper",
+      "title": "Latin Research Paper Viewer",
+      "interface_type": "research",
+      "stack": "markdown+html",
+      "path": "docs/papers/",
+      "industries": [
+        "research",
+        "all"
+      ],
+      "hooks": [
+        "NATIVE_RELEASE_MANIFEST.json"
+      ],
+      "description": "Opera Spectralia I\u2013XIII \u2014 release capstone papers."
+    },
+    {
+      "template_id": "acoustic_demo",
+      "title": "Domain Demo (Acoustic Metamaterial)",
+      "interface_type": "domain_proof",
+      "stack": "html+css",
+      "path": "demos/acoustic-metamaterial.html",
+      "industries": [
+        "materials",
+        "seismic",
+        "defense"
+      ],
+      "hooks": [
+        "acoustic_metamaterial_agent"
+      ],
+      "description": "Single-domain interactive proof page pattern."
+    }
+  ],
+  "generated_at": "2026-07-02T07:08:46Z"
+}

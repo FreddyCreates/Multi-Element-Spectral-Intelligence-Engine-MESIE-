@@ -1,0 +1,193 @@
+{
+  "protocol": "MESIE-ALPHA-HARNESS/1.0",
+  "mesie_version": "1.2.0",
+  "harness_count": 10,
+  "intelligence_model": "SOLUS native + MESIE engines \u2014 zero third-party inference for product intelligence",
+  "operator_model": "human (Medin) + Grok Build executor + NOVA micro fleet",
+  "harnesses": [
+    {
+      "harness_id": "tri_agent_squad",
+      "title": "Tri-Agent Maintenance Squad",
+      "category": "ops_quality_intel",
+      "intelligence": "SOLUS + MESIE engines",
+      "entry_command": "python -m mesie.compute.tri_agent_squads --all",
+      "verify_command": "deliverables/compute/TRI_AGENT_SQUAD_STATE.json",
+      "squad": "ops-triad",
+      "industries": [
+        "platform",
+        "enterprise",
+        "defense"
+      ],
+      "surfaces": [
+        "dashboard_4k",
+        "api_console",
+        "product_sku"
+      ],
+      "description": "3\u00d73 agent teams \u2014 health, benchmark, embed, match, release."
+    },
+    {
+      "harness_id": "computing_family",
+      "title": "MESIE Computing Family Benchmark",
+      "category": "proof_latency",
+      "intelligence": "native ST-\u03c6 + Fast ANN",
+      "entry_command": "python scripts/run_mesie_computing_family_benchmarks.py",
+      "verify_command": "deliverables/compute/MESIE_COMPUTING_FAMILY_RELEASE.json",
+      "squad": "ops-triad",
+      "industries": [
+        "all_industries"
+      ],
+      "surfaces": [
+        "dashboard_4k",
+        "product_sku",
+        "landing"
+      ],
+      "description": "8 virtual products + industry benchmarks + economic Monte Carlo."
+    },
+    {
+      "harness_id": "swarm_mission_grok",
+      "title": "Grok Swarm Mission DAG",
+      "category": "long_horizon_build",
+      "intelligence": "ST-\u03c6 encode + Loom vault",
+      "entry_command": "deliverables/swarm_missions/<id>/mission_dag.json",
+      "verify_command": "deliverables/swarm_missions/<id>/mission_receipt.json",
+      "squad": "research-triad",
+      "industries": [
+        "all_industries"
+      ],
+      "surfaces": [
+        "auto_business_ops",
+        "api_console"
+      ],
+      "description": "Seven-phase mission loop \u2014 intake, transform, decompose, execute, verify, persist."
+    },
+    {
+      "harness_id": "enterprise_execution",
+      "title": "Enterprise Execution Engine",
+      "category": "mega_release",
+      "intelligence": "NOVA + MESIE + Grok + CloudColony",
+      "entry_command": "python -m mesie.enterprise.execution_engine --mission <slug>",
+      "verify_command": "deliverables/enterprise/EXECUTION_ENGINE_STATE.json",
+      "squad": "quality-triad",
+      "industries": [
+        "enterprise",
+        "sovereign",
+        "platform"
+      ],
+      "surfaces": [
+        "dashboard_4k",
+        "market_hub"
+      ],
+      "description": "13-node DAG \u2014 unify repos, runtime, ship, persist receipts."
+    },
+    {
+      "harness_id": "native_dsl_forge",
+      "title": "Native DSL Suite",
+      "category": "sovereign_language",
+      "intelligence": "8 domain languages \u2014 no OpenAI/HF",
+      "entry_command": "python scripts/forge_native_dsl.py",
+      "verify_command": "deliverables/native_dsl/NATIVE_DSL_MANIFEST.json",
+      "squad": "intel-triad",
+      "industries": [
+        "signals",
+        "mcp",
+        "workflow"
+      ],
+      "surfaces": [
+        "native_dsl_ide",
+        "api_console"
+      ],
+      "description": "SpectraScript, EnvelopeLang, DepthLang, WorkflowLang, LogicLang, etc."
+    },
+    {
+      "harness_id": "depth_pillar_forge",
+      "title": "Polyglot Depth Pillars",
+      "category": "measurable_depth",
+      "intelligence": "Python + Julia + Haskell per use case",
+      "entry_command": "python scripts/forge_depth_pillars.py --rebuild",
+      "verify_command": "deliverables/depth/DEPTH_MANIFEST.json",
+      "squad": "research-triad",
+      "industries": [
+        "all_industries"
+      ],
+      "surfaces": [
+        "depth_explorer",
+        "api_console"
+      ],
+      "description": "18 pillars \u00d7 5k+ LOC \u2014 enveloped engines per industry."
+    },
+    {
+      "harness_id": "use_case_child_repo",
+      "title": "Use-Case Child Branch Repo",
+      "category": "github_ready_business",
+      "intelligence": "Federated MCP + processor ops",
+      "entry_command": "python scripts/build_use_case_child_repos.py",
+      "verify_command": "deliverables/enterprise/USE_CASE_CHILD_BRANCHES.json",
+      "squad": null,
+      "industries": [
+        "all_industries"
+      ],
+      "surfaces": [
+        "landing",
+        "product_sku",
+        "auto_business_ops"
+      ],
+      "description": "Entire standalone repo per use case \u2014 publish to GitHub."
+    },
+    {
+      "harness_id": "nova_runtime",
+      "title": "NOVA 70-Career Never-Stop",
+      "category": "micro_fleet",
+      "intelligence": "70 careers + robotics satellites",
+      "entry_command": "python scripts/run_nova_runtime.py",
+      "verify_command": "deliverables/nova/NOVA_RUNTIME_STATE.json",
+      "squad": "ops-triad",
+      "industries": [
+        "infra",
+        "release",
+        "robotics"
+      ],
+      "surfaces": [
+        "career_portal",
+        "dashboard_4k"
+      ],
+      "description": "Always-on micro careers \u2014 laws, protocols, release gates."
+    },
+    {
+      "harness_id": "sdk_major_benchmark",
+      "title": "SDK Major Industry Benchmarks",
+      "category": "third_party_compare",
+      "intelligence": "MLPerf-class, vector DB, LLM, swarm",
+      "entry_command": "python scripts/run_sdk_major_benchmarks.py --trials 300",
+      "verify_command": "deliverables/MAESI_SDK_Major_Benchmarks.json",
+      "squad": "ops-triad",
+      "industries": [
+        "all_industries"
+      ],
+      "surfaces": [
+        "landing",
+        "research_paper"
+      ],
+      "description": "14 industry baselines \u2014 MQTT, Pinecone, GPT-4 tool, FAISS, NeuroSwarm."
+    },
+    {
+      "harness_id": "auto_ai_business_shell",
+      "title": "Auto-AI Business Shell",
+      "category": "operator_plus_native_ai",
+      "intelligence": "You + Grok + SOLUS \u2014 not third-party inference",
+      "entry_command": "python scripts/forge_auto_ai_businesses.py",
+      "verify_command": "deliverables/harness/AUTO_AI_BUSINESS_CATALOG.json",
+      "squad": "intel-triad",
+      "industries": [
+        "all_industries"
+      ],
+      "surfaces": [
+        "auto_business_ops",
+        "landing",
+        "dashboard_4k",
+        "market_hub"
+      ],
+      "description": "Business unit scaffold \u2014 native intelligence runs ops; you approve ship."
+    }
+  ],
+  "generated_at": "2026-07-02T07:08:46Z"
+}

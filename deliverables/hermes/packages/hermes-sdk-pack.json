@@ -1,0 +1,24 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-sdk-pack",
+  "slot": "H08",
+  "title": "SDK Packager",
+  "route": "/hermes/sdk",
+  "operations": [
+    "bundle",
+    "version",
+    "export"
+  ],
+  "generates": [
+    "HERMES_SDK_MANIFEST.json",
+    "hermes-sdk.zip"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "HERMES_SDK_MANIFEST.json",
+    "hermes-sdk.zip"
+  ],
+  "processor_proxy": "GET /processor/models",
+  "third_party_inference": false
+}

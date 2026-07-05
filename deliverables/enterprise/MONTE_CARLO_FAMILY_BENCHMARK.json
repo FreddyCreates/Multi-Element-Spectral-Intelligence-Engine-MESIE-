@@ -1,0 +1,200 @@
+{
+  "protocol": "MESIE-ENTERPRISE-MONTE-CARLO/1.0",
+  "use_cases": 10,
+  "overall_success_rate": 1.0,
+  "enterprise_grade": true,
+  "cases": [
+    {
+      "id": "mfg_predictive",
+      "name": "Predictive Maintenance",
+      "industry": "Manufacturing",
+      "description": "Detect pump/machine drift from vibration spectra.",
+      "success_metric": "top_match_sim >= 0.5",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 0.207,
+        "std_latency_ms": 0.217,
+        "p95_latency_ms": 0.291,
+        "mean_score": 0.996,
+        "std_score": 0.0127,
+        "p5_score": 0.988,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "energy_grid",
+      "name": "Grid & Power Monitoring",
+      "industry": "Energy",
+      "description": "Schumann/EM band fingerprint stability under noise.",
+      "success_metric": "validation_level >= 4",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 0.55,
+        "std_latency_ms": 2.064,
+        "p95_latency_ms": 0.33,
+        "mean_score": 6.0,
+        "std_score": 0.0,
+        "p5_score": 6.0,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "aerospace_orbital",
+      "name": "Satellite Ops & Orbital",
+      "industry": "Aerospace",
+      "description": "Orbital-edge style spectral gate + seismic anchor coupling.",
+      "success_metric": "match_score >= 0.6",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 0.544,
+        "std_latency_ms": 2.485,
+        "p95_latency_ms": 0.638,
+        "mean_score": 0.8614,
+        "std_score": 0.0186,
+        "p5_score": 0.8001,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "insurance_seismic",
+      "name": "Catastrophe / Seismic Risk",
+      "industry": "Insurance",
+      "description": "Cross-match earthquake vs structural references.",
+      "success_metric": "match_score >= 0.55",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 0.378,
+        "std_latency_ms": 0.25,
+        "p95_latency_ms": 0.757,
+        "mean_score": 0.635,
+        "std_score": 0.0021,
+        "p5_score": 0.632,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "structural_civil",
+      "name": "Structural / Civil Engineering",
+      "industry": "Construction",
+      "description": "FAS structural spectrum ranking under perturbation.",
+      "success_metric": "rank_top3_self_or_structural",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 4.179,
+        "std_latency_ms": 5.203,
+        "p95_latency_ms": 11.443,
+        "mean_score": 0.846,
+        "std_score": 0.0025,
+        "p5_score": 0.8417,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "health_device",
+      "name": "Medical Device Monitoring",
+      "industry": "Healthcare",
+      "description": "Anomaly separation on biosignal-like spectra.",
+      "success_metric": "anomaly_detects_outlier",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 0.817,
+        "std_latency_ms": 3.98,
+        "p95_latency_ms": 0.694,
+        "mean_score": 74.5451,
+        "std_score": 5.9606,
+        "p5_score": 51.5196,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "robotics_fleet",
+      "name": "Autonomous Robotics Fleet",
+      "industry": "Robotics",
+      "description": "Fast ANN neighbor lookup for fleet state.",
+      "success_metric": "query_ms < 50 and sim > 0.4",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 0.159,
+        "std_latency_ms": 0.046,
+        "p95_latency_ms": 0.21,
+        "mean_score": 0.9913,
+        "std_score": 0.0197,
+        "p5_score": 0.9611,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "telecom_compliance",
+      "name": "Telecom Spectrum Compliance",
+      "industry": "Telecom",
+      "description": "EM band library embedding + research hit.",
+      "success_metric": "research_hit_found",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 0.026,
+        "std_latency_ms": 0.008,
+        "p95_latency_ms": 0.031,
+        "mean_score": 2.0,
+        "std_score": 0.0,
+        "p5_score": 2.0,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "rd_lab",
+      "name": "R&D Spectral Lab",
+      "industry": "Research",
+      "description": "Benchmark sample classification via ranking.",
+      "success_metric": "rank_score >= 0.45",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 3.383,
+        "std_latency_ms": 4.249,
+        "p95_latency_ms": 6.045,
+        "mean_score": 0.7626,
+        "std_score": 0.0137,
+        "p5_score": 0.7443,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    },
+    {
+      "id": "ai_copilot_rag",
+      "name": "AI Agent Spectral Memory",
+      "industry": "Enterprise AI",
+      "description": "MAESI query with knowledge + fingerprint ANN.",
+      "success_metric": "neighbors >= 1 and latency < 100ms",
+      "monte_carlo": {
+        "n_trials": 100,
+        "success_rate": 1.0,
+        "mean_latency_ms": 7.528,
+        "std_latency_ms": 3.77,
+        "p95_latency_ms": 14.171,
+        "mean_score": 1.0,
+        "std_score": 0.0,
+        "p5_score": 1.0,
+        "failures": 0,
+        "sample_failure_details": []
+      }
+    }
+  ],
+  "elapsed_s": 2.06,
+  "ok": true
+}

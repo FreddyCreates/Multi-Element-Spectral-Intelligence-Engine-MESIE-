@@ -454,11 +454,12 @@ class TestSDKv03:
 
     def test_version(self):
         sdk = SpectralIntelligenceSDK()
-        assert sdk.version == "0.3.4"
+        from mesie import __version__
+        assert sdk.version == __version__
 
     def test_repr(self):
         sdk = SpectralIntelligenceSDK()
-        assert "v0.3.4" in repr(sdk)
+        assert f"v{sdk.version}" in repr(sdk)
         assert "core=active" in repr(sdk)
 
     def test_list_engines(self):
@@ -471,7 +472,7 @@ class TestSDKv03:
     def test_status(self):
         sdk = SpectralIntelligenceSDK()
         status = sdk.status()
-        assert status["version"] == "0.3.3"
+        assert status["version"] == sdk.version
         assert status["core"] == "active"
         assert "engines" in status
 

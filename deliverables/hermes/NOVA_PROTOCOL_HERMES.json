@@ -1,0 +1,53 @@
+{
+  "protocol": "NOVA-PROTOCOL-CLEAN-INTERNET/1.0",
+  "hermes_fleet": "HERMES-FLEET/1.0",
+  "mesie_version": "1.2.0",
+  "hermes_version": "1.0.0",
+  "nova_version": "1.1.0",
+  "brand": "ItsnotAILabs",
+  "mission": "Clean internet data feeds for recursive AI systems",
+  "pillars": [
+    "NeuroAI \u2014 connectome-grade spectral cognition",
+    "MicroAI \u2014 70-career NOVA never-stop micro fleet",
+    "Web3 \u2014 ICP sovereign clouds with HERMES embedded",
+    "Edge \u2014 12 Cloudflare workers as execution interface"
+  ],
+  "clean_feed_doctrine": {
+    "block_unverified_claims": true,
+    "require_provenance_hash": true,
+    "spectral_validate_before_ingest": true,
+    "third_party_inference": false,
+    "sovereign_only": true
+  },
+  "icp_cloud_embedding": {
+    "local_icp_port": 4943,
+    "processor_edge": "http://127.0.0.1:8750",
+    "hermes_routes": [
+      "/hermes/ingest",
+      "/hermes/embed",
+      "/hermes/validate",
+      "/hermes/match",
+      "/hermes/envelope",
+      "/hermes/icp",
+      "/hermes/wrangler",
+      "/hermes/sdk",
+      "/hermes/corpus",
+      "/hermes/nova",
+      "/hermes/clean",
+      "/hermes/deploy"
+    ],
+    "bridge": "mesie.cloud.icp_bridge.ICPBridge",
+    "colony_fleet": "mcp-colonies/fleet-server/server.py"
+  },
+  "execution_interface": {
+    "one_shot_deploy": "hermes-deploy-shot",
+    "wrangler_forge": "hermes-wrangler",
+    "icp_cli_forge": "hermes-icp-cli",
+    "sdk_pack": "hermes-sdk-pack"
+  },
+  "recursive_loop": [
+    "clean_feed \u2192 ingest \u2192 validate \u2192 embed \u2192 match",
+    "envelope \u2192 nova_pulse \u2192 icp_anchor \u2192 deploy_shot"
+  ],
+  "generated_at": "2026-07-02T09:13:47Z"
+}

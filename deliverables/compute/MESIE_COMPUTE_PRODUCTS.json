@@ -1,0 +1,136 @@
+{
+  "product_line": "MESIE COMPUTE",
+  "first_class": true,
+  "products": [
+    {
+      "sku": "MESIE-COMPUTE-EDGE",
+      "name": "MESIE COMPUTE Edge",
+      "category": "processor",
+      "port": 8750,
+      "description": "First-class spectral compute \u2014 embed, match, signals, NOVA",
+      "operations": [
+        "embed",
+        "match",
+        "benchmark",
+        "read_signal",
+        "generate_text",
+        "mesh_pulse"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": true
+    },
+    {
+      "sku": "ST-\u03c6-256",
+      "name": "ST-\u03c6 Spectral Transformer 256",
+      "category": "transformer",
+      "port": null,
+      "description": "Native \u03c6-harmonic transformer \u2014 rivals HuggingFace, no torch",
+      "operations": [
+        "encode",
+        "encode_batch",
+        "benchmark"
+      ],
+      "invocations": 33,
+      "last_latency_ms": 419.6919,
+      "p50_ms": 560.6803,
+      "healthy": true
+    },
+    {
+      "sku": "ST-\u03c6-512",
+      "name": "ST-\u03c6 Spectral Transformer 512",
+      "category": "transformer",
+      "port": null,
+      "description": "Research-grade 512-dim spectral encoder",
+      "operations": [
+        "encode",
+        "encode_batch",
+        "benchmark"
+      ],
+      "invocations": 13,
+      "last_latency_ms": 0.0,
+      "p50_ms": 1010.5284,
+      "healthy": true
+    },
+    {
+      "sku": "MESIE-\u03c6-KERNEL",
+      "name": "\u03c6-Kernel Compression",
+      "category": "kernel",
+      "port": null,
+      "description": "Spectral slice compression and transfer index",
+      "operations": [
+        "compress_embedding",
+        "compress_file_slices",
+        "export_index"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-FAST-ANN",
+      "name": "Fast Spectral ANN",
+      "category": "retrieval",
+      "port": null,
+      "description": "Band-sign LSH + matrix cosine \u2014 sub-ms queries",
+      "operations": [
+        "cosine_search",
+        "benchmark_ann_p50"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-VS1",
+      "name": "Virtual Silicon VS1",
+      "category": "chip",
+      "port": null,
+      "description": "Certified virtual chip lane \u2014 OTA mesh",
+      "operations": [
+        "certify",
+        "benchmark_lane"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-SOVEREIGN-OS",
+      "name": "Sovereign OS Dashboard",
+      "category": "platform",
+      "port": 8770,
+      "description": "Airgap, Capsula, Triple Protocol control plane",
+      "operations": [
+        "deploy",
+        "bridge",
+        "metrics"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-TRI-AGENT",
+      "name": "Tri-Agent Maintenance Squads",
+      "category": "agents",
+      "port": null,
+      "description": "Groups of 3 AI auto-agents for workflow and maintenance",
+      "operations": [
+        "ops_triad",
+        "quality_triad",
+        "intel_triad"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    }
+  ],
+  "generated_at": "2026-07-05T05:59:03Z"
+}

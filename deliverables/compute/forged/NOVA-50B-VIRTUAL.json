@@ -1,0 +1,13 @@
+{
+  "model_id": "NOVA-50B-VIRTUAL",
+  "family": "NOVA",
+  "virtual_params": 631603200000000,
+  "effective_params_label": "50B virtual",
+  "dims": 4096,
+  "native": true,
+  "third_party_inference": false,
+  "probe_hash": "4b0b879f7e656a8708c9948452362985795b8acc047f15964b0c4eb44625275f",
+  "mesie_version": "1.2.0",
+  "forge_version": "1.0.0",
+  "forged_at": "2026-07-03T07:05:44Z"
+}

@@ -1,0 +1,31 @@
+{
+  "protocol": "MESIE-LOAD-BEARING/1.0",
+  "captured_at": "2026-06-29T12:00:00Z",
+  "session": {
+    "turns": 127,
+    "tool_calls": 3839,
+    "compactions": 32,
+    "auto_compact_at_pct": 90,
+    "tokens_remaining_estimate": 51700
+  },
+  "budget_tokens": 200000,
+  "slices": {
+    "system_prompt": { "tokens": 458, "pct": 0.2 },
+    "messages": { "tokens": 115000, "pct": 57.0, "kill_switch": true },
+    "reasoning_overhead": { "tokens": 12900, "pct": 6.4 },
+    "free": { "tokens": 71700, "pct": 36.0 },
+    "tool_definitions": { "tokens": 7100, "pct": 3.6, "tools": 20, "note": "schema est.; real cost in overhead" }
+  },
+  "targets": {
+    "message_reduction_factor": 12,
+    "reasoning_boost_factor": 1.5,
+    "free_target_pct": 55,
+    "surface_gate": "production_only"
+  },
+  "load_bearing_formula": {
+    "compact_tokens": "ceil(raw_tokens / 12)",
+    "phi_weight": 0.6180339887498948,
+    "harmonic_hz_anchor": 1670,
+    "receipt_max_chars": 240
+  }
+}

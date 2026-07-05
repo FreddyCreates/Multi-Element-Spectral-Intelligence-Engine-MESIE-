@@ -1,0 +1,144 @@
+{
+  "protocol": "MESIE-UNIFIED-MODEL-CATALOG/1.0",
+  "mesie_version": "1.2.0",
+  "third_party_inference": false,
+  "virtual_scaling": "spectral_param_compression",
+  "model_count": 14,
+  "corpus_records": 932,
+  "tiers": [
+    {
+      "tier": "nova_virtual",
+      "model_id": "NOVA-50B-VIRTUAL",
+      "family": "NOVA",
+      "effective_params": "50B virtual",
+      "d_model": 4096,
+      "n_layers": 48,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "nova_virtual",
+      "model_id": "NOVAMINI-8B-VIRTUAL",
+      "family": "NOVAMINI",
+      "effective_params": "8B virtual",
+      "d_model": 2048,
+      "n_layers": 24,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "nova_virtual",
+      "model_id": "MININOVA-3B-VIRTUAL",
+      "family": "MININOVA",
+      "effective_params": "3B virtual",
+      "d_model": 1024,
+      "n_layers": 16,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "edge_transformer",
+      "model_id": "ST-\u03c6-256",
+      "family": "ST-\u03c6",
+      "effective_params": "256M effective edge",
+      "d_model": 256,
+      "n_layers": 2,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "edge_transformer",
+      "model_id": "ST-\u03c6-128",
+      "family": "ST-\u03c6",
+      "d_model": 128,
+      "n_layers": 1,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "edge_transformer",
+      "model_id": "ST-\u03c6-512",
+      "family": "ST-\u03c6",
+      "d_model": 512,
+      "n_layers": 3,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "foundation",
+      "model_id": "SpectralFoundationModel",
+      "family": "foundation",
+      "effective_params": "MoE 12-layer",
+      "d_model": 256,
+      "n_layers": 12,
+      "n_experts": 8,
+      "max_seq_len": 512,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "solus_formal",
+      "model_id": "solus-logic-model",
+      "family": "SOLUS",
+      "layer": "logic",
+      "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "solus_formal",
+      "model_id": "solus-reasoning-model",
+      "family": "SOLUS",
+      "layer": "reasoning",
+      "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "solus_formal",
+      "model_id": "solus-emergence-model",
+      "family": "SOLUS",
+      "layer": "emergence",
+      "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "solus_formal",
+      "model_id": "solus-adaptation-model",
+      "family": "SOLUS",
+      "layer": "adaptation",
+      "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation",
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "speaking_intelligence",
+      "model_id": "AuroNativeLM-v1",
+      "family": "AURO",
+      "knowledge_entries": 32,
+      "reasoning_rules": 4,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "cognitive_connectome",
+      "model_id": "NeuroAIXEngine",
+      "family": "NeuroAIX",
+      "brain_regions": 44,
+      "tracts": 68,
+      "native": true,
+      "third_party_inference": false
+    },
+    {
+      "tier": "design_agents",
+      "model_id": "LatinDesignAgents-100",
+      "family": "DesignReality",
+      "agent_count": 200,
+      "core_count": 10,
+      "native": true,
+      "third_party_inference": false
+    }
+  ],
+  "generated_at": "2026-07-02T09:01:59Z"
+}

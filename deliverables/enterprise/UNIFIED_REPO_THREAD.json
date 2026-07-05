@@ -1,0 +1,114 @@
+{
+  "protocol": "MESIE-UNIFIED-REPO-THREAD/1.0",
+  "generated_at": "2026-06-29T23:36:44Z",
+  "repos": [
+    {
+      "id": "mesie-main",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-",
+      "role": "primary \u2014 full ecosystem (MESIE + NOVA + ICP + Grok)",
+      "scan": {
+        "exists": true,
+        "files": 7868,
+        "bytes": 382171565,
+        "mb": 382.17
+      }
+    },
+    {
+      "id": "cloudcolony-sovereign",
+      "path": "C:\\Users\\Medin\\cloudcolony-sovereign",
+      "role": "sovereign stack export (CloudColony deploy handoff)",
+      "scan": {
+        "exists": true,
+        "files": 98,
+        "bytes": 4181904,
+        "mb": 4.18
+      }
+    },
+    {
+      "id": "mesie-bak-jun3",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-.bak-20260603-203359",
+      "role": "historical backup \u2014 lineage anchor",
+      "scan": {
+        "exists": true,
+        "files": 584,
+        "bytes": 16722543,
+        "mb": 16.72
+      }
+    }
+  ],
+  "products": [
+    {
+      "sku": "MESIE-CORE",
+      "module": "mesie/",
+      "start": "Start-VirtualProcessor.ps1"
+    },
+    {
+      "sku": "MESIE-COMPUTE",
+      "module": "mesie/compute/",
+      "start": "Start-MESIECompute.ps1"
+    },
+    {
+      "sku": "NOVA-RUNTIME",
+      "module": "mesie/agentic/micro/",
+      "start": "Start-NovaRuntime.ps1"
+    },
+    {
+      "sku": "VIRTUAL-PROCESSOR",
+      "module": "mesie/processor/",
+      "start": ":8750/processor/status"
+    },
+    {
+      "sku": "SOVEREIGN-CLOUD-ICP",
+      "module": "icp/sovereign-cloud/",
+      "start": "Start-SovereignColony.ps1"
+    },
+    {
+      "sku": "SOVEREIGN-OS",
+      "module": "sovereign-os/",
+      "start": "Start-SovereignOS.ps1"
+    },
+    {
+      "sku": "CLOUDCOLONY-TRIPLE",
+      "module": "mesie/cloud/",
+      "start": "python -m mesie.cloud.triple_protocol"
+    },
+    {
+      "sku": "MULTIMODAL-MCP",
+      "module": "mesie/cloud/multimodal_triple_protocol.py",
+      "start": "MULTIMODAL_TRIPLE_PROTOCOL.json"
+    },
+    {
+      "sku": "GROK-NOVA-MESIE",
+      "module": "mesie/grok/",
+      "start": "Start-GrokNovaMesie.ps1"
+    },
+    {
+      "sku": "MCP-COLONIES",
+      "module": "mcp-colonies/",
+      "start": "MCP_CURSOR_CONFIG.json"
+    },
+    {
+      "sku": "ACOUSTIC-RESEARCH",
+      "module": "mesie/research/",
+      "start": "acoustic_metamaterial_agent"
+    },
+    {
+      "sku": "COMMERCIAL-PACK",
+      "module": "deliverables/processor/official/",
+      "start": "Deploy-MESIE.ps1 -Official"
+    },
+    {
+      "sku": "SWARM-MISSIONS",
+      "module": ".grok/skills/swarm-mission-*",
+      "start": "/swarm-mission-grok"
+    },
+    {
+      "sku": "LOAD-BEARING",
+      "module": "mesie/compute/token_budget.py",
+      "start": "/load-bearing-tokens"
+    }
+  ],
+  "product_count": 14,
+  "thread_intact": true,
+  "primary_repo": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+}

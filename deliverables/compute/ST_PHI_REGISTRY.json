@@ -1,0 +1,29 @@
+{
+  "product": "MESIE ST-\u03c6 Spectral Transformers",
+  "native": true,
+  "vs_huggingface": "No torch dependency; \u03c6-harmonic attention; sub-ms edge",
+  "models": [
+    {
+      "model_id": "ST-\u03c6-128",
+      "d_model": 128,
+      "n_heads": 4,
+      "n_layers": 1,
+      "seq_len": 16
+    },
+    {
+      "model_id": "ST-\u03c6-256",
+      "d_model": 256,
+      "n_heads": 8,
+      "n_layers": 2,
+      "seq_len": 16
+    },
+    {
+      "model_id": "ST-\u03c6-512",
+      "d_model": 512,
+      "n_heads": 8,
+      "n_layers": 3,
+      "seq_len": 32
+    }
+  ],
+  "generated_at": "2026-07-05T05:58:19Z"
+}

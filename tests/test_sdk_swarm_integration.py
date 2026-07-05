@@ -7,7 +7,8 @@ from mesie.sdk import MAESIClient, SwarmSDK, __sdk_version__
 
 
 def test_sdk_version():
-    assert __sdk_version__ == "1.4.1"
+    from mesie.version_info import MAESI_SDK_VERSION
+    assert __sdk_version__ == MAESI_SDK_VERSION
 
 
 def test_maesi_swarm_property():

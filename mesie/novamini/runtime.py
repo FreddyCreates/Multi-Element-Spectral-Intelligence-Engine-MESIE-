@@ -92,14 +92,20 @@ class NovaMiniRuntime:
 
     def _handler_memo(self, msg: Dict[str, Any], vivi: Vivi) -> Dict[str, Any]:
         query = msg["maque"]["body"].get("text", "")
-        hits = self.memory.recall(query)
+        turn_hits = self.memory.recall(query)
+        artifact_hits = self.memory.recall_artifacts(query)
+        for h in turn_hits:
+            h["source"] = "turn"
+        for h in artifact_hits:
+            h["source"] = "artifact"
+        hits = turn_hits + artifact_hits
         apex_id = apex(
             apex_type="memory.recall",
             sender="MEMO",
             flos_path=msg["maque"]["via"],
             vivi_id=vivi.id,
             seq_index=self._turn_count,
-            payload={"hits": len(hits)},
+            payload={"hits": len(hits), "turn_hits": len(turn_hits), "artifact_hits": len(artifact_hits)},
         )["apex"]["id"]
         live = vivi.advance("MEMO", apex_id)
         return {"result": {"memory_hits": hits}, "vivi": live}
@@ -108,9 +114,7 @@ class NovaMiniRuntime:
         body = msg["maque"]["body"]
         user_text = body.get("text", "")
         memory_hits = body.get("memory_hits", [])
-        context = ""
-        if memory_hits:
-            context = " | ".join(h["spoken"][:80] for h in memory_hits[:2])
+        context = self._build_context(memory_hits)
 
         out = self.lm.generate(user_text, samgov_context=context)
         apex_id = apex(
@@ -132,6 +136,23 @@ class NovaMiniRuntime:
             },
             "vivi": live,
         }
+
+    @staticmethod
+    def _build_context(memory_hits: List[Dict[str, Any]], max_turns: int = 2, max_artifacts: int = 3) -> str:
+        """Build the LM's grounding context, distinguishing recalled conversation
+        from recalled artifact chunks so the LM reasons off real ingested content,
+        not just what was previously said."""
+        turn_parts = [h["spoken"][:80] for h in memory_hits if h.get("source") != "artifact"][:max_turns]
+        artifact_parts = [
+            f"[{h['artifact_name']}#{h['chunk_index']}] {h['text'][:160]}"
+            for h in memory_hits if h.get("source") == "artifact"
+        ][:max_artifacts]
+        pieces = []
+        if turn_parts:
+            pieces.append(" | ".join(turn_parts))
+        if artifact_parts:
+            pieces.append(" || ".join(artifact_parts))
+        return " ".join(pieces)
 
     def _handler_nmin(self, msg: Dict[str, Any], vivi: Vivi) -> Dict[str, Any]:
         """NOVAMINI gate — packages ingress, no external routing."""
@@ -211,6 +232,30 @@ class NovaMiniRuntime:
             memory_hits=memory_hits,
             latency_ms=elapsed,
         )
+
+    def learn(self, source: "str | Path", name: Optional[str] = None) -> Dict[str, Any]:
+        """Ingest a whole artifact (file on disk or raw text) into spectral memory
+        so future chat() calls can recall and reason off pieces of it.
+        Real files: NOVAMINI gets better the more it has actually read, not just
+        what was said to it."""
+        path = Path(source) if isinstance(source, (str, Path)) else None
+        if path is not None and path.is_file():
+            text = path.read_text(encoding="utf-8", errors="replace")
+            artifact_name = name or path.name
+        else:
+            text = str(source)
+            artifact_name = name or f"text-{int(time.time())}"
+
+        result = self.memory.ingest_artifact(artifact_name, text)
+        apex(
+            apex_type="artifact.ingested",
+            sender=QUAD,
+            flos_path="NOVMINI",
+            vivi_id=self.vivi.id,
+            seq_index=self._turn_count,
+            payload={"name": artifact_name, "ok": result.get("ok"), "chunks": result.get("chunks_indexed", 0)},
+        )
+        return result
 
     def export_manifest(self, path: Path) -> Path:
         payload = {

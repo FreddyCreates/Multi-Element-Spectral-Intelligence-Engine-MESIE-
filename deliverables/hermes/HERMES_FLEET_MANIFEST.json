@@ -1,0 +1,245 @@
+{
+  "protocol": "HERMES-FLEET/1.0",
+  "nova_protocol": "NOVA-PROTOCOL-CLEAN-INTERNET/1.0",
+  "mesie_version": "1.2.0",
+  "hermes_version": "1.0.0",
+  "brand": "ItsnotAILabs",
+  "worker_count": 12,
+  "third_party_inference": false,
+  "icp_embedded": true,
+  "cloudflare_fleet": true,
+  "tagline": "Clean internet for AI \u2014 execution interface for recursive NeuroAI + MicroAI + Web3",
+  "workers": [
+    {
+      "worker_id": "hermes-ingest",
+      "slot": "H01",
+      "title": "Ingest Envelope",
+      "category": "ingestion",
+      "route": "/hermes/ingest",
+      "operations": [
+        "receive",
+        "normalize",
+        "receipt"
+      ],
+      "generates": [
+        "ingest_envelope.json"
+      ],
+      "processor_proxy": "POST /processor/embed",
+      "description": "AI data ingestion \u2014 spectral records, JSONL, federated envelopes."
+    },
+    {
+      "worker_id": "hermes-embed",
+      "slot": "H02",
+      "title": "Edge Embed Proxy",
+      "category": "embedding",
+      "route": "/hermes/embed",
+      "operations": [
+        "encode",
+        "batch_encode",
+        "phi_kernel"
+      ],
+      "generates": [
+        "embed_package.json"
+      ],
+      "processor_proxy": "POST /processor/compute/encode",
+      "description": "ST-\u03c6 edge embed \u2014 sub-ms, no torch, routes to :8750."
+    },
+    {
+      "worker_id": "hermes-validate",
+      "slot": "H03",
+      "title": "Spectral Validate",
+      "category": "quality",
+      "route": "/hermes/validate",
+      "operations": [
+        "schema_check",
+        "level_gate"
+      ],
+      "generates": [
+        "validate_rules.json"
+      ],
+      "processor_proxy": "POST /processor/validate",
+      "description": "MESIE schema levels 1\u20136 \u2014 quality gate before ingest."
+    },
+    {
+      "worker_id": "hermes-match",
+      "slot": "H04",
+      "title": "ANN Match Lane",
+      "category": "retrieval",
+      "route": "/hermes/match",
+      "operations": [
+        "top_k",
+        "cosine",
+        "lsh"
+      ],
+      "generates": [
+        "match_index.json"
+      ],
+      "processor_proxy": "POST /processor/match",
+      "description": "Fast spectral ANN \u2014 band-sign LSH retrieval at edge."
+    },
+    {
+      "worker_id": "hermes-envelope",
+      "slot": "H05",
+      "title": "Federated Envelope",
+      "category": "federation",
+      "route": "/hermes/envelope",
+      "operations": [
+        "wrap",
+        "unwrap",
+        "route"
+      ],
+      "generates": [
+        "federated_envelope.schema.json"
+      ],
+      "processor_proxy": "POST /processor/grok/worker",
+      "description": "MCP federated envelope \u2014 cross-AI tool invoke at edge."
+    },
+    {
+      "worker_id": "hermes-icp-cli",
+      "slot": "H06",
+      "title": "ICP CLI Forge",
+      "category": "icp",
+      "route": "/hermes/icp",
+      "operations": [
+        "dfx_deploy",
+        "canister_map",
+        "bridge_sync"
+      ],
+      "generates": [
+        "HERMES_ICP_CLI.json",
+        "deploy.sh"
+      ],
+      "processor_proxy": "GET /processor/federation/status",
+      "description": "Generates ICP CLI manifests \u2014 sovereign canister deploy scripts."
+    },
+    {
+      "worker_id": "hermes-wrangler",
+      "slot": "H07",
+      "title": "Wrangler Forge",
+      "category": "deploy",
+      "route": "/hermes/wrangler",
+      "operations": [
+        "toml",
+        "routes",
+        "vars"
+      ],
+      "generates": [
+        "wrangler.toml",
+        "wrangler.hermes.toml"
+      ],
+      "processor_proxy": "GET /processor/hermes",
+      "description": "Auto-generates wrangler.toml for all 12 workers + bindings."
+    },
+    {
+      "worker_id": "hermes-sdk-pack",
+      "slot": "H08",
+      "title": "SDK Packager",
+      "category": "sdk",
+      "route": "/hermes/sdk",
+      "operations": [
+        "bundle",
+        "version",
+        "export"
+      ],
+      "generates": [
+        "HERMES_SDK_MANIFEST.json",
+        "hermes-sdk.zip"
+      ],
+      "processor_proxy": "GET /processor/models",
+      "description": "One-shot SDK pack \u2014 MAESI + HERMES + ingest clients."
+    },
+    {
+      "worker_id": "hermes-json-corpus",
+      "slot": "H09",
+      "title": "JSON Corpus Pack",
+      "category": "large_data",
+      "route": "/hermes/corpus",
+      "operations": [
+        "harvest",
+        "slice",
+        "export_jsonl"
+      ],
+      "generates": [
+        "CORPUS_SLICE.jsonl",
+        "CORPUS_INDEX.json"
+      ],
+      "processor_proxy": "POST /processor/platform/producer-pipeline/invoke",
+      "description": "932+ record corpus packages for AI ingesting pipelines."
+    },
+    {
+      "worker_id": "hermes-nova-pulse",
+      "slot": "H10",
+      "title": "NOVA Pulse",
+      "category": "nova",
+      "route": "/hermes/nova",
+      "operations": [
+        "career_pulse",
+        "runtime_tick",
+        "lrc_mint"
+      ],
+      "generates": [
+        "NOVA_PULSE.json"
+      ],
+      "processor_proxy": "GET /processor/grok/protocol",
+      "description": "NOVA 70-career pulse \u2014 never-stop runtime at edge."
+    },
+    {
+      "worker_id": "hermes-clean-feed",
+      "slot": "H11",
+      "title": "Clean Internet Feed",
+      "category": "clean_internet",
+      "route": "/hermes/clean",
+      "operations": [
+        "filter",
+        "sanitize",
+        "provenance"
+      ],
+      "generates": [
+        "clean_feed_rules.json"
+      ],
+      "processor_proxy": "GET /processor/hermes/nova-protocol",
+      "description": "NOVA PROTOCOL clean feed \u2014 recursive AI safe ingestion lane."
+    },
+    {
+      "worker_id": "hermes-deploy-shot",
+      "slot": "H12",
+      "title": "One-Shot Deploy",
+      "category": "execution",
+      "route": "/hermes/deploy",
+      "operations": [
+        "pack",
+        "verify",
+        "ship"
+      ],
+      "generates": [
+        "DEPLOY_SHOT.json",
+        "deploy.ps1",
+        "deploy.sh"
+      ],
+      "processor_proxy": "POST /processor/hermes/forge",
+      "description": "Ready-to-run execution interface \u2014 wrangler + ICP + SDK one shot."
+    }
+  ],
+  "generated_at": "2026-07-02T09:13:47Z",
+  "forged_workers": [
+    "hermes-ingest",
+    "hermes-embed",
+    "hermes-validate",
+    "hermes-match",
+    "hermes-envelope",
+    "hermes-icp-cli",
+    "hermes-wrangler",
+    "hermes-sdk-pack",
+    "hermes-json-corpus",
+    "hermes-nova-pulse",
+    "hermes-clean-feed",
+    "hermes-deploy-shot"
+  ],
+  "artifacts": {
+    "wrangler_root": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\wrangler.toml",
+    "workers_dir": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\workers",
+    "icp_cli": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\icp\\HERMES_ICP_CLI.json",
+    "sdk": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\sdk\\HERMES_SDK_MANIFEST.json",
+    "nova_protocol": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\NOVA_PROTOCOL_HERMES.json"
+  }
+}

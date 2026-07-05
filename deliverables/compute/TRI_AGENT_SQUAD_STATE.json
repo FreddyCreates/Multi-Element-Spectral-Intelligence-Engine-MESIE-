@@ -1,0 +1,44 @@
+{
+  "squad_id": "research-triad",
+  "name": "Research Triad",
+  "agents": [
+    {
+      "agent": {
+        "agent_id": "res-\u03b1",
+        "role": "Metamaterial Agent",
+        "script": "metamaterial_research"
+      },
+      "result": {
+        "ok": true,
+        "exit_code": 0,
+        "tail": "onest_limits\": [\n    \"MESIE simulates band-gap physics \\u2014 does not replace FEM/Bloch theorem solvers\",\n    \"No combat or DoD metamaterial certification claim\",\n    \"Seismic mitigation requires domain expert validation beyond software\"\n  ],\n  \"references\": [\n    \"https://en.wikipedia.org/wiki/Acoustic_metamaterial\",\n    \"Liu et al. 2000 \\u2014 locally resonant sonic materials\",\n    \"MESIE Paper V \\u2014 Spectral Compute Fabric\",\n    \"MESIE Paper VI \\u2014 ST-\\u03c6 Native Transformers\"\n  ]\n}\n"
+      }
+    },
+    {
+      "agent": {
+        "agent_id": "res-\u03b2",
+        "role": "Domain Suite",
+        "script": "metamaterial_domain"
+      },
+      "result": {
+        "ok": true,
+        "exit_code": 0,
+        "tail": "9999999996], \"band_gaps_detected\": [{\"start_hz\": 1914.2857142857142, \"depth_db\": 16.8820058384122}], \"reference_artwork\": \"Eusebio Sempere \\u00d3rgano \\u2014 1670 Hz phononic gap\"}, \"electro_spectral\": {\"spectral_centroid\": 1573.3981985146436, \"spectral_spread\": 888.5635981165038, \"band_energy\": {\"band_low\": 0.0, \"band_mid\": 0.0, \"band_high\": 0.0, \"band_ultra\": 224.20596551891595}, \"frequency_resonance\": 1.141807263725111}, \"mesie_gate\": \"spectral_validate\", \"timestamp\": \"2026-07-03T06:44:15Z\"}\n"
+      }
+    },
+    {
+      "agent": {
+        "agent_id": "res-\u03b3",
+        "role": "Release Pack",
+        "script": "full_release_pack"
+      },
+      "result": {
+        "ok": true,
+        "exit_code": 0,
+        "tail": "{\n  \"product\": \"MESIE Full Release\",\n  \"version\": \"1.0.0\",\n  \"beta_launch\": \"2026-07-30\",\n  \"zip\": \"C:\\\\Users\\\\Medin\\\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\\\deliverables\\\\release\\\\MESIE_FULL_RELEASE.zip\",\n  \"files\": 166,\n  \"components\": [\n    \"MESIE COMPUTE + ST-\\u03c6\",\n    \"Sovereign Cloud ICP\",\n    \"Triple Protocol\",\n    \"Acoustic Metamaterial Research\",\n    \"Commercial Official Pack\",\n    \"Demos + Video Script\"\n  ]\n}\n"
+      }
+    }
+  ],
+  "ok": true,
+  "executed_at": "2026-07-03T06:45:37Z"
+}

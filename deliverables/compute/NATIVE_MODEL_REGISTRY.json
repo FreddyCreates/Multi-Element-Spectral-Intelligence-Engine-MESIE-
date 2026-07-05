@@ -1,0 +1,60 @@
+{
+  "protocol": "MESIE-NATIVE-MODEL-REGISTRY/1.0",
+  "mesie_version": "1.2.0",
+  "virtual_scaling": "spectral_param_compression",
+  "third_party_inference": false,
+  "models": {
+    "NOVA-50B-VIRTUAL": {
+      "family": "NOVA",
+      "version": "1.1.0",
+      "effective_params": "50B virtual",
+      "virtual_param_scale": 195312.5,
+      "d_model": 4096,
+      "n_heads": 32,
+      "n_layers": 48,
+      "seq_len": 32,
+      "probe_text": "NOVA sovereign swarm 70 careers never-stop",
+      "layers": [
+        "cognitive",
+        "linguistic",
+        "translator",
+        "mesie_core",
+        "micro_fleet"
+      ]
+    },
+    "NOVAMINI-8B-VIRTUAL": {
+      "family": "NOVAMINI",
+      "version": "1.0.0",
+      "effective_params": "8B virtual",
+      "virtual_param_scale": 31250.0,
+      "d_model": 2048,
+      "n_heads": 16,
+      "n_layers": 24,
+      "seq_len": 24,
+      "probe_text": "NOVAMINI MESIE-LM AURO native speaking",
+      "quad": "NMIN"
+    },
+    "MININOVA-3B-VIRTUAL": {
+      "family": "MININOVA",
+      "version": "1.0.0",
+      "effective_params": "3B virtual",
+      "virtual_param_scale": 11718.75,
+      "d_model": 1024,
+      "n_heads": 8,
+      "n_layers": 16,
+      "seq_len": 16,
+      "probe_text": "MININOVA sphere micro agents"
+    },
+    "ST-\u03c6-256": {
+      "family": "ST-\u03c6",
+      "effective_params": "256M effective edge",
+      "virtual_param_scale": 1.0,
+      "d_model": 256,
+      "n_heads": 8,
+      "n_layers": 2,
+      "seq_len": 16,
+      "probe_text": "ST-phi spectral transformer edge sub-ms"
+    }
+  },
+  "generated_at": "2026-07-03T06:37:50Z"
+}

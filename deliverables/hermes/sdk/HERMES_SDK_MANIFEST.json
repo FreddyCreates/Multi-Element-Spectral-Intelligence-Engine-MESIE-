@@ -1,0 +1,31 @@
+{
+  "protocol": "HERMES-SDK-PACK/1.0",
+  "brand": "ItsnotAILabs",
+  "packages": [
+    {
+      "name": "@itsnotailabs/hermes-ingest",
+      "entry": "ingest_client.ts"
+    },
+    {
+      "name": "@itsnotailabs/hermes-embed",
+      "entry": "embed_client.ts"
+    },
+    {
+      "name": "@itsnotailabs/hermes-clean",
+      "entry": "clean_feed.ts"
+    },
+    {
+      "name": "@mesie/maesi-sdk",
+      "entry": "mesie/sdk/__init__.py"
+    }
+  ],
+  "targets": [
+    "cloudflare-worker",
+    "icp-canister",
+    "python-edge",
+    "typescript"
+  ],
+  "one_shot": "hermes-deploy-shot",
+  "mesie_version": "1.2.0",
+  "hermes_version": "1.0.0"
+}

@@ -1,0 +1,21 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-validate",
+  "slot": "H03",
+  "title": "Spectral Validate",
+  "route": "/hermes/validate",
+  "operations": [
+    "schema_check",
+    "level_gate"
+  ],
+  "generates": [
+    "validate_rules.json"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "validate_rules.json"
+  ],
+  "processor_proxy": "POST /processor/validate",
+  "third_party_inference": false
+}

@@ -1,0 +1,16 @@
+{
+  "last_forge": {
+    "model_id": "MININOVA-3B-VIRTUAL",
+    "family": "MININOVA",
+    "virtual_params": 789504000000,
+    "effective_params_label": "3B virtual",
+    "dims": 1024,
+    "native": true,
+    "third_party_inference": false,
+    "probe_hash": "21403e9109f2afe83859489ff6535275de803685a830eb3bef00d5a0757c1cbf",
+    "mesie_version": "1.2.0",
+    "forge_version": "1.0.0",
+    "forged_at": "2026-07-03T07:05:50Z"
+  },
+  "forge_count": 9
+}

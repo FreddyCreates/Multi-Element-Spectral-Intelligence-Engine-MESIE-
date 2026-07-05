@@ -1,0 +1,22 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-ingest",
+  "slot": "H01",
+  "title": "Ingest Envelope",
+  "route": "/hermes/ingest",
+  "operations": [
+    "receive",
+    "normalize",
+    "receipt"
+  ],
+  "generates": [
+    "ingest_envelope.json"
+  ],
+  "ai_ingest": true,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "ingest_envelope.json"
+  ],
+  "processor_proxy": "POST /processor/embed",
+  "third_party_inference": false
+}

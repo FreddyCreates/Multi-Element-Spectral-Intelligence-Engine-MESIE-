@@ -1,0 +1,13 @@
+{
+  "model_id": "NOVAMINI-8B-VIRTUAL",
+  "family": "NOVAMINI",
+  "virtual_params": 12632064000000,
+  "effective_params_label": "8B virtual",
+  "dims": 2048,
+  "native": true,
+  "third_party_inference": false,
+  "probe_hash": "ed3e7aca7a126d41da594717219dc5cc3655940ef959f220efaa971ebfb7a739",
+  "mesie_version": "1.2.0",
+  "forge_version": "1.0.0",
+  "forged_at": "2026-07-03T07:05:48Z"
+}

@@ -1,0 +1,201 @@
+{
+  "protocol": "MESIE-MARKET/1.0",
+  "version": "1.2.0",
+  "generated_at": "2026-06-30",
+  "businesses": [
+    {
+      "id": "biz-01",
+      "name": "MESIE Virtual Processor Enterprise",
+      "sku": "MESIE-VP-ENT",
+      "tagline": "Sovereign agentic compute \u2014 measured sub-ms paths, LRC receipts, 11 engines",
+      "category": "Agentic Infrastructure / Edge Spectral Compute",
+      "buyers": [
+        "AI platform teams",
+        "Defense robotics edge",
+        "Industrial digital twin",
+        "DevKit publishers"
+      ],
+      "proof": {
+        "threat_p50_ms": 0.445,
+        "fusion_dims": 256,
+        "library_mb": 10.28,
+        "virtual_chip_certified": true
+      },
+      "artifacts": [
+        "deliverables/processor/VIRTUAL_PROCESSOR_DEVKIT.zip",
+        "deliverables/processor/VIRTUAL_PROCESSOR_RELEASE.json",
+        "deliverables/nova/NOVA_SHOWCASE.json"
+      ],
+      "github": {
+        "repo": "Multi-Element-Spectral-Intelligence-Engine-MESIE",
+        "path": "mesie/processor/",
+        "readme": "deliverables/market/BUSINESS_01_VIRTUAL_PROCESSOR.md"
+      },
+      "pricing_frame": {
+        "devkit": "Open core + enterprise support",
+        "edge_license": "Per-node virtual processor",
+        "sla_tier": "Sub-ms benchmark SLA optional"
+      },
+      "website": "websites/mesie-landing/",
+      "mcp": "mesie-system-query, sovereign-colony-compute"
+    },
+    {
+      "id": "biz-02",
+      "name": "Universal AI MCP Federation",
+      "sku": "MESIE-UAI-MCP",
+      "tagline": "One MCP hub for Grok, Claude, Cursor, Antigravity \u2014 12 super tools + envelopes",
+      "category": "AI Tooling / MCP Infrastructure",
+      "buyers": [
+        "Enterprise AI desks",
+        "Multi-model orchestrators",
+        "MCP ISVs",
+        "Consulting firms"
+      ],
+      "proof": {
+        "super_tools": 12,
+        "mcp_servers": 13,
+        "protocol": "MESIE-FEDERATED-ENVELOPE/1.0",
+        "port": 8765
+      },
+      "artifacts": [
+        "deliverables/mcp/UNIVERSAL_MCP_PROTOCOL.json",
+        "deliverables/icp/MCP_FULL_CONFIG.json",
+        "deliverables/ml/CORPUS.jsonl"
+      ],
+      "github": {
+        "repo": "mesie-universal-mcp",
+        "path": "mcp-colonies/universal-server/",
+        "readme": "deliverables/market/BUSINESS_02_UNIVERSAL_MCP.md"
+      },
+      "pricing_frame": {
+        "hub_license": "Per-seat MCP federation",
+        "envelope_volume": "Federated envelope tiers"
+      },
+      "website": "websites/market-hub/",
+      "mcp": "mesie-universal-mcp"
+    },
+    {
+      "id": "biz-03",
+      "name": "Career MCP Triple Protocol",
+      "sku": "MESIE-CAREER-1K",
+      "tagline": "1,000 compressed careers \u2014 enterprise, cyber, business, engineering, architecture",
+      "category": "AI Workforce / Career Flows",
+      "buyers": [
+        "HR tech",
+        "L&D platforms",
+        "Staffing AI",
+        "Cyber workforce",
+        "Architecture practices"
+      ],
+      "proof": {
+        "career_count": 1000,
+        "pillars": 5,
+        "per_pillar": 200,
+        "protocol": "MESIE-CAREER-TRIPLE-PROTOCOL/1.0",
+        "port": 8767
+      },
+      "artifacts": [
+        "deliverables/careers/CAREER_CATALOG_1000.json",
+        "deliverables/research/CAREER_MCP_TRIPLE_PROTOCOL_WORKING_PAPER.md",
+        "deliverables/public-forks/*.zip"
+      ],
+      "github": {
+        "repos": [
+          "mesie-career-enterprise",
+          "mesie-career-cybersecurity",
+          "mesie-career-business",
+          "mesie-career-engineering",
+          "mesie-career-architecture",
+          "mesie-career-universal"
+        ],
+        "readme": "deliverables/market/BUSINESS_03_CAREER_MCP.md"
+      },
+      "pricing_frame": {
+        "pillar_fork": "Per-domain MCP server license",
+        "universal_hub": "1000-career federation tier"
+      },
+      "website": "websites/career-portal/",
+      "mcp": "mesie-career-universal"
+    },
+    {
+      "id": "biz-04",
+      "name": "NOVA Swarm Runtime",
+      "sku": "NOVA-RT-70",
+      "tagline": "Never-stop 70-career IT org + robotics satellite \u2014 real tasks, not fake pulses",
+      "category": "Autonomous Operations / Swarm",
+      "buyers": [
+        "MLOps",
+        "Platform engineering",
+        "Robotics integrators",
+        "Sovereign AI labs"
+      ],
+      "proof": {
+        "careers": 70,
+        "robotics_fusion_dims": 256,
+        "never_stop": true,
+        "feed": "deliverables/nova/NOVA_RUNTIME_FEED.jsonl"
+      },
+      "artifacts": [
+        "deliverables/nova/NOVA_SHOWCASE.json",
+        "deliverables/nova/NOVA_RUNTIME_STATE.json",
+        "scripts/run_nova_runtime.py"
+      ],
+      "github": {
+        "repo": "Decentralized-Production-NOVA-Protocol",
+        "path": "mesie/agentic/micro/",
+        "readme": "deliverables/market/BUSINESS_04_NOVA_RUNTIME.md"
+      },
+      "pricing_frame": {
+        "runtime_license": "Per-supervisor node",
+        "robotics_addon": "Satellite swarm tier"
+      },
+      "website": "websites/mesie-landing/#nova",
+      "mcp": "mesie-grok-agent"
+    },
+    {
+      "id": "biz-05",
+      "name": "CloudColony Sovereign Cloud",
+      "sku": "CC-SOV-ICP",
+      "tagline": "Edge compute local, ICP anchors trust \u2014 Triple Protocol to mainnet",
+      "category": "Sovereign Cloud / Web3 Infrastructure",
+      "buyers": [
+        "Web3 enterprises",
+        "Airgap government",
+        "ICP ecosystem",
+        "Privacy-first AI"
+      ],
+      "proof": {
+        "triple_protocol": "CLOUDCOLONY-TRIPLE-PROTOCOL/1.0",
+        "icp_port": 4943,
+        "canisters": 6,
+        "airgap_default": true
+      },
+      "artifacts": [
+        "deliverables/icp/SOVEREIGN_CLOUD_PLATFORM_MANIFEST.json",
+        "deliverables/cloudcolony/TRIPLE_PROTOCOL_MANIFEST.json",
+        "icp/sovereign-cloud/"
+      ],
+      "github": {
+        "repo": "cloudcolony-sovereign",
+        "path": "icp/sovereign-cloud/",
+        "readme": "deliverables/market/BUSINESS_05_SOVEREIGN_CLOUD.md"
+      },
+      "pricing_frame": {
+        "colony_deploy": "ICP cycle + support",
+        "bridge_tier": "Mainnet federation optional"
+      },
+      "website": "sovereign-os/dashboard/",
+      "mcp": "sovereign-colony-vault, loom-unified"
+    }
+  ],
+  "push_checklist": [
+    "Run Start-MESIEProduction.ps1",
+    "Run scripts/package_market_release.py",
+    "Run scripts/publish_career_forks_github.ps1",
+    "Run scripts/publish_market_github.ps1",
+    "Deploy websites via scripts/serve_market_sites.ps1",
+    "Mint token manifest: python -m mesie.tokens.dual_bridge"
+  ],
+  "last_loop_refresh": "2026-07-02T09:13:46Z",
+  "market_ready_loop": "MESIE-FOUR-TIER-MARKET-READY/1.0"
+}

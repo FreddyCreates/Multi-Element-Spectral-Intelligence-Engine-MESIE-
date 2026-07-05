@@ -125,7 +125,8 @@ class TestSpectralCorpus:
 class TestSDK:
     def test_version(self):
         engine = SpectralIntelligenceSDK()
-        assert engine.version == "0.3.4"
+        from mesie import __version__
+        assert engine.version == __version__
 
     def test_repr(self):
         engine = SpectralIntelligenceSDK()
@@ -220,9 +221,16 @@ class TestCLI:
         assert "Record ID:" in captured.out
         assert "Components:" in captured.out
 
-    def test_no_command_shows_help(self, capsys):
-        with pytest.raises(SystemExit):
+    def test_no_command_launches_terminal(self, capsys, monkeypatch):
+        def _eof():
+            raise EOFError
+
+        monkeypatch.setattr("builtins.input", _eof)
+        with pytest.raises(SystemExit) as exc:
             cli_main([])
+        assert exc.value.code == 0
+        captured = capsys.readouterr()
+        assert "MAESI Terminal Copilot" in captured.out
 
     def test_mesie_entrypoint_installed(self):
         result = subprocess.run(

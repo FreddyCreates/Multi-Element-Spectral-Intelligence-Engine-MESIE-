@@ -1,0 +1,22 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-envelope",
+  "slot": "H05",
+  "title": "Federated Envelope",
+  "route": "/hermes/envelope",
+  "operations": [
+    "wrap",
+    "unwrap",
+    "route"
+  ],
+  "generates": [
+    "federated_envelope.schema.json"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "federated_envelope.schema.json"
+  ],
+  "processor_proxy": "POST /processor/grok/worker",
+  "third_party_inference": false
+}

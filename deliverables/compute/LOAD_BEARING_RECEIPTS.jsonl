@@ -1,0 +1,8 @@
+{"ts":"2026-06-29T22:23:08Z","phase":"SANDBOX:test-piece","compact":"{\"perfect\":true,\"attempt\":1}","tokens_est":1}
+{"ts":"2026-06-29T23:36:44Z","phase":"ENT:unify_repos","compact":"{\"ok\":true}","tokens_est":1}
+{"ts":"2026-06-29T23:36:44Z","phase":"ENT:grok_protocol","compact":"{\"ok\":true}","tokens_est":1}
+{"ts":"2026-06-29T23:36:44Z","phase":"ENT:triple_protocol","compact":"{\"ok\":true}","tokens_est":1}
+{"ts":"2026-06-29T23:36:44Z","phase":"ENT:multimodal_protocol","compact":"{\"ok\":true}","tokens_est":1}
+{"ts":"2026-06-29T23:36:44Z","phase":"ENT:token_budget","compact":"{\"ok\":true}","tokens_est":1}
+{"ts":"2026-06-29T23:36:44Z","phase":"ENT:receipt_chain","compact":"{\"ok\":true}","tokens_est":1}
+{"ts":"2026-07-01T09:55:52Z","phase":"SANDBOX:cli-001","compact":"{\"perfect\":true,\"attempt\":1}","tokens_est":1}

@@ -1,0 +1,22 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-match",
+  "slot": "H04",
+  "title": "ANN Match Lane",
+  "route": "/hermes/match",
+  "operations": [
+    "top_k",
+    "cosine",
+    "lsh"
+  ],
+  "generates": [
+    "match_index.json"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": true,
+  "deploy_artifacts": [
+    "match_index.json"
+  ],
+  "processor_proxy": "POST /processor/match",
+  "third_party_inference": false
+}

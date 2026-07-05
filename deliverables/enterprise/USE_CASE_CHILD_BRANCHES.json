@@ -1,0 +1,495 @@
+{
+  "protocol": "MESIE-USE-CASE-CHILD-BRANCH/1.0",
+  "mesie_version": "1.2.0",
+  "use_case_count": 18,
+  "hub_repo": "mesie-usecase-universal",
+  "child_repos": [
+    "mesie-usecase-cybersecurity-ai",
+    "mesie-usecase-autonomous-runtime",
+    "mesie-usecase-universal-signals",
+    "mesie-usecase-nova-swarm",
+    "mesie-usecase-drone-swarm",
+    "mesie-usecase-sovereign-cloud",
+    "mesie-usecase-enterprise-ai",
+    "mesie-usecase-mfg-predictive",
+    "mesie-usecase-energy-grid",
+    "mesie-usecase-robotics-fleet",
+    "mesie-usecase-seismic-insurance",
+    "mesie-usecase-native-ai",
+    "mesie-usecase-career-workforce",
+    "mesie-usecase-universal-mcp",
+    "mesie-usecase-interior-dc",
+    "mesie-usecase-neuroswarm-audit",
+    "mesie-usecase-dual-chain",
+    "mesie-usecase-virtual-processor"
+  ],
+  "use_cases": [
+    {
+      "use_case_id": "cybersecurity_ai",
+      "github_repo": "mesie-usecase-cybersecurity-ai",
+      "title": "Cybersecurity AI",
+      "category": "Cybersecurity / Edge Exposure",
+      "parent_business": "biz-02",
+      "start_script": "scripts/heal_mesie_stack.ps1",
+      "mcp_tools": [
+        "cyber_scan",
+        "guardian_status",
+        "remediation_playbook",
+        "tunnel_checklist"
+      ],
+      "processor_ops": [
+        "POST /processor/read-signal",
+        "GET /processor/autonomous"
+      ],
+      "dataset_path": null,
+      "research_pack": "deliverables/research/packs/06_CYBERSECURITY_AI_RESEARCH_PACK.md"
+    },
+    {
+      "use_case_id": "autonomous_runtime",
+      "github_repo": "mesie-usecase-autonomous-runtime",
+      "title": "Autonomous Self-Executing Runtime",
+      "category": "Platform / AI Runtime",
+      "parent_business": "biz-01",
+      "start_script": "Start-MESIE-Autonomous.ps1",
+      "mcp_tools": [
+        "autonomous_pulse",
+        "coherence_weights",
+        "nova_ensure",
+        "heal_stack"
+      ],
+      "processor_ops": [
+        "GET /processor/autonomous",
+        "GET /processor/nova-runtime"
+      ],
+      "dataset_path": null,
+      "research_pack": "deliverables/research/packs/07_SELF_EXECUTING_RUNTIME_RESEARCH_PACK.md"
+    },
+    {
+      "use_case_id": "universal_signals",
+      "github_repo": "mesie-usecase-universal-signals",
+      "title": "Universal Signal Plane",
+      "category": "Signals / L0 Plane",
+      "parent_business": "biz-01",
+      "start_script": "python -m mesie.processor --serve",
+      "mcp_tools": [
+        "read_signal",
+        "generate_text",
+        "signal_fingerprint",
+        "architecture_map"
+      ],
+      "processor_ops": [
+        "POST /processor/read-signal",
+        "POST /processor/generate-text"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "nova_swarm",
+      "github_repo": "mesie-usecase-nova-swarm",
+      "title": "NOVA 70-Career Swarm",
+      "category": "NOVA / Micro Fleet",
+      "parent_business": "biz-04",
+      "start_script": "Start-NovaRuntime.ps1",
+      "mcp_tools": [
+        "nova_status",
+        "career_pulse",
+        "robotics_pulse",
+        "showcase_proof"
+      ],
+      "processor_ops": [
+        "GET /processor/nova-runtime",
+        "POST /processor/robotics-pulse"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "drone_swarm",
+      "github_repo": "mesie-usecase-drone-swarm",
+      "title": "Decentralized Drone Swarm",
+      "category": "Defense / Robotics",
+      "parent_business": "biz-01",
+      "start_script": "scripts/run_drone_swarm_suite.py",
+      "mcp_tools": [
+        "swarm_status",
+        "mesh_pulse",
+        "gossip_route",
+        "jamming_failover"
+      ],
+      "processor_ops": [
+        "POST /processor/mesh/pulse",
+        "POST /processor/robotics-pulse"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "sovereign_cloud",
+      "github_repo": "mesie-usecase-sovereign-cloud",
+      "title": "Sovereign Cloud ICP",
+      "category": "Sovereign / ICP",
+      "parent_business": "biz-05",
+      "start_script": "Start-SovereignColony.ps1",
+      "mcp_tools": [
+        "airgap_enable",
+        "capsula_build",
+        "bridge_standby",
+        "colony_sync"
+      ],
+      "processor_ops": [
+        "GET /processor/status"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "enterprise_ai_sovereign",
+      "github_repo": "mesie-usecase-enterprise-ai",
+      "title": "Enterprise AI Sovereign Memory",
+      "category": "Enterprise AI",
+      "parent_business": "biz-01",
+      "start_script": "Start-MESIEProduction.ps1",
+      "mcp_tools": [
+        "agent_memory",
+        "receipt_chain",
+        "vault_status",
+        "enterprise_run"
+      ],
+      "processor_ops": [
+        "POST /processor/exec",
+        "GET /processor/architecture"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "mfg_predictive",
+      "github_repo": "mesie-usecase-mfg-predictive",
+      "title": "Manufacturing Predictive Maintenance",
+      "category": "Industrial / MFG",
+      "parent_business": "biz-01",
+      "start_script": "scripts/run_multi_enterprise_20.py",
+      "mcp_tools": [
+        "match_spectrum",
+        "benchmark_slice",
+        "monte_carlo"
+      ],
+      "processor_ops": [
+        "POST /processor/match",
+        "POST /processor/embed"
+      ],
+      "dataset_path": "data/benchmarks/enterprise_use_cases_benchmark.json",
+      "research_pack": null
+    },
+    {
+      "use_case_id": "energy_grid",
+      "github_repo": "mesie-usecase-energy-grid",
+      "title": "Energy Grid Stability",
+      "category": "Energy / Utilities",
+      "parent_business": "biz-01",
+      "start_script": "scripts/run_enterprise_ai_suite.py",
+      "mcp_tools": [
+        "grid_signal",
+        "anomaly_route",
+        "stability_score"
+      ],
+      "processor_ops": [
+        "POST /processor/read-signal",
+        "POST /processor/match"
+      ],
+      "dataset_path": "data/benchmarks/enterprise_use_cases_benchmark.json",
+      "research_pack": null
+    },
+    {
+      "use_case_id": "robotics_fleet",
+      "github_repo": "mesie-usecase-robotics-fleet",
+      "title": "Robotics Fleet Edge",
+      "category": "Robotics / Edge",
+      "parent_business": "biz-01",
+      "start_script": "scripts/run_nova_showcase.py",
+      "mcp_tools": [
+        "robotics_pulse",
+        "fusion_status",
+        "threat_benchmark"
+      ],
+      "processor_ops": [
+        "POST /processor/robotics-pulse",
+        "POST /processor/benchmark"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "seismic_insurance",
+      "github_repo": "mesie-usecase-seismic-insurance",
+      "title": "Seismic Insurance Risk",
+      "category": "Insurance / Seismic",
+      "parent_business": "biz-01",
+      "start_script": "scripts/run_multi_domain_suites.py",
+      "mcp_tools": [
+        "seismic_match",
+        "risk_score",
+        "domain_suite"
+      ],
+      "processor_ops": [
+        "POST /processor/match",
+        "POST /processor/read-signal"
+      ],
+      "dataset_path": "data/benchmarks/enterprise_use_cases_benchmark.json",
+      "research_pack": null
+    },
+    {
+      "use_case_id": "native_ai_transformer",
+      "github_repo": "mesie-usecase-native-ai",
+      "title": "Native AI Transformer Forge",
+      "category": "Native AI / Models",
+      "parent_business": "biz-02",
+      "start_script": "python -m mesie.mcp.native_config --write",
+      "mcp_tools": [
+        "transformer_forge",
+        "oro_produce",
+        "native_models",
+        "producer_cycle"
+      ],
+      "processor_ops": [
+        "GET /processor/architecture"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "career_workforce",
+      "github_repo": "mesie-usecase-career-workforce",
+      "title": "1000-Career AI Workforce",
+      "category": "Workforce / Careers",
+      "parent_business": "biz-03",
+      "start_script": "Start-CareerMCPStack.ps1",
+      "mcp_tools": [
+        "career_list",
+        "career_invoke",
+        "pillar_route",
+        "triple_protocol"
+      ],
+      "processor_ops": [
+        "GET http://127.0.0.1:8767/health"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "universal_mcp_federation",
+      "github_repo": "mesie-usecase-universal-mcp",
+      "title": "Universal MCP Federation",
+      "category": "MCP / Federation",
+      "parent_business": "biz-02",
+      "start_script": "Start-UniversalStack.ps1",
+      "mcp_tools": [
+        "super_invoke",
+        "federation_status",
+        "ml_forge",
+        "envelope_seal"
+      ],
+      "processor_ops": [
+        "GET http://127.0.0.1:8765/health"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "interior_datacenter",
+      "github_repo": "mesie-usecase-interior-dc",
+      "title": "Interior Data Center Edge",
+      "category": "Infrastructure / DC",
+      "parent_business": "biz-05",
+      "start_script": "scripts/run_interior_datacenter.py",
+      "mcp_tools": [
+        "mesh_soak",
+        "cluster_status",
+        "lan_gossip"
+      ],
+      "processor_ops": [
+        "POST /processor/mesh/soak",
+        "GET /processor/mesh"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "neuroswarm_audit",
+      "github_repo": "mesie-usecase-neuroswarm-audit",
+      "title": "NeuroSwarm Claims Audit",
+      "category": "Audit / Claims",
+      "parent_business": "biz-01",
+      "start_script": "scripts/run_neuroswarm_audit.py",
+      "mcp_tools": [
+        "audit_claims",
+        "evidence_map",
+        "latency_proof"
+      ],
+      "processor_ops": [
+        "POST /processor/benchmark"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    },
+    {
+      "use_case_id": "dual_chain_tokens",
+      "github_repo": "mesie-usecase-dual-chain",
+      "title": "Dual-Chain Token Bridge",
+      "category": "Tokens / Web3",
+      "parent_business": "biz-04",
+      "start_script": "Start-MarketPush.ps1",
+      "mcp_tools": [
+        "token_manifest",
+        "mint_lrc",
+        "anchor_eth",
+        "anchor_icp"
+      ],
+      "processor_ops": [
+        "GET /processor/tokens/manifest",
+        "POST /processor/tokens/mint"
+      ],
+      "dataset_path": null,
+      "research_pack": "deliverables/research/packs/04_DUAL_CHAIN_TOKEN_RESEARCH_PACK.md"
+    },
+    {
+      "use_case_id": "virtual_processor_devkit",
+      "github_repo": "mesie-usecase-virtual-processor",
+      "title": "Virtual Processor DevKit",
+      "category": "Developer Kit",
+      "parent_business": "biz-01",
+      "start_script": "python scripts/package_processor_devkit.py --light",
+      "mcp_tools": [
+        "devkit_package",
+        "release_status",
+        "showcase_proof",
+        "market_story"
+      ],
+      "processor_ops": [
+        "GET /processor/status",
+        "GET /processor/market-research"
+      ],
+      "dataset_path": null,
+      "research_pack": null
+    }
+  ],
+  "generated_at": "2026-07-01T06:06:04Z",
+  "built": [
+    {
+      "repo": "mesie-usecase-cybersecurity-ai",
+      "use_case_id": "cybersecurity_ai",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-cybersecurity-ai",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-cybersecurity-ai.zip"
+    },
+    {
+      "repo": "mesie-usecase-autonomous-runtime",
+      "use_case_id": "autonomous_runtime",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-autonomous-runtime",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-autonomous-runtime.zip"
+    },
+    {
+      "repo": "mesie-usecase-universal-signals",
+      "use_case_id": "universal_signals",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-universal-signals",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-universal-signals.zip"
+    },
+    {
+      "repo": "mesie-usecase-nova-swarm",
+      "use_case_id": "nova_swarm",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-nova-swarm",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-nova-swarm.zip"
+    },
+    {
+      "repo": "mesie-usecase-drone-swarm",
+      "use_case_id": "drone_swarm",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-drone-swarm",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-drone-swarm.zip"
+    },
+    {
+      "repo": "mesie-usecase-sovereign-cloud",
+      "use_case_id": "sovereign_cloud",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-sovereign-cloud",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-sovereign-cloud.zip"
+    },
+    {
+      "repo": "mesie-usecase-enterprise-ai",
+      "use_case_id": "enterprise_ai_sovereign",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-enterprise-ai",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-enterprise-ai.zip"
+    },
+    {
+      "repo": "mesie-usecase-mfg-predictive",
+      "use_case_id": "mfg_predictive",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-mfg-predictive",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-mfg-predictive.zip"
+    },
+    {
+      "repo": "mesie-usecase-energy-grid",
+      "use_case_id": "energy_grid",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-energy-grid",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-energy-grid.zip"
+    },
+    {
+      "repo": "mesie-usecase-robotics-fleet",
+      "use_case_id": "robotics_fleet",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-robotics-fleet",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-robotics-fleet.zip"
+    },
+    {
+      "repo": "mesie-usecase-seismic-insurance",
+      "use_case_id": "seismic_insurance",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-seismic-insurance",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-seismic-insurance.zip"
+    },
+    {
+      "repo": "mesie-usecase-native-ai",
+      "use_case_id": "native_ai_transformer",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-native-ai",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-native-ai.zip"
+    },
+    {
+      "repo": "mesie-usecase-career-workforce",
+      "use_case_id": "career_workforce",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-career-workforce",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-career-workforce.zip"
+    },
+    {
+      "repo": "mesie-usecase-universal-mcp",
+      "use_case_id": "universal_mcp_federation",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-universal-mcp",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-universal-mcp.zip"
+    },
+    {
+      "repo": "mesie-usecase-interior-dc",
+      "use_case_id": "interior_datacenter",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-interior-dc",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-interior-dc.zip"
+    },
+    {
+      "repo": "mesie-usecase-neuroswarm-audit",
+      "use_case_id": "neuroswarm_audit",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-neuroswarm-audit",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-neuroswarm-audit.zip"
+    },
+    {
+      "repo": "mesie-usecase-dual-chain",
+      "use_case_id": "dual_chain_tokens",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-dual-chain",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-dual-chain.zip"
+    },
+    {
+      "repo": "mesie-usecase-virtual-processor",
+      "use_case_id": "virtual_processor_devkit",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-virtual-processor",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-virtual-processor.zip"
+    },
+    {
+      "repo": "mesie-usecase-universal",
+      "use_case_id": "hub",
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\public-forks\\mesie-usecase-universal",
+      "zip": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\public-forks\\mesie-usecase-universal.zip"
+    }
+  ],
+  "fork_count": 19
+}

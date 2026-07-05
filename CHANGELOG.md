@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.0] — MESIE Full Release — 2026-06-29
+
+### Added
+- **MESIE COMPUTE** — ST-φ native transformers, φ-Kernel, live metrics, 8 virtual products
+- **Sovereign Cloud** — 6 ICP canisters, Capsula WASM, airgap, Triple Protocol
+- **Sovereign OS** — dashboard :8770, CloudColony × @ItsnotAILabs branding
+- **Acoustic Metamaterial Research Agent** — Wikipedia → MESIE spectral AI integration
+- **Tri-Agent Squads** — 4×3 maintenance auto-agents (ops, quality, intel, research)
+- **Full Release Package** — `MESIE_FULL_RELEASE.zip`, demos, video walkthrough
+- **Research Paper VII** — Acoustic metamaterial × MESIE
+
+### Release
+- Beta launch: July 30, 2026
+- `.\Deploy-FullRelease.ps1` — one-command ship
+
 ## [0.3.3] — MAESI SDK 1.4.0 — 2026-06-08
 
 ### Added (proof substrate)

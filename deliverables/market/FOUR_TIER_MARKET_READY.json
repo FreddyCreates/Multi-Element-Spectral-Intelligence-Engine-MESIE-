@@ -1,0 +1,65 @@
+{
+  "protocol": "MESIE-FOUR-TIER-MARKET-READY/1.0",
+  "mesie_version": "1.2.0",
+  "brand": "ItsnotAILabs",
+  "tier_count": 4,
+  "tiers": [
+    {
+      "tier_id": "prove",
+      "tier_num": 1,
+      "title": "Prove \u2014 Production & Uptime",
+      "squad_id": "ops-triad",
+      "tasks": [
+        "production_tiers",
+        "processor_probe",
+        "nova_stale_check"
+      ],
+      "verify_artifact": "deliverables/MESIE_Production_Tiers_Report.json",
+      "description": "Tier 1: measured SLA, production appliance, ops agents keep :8750 alive."
+    },
+    {
+      "tier_id": "package",
+      "tier_num": 2,
+      "title": "Package \u2014 Market Artifacts",
+      "squad_id": "quality-triad",
+      "tasks": [
+        "token_manifest",
+        "market_manifest_refresh",
+        "squad_quality"
+      ],
+      "verify_artifact": "deliverables/market/MARKET_RELEASE_MANIFEST.json",
+      "description": "Tier 2: pytest gate, commercial pack, tokens + FIVE_BUSINESSES refresh."
+    },
+    {
+      "tier_id": "platform",
+      "tier_num": 3,
+      "title": "Platform \u2014 Intelligence Surface",
+      "squad_id": "intel-triad",
+      "tasks": [
+        "platform_pulse",
+        "hermes_forge_light",
+        "squad_intel"
+      ],
+      "verify_artifact": "deliverables/platform/PLATFORM_MANIFEST.json",
+      "description": "Tier 3: embed/match pulse, model platforms, HERMES fleet pack."
+    },
+    {
+      "tier_id": "ship",
+      "tier_num": 4,
+      "title": "Ship \u2014 Release & Federation",
+      "squad_id": "research-triad",
+      "tasks": [
+        "market_portal_fork",
+        "icp_bridge_status",
+        "squad_research"
+      ],
+      "verify_artifact": "deliverables/market/FIVE_BUSINESSES.json",
+      "description": "Tier 4: research forge, portal fork, ICP + NOVA ship lane."
+    }
+  ],
+  "businesses": 5,
+  "loop_command": "python -m mesie.market.four_tier_loop",
+  "sleep_start": ".\\Start-MarketReadySleep.ps1",
+  "state": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\market\\FOUR_TIER_MARKET_READY_STATE.json",
+  "generated_at": "2026-07-02T09:13:59Z"
+}

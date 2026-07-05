@@ -1,0 +1,24 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-json-corpus",
+  "slot": "H09",
+  "title": "JSON Corpus Pack",
+  "route": "/hermes/corpus",
+  "operations": [
+    "harvest",
+    "slice",
+    "export_jsonl"
+  ],
+  "generates": [
+    "CORPUS_SLICE.jsonl",
+    "CORPUS_INDEX.json"
+  ],
+  "ai_ingest": true,
+  "embedding_depth": true,
+  "deploy_artifacts": [
+    "CORPUS_SLICE.jsonl",
+    "CORPUS_INDEX.json"
+  ],
+  "processor_proxy": "POST /processor/platform/producer-pipeline/invoke",
+  "third_party_inference": false
+}

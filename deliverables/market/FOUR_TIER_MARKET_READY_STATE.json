@@ -1,0 +1,2295 @@
+{
+  "protocol": "MESIE-FOUR-TIER-MARKET-READY/1.0",
+  "mesie_version": "1.2.0",
+  "cycle_ok": true,
+  "market_ready": true,
+  "tiers_complete": 4,
+  "tier_count": 4,
+  "results": [
+    {
+      "ok": true,
+      "tier_id": "prove",
+      "tier_num": 1,
+      "title": "Prove \u2014 Production & Uptime",
+      "squad_id": "ops-triad",
+      "tasks": [
+        {
+          "task": "production_tiers",
+          "ok": true,
+          "skipped": true,
+          "reason": "heavy_or_light_mode"
+        },
+        {
+          "ok": true,
+          "processor": {
+            "product": "MESIE Virtual Processor",
+            "processor_version": "1.2.0",
+            "accounting": {
+              "mpc_test_pass": true,
+              "ui_local_assets": true,
+              "zip_integration_ok": true,
+              "packet_files": 186,
+              "packet_bytes": 4076296,
+              "mint_ledger": "553A41683B48",
+              "measured_by_source": 152158,
+              "local_nova_cycles": 807,
+              "local_nova_lrcs_minted": 807,
+              "authority": "local_accounting_only",
+              "last_lrc": {
+                "lrc_id": "11AD0114CA30",
+                "cycle": 807,
+                "operation": "exec_tool",
+                "measured_units": 275,
+                "latency_ms": 3055.88,
+                "payload_hash": "a3037c4ee73995c9",
+                "ts": 1782976468.239446
+              }
+            },
+            "vault": "C:\\Loom\\system\\.processor_vault",
+            "operations": [
+              "embed",
+              "match",
+              "benchmark",
+              "read_signal",
+              "generate_text",
+              "mesh_pulse",
+              "exec_tool",
+              "virtual_chip",
+              "list_chips",
+              "robotics_pulse",
+              "compute_encode",
+              "compute_benchmark",
+              "compute_hub"
+            ],
+            "compute_hub": "/processor/compute/status",
+            "mesie_compute_first_class": true,
+            "chip_skus": [
+              "MESIE-VS1",
+              "MESIE-VS2-ANN",
+              "MESIE-VS3-EDGE",
+              "MESIE-VS4-ORBITAL"
+            ],
+            "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell."
+          },
+          "market_ready": null,
+          "task": "processor_probe"
+        },
+        {
+          "ok": true,
+          "stale_s": 46.7,
+          "task": "nova_stale_check"
+        }
+      ],
+      "verify_artifact": "deliverables/MESIE_Production_Tiers_Report.json",
+      "verify_ok": true,
+      "market_ready": true
+    },
+    {
+      "ok": true,
+      "tier_id": "package",
+      "tier_num": 2,
+      "title": "Package \u2014 Market Artifacts",
+      "squad_id": "quality-triad",
+      "tasks": [
+        {
+          "ok": true,
+          "exit_code": 0,
+          "tail": "ok\n",
+          "task": "token_manifest"
+        },
+        {
+          "ok": true,
+          "businesses": 5,
+          "task": "market_manifest_refresh"
+        },
+        {
+          "task": "squad_quality",
+          "ok": true,
+          "skipped": true,
+          "reason": "heavy_or_light_mode"
+        }
+      ],
+      "verify_artifact": "deliverables/market/MARKET_RELEASE_MANIFEST.json",
+      "verify_ok": true,
+      "market_ready": true
+    },
+    {
+      "ok": true,
+      "tier_id": "platform",
+      "tier_num": 3,
+      "title": "Platform \u2014 Intelligence Surface",
+      "squad_id": "intel-triad",
+      "tasks": [
+        {
+          "ok": true,
+          "platform": null,
+          "models": null,
+          "task": "platform_pulse"
+        },
+        {
+          "ok": true,
+          "worker_count": 12,
+          "out": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes",
+          "manifest": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\HERMES_FLEET_MANIFEST.json",
+          "deploy_shot": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\DEPLOY_SHOT.json",
+          "sdk_zip": null,
+          "task": "hermes_forge_light"
+        },
+        {
+          "task": "squad_intel",
+          "ok": true,
+          "skipped": true,
+          "reason": "heavy_or_light_mode"
+        }
+      ],
+      "verify_artifact": "deliverables/platform/PLATFORM_MANIFEST.json",
+      "verify_ok": true,
+      "market_ready": true
+    },
+    {
+      "ok": true,
+      "tier_id": "ship",
+      "tier_num": 4,
+      "title": "Ship \u2014 Release & Federation",
+      "squad_id": "research-triad",
+      "tasks": [
+        {
+          "task": "market_portal_fork",
+          "ok": true,
+          "skipped": true,
+          "reason": "heavy_or_light_mode"
+        },
+        {
+          "ok": true,
+          "icp": {
+            "product": "MESIE Sovereign Cloud Platform",
+            "sku": "MESIE-SCP-1.0",
+            "version": "1.0.0",
+            "network": "local",
+            "doctrine": "Everything is a signal \u2014 text, JSON, events, physics, and spectra unify under one stack.",
+            "formula": "Logic \u2297 Reasoning \u2297 Emergence \u2297 Adaptation (SOLUS)",
+            "execution_model": "Python edge executes; ICP holds sovereign registry, attestation, and mesh directory.",
+            "architecture_principle": {
+              "icp": "sovereign on-chain registry, identity, attestation, mesh directory",
+              "python_edge": "full MESIE compute \u2014 embed, mesh, NOVA, signals, LRC mint",
+              "cloudflare_worker": "edge validate/match complement (workers/mesie-api)"
+            },
+            "canister_suite": {
+              "sovereign_registry": {
+                "role": "processor nodes, VP-MESH peers, NOVA showcase, LRC receipt chain",
+                "main": "icp/sovereign-cloud/canisters/registry/main.mo"
+              },
+              "sovereign_gateway": {
+                "role": "certified HTTP manifest, Internet Identity pattern, transfer entry",
+                "main": "icp/sovereign-cloud/canisters/gateway/main.mo"
+              },
+              "sovereign_attestation": {
+                "role": "official dossier hashes, certification manifest, commercial tests",
+                "main": "icp/sovereign-cloud/canisters/attestation/main.mo"
+              },
+              "sovereign_engines": {
+                "role": "11 MESIE engines on-chain + spectral validate/match gate",
+                "main": "icp/sovereign-cloud/canisters/engines/main.mo"
+              },
+              "sovereign_tenants": {
+                "role": "multi-tenant colony registry \u2014 local, cloud, hybrid tiers",
+                "main": "icp/sovereign-cloud/canisters/tenants/main.mo"
+              },
+              "sovereign_colony": {
+                "role": "3 MCP colony servers + 100 alpha agents/skills/tools on-chain",
+                "main": "icp/sovereign-cloud/canisters/colony/main.mo"
+              }
+            },
+            "canister_ids": {
+              "sovereign_attestation": "aiewf-lx777-77775-aaaca-cai",
+              "sovereign_colony": "a5dhi-k7777-77775-aaabq-cai",
+              "sovereign_engines": "agg3n-qh777-77775-aaada-cai",
+              "sovereign_gateway": "abh5z-57777-77775-aaadq-cai",
+              "sovereign_registry": "apfqr-gp777-77775-aaacq-cai",
+              "sovereign_tenants": "a2cb4-hh777-77775-aaaba-cai"
+            },
+            "edge_stack": {
+              "product": "MESIE Sovereign Stack",
+              "version": "1.1.0",
+              "layers": [
+                {
+                  "id": "L0_signals",
+                  "name": "Universal Signal Plane",
+                  "modules": [
+                    "mesie.signals.universal_reader",
+                    "mesie.signals.text_emitter",
+                    "mesie.nova.translator"
+                  ],
+                  "modalities": [
+                    "text",
+                    "json",
+                    "state",
+                    "event",
+                    "numeric",
+                    "spectral",
+                    "file"
+                  ],
+                  "role": "Ingest anything; emit spectral fingerprint + analyst text."
+                },
+                {
+                  "id": "L1_mesie_core",
+                  "name": "MESIE Spectral Engine",
+                  "modules": [
+                    "embed",
+                    "match",
+                    "fingerprint",
+                    "validate",
+                    "generation"
+                  ],
+                  "engines": [
+                    "control",
+                    "embedding",
+                    "fingerprint",
+                    "generation",
+                    "intelligence",
+                    "logic",
+                    "matching",
+                    "movement",
+                    "polyglot",
+                    "validation",
+                    "workflow"
+                  ],
+                  "role": "Fast compute, domain suites, library index, physics foundations."
+                },
+                {
+                  "id": "L2_virtual_processor",
+                  "name": "Virtual Processor",
+                  "port": 8750,
+                  "operations": [
+                    "embed",
+                    "match",
+                    "benchmark",
+                    "read_signal",
+                    "generate_text",
+                    "mesh_pulse",
+                    "robotics_pulse",
+                    "virtual_chip",
+                    "exec_tool",
+                    "nova-runtime",
+                    "mesh",
+                    "mesh/pulse",
+                    "mesh/soak"
+                  ],
+                  "role": "Agent-callable compute API \u2014 no chat shell."
+                },
+                {
+                  "id": "L3_nova_org",
+                  "name": "NOVA Micro Organization",
+                  "careers": 70,
+                  "teams": 12,
+                  "modules": [
+                    "mesie.agentic.micro.runtime_supervisor",
+                    "satellite_robotics"
+                  ],
+                  "role": "IT/infrastructure fleet \u2014 laws, protocols, library, release, showcase."
+                },
+                {
+                  "id": "L4_sovereign_surface",
+                  "name": "SovereignForge + Memory Desk",
+                  "integrations": [
+                    "SovereignForge agentHeartbeat",
+                    "Loom vault",
+                    "coding lab :8770"
+                  ],
+                  "role": "Desktop running time; heartbeat spawns and watches NOVA runtime."
+                }
+              ],
+              "data_flow": [
+                "Any input \u2192 UniversalSignalReader \u2192 spectral fingerprint",
+                "Fingerprint \u2192 FastSpectralCompute embed/match \u2192 library + vault",
+                "SignalTextEmitter \u2192 SOLUS brief / native voice \u2192 deliverable JSON",
+                "Virtual Processor mints LRC per operation \u2192 accounting ledger",
+                "VP-MESH beacons + OTA gossip \u2192 phi-weighted route across LAN processor nodes",
+                "NOVA 70 careers pulse real tasks \u2192 showcase + devkit export",
+                "SovereignForge heartbeat ensures runtime never stops"
+              ],
+              "foundations": {
+                "engines": [
+                  "control",
+                  "embedding",
+                  "fingerprint",
+                  "generation",
+                  "intelligence",
+                  "logic",
+                  "matching",
+                  "movement",
+                  "polyglot",
+                  "validation",
+                  "workflow"
+                ],
+                "engine_count": 11,
+                "protocols": [
+                  "mesie.ai.intelligence_protocols",
+                  "mesie.edge.edge_protocol",
+                  "mesie.internal_api.bus"
+                ],
+                "physics": [
+                  "mesie.edge.hz_ladder",
+                  "mesie.cosmology.teotl_flow",
+                  "mesie.worlds.spacetime_bridge"
+                ],
+                "library": {
+                  "ok": true,
+                  "root": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library",
+                  "files": 1213,
+                  "bytes": 11526716,
+                  "mb": 10.99,
+                  "swarm_dtn": 32,
+                  "lan_gossip": 1009,
+                  "spectral_index": true
+                },
+                "deliverables": {
+                  "ok": true,
+                  "files": 750,
+                  "bytes": 223502679,
+                  "mb": 213.15
+                },
+                "tools": 82,
+                "mesie_root": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-",
+                "doctrine": "Everything is a signal \u2014 spectral records unify text, state, physics, domains."
+              },
+              "release_artifacts": [
+                "deliverables/processor/VIRTUAL_PROCESSOR_RELEASE.json",
+                "deliverables/processor/VIRTUAL_PROCESSOR_DEVKIT.json",
+                "deliverables/processor/VIRTUAL_PROCESSOR_MARKET_RESEARCH.json",
+                "deliverables/processor/MESIE_STACK_ARCHITECTURE.json",
+                "deliverables/nova/NOVA_SHOWCASE.json"
+              ],
+              "generated_at": "2026-07-02T09:13:56Z"
+            },
+            "edge_live": {
+              "processor_url": "http://127.0.0.1:8750",
+              "processor_status": {
+                "product": "MESIE Virtual Processor",
+                "processor_version": "1.2.0",
+                "accounting": {
+                  "mpc_test_pass": true,
+                  "ui_local_assets": true,
+                  "zip_integration_ok": true,
+                  "packet_files": 186,
+                  "packet_bytes": 4076296,
+                  "mint_ledger": "553A41683B48",
+                  "measured_by_source": 152158,
+                  "local_nova_cycles": 807,
+                  "local_nova_lrcs_minted": 807,
+                  "authority": "local_accounting_only",
+                  "last_lrc": {
+                    "lrc_id": "11AD0114CA30",
+                    "cycle": 807,
+                    "operation": "exec_tool",
+                    "measured_units": 275,
+                    "latency_ms": 3055.88,
+                    "payload_hash": "a3037c4ee73995c9",
+                    "ts": 1782976468.239446
+                  }
+                },
+                "vault": "C:\\Loom\\system\\.processor_vault",
+                "operations": [
+                  "embed",
+                  "match",
+                  "benchmark",
+                  "read_signal",
+                  "generate_text",
+                  "mesh_pulse",
+                  "exec_tool",
+                  "virtual_chip",
+                  "list_chips",
+                  "robotics_pulse",
+                  "compute_encode",
+                  "compute_benchmark",
+                  "compute_hub"
+                ],
+                "compute_hub": "/processor/compute/status",
+                "mesie_compute_first_class": true,
+                "chip_skus": [
+                  "MESIE-VS1",
+                  "MESIE-VS2-ANN",
+                  "MESIE-VS3-EDGE",
+                  "MESIE-VS4-ORBITAL"
+                ],
+                "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell."
+              },
+              "mesh_status": {
+                "live": {
+                  "protocol": "VP-MESH",
+                  "version": "1.2.0",
+                  "node_id": "d8cc816d23ac",
+                  "processor_url": "http://127.0.0.1:8750",
+                  "mcast_group": "239.192.77.2",
+                  "port": 37542,
+                  "propagation_tier": "UHF/Terrestrial",
+                  "peers": 0,
+                  "beacons_sent": 0,
+                  "beacons_received": 0,
+                  "peer_dir": "C:\\Loom\\system\\library\\mesh_peers\\vp_nodes",
+                  "sovereign": true,
+                  "airgapped_lan": true
+                },
+                "state": {
+                  "mesh_version": "1.2.0",
+                  "ts": 1782812240.94368,
+                  "node": {
+                    "protocol": "VP-MESH",
+                    "version": "1.2.0",
+                    "node_id": "7cef0545dc95",
+                    "processor_url": "http://127.0.0.1:8750",
+                    "mcast_group": "239.192.77.2",
+                    "port": 37542,
+                    "propagation_tier": "UHF/Terrestrial",
+                    "peers": 144,
+                    "beacons_sent": 1,
+                    "beacons_received": 1,
+                    "peer_dir": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\library\\mesh_peers\\vp_nodes",
+                    "sovereign": true,
+                    "airgapped_lan": true
+                  },
+                  "peers": [
+                    {
+                      "node_id": "0081675e5a35",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.6409152,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "029b587c7316",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.686383,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "063653b28e78",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.7528906,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "079213c98948",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.7978144,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "0b6ca9304b7c",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.8250818,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "0fd333fb5f50",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.8469617,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "10667211f0c2",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.9248157,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "1227a2339bd1",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.9683058,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "123231ccb51c",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812234.9903145,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "13ff9f81cfd5",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.0133202,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "17cd3e855552",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.0398247,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "191743e887dd",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.1068096,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "193889abbe98",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.1564298,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "1965689630d2",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.1813262,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "1d686347b384",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.2171159,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "1e63b6a8dc9e",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.3139408,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "21a1de2e37e1",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.3579645,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "2239a15ca8e3",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.3812695,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "226528e5e907",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.4050345,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "233fa7472fed",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.483053,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "257be768cebe",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.5321386,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "25a828e74e67",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.5559568,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "2e5d8dd839a1",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.5774672,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "300b13c41d3a",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.5984771,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "31a2859e0ed9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.696204,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "36c585f44127",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.7177157,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "3d0ee989d69f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.7654958,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "3da6fd690649",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.7883317,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "3f11aa571c91",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.8106616,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "4088977b1305",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.8556745,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "42bef1509864",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.898702,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "43cdbeef2c5a",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.9212189,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "43df9e8c3096",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.9547951,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "44dd80ea1fa6",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812235.9748003,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "4632370473e3",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.0482273,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "4690991976a9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.0872843,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "46b1cf8296e0",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.1298642,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "4832459a1a48",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.1733308,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "4888330cdd3e",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.279827,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "4a0fc125e83c",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.302678,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "5151b858bdb2",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.3231995,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "51aae6ca83fb",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.3637688,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "5459d87bb33f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.387043,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "5550fd780d27",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.4570606,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "5858cf51c595",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.4980745,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "592e2081811a",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.520784,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "5ae43b1d85b7",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.5422945,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "5daa3c0a33b1",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.5627997,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "61ee26b30ad5",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.5838327,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "62b71979540f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.6078136,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "6b16e59c1223",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.683053,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "6b340753e3d2",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.7231376,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "6b5464908be8",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.7444625,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "6bdecfd2ec27",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.7680774,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "6cd957f0e866",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.8621416,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "70b0b114c329",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.8832397,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "733290505fda",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.927711,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "7342be88fb1e",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.9511209,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "73ba10a809ce",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812236.9739003,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "74a8343c6ab9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.0457819,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "766432880fa9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.0858412,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "77d1636ace42",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.1510382,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "77f4900ca933",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.1784391,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "7e1d76d4db97",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.2459574,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "7e3001c9c14b",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.2689276,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "7ea64dea28e8",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.2899463,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "7fa6715f9001",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.3620617,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "81f3dc5b6f00",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.4066706,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "825345db3ea7",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.4441793,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "8467c80ca74f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.4679897,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "85b822f1d7f0",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.489999,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "867553de3fec",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.5115237,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "86d36b0e074c",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.5340292,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "87e8a669933e",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.6070104,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "887bede86c2a",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.646982,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "894339e69f63",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.6689355,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "89ca186e46dc",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.6954486,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "8bfdedff1eb9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.7187035,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "96f7005e070e",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.8058736,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "9889b2caff05",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.8501174,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "98ca30ec622f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.872995,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "9ca55e9e4924",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.9230576,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "9d8b4d5b7aef",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812237.992387,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "9e2ea4c2093d",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.0379407,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "9ea3966870a6",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.061659,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "a39123fd04a4",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.0852444,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "a53b0aa7aba5",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.1104598,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "a67ea0d745eb",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.161021,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "a6eb4c13aa25",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.210399,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "a6f2bb9ce322",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.231911,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "a984af51a130",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.2544203,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "abae4f53a4fd",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.2789319,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "ae72cc7154ad",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.3499932,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "b13569a9d446",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.3980374,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "b198e80cd5fb",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.4207058,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "b2a685e37920",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.472834,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "b2fd0c00396f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.5470734,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "b93d15d1753e",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.5903778,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "ba86b1110809",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.614885,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "bb22c2bec714",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.6385987,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "bb2ec32bdc5f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.7290854,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "bc230eaf864f",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.7801363,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "bdd4029e3a33",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.81015,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "bec60332e6ac",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.8366568,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c07753812c97",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.9170334,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c3b639bcb40c",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812238.9672713,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c66e2baee544",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.0225658,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c6993e8f2bad",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.1105318,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c72a423968bd",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.1412647,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c818b1c9e866",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.174089,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c9019a611b74",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.204208,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c942c784ccd9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.2283368,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "c97539913352",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.3081024,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "cb1f3c5bbf8d",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.3338244,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "cc19e501b0f5",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.3719287,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "cce641dad3c9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.4167283,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "ce5de50e15e3",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.5245197,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "d04eeedc026c",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.5967836,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "d3bc01496ede",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.6438994,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "d52156410160",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.678159,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "d9b411fd80e9",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.7458234,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "da71eb0d6c96",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.7688987,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "dd9e3c916301",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.7985203,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "df983792568a",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.8275497,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "e065e8accc45",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.8860452,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "e2ce7b6c7067",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.9360816,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "e346ba05529b",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812239.9855988,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "e57865a68c48",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.0328426,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "e7d6dd4e4f27",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.0851595,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "e9a0dfc279fc",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.1365678,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "eb1128300473",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.1615977,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "ec34c2878ff4",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.193635,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "eca1f697cbc1",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.2217581,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "effcf3c4976b",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.306949,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "f3d596a4121b",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.3448393,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "f57d5568dea6",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.3751698,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "f78c8d3f8f01",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.4003787,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "f8b757abd837",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.4806213,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "f996175b3465",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.5236533,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "fb2716578269",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.556422,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "fbabf2a4d3d1",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.5791645,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "fe4ac9227788",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.6130862,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "ffaa6375eaa8",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.7106447,
+                      "healthy": true
+                    },
+                    {
+                      "node_id": "fffeaf2fb26b",
+                      "hostname": "CommandCenter",
+                      "lan_ip": "192.168.12.127",
+                      "processor_url": "http://127.0.0.1:8750",
+                      "operations": [
+                        "embed",
+                        "match",
+                        "benchmark",
+                        "read_signal",
+                        "generate_text",
+                        "mesh_pulse",
+                        "exec_tool",
+                        "virtual_chip",
+                        "list_chips",
+                        "robotics_pulse",
+                        "compute_encode",
+                        "compute_benchmark",
+                        "compute_hub"
+                      ],
+                      "threat_p50_ms": null,
+                      "lrc_id": null,
+                      "last_seen": 1782812240.7368236,
+                      "healthy": true
+                    }
+                  ],
+                  "healthy_peers": 144,
+                  "last_pulse": {
+                    "ok": true,
+                    "node_id": "7cef0545dc95",
+                    "peers_seen": 144,
+                    "ota_frames_received": 48,
+                    "ota_mesh_ok": true,
+                    "beacons_sent": 1,
+                    "beacons_received": 1,
+                    "sovereign_bundle_hash": "a106ba3d8a95f9cf2dd34e25",
+                    "routed_local": false,
+                    "latency_ms": 6504.18,
+                    "propagation_tier": "UHF/Terrestrial"
+                  },
+                  "route_target": {
+                    "node_id": "fffeaf2fb26b",
+                    "hostname": "CommandCenter",
+                    "lan_ip": "192.168.12.127",
+                    "processor_url": "http://127.0.0.1:8750",
+                    "operations": [
+                      "embed",
+                      "match",
+                      "benchmark",
+                      "read_signal",
+                      "generate_text",
+                      "mesh_pulse",
+                      "exec_tool",
+                      "virtual_chip",
+                      "list_chips",
+                      "robotics_pulse",
+                      "compute_encode",
+                      "compute_benchmark",
+                      "compute_hub"
+                    ],
+                    "threat_p50_ms": null,
+                    "lrc_id": null,
+                    "last_seen": 1782812240.7368236,
+                    "healthy": true
+                  }
+                }
+              }
+            },
+            "official_pack_hashes": {
+              "VIRTUAL_PROCESSOR_OFFICIAL_DOSSIER.json": "251fd68e37532592495b57234c6015f4a98bdd3a4c6b16b1c8082bf1a4d190aa",
+              "VIRTUAL_PROCESSOR_COMMERCIAL_TEST_REPORT.json": "729a1709afc2b917de259c9025099b1304f96e3c22b68bd935b3d187e32d9d84",
+              "VIRTUAL_PROCESSOR_COMPLIANCE_PACK.json": "1b6b96df87407b408ddf1114937ad3c1a44b2a51cc7729c3687b72bc85d3c01d",
+              "VIRTUAL_PROCESSOR_TECHNOLOGY.json": "10b2c0181425e770bf42245eeaec0e82284e8eeba93bb943330fe40b1f8f98f8",
+              "VIRTUAL_PROCESSOR_CERTIFICATION_MANIFEST.json": "383975545b668355fee95d63a26dd786a5aeb7f8331de1e860874b852b6d6bb3"
+            },
+            "release_artifact_hashes": {
+              "deliverables/processor/VIRTUAL_PROCESSOR_RELEASE.json": "58c79f521c58de2763a21106f5b660714948d47bbc7ff4072f05c3c948c43a1b",
+              "deliverables/processor/VIRTUAL_PROCESSOR_DEVKIT.json": "07a49806706d768f403a6e3a23ef9456b17795477f5be85fc6c67000846c0dd4",
+              "deliverables/processor/MESIE_STACK_ARCHITECTURE.json": "cea1a3f4d905117a37feaad6a56b7b05b405f27697a98d8bb6b4b9868ac52374",
+              "deliverables/nova/NOVA_SHOWCASE.json": "a8d6668211c2af93296368ff547080bc01282556ff971b0b8547073ae862b12d",
+              "deliverables/processor/VP_MESH_STATE.json": "e7ea13874df99a40a4b23f25aac026bbefe7455b4ea764b6fcb406b6147a5508"
+            },
+            "deploy_commands": {
+              "full_stack": ".\\Deploy-SovereignCloud-ICP.ps1 -Network local",
+              "mesie_with_icp": ".\\Deploy-MESIE.ps1 -ICP -Mesh -Official",
+              "bridge_sync": "python scripts/sync_icp_bridge.py --network local",
+              "icp_deploy": "cd icp/sovereign-cloud && icp network start -d && icp deploy -e local",
+              "icp_deploy_wsl": "wsl -e bash icp/sovereign-cloud/scripts/deploy_wsl.sh local"
+            },
+            "deploy_tool": "icp-cli",
+            "transfer_includes": [
+              "icp/sovereign-cloud/",
+              "mesie/cloud/",
+              "scripts/sync_icp_bridge.py",
+              "scripts/deploy_icp.ps1",
+              "Deploy-SovereignCloud-ICP.ps1",
+              "Deploy-MESIE.ps1",
+              "deliverables/processor/official/",
+              "deliverables/processor/VIRTUAL_PROCESSOR_OFFICIAL_BUNDLE.zip",
+              "deliverables/processor/VIRTUAL_PROCESSOR_DEVKIT.zip",
+              "mesie/processor/",
+              "mesie/agentic/micro/",
+              "scripts/run_nova_runtime.py",
+              "scripts/run_vp_mesh.py"
+            ],
+            "host": {
+              "os": "Windows-10-10.0.26200-SP0",
+              "python": "3.11.6"
+            },
+            "generated_at": "2026-07-02T09:13:59Z",
+            "manifest_hash": "460f7225283ac18969afec9b3e9226704b33d6a424160d247540d980854b48cc"
+          },
+          "task": "icp_bridge_status"
+        },
+        {
+          "task": "squad_research",
+          "ok": true,
+          "skipped": true,
+          "reason": "heavy_or_light_mode"
+        }
+      ],
+      "verify_artifact": "deliverables/market/FIVE_BUSINESSES.json",
+      "verify_ok": true,
+      "market_ready": true
+    }
+  ],
+  "sleep_safe": true,
+  "ts": 1782983639.6534874,
+  "generated_at": "2026-07-02T09:13:59Z",
+  "cycles": 1
+}

@@ -31,4 +31,8 @@ def __getattr__(name: str):
         from mesie.enterprise.copilot import EnterpriseAICopilot, EnterpriseCycleReport
 
         return EnterpriseAICopilot if name == "EnterpriseAICopilot" else EnterpriseCycleReport
+    if name == "EnterpriseExecutionEngine":
+        from mesie.enterprise.execution_engine import EnterpriseExecutionEngine
+
+        return EnterpriseExecutionEngine
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")

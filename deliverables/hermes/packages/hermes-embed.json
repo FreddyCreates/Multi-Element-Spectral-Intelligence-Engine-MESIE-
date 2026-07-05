@@ -1,0 +1,22 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-embed",
+  "slot": "H02",
+  "title": "Edge Embed Proxy",
+  "route": "/hermes/embed",
+  "operations": [
+    "encode",
+    "batch_encode",
+    "phi_kernel"
+  ],
+  "generates": [
+    "embed_package.json"
+  ],
+  "ai_ingest": true,
+  "embedding_depth": true,
+  "deploy_artifacts": [
+    "embed_package.json"
+  ],
+  "processor_proxy": "POST /processor/compute/encode",
+  "third_party_inference": false
+}

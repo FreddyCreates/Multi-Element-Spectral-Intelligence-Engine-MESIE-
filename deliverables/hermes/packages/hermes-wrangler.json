@@ -1,0 +1,24 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-wrangler",
+  "slot": "H07",
+  "title": "Wrangler Forge",
+  "route": "/hermes/wrangler",
+  "operations": [
+    "toml",
+    "routes",
+    "vars"
+  ],
+  "generates": [
+    "wrangler.toml",
+    "wrangler.hermes.toml"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "wrangler.toml",
+    "wrangler.hermes.toml"
+  ],
+  "processor_proxy": "GET /processor/hermes",
+  "third_party_inference": false
+}

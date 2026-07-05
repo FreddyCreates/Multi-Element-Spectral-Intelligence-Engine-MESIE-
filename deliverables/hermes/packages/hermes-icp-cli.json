@@ -1,0 +1,24 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-icp-cli",
+  "slot": "H06",
+  "title": "ICP CLI Forge",
+  "route": "/hermes/icp",
+  "operations": [
+    "dfx_deploy",
+    "canister_map",
+    "bridge_sync"
+  ],
+  "generates": [
+    "HERMES_ICP_CLI.json",
+    "deploy.sh"
+  ],
+  "ai_ingest": false,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "HERMES_ICP_CLI.json",
+    "deploy.sh"
+  ],
+  "processor_proxy": "GET /processor/federation/status",
+  "third_party_inference": false
+}

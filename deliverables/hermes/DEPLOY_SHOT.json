@@ -1,0 +1,16 @@
+{
+  "protocol": "HERMES-DEPLOY-SHOT/1.0",
+  "ready": true,
+  "steps": [
+    "forge",
+    "wrangler_deploy",
+    "icp_anchor",
+    "sdk_publish"
+  ],
+  "scripts": {
+    "powershell": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\deploy.ps1",
+    "bash": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\deploy.sh",
+    "icp": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\hermes\\icp\\deploy_icp.sh"
+  },
+  "worker_count": 12
+}

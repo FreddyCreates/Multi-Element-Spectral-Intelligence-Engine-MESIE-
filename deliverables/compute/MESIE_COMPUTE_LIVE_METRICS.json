@@ -1,0 +1,213 @@
+{
+  "product": "MESIE COMPUTE Live Metrics",
+  "collected_at": "2026-07-03T06:41:54Z",
+  "collection_ms": 56247.03,
+  "processor": {
+    "healthy": true,
+    "url": "http://127.0.0.1:8750",
+    "status": {
+      "product": "MESIE Virtual Processor",
+      "processor_version": "1.2.0",
+      "accounting": {
+        "mpc_test_pass": true,
+        "ui_local_assets": true,
+        "zip_integration_ok": true,
+        "packet_files": 228,
+        "packet_bytes": 4574685,
+        "mint_ledger": "553A41683B48",
+        "measured_by_source": 155486,
+        "local_nova_cycles": 831,
+        "local_nova_lrcs_minted": 831,
+        "authority": "local_accounting_only",
+        "last_lrc": {
+          "lrc_id": "9A8999169CED",
+          "cycle": 831,
+          "operation": "virtual_chip",
+          "measured_units": 148,
+          "latency_ms": 16278.3,
+          "payload_hash": "c1a0280e11cc2c45",
+          "ts": 1783060426.2817807
+        }
+      },
+      "vault": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\.processor_vault",
+      "operations": [
+        "embed",
+        "match",
+        "benchmark",
+        "read_signal",
+        "generate_text",
+        "mesh_pulse",
+        "exec_tool",
+        "virtual_chip",
+        "list_chips",
+        "robotics_pulse",
+        "compute_encode",
+        "compute_benchmark",
+        "compute_hub"
+      ],
+      "compute_hub": "/processor/compute/status",
+      "mesie_compute_first_class": true,
+      "chip_skus": [
+        "MESIE-VS1",
+        "MESIE-VS2-ANN",
+        "MESIE-VS3-EDGE",
+        "MESIE-VS4-ORBITAL"
+      ],
+      "mcp_note": "Expose via HTTP :8750 or Loom runspace_exec; not a chat shell."
+    }
+  },
+  "sovereign_os": {
+    "healthy": false,
+    "url": "http://127.0.0.1:8770",
+    "alpha_agents": null
+  },
+  "st_phi": {
+    "encode_p50_ms": 1010.5284,
+    "encode_p95_ms": 1509.0359,
+    "dims": 256,
+    "trials": 50,
+    "vs_hf_baseline_speedup": 0.01,
+    "native": true,
+    "backend": "numpy_st_phi"
+  },
+  "virtual_products": [
+    {
+      "sku": "MESIE-COMPUTE-EDGE",
+      "name": "MESIE COMPUTE Edge",
+      "category": "processor",
+      "port": 8750,
+      "description": "First-class spectral compute \u2014 embed, match, signals, NOVA",
+      "operations": [
+        "embed",
+        "match",
+        "benchmark",
+        "read_signal",
+        "generate_text",
+        "mesh_pulse"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": true
+    },
+    {
+      "sku": "ST-\u03c6-256",
+      "name": "ST-\u03c6 Spectral Transformer 256",
+      "category": "transformer",
+      "port": null,
+      "description": "Native \u03c6-harmonic transformer \u2014 rivals HuggingFace, no torch",
+      "operations": [
+        "encode",
+        "encode_batch",
+        "benchmark"
+      ],
+      "invocations": 28,
+      "last_latency_ms": 2833.7303,
+      "p50_ms": 1010.5284,
+      "healthy": true
+    },
+    {
+      "sku": "ST-\u03c6-512",
+      "name": "ST-\u03c6 Spectral Transformer 512",
+      "category": "transformer",
+      "port": null,
+      "description": "Research-grade 512-dim spectral encoder",
+      "operations": [
+        "encode",
+        "encode_batch",
+        "benchmark"
+      ],
+      "invocations": 13,
+      "last_latency_ms": 0.0,
+      "p50_ms": 1010.5284,
+      "healthy": true
+    },
+    {
+      "sku": "MESIE-\u03c6-KERNEL",
+      "name": "\u03c6-Kernel Compression",
+      "category": "kernel",
+      "port": null,
+      "description": "Spectral slice compression and transfer index",
+      "operations": [
+        "compress_embedding",
+        "compress_file_slices",
+        "export_index"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-FAST-ANN",
+      "name": "Fast Spectral ANN",
+      "category": "retrieval",
+      "port": null,
+      "description": "Band-sign LSH + matrix cosine \u2014 sub-ms queries",
+      "operations": [
+        "cosine_search",
+        "benchmark_ann_p50"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-VS1",
+      "name": "Virtual Silicon VS1",
+      "category": "chip",
+      "port": null,
+      "description": "Certified virtual chip lane \u2014 OTA mesh",
+      "operations": [
+        "certify",
+        "benchmark_lane"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-SOVEREIGN-OS",
+      "name": "Sovereign OS Dashboard",
+      "category": "platform",
+      "port": 8770,
+      "description": "Airgap, Capsula, Triple Protocol control plane",
+      "operations": [
+        "deploy",
+        "bridge",
+        "metrics"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    },
+    {
+      "sku": "MESIE-TRI-AGENT",
+      "name": "Tri-Agent Maintenance Squads",
+      "category": "agents",
+      "port": null,
+      "description": "Groups of 3 AI auto-agents for workflow and maintenance",
+      "operations": [
+        "ops_triad",
+        "quality_triad",
+        "intel_triad"
+      ],
+      "invocations": 0,
+      "last_latency_ms": 0.0,
+      "p50_ms": 0.0,
+      "healthy": false
+    }
+  ],
+  "privacy": {
+    "complete": true,
+    "airgap_capable": true
+  },
+  "latency_targets": {
+    "edge_p50_ms": 1010.5284,
+    "ann_target_ms": 0.5,
+    "nova_threat_p50_ms": 0.68
+  }
+}

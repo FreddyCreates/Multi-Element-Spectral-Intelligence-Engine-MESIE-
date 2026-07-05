@@ -1,0 +1,282 @@
+{
+  "protocol": "MESIE-ENTERPRISE-EXECUTION-ENGINE/1.0",
+  "mission_id": "test-partial",
+  "ok": true,
+  "nodes_run": 13,
+  "results": [
+    {
+      "ok": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\enterprise\\UNIFIED_REPO_THREAD.json",
+      "manifest": {
+        "protocol": "MESIE-UNIFIED-REPO-THREAD/1.0",
+        "generated_at": "2026-06-29T23:36:44Z",
+        "repos": [
+          {
+            "id": "mesie-main",
+            "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-",
+            "role": "primary \u2014 full ecosystem (MESIE + NOVA + ICP + Grok)",
+            "scan": {
+              "exists": true,
+              "files": 7868,
+              "bytes": 382171565,
+              "mb": 382.17
+            }
+          },
+          {
+            "id": "cloudcolony-sovereign",
+            "path": "C:\\Users\\Medin\\cloudcolony-sovereign",
+            "role": "sovereign stack export (CloudColony deploy handoff)",
+            "scan": {
+              "exists": true,
+              "files": 98,
+              "bytes": 4181904,
+              "mb": 4.18
+            }
+          },
+          {
+            "id": "mesie-bak-jun3",
+            "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-.bak-20260603-203359",
+            "role": "historical backup \u2014 lineage anchor",
+            "scan": {
+              "exists": true,
+              "files": 584,
+              "bytes": 16722543,
+              "mb": 16.72
+            }
+          }
+        ],
+        "products": [
+          {
+            "sku": "MESIE-CORE",
+            "module": "mesie/",
+            "start": "Start-VirtualProcessor.ps1"
+          },
+          {
+            "sku": "MESIE-COMPUTE",
+            "module": "mesie/compute/",
+            "start": "Start-MESIECompute.ps1"
+          },
+          {
+            "sku": "NOVA-RUNTIME",
+            "module": "mesie/agentic/micro/",
+            "start": "Start-NovaRuntime.ps1"
+          },
+          {
+            "sku": "VIRTUAL-PROCESSOR",
+            "module": "mesie/processor/",
+            "start": ":8750/processor/status"
+          },
+          {
+            "sku": "SOVEREIGN-CLOUD-ICP",
+            "module": "icp/sovereign-cloud/",
+            "start": "Start-SovereignColony.ps1"
+          },
+          {
+            "sku": "SOVEREIGN-OS",
+            "module": "sovereign-os/",
+            "start": "Start-SovereignOS.ps1"
+          },
+          {
+            "sku": "CLOUDCOLONY-TRIPLE",
+            "module": "mesie/cloud/",
+            "start": "python -m mesie.cloud.triple_protocol"
+          },
+          {
+            "sku": "MULTIMODAL-MCP",
+            "module": "mesie/cloud/multimodal_triple_protocol.py",
+            "start": "MULTIMODAL_TRIPLE_PROTOCOL.json"
+          },
+          {
+            "sku": "GROK-NOVA-MESIE",
+            "module": "mesie/grok/",
+            "start": "Start-GrokNovaMesie.ps1"
+          },
+          {
+            "sku": "MCP-COLONIES",
+            "module": "mcp-colonies/",
+            "start": "MCP_CURSOR_CONFIG.json"
+          },
+          {
+            "sku": "ACOUSTIC-RESEARCH",
+            "module": "mesie/research/",
+            "start": "acoustic_metamaterial_agent"
+          },
+          {
+            "sku": "COMMERCIAL-PACK",
+            "module": "deliverables/processor/official/",
+            "start": "Deploy-MESIE.ps1 -Official"
+          },
+          {
+            "sku": "SWARM-MISSIONS",
+            "module": ".grok/skills/swarm-mission-*",
+            "start": "/swarm-mission-grok"
+          },
+          {
+            "sku": "LOAD-BEARING",
+            "module": "mesie/compute/token_budget.py",
+            "start": "/load-bearing-tokens"
+          }
+        ],
+        "product_count": 14,
+        "thread_intact": true,
+        "primary_repo": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-"
+      },
+      "node": "n01",
+      "name": "unify_repos",
+      "phase": "UNIFY",
+      "elapsed_s": 1.23
+    },
+    {
+      "ok": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\grok\\GROK_NOVA_MESIE_PROTOCOL.json",
+      "protocol": "GROK-NOVA-MESIE/1.0",
+      "node": "n02",
+      "name": "grok_protocol",
+      "phase": "CONNECT",
+      "elapsed_s": 0.01
+    },
+    {
+      "ok": true,
+      "node": "n03",
+      "name": "triple_protocol",
+      "phase": "CONNECT",
+      "elapsed_s": 0.0
+    },
+    {
+      "ok": true,
+      "path": "C:\\Users\\Medin\\Multi-Element-Spectral-Intelligence-Engine-MESIE-\\deliverables\\cloudcolony\\MULTIMODAL_TRIPLE_PROTOCOL.json",
+      "manifest": {
+        "protocol": "MULTIMODAL-TRIPLE-PROTOCOL/1.0",
+        "extends": "CLOUDCOLONY-TRIPLE-PROTOCOL/1.0",
+        "generated_at": "2026-06-29T23:36:44Z",
+        "layers": [
+          {
+            "id": "M1",
+            "name": "MEDINA-MULTIMODAL-MCP/1.0",
+            "modalities": [
+              "text",
+              "vision",
+              "audio",
+              "spectral"
+            ],
+            "servers": [
+              "vault",
+              "compute",
+              "fleet",
+              "multimodal-gateway"
+            ]
+          },
+          {
+            "id": "M2",
+            "name": "MEDINA-ADAPTER-BUS/1.0",
+            "adapters": [
+              "grok",
+              "caffeine",
+              "phantom",
+              "cursor",
+              "claude"
+            ],
+            "bridge": "phantom_bridge.py"
+          },
+          {
+            "id": "M3",
+            "name": "MEDINA-HARMONIC-ROUTER/1.0",
+            "hz_anchor": 1670.0,
+            "phi_weight": 0.6180339887498948,
+            "route": "spectral centroid \u2192 MCP tool dispatch"
+          }
+        ],
+        "flow": [
+          "Client (Grok/Cursor/Caffeine)",
+          "Adapter Bus (grok|caffeine|phantom)",
+          "Multimodal MCP Gateway",
+          "Harmonic Router (1670 Hz band)",
+          "Edge :8750 ST-\u03c6 + embed/match",
+          "Loom vault receipt"
+        ],
+        "adapters": {
+          "grok": {
+            "transport": "stdio|http",
+            "skill_prefix": "swarm-mission-grok"
+          },
+          "caffeine": {
+            "transport": "local_wake|ipc",
+            "role": "keep-alive + hot path"
+          },
+          "phantom": {
+            "transport": "capsula",
+            "module": "mesie.adapters.phantom_bridge"
+          },
+          "cursor": {
+            "transport": "mcp",
+            "config": "deliverables/icp/MCP_CURSOR_CONFIG.json"
+          }
+        },
+        "production_gate": true
+      },
+      "node": "n04",
+      "name": "multimodal_protocol",
+      "phase": "CONNECT",
+      "elapsed_s": 0.0
+    },
+    {
+      "ok": true,
+      "uplift": {
+        "messages_compact_tokens": 9584,
+        "messages_saved_tokens": 105416,
+        "reasoning_headroom_tokens": 6450,
+        "free_after_compact_est": 177116
+      },
+      "node": "n05",
+      "name": "token_budget",
+      "phase": "EFFICIENCY",
+      "elapsed_s": 0.0
+    },
+    {
+      "node": "n06",
+      "name": "nova_snapshot",
+      "skipped": true
+    },
+    {
+      "node": "n07",
+      "name": "compute_benchmark",
+      "skipped": true
+    },
+    {
+      "node": "n08",
+      "name": "colony_bridge",
+      "skipped": true
+    },
+    {
+      "node": "n09",
+      "name": "research_metamaterial",
+      "skipped": true
+    },
+    {
+      "node": "n10",
+      "name": "sandbox_loop",
+      "skipped": true
+    },
+    {
+      "node": "n11",
+      "name": "tri_agent_quality",
+      "skipped": true
+    },
+    {
+      "node": "n12",
+      "name": "package_release",
+      "skipped": true
+    },
+    {
+      "ok": true,
+      "receipt_id": "8d13200723da47fac5bb637852403f61c896b56e470c7ebf9568752ec4c6cc31",
+      "token_id": "c81b23d77db05ab73301445802b2c4b6",
+      "verified": true,
+      "node": "n13",
+      "name": "receipt_chain",
+      "phase": "PERSIST",
+      "elapsed_s": 0.0
+    }
+  ],
+  "ts": "2026-06-29T23:36:44Z"
+}

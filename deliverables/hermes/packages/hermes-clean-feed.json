@@ -1,0 +1,22 @@
+{
+  "protocol": "HERMES-WORKER-PACKAGE/1.0",
+  "worker_id": "hermes-clean-feed",
+  "slot": "H11",
+  "title": "Clean Internet Feed",
+  "route": "/hermes/clean",
+  "operations": [
+    "filter",
+    "sanitize",
+    "provenance"
+  ],
+  "generates": [
+    "clean_feed_rules.json"
+  ],
+  "ai_ingest": true,
+  "embedding_depth": false,
+  "deploy_artifacts": [
+    "clean_feed_rules.json"
+  ],
+  "processor_proxy": "GET /processor/hermes/nova-protocol",
+  "third_party_inference": false
+}
