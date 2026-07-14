@@ -144,6 +144,24 @@ from mesie.cognitive.cross_domain_transfer import (
     SpectralDomainGenerator,
     TransferLearningPipeline,
 )
+from mesie.cognitive.tokenomics import (
+    BenchmarkResult,
+    CognitiveReturnMetrics,
+    CognitiveReturnScores,
+    CompressionEfficiencyMetrics,
+    CompressionResult,
+    EvaluationCriterion,
+    RuntimeLoopState,
+    RuntimeMeasurementLoop,
+    SalienceAllocator,
+    SalienceItem,
+    SalienceWeights,
+    TaskClass,
+    TokenomicBenchmark,
+    TokenScores,
+    TokenValueFunction,
+    TokenValueWeights,
+)
 
 __all__ = [
     # Core adapters
@@ -279,4 +297,21 @@ __all__ = [
     "CrossDomainTransferEngine",
     "SpectralDomainGenerator",
     "TransferLearningPipeline",
+    # Tokenomics Measurement and Benchmarking
+    "BenchmarkResult",
+    "CognitiveReturnMetrics",
+    "CognitiveReturnScores",
+    "CompressionEfficiencyMetrics",
+    "CompressionResult",
+    "EvaluationCriterion",
+    "RuntimeLoopState",
+    "RuntimeMeasurementLoop",
+    "SalienceAllocator",
+    "SalienceItem",
+    "SalienceWeights",
+    "TaskClass",
+    "TokenomicBenchmark",
+    "TokenScores",
+    "TokenValueFunction",
+    "TokenValueWeights",
 ]

@@ -1,5 +1,183 @@
 <div align="center">
 
+# 🌈 MESIE
+## Multi-Element Spectral Intelligence Engine
+
+**The Enterprise Spectral AI Platform**
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20598320.svg)](https://doi.org/10.5281/zenodo.20598320)
+[![CI](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml/badge.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/ci.yml)
+[![Julia SDK](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/julia-sdk.yml/badge.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/julia-sdk.yml)
+[![PyPI Publish](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/publish.yml/badge.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/publish.yml)
+[![Deploy API](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/deploy-mesie-api.yml/badge.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-/actions/workflows/deploy-mesie-api.yml)
+[![Version](https://img.shields.io/badge/version-0.4.0-green.svg)](https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-)
+[![Monte Carlo](https://img.shields.io/badge/Monte_Carlo-5%2C000_trials_100%25_pass-brightgreen.svg)](deliverables/MESIE_Monte_Carlo_Enterprise_Report.md)
+[![Enterprise Grade](https://img.shields.io/badge/Enterprise_Grade-PASS_%E2%89%A585%25-blue.svg)](deliverables/MESIE_Monte_Carlo_Enterprise_Report.md)
+
+[📚 Documentation](#documentation) • [🚀 Quick Start](#quick-start) • [🔬 Research](#why-mesie) • [📦 Install](#installation)
+
+</div>
+
+---
+
+## 🎯 Overview
+
+MESIE is an enterprise-grade, open-source Python framework for multi-component spectral intelligence. We transform raw spectral data into **structured computational objects** with AI-native embeddings, transformer pipelines, autonomous reasoning, and cognitive integration.
+
+### Core Capabilities
+
+✨ **Spectral Processing**
+- Single & multi-component spectral matching
+- PSD & FAS-compatible generation
+- Multi-level spectral validation (6 levels)
+- Resonance & coherence scoring
+
+🧠 **Intelligent Systems**
+- AI-native embedding generation
+- Transformer-based spectral pipelines
+- Autonomous reasoning protocols (5 intelligence levels)
+- Cognitive architecture integration
+
+🔄 **Advanced Features**
+- Helix vector encoding & hierarchical retrieval
+- Real-time spectral streaming & protocols
+- Cross-domain transfer learning
+- Miniverse nesting & recursive containment
+- Foundation model pretraining
+
+---
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+pip install mesie
+```
+
+For full scientific stack (scipy, pandas, scikit-learn, networkx):
+```bash
+pip install mesie[full]
+```
+
+For ML & transformers:
+```bash
+pip install mesie[ml]
+```
+
+For AI intelligence protocols:
+```bash
+pip install mesie[intelligence]
+```
+
+### Basic Usage
+
+```python
+from mesie import load_record, validate_record, match_records
+
+reference = load_record("reference.json")
+candidate = load_record("candidate.json")
+
+report = validate_record(reference)
+result = match_records(reference, candidate)
+
+print(f"Match Score: {result.composite_score:.3f}")
+```
+
+---
+
+## 📊 Enterprise Validation
+
+**MESIE is validated across 10 enterprise verticals with 5,000 stochastic trials**
+
+| Industry | Use Case | Result |
+|----------|----------|--------|
+| Manufacturing | Predictive maintenance | ✅ 100% |
+| Energy | Grid & power systems | ✅ 100% |
+| Aerospace | Satellite & orbital systems | ✅ 100% |
+| Insurance | Catastrophe & seismic risk | ✅ 100% |
+| Construction | Structural FAS analysis | ✅ 100% |
+| Healthcare | Device monitoring | ✅ 100% |
+| Robotics | Fleet state lookup | ✅ 100% |
+| Telecom | Spectrum compliance | ✅ 100% |
+| Research | Lab classification | ✅ 100% |
+| Enterprise AI | Agent memory systems | ✅ 100% |
+
+**→ [Full Monte Carlo Report](deliverables/MESIE_Monte_Carlo_Enterprise_Report.md)**
+
+---
+
+## 🧠 Core Features
+
+MESIE supports:
+
+- ✅ Single & multi-component spectral records
+- ✅ RotDnn, PSD & FAS-compatible generation
+- ✅ Multi-level spectral validation (6 levels)
+- ✅ Resonance & coherence scoring
+- ✅ Spectral feature extraction & frequency-domain matching
+- ✅ AI-native embedding generation
+- ✅ Intelligence protocols with autonomous reasoning
+- ✅ Transformer-based spectral pipelines
+- ✅ Helix vector encoding & hierarchical retrieval
+- ✅ Spectral data protocols & real-time streaming
+- ✅ AI system integration & pipeline orchestration
+- ✅ Foundation model pretraining (Masked Spectral Modeling, InfoNCE, Temporal Prediction)
+- ✅ 3D connectome brain environment (44 brain regions, 68 biologically-inspired connections)
+- ✅ Miniverse nesting (recursive containment, scale-bridging, downward attention)
+
+---
+
+## 💡 Why MESIE?
+
+**Problem:** Most spectral tools treat spectra as arrays.
+
+**Solution:** MESIE treats spectra as **structured computational objects** with:
+- Components, metadata & lineage tracking
+- AI-ready embeddings
+- Multi-scale feature extraction
+- Memory integration
+
+### Applicable To:
+🏗️ Structural engineering • 🌍 Earthquake science • 🤖 Robotics • 🧠 Neuroscience • 🏥 Healthcare • 🔬 Research • 🤖 AI Systems
+
+---
+
+## 📥 Installation
+
+**Standard Installation:**
+```bash
+pip install mesie
+```
+
+**With Full Scientific Stack** (scipy, pandas, scikit-learn, networkx):
+```bash
+pip install mesie[full]
+```
+
+**With ML & Transformers:**
+```bash
+pip install mesie[ml]
+```
+
+**With AI Intelligence Protocols:**
+```bash
+pip install mesie[intelligence]
+```
+
+**For Development:**
+```bash
+pip install -e ".[dev,full]"
+```
+
+---
+
+## 🖥️ Desktop Application
+
+MESIE includes a **cross-platform Electron UX** with spectral visualization, real-time validation, and Monte Carlo benchmarking:
+
 <!-- ═══════════════════════════  L O G O  ══════════════════════════════ -->
 
 ```
@@ -530,7 +708,7 @@ comparison = stats.paired_t_test(method_a_scores, method_b_scores)
 
 ---
 
-## Architecture
+## 🔄 Cross-Domain Spectral Transfer
 
 ```mermaid
 flowchart TD
@@ -760,7 +938,24 @@ To report a security vulnerability, please open a GitHub issue with the `securit
 
 ---
 
-## License
+## 📜 Citation
+
+If you use MESIE in your research, please cite:
+
+```bibtex
+@software{medina2026mesie,
+  author = {Medina, Alfredo},
+  title = {MESIE: Multi-Element Spectral Intelligence Engine},
+  version = {0.4.0},
+  year = {2026},
+  url = {https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-},
+  doi = {10.5281/zenodo.20598320}
+}
+```
+
+---
+
+## 📄 License
 
 Released under the **Apache 2.0** license. See [LICENSE](LICENSE) for full details.
 
