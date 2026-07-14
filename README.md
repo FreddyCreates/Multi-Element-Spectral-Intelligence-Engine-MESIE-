@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌈 MESIE
+# MESIE
 ## Multi-Element Spectral Intelligence Engine
 
 **The Enterprise Spectral AI Platform**
