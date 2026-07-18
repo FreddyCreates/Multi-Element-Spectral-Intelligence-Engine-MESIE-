@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "experiment": "mesie-public-ucr-v1",
+  "support_margin": 0.0,
+  "cache_dir": ".cache/mesie_external_validation",
+  "output_dir": "deliverables/external_validation",
+  "datasets": [
+    {
+      "id": "GunPoint",
+      "domain": "human-motion",
+      "url": "https://www.timeseriesclassification.com/aeon-toolkit/GunPoint.zip"
+    },
+    {
+      "id": "ECG200",
+      "domain": "biomedical-ecg",
+      "url": "https://www.timeseriesclassification.com/aeon-toolkit/ECG200.zip"
+    },
+    {
+      "id": "ItalyPowerDemand",
+      "domain": "electrical-demand",
+      "url": "https://www.timeseriesclassification.com/aeon-toolkit/ItalyPowerDemand.zip"
+    }
+  ]
+}

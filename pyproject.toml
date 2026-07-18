@@ -68,6 +68,7 @@ julia = [
 mesie = "mesie.cli:main"
 mesie-tools = "mesie.tools.cli:main"
 mesie-web = "mesie.web.server:main"
+mesie-validate-external = "mesie_validation.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/FreddyCreates/Multi-Element-Spectral-Intelligence-Engine-MESIE-"

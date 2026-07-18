@@ -1,0 +1,220 @@
+{
+  "conclusion": "MESIE met the frozen external-support rule on 3/3 public datasets. This result measures reproducible classification utility; it does not establish universal cross-domain semantics or production readiness.",
+  "config_sha256": "89c46dec17cf4515cf3fb5fdf5b685163b83833b5831ca54a65e69772db2c819",
+  "datasets": [
+    {
+      "advanced_mesie_accuracy": 0.88,
+      "domain": "human-motion",
+      "externally_supported": true,
+      "id": "GunPoint",
+      "original_mesie_accuracy": 0.88,
+      "provenance": {
+        "archive_sha256": "d7513cfe222418fabfdb5a6434ffb21ac3de4923e637971e9388ebc857816803",
+        "classes": [
+          "1",
+          "2"
+        ],
+        "series_length": 150,
+        "source_url": "https://www.timeseriesclassification.com/aeon-toolkit/GunPoint.zip",
+        "test_samples": 150,
+        "train_samples": 50
+      },
+      "results": [
+        {
+          "accuracy": 0.84,
+          "correct": 126,
+          "embedding_dim": 8,
+          "feature_ms_per_sample": 0.211714,
+          "feature_set": "statistics",
+          "feature_total_ms": 42.3429,
+          "macro_f1": 0.8400000000000001,
+          "query_ms_per_sample": 0.000641,
+          "query_total_ms": 0.0961,
+          "total": 150
+        },
+        {
+          "accuracy": 0.8666666666666667,
+          "correct": 130,
+          "embedding_dim": 32,
+          "feature_ms_per_sample": 0.021859,
+          "feature_set": "fft-32",
+          "feature_total_ms": 4.3718,
+          "macro_f1": 0.8665717843800036,
+          "query_ms_per_sample": 0.001003,
+          "query_total_ms": 0.1504,
+          "total": 150
+        },
+        {
+          "accuracy": 0.88,
+          "correct": 132,
+          "embedding_dim": 17,
+          "feature_ms_per_sample": 21.33345,
+          "feature_set": "mesie",
+          "feature_total_ms": 4266.6899,
+          "macro_f1": 0.8798076923076923,
+          "query_ms_per_sample": 0.000933,
+          "query_total_ms": 0.14,
+          "total": 150
+        },
+        {
+          "accuracy": 0.88,
+          "correct": 132,
+          "embedding_dim": 97,
+          "feature_ms_per_sample": 0.194178,
+          "feature_set": "mesie-temporal-spectral-v2",
+          "feature_total_ms": 38.8357,
+          "macro_f1": 0.8794642857142858,
+          "query_ms_per_sample": 0.017297,
+          "query_total_ms": 2.5945,
+          "total": 150
+        }
+      ],
+      "stronger_baseline_accuracy": 0.8666666666666667
+    },
+    {
+      "advanced_mesie_accuracy": 0.89,
+      "domain": "biomedical-ecg",
+      "externally_supported": true,
+      "id": "ECG200",
+      "original_mesie_accuracy": 0.76,
+      "provenance": {
+        "archive_sha256": "755937ea37849346ea20033666b19d17345bb039971e8fa33458b16b62c09380",
+        "classes": [
+          "-1",
+          "1"
+        ],
+        "series_length": 96,
+        "source_url": "https://www.timeseriesclassification.com/aeon-toolkit/ECG200.zip",
+        "test_samples": 100,
+        "train_samples": 100
+      },
+      "results": [
+        {
+          "accuracy": 0.78,
+          "correct": 78,
+          "embedding_dim": 8,
+          "feature_ms_per_sample": 0.005786,
+          "feature_set": "statistics",
+          "feature_total_ms": 1.1572,
+          "macro_f1": 0.7612847222222222,
+          "query_ms_per_sample": 0.001053,
+          "query_total_ms": 0.1053,
+          "total": 100
+        },
+        {
+          "accuracy": 0.89,
+          "correct": 89,
+          "embedding_dim": 32,
+          "feature_ms_per_sample": 0.005468,
+          "feature_set": "fft-32",
+          "feature_total_ms": 1.0936,
+          "macro_f1": 0.879899552352877,
+          "query_ms_per_sample": 0.00109,
+          "query_total_ms": 0.109,
+          "total": 100
+        },
+        {
+          "accuracy": 0.76,
+          "correct": 76,
+          "embedding_dim": 17,
+          "feature_ms_per_sample": 0.191251,
+          "feature_set": "mesie",
+          "feature_total_ms": 38.2502,
+          "macro_f1": 0.732620320855615,
+          "query_ms_per_sample": 0.00068,
+          "query_total_ms": 0.068,
+          "total": 100
+        },
+        {
+          "accuracy": 0.89,
+          "correct": 89,
+          "embedding_dim": 97,
+          "feature_ms_per_sample": 0.176,
+          "feature_set": "mesie-temporal-spectral-v2",
+          "feature_total_ms": 35.2,
+          "macro_f1": 0.8783051222480364,
+          "query_ms_per_sample": 0.003326,
+          "query_total_ms": 0.3326,
+          "total": 100
+        }
+      ],
+      "stronger_baseline_accuracy": 0.89
+    },
+    {
+      "advanced_mesie_accuracy": 0.9183673469387755,
+      "domain": "electrical-demand",
+      "externally_supported": true,
+      "id": "ItalyPowerDemand",
+      "original_mesie_accuracy": 0.8046647230320699,
+      "provenance": {
+        "archive_sha256": "4b68635dc79855fbdb7787d5dff5bac978fd0448afaa8eb7811dae52d43e5e46",
+        "classes": [
+          "1",
+          "2"
+        ],
+        "series_length": 24,
+        "source_url": "https://www.timeseriesclassification.com/aeon-toolkit/ItalyPowerDemand.zip",
+        "test_samples": 1029,
+        "train_samples": 67
+      },
+      "results": [
+        {
+          "accuracy": 0.7327502429543246,
+          "correct": 754,
+          "embedding_dim": 8,
+          "feature_ms_per_sample": 0.0014,
+          "feature_set": "statistics",
+          "feature_total_ms": 1.5349,
+          "macro_f1": 0.7327502429543246,
+          "query_ms_per_sample": 0.000759,
+          "query_total_ms": 0.7814,
+          "total": 1029
+        },
+        {
+          "accuracy": 0.8454810495626822,
+          "correct": 870,
+          "embedding_dim": 32,
+          "feature_ms_per_sample": 0.000525,
+          "feature_set": "fft-32",
+          "feature_total_ms": 0.5749,
+          "macro_f1": 0.8454787146128964,
+          "query_ms_per_sample": 0.000314,
+          "query_total_ms": 0.3231,
+          "total": 1029
+        },
+        {
+          "accuracy": 0.8046647230320699,
+          "correct": 828,
+          "embedding_dim": 17,
+          "feature_ms_per_sample": 0.175496,
+          "feature_set": "mesie",
+          "feature_total_ms": 192.3436,
+          "macro_f1": 0.8046617713030955,
+          "query_ms_per_sample": 0.000347,
+          "query_total_ms": 0.3572,
+          "total": 1029
+        },
+        {
+          "accuracy": 0.9183673469387755,
+          "correct": 945,
+          "embedding_dim": 97,
+          "feature_ms_per_sample": 0.131022,
+          "feature_set": "mesie-temporal-spectral-v2",
+          "feature_total_ms": 143.6003,
+          "macro_f1": 0.9183635690485006,
+          "query_ms_per_sample": 0.000764,
+          "query_total_ms": 0.7857,
+          "total": 1029
+        }
+      ],
+      "stronger_baseline_accuracy": 0.8454810495626822
+    }
+  ],
+  "generated_at": "2026-07-18T06:48:05.879456+00:00",
+  "mesie_source": "configured checkout or installed package",
+  "run_id": "mesie-external-20260718T064805Z",
+  "schema_version": 1,
+  "support_margin": 0.0,
+  "supported_datasets": 3,
+  "total_datasets": 3
+}
