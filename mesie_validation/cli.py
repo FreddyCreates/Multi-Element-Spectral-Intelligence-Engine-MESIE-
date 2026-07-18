@@ -21,12 +21,28 @@ def build_parser() -> argparse.ArgumentParser:
         help="MESIE checkout root (defaults to the current directory)",
     )
     command.add_argument("--output-dir", type=Path)
+    command.add_argument(
+        "--sovereign-root",
+        type=Path,
+        help="Checkout of FreddyCreates/sovereign containing the consumer contract",
+    )
+    command.add_argument(
+        "--allow-missing-sovereign",
+        action="store_true",
+        help="Development override; published validation runs require Sovereign",
+    )
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    result = run(args.config, args.mesie_root, args.output_dir)
+    result = run(
+        args.config,
+        args.mesie_root,
+        args.output_dir,
+        sovereign_root=args.sovereign_root,
+        require_sovereign=not args.allow_missing_sovereign,
+    )
     print(json.dumps({
         "conclusion": result["conclusion"],
         "json": result["output_json"],

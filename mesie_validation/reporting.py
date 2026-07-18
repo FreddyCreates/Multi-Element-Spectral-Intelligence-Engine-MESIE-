@@ -28,11 +28,27 @@ def render_markdown(result: dict[str, Any]) -> str:
         "",
         result["conclusion"],
         "",
+        "## Sovereign binding",
+        "",
+    ]
+    binding = result.get("sovereign_binding")
+    if binding:
+        lines.extend([
+            f"- Contract: `{binding['contract_id']}`",
+            f"- Repository: `{binding['repository']}`",
+            f"- Commit: `{binding['commit']}`",
+            f"- Bound records: {binding['records']}",
+            f"- Receipt SHA-256: `{binding['receipt_sha256']}`",
+            "",
+        ])
+    else:
+        lines.extend(["Development override: no Sovereign contract was bound.", ""])
+    lines.extend([
         "## Benchmark results",
         "",
         "| Dataset | Domain | Feature set | Accuracy | Macro F1 | Feature ms/sample | Query ms/sample |",
         "|---|---|---|---:|---:|---:|---:|",
-    ]
+    ])
     for dataset in result["datasets"]:
         for metric in dataset["results"]:
             lines.append(
@@ -69,7 +85,7 @@ def render_markdown(result: dict[str, Any]) -> str:
         "## Reproduction",
         "",
         "```powershell",
-        "mesie-validate-external run --config configs/public_ucr.json",
+        "mesie-validate-external run --config configs/public_ucr.json --sovereign-root ../sovereign",
         "```",
         "",
     ])

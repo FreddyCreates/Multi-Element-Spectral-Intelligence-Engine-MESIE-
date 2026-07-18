@@ -17,14 +17,23 @@ from .features import (
     statistical_features,
 )
 from .reporting import write_outputs
+from .sovereign import bind_sovereign
 
 
-def run(config_path: Path, mesie_root: Path, output_dir: Path | None = None) -> dict[str, Any]:
+def run(
+    config_path: Path,
+    mesie_root: Path,
+    output_dir: Path | None = None,
+    *,
+    sovereign_root: Path | None = None,
+    require_sovereign: bool = True,
+) -> dict[str, Any]:
     config_bytes = config_path.read_bytes()
     config = load_config(config_path)
     cache_dir = config_path.parent.parent / config.get("cache_dir", "data/cache")
     output = output_dir or config_path.parent.parent / config.get("output_dir", "artifacts")
     margin = float(config.get("support_margin", 0.0))
+    sovereign_binding = bind_sovereign(sovereign_root, required=require_sovereign)
 
     datasets = []
     supported = 0
@@ -79,6 +88,7 @@ def run(config_path: Path, mesie_root: Path, output_dir: Path | None = None) -> 
         "config_sha256": hashlib.sha256(config_bytes).hexdigest(),
         "mesie_source": "configured checkout or installed package",
         "support_margin": margin,
+        "sovereign_binding": sovereign_binding,
         "supported_datasets": supported,
         "total_datasets": total,
         "conclusion": conclusion,

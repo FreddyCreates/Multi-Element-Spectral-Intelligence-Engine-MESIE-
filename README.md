@@ -884,8 +884,13 @@ MESIE also includes a reproducible benchmark against three public datasets from 
 The checked-in run meets or exceeds the stronger frozen baseline on **3/3 datasets**. This result demonstrates reproducible classification utility; it does not claim state-of-the-art performance or universal cross-domain semantics.
 
 ```bash
-mesie-validate-external run --config configs/public_ucr.json
+mesie-validate-external run --config configs/public_ucr.json --sovereign-root ../sovereign
 ```
+
+Published runs require the versioned `FreddyCreates/sovereign` consumer
+contract and record its commit, contract digest, selected-file digests,
+attribution, and binding receipt. `--allow-missing-sovereign` is a local
+development override only.
 
 Evidence: [JSON results](deliverables/external_validation/external_validation_results.json) | [Generated report](deliverables/external_validation/external_validation_report.md) | [Methodology](docs/external_validation.md)
 

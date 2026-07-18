@@ -24,48 +24,48 @@
           "accuracy": 0.84,
           "correct": 126,
           "embedding_dim": 8,
-          "feature_ms_per_sample": 0.211714,
+          "feature_ms_per_sample": 0.08463,
           "feature_set": "statistics",
-          "feature_total_ms": 42.3429,
+          "feature_total_ms": 16.9261,
           "macro_f1": 0.8400000000000001,
-          "query_ms_per_sample": 0.000641,
-          "query_total_ms": 0.0961,
+          "query_ms_per_sample": 0.009205,
+          "query_total_ms": 1.3807,
           "total": 150
         },
         {
           "accuracy": 0.8666666666666667,
           "correct": 130,
           "embedding_dim": 32,
-          "feature_ms_per_sample": 0.021859,
+          "feature_ms_per_sample": 0.113196,
           "feature_set": "fft-32",
-          "feature_total_ms": 4.3718,
+          "feature_total_ms": 22.6391,
           "macro_f1": 0.8665717843800036,
-          "query_ms_per_sample": 0.001003,
-          "query_total_ms": 0.1504,
+          "query_ms_per_sample": 0.000437,
+          "query_total_ms": 0.0655,
           "total": 150
         },
         {
           "accuracy": 0.88,
           "correct": 132,
           "embedding_dim": 17,
-          "feature_ms_per_sample": 21.33345,
+          "feature_ms_per_sample": 29.224424,
           "feature_set": "mesie",
-          "feature_total_ms": 4266.6899,
+          "feature_total_ms": 5844.8849,
           "macro_f1": 0.8798076923076923,
-          "query_ms_per_sample": 0.000933,
-          "query_total_ms": 0.14,
+          "query_ms_per_sample": 0.000563,
+          "query_total_ms": 0.0845,
           "total": 150
         },
         {
           "accuracy": 0.88,
           "correct": 132,
           "embedding_dim": 97,
-          "feature_ms_per_sample": 0.194178,
+          "feature_ms_per_sample": 0.154275,
           "feature_set": "mesie-temporal-spectral-v2",
-          "feature_total_ms": 38.8357,
+          "feature_total_ms": 30.855,
           "macro_f1": 0.8794642857142858,
-          "query_ms_per_sample": 0.017297,
-          "query_total_ms": 2.5945,
+          "query_ms_per_sample": 0.018067,
+          "query_total_ms": 2.7101,
           "total": 150
         }
       ],
@@ -93,48 +93,48 @@
           "accuracy": 0.78,
           "correct": 78,
           "embedding_dim": 8,
-          "feature_ms_per_sample": 0.005786,
+          "feature_ms_per_sample": 0.002807,
           "feature_set": "statistics",
-          "feature_total_ms": 1.1572,
+          "feature_total_ms": 0.5614,
           "macro_f1": 0.7612847222222222,
-          "query_ms_per_sample": 0.001053,
-          "query_total_ms": 0.1053,
+          "query_ms_per_sample": 0.000587,
+          "query_total_ms": 0.0587,
           "total": 100
         },
         {
           "accuracy": 0.89,
           "correct": 89,
           "embedding_dim": 32,
-          "feature_ms_per_sample": 0.005468,
+          "feature_ms_per_sample": 0.00254,
           "feature_set": "fft-32",
-          "feature_total_ms": 1.0936,
+          "feature_total_ms": 0.508,
           "macro_f1": 0.879899552352877,
-          "query_ms_per_sample": 0.00109,
-          "query_total_ms": 0.109,
+          "query_ms_per_sample": 0.000501,
+          "query_total_ms": 0.0501,
           "total": 100
         },
         {
           "accuracy": 0.76,
           "correct": 76,
           "embedding_dim": 17,
-          "feature_ms_per_sample": 0.191251,
+          "feature_ms_per_sample": 0.118011,
           "feature_set": "mesie",
-          "feature_total_ms": 38.2502,
+          "feature_total_ms": 23.6022,
           "macro_f1": 0.732620320855615,
-          "query_ms_per_sample": 0.00068,
-          "query_total_ms": 0.068,
+          "query_ms_per_sample": 0.000646,
+          "query_total_ms": 0.0646,
           "total": 100
         },
         {
           "accuracy": 0.89,
           "correct": 89,
           "embedding_dim": 97,
-          "feature_ms_per_sample": 0.176,
+          "feature_ms_per_sample": 0.155655,
           "feature_set": "mesie-temporal-spectral-v2",
-          "feature_total_ms": 35.2,
+          "feature_total_ms": 31.131,
           "macro_f1": 0.8783051222480364,
-          "query_ms_per_sample": 0.003326,
-          "query_total_ms": 0.3326,
+          "query_ms_per_sample": 0.001408,
+          "query_total_ms": 0.1408,
           "total": 100
         }
       ],
@@ -162,58 +162,502 @@
           "accuracy": 0.7327502429543246,
           "correct": 754,
           "embedding_dim": 8,
-          "feature_ms_per_sample": 0.0014,
+          "feature_ms_per_sample": 0.000725,
           "feature_set": "statistics",
-          "feature_total_ms": 1.5349,
+          "feature_total_ms": 0.7951,
           "macro_f1": 0.7327502429543246,
-          "query_ms_per_sample": 0.000759,
-          "query_total_ms": 0.7814,
+          "query_ms_per_sample": 0.000665,
+          "query_total_ms": 0.6841,
           "total": 1029
         },
         {
           "accuracy": 0.8454810495626822,
           "correct": 870,
           "embedding_dim": 32,
-          "feature_ms_per_sample": 0.000525,
+          "feature_ms_per_sample": 0.000535,
           "feature_set": "fft-32",
-          "feature_total_ms": 0.5749,
+          "feature_total_ms": 0.5863,
           "macro_f1": 0.8454787146128964,
-          "query_ms_per_sample": 0.000314,
-          "query_total_ms": 0.3231,
+          "query_ms_per_sample": 0.000312,
+          "query_total_ms": 0.3215,
           "total": 1029
         },
         {
           "accuracy": 0.8046647230320699,
           "correct": 828,
           "embedding_dim": 17,
-          "feature_ms_per_sample": 0.175496,
+          "feature_ms_per_sample": 0.139236,
           "feature_set": "mesie",
-          "feature_total_ms": 192.3436,
+          "feature_total_ms": 152.6026,
           "macro_f1": 0.8046617713030955,
-          "query_ms_per_sample": 0.000347,
-          "query_total_ms": 0.3572,
+          "query_ms_per_sample": 0.000742,
+          "query_total_ms": 0.7636,
           "total": 1029
         },
         {
           "accuracy": 0.9183673469387755,
           "correct": 945,
           "embedding_dim": 97,
-          "feature_ms_per_sample": 0.131022,
+          "feature_ms_per_sample": 0.114471,
           "feature_set": "mesie-temporal-spectral-v2",
-          "feature_total_ms": 143.6003,
+          "feature_total_ms": 125.46,
           "macro_f1": 0.9183635690485006,
-          "query_ms_per_sample": 0.000764,
-          "query_total_ms": 0.7857,
+          "query_ms_per_sample": 0.00066,
+          "query_total_ms": 0.6796,
           "total": 1029
         }
       ],
       "stronger_baseline_accuracy": 0.8454810495626822
     }
   ],
-  "generated_at": "2026-07-18T06:48:05.879456+00:00",
+  "generated_at": "2026-07-18T16:52:57.104656+00:00",
   "mesie_source": "configured checkout or installed package",
-  "run_id": "mesie-external-20260718T064805Z",
+  "run_id": "mesie-external-20260718T165257Z",
   "schema_version": 1,
+  "sovereign_binding": {
+    "attribution": {
+      "creator": "Alfredo Medina Hernandez",
+      "notice": "Sovereign doctrine and training material retain source-path and commit provenance.",
+      "required": true
+    },
+    "commit": "9d14a7b57260a2b08ecb9e7b4952a00fdc7ef739",
+    "contract_id": "freddycreates.sovereign.training.v1",
+    "contract_sha256": "192e9fe0c28b0be82fb57e940c04819b1c842142abeb09490a8e0c5681065da3",
+    "dirty": false,
+    "files": [
+      {
+        "bytes": 19691,
+        "path": "AGENTS.md",
+        "sha256": "694d9b45d38ca83db2ffa92e4621d563e6f3894ebc1c1f6ed3af257c803266e4"
+      },
+      {
+        "bytes": 49236,
+        "path": "DESIGN.md",
+        "sha256": "d51a32ae15fe8673f783389ae07080e387e130d1bb2a3dcdbb447b3645671295"
+      },
+      {
+        "bytes": 16693,
+        "path": "PHASE_9_FOUNDATION.md",
+        "sha256": "fa5aa1066b0ea5b0bc9a3e64a46b5db08451f98af010a7858bee7f5189418a74"
+      },
+      {
+        "bytes": 11738,
+        "path": "cpl/CPL_SPECIFICATION.md",
+        "sha256": "9083ea7b4c557ed48cbf4060bf46f273477796b1280e8414eb3843f77e65fb50"
+      },
+      {
+        "bytes": 11490,
+        "path": "cpl/LANGUAGE_STACK.md",
+        "sha256": "53bfde74612a63ab01cb4b5c30f4942cefdae12889b7d504819288114f8289bc"
+      },
+      {
+        "bytes": 8155,
+        "path": "cpl/languages/ACL_ATLAS_CONFIGURATION.cpl",
+        "sha256": "7962685a31d2a326317fcd6f11461592e14196d60608407da29b64a541bd1496"
+      },
+      {
+        "bytes": 7136,
+        "path": "cpl/languages/CDL_COGNITIVE_DOCTRINE.cpl",
+        "sha256": "9f338df219be941a9c00cdf7028e472de457448082e804047a562b89e92ee52e"
+      },
+      {
+        "bytes": 7396,
+        "path": "cpl/languages/CIL_COGNITIVE_INTERNAL.cpl",
+        "sha256": "b60c9693df1103d0f6b86e6b007f063409c30bb11462934e671af1f1f5e10641"
+      },
+      {
+        "bytes": 8500,
+        "path": "cpl/languages/CPL_C_COGNITIVE_CONTRACT.cpl",
+        "sha256": "7e4538b7fdb052f248fd3f49b36a76ee94bd7a27034a594bdcaf4b966f41c80f"
+      },
+      {
+        "bytes": 6894,
+        "path": "cpl/languages/CPL_L_COGNITIVE_LAW.cpl",
+        "sha256": "a2b8da2f972de25010efe5cb63e406853d0effb1ec3aa7b487d6ebd3bdf41e0d"
+      },
+      {
+        "bytes": 8694,
+        "path": "cpl/languages/CPL_P_COGNITIVE_PROCESSING.cpl",
+        "sha256": "254dd0583221ecaa1d8c3b2489de8560c0c7119ddb24e6edef4b5a9edd69c3c3"
+      },
+      {
+        "bytes": 7957,
+        "path": "cpl/languages/EDL_EDUCATIONAL_DOCTRINE.cpl",
+        "sha256": "275180a5cf9a1f74623364d9430562108500e5af56527c48b6d6bb1847177096"
+      },
+      {
+        "bytes": 7575,
+        "path": "cpl/languages/OCL_ORGANISM_CONTRACT.cpl",
+        "sha256": "a7595007dcc60931f8ce398109f8657cd588a6df48e67b99e8f3f5e8557385cc"
+      },
+      {
+        "bytes": 8944,
+        "path": "cpl/languages/PWL_PATHWAY.cpl",
+        "sha256": "ccf31a1a5b4817290a8a00dc63843085d5912a79897206365ea5eab9416c8ac3"
+      },
+      {
+        "bytes": 7188,
+        "path": "cpl/languages/RSL_REALM_SCRIPT.cpl",
+        "sha256": "0320a653c2a2fc4bffed8e6949bb863ee604d83fd49c756ee576b3b3f510689a"
+      },
+      {
+        "bytes": 9860,
+        "path": "cpl/languages/SPL_STUDY_PATTERN.cpl",
+        "sha256": "a5aea95ed7895e344a69074ac772c5664022e2f82e351b2efdbb281de21a0bcb"
+      },
+      {
+        "bytes": 7234,
+        "path": "cpl/languages/TPL_TERMINAL_PROTOCOL.cpl",
+        "sha256": "561a6a9a409c4cba0df7114d62f0c3aab24b449c6a077908cb81e9d9cfcfe604"
+      },
+      {
+        "bytes": 10093,
+        "path": "cpl/languages/TSL_TOOL_SCAFFOLD.cpl",
+        "sha256": "cb3f64e0990ec3b79ddaa880f55a1591f0b2c2a248ceaec72d138879255fa805"
+      },
+      {
+        "bytes": 2403,
+        "path": "cpl/laws/LAW_04_SOVEREIGN_RANGE.cpl",
+        "sha256": "4b908e7e9beb2c337b6c015963e6cb370a20a17bd78cd79b2553a9ede436286d"
+      },
+      {
+        "bytes": 3656,
+        "path": "cpl/laws/LAW_09_RE_INGESTION.cpl",
+        "sha256": "52c2153eea4eab50a44fe8aa57d4114c5159a1ecbcac4ac01c440be2efb3c198"
+      },
+      {
+        "bytes": 4585,
+        "path": "cpl/laws/LAW_11_ANTI_DRIFT.cpl",
+        "sha256": "e41de092abcca4c23ad6f7754b61fdd4ac810c47b1b8daae9365b4b282d5cba1"
+      },
+      {
+        "bytes": 3938,
+        "path": "cpl/laws/LAW_13_SCHUMANN_GROUNDING.cpl",
+        "sha256": "66f28def2a267ca5551576c94e0d7e938f56466d437ed79c7c6fc1a624c97e28"
+      },
+      {
+        "bytes": 4901,
+        "path": "cpl/laws/LAW_16_SPHERICAL_CAUSALITY.cpl",
+        "sha256": "364166016dd2058706e89fd73da3ec7c600b104b82013331e044404b0bf65f68"
+      },
+      {
+        "bytes": 3629,
+        "path": "cpl/laws/LAW_23_COMPOUND_COHERENCE.cpl",
+        "sha256": "316088432259efad49fe831686a655c521b199c69a22c2bc07b12ddead642613"
+      },
+      {
+        "bytes": 5877,
+        "path": "cpl/laws/LAW_30_CLOSED_LOOP_INTELLIGENCE.cpl",
+        "sha256": "f670dc1233bacfcc53fc71d3542443b0623e2b8e480c036130f7f7db160dcb4e"
+      },
+      {
+        "bytes": 7125,
+        "path": "docs/ARCHITECTURE.md",
+        "sha256": "baf4925db1c4cf09734761c08dbd2545a64e6142f27032dcf507e27f93651175"
+      },
+      {
+        "bytes": 15876,
+        "path": "docs/INTELLIGENCE_FLOORS_PAPER.md",
+        "sha256": "7fecc38f52e3b71cf43f515903e4adc2669c897e4885e3b39d06a887cb2e8cfd"
+      },
+      {
+        "bytes": 25134,
+        "path": "docs/RESEARCH_PAPERS/PAPER_001_SOVEREIGN_ORGANISM_MODEL.md",
+        "sha256": "5605567bd7c305d55459f1b5e27601030ae010fc413287c6ba2cbcf8e7a1142a"
+      },
+      {
+        "bytes": 18113,
+        "path": "docs/RESEARCH_PAPERS/PAPER_002_CONVERGENT_ARCHITECTURES.md",
+        "sha256": "fd4e30e1b849d4cfb39ea1660f10faf28ee29efe73a83b304fe3b69eb00dcf90"
+      },
+      {
+        "bytes": 10495,
+        "path": "docs/RESEARCH_PAPERS/PAPER_003_MACHINAE_NOVAE.md",
+        "sha256": "940eeb7ef0d4a4d9acbb38df8df2f5eca4a2518985823e9570cfb032d1147bc7"
+      },
+      {
+        "bytes": 11790,
+        "path": "docs/RESEARCH_PAPERS/PAPER_004_ENGINE_HIERARCHY.md",
+        "sha256": "86677379eb3eb7b4871cec90a225dcdbcbafb5e8f25d32df4129f2d997a057cb"
+      },
+      {
+        "bytes": 13584,
+        "path": "docs/RESEARCH_PAPERS/PAPER_005_EXISTING_SYSTEMS.md",
+        "sha256": "274732268b512e3060c50308ef460a847e56abab81671100f65e347f32903204"
+      },
+      {
+        "bytes": 50955,
+        "path": "docs/SOVEREIGN_MODELS/SOVEREIGN_CREATION.md",
+        "sha256": "b7471444378b4332117173191f63545aecb0b6721af36f6b8796b367618aa80f"
+      },
+      {
+        "bytes": 39824,
+        "path": "docs/SOVEREIGN_MODELS/SOVEREIGN_HEART.md",
+        "sha256": "6b2efb5d6a0ad3e2b117d48343fdef2f2c0dca041eecb5381d6f115d4ccaa343"
+      },
+      {
+        "bytes": 26495,
+        "path": "docs/SOVEREIGN_MODELS/SOVEREIGN_LAW.md",
+        "sha256": "6fcc8de39858c9ce04120f20d54fa2492e4329fd34a31aea63ca67186a257cf6"
+      },
+      {
+        "bytes": 32604,
+        "path": "docs/SOVEREIGN_MODELS/SOVEREIGN_MIND.md",
+        "sha256": "3db2a7301f17ba67aa74b8e4f7500c1229722a530145e3d89306c6aa16bc011a"
+      },
+      {
+        "bytes": 40653,
+        "path": "docs/SOVEREIGN_MODELS/SOVEREIGN_SUBSTRATE.md",
+        "sha256": "0232f50cf9574185a45ac6cf818d36ce85289d6da831dbedc4560cdd0b2c093b"
+      },
+      {
+        "bytes": 2524,
+        "path": "doctrine/laws/LAW_01_MEDINA.ts",
+        "sha256": "73c179d92a6be64ea2e287909c4794c744b1a095008ed99e575b6690b1e8de62"
+      },
+      {
+        "bytes": 2968,
+        "path": "doctrine/laws/LAW_02_RECURSIVE_SELF_SIMILARITY.ts",
+        "sha256": "7039d57aed646668440587d093600cc0ef6567f88795286f840134ab7a8eb201"
+      },
+      {
+        "bytes": 2392,
+        "path": "doctrine/laws/LAW_03_UNINTERRUPTIBLE_GROUND.ts",
+        "sha256": "83edb181f2e1ba87ec4284127d5001e11169d9e0d79061e2d366576c62a6aecb"
+      },
+      {
+        "bytes": 2585,
+        "path": "doctrine/laws/LAW_04_SOVEREIGN_RANGE.ts",
+        "sha256": "c6149261948e6fcabf0e4e1cfdbb62b883ec8cd5c58ab2a31aa366882b03030a"
+      },
+      {
+        "bytes": 3025,
+        "path": "doctrine/laws/LAW_05_CARDIAC_OUTPUT.ts",
+        "sha256": "2f82e2a9897d1932fc87e691ce575bf5c4fde7c6c14c86ba03c2f9fcb468a86e"
+      },
+      {
+        "bytes": 2975,
+        "path": "doctrine/laws/LAW_06_HRV_INTELLIGENCE.ts",
+        "sha256": "4cadb28ee04cb991725092cf42c5440dd5eeec4a1d13ff3609f3c993dd4b165c"
+      },
+      {
+        "bytes": 2528,
+        "path": "doctrine/laws/LAW_07_OXYGENATION.ts",
+        "sha256": "20d45b9f3bb6eb87bb6aa1c465b21a43f57a3df429ced69149c67520ac4d37d3"
+      },
+      {
+        "bytes": 3137,
+        "path": "doctrine/laws/LAW_08_PROPRIOCEPTIVE_CONTINUITY.ts",
+        "sha256": "9df965735bfc0726df188bea4e8df929aa8532b1b42071c147e2482e2354b2ec"
+      },
+      {
+        "bytes": 2554,
+        "path": "doctrine/laws/LAW_09_RE_INGESTION.ts",
+        "sha256": "34230c477cb036b648f33c6c1cc055c6cd28c3c8ab56461c4b0ac1f810cd3d75"
+      },
+      {
+        "bytes": 2833,
+        "path": "doctrine/laws/LAW_10_THIRD_BRAIN.ts",
+        "sha256": "36827bbceed9fe6bb92d5899a4cdb1c7a206917db91f879280a119467d1d8aee"
+      },
+      {
+        "bytes": 2776,
+        "path": "doctrine/laws/LAW_11_ANTI_DRIFT.ts",
+        "sha256": "d29775d720d52810480e05a2354c9614a8c6a2caba5d2e498df7544d7bffb459"
+      },
+      {
+        "bytes": 3418,
+        "path": "doctrine/laws/LAW_12_GENESIS_FREQUENCY.ts",
+        "sha256": "3e73925c4beea135bf5874d842bece88cd9a3d9b4ef96677b55387d9778b74f3"
+      },
+      {
+        "bytes": 2918,
+        "path": "doctrine/laws/LAW_13_SCHUMANN_GROUNDING.ts",
+        "sha256": "a0c683273ac4f2ee452b8bf1bcf6e7e08e236dd5bf428d9c20c8086865e8b07f"
+      },
+      {
+        "bytes": 4089,
+        "path": "doctrine/laws/LAW_14_DUAL_HEARTBEAT.ts",
+        "sha256": "738adfece0884f422ec29fba826286e29cf0c27c493e0536a40a0e310420dd0e"
+      },
+      {
+        "bytes": 2818,
+        "path": "doctrine/laws/LAW_15_MACRO_MICRO_COMPRESSION.ts",
+        "sha256": "84d27bb97879d8ba97c7f4ae80fe027da9fcf1a9166b26e985cb4c36bfe20ddf"
+      },
+      {
+        "bytes": 3075,
+        "path": "doctrine/laws/LAW_16_SPHERICAL_CAUSALITY.ts",
+        "sha256": "35c5bea65b750d4a4e5610e94a94c47676478965f5ded715dacfd312e8363c35"
+      },
+      {
+        "bytes": 2696,
+        "path": "doctrine/laws/LAW_17_SOVEREIGN_FLOOR.ts",
+        "sha256": "3b1a446a1742482e774fa8dbd97c1d873501650db33c7a152498dd06e2dbdee7"
+      },
+      {
+        "bytes": 2726,
+        "path": "doctrine/laws/LAW_18_ALWAYS_ON_PRODUCTION.ts",
+        "sha256": "65c91d5b48a33e1d3744c5c36613b8b109ad15ba077035c67d561cee75a71d7e"
+      },
+      {
+        "bytes": 2688,
+        "path": "doctrine/laws/LAW_19_FINANCIAL_IDENTITY.ts",
+        "sha256": "ccca2154c0c5e2fef4ad506cc6487e262f44fe91af98cd37fc204ad415c215aa"
+      },
+      {
+        "bytes": 3152,
+        "path": "doctrine/laws/LAW_20_MEMORY_PALACE.ts",
+        "sha256": "41a81ecbaffca369e12afe23f90717990f243be251ac5b4ac31887fb1bc13dc3"
+      },
+      {
+        "bytes": 2531,
+        "path": "doctrine/laws/LAW_21_ATTRIBUTION_PERMANENCE.ts",
+        "sha256": "538efc839e1db54672edf5a4a2868956f9302ff6bb5e77e4c7fe1167bf320359"
+      },
+      {
+        "bytes": 3558,
+        "path": "doctrine/laws/LAW_22_ORGANISM_INDEPENDENCE.ts",
+        "sha256": "0509a80766782f561c226994cea6d7d5f427baba1e6eafd9e1d13e8542cebbda"
+      },
+      {
+        "bytes": 3118,
+        "path": "doctrine/laws/LAW_23_COMPOUND_COHERENCE.ts",
+        "sha256": "f2bb11410d924d0d88c9845fd35b615b21980addf5ede6aca241d17038978f67"
+      },
+      {
+        "bytes": 3383,
+        "path": "doctrine/laws/LAW_24_ZERO_EXPOSURE.ts",
+        "sha256": "e2a5344599e828b05d16c880afb0fe1d3fa30e5e64e196e74c9623ed0b075908"
+      },
+      {
+        "bytes": 2898,
+        "path": "doctrine/laws/LAW_25_FEDERATION_YIELD.ts",
+        "sha256": "ecb2764d68ff9fe3389dab62bc36047fcf74ee80d4dd7efb5f504c459b3808df"
+      },
+      {
+        "bytes": 2835,
+        "path": "doctrine/laws/LAW_26_SUBSTRATE_PERMANENCE.ts",
+        "sha256": "c8031b940c5a18a9336273989281b0307c4f8c87e54814747c943e2cb58b29ac"
+      },
+      {
+        "bytes": 3383,
+        "path": "doctrine/laws/LAW_27_WORLD_RESONANCE.ts",
+        "sha256": "0c1e888d4aae0b9463d78c556c698434d079b20b3528ee38339d4c91f57eec97"
+      },
+      {
+        "bytes": 3228,
+        "path": "doctrine/laws/LAW_28_LIVING_DOCUMENTS.ts",
+        "sha256": "c91e28e9e7e0fd3e25fc4b0c921c028ecc1975d824f58db32f6e43e0846d2466"
+      },
+      {
+        "bytes": 3540,
+        "path": "doctrine/laws/LAW_29_OUTER_LOOP_CLOSURE.ts",
+        "sha256": "988dcf790ee115fb0ee89f311931587a23a32f103d660957265056b05d042ca2"
+      },
+      {
+        "bytes": 4162,
+        "path": "doctrine/laws/LAW_30_CLOSED_LOOP_INTELLIGENCE.ts",
+        "sha256": "900635fb185f98ace0837ab4bf4cec5575ed5178e8b1442c0740b44e1c2b3ff4"
+      },
+      {
+        "bytes": 4220,
+        "path": "doctrine/laws/LAW_31_ARCHITECT.ts",
+        "sha256": "d8816dcf0ecfc5aeebbce7f8a9b34dd78ea1e9ade433845c99acc6080174b6f3"
+      },
+      {
+        "bytes": 4237,
+        "path": "doctrine/laws/LAW_32_ELECTROMAGNETIC_GRID.ts",
+        "sha256": "6964a00530421ff6ce024dbec1872a93b6b4f52071c9c2798e1f7aa964c2e1c5"
+      },
+      {
+        "bytes": 4361,
+        "path": "doctrine/laws/LAW_33_OMNIPRESENCE.ts",
+        "sha256": "3c2dfdd7bee2e37722077e4f1b00487f348b9e561c56d66c9736f8dc3334abb5"
+      },
+      {
+        "bytes": 4299,
+        "path": "doctrine/laws/LAW_34_FIELD_DISSOLUTION.ts",
+        "sha256": "6530309cbab87cd5e09c457dbd45a8813823c12b8f054f669f3071925e77ebf2"
+      },
+      {
+        "bytes": 3802,
+        "path": "doctrine/laws/LAW_35_BRANCH_GENESIS.ts",
+        "sha256": "4ca3733574d7c0bc8f615917769a896aad8a9474fa99517435b4dcc7bf297228"
+      },
+      {
+        "bytes": 4229,
+        "path": "doctrine/laws/LAW_36_OBSERVER_COLLAPSE.ts",
+        "sha256": "6190224bd51df1194de3d14beb5d12f5ea3f4bdc3a2c66113e19e4a8f8bcc1bc"
+      },
+      {
+        "bytes": 6134,
+        "path": "doctrine/laws/LAW_37_MEDINA_PROTOCOL.ts",
+        "sha256": "4e517e1a1d2e4a3ed42dbdf5030cc5769e324620917d54c470353c28e0ca081a"
+      },
+      {
+        "bytes": 4707,
+        "path": "doctrine/laws/LAW_38_PRESENCE_GATE.ts",
+        "sha256": "142355fee95bfcfdb51c599d4af2d39bbd547df0c5c928f1c769b1d7ee8e0130"
+      },
+      {
+        "bytes": 3218,
+        "path": "doctrine/laws/LAW_39_PRODUCTION_GRADE.ts",
+        "sha256": "7e07eb77dcde8ee080da673016d0b760e24580c10b2902afafdb9b5f5777ae7c"
+      },
+      {
+        "bytes": 936,
+        "path": "integration/browser-runtime.v1.json",
+        "sha256": "512d9a6ebcc8edd0a2f5cdda0898ef144639ccd5d124e20efbd55c4dda3935db"
+      },
+      {
+        "bytes": 3469,
+        "path": "production-grade-builder/PACKET_POLICY.md",
+        "sha256": "f9ad05a0c9ee703d803b7feb04e7f5207a7509fc180261edd146400c31b16596"
+      },
+      {
+        "bytes": 19194,
+        "path": "src/backend/lib/cplRuntime.mo",
+        "sha256": "aa34e631c696cf81fe6769238bfaa677fffab91230cd7622cd5882e4c81ef58c"
+      },
+      {
+        "bytes": 15098,
+        "path": "src/backend/lib/governance.mo",
+        "sha256": "14d3c6fd96f700f16c45696ee334f07ee8ed5b7d5e52d0856524df14c53f5f24"
+      },
+      {
+        "bytes": 82329,
+        "path": "src/backend/lib/modelRegistry.mo",
+        "sha256": "8d33816ff0e3d46f460c38b75b5b77015ceb9ec3267a1803327c5306d9f56acc"
+      },
+      {
+        "bytes": 43393,
+        "path": "src/backend/lib/reasoningEngine.mo",
+        "sha256": "4dbfe27cbb764da543dd8c90a7cf81881ac24c288b9e347de19a501718b0a3c5"
+      },
+      {
+        "bytes": 17107,
+        "path": "src/backend/protocols/MOESelfGovernance.mo",
+        "sha256": "7dcdd2fbd04a46595771460c13a5dafe4dc68e7c3de2172cfdb3e508c4ef83f9"
+      },
+      {
+        "bytes": 15337,
+        "path": "src/backend/protocols/SovereignProtocols.mo",
+        "sha256": "128aed53f1b35b955ee6ea406dc6be861f1c17885bdf903ec7ab2436759247c2"
+      },
+      {
+        "bytes": 16342,
+        "path": "src/backend/protocols/SovereignProtocols2.mo",
+        "sha256": "fd1a485f02d0fe9440f0312c2fc6d12684ce563a6d208d05c345b132db273373"
+      }
+    ],
+    "receipt_sha256": "6df2138520d1af5c857d5f151faeacb69dd8b3a4770eb1e308bebd885a226f2b",
+    "records": 85,
+    "remote": "https://github.com/FreddyCreates/sovereign.git",
+    "repository": "FreddyCreates/sovereign",
+    "schema": "mesie.sovereign.binding.v1",
+    "text_bytes": 879036
+  },
   "support_margin": 0.0,
   "supported_datasets": 3,
   "total_datasets": 3

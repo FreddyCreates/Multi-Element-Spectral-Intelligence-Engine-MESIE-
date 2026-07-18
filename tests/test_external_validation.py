@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+import json
 import zipfile
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from mesie_validation.datasets import _read_ts, load_dataset
 from mesie_validation.evaluate import evaluate_feature_set
 from mesie_validation.features import fft_features, statistical_features, temporal_paa_features
 from mesie_validation.reporting import render_markdown
+from mesie_validation.sovereign import bind_sovereign
 
 
 def test_ts_parser() -> None:
@@ -67,3 +69,27 @@ def test_report_contains_provenance() -> None:
     rendered = render_markdown(result)
     assert "https://example.test/demo.zip" in rendered
     assert "Archive SHA-256" in rendered
+
+
+def test_sovereign_contract_binding(tmp_path: Path) -> None:
+    root = tmp_path / "sovereign"
+    (root / "integration").mkdir(parents=True)
+    (root / "docs").mkdir()
+    (root / "AGENTS.md").write_text("governance", encoding="utf-8")
+    (root / "docs" / "ARCHITECTURE.md").write_text("architecture", encoding="utf-8")
+    contract = {
+        "schema": "sovereign.training.contract.v1",
+        "contract_id": "freddycreates.sovereign.training.v1",
+        "repository": "FreddyCreates/sovereign",
+        "attribution": {"creator": "Alfredo Medina Hernandez", "required": True},
+        "required_files": ["AGENTS.md", "docs/ARCHITECTURE.md"],
+        "include_globs": ["AGENTS.md", "docs/**/*.md"],
+        "exclude_parts": [".git"],
+    }
+    (root / "integration" / "training-contract.v1.json").write_text(
+        json.dumps(contract), encoding="utf-8"
+    )
+    receipt = bind_sovereign(root)
+    assert receipt is not None
+    assert receipt["records"] == 2
+    assert len(receipt["receipt_sha256"]) == 64
