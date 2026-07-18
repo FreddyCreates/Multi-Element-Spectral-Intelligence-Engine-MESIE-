@@ -866,6 +866,31 @@ Full report: [deliverables/MESIE_Monte_Carlo_Enterprise_Report.md](deliverables/
 
 ---
 
+## External Public-Dataset Validation
+
+MESIE also includes a reproducible benchmark against three public datasets from the UCR/TSML time-series archive. The harness records each source archive's SHA-256 digest, uses the official train/test split, and compares four frozen representations:
+
+- compact statistical features
+- a 32-bin FFT baseline
+- the original 17-dimensional MESIE embedding
+- `mesie-temporal-spectral-v2`, which preserves the MESIE embedding and adds temporal, frequency, and derivative-spectrum residual channels
+
+| Dataset | Domain | FFT baseline | Original MESIE | MESIE v2 |
+|---|---|---:|---:|---:|
+| GunPoint | Human motion | 86.7% | 88.0% | **88.0%** |
+| ECG200 | Biomedical ECG | 89.0% | 76.0% | **89.0%** |
+| ItalyPowerDemand | Electrical demand | 84.5% | 80.5% | **91.8%** |
+
+The checked-in run meets or exceeds the stronger frozen baseline on **3/3 datasets**. This result demonstrates reproducible classification utility; it does not claim state-of-the-art performance or universal cross-domain semantics.
+
+```bash
+mesie-validate-external run --config configs/public_ucr.json
+```
+
+Evidence: [JSON results](deliverables/external_validation/external_validation_results.json) | [Generated report](deliverables/external_validation/external_validation_report.md) | [Methodology](docs/external_validation.md)
+
+---
+
 ## Use-Case Matrix
 
 | Domain | Workflow | MESIE Engines Used |
