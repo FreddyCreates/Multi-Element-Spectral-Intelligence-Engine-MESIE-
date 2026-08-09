@@ -144,7 +144,7 @@ class PythonCoreHarness:
             run_resp = self.core.dispatch(
                 "workflow",
                 "run",
-                {"context": {"record": record}},
+                {"workflow_id": "harness_startup", "context": {"record": record}},
             )
             ok = ghost_result.success and define_resp.ok and run_resp.ok and run_resp.data.get("completed", False)
             return HarnessRunReport(
@@ -194,7 +194,6 @@ class EdgeAPIHarness:
         body = None
         headers = {"Content-Type": "application/json"}
         if self.api_key:
-            headers["Authorization"] = f"******"
             headers["X-MESIE-Key"] = self.api_key
         if payload is not None:
             body = json.dumps(payload).encode("utf-8")

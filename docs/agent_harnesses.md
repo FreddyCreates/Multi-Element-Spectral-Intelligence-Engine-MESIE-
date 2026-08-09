@@ -67,7 +67,7 @@ Outputs one JSON report for automation and release gates.
 
 ## Release Outputs
 
-- Python package artifacts (`python -m build`)
+- Python package artifacts (`python3 -m build`)
 - Worker deploy configuration and workflow (`workers/mesie-api/`, `.github/workflows/deploy-mesie-api.yml`)
 - Desktop installer outputs (`mesie-desktop` `dist/`)
 - Ship-set manifest: `deliverables/mesie_harness_ship_set.json`
