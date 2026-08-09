@@ -12,6 +12,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
@@ -70,6 +71,20 @@ def cmd_repl(args: argparse.Namespace) -> None:
     code.interact(banner=banner, local=local_vars)
 
 
+def cmd_harness(args: argparse.Namespace) -> None:
+    """Run local/edge/hybrid harness checks from one control-plane command."""
+    from mesie.harnesses import run_control_plane
+
+    report = run_control_plane(
+        mode=args.mode,
+        profile=args.profile,
+        operation=args.operation,
+        edge_url=args.edge_url,
+        edge_api_key=args.edge_api_key,
+    )
+    print(json.dumps(report, indent=2))
+
+
 def main(argv: list[str] | None = None) -> None:
     """Main CLI entrypoint."""
     parser = argparse.ArgumentParser(
@@ -104,6 +119,18 @@ def main(argv: list[str] | None = None) -> None:
     )
     p_repl.add_argument("--corpus", help="Path to corpus directory to pre-load")
     p_repl.set_defaults(func=cmd_repl)
+
+    # harness
+    p_harness = subparsers.add_parser(
+        "harness",
+        help="Run shippable harness checks (local, edge, or hybrid)",
+    )
+    p_harness.add_argument("--mode", choices=["local", "edge", "hybrid"], default="local")
+    p_harness.add_argument("--operation", choices=["health", "startup"], default="startup")
+    p_harness.add_argument("--profile", choices=["local", "dev", "prod"], default="local")
+    p_harness.add_argument("--edge-url", default="http://127.0.0.1:8787")
+    p_harness.add_argument("--edge-api-key", default=None)
+    p_harness.set_defaults(func=cmd_harness)
 
     args = parser.parse_args(argv)
     if not args.command:

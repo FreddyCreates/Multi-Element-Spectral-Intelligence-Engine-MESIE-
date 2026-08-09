@@ -13,6 +13,7 @@ MESIE is an open-source Python framework for multi-component spectral matching, 
 - [API Reference](api_reference.md)
 - [Bundled Datasets](data.md)
 - [Cloudflare Worker API](cloudflare.md)
+- [Agent Harnesses and Ship Set](agent_harnesses.md)
 - [Zenodo Release Notes](zenodo_release_notes.md)
 
 ## Quick Start
