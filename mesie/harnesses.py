@@ -83,19 +83,18 @@ class PythonCoreHarness:
 
     def health_check(self) -> HarnessRunReport:
         try:
-            status = self.core.dispatch("core", "status", {})
-            if not status.ok:
+            engines = set(self.core.registry.names())
+            probe = self.core.dispatch("validation", "validate", {"record": _sample_record("health-probe")})
+            if not probe.ok:
                 return HarnessRunReport(
                     harness="python_core",
                     mode="local",
                     profile=self.profile.name,
                     ok=False,
                     category="engine_failure",
-                    summary="Core status check failed.",
-                    details={"error": status.error},
+                    summary="Core validation probe failed.",
+                    details={"error": probe.error},
                 )
-            data = status.data
-            engines = set(data.get("engines", []))
             expected = {"core", "validation", "workflow"}
             missing = sorted(expected - engines)
             ok = not missing
@@ -106,7 +105,7 @@ class PythonCoreHarness:
                 ok=ok,
                 category="ok" if ok else "startup_failure",
                 summary="Core harness healthy." if ok else "Core harness missing required engines.",
-                details={"status": data, "missing_engines": missing},
+                details={"engines": sorted(engines), "missing_engines": missing},
             )
         except Exception as exc:  # pragma: no cover - defensive
             return HarnessRunReport(
