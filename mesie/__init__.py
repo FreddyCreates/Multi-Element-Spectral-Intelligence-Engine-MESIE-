@@ -70,6 +70,14 @@ from mesie.sdk.universal_lab_sdk import UniversalLabSDK
 from mesie.internal_api import InternalBus, InternalRouter, MessageEnvelope, MessageTopic, EngineResponse
 from mesie.engines import Engine, EngineRegistry, build_default_registry
 from mesie.octopus import ArmId, OctopusArm, OctopusController, OctopusConfig, OctopusRunReport
+from mesie.harnesses import (
+    EdgeAPIHarness,
+    HarnessProfile,
+    HarnessRunReport,
+    PROFILES as HARNESS_PROFILES,
+    PythonCoreHarness,
+    run_control_plane,
+)
 from mesie.agentic import (
     AgentNetwork,
     AgentSpawner,
@@ -97,6 +105,7 @@ __all__ = [
     "CoreProcessingResult",
     "DomainAdaptation",
     "EcoHzReference",
+    "EdgeAPIHarness",
     "EdgeMessage",
     "EdgeRoute",
     "EdgeSpectralProtocol",
@@ -115,6 +124,9 @@ __all__ = [
     "HelixRetriever",
     "HelixSearchResult",
     "HelixTraversalResult",
+    "HarnessProfile",
+    "HarnessRunReport",
+    "HARNESS_PROFILES",
     "HzLadder",
     "InferenceEngine",
     "InternalBus",
@@ -140,6 +152,7 @@ __all__ = [
     "OrchestratorConfig",
     "PipelineOrchestrator",
     "PredictionResult",
+    "PythonCoreHarness",
     "ProtocolMessage",
     "ReasoningResult",
     "ReasoningStrategy",
@@ -182,5 +195,6 @@ __all__ = [
     "load_record",
     "match_records",
     "normalize_record",
+    "run_control_plane",
     "validate_record",
 ]

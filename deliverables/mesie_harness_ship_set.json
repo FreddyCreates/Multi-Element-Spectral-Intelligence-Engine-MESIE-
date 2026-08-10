@@ -1,0 +1,37 @@
+{
+  "ship_set": "mesie_harnesses",
+  "version": "0.4.0",
+  "harnesses": [
+    {
+      "name": "python_core_harness",
+      "entrypoint": "mesie.harnesses.PythonCoreHarness",
+      "profiles": ["local", "dev", "prod"],
+      "validation": ["health_check", "startup_validation"]
+    },
+    {
+      "name": "edge_api_harness",
+      "entrypoint": "mesie.harnesses.EdgeAPIHarness",
+      "profiles": ["local", "dev", "prod"],
+      "routes": ["/health", "/v1/validate", "/v1/match"],
+      "validation": ["health_check", "startup_validation"]
+    }
+  ],
+  "control_plane": {
+    "cli": "python3 -m mesie.cli harness",
+    "modes": ["local", "edge", "hybrid"],
+    "operations": ["health", "startup"]
+  },
+  "runtime_support": {
+    "python_core_harness": ["linux", "macos", "windows_x64", "windows_arm64"],
+    "worker_local_dev": ["linux", "macos", "windows_x64"],
+    "worker_local_dev_unsupported": ["windows_arm64"],
+    "worker_deploy_runtime": ["cloudflare_workers"],
+    "desktop_targets": ["windows", "macos", "linux"]
+  },
+  "release_outputs": [
+    "python package distribution",
+    "workers/mesie-api deploy configuration",
+    "mesie-desktop installer artifacts"
+  ],
+  "tag_guidance": "ship/harnesses-v0.4.0"
+}
